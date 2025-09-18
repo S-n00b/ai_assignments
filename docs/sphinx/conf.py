@@ -177,7 +177,7 @@ def linkcode_resolve(domain, info):
         return None
     
     filename = info['module'].replace('.', '/')
-    return f"https://github.com/samne/ai_assignments/blob/main/src/{filename}.py"
+    return f"https://github.com/s-n00b/ai_assignments/blob/main/src/{filename}.py"
 
 # -- Options for MyST parser -------------------------------------------------
 myst_enable_extensions = [
@@ -221,7 +221,7 @@ sphinx_gallery_conf = {
     'junit': '../../test-results/sphinx-gallery/junit.xml',
     'log_level': {'backreference_missing': 'warning'},
     'binder': {
-        'org': 'samne',
+        'org': 's-n00b',
         'repo': 'ai_assignments',
         'branch': 'main',
         'binderhub_url': 'https://mybinder.org',
@@ -229,7 +229,7 @@ sphinx_gallery_conf = {
         'notebooks_dir': 'notebooks',
         'use_jupyter_lab': True,
     },
-    'notebook_images': 'https://mybinder.org/v2/gh/samne/ai_assignments/main?filepath=notebooks/',
+    'notebook_images': 'https://mybinder.org/v2/gh/s-n00b/ai_assignments/main?filepath=notebooks/',
 }
 
 # -- Options for sphinx-panels -----------------------------------------------

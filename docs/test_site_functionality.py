@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 class SiteTester:
     """Comprehensive testing for the documentation site."""
     
-    def __init__(self, site_url: str = "https://samne.github.io/ai_assignments"):
+    def __init__(self, site_url: str = "https://s-n00b.github.io/ai_assignments"):
         self.site_url = site_url
         self.test_results = {
             'timestamp': datetime.now().isoformat(),
@@ -690,7 +690,7 @@ def main():
     logger.info("Starting documentation site testing...")
     
     # Get site URL from environment or use default
-    site_url = os.environ.get('SITE_URL', 'https://samne.github.io/ai_assignments')
+    site_url = os.environ.get('SITE_URL', 'https://s-n00b.github.io/ai_assignments')
     
     # Create tester and run tests
     tester = SiteTester(site_url)

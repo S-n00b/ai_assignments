@@ -39,7 +39,7 @@ open_graph:
   locale: "en_US"
   site_name: "Lenovo AAITC Solutions"
   image:
-    url: "https://samne.github.io/ai_assignments/commons/avatar.jpg"
+    url: "https://s-n00b.github.io/ai_assignments/commons/avatar.jpg"
     width: 1200
     height: 630
     alt: "Lenovo AAITC Solutions - Advanced AI Framework"
@@ -49,15 +49,15 @@ twitter_card:
   card: "summary_large_image"
   site: "@lenovo"
   creator: "@lenovo"
-  image: "https://samne.github.io/ai_assignments/commons/avatar.jpg"
+  image: "https://s-n00b.github.io/ai_assignments/commons/avatar.jpg"
   image_alt: "Lenovo AAITC Solutions - Advanced AI Framework"
 
 # Structured data
 structured_data:
   organization:
     name: "Lenovo Advanced AI Technology Center"
-    url: "https://samne.github.io/ai_assignments"
-    logo: "https://samne.github.io/ai_assignments/commons/avatar.jpg"
+    url: "https://s-n00b.github.io/ai_assignments"
+    logo: "https://s-n00b.github.io/ai_assignments/commons/avatar.jpg"
     description: "Advanced AI Model Evaluation & Architecture Framework"
     address:
       addressCountry: "US"
@@ -67,7 +67,7 @@ structured_data:
       contactType: "Technical Support"
       email: "aaitc-support@lenovo.com"
     sameAs:
-      - "https://github.com/samne/ai_assignments"
+      - "https://github.com/s-n00b/ai_assignments"
       - "https://www.linkedin.com/company/lenovo"
       - "https://twitter.com/lenovo"
 
@@ -76,7 +76,7 @@ structured_data:
     applicationCategory: "DeveloperApplication"
     operatingSystem: "Cross-platform"
     description: "Advanced AI Model Evaluation & Architecture Framework"
-    url: "https://samne.github.io/ai_assignments"
+    url: "https://s-n00b.github.io/ai_assignments"
     author:
       name: "Lenovo AAITC Team"
       url: "https://www.linkedin.com/company/lenovo"
@@ -86,7 +86,7 @@ structured_data:
     aggregateRating:
       ratingValue: "5.0"
       ratingCount: "1"
-    screenshot: "https://samne.github.io/ai_assignments/commons/avatar.jpg"
+    screenshot: "https://s-n00b.github.io/ai_assignments/commons/avatar.jpg"
 
 # Sitemap configuration
 sitemap:
@@ -104,12 +104,12 @@ robots:
     - "/_posts/auto-generated/"
     - "/sphinx/"
     - "/.git/"
-  sitemap: "https://samne.github.io/ai_assignments/sitemap.xml"
+  sitemap: "https://s-n00b.github.io/ai_assignments/sitemap.xml"
 
 # Canonical URLs
 canonical:
   enabled: true
-  base_url: "https://samne.github.io/ai_assignments"
+  base_url: "https://s-n00b.github.io/ai_assignments"
 
 # Meta tags
 meta_tags:
@@ -138,7 +138,7 @@ social_media:
   youtube:
     channel_id: # Replace with your YouTube Channel ID
   github:
-    username: "samne"
+    username: "s-n00b"
     repository: "ai_assignments"
 
 # Analytics and tracking
@@ -189,6 +189,6 @@ i18n:
     - "ja"
   hreflang: true
   alternate_urls:
-    en: "https://samne.github.io/ai_assignments"
-    zh: "https://samne.github.io/ai_assignments/zh"
-    ja: "https://samne.github.io/ai_assignments/ja"
+    en: "https://s-n00b.github.io/ai_assignments"
+    zh: "https://s-n00b.github.io/ai_assignments/zh"
+    ja: "https://s-n00b.github.io/ai_assignments/ja"

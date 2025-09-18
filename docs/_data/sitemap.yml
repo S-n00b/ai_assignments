@@ -98,22 +98,22 @@ include:
 
 # Additional URLs to include
 additional_urls:
-  - url: "https://samne.github.io/ai_assignments/"
+  - url: "https://s-n00b.github.io/ai_assignments/"
     changefreq: "daily"
     priority: "1.0"
     lastmod: "2025-09-18"
 
-  - url: "https://samne.github.io/ai_assignments/about/"
+  - url: "https://s-n00b.github.io/ai_assignments/about/"
     changefreq: "monthly"
     priority: "0.9"
     lastmod: "2025-09-18"
 
-  - url: "https://samne.github.io/ai_assignments/archives/"
+  - url: "https://s-n00b.github.io/ai_assignments/archives/"
     changefreq: "weekly"
     priority: "0.8"
     lastmod: "2025-09-18"
 
-  - url: "https://samne.github.io/ai_assignments/search/"
+  - url: "https://s-n00b.github.io/ai_assignments/search/"
     changefreq: "weekly"
     priority: "0.7"
     lastmod: "2025-09-18"

@@ -34,14 +34,14 @@ We've configured Giscus for GitHub-based comments on all documentation posts.
 
 1. **Visit [Giscus.app](https://giscus.app)**
 2. **Configure your repository**:
-   - Repository: `samne/ai_assignments`
+   - Repository: `s-n00b/ai_assignments`
    - Enable Discussions in your GitHub repository settings
 3. **Get your configuration**:
    - Copy the `data-repo-id` and `data-category-id` values
 4. **Update `_config.yml`**:
    ```yaml
    giscus:
-     repo: samne/ai_assignments
+     repo: s-n00b/ai_assignments
      repo_id: YOUR_REPO_ID_HERE
      category: General
      category_id: YOUR_CATEGORY_ID_HERE

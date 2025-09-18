@@ -1,5 +1,5 @@
 # Robots.txt for Lenovo AAITC Solutions Documentation Site
-# https://samne.github.io/ai_assignments/
+# https://s-n00b.github.io/ai_assignments/
 
 User-agent: *
 Allow: /
@@ -25,7 +25,7 @@ Allow: /robots.txt
 Allow: /sitemap.xml
 
 # Sitemap location
-Sitemap: https://samne.github.io/ai_assignments/sitemap.xml
+Sitemap: https://s-n00b.github.io/ai_assignments/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1

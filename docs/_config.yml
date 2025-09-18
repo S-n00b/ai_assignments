@@ -42,10 +42,10 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://samne.github.io/ai_assignments"
+url: "https://s-n00b.github.io/ai_assignments"
 
 github:
-  username: samne # change to your GitHub username
+  username: s-n00b # change to your GitHub username
 
 twitter:
   username: lenovo # change to your Twitter username
@@ -57,7 +57,7 @@ social:
   email: aaitc-support@lenovo.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://github.com/samne # change to your GitHub homepage
+    - https://github.com/s-n00b # change to your GitHub homepage
     - https://www.linkedin.com/company/lenovo
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -138,7 +138,7 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: samne/ai_assignments # <gh-username>/<repo>
+    repo: s-n00b/ai_assignments # <gh-username>/<repo>
     repo_id: # Will be filled when Giscus is set up
     category: General
     category_id: # Will be filled when Giscus is set up

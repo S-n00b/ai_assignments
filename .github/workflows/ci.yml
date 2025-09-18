@@ -187,7 +187,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    environment: production
+    environment:
+      name: production
+      url: https://s-n00b.github.io/ai_assignments
 
     steps:
       - uses: actions/checkout@v4

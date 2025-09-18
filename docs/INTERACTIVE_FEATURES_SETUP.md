@@ -35,7 +35,7 @@ The documentation site now includes several interactive features to enhance user
 
 **Required for Giscus comments to work:**
 
-1. Go to your repository: `https://github.com/samne/ai_assignments`
+1. Go to your repository: `https://github.com/s-n00b/ai_assignments`
 2. Click **Settings** tab
 3. Scroll down to **Features** section
 4. Check **Discussions** checkbox
@@ -46,14 +46,14 @@ The documentation site now includes several interactive features to enhance user
 **Get your Giscus configuration:**
 
 1. Visit [Giscus.app](https://giscus.app)
-2. Enter repository: `samne/ai_assignments`
+2. Enter repository: `s-n00b/ai_assignments`
 3. Select category: `General` (or create a new one)
 4. Copy the generated configuration values
 5. Update `docs/_config.yml`:
 
 ```yaml
 giscus:
-  repo: samne/ai_assignments
+  repo: s-n00b/ai_assignments
   repo_id: YOUR_REPO_ID_HERE
   category: General
   category_id: YOUR_CATEGORY_ID_HERE
@@ -118,7 +118,7 @@ tabs:
 comments:
   provider: giscus
   giscus:
-    repo: samne/ai_assignments
+    repo: s-n00b/ai_assignments
     # ... configuration details
 
 # Analytics
