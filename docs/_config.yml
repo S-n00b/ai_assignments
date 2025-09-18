@@ -139,9 +139,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: s-n00b/ai_assignments # <gh-username>/<repo>
-    repo_id: # Will be filled when Giscus is set up
+    repo_id: R_kgDOPx3afg
     category: General
-    category_id: # Will be filled when Giscus is set up
+    category_id: DIC_kwDOPx3afs4CvnLc
     mapping: pathname # optional, default to 'pathname'
     strict: 0 # optional, default to '0'
     input_position: bottom # optional, default to 'bottom'
