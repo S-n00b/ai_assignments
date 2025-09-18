@@ -110,6 +110,9 @@ Comprehensive evaluation framework for comparing state-of-the-art foundation mod
 
 - **DiffusionDB Integration**: 14M images, 1.8M unique prompts from Stable Diffusion
 - **PromptBase Integration**: Community-driven prompt registry with quality ratings
+- **AI Tool System Prompts Archive**: Integration with 25+ AI tools (Cursor, Claude Code, Devin AI, v0, Windsurf, etc.)
+- **Local Caching System**: Intelligent caching to manage repository size and improve performance
+- **Direct GitHub Integration**: Robust loading using direct URLs to avoid API rate limits
 - **Synthetic Generation**: AI-generated prompts for comprehensive coverage
 - **Stratified Sampling**: Balanced representation across categories
 
@@ -259,15 +262,23 @@ results = pipeline.run_multi_task_evaluation({
 ```python
 from src.model_evaluation.prompt_registries import PromptRegistryManager, PromptCategory
 
-# Initialize prompt registry manager
-registry_manager = PromptRegistryManager()
+# Initialize prompt registry manager with local caching
+registry_manager = PromptRegistryManager(cache_dir="cache/ai_tool_prompts")
 
-# Get enhanced dataset
+# Load AI tool system prompts
+cursor_prompts = await registry_manager.load_ai_tool_system_prompts("Cursor")
+all_tool_prompts = await registry_manager.load_ai_tool_system_prompts()
+
+# Get enhanced dataset with AI tool prompts
 dataset = registry_manager.get_enhanced_evaluation_dataset(
     target_size=10000,
     categories=[PromptCategory.CODE_GENERATION, PromptCategory.REASONING],
     enhanced_scale=True
 )
+
+# Check available AI tools
+available_tools = registry_manager.get_available_ai_tools()
+print(f"Available AI tools: {available_tools}")
 ```
 
 #### MCP Server Integration
@@ -305,6 +316,8 @@ result = await mcp_server.execute_tool(
 ### Evaluation Scale
 
 - **Enhanced Datasets**: 10,000+ prompts from multiple registries
+- **AI Tool System Prompts**: 25+ AI tools with 20,000+ system prompts
+- **Local Caching**: Intelligent caching system for optimal performance
 - **Multi-Task Coverage**: 10+ task types across different domains
 - **Robustness Testing**: 50+ adversarial and edge case scenarios
 - **Bias Analysis**: 4+ protected characteristics with statistical analysis
@@ -437,6 +450,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Meta**: Llama 3.3 open-source model
 - **DiffusionDB**: Large-scale prompt gallery dataset
 - **PromptBase**: Community-driven prompt registry
+- **AI Tool System Prompts Archive**: Comprehensive collection of AI tool system prompts
 - **Gradio**: Web interface framework
 - **MCP**: Model Context Protocol specification
 

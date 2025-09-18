@@ -23,6 +23,10 @@ from dataclasses import dataclass
 from enum import Enum
 import time
 import hashlib
+import asyncio
+import os
+from pathlib import Path
+import shutil
 
 
 logger = logging.getLogger(__name__)
@@ -79,19 +83,121 @@ class PromptRegistryManager:
     for model evaluation.
     """
     
-    def __init__(self, enable_caching: bool = True):
+    def __init__(self, enable_caching: bool = True, cache_dir: str = "cache/ai_tool_prompts"):
         """
         Initialize the prompt registry manager.
         
         Args:
             enable_caching: Whether to enable caching of downloaded prompts
+            cache_dir: Directory for local caching of AI tool prompts
         """
         self.enable_caching = enable_caching
         self.cache = {} if enable_caching else None
+        
+        # Local caching configuration
+        self.cache_dir = Path(cache_dir)
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        
+        # GitHub repository configuration
+        self.github_repo = "x1xhlol/system-prompts-and-models-of-ai-tools"
+        self.github_base_url = f"https://raw.githubusercontent.com/{self.github_repo}/main"
+        self.github_web_url = f"https://github.com/{self.github_repo}"
+        
+        # Available AI tools mapping (from the API response)
+        self.ai_tools = {
+            "Cursor": "Cursor Prompts",
+            "Claude Code": "Claude Code", 
+            "Devin AI": "Devin AI",
+            "v0": "v0 Prompts and Tools",
+            "Windsurf": "Windsurf",
+            "Augment Code": "Augment Code",
+            "Cluely": "Cluely",
+            "CodeBuddy": "CodeBuddy Prompts",
+            "Warp": "Warp.dev",
+            "Xcode": "Xcode",
+            "Z.ai": "Z.ai Code",
+            "dia": "dia"
+        }
+        
         self.registry_configs = self._initialize_registry_configs()
         self.prompt_categories = self._initialize_prompt_categories()
         
         logger.info("Initialized PromptRegistryManager with enhanced experimental scale capabilities")
+    
+    def get_available_ai_tools(self) -> List[str]:
+        """Get list of available AI tools."""
+        return list(self.ai_tools.keys())
+    
+    def get_tool_cache_path(self, tool_name: str) -> Path:
+        """Get the cache path for a specific tool."""
+        return self.cache_dir / f"{tool_name.lower().replace(' ', '_')}.json"
+    
+    def is_tool_cached(self, tool_name: str) -> bool:
+        """Check if a tool's prompts are cached locally."""
+        cache_path = self.get_tool_cache_path(tool_name)
+        return cache_path.exists()
+    
+    def load_cached_tool_prompts(self, tool_name: str) -> List[PromptEntry]:
+        """Load prompts from local cache for a specific tool."""
+        cache_path = self.get_tool_cache_path(tool_name)
+        if not cache_path.exists():
+            return []
+        
+        try:
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                cached_data = json.load(f)
+            
+            prompts = []
+            for prompt_data in cached_data.get('prompts', []):
+                prompt = PromptEntry(
+                    id=prompt_data['id'],
+                    text=prompt_data['text'],
+                    category=PromptCategory(prompt_data['category']),
+                    source=prompt_data['source'],
+                    metadata=prompt_data['metadata'],
+                    quality_score=prompt_data.get('quality_score', 0.5),
+                    difficulty_level=prompt_data.get('difficulty_level', 'medium')
+                )
+                prompts.append(prompt)
+            
+            logger.info(f"Loaded {len(prompts)} cached prompts for {tool_name}")
+            return prompts
+            
+        except Exception as e:
+            logger.error(f"Error loading cached prompts for {tool_name}: {str(e)}")
+            return []
+    
+    def save_tool_prompts_to_cache(self, tool_name: str, prompts: List[PromptEntry]):
+        """Save prompts to local cache for a specific tool."""
+        cache_path = self.get_tool_cache_path(tool_name)
+        
+        try:
+            cached_data = {
+                'tool_name': tool_name,
+                'cached_at': time.time(),
+                'prompt_count': len(prompts),
+                'prompts': []
+            }
+            
+            for prompt in prompts:
+                prompt_data = {
+                    'id': prompt.id,
+                    'text': prompt.text,
+                    'category': prompt.category.value,
+                    'source': prompt.source,
+                    'metadata': prompt.metadata,
+                    'quality_score': prompt.quality_score,
+                    'difficulty_level': prompt.difficulty_level
+                }
+                cached_data['prompts'].append(prompt_data)
+            
+            with open(cache_path, 'w', encoding='utf-8') as f:
+                json.dump(cached_data, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"Cached {len(prompts)} prompts for {tool_name}")
+            
+        except Exception as e:
+            logger.error(f"Error saving prompts to cache for {tool_name}: {str(e)}")
     
     def get_enhanced_evaluation_dataset(
         self,
@@ -611,6 +717,46 @@ class PromptRegistryManager:
         key_string = json.dumps(key_data, sort_keys=True)
         return hashlib.md5(key_string.encode()).hexdigest()
     
+    def _get_cached_prompts(self, cache_key: str, cache_duration_hours: int = 24) -> Optional[List[PromptEntry]]:
+        """Get cached prompts if they exist and are not expired."""
+        try:
+            if not hasattr(self, '_prompt_cache'):
+                self._prompt_cache = {}
+            
+            if cache_key in self._prompt_cache:
+                cache_entry = self._prompt_cache[cache_key]
+                cache_age_hours = (time.time() - cache_entry['timestamp']) / 3600
+                
+                if cache_age_hours < cache_duration_hours:
+                    logger.info(f"Using cached prompts for key: {cache_key}")
+                    return cache_entry['prompts']
+                else:
+                    # Remove expired cache entry
+                    del self._prompt_cache[cache_key]
+                    logger.info(f"Cache expired for key: {cache_key}")
+            
+            return None
+            
+        except Exception as e:
+            logger.error(f"Error getting cached prompts: {str(e)}")
+            return None
+    
+    def _cache_prompts(self, cache_key: str, prompts: List[PromptEntry]) -> None:
+        """Cache prompts with timestamp."""
+        try:
+            if not hasattr(self, '_prompt_cache'):
+                self._prompt_cache = {}
+            
+            self._prompt_cache[cache_key] = {
+                'prompts': prompts,
+                'timestamp': time.time()
+            }
+            
+            logger.info(f"Cached {len(prompts)} prompts with key: {cache_key}")
+            
+        except Exception as e:
+            logger.error(f"Error caching prompts: {str(e)}")
+    
     def _initialize_registry_configs(self) -> Dict[str, Dict[str, Any]]:
         """Initialize configurations for different prompt registries."""
         return {
@@ -1068,3 +1214,485 @@ class PromptRegistryManager:
         }
         
         return metrics
+
+    async def load_ai_tool_system_prompts(
+        self, 
+        tool_name: Optional[str] = None,
+        force_refresh: bool = False
+    ) -> List[PromptEntry]:
+        """
+        Load system prompts from the AI Tool System Prompts Archive.
+        
+        Args:
+            tool_name: Specific AI tool to load prompts for (e.g., 'Cursor', 'Devin AI', 'Claude Code')
+            force_refresh: Force refresh from GitHub even if cached locally
+            
+        Returns:
+            List of PromptEntry objects containing system prompts from AI tools
+        """
+        try:
+            # Use the new robust approach with local caching
+            if tool_name:
+                # Load specific tool
+                prompts = await self._load_tool_from_github(tool_name)
+                # Cache to local files
+                if prompts:
+                    self.save_tool_prompts_to_cache(tool_name, prompts)
+                return prompts
+            else:
+                # Load all tools
+                all_prompts = []
+                for tool in self.get_available_ai_tools():
+                    if not force_refresh and self.is_tool_cached(tool):
+                        tool_prompts = self.load_cached_tool_prompts(tool)
+                    else:
+                        tool_prompts = await self._load_tool_from_github(tool)
+                        if tool_prompts:
+                            self.save_tool_prompts_to_cache(tool, tool_prompts)
+                    all_prompts.extend(tool_prompts)
+                
+                logger.info(f"Successfully loaded {len(all_prompts)} AI tool system prompts")
+                return all_prompts
+            
+        except Exception as e:
+            logger.error(f"Error loading AI tool system prompts: {str(e)}")
+            return []
+    
+    async def _load_tool_from_github(self, tool_name: str) -> List[PromptEntry]:
+        """
+        Load prompts for a specific tool from GitHub using direct URLs.
+        
+        Args:
+            tool_name: Name of the AI tool to load prompts for
+            
+        Returns:
+            List of PromptEntry objects for the specified tool
+        """
+        try:
+            if tool_name not in self.ai_tools:
+                logger.warning(f"Unknown AI tool: {tool_name}")
+                return []
+            
+            folder_name = self.ai_tools[tool_name]
+            logger.info(f"Loading prompts for {tool_name} from folder: {folder_name}")
+            
+            # Use direct GitHub URL to get folder contents
+            folder_url = f"{self.github_base_url}/{folder_name}"
+            
+            # Try to get folder contents using direct URL
+            try:
+                # First, try to get a list of files in the folder
+                # We'll use a simple approach: try common file patterns
+                prompts = []
+                
+                # Common prompt file patterns to try
+                common_files = [
+                    "README.md", "readme.md", "prompts.md", "system.md",
+                    "instructions.md", "guide.md", "templates.md"
+                ]
+                
+                for filename in common_files:
+                    file_url = f"{folder_url}/{filename}"
+                    try:
+                        response = requests.get(file_url, timeout=10)
+                        if response.status_code == 200:
+                            content = response.text
+                            if content.strip():  # Only process non-empty files
+                                parsed_prompts = self._parse_ai_tool_prompt(
+                                    content, tool_name, filename
+                                )
+                                prompts.extend(parsed_prompts)
+                                logger.info(f"Loaded {len(parsed_prompts)} prompts from {filename}")
+                    except Exception as e:
+                        logger.debug(f"Could not load {filename}: {str(e)}")
+                        continue
+                
+                # If we found prompts, return them
+                if prompts:
+                    logger.info(f"Successfully loaded {len(prompts)} prompts for {tool_name}")
+                    return prompts
+                
+                # If no common files found, try to discover files
+                # This is a fallback method using GitHub's web interface
+                logger.info(f"No common files found for {tool_name}, trying alternative approach...")
+                return await self._discover_tool_files(tool_name, folder_name)
+                
+            except Exception as e:
+                logger.error(f"Error loading {tool_name} from direct URL: {str(e)}")
+                return []
+                
+        except Exception as e:
+            logger.error(f"Error in _load_tool_from_github for {tool_name}: {str(e)}")
+            return []
+    
+    async def _discover_tool_files(self, tool_name: str, folder_name: str) -> List[PromptEntry]:
+        """
+        Discover and load files from a tool folder using alternative methods.
+        
+        Args:
+            tool_name: Name of the AI tool
+            folder_name: GitHub folder name
+            
+        Returns:
+            List of PromptEntry objects
+        """
+        try:
+            # Use GitHub's web interface to get folder contents
+            # This is more robust than the API for rate limiting
+            web_url = f"{self.github_web_url}/tree/main/{folder_name}"
+            
+            # For now, return empty list as we need to implement web scraping
+            # This would require BeautifulSoup or similar for HTML parsing
+            logger.info(f"File discovery for {tool_name} not yet implemented")
+            return []
+            
+        except Exception as e:
+            logger.error(f"Error discovering files for {tool_name}: {str(e)}")
+            return []
+
+    async def _load_tool_prompts(
+        self, 
+        base_url: str, 
+        tool_name: str, 
+        tool_path: str
+    ) -> List[PromptEntry]:
+        """Load prompts from a specific AI tool folder."""
+        try:
+            # Get contents of the tool folder with retry logic
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = requests.get(f"{base_url}/{tool_path}", timeout=30)
+                    
+                    if response.status_code == 403:
+                        # Rate limit exceeded
+                        if attempt < max_retries - 1:
+                            wait_time = (2 ** attempt) * 5  # Exponential backoff: 5s, 10s, 20s
+                            logger.warning(f"Rate limit exceeded for {tool_name}, waiting {wait_time}s before retry {attempt + 1}")
+                            await asyncio.sleep(wait_time)
+                            continue
+                        else:
+                            logger.error(f"Rate limit exceeded for {tool_name} after {max_retries} attempts")
+                            return []
+                    
+                    response.raise_for_status()
+                    tool_contents = response.json()
+                    break
+                    
+                except requests.exceptions.RequestException as e:
+                    if attempt < max_retries - 1:
+                        wait_time = (2 ** attempt) * 2
+                        logger.warning(f"Request failed for {tool_name}, retrying in {wait_time}s: {str(e)}")
+                        await asyncio.sleep(wait_time)
+                        continue
+                    else:
+                        raise e
+            
+            prompts = []
+            
+            for i, item in enumerate(tool_contents):
+                if item['type'] == 'file' and self._is_prompt_file(item['name']):
+                    # Add small delay between file downloads
+                    if i > 0:
+                        await asyncio.sleep(0.5)
+                    
+                    prompt_content = await self._fetch_file_content(item['download_url'])
+                    if prompt_content:
+                        # Parse the prompt content
+                        parsed_prompts = self._parse_ai_tool_prompt(
+                            prompt_content, tool_name, item['name']
+                        )
+                        prompts.extend(parsed_prompts)
+            
+            return prompts
+            
+        except Exception as e:
+            logger.error(f"Error loading prompts for {tool_name}: {str(e)}")
+            return []
+
+    def _is_prompt_file(self, filename: str) -> bool:
+        """Check if a file is likely to contain prompts."""
+        prompt_extensions = ['.md', '.txt', '.json', '.yaml', '.yml', '.py', '.js', '.ts']
+        prompt_keywords = ['prompt', 'system', 'instruction', 'template', 'guide']
+        
+        filename_lower = filename.lower()
+        
+        # Check file extension
+        if any(filename_lower.endswith(ext) for ext in prompt_extensions):
+            return True
+        
+        # Check filename keywords
+        if any(keyword in filename_lower for keyword in prompt_keywords):
+            return True
+        
+        return False
+
+    async def _fetch_file_content(self, download_url: str) -> Optional[str]:
+        """Fetch content from a GitHub file URL with rate limiting."""
+        try:
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = requests.get(download_url, timeout=30)
+                    
+                    if response.status_code == 403:
+                        # Rate limit exceeded
+                        if attempt < max_retries - 1:
+                            wait_time = (2 ** attempt) * 3  # Exponential backoff: 3s, 6s, 12s
+                            logger.warning(f"Rate limit exceeded for file download, waiting {wait_time}s")
+                            await asyncio.sleep(wait_time)
+                            continue
+                        else:
+                            logger.error(f"Rate limit exceeded for file download after {max_retries} attempts")
+                            return None
+                    
+                    response.raise_for_status()
+                    return response.text
+                    
+                except requests.exceptions.RequestException as e:
+                    if attempt < max_retries - 1:
+                        wait_time = (2 ** attempt) * 2
+                        logger.warning(f"File download failed, retrying in {wait_time}s: {str(e)}")
+                        await asyncio.sleep(wait_time)
+                        continue
+                    else:
+                        raise e
+            
+            return None
+            
+        except Exception as e:
+            logger.error(f"Error fetching file content: {str(e)}")
+            return None
+
+    def _parse_ai_tool_prompt(
+        self, 
+        content: str, 
+        tool_name: str, 
+        filename: str
+    ) -> List[PromptEntry]:
+        """Parse AI tool prompt content into PromptEntry objects."""
+        prompts = []
+        
+        try:
+            # Determine prompt category based on tool name and content
+            category = self._determine_ai_tool_category(tool_name, content)
+            
+            # Extract prompts from different file formats
+            if filename.endswith('.json'):
+                prompts.extend(self._parse_json_prompts(content, tool_name, category))
+            elif filename.endswith(('.yaml', '.yml')):
+                prompts.extend(self._parse_yaml_prompts(content, tool_name, category))
+            elif filename.endswith('.md'):
+                prompts.extend(self._parse_markdown_prompts(content, tool_name, category))
+            else:
+                # Treat as plain text
+                prompts.extend(self._parse_text_prompts(content, tool_name, category))
+            
+        except Exception as e:
+            logger.error(f"Error parsing prompts from {filename}: {str(e)}")
+        
+        return prompts
+
+    def _determine_ai_tool_category(self, tool_name: str, content: str) -> PromptCategory:
+        """Determine the category of prompts based on tool name and content."""
+        tool_name_lower = tool_name.lower()
+        content_lower = content.lower()
+        
+        # Tool-specific categories
+        if any(keyword in tool_name_lower for keyword in ['code', 'cursor', 'devin', 'claude', 'windsurf']):
+            return PromptCategory.CODE_GENERATION
+        elif any(keyword in tool_name_lower for keyword in ['v0', 'ui', 'design', 'lovable']):
+            return PromptCategory.MULTIMODAL
+        elif any(keyword in tool_name_lower for keyword in ['notion', 'documentation']):
+            return PromptCategory.TECHNICAL_DOCUMENTATION
+        elif any(keyword in tool_name_lower for keyword in ['perplexity', 'search', 'qa']):
+            return PromptCategory.QUESTION_ANSWERING
+        elif any(keyword in tool_name_lower for keyword in ['creative', 'writing']):
+            return PromptCategory.CREATIVE_WRITING
+        else:
+            # Content-based categorization
+            if any(keyword in content_lower for keyword in ['code', 'function', 'class', 'import']):
+                return PromptCategory.CODE_GENERATION
+            elif any(keyword in content_lower for keyword in ['ui', 'component', 'design', 'css']):
+                return PromptCategory.MULTIMODAL
+            elif any(keyword in content_lower for keyword in ['document', 'write', 'explain']):
+                return PromptCategory.TECHNICAL_DOCUMENTATION
+            else:
+                return PromptCategory.CONVERSATIONAL
+
+    def _parse_json_prompts(self, content: str, tool_name: str, category: PromptCategory) -> List[PromptEntry]:
+        """Parse JSON format prompts."""
+        prompts = []
+        try:
+            data = json.loads(content)
+            
+            if isinstance(data, dict):
+                # Handle different JSON structures
+                if 'prompts' in data:
+                    for prompt_data in data['prompts']:
+                        prompts.append(self._create_prompt_entry(prompt_data, tool_name, category))
+                elif 'system' in data:
+                    prompts.append(self._create_prompt_entry(data, tool_name, category))
+                else:
+                    # Treat the entire JSON as a prompt
+                    prompts.append(self._create_prompt_entry(data, tool_name, category))
+            elif isinstance(data, list):
+                for item in data:
+                    prompts.append(self._create_prompt_entry(item, tool_name, category))
+                    
+        except json.JSONDecodeError:
+            logger.warning(f"Failed to parse JSON content from {tool_name}")
+        
+        return prompts
+
+    def _parse_yaml_prompts(self, content: str, tool_name: str, category: PromptCategory) -> List[PromptEntry]:
+        """Parse YAML format prompts."""
+        prompts = []
+        try:
+            import yaml
+            data = yaml.safe_load(content)
+            
+            if isinstance(data, dict):
+                if 'prompts' in data:
+                    for prompt_data in data['prompts']:
+                        prompts.append(self._create_prompt_entry(prompt_data, tool_name, category))
+                else:
+                    prompts.append(self._create_prompt_entry(data, tool_name, category))
+            elif isinstance(data, list):
+                for item in data:
+                    prompts.append(self._create_prompt_entry(item, tool_name, category))
+                    
+        except Exception as e:
+            logger.warning(f"Failed to parse YAML content from {tool_name}: {str(e)}")
+        
+        return prompts
+
+    def _parse_markdown_prompts(self, content: str, tool_name: str, category: PromptCategory) -> List[PromptEntry]:
+        """Parse Markdown format prompts."""
+        prompts = []
+        
+        # Split content by headers or code blocks
+        sections = content.split('\n# ')
+        
+        for i, section in enumerate(sections):
+            if section.strip():
+                # Clean up the section
+                if i > 0:
+                    section = '# ' + section
+                
+                # Extract prompt text
+                prompt_text = self._extract_prompt_from_markdown(section)
+                if prompt_text and len(prompt_text.strip()) > 50:  # Minimum length filter
+                    prompts.append(PromptEntry(
+                        id=f"{tool_name}_{i}",
+                        text=prompt_text,
+                        category=category,
+                        source=f"AI Tool: {tool_name}",
+                        metadata={
+                            "tool_name": tool_name,
+                            "file_type": "markdown",
+                            "section_index": i,
+                            "original_content": section[:500],  # Store first 500 chars for reference
+                            "created_at": time.time()
+                        },
+                        quality_score=0.8  # Default quality score for AI tool prompts
+                    ))
+        
+        return prompts
+
+    def _parse_text_prompts(self, content: str, tool_name: str, category: PromptCategory) -> List[PromptEntry]:
+        """Parse plain text format prompts."""
+        prompts = []
+        
+        # Split by common delimiters
+        sections = content.split('\n\n')
+        
+        for i, section in enumerate(sections):
+            if section.strip() and len(section.strip()) > 50:
+                prompts.append(PromptEntry(
+                    id=f"{tool_name}_text_{i}",
+                    text=section.strip(),
+                    category=category,
+                    source=f"AI Tool: {tool_name}",
+                    metadata={
+                        "tool_name": tool_name,
+                        "file_type": "text",
+                        "section_index": i,
+                        "created_at": time.time()
+                    },
+                    quality_score=0.8
+                ))
+        
+        return prompts
+
+    def _extract_prompt_from_markdown(self, content: str) -> str:
+        """Extract prompt text from markdown content."""
+        lines = content.split('\n')
+        prompt_lines = []
+        
+        in_code_block = False
+        for line in lines:
+            # Skip code block markers
+            if line.strip().startswith('```'):
+                in_code_block = not in_code_block
+                continue
+            
+            # Skip headers and other markdown syntax
+            if line.strip().startswith('#') or line.strip().startswith('*') or line.strip().startswith('-'):
+                continue
+            
+            # Skip empty lines at the beginning
+            if not prompt_lines and not line.strip():
+                continue
+            
+            prompt_lines.append(line)
+        
+        return '\n'.join(prompt_lines).strip()
+
+    def _create_prompt_entry(self, data: Dict[str, Any], tool_name: str, category: PromptCategory) -> PromptEntry:
+        """Create a PromptEntry from parsed data."""
+        # Extract text from various possible fields
+        text = ""
+        if isinstance(data, str):
+            text = data
+        elif isinstance(data, dict):
+            text = data.get('text', data.get('prompt', data.get('content', data.get('system', str(data)))))
+        
+        if not text or len(text.strip()) < 10:
+            return None
+        
+        return PromptEntry(
+            id=f"{tool_name}_{hashlib.md5(text.encode()).hexdigest()[:8]}",
+            text=text.strip(),
+            category=category,
+            source=f"AI Tool: {tool_name}",
+            metadata={
+                "tool_name": tool_name,
+                "original_data": data,
+                "ai_tool_source": True,
+                "created_at": time.time()
+            },
+            quality_score=0.9  # High quality score for AI tool system prompts
+        )
+
+    def get_ai_tool_prompt_statistics(self) -> Dict[str, Any]:
+        """Get statistics about loaded AI tool prompts."""
+        try:
+            # This would typically query the cache or database
+            # For now, return a placeholder structure
+            return {
+                "total_ai_tool_prompts": 0,
+                "tools_available": [
+                    "Cursor", "Devin AI", "Claude Code", "v0", "Windsurf", 
+                    "Replit", "Lovable", "Leap.new", "Notion AI", "Orchids.app",
+                    "Junie", "Kiro", "Warp.dev", "Z.ai Code", "Qoder", 
+                    "Perplexity", "Cluely", "Xcode", "VSCode Agent", "Trae",
+                    "Traycer AI", "Augment Code", "CodeBuddy", "Poke", "dia"
+                ],
+                "categories_covered": [cat.value for cat in PromptCategory],
+                "cache_status": "active",
+                "last_updated": time.time()
+            }
+        except Exception as e:
+            logger.error(f"Error getting AI tool prompt statistics: {str(e)}")
+            return {}

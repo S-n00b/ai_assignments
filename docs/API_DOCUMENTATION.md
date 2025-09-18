@@ -136,7 +136,7 @@ Manager for integrating with multiple prompt registries and generating enhanced 
 
 ```python
 class PromptRegistryManager:
-    def __init__(self, enable_caching: bool = True)
+    def __init__(self, enable_caching: bool = True, cache_dir: str = "cache/ai_tool_prompts")
 
     def get_enhanced_evaluation_dataset(
         self,
@@ -160,7 +160,65 @@ class PromptRegistryManager:
         adversarial_types: List[str] = None,
         count: int = 100
     ) -> pd.DataFrame
+
+    # AI Tool System Prompts Archive Integration
+    def get_available_ai_tools(self) -> List[str]
+
+    def is_tool_cached(self, tool_name: str) -> bool
+
+    def load_cached_tool_prompts(self, tool_name: str) -> List[PromptEntry]
+
+    def save_tool_prompts_to_cache(self, tool_name: str, prompts: List[PromptEntry])
+
+    async def load_ai_tool_system_prompts(
+        self,
+        tool_name: Optional[str] = None,
+        force_refresh: bool = False
+    ) -> List[PromptEntry]
+
+    def get_ai_tool_prompt_statistics(self) -> Dict[str, Any]
 ```
+
+**AI Tool System Prompts Archive Integration:**
+
+The `PromptRegistryManager` now includes comprehensive integration with the AI Tool System Prompts Archive, providing access to system prompts from 25+ popular AI tools including Cursor, Claude Code, Devin AI, v0, Windsurf, and more.
+
+**Key Features:**
+
+- **Local Caching**: Intelligent caching system to manage repository size and improve performance
+- **Direct GitHub Integration**: Robust loading using direct URLs to avoid API rate limits
+- **Dynamic Tool Discovery**: Automatic discovery and loading of available AI tools
+- **Force Refresh**: Ability to bypass cache and load fresh prompts when needed
+
+**Usage Examples:**
+
+```python
+# Initialize with local caching
+registry = PromptRegistryManager(cache_dir="cache/ai_tool_prompts")
+
+# Get available AI tools
+tools = registry.get_available_ai_tools()
+print(f"Available tools: {tools}")
+
+# Load prompts for a specific tool
+cursor_prompts = await registry.load_ai_tool_system_prompts("Cursor")
+
+# Load all available prompts
+all_prompts = await registry.load_ai_tool_system_prompts()
+
+# Force refresh from GitHub
+fresh_prompts = await registry.load_ai_tool_system_prompts("Cursor", force_refresh=True)
+
+# Check cache status
+if registry.is_tool_cached("Cursor"):
+    cached_prompts = registry.load_cached_tool_prompts("Cursor")
+```
+
+**Supported AI Tools:**
+
+- Cursor, Claude Code, Devin AI, v0, Windsurf
+- Augment Code, Cluely, CodeBuddy, Warp, Xcode
+- Z.ai Code, dia, and more
 
 ---
 

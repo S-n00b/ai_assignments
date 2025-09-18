@@ -11,7 +11,7 @@ from datetime import datetime
 
 from src.model_evaluation.config import ModelConfig
 from src.utils.config_utils import ConfigUtils
-from src.utils.data_utils import DataValidator
+from src.utils.data_utils import DataUtils
 
 
 class TestModelConfig:
@@ -120,21 +120,21 @@ class TestConfigUtils:
         assert saved_data == config_data
 
 
-class TestDataValidator:
-    """Test cases for DataValidator class."""
+class TestDataUtils:
+    """Test cases for DataUtils class."""
     
     @pytest.fixture
-    def data_validator(self):
-        """Create data validator instance."""
-        return DataValidator()
+    def data_utils(self):
+        """Create data utils instance."""
+        return DataUtils()
     
-    def test_data_validator_initialization(self, data_validator):
-        """Test data validator initialization."""
-        assert data_validator is not None
-        assert hasattr(data_validator, 'validate_data')
-        assert hasattr(data_validator, 'validate_schema')
+    def test_data_utils_initialization(self, data_utils):
+        """Test data utils initialization."""
+        assert data_utils is not None
+        assert hasattr(data_utils, 'validate_data')
+        assert hasattr(data_utils, 'validate_schema')
     
-    def test_validate_data(self, data_validator):
+    def test_validate_data(self, data_utils):
         """Test data validation."""
         # Test valid data
         valid_data = pd.DataFrame({
@@ -142,11 +142,11 @@ class TestDataValidator:
             "label": [1, 0]
         })
         
-        result = data_validator.validate_data(valid_data)
+        result = data_utils.validate_data(valid_data)
         assert result["is_valid"] == True
         assert result["quality_score"] > 0.8
     
-    def test_validate_schema(self, data_validator):
+    def test_validate_schema(self, data_utils):
         """Test schema validation."""
         schema = {
             "text": "string",
@@ -158,11 +158,11 @@ class TestDataValidator:
             "label": [1, 0]
         })
         
-        result = data_validator.validate_schema(valid_data, schema)
+        result = data_utils.validate_schema(valid_data, schema)
         assert result["is_valid"] == True
         assert len(result["errors"]) == 0
     
-    def test_validate_schema_with_errors(self, data_validator):
+    def test_validate_schema_with_errors(self, data_utils):
         """Test schema validation with errors."""
         schema = {
             "text": "string",
@@ -174,7 +174,7 @@ class TestDataValidator:
             "label": ["invalid", "also_invalid"]  # Should be integers
         })
         
-        result = data_validator.validate_schema(invalid_data, schema)
+        result = data_utils.validate_schema(invalid_data, schema)
         assert result["is_valid"] == False
         assert len(result["errors"]) > 0
 

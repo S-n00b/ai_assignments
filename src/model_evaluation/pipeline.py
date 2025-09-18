@@ -70,7 +70,7 @@ class ComprehensiveEvaluationPipeline:
         # Initialize testing suites
         self.robustness_tester = RobustnessTestingSuite()
         self.bias_detector = BiasDetectionSystem()
-        self.prompt_registry = PromptRegistryManager()
+        self.prompt_registry = PromptRegistryManager(cache_dir="cache/ai_tool_prompts")
         
         # Performance tracking
         self.evaluation_start_time = None

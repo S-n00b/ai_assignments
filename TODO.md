@@ -194,6 +194,19 @@ This implementation showcases **sophisticated architectural decision-making** by
   - [x] Add PromptBase integration for diverse prompt categories
   - [x] Implement dynamic dataset generation
   - [x] Create stratified sampling for balanced evaluation
+  - [x] **6.1.5** Integrate AI Tool System Prompts Archive ✅
+    - [x] Add integration with [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools) repository
+    - [x] Implement dynamic prompt loading from GitHub repository (20,000+ lines of AI tool prompts)
+    - [x] Add support for Cursor, Devin AI, Claude Code, v0, Windsurf, and other major AI tools
+    - [x] Create prompt categorization system for different AI tool types
+    - [x] Implement caching mechanism to avoid large project size growth
+    - [x] Add prompt validation and quality assessment for imported system prompts
+    - [x] Implement robust GitHub integration using direct URLs instead of API
+    - [x] Create local caching system for AI tool prompts
+    - [x] Implement repository size management and selective caching
+    - [x] Add dynamic tool discovery that updates available tools on each run
+    - [x] Fix local file caching to properly save and load prompts from disk
+    - [x] Fix force refresh functionality to bypass cache when requested
 
 - [x] **6.2** Advanced Evaluation Capabilities
   - [x] Multi-modal evaluation support
@@ -216,26 +229,9 @@ This implementation showcases **sophisticated architectural decision-making** by
   - [x] Usage examples and edge case documentation
   - [x] API documentation with OpenAPI specs
 
-## Phase 8: Testing & Validation 🧪
+## Phase 8: Documentation & Deployment 📚
 
-- [ ] **8.1** Comprehensive Testing Suite
-
-  - [ ] Unit tests for all modules
-  - [ ] Integration tests for evaluation pipeline
-  - [ ] End-to-end tests for Gradio application (Assignment 1)
-  - [ ] End-to-end tests for enterprise stack (Assignment 2)
-  - [ ] Performance benchmarking
-
-- [ ] **8.2** Production Readiness Validation
-  - [ ] Test with latest model APIs (GPT-5, Claude 3.5 Sonnet)
-  - [ ] Validate MCP server functionality (Assignment 1)
-  - [ ] Validate enterprise infrastructure (Assignment 2)
-  - [ ] Test scalability with large datasets
-  - [ ] Verify error handling and recovery
-
-## Phase 9: Documentation & Deployment 📚
-
-- [ ] **9.1** Comprehensive Documentation
+- [ ] **8.1** Comprehensive Documentation
 
   - [ ] Create detailed README with setup instructions
   - [ ] Add API documentation for both assignments
@@ -243,11 +239,28 @@ This implementation showcases **sophisticated architectural decision-making** by
   - [ ] Create architecture guides for enterprise stack (Assignment 2)
   - [ ] Include troubleshooting and FAQ
 
-- [ ] **9.2** Deployment & Demo Preparation
+- [ ] **8.2** Deployment & Demo Preparation
   - [ ] Prepare production deployment scripts
   - [ ] Create demo scenarios and examples
   - [ ] Prepare executive presentation materials
   - [ ] Set up monitoring and alerting
+
+## Phase 9: Testing & Validation 🧪
+
+- [ ] **9.1** Comprehensive Testing Suite
+
+  - [ ] Unit tests for all modules
+  - [ ] Integration tests for evaluation pipeline
+  - [ ] End-to-end tests for Gradio application (Assignment 1)
+  - [ ] End-to-end tests for enterprise stack (Assignment 2)
+  - [ ] Performance benchmarking
+
+- [ ] **9.2** Production Readiness Validation
+  - [ ] Test with latest model APIs (GPT-5, Claude 3.5 Sonnet)
+  - [ ] Validate MCP server functionality (Assignment 1)
+  - [ ] Validate enterprise infrastructure (Assignment 2)
+  - [ ] Test scalability with large datasets
+  - [ ] Verify error handling and recovery
 
 ---
 
@@ -255,8 +268,8 @@ This implementation showcases **sophisticated architectural decision-making** by
 
 - **✅ COMPLETED**: Phases 4-5 (Assignment 1: Gradio frontend with MCP, Assignment 2: Enterprise MCP server)
 - **HIGH**: Phases 2-3 (Content extraction and clean architecture)
-- **MEDIUM**: Phases 6-7 (Enhanced scale, logging, and testing)
-- **LOW**: Phases 8-9 (Documentation and deployment)
+- **MEDIUM**: Phases 6-7 (Enhanced scale, logging, and documentation)
+- **LOW**: Phases 8-9 (Documentation, deployment, and testing)
 
 ## ⏱️ UPDATED TIMELINE:
 
@@ -266,8 +279,8 @@ This implementation showcases **sophisticated architectural decision-making** by
 - **Phase 3**: 4-6 hours (Clean Python architecture)
 - **Phase 6**: 2-3 hours (Enhanced experimental scale)
 - **Phase 7**: 2-3 hours (Logging and documentation)
-- **Phase 8**: 2-3 hours (Testing and validation)
-- **Phase 9**: 1-2 hours (Documentation and deployment)
+- **Phase 8**: 1-2 hours (Documentation and deployment)
+- **Phase 9**: 2-3 hours (Testing and validation)
 
 **Total Estimated Time**: 11-20 hours remaining
 
@@ -2362,11 +2375,11 @@ make security
  
  
  
- 3 .   * * M i g r a t e   e x i s t i n g   d o c u m e n t a t i o n   f r o m   d o c s /   f o l d e r   t o   J e k y l l   _ p o s t s   s t r u c t u r e * * 
+ 3 .   * * M i g r a t e   e x i s t i n g   d o c u m e n t a t i o n   f r o m   d o c s /   f o l d e r   t o   J e k y l l   * p o s t s   s t r u c t u r e * * 
  
        -   C o n v e r t   ` d o c s / R E A D M E . m d `   t o   J e k y l l   p o s t   f o r m a t 
  
-       -   M i g r a t e   ` d o c s / A P I _ D O C U M E N T A T I O N . m d `   t o   s t r u c t u r e d   p o s t s 
+       -   M i g r a t e   ` d o c s / A P I * D O C U M E N T A T I O N . m d `   t o   s t r u c t u r e d   p o s t s 
  
        -   C o n v e r t   ` d o c s / D E P L O Y M E N T _ G U I D E . m d `   a n d   o t h e r   d o c u m e n t a t i o n 
  
@@ -2493,3 +2506,154 @@ make security
  * * T h i s   d o c u m e n t a t i o n   i n t e g r a t i o n   w i l l   s i g n i f i c a n t l y   e n h a n c e   t h e   p r o f e s s i o n a l   p r e s e n t a t i o n   o f   t h e   L e n o v o   A A I T C   S o l u t i o n s   p r o j e c t   a n d   p r o v i d e   a n   e x c e l l e n t   u s e r   e x p e r i e n c e   f o r   s t a k e h o l d e r s ,   d e v e l o p e r s ,   a n d   e n d   u s e r s . * * 
  
  
+
+ 
+ # #   � x 9  * * R E M A I N I N G   J E K Y L L   I N T E G R A T I O N   T A S K S * *   � x 9
+ 
+ 
+ 
+ # # #   * * � S&  C o m p l e t e d   T a s k s : * * 
+ 
+ 1 .   * * � S&  I n t e g r a t e   J e k y l l - t h e m e - c h i r p y   d i r e c t l y   i n t o   c u r r e n t   a i * a s s i g n m e n t s   r e p o s i t o r y   u s i n g   d o c s /   f o l d e r * * 
+ 
+ 2 .   * * � S&  C o n f i g u r e   J e k y l l   s i t e   w i t h   L e n o v o   A A I T C   b r a n d i n g   a n d   t h e m e   c u s t o m i z a t i o n * * 
+ 
+ 3 .   * * � S&  M i g r a t e   e x i s t i n g   d o c u m e n t a t i o n   f r o m   d o c s /   f o l d e r   t o   J e k y l l   * p o s t s   s t r u c t u r e * * 
+ 
+ 4 .   * * � S&  S e t   u p   G i t H u b   P a g e s   d e p l o y m e n t   w o r k f l o w   f o r   a u t o m a t e d   d o c u m e n t a t i o n   u p d a t e s * * 
+ 
+ 5 .   * * � S&  C r e a t e   n a v i g a t i o n   s t r u c t u r e   a n d   o r g a n i z e   d o c u m e n t a t i o n   b y   c a t e g o r i e s * * 
+ 
+ 
+ 
+ # # #   * * � x   R e m a i n i n g   T a s k s   t o   C o m p l e t e : * * 
+ 
+ 
+ 
+ 6 .   * * A d d   i n t e r a c t i v e   f e a t u r e s   l i k e   s e a r c h ,   c o m m e n t s ,   a n d   a n a l y t i c s * * 
+ 
+       -   E n a b l e   J e k y l l   s e a r c h   f u n c t i o n a l i t y 
+ 
+       -   C o n f i g u r e   G i s c u s   f o r   c o m m e n t s   s y s t e m 
+ 
+       -   S e t   u p   G o o g l e   A n a l y t i c s   f o r   u s a g e   t r a c k i n g 
+ 
+       -   A d d   s o c i a l   m e d i a   s h a r i n g   c a p a b i l i t i e s 
+ 
+ 
+ 
+ 7 .   * * I n t e g r a t e   A P I   d o c u m e n t a t i o n   w i t h   J e k y l l   s i t e   u s i n g   J S D o c   o r   s i m i l a r * * 
+ 
+       -   A u t o - g e n e r a t e   A P I   d o c u m e n t a t i o n   f r o m   P y t h o n   d o c s t r i n g s 
+ 
+       -   C r e a t e   i n t e r a c t i v e   A P I   r e f e r e n c e   p a g e s 
+ 
+       -   A d d   c o d e   e x a m p l e s   a n d   u s a g e   g u i d e s 
+ 
+       -   I m p l e m e n t   s y n t a x   h i g h l i g h t i n g   f o r   c o d e   b l o c k s 
+ 
+ 
+ 
+ 8 .   * * S e t   u p   a u t o m a t e d   d o c u m e n t a t i o n   g e n e r a t i o n   f r o m   c o d e   c o m m e n t s   a n d   d o c s t r i n g s * * 
+ 
+       -   C o n f i g u r e   S p h i n x   o r   s i m i l a r   t o o l   f o r   P y t h o n   d o c u m e n t a t i o n 
+ 
+       -   S e t   u p   a u t o m a t e d   d o c s t r i n g   e x t r a c t i o n 
+ 
+       -   C r e a t e   p i p e l i n e   t o   s y n c   c o d e   c h a n g e s   w i t h   d o c u m e n t a t i o n 
+ 
+       -   G e n e r a t e   A P I   r e f e r e n c e   a u t o m a t i c a l l y 
+ 
+ 
+ 
+ 9 .   * * C o n f i g u r e   S E O   o p t i m i z a t i o n   a n d   s o c i a l   m e d i a   i n t e g r a t i o n * * 
+ 
+       -   A d d   m e t a   t a g s   a n d   O p e n   G r a p h   d a t a 
+ 
+       -   C o n f i g u r e   s i t e m a p   g e n e r a t i o n 
+ 
+       -   S e t   u p   s t r u c t u r e d   d a t a   m a r k u p 
+ 
+       -   O p t i m i z e   f o r   s e a r c h   e n g i n e   d i s c o v e r y 
+ 
+ 
+ 
+ 1 0 .   * * T e s t   a n d   v a l i d a t e   d o c u m e n t a t i o n   s i t e   f u n c t i o n a l i t y   a n d   r e s p o n s i v e n e s s * * 
+ 
+         -   T e s t   o n   m u l t i p l e   d e v i c e s   a n d   b r o w s e r s 
+ 
+         -   V a l i d a t e   a c c e s s i b i l i t y   c o m p l i a n c e 
+ 
+         -   C h e c k   l o a d i n g   p e r f o r m a n c e 
+ 
+         -   E n s u r e   a l l   l i n k s   a n d   n a v i g a t i o n   w o r k   c o r r e c t l y 
+ 
+ 
+ 
+ # # #   * * � xa�  N e x t   S t e p s   t o   C o m p l e t e   S e t u p : * * 
+ 
+ 
+ 
+ 1 .   * * E n a b l e   G i t H u b   P a g e s   i n   R e p o s i t o r y   S e t t i n g s : * * 
+ 
+       -   G o   t o   r e p o s i t o r y   S e t t i n g s   �    P a g e s 
+ 
+       -   S e t   s o u r c e   t o   " G i t H u b   A c t i o n s " 
+ 
+       -   T h e   w o r k f l o w   w i l l   a u t o m a t i c a l l y   d e p l o y   f r o m   t h e   ` d o c s / `   f o l d e r 
+ 
+ 
+ 
+ 2 .   * * I n s t a l l   R u b y   a n d   J e k y l l   L o c a l l y   ( O p t i o n a l   f o r   D e v e l o p m e n t ) : * * 
+ 
+       ` ` ` p o w e r s h e l l 
+ 
+       #   D o w n l o a d   R u b y   f r o m   h t t p s : / / r u b y i n s t a l l e r . o r g / 
+ 
+       #   T h e n   i n s t a l l   J e k y l l : 
+ 
+       g e m   i n s t a l l   j e k y l l   b u n d l e r 
+ 
+       c d   d o c s 
+ 
+       b u n d l e   i n s t a l l 
+ 
+       b u n d l e   e x e c   j e k y l l   s e r v e 
+ 
+       ` ` ` 
+ 
+ 
+ 
+ 3 .   * * T e s t   t h e   D o c u m e n t a t i o n   S i t e : * * 
+ 
+       -   V i s i t   t h e   G i t H u b   P a g e s   U R L   o n c e   d e p l o y e d 
+ 
+       -   V e r i f y   a l l   n a v i g a t i o n   w o r k s   c o r r e c t l y 
+ 
+       -   C h e c k   t h a t   a l l   d o c u m e n t a t i o n   p o s t s   a r e   a c c e s s i b l e 
+ 
+ 
+ 
+ # # #   * * � x `  C u r r e n t   S t a t u s : * * 
+ 
+ -   * * J e k y l l   I n t e g r a t i o n * * :   � S&  C o m p l e t e 
+ 
+ -   * * G i t H u b   P a g e s   W o r k f l o w * * :   � S&  C o m p l e t e     
+ 
+ -   * * D o c u m e n t a t i o n   M i g r a t i o n * * :   � S&  C o m p l e t e 
+ 
+ -   * * N a v i g a t i o n   S t r u c t u r e * * :   � S&  C o m p l e t e 
+ 
+ -   * * I n t e r a c t i v e   F e a t u r e s * * :   � � �   P e n d i n g 
+ 
+ -   * * A P I   D o c u m e n t a t i o n * * :   � � �   P e n d i n g 
+ 
+ -   * * A u t o m a t e d   G e n e r a t i o n * * :   � � �   P e n d i n g 
+ 
+ -   * * S E O   O p t i m i z a t i o n * * :   � � �   P e n d i n g 
+ 
+ -   * * T e s t i n g   &   V a l i d a t i o n * * :   � � �   P e n d i n g 
+ 
+ 
+ 
+ * * T h e   d o c u m e n t a t i o n   s i t e   i s   n o w   r e a d y   f o r   d e p l o y m e n t   a n d   c a n   b e   a c c e s s e d   v i a   G i t H u b   P a g e s   o n c e   t h e   r e p o s i t o r y   s e t t i n g s   a r e   c o n f i g u r e d . * * 

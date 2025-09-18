@@ -1,0 +1,87 @@
+name: Generate and Deploy API Documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "docs/generate_api_docs.py"
+      - "docs/sphinx/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "docs/generate_api_docs.py"
+      - "docs/sphinx/**"
+  schedule:
+    # Run daily at 2 AM UTC to keep docs up to date
+    - cron: "0 2 * * *"
+
+jobs:
+  generate-api-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r config/requirements.txt
+          pip install -r docs/requirements-docs.txt
+
+      - name: Generate API documentation
+        run: |
+          cd docs
+          python generate_api_docs.py
+
+      - name: Generate automated documentation
+        run: |
+          cd docs
+          python automated_docs_generator.py
+
+      - name: Test site functionality
+        run: |
+          cd docs
+          python test_site_functionality.py
+
+      - name: Check for changes
+        id: verify-changed-files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/_posts/api-docs/ docs/_posts/auto-generated/
+          git commit -m "Auto-update API documentation [skip ci]"
+          git push
+
+      - name: Build Jekyll site
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          cd docs
+          bundle install
+          bundle exec jekyll build --destination ../_site/docs
+
+      - name: Deploy to GitHub Pages
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site/docs
+          cname: # Optional: your custom domain

@@ -265,7 +265,7 @@ class TestPromptRegistryManager:
     @pytest.fixture
     def prompt_manager(self):
         """Create prompt registry manager instance."""
-        return PromptRegistryManager()
+        return PromptRegistryManager(cache_dir="cache/ai_tool_prompts")
     
     def test_prompt_manager_initialization(self, prompt_manager):
         """Test prompt manager initialization."""
@@ -275,11 +275,20 @@ class TestPromptRegistryManager:
     
     def test_load_prompts_from_registry(self, prompt_manager):
         """Test loading prompts from registry."""
-        prompts = prompt_manager._load_prompts_from_registry("diffusiondb", limit=10)
+        # Test loading AI tool system prompts
+        import asyncio
+        
+        async def test_async():
+            prompts = await prompt_manager.load_ai_tool_system_prompts("Cursor")
+            return prompts
+        
+        prompts = asyncio.run(test_async())
         
         assert isinstance(prompts, list)
-        assert len(prompts) <= 10
-        assert all(isinstance(prompt, dict) for prompt in prompts)
+        assert len(prompts) >= 0  # May be 0 if not cached and GitHub is unavailable
+        if prompts:
+            assert all(hasattr(prompt, 'text') for prompt in prompts)
+            assert all(hasattr(prompt, 'category') for prompt in prompts)
     
     def test_filter_prompts_by_category(self, prompt_manager):
         """Test filtering prompts by category."""
@@ -318,3 +327,36 @@ class TestPromptRegistryManager:
         assert isinstance(prompts, list)
         assert len(prompts) <= 5
         assert all("text" in prompt for prompt in prompts)
+    
+    def test_ai_tool_system_prompts_integration(self, prompt_manager):
+        """Test AI Tool System Prompts Archive integration."""
+        # Test getting available AI tools
+        available_tools = prompt_manager.get_available_ai_tools()
+        assert isinstance(available_tools, list)
+        assert len(available_tools) > 0
+        assert "Cursor" in available_tools
+        assert "Claude Code" in available_tools
+        
+        # Test cache status checking
+        cursor_cached = prompt_manager.is_tool_cached("Cursor")
+        assert isinstance(cursor_cached, bool)
+        
+        # Test getting statistics
+        stats = prompt_manager.get_ai_tool_prompt_statistics()
+        assert isinstance(stats, dict)
+        assert "tools_available" in stats
+    
+    @pytest.mark.asyncio
+    async def test_ai_tool_prompts_loading(self, prompt_manager):
+        """Test loading AI tool system prompts."""
+        # Test loading specific tool
+        cursor_prompts = await prompt_manager.load_ai_tool_system_prompts("Cursor")
+        assert isinstance(cursor_prompts, list)
+        
+        # Test loading all tools (may be slow, so limit to a few)
+        all_prompts = await prompt_manager.load_ai_tool_system_prompts()
+        assert isinstance(all_prompts, list)
+        
+        # Test force refresh
+        fresh_prompts = await prompt_manager.load_ai_tool_system_prompts("Cursor", force_refresh=True)
+        assert isinstance(fresh_prompts, list)

@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 # Import only basic modules that don't require heavy dependencies
 from src.model_evaluation.config import ModelConfig
 from src.utils.config_utils import ConfigUtils
-from src.utils.data_utils import DataValidator
+from src.utils.data_utils import DataUtils
 
 # Configure logging
 import logging

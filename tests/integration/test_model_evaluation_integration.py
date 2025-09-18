@@ -32,7 +32,7 @@ class TestModelEvaluationIntegration:
         
         robustness_suite = RobustnessTestingSuite(model_config=sample_model_config)
         bias_system = BiasDetectionSystem()
-        prompt_manager = PromptRegistryManager()
+        prompt_manager = PromptRegistryManager(cache_dir="cache/ai_tool_prompts")
         
         return {
             "pipeline": pipeline,

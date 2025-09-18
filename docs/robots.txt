@@ -1,0 +1,31 @@
+# Robots.txt for Lenovo AAITC Solutions Documentation Site
+# https://samne.github.io/ai_assignments/
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /_site/
+Disallow: /_posts/auto-generated/
+Disallow: /sphinx/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /venv/
+Disallow: /tests/
+Disallow: /scripts/
+Disallow: /config/
+
+# Allow important files
+Allow: /_posts/
+Allow: /_tabs/
+Allow: /assets/
+Allow: /commons/
+Allow: /favicon.ico
+Allow: /robots.txt
+Allow: /sitemap.xml
+
+# Sitemap location
+Sitemap: https://samne.github.io/ai_assignments/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

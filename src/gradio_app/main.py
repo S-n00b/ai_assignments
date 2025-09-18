@@ -525,11 +525,15 @@ class LenovoAAITCApp:
             task_type = TaskType(task_str)
             
             if enhanced_scale:
-                # Use enhanced dataset from prompt registries
+                # Use enhanced dataset from prompt registries with AI Tool System Prompts
                 from ..model_evaluation.prompt_registries import PromptRegistryManager
-                registry_manager = PromptRegistryManager()
-                dataset = registry_manager.get_category_specific_dataset(
-                    task_type, size=1000
+                registry_manager = PromptRegistryManager(cache_dir="cache/ai_tool_prompts")
+                
+                # Get enhanced dataset with AI tool prompts
+                dataset = registry_manager.get_enhanced_evaluation_dataset(
+                    target_size=1000,
+                    categories=[task_type],
+                    enhanced_scale=True
                 )
             else:
                 # Use basic dataset
