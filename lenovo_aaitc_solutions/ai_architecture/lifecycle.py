@@ -29,6 +29,13 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+# Import fine-tuning and quantization modules
+from .adapter_registry import CustomAdapterRegistry, AdapterMetadata, AdapterType, AdapterStatus
+from .finetuning_quantization import (
+    AdvancedFineTuner, AdvancedQuantizer, MultiTaskFineTuner,
+    FineTuningConfig, QuantizationConfig, FineTuningStrategy, QuantizationStrategy
+)
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -140,6 +147,12 @@ class ModelLifecycleManager:
         self.performance_history = []
         self.retraining_pipelines = {}
         self.monitoring_alerts = []
+        
+        # Initialize fine-tuning and quantization components
+        self.adapter_registry = CustomAdapterRegistry(str(self.registry_path / "adapters"))
+        self.fine_tuner = AdvancedFineTuner(str(self.registry_path / "adapters"))
+        self.quantizer = AdvancedQuantizer()
+        self.multi_task_fine_tuner = MultiTaskFineTuner()
         
         # Load existing registry
         self._load_model_registry()

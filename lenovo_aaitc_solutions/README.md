@@ -2,7 +2,7 @@
 
 ## 🚀 Advanced AI Model Evaluation & Architecture Framework
 
-A comprehensive solution for Lenovo's Advanced AI Technology Center (AAITC) featuring state-of-the-art model evaluation capabilities and AI architecture design for the latest Q3 2025 foundation models.
+A comprehensive solution for Lenovo's Advanced AI Technology Center (AAITC) featuring state-of-the-art model evaluation capabilities, AI architecture design, and enterprise-grade infrastructure for the latest Q3 2025 foundation models.
 
 ### ✨ Key Features
 
@@ -12,6 +12,10 @@ A comprehensive solution for Lenovo's Advanced AI Technology Center (AAITC) feat
 - **Comprehensive Evaluation**: Quality, performance, robustness, and bias analysis
 - **Layered Architecture**: Clean, maintainable Python modules following GenAI best practices
 - **Real-Time Monitoring**: Performance tracking and alerting capabilities
+- **Enterprise Infrastructure**: Terraform, Kubernetes, Helm, GitLab, Jenkins, Prefect, Ollama, BentoML
+- **Advanced Fine-Tuning**: LoRA/QLoRA, multi-task, continual learning, quantization techniques
+- **Custom Adapter Registry**: Centralized adapter management with metadata tracking
+- **Hybrid Cloud Architecture**: Multi-cloud, edge, security, compliance, and monitoring
 
 ## 📁 Project Structure
 

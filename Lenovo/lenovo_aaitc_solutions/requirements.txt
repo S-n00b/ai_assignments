@@ -26,11 +26,6 @@ fastapi>=0.100.0
 uvicorn>=0.23.0
 streamlit>=1.25.0
 
-# Data processing and visualization
-plotly>=5.15.0
-dash>=2.12.0
-bokeh>=3.2.0
-
 # API clients for latest models
 openai>=1.0.0
 anthropic>=0.7.0
@@ -47,12 +42,34 @@ prometheus-client>=0.17.0
 grafana-api>=1.0.3
 langfuse>=2.0.0
 
-# Development and testing
+# Testing dependencies
 pytest>=7.4.0
 pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+pytest-xdist>=3.3.0
+pytest-html>=3.2.0
+pytest-benchmark>=4.0.0
+pytest-timeout>=2.1.0
+pytest-mypy>=0.10.0
+pytest-flake8>=1.1.0
+pytest-black>=0.3.0
+pytest-isort>=2.0.0
+coverage>=7.2.0
+factory-boy>=3.3.0
+faker>=19.0.0
+responses>=0.23.0
+httpx>=0.24.0
+aioresponses>=0.7.4
+
+# Development and code quality
 black>=23.0.0
 flake8>=6.0.0
 mypy>=1.5.0
+isort>=5.12.0
+pre-commit>=3.3.0
+bandit>=1.7.0
+safety>=2.3.0
 
 # Utilities
 python-dotenv>=1.0.0
@@ -71,118 +88,18 @@ langchain>=0.1.0
 langgraph>=0.0.20
 autogen>=0.2.0
 crewai>=0.1.0
-smolagents>=0.1.0
-
-# AutoML and automated model optimization
-auto-sklearn>=0.15.0
-auto-gluon>=0.8.0
-optuna>=3.3.0
-hyperopt>=0.2.7
-ray[tune]>=2.6.0
-
-# Fine-tuning and adapter management
-peft>=0.6.0  # Parameter-Efficient Fine-Tuning
-trl>=0.7.0   # Transformer Reinforcement Learning
-bitsandbytes>=0.41.0  # Quantization
-accelerate>=0.24.0  # Training acceleration
-deepspeed>=0.12.0  # Deep learning optimization
-torch-audio>=2.0.0  # Audio processing for multimodal
-torch-vision>=0.15.0  # Vision processing
-datasets>=2.14.0  # Dataset management
-evaluate>=0.4.0  # Model evaluation
-wandb>=0.15.0  # Experiment tracking
-tensorboard>=2.13.0  # Training visualization
-
-# Quantization and optimization
-onnx>=1.14.0  # Model optimization
-onnxruntime>=1.15.0  # Inference optimization
-tensorrt>=8.6.0  # NVIDIA inference optimization
-openvino>=2023.0.0  # Intel optimization
-qiskit>=0.44.0  # Quantum computing optimization
 
 # Vector databases and embeddings
 faiss-cpu>=1.7.4
 sentence-transformers>=2.2.0
 
-# Prompt engineering and evaluation
-promptbase>=0.1.0
-diffusiondb>=0.1.0
-
 # Model Context Protocol (MCP)
 mcp>=0.1.0
 
-# Production deployment and infrastructure
+# Production deployment
 gunicorn>=21.2.0
 docker>=6.1.0
 kubernetes>=27.2.0
-
-# Infrastructure as Code
-terraform>=1.6.0
-terraform-compliance>=1.3.0
-terragrunt>=0.50.0
-cdktf>=0.20.0
-
-# Container orchestration and management
-kubernetes>=27.2.0
-helm>=3.13.0
-kubectl>=1.28.0
-kustomize>=5.0.0
-skaffold>=2.8.0
-telepresence>=2.10.0
-
-# Package management and deployment
-helm>=3.13.0
-helmfile>=0.155.0
-helm-diff>=3.8.0
-helm-secrets>=4.5.0
-helm-unittest>=0.3.0
-
-# CI/CD and DevOps
-gitlab>=4.0.0
-jenkins>=0.1.0
-gitlab-ci>=1.0.0
-jenkins-job-builder>=4.0.0
-python-gitlab>=4.0.0
-jenkinsapi>=0.3.13
-
-# Workflow orchestration
-prefect>=2.14.0
-prefect-aws>=0.3.0
-prefect-azure>=0.2.0
-prefect-gcp>=0.4.0
-prefect-kubernetes>=0.3.0
-prefect-docker>=0.3.0
-prefect-sqlalchemy>=0.3.0
-prefect-dask>=0.2.0
-
-# Model serving and deployment
-bentoml>=1.1.0
-ollama>=0.1.0
-torchserve>=0.8.0
-triton-client>=2.35.0
-seldon-core>=1.18.0
-kserve>=0.11.0
-
-# Container runtime and management
-docker>=6.1.0
-podman>=4.5.0
-buildah>=1.31.0
-skopeo>=1.13.0
-cri-o>=1.28.0
-
-# Service mesh and networking
-istio>=1.19.0
-linkerd>=2.13.0
-envoy>=1.28.0
-consul>=1.16.0
-vault>=1.15.0
-
-# Container security and scanning
-trivy>=0.45.0
-grype>=0.70.0
-syft>=0.95.0
-clair>=4.7.0
-docker-bench-security>=1.3.0
 
 # Security and authentication
 cryptography>=41.0.0
