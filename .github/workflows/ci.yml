@@ -1,10 +1,11 @@
 name: CI/CD Pipeline
 
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
+# TEMPORARILY DISABLED FOR TROUBLESHOOTING
+# on:
+#   push:
+#     branches: [main, develop]
+#   pull_request:
+#     branches: [main, develop]
 
 env:
   PYTHON_VERSION: "3.9"
