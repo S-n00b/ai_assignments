@@ -13,20 +13,63 @@ This module provides a comprehensive backend integration with the official [GitH
 
 ## Quick Start
 
-### 1. Authentication
+### 1. Authentication Setup
 
-The backend automatically detects GitHub authentication in this order:
+**⚠️ Important**: GitHub Models API requires a Personal Access Token (PAT) with the `models` scope.
 
-1. **Environment Variable**: Set `GITHUB_TOKEN` environment variable
-2. **GitHub CLI**: Run `gh auth login` to authenticate
-3. **Demo Mode**: Falls back to demo mode with limited functionality
+#### Option 1: Automated Setup (Recommended)
+
+Run the setup script to guide you through the process:
 
 ```bash
-# Option 1: Set environment variable
-export GITHUB_TOKEN="your_github_token_here"
+# Python setup script
+python scripts/setup-github-models.py
 
-# Option 2: Use GitHub CLI
+# PowerShell setup script (Windows)
+.\scripts\setup-github-models.ps1
+```
+
+#### Option 2: Manual Setup
+
+**Create a Personal Access Token:**
+
+1. Go to [GitHub Settings > Personal Access Tokens](https://github.com/settings/tokens)
+2. Click "Generate new token (classic)"
+3. Name: "Lenovo AAITC Models API"
+4. **Select scopes**: ✅ `models` (required for GitHub Models API)
+5. Set expiration: 90 days (recommended)
+6. Click "Generate token"
+7. **Copy the token immediately** (it won't be shown again!)
+
+**Set the token:**
+
+```bash
+# Linux/Mac
+export GITHUB_TOKEN="your_token_here"
+
+# Windows PowerShell
+$env:GITHUB_TOKEN = "your_token_here"
+
+# Windows Command Prompt
+set GITHUB_TOKEN=your_token_here
+```
+
+#### Option 3: GitHub CLI (Easiest)
+
+```bash
+# Install GitHub CLI if needed
+# Then authenticate
 gh auth login
+
+# This automatically sets up the token with correct scopes
+```
+
+#### Option 4: Demo Mode (Limited Functionality)
+
+For testing without real API calls:
+
+```bash
+export GITHUB_TOKEN="demo_token"
 ```
 
 ### 2. Basic Usage

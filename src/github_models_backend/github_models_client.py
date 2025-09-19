@@ -176,6 +176,7 @@ class GitHubModelsClient:
         # Try environment variable first
         token = os.getenv("GITHUB_TOKEN")
         if token:
+            logger.info("Using GitHub token from GITHUB_TOKEN environment variable")
             return token
         
         # Try GitHub CLI token
@@ -187,13 +188,31 @@ class GitHubModelsClient:
                 text=True, 
                 check=True
             )
-            return result.stdout.strip()
+            token = result.stdout.strip()
+            if token:
+                logger.info("Using GitHub token from GitHub CLI")
+                return token
         except (subprocess.CalledProcessError, FileNotFoundError):
             pass
         
-        # For public showcase, use a demo token (limited functionality)
-        logger.warning("No GitHub token found. Using demo mode with limited functionality.")
-        return "demo_token"
+        # No token found
+        logger.error("""
+❌ GitHub Models API requires authentication!
+
+To use GitHub Models, you need a Personal Access Token with 'models' scope.
+
+Setup options:
+1. Create a PAT: https://github.com/settings/tokens
+   - Select 'models' scope
+   - Set GITHUB_TOKEN environment variable
+
+2. Use GitHub CLI: gh auth login
+   - Automatically sets up token with correct scopes
+
+3. For demo mode: Set GITHUB_TOKEN=demo_token
+   - Limited functionality, no real API calls
+        """)
+        return None
     
     async def _call_github_models_api(self, model_id: str, messages: List[Dict[str, str]], parameters: Dict[str, Any]) -> Dict[str, Any]:
         """Call GitHub Models API."""
@@ -201,6 +220,12 @@ class GitHubModelsClient:
         
         # Get GitHub token
         token = self._get_github_token()
+        
+        if not token:
+            return {
+                "error": "No GitHub token available. Please set up authentication.",
+                "demo_response": f"Demo response from {model_id}: This is a mock response. Set up GitHub token for real API calls."
+            }
         
         headers = {
             "Accept": "application/vnd.github+json",
