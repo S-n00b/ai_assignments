@@ -582,8 +582,7 @@ class ModernDashboardManager:
                     ["Architecture Design", "Completed", "100%", "08:45"],
                     ["Report Generation", "Queued", "0%", "--"]
                 ],
-                interactive=False,
-                height=200
+                interactive=False
             )
     
     def _create_knowledge_graph_widget(self):
@@ -649,8 +648,7 @@ class ModernDashboardManager:
                     ["GPT-5-Codex", "Code Generation", "0.89", "2024-12-15 14:22"],
                     ["Claude 3.5", "Reasoning", "0.91", "2024-12-15 14:18"]
                 ],
-                interactive=False,
-                height=200
+                interactive=False
             )
     
     def _create_system_health_widget(self):

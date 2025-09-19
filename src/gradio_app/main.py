@@ -778,6 +778,10 @@ class LenovoAAITCApp:
     def _create_copilot_tab(self):
         """Create the AI copilot tab interface."""
         return create_copilot_interface()
+    
+    def _create_knowledge_graph_tab(self):
+        """Create the knowledge graph tab interface."""
+        return create_knowledge_graph_interface()
 
 
 def create_gradio_app() -> gr.Blocks:
