@@ -1,0 +1,83 @@
+---
+alwaysApply: true
+description: PowerShell development workflow and commands for ai_assignments project
+---
+
+# PowerShell Development Workflow
+
+This project uses PowerShell for development commands. Reference the comprehensive command set in [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1).
+
+## Key Development Commands
+
+### Project Setup
+```powershell
+# Navigate to project root
+cd C:\Users\samne\PycharmProjects\ai_assignments
+
+# Activate virtual environment
+.\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install -r config\requirements.txt
+pip install -r config\requirements-testing.txt
+```
+
+### Testing Commands
+```powershell
+# Run all tests
+python -m pytest tests\ -v --tb=short
+
+# Run specific test categories
+python -m pytest tests\unit\ -v --tb=short
+python -m pytest tests\integration\ -v --tb=short
+python -m pytest tests\e2e\ -v --tb=short --timeout=600
+
+# Run with coverage
+python -m pytest tests\ -v --cov=src --cov-report=html --cov-report=term-missing
+```
+
+### Code Quality
+```powershell
+# Format code
+black src\ tests\
+isort src\ tests\
+
+# Lint code
+flake8 src\ tests\ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+# Type checking
+mypy src\ --ignore-missing-imports
+```
+
+### Application Launch
+```powershell
+# Launch Gradio app
+python -m src.gradio_app.main
+
+# Launch with MCP server
+python -m src.gradio_app.main --mcp-server
+
+# Launch with custom host/port
+python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+```
+
+### Cleanup Commands
+```powershell
+# Clean Python cache
+Get-ChildItem -Recurse -Filter "__pycache__" | Remove-Item -Recurse -Force
+Get-ChildItem -Recurse -Filter "*.pyc" | Remove-Item -Force
+
+# Clean test artifacts
+Remove-Item -Recurse -Force .pytest_cache\
+Remove-Item -Recurse -Force .coverage
+Remove-Item -Recurse -Force htmlcov\
+```
+
+## Project Structure
+- **Source Code**: `src/` directory
+- **Tests**: `tests/` directory (unit, integration, e2e)
+- **Configuration**: `config/` directory
+- **Documentation**: `docs/` directory
+- **Scripts**: `scripts/` directory
+
+Always use PowerShell commands and backslashes for Windows paths. Reference [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1) for the complete command reference.

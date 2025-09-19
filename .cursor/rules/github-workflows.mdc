@@ -1,0 +1,35 @@
+---
+description: GitHub Actions workflow management and troubleshooting
+globs: .github/workflows/*.yml
+---
+
+# GitHub Actions Workflow Management
+
+## Current Workflow Status
+
+### Active Workflows
+- **jekyll-pages.yml**: Deploys Jekyll site to GitHub Pages
+- **test.yml**: Runs test suite (simplified for troubleshooting)
+
+### Disabled Workflows  
+- **api-docs.yml.disabled**: API documentation generation (temporarily disabled)
+- **ci.yml.disabled**: Full CI/CD pipeline (temporarily disabled)
+
+## Workflow Troubleshooting
+
+### Common Issues
+1. **Jekyll bundle failure (exit code 15)**: Missing Jekyll gems in [docs/Gemfile](mdc:docs/Gemfile)
+2. **Test workflow failure (exit code 4)**: Missing test dependencies or test files
+3. **Environment errors**: Missing GitHub environments (github-pages, production)
+
+### Fix Strategies
+- Disable problematic workflows by renaming to `.disabled`
+- Simplify workflows to essential steps only
+- Gradually re-enable features once core functionality works
+- Use PowerShell commands for workflow management
+
+### Workflow File Locations
+- Active: `.github/workflows/*.yml`
+- Disabled: `.github/workflows/*.yml.disabled`
+
+When troubleshooting workflows, always check the GitHub Actions logs for specific error messages and apply targeted fixes rather than broad changes.
