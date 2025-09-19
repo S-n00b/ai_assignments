@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/development/testing/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Testing Guide - Lenovo AAITC Solutions - Lenovo AAITC Solutions</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/development/testing.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#testing-guide-lenovo-aaitc-solutions" class="nav-link">Testing Guide - Lenovo AAITC Solutions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#testing-strategy" class="nav-link">Testing Strategy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#test-environment-setup" class="nav-link">Test Environment Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#unit-testing" class="nav-link">Unit Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#integration-testing" class="nav-link">Integration Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#end-to-end-testing" class="nav-link">End-to-End Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-testing" class="nav-link">Performance Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#test-coverage" class="nav-link">Test Coverage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#continuous-integration" class="nav-link">Continuous Integration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#test-maintenance" class="nav-link">Test Maintenance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="testing-guide-lenovo-aaitc-solutions">Testing Guide - Lenovo AAITC Solutions<a class="headerlink" href="#testing-guide-lenovo-aaitc-solutions" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This guide provides comprehensive testing instructions for the Lenovo AAITC Solutions framework, covering unit tests, integration tests, end-to-end tests, and performance testing.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#testing-strategy">Testing Strategy</a></li>
+<li><a href="#test-environment-setup">Test Environment Setup</a></li>
+<li><a href="#unit-testing">Unit Testing</a></li>
+<li><a href="#integration-testing">Integration Testing</a></li>
+<li><a href="#end-to-end-testing">End-to-End Testing</a></li>
+<li><a href="#performance-testing">Performance Testing</a></li>
+<li><a href="#test-coverage">Test Coverage</a></li>
+<li><a href="#continuous-integration">Continuous Integration</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ol>
+<h2 id="testing-strategy">Testing Strategy<a class="headerlink" href="#testing-strategy" title="Permanent link">&para;</a></h2>
+<h3 id="test-pyramid">Test Pyramid<a class="headerlink" href="#test-pyramid" title="Permanent link">&para;</a></h3>
+<p>Our testing strategy follows the test pyramid approach:</p>
+<ol>
+<li><strong>Unit Tests (70%)</strong>: Fast, isolated tests for individual components</li>
+<li><strong>Integration Tests (20%)</strong>: Tests for component interactions</li>
+<li><strong>End-to-End Tests (10%)</strong>: Full system tests</li>
+</ol>
+<h3 id="test-categories">Test Categories<a class="headerlink" href="#test-categories" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Unit Tests</strong>: Individual function and class testing</li>
+<li><strong>Integration Tests</strong>: API and service integration testing</li>
+<li><strong>End-to-End Tests</strong>: Complete workflow testing</li>
+<li><strong>Performance Tests</strong>: Load and stress testing</li>
+<li><strong>Security Tests</strong>: Vulnerability and penetration testing</li>
+</ul>
+<h2 id="test-environment-setup">Test Environment Setup<a class="headerlink" href="#test-environment-setup" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Install testing dependencies
+pip install -r config/requirements-testing.txt
+
+# Install additional testing tools
+pip install pytest pytest-cov pytest-xdist pytest-benchmark
+pip install pytest-asyncio pytest-mock
+pip install coverage bandit safety
+</code></pre>
+<h3 id="test-configuration">Test Configuration<a class="headerlink" href="#test-configuration" title="Permanent link">&para;</a></h3>
+<p>The project uses <code>pytest.ini</code> for configuration:</p>
+<pre><code class="language-ini">[tool:pytest]
+testpaths = tests
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+addopts =
+    -v
+    --tb=short
+    --strict-markers
+    --disable-warnings
+    --cov=src
+    --cov-report=html
+    --cov-report=term-missing
+markers =
+    unit: Unit tests
+    integration: Integration tests
+    e2e: End-to-end tests
+    slow: Slow running tests
+    api: API tests
+    performance: Performance tests
+</code></pre>
+<h2 id="unit-testing">Unit Testing<a class="headerlink" href="#unit-testing" title="Permanent link">&para;</a></h2>
+<h3 id="running-unit-tests">Running Unit Tests<a class="headerlink" href="#running-unit-tests" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Run all unit tests
+python -m pytest tests/unit/ -v
+
+# Run specific unit test file
+python -m pytest tests/unit/test_model_evaluation.py -v
+
+# Run with coverage
+python -m pytest tests/unit/ --cov=src --cov-report=html
+</code></pre>
+<h3 id="example-unit-test">Example Unit Test<a class="headerlink" href="#example-unit-test" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># tests/unit/test_model_evaluation.py
+import pytest
+from src.model_evaluation.config import ModelConfig, LATEST_MODEL_CONFIGS
+from src.model_evaluation.pipeline import ComprehensiveEvaluationPipeline
+
+class TestModelConfig:
+    def test_model_config_creation(self):
+        &quot;&quot;&quot;Test ModelConfig creation with valid data.&quot;&quot;&quot;
+        config = ModelConfig(
+            name=&quot;Test Model&quot;,
+            provider=&quot;openai&quot;,
+            model_id=&quot;gpt-4&quot;,
+            max_tokens=1000,
+            temperature=0.7
+        )
+
+        assert config.name == &quot;Test Model&quot;
+        assert config.provider == &quot;openai&quot;
+        assert config.model_id == &quot;gpt-4&quot;
+        assert config.max_tokens == 1000
+        assert config.temperature == 0.7
+
+    def test_model_config_validation(self):
+        &quot;&quot;&quot;Test ModelConfig validation.&quot;&quot;&quot;
+        config = ModelConfig(
+            name=&quot;Test Model&quot;,
+            provider=&quot;openai&quot;,
+            model_id=&quot;gpt-4&quot;
+        )
+
+        assert config.validate() == True
+
+    def test_invalid_model_config(self):
+        &quot;&quot;&quot;Test ModelConfig with invalid data.&quot;&quot;&quot;
+        with pytest.raises(ValueError):
+            ModelConfig(
+                name=&quot;&quot;,  # Invalid empty name
+                provider=&quot;openai&quot;,
+                model_id=&quot;gpt-4&quot;
+            )
+
+class TestComprehensiveEvaluationPipeline:
+    @pytest.fixture
+    def pipeline(self):
+        &quot;&quot;&quot;Create a test pipeline instance.&quot;&quot;&quot;
+        models = [LATEST_MODEL_CONFIGS[&quot;gpt-5&quot;]]
+        return ComprehensiveEvaluationPipeline(models)
+
+    def test_pipeline_initialization(self, pipeline):
+        &quot;&quot;&quot;Test pipeline initialization.&quot;&quot;&quot;
+        assert pipeline is not None
+        assert len(pipeline.models) == 1
+        assert pipeline.models[0].name == &quot;GPT-5&quot;
+
+    @pytest.mark.asyncio
+    async def test_model_evaluation(self, pipeline):
+        &quot;&quot;&quot;Test model evaluation functionality.&quot;&quot;&quot;
+        # Mock test data
+        test_data = pd.DataFrame({
+            'prompt': ['Test prompt 1', 'Test prompt 2'],
+            'expected_output': ['Expected 1', 'Expected 2']
+        })
+
+        # This would be mocked in real tests
+        result = await pipeline.evaluate_model_comprehensive(
+            pipeline.models[0],
+            test_data,
+            TaskType.TEXT_GENERATION
+        )
+
+        assert result is not None
+        assert 'metrics' in result
+</code></pre>
+<h2 id="integration-testing">Integration Testing<a class="headerlink" href="#integration-testing" title="Permanent link">&para;</a></h2>
+<h3 id="running-integration-tests">Running Integration Tests<a class="headerlink" href="#running-integration-tests" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Run all integration tests
+python -m pytest tests/integration/ -v
+
+# Run specific integration test
+python -m pytest tests/integration/test_model_evaluation_integration.py -v
+
+# Run with timeout for long-running tests
+python -m pytest tests/integration/ --timeout=300
+</code></pre>
+<h3 id="example-integration-test">Example Integration Test<a class="headerlink" href="#example-integration-test" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># tests/integration/test_model_evaluation_integration.py
+import pytest
+import asyncio
+from src.model_evaluation.pipeline import ComprehensiveEvaluationPipeline
+from src.model_evaluation.config import LATEST_MODEL_CONFIGS
+from src.utils.logging_system import LoggingSystem
+
+class TestModelEvaluationIntegration:
+    @pytest.fixture
+    async def evaluation_pipeline(self):
+        &quot;&quot;&quot;Create evaluation pipeline for integration testing.&quot;&quot;&quot;
+        models = [
+            LATEST_MODEL_CONFIGS[&quot;gpt-5&quot;],
+            LATEST_MODEL_CONFIGS[&quot;claude-3.5-sonnet&quot;]
+        ]
+        pipeline = ComprehensiveEvaluationPipeline(models)
+        return pipeline
+
+    @pytest.mark.integration
+    @pytest.mark.asyncio
+    async def test_multi_model_evaluation(self, evaluation_pipeline):
+        &quot;&quot;&quot;Test evaluation across multiple models.&quot;&quot;&quot;
+        # Create test dataset
+        test_data = pd.DataFrame({
+            'prompt': [
+                'Explain quantum computing in simple terms.',
+                'Write a Python function to sort a list.',
+                'What are the benefits of renewable energy?'
+            ],
+            'category': ['reasoning', 'code', 'knowledge']
+        })
+
+        # Run evaluation
+        results = await evaluation_pipeline.run_multi_task_evaluation({
+            TaskType.TEXT_GENERATION: test_data
+        })
+
+        # Verify results
+        assert results is not None
+        assert len(results) &gt; 0
+        assert 'model_name' in results.columns
+        assert 'accuracy' in results.columns
+
+    @pytest.mark.integration
+    @pytest.mark.asyncio
+    async def test_robustness_integration(self, evaluation_pipeline):
+        &quot;&quot;&quot;Test robustness testing integration.&quot;&quot;&quot;
+        from src.model_evaluation.robustness import RobustnessTestingSuite
+
+        robustness_suite = RobustnessTestingSuite()
+        test_prompts = [
+            &quot;Normal prompt&quot;,
+            &quot;Prompt with typos: helo world&quot;,
+            &quot;PROMPT IN ALL CAPS&quot;,
+            &quot;Prompt with special characters: @#$%^&amp;*()&quot;
+        ]
+
+        results = await robustness_suite.test_noise_tolerance(
+            evaluation_pipeline.models[0],
+            test_prompts
+        )
+
+        assert results is not None
+        assert 'noise_tolerance_score' in results
+</code></pre>
+<h2 id="end-to-end-testing">End-to-End Testing<a class="headerlink" href="#end-to-end-testing" title="Permanent link">&para;</a></h2>
+<h3 id="running-e2e-tests">Running E2E Tests<a class="headerlink" href="#running-e2e-tests" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Run all E2E tests
+python -m pytest tests/e2e/ -v
+
+# Run specific E2E test
+python -m pytest tests/e2e/test_complete_workflows.py -v
+
+# Run with longer timeout
+python -m pytest tests/e2e/ --timeout=600
+</code></pre>
+<h3 id="example-e2e-test">Example E2E Test<a class="headerlink" href="#example-e2e-test" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># tests/e2e/test_complete_workflows.py
+import pytest
+import asyncio
+from src.gradio_app.main import LenovoAAITCApp
+from src.model_evaluation.pipeline import ComprehensiveEvaluationPipeline
+
+class TestCompleteWorkflows:
+    @pytest.fixture
+    async def app(self):
+        &quot;&quot;&quot;Create application instance for E2E testing.&quot;&quot;&quot;
+        app = LenovoAAITCApp()
+        return app
+
+    @pytest.mark.e2e
+    @pytest.mark.asyncio
+    async def test_complete_model_evaluation_workflow(self, app):
+        &quot;&quot;&quot;Test complete model evaluation workflow.&quot;&quot;&quot;
+        # Initialize pipeline
+        models = [LATEST_MODEL_CONFIGS[&quot;gpt-5&quot;]]
+        pipeline = ComprehensiveEvaluationPipeline(models)
+
+        # Create test dataset
+        test_data = pd.DataFrame({
+            'prompt': [
+                'Write a haiku about artificial intelligence.',
+                'Solve this math problem: 2x + 5 = 15',
+                'Explain the concept of machine learning.'
+            ],
+            'expected_output': [
+                'AI learns and grows,',
+                'x = 5',
+                'Machine learning is...'
+            ]
+        })
+
+        # Run complete evaluation
+        results = await pipeline.run_multi_task_evaluation({
+            TaskType.TEXT_GENERATION: test_data
+        }, include_robustness=True, include_bias_detection=True)
+
+        # Generate report
+        report = pipeline.generate_evaluation_report(results, &quot;html&quot;)
+
+        # Verify complete workflow
+        assert results is not None
+        assert len(results) &gt; 0
+        assert report is not None
+        assert len(report) &gt; 0
+
+    @pytest.mark.e2e
+    @pytest.mark.asyncio
+    async def test_ai_architecture_deployment_workflow(self, app):
+        &quot;&quot;&quot;Test complete AI architecture deployment workflow.&quot;&quot;&quot;
+        from src.ai_architecture.platform import HybridAIPlatform
+        from src.ai_architecture.lifecycle import ModelLifecycleManager
+
+        # Initialize platform
+        platform = HybridAIPlatform()
+        lifecycle_manager = ModelLifecycleManager()
+
+        # Register model
+        model_version = await lifecycle_manager.register_model(
+            model_id=&quot;test-model&quot;,
+            version=&quot;1.0.0&quot;,
+            stage=ModelStage.DEVELOPMENT,
+            created_by=&quot;test-user&quot;,
+            description=&quot;Test model for E2E testing&quot;
+        )
+
+        # Deploy model
+        deployment_result = await platform.deploy_model(
+            model_config=ModelDeploymentConfig(
+                model_id=&quot;test-model&quot;,
+                version=&quot;1.0.0&quot;
+            ),
+            target_environment=DeploymentTarget.CLOUD
+        )
+
+        # Verify deployment
+        assert deployment_result is not None
+        assert deployment_result['status'] == 'success'
+        assert 'deployment_id' in deployment_result
+</code></pre>
+<h2 id="performance-testing">Performance Testing<a class="headerlink" href="#performance-testing" title="Permanent link">&para;</a></h2>
+<h3 id="running-performance-tests">Running Performance Tests<a class="headerlink" href="#running-performance-tests" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Run performance tests
+python -m pytest tests/unit/ --benchmark-only --benchmark-save=baseline
+
+# Compare with baseline
+python -m pytest tests/unit/ --benchmark-compare --benchmark-compare-fail=mean:5%
+
+# Run load tests
+python -m pytest tests/performance/ -v
+</code></pre>
+<h3 id="example-performance-test">Example Performance Test<a class="headerlink" href="#example-performance-test" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># tests/performance/test_performance.py
+import pytest
+import asyncio
+import time
+from src.model_evaluation.pipeline import ComprehensiveEvaluationPipeline
+
+class TestPerformance:
+    @pytest.mark.performance
+    @pytest.mark.benchmark
+    def test_model_evaluation_performance(self, benchmark):
+        &quot;&quot;&quot;Benchmark model evaluation performance.&quot;&quot;&quot;
+        models = [LATEST_MODEL_CONFIGS[&quot;gpt-5&quot;]]
+        pipeline = ComprehensiveEvaluationPipeline(models)
+
+        test_data = pd.DataFrame({
+            'prompt': ['Test prompt'] * 100,
+            'expected_output': ['Expected output'] * 100
+        })
+
+        def run_evaluation():
+            return asyncio.run(pipeline.run_multi_task_evaluation({
+                TaskType.TEXT_GENERATION: test_data
+            }))
+
+        result = benchmark(run_evaluation)
+        assert result is not None
+
+    @pytest.mark.performance
+    @pytest.mark.asyncio
+    async def test_concurrent_evaluations(self):
+        &quot;&quot;&quot;Test concurrent model evaluations.&quot;&quot;&quot;
+        models = [LATEST_MODEL_CONFIGS[&quot;gpt-5&quot;]]
+        pipeline = ComprehensiveEvaluationPipeline(models)
+
+        test_data = pd.DataFrame({
+            'prompt': ['Concurrent test prompt'],
+            'expected_output': ['Expected output']
+        })
+
+        # Run 10 concurrent evaluations
+        tasks = []
+        for _ in range(10):
+            task = pipeline.run_multi_task_evaluation({
+                TaskType.TEXT_GENERATION: test_data
+            })
+            tasks.append(task)
+
+        start_time = time.time()
+        results = await asyncio.gather(*tasks)
+        end_time = time.time()
+
+        # Verify all evaluations completed
+        assert len(results) == 10
+        assert all(result is not None for result in results)
+
+        # Verify performance (should complete within reasonable time)
+        execution_time = end_time - start_time
+        assert execution_time &lt; 60  # Should complete within 60 seconds
+</code></pre>
+<h2 id="test-coverage">Test Coverage<a class="headerlink" href="#test-coverage" title="Permanent link">&para;</a></h2>
+<h3 id="coverage-requirements">Coverage Requirements<a class="headerlink" href="#coverage-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Minimum Coverage</strong>: 80% overall</li>
+<li><strong>Critical Components</strong>: 95% coverage</li>
+<li><strong>New Code</strong>: 90% coverage</li>
+</ul>
+<h3 id="running-coverage-analysis">Running Coverage Analysis<a class="headerlink" href="#running-coverage-analysis" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Generate coverage report
+python -m pytest tests/ --cov=src --cov-report=html --cov-report=term-missing
+
+# View coverage report
+Start-Process htmlcov/index.html  # Windows
+open htmlcov/index.html          # macOS
+xdg-open htmlcov/index.html      # Linux
+</code></pre>
+<h3 id="coverage-configuration">Coverage Configuration<a class="headerlink" href="#coverage-configuration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-ini"># .coveragerc
+[run]
+source = src
+omit =
+    */tests/*
+    */venv/*
+    */__pycache__/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+</code></pre>
+<h2 id="continuous-integration">Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permanent link">&para;</a></h2>
+<h3 id="github-actions-workflow">GitHub Actions Workflow<a class="headerlink" href="#github-actions-workflow" title="Permanent link">&para;</a></h3>
+<pre><code class="language-yaml"># .github/workflows/test.yml
+name: Test Suite
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, &quot;3.10&quot;, &quot;3.11&quot;]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r config/requirements.txt
+          pip install -r config/requirements-testing.txt
+
+      - name: Run unit tests
+        run: |
+          python -m pytest tests/unit/ -v --cov=src --cov-report=xml
+
+      - name: Run integration tests
+        run: |
+          python -m pytest tests/integration/ -v --timeout=300
+
+      - name: Run E2E tests
+        run: |
+          python -m pytest tests/e2e/ -v --timeout=600
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+</code></pre>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="test-organization">Test Organization<a class="headerlink" href="#test-organization" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Test Structure</strong>: Mirror source code structure</li>
+<li><strong>Naming Convention</strong>: Use descriptive test names</li>
+<li><strong>Test Isolation</strong>: Each test should be independent</li>
+<li><strong>Test Data</strong>: Use fixtures for reusable test data</li>
+</ol>
+<h3 id="test-quality">Test Quality<a class="headerlink" href="#test-quality" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AAA Pattern</strong>: Arrange, Act, Assert</li>
+<li><strong>Single Responsibility</strong>: One assertion per test</li>
+<li><strong>Clear Assertions</strong>: Use descriptive assertion messages</li>
+<li><strong>Mock External Dependencies</strong>: Isolate units under test</li>
+</ol>
+<h3 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Fast Tests</strong>: Unit tests should run quickly</li>
+<li><strong>Parallel Execution</strong>: Use pytest-xdist for parallel testing</li>
+<li><strong>Test Data Size</strong>: Use minimal test data</li>
+<li><strong>Cleanup</strong>: Clean up resources after tests</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-test-issues">Common Test Issues<a class="headerlink" href="#common-test-issues" title="Permanent link">&para;</a></h3>
+<h4 id="1-import-errors">1. Import Errors<a class="headerlink" href="#1-import-errors" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Add project root to Python path
+export PYTHONPATH=&quot;${PYTHONPATH}:$(pwd)&quot;
+
+# Or use pytest with proper path
+python -m pytest tests/ -v
+</code></pre>
+<h4 id="2-async-test-issues">2. Async Test Issues<a class="headerlink" href="#2-async-test-issues" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># Use pytest-asyncio for async tests
+@pytest.mark.asyncio
+async def test_async_function():
+    result = await async_function()
+    assert result is not None
+</code></pre>
+<h4 id="3-mock-issues">3. Mock Issues<a class="headerlink" href="#3-mock-issues" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># Use pytest-mock for mocking
+def test_with_mock(mocker):
+    mock_api = mocker.patch('src.api.external_api')
+    mock_api.return_value = &quot;mocked response&quot;
+
+    result = function_that_uses_api()
+    assert result == &quot;expected result&quot;
+</code></pre>
+<h4 id="4-timeout-issues">4. Timeout Issues<a class="headerlink" href="#4-timeout-issues" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Increase timeout for slow tests
+python -m pytest tests/ --timeout=600
+
+# Or mark slow tests
+@pytest.mark.slow
+def test_slow_function():
+    # Slow test implementation
+    pass
+</code></pre>
+<h3 id="test-debugging">Test Debugging<a class="headerlink" href="#test-debugging" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Run tests with verbose output
+python -m pytest tests/ -v -s
+
+# Run specific test with debugging
+python -m pytest tests/unit/test_specific.py::test_function -v -s
+
+# Use pdb for debugging
+python -m pytest tests/ --pdb
+</code></pre>
+<h2 id="test-maintenance">Test Maintenance<a class="headerlink" href="#test-maintenance" title="Permanent link">&para;</a></h2>
+<h3 id="regular-tasks">Regular Tasks<a class="headerlink" href="#regular-tasks" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Weekly</strong>: Review test failures and fix flaky tests</li>
+<li><strong>Monthly</strong>: Update test data and fixtures</li>
+<li><strong>Quarterly</strong>: Review and update test coverage requirements</li>
+<li><strong>Annually</strong>: Refactor and optimize test suite</li>
+</ol>
+<h3 id="test-metrics">Test Metrics<a class="headerlink" href="#test-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Coverage</strong>: Track coverage trends</li>
+<li><strong>Test Execution Time</strong>: Monitor test performance</li>
+<li><strong>Test Failure Rate</strong>: Track test reliability</li>
+<li><strong>Flaky Test Rate</strong>: Identify and fix unstable tests</li>
+</ul>
+<hr />
+<p><strong>Testing Guide - Lenovo AAITC Solutions</strong><br />
+<em>Comprehensive testing instructions for quality assurance</em></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

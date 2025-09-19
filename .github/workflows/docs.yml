@@ -1,0 +1,46 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "README.md"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs
+          pip install mkdocs-material
+          pip install mkdocs-mermaid2-plugin
+          pip install mkdocs-minify-plugin
+          pip install mkdocs-git-revision-date-localized-plugin
+          pip install mkdocs-jupyter
+          pip install mkdocs-iframe-plugin
+
+      - name: Build documentation
+        run: |
+          cd docs
+          mkdocs build
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/site

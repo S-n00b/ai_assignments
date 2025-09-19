@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/assignments/assignment2/system-architecture/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>System Architecture - Lenovo AAITC Solutions</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/assignments/assignment2/system-architecture.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#system-architecture" class="nav-link">System Architecture</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#architecture-principles" class="nav-link">Architecture Principles</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#system-components" class="nav-link">System Components</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#component-architecture" class="nav-link">Component Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#infrastructure-components" class="nav-link">Infrastructure Components</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#monitoring-and-observability" class="nav-link">Monitoring and Observability</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#security-architecture" class="nav-link">Security Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#deployment-architecture" class="nav-link">Deployment Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The AI Architecture System provides a comprehensive framework for building, deploying, and managing AI systems at scale. This document outlines the system architecture, components, and design patterns used to create robust, scalable, and maintainable AI solutions.</p>
+<h2 id="architecture-principles">Architecture Principles<a class="headerlink" href="#architecture-principles" title="Permanent link">&para;</a></h2>
+<h3 id="1-modularity">1. Modularity<a class="headerlink" href="#1-modularity" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Component-based Design</strong>: Each component has a single responsibility</li>
+<li><strong>Loose Coupling</strong>: Components interact through well-defined interfaces</li>
+<li><strong>High Cohesion</strong>: Related functionality is grouped together</li>
+</ul>
+<h3 id="2-scalability">2. Scalability<a class="headerlink" href="#2-scalability" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Horizontal Scaling</strong>: System can scale by adding more instances</li>
+<li><strong>Vertical Scaling</strong>: Components can utilize more resources</li>
+<li><strong>Elastic Scaling</strong>: Automatic scaling based on demand</li>
+</ul>
+<h3 id="3-reliability">3. Reliability<a class="headerlink" href="#3-reliability" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Fault Tolerance</strong>: System continues operating despite component failures</li>
+<li><strong>Redundancy</strong>: Critical components have backup instances</li>
+<li><strong>Graceful Degradation</strong>: System maintains partial functionality during failures</li>
+</ul>
+<h3 id="4-observability">4. Observability<a class="headerlink" href="#4-observability" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Logging</strong>: All operations are logged with context</li>
+<li><strong>Metrics Collection</strong>: Performance and health metrics are continuously monitored</li>
+<li><strong>Distributed Tracing</strong>: Request flows are tracked across components</li>
+</ul>
+<h2 id="system-components">System Components<a class="headerlink" href="#system-components" title="Permanent link">&para;</a></h2>
+<h3 id="core-architecture-diagram">Core Architecture Diagram<a class="headerlink" href="#core-architecture-diagram" title="Permanent link">&para;</a></h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;Client Layer&quot;
+        A[Web Interface]
+        B[Mobile App]
+        C[API Clients]
+    end
+
+    subgraph &quot;API Gateway&quot;
+        D[Load Balancer]
+        E[Rate Limiter]
+        F[Authentication]
+    end
+
+    subgraph &quot;Application Layer&quot;
+        G[Model Service]
+        H[Agent Service]
+        I[RAG Service]
+        J[Monitoring Service]
+    end
+
+    subgraph &quot;Data Layer&quot;
+        K[Vector Database]
+        L[Model Registry]
+        M[Configuration Store]
+        N[Logging Database]
+    end
+
+    subgraph &quot;Infrastructure&quot;
+        O[Container Orchestration]
+        P[Service Mesh]
+        Q[Message Queue]
+        R[Storage Systems]
+    end
+
+    A --&gt; D
+    B --&gt; D
+    C --&gt; D
+    D --&gt; E
+    E --&gt; F
+    F --&gt; G
+    F --&gt; H
+    F --&gt; I
+    G --&gt; K
+    G --&gt; L
+    H --&gt; Q
+    I --&gt; K
+    J --&gt; N
+    O --&gt; G
+    O --&gt; H
+    O --&gt; I
+    P --&gt; O
+    Q --&gt; H
+    R --&gt; K
+    R --&gt; L
+</code></pre>
+<h2 id="component-architecture">Component Architecture<a class="headerlink" href="#component-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="1-api-gateway">1. API Gateway<a class="headerlink" href="#1-api-gateway" title="Permanent link">&para;</a></h3>
+<p>The API Gateway serves as the single entry point for all client requests, providing:</p>
+<h4 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Request Routing</strong>: Routes requests to appropriate services</li>
+<li><strong>Load Balancing</strong>: Distributes load across service instances</li>
+<li><strong>Rate Limiting</strong>: Prevents abuse and ensures fair usage</li>
+<li><strong>Authentication &amp; Authorization</strong>: Validates user credentials and permissions</li>
+<li><strong>Request/Response Transformation</strong>: Modifies requests and responses as needed</li>
+<li><strong>Circuit Breaker</strong>: Prevents cascading failures</li>
+</ul>
+<h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># api_gateway/gateway.py
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
+import asyncio
+import time
+
+class RateLimitMiddleware(BaseHTTPMiddleware):
+    def __init__(self, app, calls: int = 100, period: int = 60):
+        super().__init__(app)
+        self.calls = calls
+        self.period = period
+        self.requests = {}
+
+    async def dispatch(self, request, call_next):
+        client_ip = request.client.host
+        now = time.time()
+
+        # Clean old entries
+        self.requests = {
+            ip: requests for ip, requests in self.requests.items()
+            if now - requests['start'] &lt; self.period
+        }
+
+        # Check rate limit
+        if client_ip in self.requests:
+            if len(self.requests[client_ip]['calls']) &gt;= self.calls:
+                raise HTTPException(status_code=429, detail=&quot;Rate limit exceeded&quot;)
+            self.requests[client_ip]['calls'].append(now)
+        else:
+            self.requests[client_ip] = {
+                'start': now,
+                'calls': [now]
+            }
+
+        response = await call_next(request)
+        return response
+
+class APIGateway:
+    def __init__(self):
+        self.app = FastAPI(title=&quot;AI System API Gateway&quot;)
+        self._setup_middleware()
+        self._setup_routes()
+
+    def _setup_middleware(self):
+        self.app.add_middleware(
+            CORSMiddleware,
+            allow_origins=[&quot;*&quot;],
+            allow_credentials=True,
+            allow_methods=[&quot;*&quot;],
+            allow_headers=[&quot;*&quot;],
+        )
+        self.app.add_middleware(GZipMiddleware, minimum_size=1000)
+        self.app.add_middleware(RateLimitMiddleware, calls=100, period=60)
+
+    def _setup_routes(self):
+        @self.app.get(&quot;/health&quot;)
+        async def health_check():
+            return {&quot;status&quot;: &quot;healthy&quot;, &quot;timestamp&quot;: time.time()}
+
+        @self.app.post(&quot;/models/{model_id}/predict&quot;)
+        async def predict(model_id: str, request: dict):
+            # Route to model service
+            pass
+
+        @self.app.post(&quot;/agents/{agent_id}/execute&quot;)
+        async def execute_agent(agent_id: str, request: dict):
+            # Route to agent service
+            pass
+</code></pre>
+<h3 id="2-model-service">2. Model Service<a class="headerlink" href="#2-model-service" title="Permanent link">&para;</a></h3>
+<p>The Model Service manages AI model lifecycle and inference:</p>
+<h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model Loading</strong>: Dynamic loading and unloading of models</li>
+<li><strong>Inference Pipeline</strong>: Optimized inference with batching and caching</li>
+<li><strong>Model Versioning</strong>: Support for multiple model versions</li>
+<li><strong>A/B Testing</strong>: Traffic splitting for model comparison</li>
+<li><strong>Performance Monitoring</strong>: Real-time performance tracking</li>
+</ul>
+<h4 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># model_service/service.py
+from typing import Dict, List, Optional
+import asyncio
+import torch
+from concurrent.futures import ThreadPoolExecutor
+import logging
+
+class ModelService:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.models: Dict[str, torch.nn.Module] = {}
+        self.executor = ThreadPoolExecutor(max_workers=4)
+        self.logger = logging.getLogger(__name__)
+
+    async def load_model(self, model_id: str, version: str = &quot;latest&quot;):
+        &quot;&quot;&quot;Load a model into memory&quot;&quot;&quot;
+        try:
+            model_path = f&quot;models/{model_id}/{version}&quot;
+            model = torch.load(model_path, map_location='cpu')
+            model.eval()
+
+            self.models[f&quot;{model_id}:{version}&quot;] = model
+            self.logger.info(f&quot;Loaded model {model_id}:{version}&quot;)
+
+        except Exception as e:
+            self.logger.error(f&quot;Failed to load model {model_id}:{version}: {e}&quot;)
+            raise
+
+    async def predict(self, model_id: str, inputs: List[Dict], version: str = &quot;latest&quot;):
+        &quot;&quot;&quot;Run inference on inputs&quot;&quot;&quot;
+        model_key = f&quot;{model_id}:{version}&quot;
+
+        if model_key not in self.models:
+            await self.load_model(model_id, version)
+
+        model = self.models[model_key]
+
+        # Run inference in thread pool to avoid blocking
+        loop = asyncio.get_event_loop()
+        predictions = await loop.run_in_executor(
+            self.executor,
+            self._run_inference,
+            model,
+            inputs
+        )
+
+        return predictions
+
+    def _run_inference(self, model: torch.nn.Module, inputs: List[Dict]):
+        &quot;&quot;&quot;Run inference synchronously&quot;&quot;&quot;
+        with torch.no_grad():
+            # Preprocess inputs
+            processed_inputs = self._preprocess(inputs)
+
+            # Run inference
+            outputs = model(**processed_inputs)
+
+            # Postprocess outputs
+            results = self._postprocess(outputs)
+
+            return results
+
+    def _preprocess(self, inputs: List[Dict]):
+        &quot;&quot;&quot;Preprocess inputs for model&quot;&quot;&quot;
+        # Implementation depends on model type
+        pass
+
+    def _postprocess(self, outputs):
+        &quot;&quot;&quot;Postprocess model outputs&quot;&quot;&quot;
+        # Implementation depends on model type
+        pass
+</code></pre>
+<h3 id="3-agent-service">3. Agent Service<a class="headerlink" href="#3-agent-service" title="Permanent link">&para;</a></h3>
+<p>The Agent Service manages autonomous AI agents:</p>
+<h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Agent Orchestration</strong>: Manages multiple agents and their interactions</li>
+<li><strong>Task Scheduling</strong>: Schedules and prioritizes agent tasks</li>
+<li><strong>State Management</strong>: Maintains agent state and context</li>
+<li><strong>Communication</strong>: Facilitates inter-agent communication</li>
+<li><strong>Monitoring</strong>: Tracks agent performance and health</li>
+</ul>
+<h4 id="architecture_1">Architecture<a class="headerlink" href="#architecture_1" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># agent_service/orchestrator.py
+from typing import Dict, List, Optional
+import asyncio
+from dataclasses import dataclass
+from enum import Enum
+import uuid
+
+class AgentStatus(Enum):
+    IDLE = &quot;idle&quot;
+    BUSY = &quot;busy&quot;
+    ERROR = &quot;error&quot;
+    OFFLINE = &quot;offline&quot;
+
+@dataclass
+class AgentTask:
+    id: str
+    agent_id: str
+    task_type: str
+    payload: Dict
+    priority: int = 0
+    created_at: float = 0
+    started_at: Optional[float] = None
+    completed_at: Optional[float] = None
+    status: str = &quot;pending&quot;
+
+class AgentOrchestrator:
+    def __init__(self):
+        self.agents: Dict[str, Dict] = {}
+        self.task_queue = asyncio.PriorityQueue()
+        self.running_tasks: Dict[str, asyncio.Task] = {}
+        self.agent_states: Dict[str, AgentStatus] = {}
+
+    async def register_agent(self, agent_id: str, agent_config: Dict):
+        &quot;&quot;&quot;Register a new agent&quot;&quot;&quot;
+        self.agents[agent_id] = agent_config
+        self.agent_states[agent_id] = AgentStatus.IDLE
+        self.logger.info(f&quot;Registered agent {agent_id}&quot;)
+
+    async def submit_task(self, agent_id: str, task_type: str, payload: Dict, priority: int = 0):
+        &quot;&quot;&quot;Submit a task to an agent&quot;&quot;&quot;
+        task = AgentTask(
+            id=str(uuid.uuid4()),
+            agent_id=agent_id,
+            task_type=task_type,
+            payload=payload,
+            priority=priority
+        )
+
+        await self.task_queue.put((priority, task))
+        return task.id
+
+    async def process_tasks(self):
+        &quot;&quot;&quot;Process tasks from the queue&quot;&quot;&quot;
+        while True:
+            try:
+                priority, task = await self.task_queue.get()
+
+                if task.agent_id in self.agents:
+                    # Check if agent is available
+                    if self.agent_states[task.agent_id] == AgentStatus.IDLE:
+                        # Start task execution
+                        self.agent_states[task.agent_id] = AgentStatus.BUSY
+                        task.started_at = time.time()
+
+                        # Execute task
+                        execution_task = asyncio.create_task(
+                            self._execute_task(task)
+                        )
+                        self.running_tasks[task.id] = execution_task
+
+                self.task_queue.task_done()
+
+            except Exception as e:
+                self.logger.error(f&quot;Error processing task: {e}&quot;)
+
+    async def _execute_task(self, task: AgentTask):
+        &quot;&quot;&quot;Execute a specific task&quot;&quot;&quot;
+        try:
+            agent = self.agents[task.agent_id]
+
+            # Execute task based on agent type
+            result = await self._run_agent_task(agent, task)
+
+            task.status = &quot;completed&quot;
+            task.completed_at = time.time()
+
+        except Exception as e:
+            task.status = &quot;failed&quot;
+            self.logger.error(f&quot;Task {task.id} failed: {e}&quot;)
+
+        finally:
+            # Mark agent as idle
+            self.agent_states[task.agent_id] = AgentStatus.IDLE
+            if task.id in self.running_tasks:
+                del self.running_tasks[task.id]
+</code></pre>
+<h3 id="4-rag-service">4. RAG Service<a class="headerlink" href="#4-rag-service" title="Permanent link">&para;</a></h3>
+<p>The RAG (Retrieval-Augmented Generation) Service provides knowledge retrieval and generation:</p>
+<h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Vector Search</strong>: Semantic search across knowledge bases</li>
+<li><strong>Document Processing</strong>: Ingestion and indexing of documents</li>
+<li><strong>Context Retrieval</strong>: Relevant context retrieval for queries</li>
+<li><strong>Response Generation</strong>: Generating responses using retrieved context</li>
+<li><strong>Knowledge Base Management</strong>: Managing multiple knowledge bases</li>
+</ul>
+<h4 id="architecture_2">Architecture<a class="headerlink" href="#architecture_2" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># rag_service/service.py
+from typing import List, Dict, Optional
+import numpy as np
+from sentence_transformers import SentenceTransformer
+import faiss
+import asyncio
+
+class RAGService:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.embedding_model = SentenceTransformer(config['embedding_model'])
+        self.knowledge_bases: Dict[str, faiss.Index] = {}
+        self.document_store: Dict[str, List[Dict]] = {}
+        self.vector_dim = 384  # Dimension of sentence transformer embeddings
+
+    async def create_knowledge_base(self, kb_id: str):
+        &quot;&quot;&quot;Create a new knowledge base&quot;&quot;&quot;
+        index = faiss.IndexFlatIP(self.vector_dim)  # Inner product similarity
+        self.knowledge_bases[kb_id] = index
+        self.document_store[kb_id] = []
+
+    async def add_documents(self, kb_id: str, documents: List[Dict]):
+        &quot;&quot;&quot;Add documents to knowledge base&quot;&quot;&quot;
+        if kb_id not in self.knowledge_bases:
+            await self.create_knowledge_base(kb_id)
+
+        # Extract text and metadata
+        texts = [doc['text'] for doc in documents]
+        metadata = [doc.get('metadata', {}) for doc in documents]
+
+        # Generate embeddings
+        embeddings = self.embedding_model.encode(texts)
+
+        # Add to FAISS index
+        index = self.knowledge_bases[kb_id]
+        index.add(embeddings.astype('float32'))
+
+        # Store documents
+        self.document_store[kb_id].extend(documents)
+
+    async def search(self, kb_id: str, query: str, top_k: int = 5) -&gt; List[Dict]:
+        &quot;&quot;&quot;Search for relevant documents&quot;&quot;&quot;
+        if kb_id not in self.knowledge_bases:
+            raise ValueError(f&quot;Knowledge base {kb_id} not found&quot;)
+
+        # Generate query embedding
+        query_embedding = self.embedding_model.encode([query])
+
+        # Search in FAISS index
+        index = self.knowledge_bases[kb_id]
+        scores, indices = index.search(query_embedding.astype('float32'), top_k)
+
+        # Retrieve documents
+        results = []
+        for score, idx in zip(scores[0], indices[0]):
+            if idx &lt; len(self.document_store[kb_id]):
+                doc = self.document_store[kb_id][idx]
+                doc['similarity_score'] = float(score)
+                results.append(doc)
+
+        return results
+
+    async def generate_response(self, query: str, kb_id: str, top_k: int = 3) -&gt; str:
+        &quot;&quot;&quot;Generate response using RAG&quot;&quot;&quot;
+        # Retrieve relevant context
+        context_docs = await self.search(kb_id, query, top_k)
+
+        # Prepare context
+        context = &quot;\n&quot;.join([doc['text'] for doc in context_docs])
+
+        # Generate response using language model
+        # This would integrate with the model service
+        response = await self._generate_with_context(query, context)
+
+        return response
+
+    async def _generate_with_context(self, query: str, context: str) -&gt; str:
+        &quot;&quot;&quot;Generate response using context&quot;&quot;&quot;
+        # This would call the model service for generation
+        # Implementation depends on the language model being used
+        pass
+</code></pre>
+<h2 id="infrastructure-components">Infrastructure Components<a class="headerlink" href="#infrastructure-components" title="Permanent link">&para;</a></h2>
+<h3 id="1-container-orchestration">1. Container Orchestration<a class="headerlink" href="#1-container-orchestration" title="Permanent link">&para;</a></h3>
+<p>Using Kubernetes for container orchestration:</p>
+<pre><code class="language-yaml"># k8s/model-service-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: model-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: model-service
+  template:
+    metadata:
+      labels:
+        app: model-service
+    spec:
+      containers:
+        - name: model-service
+          image: ai-system/model-service:latest
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: &quot;1Gi&quot;
+              cpu: &quot;500m&quot;
+            limits:
+              memory: &quot;2Gi&quot;
+              cpu: &quot;1000m&quot;
+          env:
+            - name: MODEL_REGISTRY_URL
+              value: &quot;http://model-registry:8080&quot;
+            - name: LOG_LEVEL
+              value: &quot;INFO&quot;
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: model-service
+spec:
+  selector:
+    app: model-service
+  ports:
+    - port: 80
+      targetPort: 8000
+  type: LoadBalancer
+</code></pre>
+<h3 id="2-service-mesh">2. Service Mesh<a class="headerlink" href="#2-service-mesh" title="Permanent link">&para;</a></h3>
+<p>Using Istio for service mesh capabilities:</p>
+<pre><code class="language-yaml"># istio/virtual-service.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: model-service-vs
+spec:
+  hosts:
+    - model-service
+  http:
+    - match:
+        - headers:
+            canary:
+              exact: &quot;true&quot;
+      route:
+        - destination:
+            host: model-service
+            subset: canary
+          weight: 100
+    - route:
+        - destination:
+            host: model-service
+            subset: stable
+          weight: 90
+        - destination:
+            host: model-service
+            subset: canary
+          weight: 10
+</code></pre>
+<h3 id="3-message-queue">3. Message Queue<a class="headerlink" href="#3-message-queue" title="Permanent link">&para;</a></h3>
+<p>Using Redis for message queuing:</p>
+<pre><code class="language-python"># messaging/queue.py
+import redis
+import json
+import asyncio
+from typing import Dict, Any
+
+class MessageQueue:
+    def __init__(self, redis_url: str = &quot;redis://localhost:6379&quot;):
+        self.redis_client = redis.from_url(redis_url)
+        self.pubsub = self.redis_client.pubsub()
+
+    async def publish(self, channel: str, message: Dict[str, Any]):
+        &quot;&quot;&quot;Publish message to channel&quot;&quot;&quot;
+        message_json = json.dumps(message)
+        self.redis_client.publish(channel, message_json)
+
+    async def subscribe(self, channel: str, handler):
+        &quot;&quot;&quot;Subscribe to channel and handle messages&quot;&quot;&quot;
+        self.pubsub.subscribe(channel)
+
+        for message in self.pubsub.listen():
+            if message['type'] == 'message':
+                data = json.loads(message['data'])
+                await handler(channel, data)
+
+    async def enqueue(self, queue_name: str, task: Dict[str, Any]):
+        &quot;&quot;&quot;Enqueue task to queue&quot;&quot;&quot;
+        task_json = json.dumps(task)
+        self.redis_client.lpush(queue_name, task_json)
+
+    async def dequeue(self, queue_name: str, timeout: int = 0) -&gt; Optional[Dict[str, Any]]:
+        &quot;&quot;&quot;Dequeue task from queue&quot;&quot;&quot;
+        result = self.redis_client.brpop(queue_name, timeout)
+        if result:
+            _, task_json = result
+            return json.loads(task_json)
+        return None
+</code></pre>
+<h2 id="monitoring-and-observability">Monitoring and Observability<a class="headerlink" href="#monitoring-and-observability" title="Permanent link">&para;</a></h2>
+<h3 id="1-metrics-collection">1. Metrics Collection<a class="headerlink" href="#1-metrics-collection" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># monitoring/metrics.py
+from prometheus_client import Counter, Histogram, Gauge, start_http_server
+import time
+import functools
+
+# Define metrics
+REQUEST_COUNT = Counter('http_requests_total', 'Total HTTP requests', ['method', 'endpoint', 'status'])
+REQUEST_DURATION = Histogram('http_request_duration_seconds', 'HTTP request duration')
+ACTIVE_CONNECTIONS = Gauge('active_connections', 'Number of active connections')
+MODEL_INFERENCE_TIME = Histogram('model_inference_duration_seconds', 'Model inference duration', ['model_id'])
+
+def track_requests(func):
+    &quot;&quot;&quot;Decorator to track HTTP requests&quot;&quot;&quot;
+    @functools.wraps(func)
+    async def wrapper(*args, **kwargs):
+        start_time = time.time()
+        try:
+            result = await func(*args, **kwargs)
+            REQUEST_COUNT.labels(method='POST', endpoint=func.__name__, status='200').inc()
+            return result
+        except Exception as e:
+            REQUEST_COUNT.labels(method='POST', endpoint=func.__name__, status='500').inc()
+            raise
+        finally:
+            REQUEST_DURATION.observe(time.time() - start_time)
+    return wrapper
+
+def start_metrics_server(port: int = 8000):
+    &quot;&quot;&quot;Start Prometheus metrics server&quot;&quot;&quot;
+    start_http_server(port)
+</code></pre>
+<h3 id="2-distributed-tracing">2. Distributed Tracing<a class="headerlink" href="#2-distributed-tracing" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># monitoring/tracing.py
+from opentelemetry import trace
+from opentelemetry.exporter.jaeger.thrift import JaegerExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+
+def setup_tracing(service_name: str, jaeger_endpoint: str):
+    &quot;&quot;&quot;Setup distributed tracing&quot;&quot;&quot;
+    # Configure tracer
+    trace.set_tracer_provider(TracerProvider())
+    tracer = trace.get_tracer(__name__)
+
+    # Configure Jaeger exporter
+    jaeger_exporter = JaegerExporter(
+        agent_host_name=&quot;localhost&quot;,
+        agent_port=6831,
+    )
+
+    # Add span processor
+    span_processor = BatchSpanProcessor(jaeger_exporter)
+    trace.get_tracer_provider().add_span_processor(span_processor)
+
+    # Instrument FastAPI
+    FastAPIInstrumentor.instrument_app(app)
+    RequestsInstrumentor().instrument()
+
+    return tracer
+</code></pre>
+<h2 id="security-architecture">Security Architecture<a class="headerlink" href="#security-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="1-authentication-and-authorization">1. Authentication and Authorization<a class="headerlink" href="#1-authentication-and-authorization" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># security/auth.py
+from fastapi import HTTPException, Depends, status
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+import jwt
+from datetime import datetime, timedelta
+
+security = HTTPBearer()
+
+class AuthenticationService:
+    def __init__(self, secret_key: str):
+        self.secret_key = secret_key
+        self.algorithm = &quot;HS256&quot;
+
+    def create_access_token(self, user_id: str, expires_delta: timedelta = None):
+        &quot;&quot;&quot;Create JWT access token&quot;&quot;&quot;
+        if expires_delta:
+            expire = datetime.utcnow() + expires_delta
+        else:
+            expire = datetime.utcnow() + timedelta(minutes=15)
+
+        to_encode = {&quot;sub&quot;: user_id, &quot;exp&quot;: expire}
+        encoded_jwt = jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
+        return encoded_jwt
+
+    def verify_token(self, token: str):
+        &quot;&quot;&quot;Verify JWT token&quot;&quot;&quot;
+        try:
+            payload = jwt.decode(token, self.secret_key, algorithms=[self.algorithm])
+            user_id: str = payload.get(&quot;sub&quot;)
+            if user_id is None:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail=&quot;Invalid authentication credentials&quot;,
+                    headers={&quot;WWW-Authenticate&quot;: &quot;Bearer&quot;},
+                )
+            return user_id
+        except jwt.PyJWTError:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=&quot;Invalid authentication credentials&quot;,
+                headers={&quot;WWW-Authenticate&quot;: &quot;Bearer&quot;},
+            )
+
+def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    &quot;&quot;&quot;Get current authenticated user&quot;&quot;&quot;
+    auth_service = AuthenticationService(&quot;your-secret-key&quot;)
+    return auth_service.verify_token(credentials.credentials)
+</code></pre>
+<h2 id="deployment-architecture">Deployment Architecture<a class="headerlink" href="#deployment-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="1-cicd-pipeline">1. CI/CD Pipeline<a class="headerlink" href="#1-cicd-pipeline" title="Permanent link">&para;</a></h3>
+<pre><code class="language-yaml"># .github/workflows/deploy.yml
+name: Deploy AI System
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-testing.txt
+      - name: Run tests
+        run: pytest tests/ -v
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Docker images
+        run: |
+          docker build -t ai-system/model-service:latest ./model-service
+          docker build -t ai-system/agent-service:latest ./agent-service
+          docker build -t ai-system/rag-service:latest ./rag-service
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/
+          kubectl rollout status deployment/model-service
+</code></pre>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-design-principles">1. Design Principles<a class="headerlink" href="#1-design-principles" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Single Responsibility</strong>: Each component has one clear purpose</li>
+<li><strong>Open/Closed</strong>: Open for extension, closed for modification</li>
+<li><strong>Dependency Inversion</strong>: Depend on abstractions, not concretions</li>
+<li><strong>Interface Segregation</strong>: Use specific interfaces rather than general ones</li>
+</ul>
+<h3 id="2-performance-optimization">2. Performance Optimization<a class="headerlink" href="#2-performance-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Caching</strong>: Implement caching at multiple levels</li>
+<li><strong>Connection Pooling</strong>: Reuse database connections</li>
+<li><strong>Async Processing</strong>: Use asynchronous operations where possible</li>
+<li><strong>Resource Management</strong>: Properly manage memory and CPU resources</li>
+</ul>
+<h3 id="3-security-considerations">3. Security Considerations<a class="headerlink" href="#3-security-considerations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Input Validation</strong>: Validate all inputs</li>
+<li><strong>Authentication</strong>: Implement proper authentication</li>
+<li><strong>Authorization</strong>: Enforce access controls</li>
+<li><strong>Encryption</strong>: Encrypt data in transit and at rest</li>
+</ul>
+<h3 id="4-monitoring-and-debugging">4. Monitoring and Debugging<a class="headerlink" href="#4-monitoring-and-debugging" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Logging</strong>: Log all important events</li>
+<li><strong>Metrics Collection</strong>: Collect performance metrics</li>
+<li><strong>Distributed Tracing</strong>: Track requests across services</li>
+<li><strong>Health Checks</strong>: Implement health check endpoints</li>
+</ul>
+<p>This system architecture provides a solid foundation for building scalable, reliable, and maintainable AI systems that can handle production workloads while maintaining high performance and availability.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

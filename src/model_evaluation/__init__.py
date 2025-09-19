@@ -15,7 +15,7 @@ Author: Lenovo AAITC Technical Assignment
 Date: Q3 2025
 """
 
-from .config import ModelConfig, EvaluationMetrics, TaskType
+from .config import ModelConfig, EvaluationMetrics, TaskType, LATEST_MODEL_CONFIGS
 from .pipeline import ComprehensiveEvaluationPipeline
 from .robustness import RobustnessTestingSuite
 from .bias_detection import BiasDetectionSystem
@@ -28,6 +28,7 @@ __all__ = [
     "ModelConfig",
     "EvaluationMetrics", 
     "TaskType",
+    "LATEST_MODEL_CONFIGS",
     "ComprehensiveEvaluationPipeline",
     "RobustnessTestingSuite",
     "BiasDetectionSystem",

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/development/setup/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Setup Guide - Lenovo AAITC Solutions - Lenovo AAITC Solutions</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/development/setup.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#setup-guide-lenovo-aaitc-solutions" class="nav-link">Setup Guide - Lenovo AAITC Solutions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#quick-start" class="nav-link">Quick Start</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#detailed-setup-instructions" class="nav-link">Detailed Setup Instructions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="setup-guide-lenovo-aaitc-solutions">Setup Guide - Lenovo AAITC Solutions<a class="headerlink" href="#setup-guide-lenovo-aaitc-solutions" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This guide provides step-by-step instructions for setting up the Lenovo AAITC Solutions development environment, including Python dependencies, virtual environment, and documentation system.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Python 3.8+</strong>: Required for the framework</li>
+<li><strong>PowerShell</strong>: For Windows development commands</li>
+<li><strong>Git</strong>: For version control</li>
+<li><strong>Node.js</strong> (optional): For frontend development tools</li>
+</ul>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>=== "Windows (PowerShell)"</p>
+<pre><code>```powershell
+# Clone repository
+git clone https://github.com/s-n00b/ai_assignments.git
+cd ai_assignments
+
+# Activate virtual environment
+.\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install -r config\requirements.txt
+pip install -r config\requirements-testing.txt
+
+# Install documentation dependencies
+pip install -r docs\requirements-docs.txt
+
+# Run tests
+python -m pytest tests\ -v
+
+# Launch application
+python -m src.gradio_app.main
+```
+</code></pre>
+<p>=== "Linux/macOS"</p>
+<pre><code>```bash
+# Clone repository
+git clone https://github.com/s-n00b/ai_assignments.git
+cd ai_assignments
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r config/requirements.txt
+pip install -r config/requirements-testing.txt
+
+# Install documentation dependencies
+pip install -r docs/requirements-docs.txt
+
+# Run tests
+python -m pytest tests/ -v
+
+# Launch application
+python -m src.gradio_app.main
+```
+</code></pre>
+<h2 id="detailed-setup-instructions">Detailed Setup Instructions<a class="headerlink" href="#detailed-setup-instructions" title="Permanent link">&para;</a></h2>
+<h3 id="1-environment-setup">1. Environment Setup<a class="headerlink" href="#1-environment-setup" title="Permanent link">&para;</a></h3>
+<h4 id="virtual-environment">Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Windows PowerShell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# Verify activation
+python --version
+pip --version
+</code></pre>
+<h4 id="dependencies-installation">Dependencies Installation<a class="headerlink" href="#dependencies-installation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Core dependencies
+pip install -r config\requirements.txt
+
+# Testing dependencies
+pip install -r config\requirements-testing.txt
+
+# Documentation dependencies
+pip install -r docs\requirements-docs.txt
+
+# Development tools (optional)
+pip install black isort flake8 mypy
+</code></pre>
+<h3 id="2-configuration-setup">2. Configuration Setup<a class="headerlink" href="#2-configuration-setup" title="Permanent link">&para;</a></h3>
+<h4 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h4>
+<p>Create a <code>.env</code> file in the project root:</p>
+<pre><code class="language-bash"># API Keys (add your actual keys)
+OPENAI_API_KEY=your_openai_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+META_API_KEY=your_meta_api_key_here
+
+# Application Configuration
+GRADIO_HOST=0.0.0.0
+GRADIO_PORT=7860
+MCP_SERVER_PORT=8000
+
+# Logging Configuration
+LOG_LEVEL=INFO
+LOG_DIR=./logs
+
+# Cache Configuration
+CACHE_DIR=./cache
+ENABLE_CACHING=true
+</code></pre>
+<h4 id="model-configuration">Model Configuration<a class="headerlink" href="#model-configuration" title="Permanent link">&para;</a></h4>
+<p>The framework includes pre-configured model settings in <code>src/model_evaluation/config.py</code>:</p>
+<pre><code class="language-python">LATEST_MODEL_CONFIGS = {
+    &quot;gpt-5&quot;: ModelConfig(
+        name=&quot;GPT-5&quot;,
+        provider=&quot;openai&quot;,
+        model_id=&quot;gpt-5&quot;,
+        max_tokens=4000,
+        temperature=0.7,
+        context_window=128000,
+        parameters=175,  # billion parameters
+        capabilities=[&quot;text_generation&quot;, &quot;reasoning&quot;, &quot;multimodal&quot;]
+    ),
+    # ... other models
+}
+</code></pre>
+<h3 id="3-documentation-setup">3. Documentation Setup<a class="headerlink" href="#3-documentation-setup" title="Permanent link">&para;</a></h3>
+<h4 id="mkdocs-installation">MkDocs Installation<a class="headerlink" href="#mkdocs-installation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Install MkDocs with Material theme
+pip install -r docs\requirements-docs.txt
+
+# Verify installation
+mkdocs --version
+</code></pre>
+<h4 id="serve-documentation">Serve Documentation<a class="headerlink" href="#serve-documentation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Navigate to docs directory
+cd docs
+
+# Clean up Jekyll files (one-time)
+.\cleanup-jekyll.ps1
+
+# Serve documentation locally
+mkdocs serve
+
+# Build documentation
+mkdocs build
+
+# Deploy to GitHub Pages
+mkdocs gh-deploy
+</code></pre>
+<h3 id="4-testing-setup">4. Testing Setup<a class="headerlink" href="#4-testing-setup" title="Permanent link">&para;</a></h3>
+<h4 id="run-test-suite">Run Test Suite<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Run all tests
+python -m pytest tests\ -v
+
+# Run specific test categories
+python -m pytest tests\unit\ -v
+python -m pytest tests\integration\ -v
+python -m pytest tests\e2e\ -v --timeout=600
+
+# Run with coverage
+python -m pytest tests\ --cov=src --cov-report=html --cov-report=term-missing
+</code></pre>
+<h4 id="test-configuration">Test Configuration<a class="headerlink" href="#test-configuration" title="Permanent link">&para;</a></h4>
+<p>The project uses <code>config/pytest.ini</code> for test configuration:</p>
+<pre><code class="language-ini">[tool:pytest]
+testpaths = tests
+python_files = test_*.py
+python_classes = Test*
+python_functions = test_*
+addopts = -v --tb=short --strict-markers --disable-warnings
+markers =
+    unit: Unit tests
+    integration: Integration tests
+    e2e: End-to-end tests
+    slow: Slow running tests
+    api: API tests
+    performance: Performance tests
+</code></pre>
+<h3 id="5-application-launch">5. Application Launch<a class="headerlink" href="#5-application-launch" title="Permanent link">&para;</a></h3>
+<h4 id="gradio-application">Gradio Application<a class="headerlink" href="#gradio-application" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Basic launch
+python -m src.gradio_app.main
+
+# Launch with MCP server
+python -m src.gradio_app.main --mcp-server
+
+# Launch with custom host/port
+python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+
+# Launch with specific configuration
+python -m src.gradio_app.main --config config/production.yaml
+</code></pre>
+<h4 id="mcp-server-only">MCP Server Only<a class="headerlink" href="#mcp-server-only" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Launch MCP server
+python -m src.gradio_app.mcp_server
+
+# Launch with custom configuration
+python -m src.gradio_app.mcp_server --host 0.0.0.0 --port 8000
+</code></pre>
+<h3 id="6-development-tools">6. Development Tools<a class="headerlink" href="#6-development-tools" title="Permanent link">&para;</a></h3>
+<h4 id="code-quality">Code Quality<a class="headerlink" href="#code-quality" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Format code
+black src\ tests\
+isort src\ tests\
+
+# Lint code
+flake8 src\ tests\ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+# Type checking
+mypy src\ --ignore-missing-imports
+</code></pre>
+<h4 id="git-hooks-optional">Git Hooks (Optional)<a class="headerlink" href="#git-hooks-optional" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Install pre-commit hooks
+pip install pre-commit
+pre-commit install
+
+# Run hooks manually
+pre-commit run --all-files
+</code></pre>
+<h3 id="7-troubleshooting">7. Troubleshooting<a class="headerlink" href="#7-troubleshooting" title="Permanent link">&para;</a></h3>
+<h4 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h4>
+<p><strong>1. Import Errors</strong></p>
+<pre><code class="language-powershell"># Add project root to Python path
+$env:PYTHONPATH = &quot;$PWD;$env:PYTHONPATH&quot;
+
+# Or use relative imports
+python -m src.gradio_app.main
+</code></pre>
+<p><strong>2. Virtual Environment Issues</strong></p>
+<pre><code class="language-powershell"># Recreate virtual environment
+Remove-Item -Recurse -Force venv
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r config\requirements.txt
+</code></pre>
+<p><strong>3. Permission Issues (Windows)</strong></p>
+<pre><code class="language-powershell"># Run PowerShell as Administrator
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+<p><strong>4. Port Already in Use</strong></p>
+<pre><code class="language-powershell"># Find process using port
+netstat -ano | findstr :7860
+
+# Kill process (replace PID with actual process ID)
+taskkill /PID &lt;PID&gt; /F
+</code></pre>
+<h4 id="log-files">Log Files<a class="headerlink" href="#log-files" title="Permanent link">&para;</a></h4>
+<p>Check log files for detailed error information:</p>
+<pre><code class="language-powershell"># View recent logs
+Get-Content logs\application.log -Tail 50
+
+# View error logs
+Get-Content logs\error.log -Tail 20
+</code></pre>
+<h3 id="8-production-deployment">8. Production Deployment<a class="headerlink" href="#8-production-deployment" title="Permanent link">&para;</a></h3>
+<h4 id="docker-deployment">Docker Deployment<a class="headerlink" href="#docker-deployment" title="Permanent link">&para;</a></h4>
+<pre><code class="language-dockerfile"># Dockerfile example
+FROM python:3.11-slim
+
+WORKDIR /app
+COPY . .
+
+RUN pip install -r config/requirements.txt
+RUN pip install -r docs/requirements-docs.txt
+
+EXPOSE 7860 8000
+
+CMD [&quot;python&quot;, &quot;-m&quot;, &quot;src.gradio_app.main&quot;, &quot;--mcp-server&quot;]
+</code></pre>
+<h4 id="kubernetes-deployment">Kubernetes Deployment<a class="headerlink" href="#kubernetes-deployment" title="Permanent link">&para;</a></h4>
+<pre><code class="language-yaml"># k8s-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lenovo-aaitc-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lenovo-aaitc-app
+  template:
+    metadata:
+      labels:
+        app: lenovo-aaitc-app
+    spec:
+      containers:
+        - name: app
+          image: lenovo-aaitc:latest
+          ports:
+            - containerPort: 7860
+            - containerPort: 8000
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-keys
+                  key: openai-key
+</code></pre>
+<h3 id="9-development-workflow">9. Development Workflow<a class="headerlink" href="#9-development-workflow" title="Permanent link">&para;</a></h3>
+<h4 id="daily-development">Daily Development<a class="headerlink" href="#daily-development" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Start Development Environment</strong></li>
+</ol>
+<p><code>powershell
+   .\venv\Scripts\Activate.ps1</code></p>
+<ol>
+<li><strong>Run Tests Before Changes</strong></li>
+</ol>
+<p><code>powershell
+   python -m pytest tests\unit\ -v</code></p>
+<ol>
+<li><strong>Make Changes and Test</strong></li>
+</ol>
+<p><code>powershell
+   python -m pytest tests\ -v</code></p>
+<ol>
+<li><strong>Format and Lint Code</strong></li>
+</ol>
+<p><code>powershell
+   black src\ tests\
+   flake8 src\ tests\</code></p>
+<ol>
+<li><strong>Update Documentation</strong>
+   <code>powershell
+   cd docs
+   mkdocs serve</code></li>
+</ol>
+<h4 id="git-workflow">Git Workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Create feature branch
+git checkout -b feature/new-feature
+
+# Make changes and commit
+git add .
+git commit -m &quot;Add new feature&quot;
+
+# Push and create PR
+git push origin feature/new-feature
+</code></pre>
+<h3 id="10-performance-optimization">10. Performance Optimization<a class="headerlink" href="#10-performance-optimization" title="Permanent link">&para;</a></h3>
+<h4 id="development-mode">Development Mode<a class="headerlink" href="#development-mode" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Enable development mode
+$env:FLASK_ENV = &quot;development&quot;
+$env:DEBUG = &quot;true&quot;
+
+# Run with hot reload
+python -m src.gradio_app.main --reload
+</code></pre>
+<h4 id="production-mode">Production Mode<a class="headerlink" href="#production-mode" title="Permanent link">&para;</a></h4>
+<pre><code class="language-powershell"># Enable production mode
+$env:FLASK_ENV = &quot;production&quot;
+$env:DEBUG = &quot;false&quot;
+
+# Run with optimizations
+python -m src.gradio_app.main --workers 4
+</code></pre>
+<hr />
+<p><strong>Setup Guide - Lenovo AAITC Solutions</strong><br />
+<em>Complete development environment setup instructions</em></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

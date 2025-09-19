@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/resources/performance/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Performance Metrics - Lenovo AAITC Solutions</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../architecture/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../troubleshooting/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/resources/performance.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#performance-metrics" class="nav-link">Performance Metrics</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#system-performance-metrics" class="nav-link">System Performance Metrics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#model-performance-metrics" class="nav-link">Model Performance Metrics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-optimization-strategies" class="nav-link">Performance Optimization Strategies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-monitoring" class="nav-link">Performance Monitoring</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#load-testing" class="nav-link">Load Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-best-practices" class="nav-link">Performance Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="performance-metrics">Performance Metrics<a class="headerlink" href="#performance-metrics" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document provides comprehensive performance metrics, benchmarks, and optimization guidelines for the AI Assignments project.</p>
+<h2 id="system-performance-metrics">System Performance Metrics<a class="headerlink" href="#system-performance-metrics" title="Permanent link">&para;</a></h2>
+<h3 id="response-time-benchmarks">Response Time Benchmarks<a class="headerlink" href="#response-time-benchmarks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Average Response Time</th>
+<th>95th Percentile</th>
+<th>99th Percentile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Gateway</td>
+<td>5ms</td>
+<td>15ms</td>
+<td>25ms</td>
+</tr>
+<tr>
+<td>Model Inference</td>
+<td>120ms</td>
+<td>200ms</td>
+<td>300ms</td>
+</tr>
+<tr>
+<td>Database Queries</td>
+<td>10ms</td>
+<td>30ms</td>
+<td>50ms</td>
+</tr>
+<tr>
+<td>File Upload</td>
+<td>500ms</td>
+<td>1s</td>
+<td>2s</td>
+</tr>
+<tr>
+<td>WebSocket Messages</td>
+<td>2ms</td>
+<td>5ms</td>
+<td>10ms</td>
+</tr>
+</tbody>
+</table>
+<h3 id="throughput-metrics">Throughput Metrics<a class="headerlink" href="#throughput-metrics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Requests/Second</th>
+<th>Concurrent Users</th>
+<th>Data Processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API Gateway</td>
+<td>10,000</td>
+<td>5,000</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Model Service</td>
+<td>1,000</td>
+<td>500</td>
+<td>100MB/s</td>
+</tr>
+<tr>
+<td>Evaluation Pipeline</td>
+<td>100</td>
+<td>50</td>
+<td>50MB/s</td>
+</tr>
+<tr>
+<td>File Processing</td>
+<td>50</td>
+<td>25</td>
+<td>200MB/s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resource-utilization">Resource Utilization<a class="headerlink" href="#resource-utilization" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>CPU Usage</th>
+<th>Memory Usage</th>
+<th>Storage I/O</th>
+<th>Network I/O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model Service</td>
+<td>60-80%</td>
+<td>2-4GB</td>
+<td>100MB/s</td>
+<td>50MB/s</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>30-50%</td>
+<td>1-2GB</td>
+<td>200MB/s</td>
+<td>10MB/s</td>
+</tr>
+<tr>
+<td>Cache Layer</td>
+<td>10-20%</td>
+<td>512MB</td>
+<td>50MB/s</td>
+<td>5MB/s</td>
+</tr>
+<tr>
+<td>Web Server</td>
+<td>20-40%</td>
+<td>256MB</td>
+<td>10MB/s</td>
+<td>100MB/s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="model-performance-metrics">Model Performance Metrics<a class="headerlink" href="#model-performance-metrics" title="Permanent link">&para;</a></h2>
+<h3 id="accuracy-benchmarks">Accuracy Benchmarks<a class="headerlink" href="#accuracy-benchmarks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Dataset</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sentiment Analysis</td>
+<td>IMDB</td>
+<td>94.2%</td>
+<td>93.8%</td>
+<td>94.5%</td>
+<td>94.1%</td>
+</tr>
+<tr>
+<td>Text Classification</td>
+<td>AG News</td>
+<td>91.5%</td>
+<td>91.2%</td>
+<td>91.8%</td>
+<td>91.5%</td>
+</tr>
+<tr>
+<td>Image Classification</td>
+<td>CIFAR-10</td>
+<td>89.3%</td>
+<td>89.0%</td>
+<td>89.6%</td>
+<td>89.3%</td>
+</tr>
+<tr>
+<td>Named Entity Recognition</td>
+<td>CoNLL-2003</td>
+<td>92.1%</td>
+<td>91.8%</td>
+<td>92.4%</td>
+<td>92.1%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inference-performance">Inference Performance<a class="headerlink" href="#inference-performance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Batch Size</th>
+<th>Latency</th>
+<th>Throughput</th>
+<th>Memory Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BERT-base</td>
+<td>1</td>
+<td>25ms</td>
+<td>40 req/s</td>
+<td>1.2GB</td>
+</tr>
+<tr>
+<td>BERT-base</td>
+<td>8</td>
+<td>85ms</td>
+<td>94 req/s</td>
+<td>2.8GB</td>
+</tr>
+<tr>
+<td>BERT-base</td>
+<td>16</td>
+<td>150ms</td>
+<td>107 req/s</td>
+<td>4.5GB</td>
+</tr>
+<tr>
+<td>DistilBERT</td>
+<td>1</td>
+<td>12ms</td>
+<td>83 req/s</td>
+<td>0.6GB</td>
+</tr>
+<tr>
+<td>DistilBERT</td>
+<td>8</td>
+<td>45ms</td>
+<td>178 req/s</td>
+<td>1.4GB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="performance-optimization-strategies">Performance Optimization Strategies<a class="headerlink" href="#performance-optimization-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="1-model-optimization">1. Model Optimization<a class="headerlink" href="#1-model-optimization" title="Permanent link">&para;</a></h3>
+<h4 id="quantization">Quantization<a class="headerlink" href="#quantization" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import torch
+from torch.quantization import quantize_dynamic
+
+# Dynamic quantization
+model_quantized = quantize_dynamic(
+    model, 
+    {torch.nn.Linear}, 
+    dtype=torch.qint8
+)
+
+# Performance improvement: 2-4x faster, 2-4x smaller
+</code></pre>
+<h4 id="model-pruning">Model Pruning<a class="headerlink" href="#model-pruning" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import torch.nn.utils.prune as prune
+
+# Prune 20% of connections
+prune.global_unstructured(
+    parameters_to_prune,
+    pruning_method=prune.L1Unstructured,
+    amount=0.2,
+)
+</code></pre>
+<h4 id="knowledge-distillation">Knowledge Distillation<a class="headerlink" href="#knowledge-distillation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class DistillationTrainer:
+    def __init__(self, teacher_model, student_model):
+        self.teacher = teacher_model
+        self.student = student_model
+
+    def distill_loss(self, student_logits, teacher_logits, labels, temperature=3):
+        # Soft targets from teacher
+        soft_targets = F.softmax(teacher_logits / temperature, dim=1)
+        soft_prob = F.log_softmax(student_logits / temperature, dim=1)
+
+        # Distillation loss
+        distillation_loss = F.kl_div(soft_prob, soft_targets, reduction='batchmean')
+
+        # Hard targets
+        hard_loss = F.cross_entropy(student_logits, labels)
+
+        return distillation_loss * (temperature ** 2) + hard_loss
+</code></pre>
+<h3 id="2-caching-strategies">2. Caching Strategies<a class="headerlink" href="#2-caching-strategies" title="Permanent link">&para;</a></h3>
+<h4 id="model-output-caching">Model Output Caching<a class="headerlink" href="#model-output-caching" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import redis
+import hashlib
+import json
+
+class ModelCache:
+    def __init__(self, redis_client, ttl=3600):
+        self.redis = redis_client
+        self.ttl = ttl
+
+    def get_cache_key(self, model_id, input_data):
+        &quot;&quot;&quot;Generate cache key from model and input.&quot;&quot;&quot;
+        input_str = json.dumps(input_data, sort_keys=True)
+        return f&quot;model:{model_id}:{hashlib.md5(input_str.encode()).hexdigest()}&quot;
+
+    def get(self, model_id, input_data):
+        &quot;&quot;&quot;Get cached prediction.&quot;&quot;&quot;
+        key = self.get_cache_key(model_id, input_data)
+        result = self.redis.get(key)
+        return json.loads(result) if result else None
+
+    def set(self, model_id, input_data, prediction):
+        &quot;&quot;&quot;Cache prediction.&quot;&quot;&quot;
+        key = self.get_cache_key(model_id, input_data)
+        self.redis.setex(key, self.ttl, json.dumps(prediction))
+</code></pre>
+<h4 id="database-query-caching">Database Query Caching<a class="headerlink" href="#database-query-caching" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from functools import wraps
+import time
+
+def cache_query(ttl=300):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            cache_key = f&quot;{func.__name__}:{hash(str(args) + str(kwargs))}&quot;
+
+            # Try cache first
+            cached_result = cache.get(cache_key)
+            if cached_result:
+                return cached_result
+
+            # Execute query
+            result = func(*args, **kwargs)
+
+            # Cache result
+            cache.setex(cache_key, ttl, result)
+            return result
+        return wrapper
+    return decorator
+</code></pre>
+<h3 id="3-asynchronous-processing">3. Asynchronous Processing<a class="headerlink" href="#3-asynchronous-processing" title="Permanent link">&para;</a></h3>
+<h4 id="async-model-inference">Async Model Inference<a class="headerlink" href="#async-model-inference" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import asyncio
+import aiohttp
+from typing import List
+
+class AsyncModelService:
+    def __init__(self, model_urls: List[str]):
+        self.model_urls = model_urls
+        self.session = None
+
+    async def __aenter__(self):
+        self.session = aiohttp.ClientSession()
+        return self
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        await self.session.close()
+
+    async def batch_predict(self, inputs: List[Dict]) -&gt; List[Dict]:
+        &quot;&quot;&quot;Process multiple inputs concurrently.&quot;&quot;&quot;
+        tasks = []
+        for i, input_data in enumerate(inputs):
+            model_url = self.model_urls[i % len(self.model_urls)]
+            task = self._predict_single(model_url, input_data)
+            tasks.append(task)
+
+        results = await asyncio.gather(*tasks)
+        return results
+
+    async def _predict_single(self, model_url: str, input_data: Dict) -&gt; Dict:
+        &quot;&quot;&quot;Single prediction request.&quot;&quot;&quot;
+        async with self.session.post(model_url, json=input_data) as response:
+            return await response.json()
+</code></pre>
+<h4 id="background-task-processing">Background Task Processing<a class="headerlink" href="#background-task-processing" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from celery import Celery
+import time
+
+app = Celery('ai_assignments')
+
+@app.task
+def process_large_dataset(dataset_id: str):
+    &quot;&quot;&quot;Process large dataset in background.&quot;&quot;&quot;
+    # Long-running task
+    dataset = load_dataset(dataset_id)
+    results = []
+
+    for batch in dataset.batches():
+        batch_results = process_batch(batch)
+        results.extend(batch_results)
+
+        # Update progress
+        app.update_state(
+            state='PROGRESS',
+            meta={'current': len(results), 'total': len(dataset)}
+        )
+
+    return results
+
+@app.task
+def generate_model_report(model_id: str):
+    &quot;&quot;&quot;Generate comprehensive model report.&quot;&quot;&quot;
+    # Report generation logic
+    pass
+</code></pre>
+<h3 id="4-database-optimization">4. Database Optimization<a class="headerlink" href="#4-database-optimization" title="Permanent link">&para;</a></h3>
+<h4 id="connection-pooling">Connection Pooling<a class="headerlink" href="#connection-pooling" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from sqlalchemy import create_engine
+from sqlalchemy.pool import QueuePool
+
+# Configure connection pool
+engine = create_engine(
+    DATABASE_URL,
+    poolclass=QueuePool,
+    pool_size=20,
+    max_overflow=30,
+    pool_pre_ping=True,
+    pool_recycle=3600
+)
+</code></pre>
+<h4 id="query-optimization">Query Optimization<a class="headerlink" href="#query-optimization" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from sqlalchemy import text
+from sqlalchemy.orm import joinedload
+
+# Eager loading to avoid N+1 queries
+models = session.query(Model)\
+    .options(joinedload(Model.evaluations))\
+    .all()
+
+# Raw SQL for complex queries
+result = session.execute(text(&quot;&quot;&quot;
+    SELECT m.id, m.name, AVG(e.accuracy) as avg_accuracy
+    FROM models m
+    LEFT JOIN evaluations e ON m.id = e.model_id
+    GROUP BY m.id, m.name
+    HAVING AVG(e.accuracy) &gt; :threshold
+&quot;&quot;&quot;), {&quot;threshold&quot;: 0.9})
+</code></pre>
+<h3 id="5-memory-management">5. Memory Management<a class="headerlink" href="#5-memory-management" title="Permanent link">&para;</a></h3>
+<h4 id="memory-profiling">Memory Profiling<a class="headerlink" href="#memory-profiling" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import psutil
+import tracemalloc
+from functools import wraps
+
+def memory_profiler(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # Start memory tracing
+        tracemalloc.start()
+
+        # Get initial memory
+        process = psutil.Process()
+        initial_memory = process.memory_info().rss / 1024 / 1024  # MB
+
+        # Execute function
+        result = func(*args, **kwargs)
+
+        # Get final memory
+        final_memory = process.memory_info().rss / 1024 / 1024  # MB
+        memory_used = final_memory - initial_memory
+
+        # Get peak memory
+        current, peak = tracemalloc.get_traced_memory()
+        peak_mb = peak / 1024 / 1024
+
+        print(f&quot;{func.__name__}: {memory_used:.2f}MB used, {peak_mb:.2f}MB peak&quot;)
+
+        tracemalloc.stop()
+        return result
+    return wrapper
+</code></pre>
+<h4 id="garbage-collection">Garbage Collection<a class="headerlink" href="#garbage-collection" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import gc
+import torch
+
+def cleanup_memory():
+    &quot;&quot;&quot;Clean up memory and GPU cache.&quot;&quot;&quot;
+    # Python garbage collection
+    gc.collect()
+
+    # PyTorch GPU cache cleanup
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.synchronize()
+</code></pre>
+<h2 id="performance-monitoring">Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">&para;</a></h2>
+<h3 id="real-time-metrics">Real-time Metrics<a class="headerlink" href="#real-time-metrics" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import time
+from prometheus_client import Counter, Histogram, Gauge
+
+# Metrics
+REQUEST_COUNT = Counter('http_requests_total', 'Total requests', ['method', 'endpoint'])
+REQUEST_DURATION = Histogram('http_request_duration_seconds', 'Request duration')
+ACTIVE_CONNECTIONS = Gauge('active_connections', 'Active connections')
+MODEL_INFERENCE_TIME = Histogram('model_inference_duration_seconds', 'Model inference time')
+
+def track_performance(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+
+        try:
+            result = func(*args, **kwargs)
+            REQUEST_COUNT.labels(method='POST', endpoint=func.__name__).inc()
+            return result
+        finally:
+            duration = time.time() - start_time
+            REQUEST_DURATION.observe(duration)
+
+    return wrapper
+</code></pre>
+<h3 id="performance-dashboard">Performance Dashboard<a class="headerlink" href="#performance-dashboard" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from flask import Flask, jsonify
+import psutil
+
+app = Flask(__name__)
+
+@app.route('/metrics/system')
+def system_metrics():
+    &quot;&quot;&quot;Get system performance metrics.&quot;&quot;&quot;
+    return jsonify({
+        'cpu_percent': psutil.cpu_percent(),
+        'memory_percent': psutil.virtual_memory().percent,
+        'disk_usage': psutil.disk_usage('/').percent,
+        'network_io': psutil.net_io_counters()._asdict()
+    })
+
+@app.route('/metrics/application')
+def application_metrics():
+    &quot;&quot;&quot;Get application performance metrics.&quot;&quot;&quot;
+    return jsonify({
+        'active_connections': get_active_connections(),
+        'requests_per_second': get_request_rate(),
+        'average_response_time': get_avg_response_time(),
+        'error_rate': get_error_rate()
+    })
+</code></pre>
+<h2 id="load-testing">Load Testing<a class="headerlink" href="#load-testing" title="Permanent link">&para;</a></h2>
+<h3 id="stress-testing-script">Stress Testing Script<a class="headerlink" href="#stress-testing-script" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import asyncio
+import aiohttp
+import time
+from statistics import mean, median
+
+class LoadTester:
+    def __init__(self, url: str, concurrent_users: int = 100):
+        self.url = url
+        self.concurrent_users = concurrent_users
+        self.results = []
+
+    async def single_request(self, session: aiohttp.ClientSession):
+        &quot;&quot;&quot;Single request test.&quot;&quot;&quot;
+        start_time = time.time()
+
+        try:
+            async with session.get(self.url) as response:
+                await response.text()
+                success = response.status == 200
+        except Exception:
+            success = False
+
+        duration = time.time() - start_time
+
+        self.results.append({
+            'duration': duration,
+            'success': success,
+            'timestamp': start_time
+        })
+
+    async def run_test(self, duration: int = 60):
+        &quot;&quot;&quot;Run load test for specified duration.&quot;&quot;&quot;
+        async with aiohttp.ClientSession() as session:
+            tasks = []
+            end_time = time.time() + duration
+
+            while time.time() &lt; end_time:
+                # Create concurrent requests
+                for _ in range(self.concurrent_users):
+                    task = asyncio.create_task(self.single_request(session))
+                    tasks.append(task)
+
+                # Wait a bit before next batch
+                await asyncio.sleep(0.1)
+
+            # Wait for all tasks to complete
+            await asyncio.gather(*tasks, return_exceptions=True)
+
+    def get_results(self):
+        &quot;&quot;&quot;Get test results summary.&quot;&quot;&quot;
+        durations = [r['duration'] for r in self.results if r['success']]
+        success_rate = sum(r['success'] for r in self.results) / len(self.results)
+
+        return {
+            'total_requests': len(self.results),
+            'success_rate': success_rate,
+            'avg_response_time': mean(durations) if durations else 0,
+            'median_response_time': median(durations) if durations else 0,
+            'min_response_time': min(durations) if durations else 0,
+            'max_response_time': max(durations) if durations else 0
+        }
+
+# Usage
+async def main():
+    tester = LoadTester('http://localhost:8000/api/health', concurrent_users=50)
+    await tester.run_test(duration=60)
+    print(tester.get_results())
+
+asyncio.run(main())
+</code></pre>
+<h2 id="performance-best-practices">Performance Best Practices<a class="headerlink" href="#performance-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-code-optimization">1. Code Optimization<a class="headerlink" href="#1-code-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use appropriate data structures</li>
+<li>Avoid unnecessary computations</li>
+<li>Implement lazy loading</li>
+<li>Use generators for large datasets</li>
+</ul>
+<h3 id="2-caching-strategy">2. Caching Strategy<a class="headerlink" href="#2-caching-strategy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cache at multiple levels</li>
+<li>Use appropriate TTL values</li>
+<li>Implement cache invalidation</li>
+<li>Monitor cache hit rates</li>
+</ul>
+<h3 id="3-database-performance">3. Database Performance<a class="headerlink" href="#3-database-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use proper indexing</li>
+<li>Optimize queries</li>
+<li>Implement connection pooling</li>
+<li>Use read replicas for scaling</li>
+</ul>
+<h3 id="4-memory-management">4. Memory Management<a class="headerlink" href="#4-memory-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Monitor memory usage</li>
+<li>Implement garbage collection</li>
+<li>Use memory profiling tools</li>
+<li>Optimize data structures</li>
+</ul>
+<h3 id="5-network-optimization">5. Network Optimization<a class="headerlink" href="#5-network-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use compression</li>
+<li>Implement HTTP/2</li>
+<li>Use CDN for static assets</li>
+<li>Optimize payload sizes</li>
+</ul>
+<p>This performance guide provides comprehensive strategies for optimizing the AI Assignments project for production workloads while maintaining reliability and scalability.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

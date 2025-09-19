@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/API_DOCUMENTATION/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>API Documentation - Lenovo AAITC Solutions - Lenovo AAITC Solutions</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/API_DOCUMENTATION.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#api-documentation-lenovo-aaitc-solutions" class="nav-link">API Documentation - Lenovo AAITC Solutions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#model-evaluation-api" class="nav-link">Model Evaluation API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ai-architecture-api" class="nav-link">AI Architecture API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#gradio-application-api" class="nav-link">Gradio Application API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#utilities-api" class="nav-link">Utilities API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#mcp-server-api" class="nav-link">MCP Server API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#error-handling" class="nav-link">Error Handling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#response-formats" class="nav-link">Response Formats</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#rate-limiting" class="nav-link">Rate Limiting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#authentication" class="nav-link">Authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#versioning" class="nav-link">Versioning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="api-documentation-lenovo-aaitc-solutions">API Documentation - Lenovo AAITC Solutions<a class="headerlink" href="#api-documentation-lenovo-aaitc-solutions" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document provides comprehensive API documentation for the Lenovo AAITC Solutions framework, covering both Assignment 1 (Model Evaluation) and Assignment 2 (AI Architecture) components.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#model-evaluation-api">Model Evaluation API</a></li>
+<li><a href="#ai-architecture-api">AI Architecture API</a></li>
+<li><a href="#gradio-application-api">Gradio Application API</a></li>
+<li><a href="#utilities-api">Utilities API</a></li>
+<li><a href="#mcp-server-api">MCP Server API</a></li>
+</ol>
+<hr />
+<h2 id="model-evaluation-api">Model Evaluation API<a class="headerlink" href="#model-evaluation-api" title="Permanent link">&para;</a></h2>
+<h3 id="core-classes">Core Classes<a class="headerlink" href="#core-classes" title="Permanent link">&para;</a></h3>
+<h4 id="modelconfig"><code>ModelConfig</code><a class="headerlink" href="#modelconfig" title="Permanent link">&para;</a></h4>
+<p>Configuration class for foundation models with latest Q3 2025 specifications.</p>
+<pre><code class="language-python">@dataclass
+class ModelConfig:
+    name: str
+    provider: str  # 'openai', 'anthropic', 'meta', 'local'
+    model_id: str
+    api_key: Optional[str] = None
+    max_tokens: int = 1000
+    temperature: float = 0.7
+    cost_per_1k_tokens: float = 0.0
+    context_window: int = 4096
+    parameters: int = 0  # Model parameter count in billions
+    capabilities: List[str] = field(default_factory=list)
+    metadata: Dict[str, Any] = field(default_factory=dict)
+</code></pre>
+<p><strong>Methods:</strong></p>
+<ul>
+<li><code>from_dict(config_dict: Dict[str, Any]) -&gt; ModelConfig</code>: Create from dictionary</li>
+<li><code>to_dict() -&gt; Dict[str, Any]</code>: Convert to dictionary</li>
+<li><code>validate() -&gt; bool</code>: Validate configuration</li>
+</ul>
+<h4 id="comprehensiveevaluationpipeline"><code>ComprehensiveEvaluationPipeline</code><a class="headerlink" href="#comprehensiveevaluationpipeline" title="Permanent link">&para;</a></h4>
+<p>Main evaluation pipeline for comparing foundation models across multiple dimensions.</p>
+<pre><code class="language-python">class ComprehensiveEvaluationPipeline:
+    def __init__(self, models: List[ModelConfig], enable_logging: bool = True)
+
+    async def evaluate_model_comprehensive(
+        self,
+        model_config: ModelConfig,
+        test_data: pd.DataFrame,
+        task_type: TaskType,
+        include_robustness: bool = True,
+        include_bias_detection: bool = True
+    ) -&gt; Dict[str, Any]
+
+    async def run_multi_task_evaluation(
+        self,
+        test_datasets: Dict[TaskType, pd.DataFrame],
+        include_robustness: bool = True,
+        include_bias_detection: bool = True
+    ) -&gt; pd.DataFrame
+
+    def generate_evaluation_report(
+        self,
+        results: pd.DataFrame,
+        output_format: str = &quot;html&quot;
+    ) -&gt; str
+</code></pre>
+<h4 id="robustnesstestingsuite"><code>RobustnessTestingSuite</code><a class="headerlink" href="#robustnesstestingsuite" title="Permanent link">&para;</a></h4>
+<p>Comprehensive robustness testing for model evaluation.</p>
+<pre><code class="language-python">class RobustnessTestingSuite:
+    def __init__(self)
+
+    async def test_adversarial_robustness(
+        self,
+        model_config: ModelConfig,
+        test_prompts: List[str]
+    ) -&gt; Dict[str, Any]
+
+    async def test_noise_tolerance(
+        self,
+        model_config: ModelConfig,
+        test_prompts: List[str]
+    ) -&gt; Dict[str, Any]
+
+    async def test_edge_cases(
+        self,
+        model_config: ModelConfig,
+        edge_case_prompts: List[str]
+    ) -&gt; Dict[str, Any]
+</code></pre>
+<h4 id="biasdetectionsystem"><code>BiasDetectionSystem</code><a class="headerlink" href="#biasdetectionsystem" title="Permanent link">&para;</a></h4>
+<p>Multi-dimensional bias detection and analysis system.</p>
+<pre><code class="language-python">class BiasDetectionSystem:
+    def __init__(self)
+
+    async def detect_bias(
+        self,
+        model_config: ModelConfig,
+        test_prompts: List[str],
+        protected_characteristics: List[str]
+    ) -&gt; Dict[str, Any]
+
+    def calculate_fairness_metrics(
+        self,
+        predictions: List[str],
+        ground_truth: List[str],
+        protected_attributes: List[str]
+    ) -&gt; Dict[str, float]
+
+    def generate_bias_report(
+        self,
+        bias_results: Dict[str, Any]
+    ) -&gt; str
+</code></pre>
+<h4 id="promptregistrymanager"><code>PromptRegistryManager</code><a class="headerlink" href="#promptregistrymanager" title="Permanent link">&para;</a></h4>
+<p>Manager for integrating with multiple prompt registries and generating enhanced evaluation datasets.</p>
+<pre><code class="language-python">class PromptRegistryManager:
+    def __init__(self, enable_caching: bool = True, cache_dir: str = &quot;cache/ai_tool_prompts&quot;)
+
+    def get_enhanced_evaluation_dataset(
+        self,
+        target_size: int = 10000,
+        categories: Optional[List[PromptCategory]] = None,
+        difficulty_levels: Optional[List[str]] = None,
+        sources: Optional[List[str]] = None,
+        quality_threshold: float = 0.3
+    ) -&gt; pd.DataFrame
+
+    async def get_dynamic_evaluation_dataset(
+        self,
+        model_capabilities: Dict[str, Any],
+        evaluation_goals: List[str],
+        target_size: int = 5000
+    ) -&gt; pd.DataFrame
+
+    async def get_adversarial_prompts(
+        self,
+        base_category: PromptCategory,
+        adversarial_types: List[str] = None,
+        count: int = 100
+    ) -&gt; pd.DataFrame
+
+    # AI Tool System Prompts Archive Integration
+    def get_available_ai_tools(self) -&gt; List[str]
+
+    def is_tool_cached(self, tool_name: str) -&gt; bool
+
+    def load_cached_tool_prompts(self, tool_name: str) -&gt; List[PromptEntry]
+
+    def save_tool_prompts_to_cache(self, tool_name: str, prompts: List[PromptEntry])
+
+    async def load_ai_tool_system_prompts(
+        self,
+        tool_name: Optional[str] = None,
+        force_refresh: bool = False
+    ) -&gt; List[PromptEntry]
+
+    def get_ai_tool_prompt_statistics(self) -&gt; Dict[str, Any]
+</code></pre>
+<p><strong>AI Tool System Prompts Archive Integration:</strong></p>
+<p>The <code>PromptRegistryManager</code> now includes comprehensive integration with the AI Tool System Prompts Archive, providing access to system prompts from 25+ popular AI tools including Cursor, Claude Code, Devin AI, v0, Windsurf, and more.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li><strong>Local Caching</strong>: Intelligent caching system to manage repository size and improve performance</li>
+<li><strong>Direct GitHub Integration</strong>: Robust loading using direct URLs to avoid API rate limits</li>
+<li><strong>Dynamic Tool Discovery</strong>: Automatic discovery and loading of available AI tools</li>
+<li><strong>Force Refresh</strong>: Ability to bypass cache and load fresh prompts when needed</li>
+</ul>
+<p><strong>Usage Examples:</strong></p>
+<pre><code class="language-python"># Initialize with local caching
+registry = PromptRegistryManager(cache_dir=&quot;cache/ai_tool_prompts&quot;)
+
+# Get available AI tools
+tools = registry.get_available_ai_tools()
+print(f&quot;Available tools: {tools}&quot;)
+
+# Load prompts for a specific tool
+cursor_prompts = await registry.load_ai_tool_system_prompts(&quot;Cursor&quot;)
+
+# Load all available prompts
+all_prompts = await registry.load_ai_tool_system_prompts()
+
+# Force refresh from GitHub
+fresh_prompts = await registry.load_ai_tool_system_prompts(&quot;Cursor&quot;, force_refresh=True)
+
+# Check cache status
+if registry.is_tool_cached(&quot;Cursor&quot;):
+    cached_prompts = registry.load_cached_tool_prompts(&quot;Cursor&quot;)
+</code></pre>
+<p><strong>Supported AI Tools:</strong></p>
+<ul>
+<li>Cursor, Claude Code, Devin AI, v0, Windsurf</li>
+<li>Augment Code, Cluely, CodeBuddy, Warp, Xcode</li>
+<li>Z.ai Code, dia, and more</li>
+</ul>
+<hr />
+<h2 id="ai-architecture-api">AI Architecture API<a class="headerlink" href="#ai-architecture-api" title="Permanent link">&para;</a></h2>
+<h3 id="core-classes_1">Core Classes<a class="headerlink" href="#core-classes_1" title="Permanent link">&para;</a></h3>
+<h4 id="hybridaiplatform"><code>HybridAIPlatform</code><a class="headerlink" href="#hybridaiplatform" title="Permanent link">&para;</a></h4>
+<p>Enterprise Hybrid AI Platform for comprehensive AI system orchestration.</p>
+<pre><code class="language-python">class HybridAIPlatform:
+    def __init__(self, platform_name: str = &quot;Lenovo Hybrid AI Platform&quot;)
+
+    async def deploy_model(
+        self,
+        model_config: ModelDeploymentConfig,
+        target_environment: DeploymentTarget
+    ) -&gt; Dict[str, Any]
+
+    async def get_platform_metrics(
+        self,
+        time_window_hours: int = 24
+    ) -&gt; Dict[str, Any]
+
+    async def scale_deployment(
+        self,
+        deployment_id: str,
+        scaling_config: Dict[str, Any]
+    ) -&gt; Dict[str, Any]
+</code></pre>
+<h4 id="modellifecyclemanager"><code>ModelLifecycleManager</code><a class="headerlink" href="#modellifecyclemanager" title="Permanent link">&para;</a></h4>
+<p>Comprehensive Model Lifecycle Management System.</p>
+<pre><code class="language-python">class ModelLifecycleManager:
+    def __init__(self, registry_path: str = &quot;./model_registry&quot;)
+
+    async def register_model(
+        self,
+        model_id: str,
+        version: str,
+        stage: ModelStage,
+        created_by: str,
+        description: str,
+        metadata: Dict[str, Any] = None,
+        performance_metrics: Dict[str, float] = None,
+        dependencies: List[str] = None,
+        tags: List[str] = None
+    ) -&gt; ModelVersion
+
+    async def promote_model(
+        self,
+        model_id: str,
+        version: str,
+        target_stage: ModelStage,
+        deployment_config: DeploymentConfig = None
+    ) -&gt; Dict[str, Any]
+
+    async def deploy_model(
+        self,
+        model_id: str,
+        version: str,
+        deployment_strategy: DeploymentStrategy = DeploymentStrategy.BLUE_GREEN,
+        target_environment: str = &quot;production&quot;
+    ) -&gt; Dict[str, Any]
+</code></pre>
+<h4 id="agenticcomputingframework"><code>AgenticComputingFramework</code><a class="headerlink" href="#agenticcomputingframework" title="Permanent link">&para;</a></h4>
+<p>Enterprise Agentic Computing Framework for multi-agent system orchestration.</p>
+<pre><code class="language-python">class AgenticComputingFramework:
+    def __init__(self, framework_name: str = &quot;Lenovo Agentic Computing Framework&quot;)
+
+    async def register_agent(self, agent: BaseAgent) -&gt; bool
+
+    async def submit_task(
+        self,
+        task_type: str,
+        payload: Dict[str, Any],
+        priority: TaskPriority = TaskPriority.NORMAL,
+        target_agent_type: str = None,
+        target_agent_id: str = None,
+        deadline: datetime = None,
+        dependencies: List[str] = None
+    ) -&gt; str
+
+    async def get_agent_metrics(
+        self,
+        agent_id: str,
+        time_window_hours: int = 24
+    ) -&gt; Dict[str, Any]
+</code></pre>
+<h4 id="ragsystem"><code>RAGSystem</code><a class="headerlink" href="#ragsystem" title="Permanent link">&para;</a></h4>
+<p>Advanced Retrieval-Augmented Generation System for Enterprise Knowledge Management.</p>
+<pre><code class="language-python">class RAGSystem:
+    def __init__(
+        self,
+        system_name: str = &quot;Lenovo Enterprise RAG System&quot;,
+        embedding_model: str = &quot;sentence-transformers&quot;,
+        vector_store: str = &quot;faiss&quot;
+    )
+
+    async def ingest_document(
+        self,
+        content: str,
+        metadata: DocumentMetadata,
+        chunking_strategy: ChunkingStrategy = None
+    ) -&gt; Dict[str, Any]
+
+    async def retrieve(
+        self,
+        query: str,
+        context: QueryContext = None,
+        retrieval_method: RetrievalMethod = None,
+        max_results: int = None
+    ) -&gt; List[RetrievalResult]
+
+    async def generate_response(
+        self,
+        query: str,
+        retrieved_chunks: List[RetrievalResult],
+        context: QueryContext = None
+    ) -&gt; Dict[str, Any]
+</code></pre>
+<hr />
+<h2 id="gradio-application-api">Gradio Application API<a class="headerlink" href="#gradio-application-api" title="Permanent link">&para;</a></h2>
+<h3 id="core-classes_2">Core Classes<a class="headerlink" href="#core-classes_2" title="Permanent link">&para;</a></h3>
+<h4 id="lenovoaaitcapp"><code>LenovoAAITCApp</code><a class="headerlink" href="#lenovoaaitcapp" title="Permanent link">&para;</a></h4>
+<p>Main application class for Lenovo AAITC Gradio interface.</p>
+<pre><code class="language-python">class LenovoAAITCApp:
+    def __init__(self)
+
+    def create_interface(self) -&gt; gr.Blocks
+
+    def launch(
+        self,
+        server_name: str = &quot;0.0.0.0&quot;,
+        server_port: int = 7860,
+        share: bool = False,
+        mcp_server: bool = True
+    ) -&gt; None
+</code></pre>
+<h4 id="modelevaluationinterface"><code>ModelEvaluationInterface</code><a class="headerlink" href="#modelevaluationinterface" title="Permanent link">&para;</a></h4>
+<p>Interface for model evaluation functionality.</p>
+<pre><code class="language-python">class ModelEvaluationInterface:
+    def __init__(self)
+
+    def create_interface(self) -&gt; gr.Blocks
+
+    def _run_evaluation(
+        self,
+        selected_models: List[str],
+        selected_tasks: List[str],
+        include_robustness: bool,
+        include_bias_detection: bool,
+        enhanced_scale: bool
+    ) -&gt; tuple
+</code></pre>
+<h4 id="aiarchitectureinterface"><code>AIArchitectureInterface</code><a class="headerlink" href="#aiarchitectureinterface" title="Permanent link">&para;</a></h4>
+<p>Interface for AI architecture functionality.</p>
+<pre><code class="language-python">class AIArchitectureInterface:
+    def __init__(self)
+
+    def create_interface(self) -&gt; gr.Blocks
+
+    def _deploy_architecture(
+        self,
+        architecture_type: str,
+        deployment_target: str,
+        configuration: Dict[str, Any]
+    ) -&gt; Dict[str, Any]
+</code></pre>
+<hr />
+<h2 id="utilities-api">Utilities API<a class="headerlink" href="#utilities-api" title="Permanent link">&para;</a></h2>
+<h3 id="logging-system">Logging System<a class="headerlink" href="#logging-system" title="Permanent link">&para;</a></h3>
+<h4 id="loggingsystem"><code>LoggingSystem</code><a class="headerlink" href="#loggingsystem" title="Permanent link">&para;</a></h4>
+<p>Enterprise-grade logging system with multi-layer architecture.</p>
+<pre><code class="language-python">class LoggingSystem:
+    def __init__(
+        self,
+        system_name: str = &quot;Lenovo AAITC System&quot;,
+        log_directory: str = &quot;./logs&quot;,
+        enable_console: bool = True,
+        enable_file: bool = True,
+        enable_remote: bool = False,
+        max_file_size: int = 100 * 1024 * 1024,
+        backup_count: int = 5,
+        enable_performance_tracking: bool = True,
+        enable_security_monitoring: bool = True
+    )
+
+    def info(self, message: str, category: LogCategory = LogCategory.APPLICATION, **kwargs)
+    def warning(self, message: str, category: LogCategory = LogCategory.APPLICATION, **kwargs)
+    def error(self, message: str, category: LogCategory = LogCategory.ERROR, **kwargs)
+    def critical(self, message: str, category: LogCategory = LogCategory.ERROR, **kwargs)
+    def audit(self, message: str, user_id: str = None, action: str = None, **kwargs)
+    def security(self, message: str, event_type: str = None, **kwargs)
+    def performance(self, message: str, metrics: Dict[str, float] = None, **kwargs)
+</code></pre>
+<h3 id="visualization-utilities">Visualization Utilities<a class="headerlink" href="#visualization-utilities" title="Permanent link">&para;</a></h3>
+<h4 id="visualizationutils"><code>VisualizationUtils</code><a class="headerlink" href="#visualizationutils" title="Permanent link">&para;</a></h4>
+<p>Comprehensive visualization utilities for AI applications.</p>
+<pre><code class="language-python">class VisualizationUtils:
+    def __init__(self, default_theme: str = &quot;plotly_white&quot;)
+
+    def create_model_performance_chart(
+        self,
+        data: pd.DataFrame,
+        metrics: List[str],
+        models: List[str],
+        config: ChartConfig = None
+    ) -&gt; go.Figure
+
+    def create_performance_trend_chart(
+        self,
+        data: pd.DataFrame,
+        metric: str,
+        time_column: str = &quot;timestamp&quot;,
+        config: ChartConfig = None
+    ) -&gt; go.Figure
+
+    def create_architecture_diagram(
+        self,
+        components: List[Dict[str, Any]],
+        connections: List[Dict[str, Any]],
+        config: ChartConfig = None
+    ) -&gt; go.Figure
+
+    def export_chart(
+        self,
+        fig: go.Figure,
+        filename: str,
+        format: ExportFormat = ExportFormat.HTML,
+        width: int = 800,
+        height: int = 600
+    ) -&gt; str
+</code></pre>
+<h3 id="data-utilities">Data Utilities<a class="headerlink" href="#data-utilities" title="Permanent link">&para;</a></h3>
+<h4 id="datautils"><code>DataUtils</code><a class="headerlink" href="#datautils" title="Permanent link">&para;</a></h4>
+<p>Comprehensive data processing and manipulation utilities.</p>
+<pre><code class="language-python">class DataUtils:
+    def __init__(self)
+
+    def validate_data(
+        self,
+        data: pd.DataFrame,
+        schema: Dict[str, Any] = None,
+        strict: bool = False
+    ) -&gt; Tuple[bool, List[str]]
+
+    def clean_data(
+        self,
+        data: pd.DataFrame,
+        cleaning_rules: Dict[str, Any] = None
+    ) -&gt; pd.DataFrame
+
+    def assess_data_quality(self, data: pd.DataFrame) -&gt; DataQualityReport
+
+    def transform_data(
+        self,
+        data: pd.DataFrame,
+        transformations: Dict[str, Any]
+    ) -&gt; pd.DataFrame
+
+    def calculate_statistics(self, data: pd.DataFrame) -&gt; Dict[str, Any]
+</code></pre>
+<h3 id="configuration-utilities">Configuration Utilities<a class="headerlink" href="#configuration-utilities" title="Permanent link">&para;</a></h3>
+<h4 id="configutils"><code>ConfigUtils</code><a class="headerlink" href="#configutils" title="Permanent link">&para;</a></h4>
+<p>Comprehensive configuration management utilities.</p>
+<pre><code class="language-python">class ConfigUtils:
+    def __init__(self, config_directory: str = &quot;./config&quot;)
+
+    def load_config(
+        self,
+        config_name: str,
+        format: ConfigFormat = ConfigFormat.JSON,
+        validate: bool = True
+    ) -&gt; Dict[str, Any]
+
+    def save_config(
+        self,
+        config: Dict[str, Any],
+        config_name: str,
+        format: ConfigFormat = ConfigFormat.JSON,
+        backup: bool = True
+    ) -&gt; str
+
+    def get_config_value(
+        self,
+        config_name: str,
+        key: str,
+        default: Any = None,
+        use_env: bool = True
+    ) -&gt; Any
+
+    def set_config_value(
+        self,
+        config_name: str,
+        key: str,
+        value: Any,
+        save: bool = True
+    ) -&gt; None
+</code></pre>
+<hr />
+<h2 id="mcp-server-api">MCP Server API<a class="headerlink" href="#mcp-server-api" title="Permanent link">&para;</a></h2>
+<h3 id="core-classes_3">Core Classes<a class="headerlink" href="#core-classes_3" title="Permanent link">&para;</a></h3>
+<h4 id="enterpriseaimcp"><code>EnterpriseAIMCP</code><a class="headerlink" href="#enterpriseaimcp" title="Permanent link">&para;</a></h4>
+<p>Enterprise-grade MCP server for AI architecture and model evaluation.</p>
+<pre><code class="language-python">class EnterpriseAIMCP:
+    def __init__(self, server_name: str = &quot;Lenovo Enterprise AI MCP&quot;)
+
+    async def start_server(
+        self,
+        host: str = &quot;0.0.0.0&quot;,
+        port: int = 8000,
+        max_connections: int = 100
+    ) -&gt; None
+
+    async def stop_server(self) -&gt; None
+
+    async def execute_tool(
+        self,
+        tool_name: str,
+        parameters: Dict[str, Any]
+    ) -&gt; ToolResult
+
+    def register_tool(self, tool: MCPTool) -&gt; None
+
+    def get_available_tools(self) -&gt; List[Dict[str, Any]]
+</code></pre>
+<h3 id="tool-categories">Tool Categories<a class="headerlink" href="#tool-categories" title="Permanent link">&para;</a></h3>
+<h4 id="model-evaluation-tools">Model Evaluation Tools<a class="headerlink" href="#model-evaluation-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>comprehensive_model_evaluation</code>: Complete model evaluation pipeline</li>
+<li><code>robustness_testing</code>: Adversarial and edge case testing</li>
+<li><code>bias_detection</code>: Multi-dimensional bias analysis</li>
+<li><code>performance_analysis</code>: Performance metrics and benchmarking</li>
+<li><code>prompt_registry_integration</code>: Enhanced experimental scale</li>
+</ul>
+<h4 id="ai-architecture-tools">AI Architecture Tools<a class="headerlink" href="#ai-architecture-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>deploy_model_factory</code>: Dynamic model deployment</li>
+<li><code>create_global_alert_system</code>: Enterprise-wide monitoring</li>
+<li><code>register_tenant</code>: Multi-tenant architecture management</li>
+<li><code>create_deployment_pipeline</code>: CI/CD pipeline creation</li>
+<li><code>setup_enterprise_metrics</code>: Comprehensive metrics collection</li>
+</ul>
+<h4 id="monitoring-and-analytics-tools">Monitoring and Analytics Tools<a class="headerlink" href="#monitoring-and-analytics-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>get_system_metrics</code>: Real-time system monitoring</li>
+<li><code>generate_performance_report</code>: Performance analysis reports</li>
+<li><code>create_visualization</code>: Interactive charts and dashboards</li>
+<li><code>export_data</code>: Data export in multiple formats</li>
+<li><code>configure_alerting</code>: Alert system configuration</li>
+</ul>
+<hr />
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>All APIs use consistent error handling patterns:</p>
+<pre><code class="language-python">try:
+    result = await api_method(parameters)
+    return {&quot;status&quot;: &quot;success&quot;, &quot;data&quot;: result}
+except ValidationError as e:
+    return {&quot;status&quot;: &quot;error&quot;, &quot;error&quot;: f&quot;Validation error: {str(e)}&quot;}
+except APIError as e:
+    return {&quot;status&quot;: &quot;error&quot;, &quot;error&quot;: f&quot;API error: {str(e)}&quot;}
+except Exception as e:
+    return {&quot;status&quot;: &quot;error&quot;, &quot;error&quot;: f&quot;Unexpected error: {str(e)}&quot;}
+</code></pre>
+<h2 id="response-formats">Response Formats<a class="headerlink" href="#response-formats" title="Permanent link">&para;</a></h2>
+<p>All API responses follow a consistent format:</p>
+<pre><code class="language-python">{
+    &quot;status&quot;: &quot;success|error&quot;,
+    &quot;data&quot;: Any,  # Response data (only for success)
+    &quot;error&quot;: str,  # Error message (only for error)
+    &quot;metadata&quot;: {
+        &quot;timestamp&quot;: &quot;2025-01-XX&quot;,
+        &quot;request_id&quot;: &quot;uuid&quot;,
+        &quot;execution_time_ms&quot;: 1234
+    }
+}
+</code></pre>
+<h2 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
+<p>APIs implement rate limiting to ensure system stability:</p>
+<ul>
+<li><strong>Model Evaluation</strong>: 100 requests per minute per user</li>
+<li><strong>AI Architecture</strong>: 50 requests per minute per user</li>
+<li><strong>MCP Server</strong>: 200 requests per minute per connection</li>
+<li><strong>Utilities</strong>: 500 requests per minute per user</li>
+</ul>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<p>APIs support multiple authentication methods:</p>
+<ul>
+<li><strong>API Keys</strong>: For programmatic access</li>
+<li><strong>OAuth 2.0</strong>: For web application integration</li>
+<li><strong>JWT Tokens</strong>: For session-based authentication</li>
+<li><strong>Enterprise SSO</strong>: For corporate integration</li>
+</ul>
+<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
+<p>APIs use semantic versioning:</p>
+<ul>
+<li><strong>v1.0</strong>: Initial release with core functionality</li>
+<li><strong>v1.1</strong>: Enhanced experimental scale features</li>
+<li><strong>v1.2</strong>: Enterprise architecture capabilities</li>
+<li><strong>v2.0</strong>: Major architectural improvements (planned)</li>
+</ul>
+<hr />
+<p>For more detailed information, please refer to the individual module documentation and examples in the codebase.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

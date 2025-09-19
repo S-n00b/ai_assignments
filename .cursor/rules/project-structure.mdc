@@ -8,24 +8,36 @@ description: AI Assignments project structure and organization
 ## Directory Organization
 
 ### Core Directories
+
 - **`src/`**: Main source code
+
   - `ai_architecture/`: AI system architecture components
-  - `gradio_app/`: Gradio web application
+  - `gradio_app/`: Gradio web application for model evaluation prototyping
   - `model_evaluation/`: Model evaluation and testing
+  - `enterprise_llmops/`: Enterprise LLM Operations platform
+    - `infrastructure/`: Kubernetes, Docker, Terraform configurations
+    - `automl/`: AutoML and hyperparameter optimization (Optuna)
+    - `mlops/`: MLflow integration and experiment tracking
+    - `frontend/`: FastAPI enterprise frontend
+    - `scripts/`: Deployment and management scripts
   - `utils/`: Utility functions and helpers
 
 - **`tests/`**: Test suites
+
   - `unit/`: Unit tests for individual components
   - `integration/`: Integration tests
   - `e2e/`: End-to-end tests
   - `fixtures/`: Test data and mock objects
 
 - **`docs/`**: Documentation
-  - Jekyll site configuration
-  - Sphinx API documentation
+
+  - MkDocs site configuration and content
+  - Generated site in `site/` directory
+  - API documentation and guides
   - Markdown guides and tutorials
 
 - **`config/`**: Configuration files
+
   - `requirements.txt`: Main dependencies
   - `requirements-testing.txt`: Testing dependencies
   - `pytest.ini`: Pytest configuration
@@ -35,18 +47,96 @@ description: AI Assignments project structure and organization
   - `setup-repository.ps1`: Repository setup automation
 
 ## Key Configuration Files
-- **Jekyll**: [docs/_config.yml](mdc:docs/_config.yml)
+
+- **MkDocs**: [docs/mkdocs.yml](mdc:docs/mkdocs.yml)
 - **Dependencies**: [config/requirements.txt](mdc:config/requirements.txt)
 - **Testing**: [config/pytest.ini](mdc:config/pytest.ini)
 - **Development**: [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1)
+- **Enterprise Docker**: [src/enterprise_llmops/infrastructure/docker/Dockerfile](mdc:src/enterprise_llmops/infrastructure/docker/Dockerfile)
+- **Kubernetes**: [src/enterprise_llmops/infrastructure/kubernetes/](mdc:src/enterprise_llmops/infrastructure/kubernetes/)
+- **Terraform**: [src/enterprise_llmops/infrastructure/terraform/main.tf](mdc:src/enterprise_llmops/infrastructure/terraform/main.tf)
 
 ## Development Workflow
+
 1. Use PowerShell commands from [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1)
 2. Run tests before committing changes
 3. Follow the project's modular architecture patterns
 4. Update documentation when adding new features
 
+## Application Launch Commands
+
+- **Gradio App**: `python -m src.gradio_app.main --host 0.0.0.0 --port 7860`
+- **Enterprise FastAPI**: `python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080`
+- **Simplified FastAPI**: `python src/enterprise_llmops/simple_app.py`
+- **MkDocs Server**: `mkdocs serve` (from docs/ directory)
+
+## Assignment Structure
+
+- **Assignment 1**: Model Evaluation Prototyping (Gradio app)
+- **Assignment 2**: Enterprise LLMOps Platform (FastAPI + Kubernetes)
+
+## Documentation Integration
+
+### MkDocs Documentation - Enhanced Structure
+
+- **Configuration**: [docs/mkdocs.yml](mdc:docs/mkdocs.yml)
+- **Content**: [docs/docs_content/](mdc:docs/docs_content/)
+- **Generated Site**: [site/](mdc:site/)
+- **Build Command**: `mkdocs build` (from docs/ directory)
+- **Serve Command**: `mkdocs serve` (from docs/ directory)
+- **GitHub Pages**: `https://s-n00b.github.io/ai_assignments`
+
+### Two-Category Organization
+
+#### **Category 1: Model Enablement & UX Evaluation**
+
+- **AI Engineering Overview**: [docs/docs_content/category1/ai-engineering-overview.md](mdc:docs/docs_content/category1/ai-engineering-overview.md)
+- **Model Evaluation Framework**: [docs/docs_content/category1/model-evaluation-framework.md](mdc:docs/docs_content/category1/model-evaluation-framework.md)
+- **UX Evaluation & Testing**: [docs/docs_content/category1/ux-evaluation-testing.md](mdc:docs/docs_content/category1/ux-evaluation-testing.md)
+- **Model Profiling & Characterization**: [docs/docs_content/category1/model-profiling-characterization.md](mdc:docs/docs_content/category1/model-profiling-characterization.md)
+- **Model Factory Architecture**: [docs/docs_content/category1/model-factory-architecture.md](mdc:docs/docs_content/category1/model-factory-architecture.md)
+- **Practical Evaluation Exercise**: [docs/docs_content/category1/practical-evaluation-exercise.md](mdc:docs/docs_content/category1/practical-evaluation-exercise.md)
+
+#### **Category 2: AI System Architecture & MLOps**
+
+- **System Architecture Overview**: [docs/docs_content/category2/system-architecture-overview.md](mdc:docs/docs_content/category2/system-architecture-overview.md)
+- **MLOps & CI/CD Lifecycle**: [docs/docs_content/category2/mlops-cicd-lifecycle.md](mdc:docs/docs_content/category2/mlops-cicd-lifecycle.md)
+- **Post-Training Optimization**: [docs/docs_content/category2/post-training-optimization.md](mdc:docs/docs_content/category2/post-training-optimization.md)
+- **Frontier Model Experimentation**: [docs/docs_content/category2/frontier-model-experimentation.md](mdc:docs/docs_content/category2/frontier-model-experimentation.md)
+- **Stakeholder Vision Scoping**: [docs/docs_content/category2/stakeholder-vision-scoping.md](mdc:docs/docs_content/category2/stakeholder-vision-scoping.md)
+- **Project Management & Skills**: [docs/docs_content/category2/project-management-skills.md](mdc:docs/docs_content/category2/project-management-skills.md)
+
+### Executive & Professional Content
+
+- **Carousel Slide Deck**: [docs/docs_content/executive/carousel-slide-deck.md](mdc:docs/docs_content/executive/carousel-slide-deck.md)
+- **Executive Summary**: [docs/docs_content/professional/executive-summary.md](mdc:docs/docs_content/professional/executive-summary.md)
+- **AI Architecture Seniority Blog**: [docs/docs_content/professional/blog-posts/ai-architecture-seniority.md](mdc:docs/docs_content/professional/blog-posts/ai-architecture-seniority.md)
+
+### Live Applications & Demos
+
+- **Live Applications Index**: [docs/docs_content/live-applications/index.md](mdc:docs/docs_content/live-applications/index.md)
+- **GitHub Pages Setup**: [docs/docs_content/development/github-pages-setup.md](mdc:docs/docs_content/development/github-pages-setup.md)
+
+### FastAPI Documentation Integration
+
+- **Auto-generated docs**: Available at `/docs` endpoint when FastAPI apps are running
+- **OpenAPI spec**: Available at `/openapi.json` endpoint
+- **Embedding in MkDocs**: FastAPI docs can be embedded using iframes or by importing OpenAPI specs
+- **Custom integration**: Use FastAPI's OpenAPI output to generate MkDocs pages
+
+### Documentation URLs
+
+- **MkDocs Site**: `http://localhost:8000` (when served locally)
+- **GitHub Pages**: `https://s-n00b.github.io/ai_assignments` (public deployment)
+- **FastAPI Docs**: `http://localhost:8080/docs` (Enterprise app)
+- **Gradio App**: `http://localhost:7860` (Model evaluation interface)
+- **MLflow UI**: `http://localhost:5000` (Experiment tracking)
+- **Grafana Dashboards**: `http://localhost:3000` (Monitoring)
+- **Prometheus Metrics**: `http://localhost:9090` (Metrics collection)
+- **Neo4j Browser**: `http://localhost:7474` (Knowledge graph)
+
 ## Virtual Environment
+
 - Located at: `venv/`
 - Activate with: `.\venv\Scripts\Activate.ps1`
 - Always activate before running Python commands

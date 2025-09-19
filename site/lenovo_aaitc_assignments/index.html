@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/lenovo_aaitc_assignments/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Lenovo AAITC Technical Assignments - Lenovo AAITC Solutions</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/lenovo_aaitc_assignments.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#lenovo-aaitc-technical-assignments" class="nav-link">Lenovo AAITC Technical Assignments</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#assignment-1-advisory-engineer-ai-model-evaluation" class="nav-link">Assignment 1: Advisory Engineer, AI Model Evaluation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#assignment-2-sr-engineer-ai-architecture" class="nav-link">Assignment 2: Sr. Engineer, AI Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#submission-guidelines" class="nav-link">Submission Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#resources-referenced" class="nav-link">Resources Referenced</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lenovo-aaitc-technical-assignments">Lenovo AAITC Technical Assignments<a class="headerlink" href="#lenovo-aaitc-technical-assignments" title="Permanent link">&para;</a></h1>
+<h2 id="assignment-1-advisory-engineer-ai-model-evaluation">Assignment 1: Advisory Engineer, AI Model Evaluation<a class="headerlink" href="#assignment-1-advisory-engineer-ai-model-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>This assignment assesses your ability to design comprehensive evaluation frameworks for foundation models, create model profiling and characterization tasks, and build a "model factory" concept that enables internal operations and B2B processes to leverage appropriate models for specific use cases and deployment scenarios.</p>
+<h3 id="part-a-model-evaluation-framework-design-40">Part A: Model Evaluation Framework Design (40%)<a class="headerlink" href="#part-a-model-evaluation-framework-design-40" title="Permanent link">&para;</a></h3>
+<h4 id="task-1-comprehensive-evaluation-pipeline">Task 1: Comprehensive Evaluation Pipeline<a class="headerlink" href="#task-1-comprehensive-evaluation-pipeline" title="Permanent link">&para;</a></h4>
+<p>Design a complete evaluation pipeline for comparing three state-of-the-art foundation models (e.g., GPT-5, GPT-5-Codex, Claude 3.5 Sonnet, Llama 3.3) for Lenovo's internal operations.</p>
+<p><strong>Deliverables:</strong></p>
+<ol>
+<li>
+<p><strong>Evaluation Matrix</strong> - Create a detailed evaluation framework including:</p>
+</li>
+<li>
+<p>Performance metrics (BLEU, ROUGE, perplexity, F1-score, custom metrics)</p>
+</li>
+<li>Task-specific benchmarks (text generation, summarization, code generation, reasoning)</li>
+<li>Robustness testing scenarios (adversarial inputs, edge cases, noise tolerance)</li>
+<li>Bias detection and mitigation strategies</li>
+<li>Safety and alignment assessments</li>
+<li>
+<p>Model-specific capabilities (GPT-5's advanced reasoning, GPT-5-Codex's 74.5% coding success rate, Claude 3.5 Sonnet's multimodal capabilities)</p>
+</li>
+<li>
+<p><strong>Implementation Plan</strong> - Provide Python pseudocode or actual code demonstrating:</p>
+</li>
+<li>
+<p>Automated evaluation framework using PyTorch</p>
+</li>
+<li>Data processing pipeline with Pandas/NumPy</li>
+<li>Statistical significance testing for model comparisons</li>
+<li>Visualization of results using appropriate libraries</li>
+<li>Integration with latest model APIs (GPT-5, GPT-5-Codex, Claude 3.5 Sonnet)</li>
+<li>
+<p>Leveraging open-source prompt registries for enhanced test scale</p>
+</li>
+<li>
+<p><strong>Production Monitoring Strategy</strong> - Design a system for:</p>
+</li>
+<li>Real-time performance tracking in production</li>
+<li>Model degradation detection</li>
+<li>A/B testing framework for model updates</li>
+<li>Alert mechanisms for performance anomalies</li>
+</ol>
+<h4 id="task-2-model-profiling-and-characterization">Task 2: Model Profiling and Characterization<a class="headerlink" href="#task-2-model-profiling-and-characterization" title="Permanent link">&para;</a></h4>
+<p>Create a detailed profiling system for foundation models that captures:</p>
+<p><strong>Required Components:</strong></p>
+<ol>
+<li>
+<p><strong>Performance Profile</strong></p>
+</li>
+<li>
+<p>Latency measurements across different input sizes</p>
+</li>
+<li>Token generation speed</li>
+<li>Memory usage patterns</li>
+<li>
+<p>Computational requirements (FLOPs, GPU utilization)</p>
+</li>
+<li>
+<p><strong>Capability Matrix</strong></p>
+</li>
+<li>
+<p>Task-specific strengths/weaknesses</p>
+</li>
+<li>Language/domain coverage</li>
+<li>Context window utilization efficiency</li>
+<li>
+<p>Few-shot vs zero-shot performance comparison</p>
+</li>
+<li>
+<p><strong>Deployment Readiness Assessment</strong></p>
+</li>
+<li>Edge device compatibility</li>
+<li>Scalability considerations</li>
+<li>Cost-per-inference calculations</li>
+<li>Integration complexity scoring</li>
+</ol>
+<h3 id="part-b-model-factory-architecture-30">Part B: Model Factory Architecture (30%)<a class="headerlink" href="#part-b-model-factory-architecture-30" title="Permanent link">&para;</a></h3>
+<h4 id="task-3-model-selection-framework">Task 3: Model Selection Framework<a class="headerlink" href="#task-3-model-selection-framework" title="Permanent link">&para;</a></h4>
+<p>Design a "Model Factory" system that automatically selects the appropriate model for specific use cases.</p>
+<p><strong>Requirements:</strong></p>
+<ol>
+<li>
+<p><strong>Use Case Taxonomy</strong> - Create a classification system for:</p>
+</li>
+<li>
+<p>Internal operations (HR, IT support, documentation)</p>
+</li>
+<li>B2B processes (customer service, sales enablement, technical support)</li>
+<li>
+<p>Deployment scenarios (cloud, edge, mobile)</p>
+</li>
+<li>
+<p><strong>Model Routing Logic</strong> - Develop an algorithm that:</p>
+</li>
+<li>
+<p>Matches use case requirements to model capabilities</p>
+</li>
+<li>Considers performance vs. cost trade-offs</li>
+<li>Implements fallback mechanisms</li>
+<li>
+<p>Handles multi-model ensemble scenarios</p>
+</li>
+<li>
+<p><strong>Implementation Design</strong> - Provide:</p>
+</li>
+<li>System architecture diagram</li>
+<li>API specification for model selection service</li>
+<li>Example routing decisions with justifications</li>
+</ol>
+<h3 id="part-c-practical-evaluation-exercise-30">Part C: Practical Evaluation Exercise (30%)<a class="headerlink" href="#part-c-practical-evaluation-exercise-30" title="Permanent link">&para;</a></h3>
+<h4 id="task-4-hands-on-model-evaluation">Task 4: Hands-on Model Evaluation<a class="headerlink" href="#task-4-hands-on-model-evaluation" title="Permanent link">&para;</a></h4>
+<p>Using the latest publicly available models (GPT-5, GPT-5-Codex, Claude 3.5 Sonnet, Llama 3.3), conduct a comparative evaluation focused on a specific Lenovo use case.</p>
+<p><strong>Scenario:</strong> Evaluate models for internal technical documentation generation using enhanced experimental scale from open-source prompt registries</p>
+<p><strong>Deliverables:</strong></p>
+<ol>
+<li>
+<p><strong>Experimental Design</strong></p>
+</li>
+<li>
+<p>Dataset preparation strategy</p>
+</li>
+<li>Evaluation metrics selection with justification</li>
+<li>
+<p>Experimental protocol including controls</p>
+</li>
+<li>
+<p><strong>Results Analysis</strong></p>
+</li>
+<li>
+<p>Quantitative performance comparison</p>
+</li>
+<li>Error analysis with specific failure patterns</li>
+<li>Recommendations for model selection</li>
+<li>
+<p>Improvement strategies for identified weaknesses</p>
+</li>
+<li>
+<p><strong>Report Generation</strong></p>
+</li>
+<li>Executive summary for stakeholders</li>
+<li>Technical deep-dive for engineering teams</li>
+<li>Visualization dashboard mockup</li>
+</ol>
+<h3 id="evaluation-criteria">Evaluation Criteria<a class="headerlink" href="#evaluation-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Technical depth and accuracy (40%)</li>
+<li>Practical applicability to Lenovo's ecosystem (25%)</li>
+<li>Code quality and documentation (20%)</li>
+<li>Innovation and creative problem-solving (15%)</li>
+</ul>
+<hr />
+<h2 id="assignment-2-sr-engineer-ai-architecture">Assignment 2: Sr. Engineer, AI Architecture<a class="headerlink" href="#assignment-2-sr-engineer-ai-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
+<p>This assignment evaluates your ability to architect end-to-end AI systems, manage the complete model lifecycle including post-training optimization, design production-ready AI platforms, and communicate complex technical concepts to diverse stakeholders.</p>
+<h3 id="part-a-system-architecture-design-35">Part A: System Architecture Design (35%)<a class="headerlink" href="#part-a-system-architecture-design-35" title="Permanent link">&para;</a></h3>
+<h4 id="task-1-hybrid-ai-platform-architecture">Task 1: Hybrid AI Platform Architecture<a class="headerlink" href="#task-1-hybrid-ai-platform-architecture" title="Permanent link">&para;</a></h4>
+<p>Design a comprehensive AI platform architecture for Lenovo's hybrid-AI vision that spans mobile, edge, and cloud deployments.</p>
+<p><strong>Deliverables:</strong></p>
+<ol>
+<li>
+<p><strong>Architecture Blueprint</strong></p>
+</li>
+<li>
+<p>Complete system architecture diagram with all components</p>
+</li>
+<li>Data flow diagrams showing information movement</li>
+<li>Service mesh design for microservices communication</li>
+<li>
+<p>API gateway and service discovery patterns</p>
+</li>
+<li>
+<p><strong>Technical Stack Selection</strong></p>
+</li>
+<li>
+<p>Justify technology choices for each layer:</p>
+<ul>
+<li>Infrastructure (Kubernetes, Docker, Terraform)</li>
+<li>ML Frameworks (PyTorch, LangChain, LangGraph, AutoGen)</li>
+<li>Vector Databases (Pinecone, Weaviate, Chroma)</li>
+<li>Monitoring (Prometheus, Grafana, LangFuse)</li>
+</ul>
+</li>
+<li>Integration patterns between components</li>
+<li>
+<p>Scalability and fault-tolerance strategies</p>
+</li>
+<li>
+<p><strong>Cross-Platform Orchestration</strong></p>
+</li>
+<li>Design for seamless operation across:<ul>
+<li>Moto smartphones and wearables</li>
+<li>ThinkPad laptops and PCs</li>
+<li>Servers and cloud infrastructure</li>
+</ul>
+</li>
+<li>Edge-cloud synchronization mechanisms</li>
+<li>Model deployment strategies per platform</li>
+</ol>
+<h4 id="task-2-model-lifecycle-management">Task 2: Model Lifecycle Management<a class="headerlink" href="#task-2-model-lifecycle-management" title="Permanent link">&para;</a></h4>
+<p>Create a comprehensive MLOps pipeline for the entire model lifecycle.</p>
+<p><strong>Required Components:</strong></p>
+<ol>
+<li>
+<p><strong>Post-Training Optimization Pipeline</strong></p>
+</li>
+<li>
+<p>Supervised Fine-Tuning (SFT) implementation strategy</p>
+</li>
+<li>LoRA and QLoRA integration for parameter-efficient training</li>
+<li>Prompt tuning and optimization framework</li>
+<li>
+<p>Model quantization and compression techniques</p>
+</li>
+<li>
+<p><strong>CI/CD for AI Models</strong></p>
+</li>
+<li>
+<p>Version control strategy for models and datasets</p>
+</li>
+<li>Automated testing pipeline for model updates</li>
+<li>Staging environments and progressive rollout</li>
+<li>
+<p>Rollback mechanisms and safety checks</p>
+</li>
+<li>
+<p><strong>Observability and Monitoring</strong></p>
+</li>
+<li>Model performance tracking across deployments</li>
+<li>Drift detection and alerting systems</li>
+<li>Resource utilization monitoring</li>
+<li>Business metric correlation</li>
+</ol>
+<h3 id="part-b-intelligent-agent-system-30">Part B: Intelligent Agent System (30%)<a class="headerlink" href="#part-b-intelligent-agent-system-30" title="Permanent link">&para;</a></h3>
+<h4 id="task-3-agentic-computing-framework">Task 3: Agentic Computing Framework<a class="headerlink" href="#task-3-agentic-computing-framework" title="Permanent link">&para;</a></h4>
+<p>Design an advanced agent system leveraging LLMs for complex task automation.</p>
+<p><strong>Deliverables:</strong></p>
+<ol>
+<li>
+<p><strong>Agent Architecture</strong></p>
+</li>
+<li>
+<p>Intent understanding and classification system</p>
+</li>
+<li>Task decomposition and planning algorithms</li>
+<li>Tool calling framework (using MCP - Model Context Protocol)</li>
+<li>
+<p>Memory management and context retention</p>
+</li>
+<li>
+<p><strong>Implementation Design</strong></p>
+</li>
+<li>
+<p>Detailed sequence diagrams for agent workflows</p>
+</li>
+<li>State management and persistence strategies</li>
+<li>Error handling and recovery mechanisms</li>
+<li>
+<p>Multi-agent collaboration patterns</p>
+</li>
+<li>
+<p><strong>Code Sample</strong></p>
+</li>
+<li>Provide working Python code demonstrating:<ul>
+<li>Basic agent implementation using LangGraph or AutoGen</li>
+<li>Tool integration example</li>
+<li>Reasoning chain visualization</li>
+</ul>
+</li>
+</ol>
+<h3 id="part-c-knowledge-management-rag-system-20">Part C: Knowledge Management &amp; RAG System (20%)<a class="headerlink" href="#part-c-knowledge-management-rag-system-20" title="Permanent link">&para;</a></h3>
+<h4 id="task-4-enterprise-knowledge-platform">Task 4: Enterprise Knowledge Platform<a class="headerlink" href="#task-4-enterprise-knowledge-platform" title="Permanent link">&para;</a></h4>
+<p>Design a production-ready RAG system with advanced retrieval capabilities.</p>
+<p><strong>Requirements:</strong></p>
+<ol>
+<li>
+<p><strong>Knowledge Architecture</strong></p>
+</li>
+<li>
+<p>Vector database design and embedding strategy</p>
+</li>
+<li>Knowledge graph integration for structured data</li>
+<li>Hybrid search implementation (semantic + keyword)</li>
+<li>
+<p>Reranking models and algorithms</p>
+</li>
+<li>
+<p><strong>Context Engineering</strong></p>
+</li>
+<li>
+<p>External data integration patterns</p>
+</li>
+<li>Context window optimization strategies</li>
+<li>Dynamic context selection based on query type</li>
+<li>
+<p>Memory-efficient processing techniques</p>
+</li>
+<li>
+<p><strong>Quality Assurance</strong></p>
+</li>
+<li>Retrieval accuracy metrics and benchmarks</li>
+<li>Hallucination detection and mitigation</li>
+<li>Source attribution and citation system</li>
+<li>Feedback loop for continuous improvement</li>
+</ol>
+<h3 id="part-d-stakeholder-communication-15">Part D: Stakeholder Communication (15%)<a class="headerlink" href="#part-d-stakeholder-communication-15" title="Permanent link">&para;</a></h3>
+<h4 id="task-5-executive-presentation">Task 5: Executive Presentation<a class="headerlink" href="#task-5-executive-presentation" title="Permanent link">&para;</a></h4>
+<p>Create presentation materials for different audiences demonstrating your architectural decisions.</p>
+<p><strong>Deliverables:</strong></p>
+<ol>
+<li>
+<p><strong>Board-Level Presentation</strong> (5 slides max)</p>
+</li>
+<li>
+<p>Business value proposition</p>
+</li>
+<li>ROI projections and KPIs</li>
+<li>Risk assessment and mitigation</li>
+<li>
+<p>Competitive advantage analysis</p>
+</li>
+<li>
+<p><strong>Technical Documentation</strong></p>
+</li>
+<li>
+<p>Comprehensive architecture decision records (ADRs)</p>
+</li>
+<li>API documentation with OpenAPI/Swagger specs</li>
+<li>Deployment runbooks</li>
+<li>
+<p>Troubleshooting guides</p>
+</li>
+<li>
+<p><strong>SME Collaboration Framework</strong></p>
+</li>
+<li>Guardrail design template for domain experts</li>
+<li>Feedback collection and integration process</li>
+<li>Knowledge transfer protocols</li>
+<li>Training materials for non-technical stakeholders</li>
+</ol>
+<h3 id="bonus-challenge-innovation-showcase">Bonus Challenge: Innovation Showcase<a class="headerlink" href="#bonus-challenge-innovation-showcase" title="Permanent link">&para;</a></h3>
+<p>Propose an innovative AI capability that leverages Lenovo's unique ecosystem advantage.</p>
+<p><strong>Suggestions:</strong></p>
+<ul>
+<li>Cross-device AI orchestration system</li>
+<li>Federated learning across Lenovo devices</li>
+<li>Edge-cloud hybrid inference optimization</li>
+<li>Novel multimodal interaction paradigm</li>
+</ul>
+<h3 id="evaluation-criteria_1">Evaluation Criteria<a class="headerlink" href="#evaluation-criteria_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Architectural sophistication and scalability (35%)</li>
+<li>Technical depth and implementation feasibility (30%)</li>
+<li>Innovation and forward-thinking approach (20%)</li>
+<li>Communication clarity and documentation quality (15%)</li>
+</ul>
+<hr />
+<h2 id="submission-guidelines">Submission Guidelines<a class="headerlink" href="#submission-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="format-requirements">Format Requirements<a class="headerlink" href="#format-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All code should be production-quality with proper error handling</li>
+<li>Include README files with setup instructions</li>
+<li>Provide both technical and executive summaries</li>
+<li>Use appropriate visualization tools for complex concepts</li>
+</ul>
+<h3 id="time-allocation-suggestions">Time Allocation Suggestions<a class="headerlink" href="#time-allocation-suggestions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Model Evaluation Assignment:</strong> 6-8 hours</li>
+<li><strong>AI Architecture Assignment:</strong> 8-10 hours</li>
+</ul>
+<h3 id="assessment-focus-areas">Assessment Focus Areas<a class="headerlink" href="#assessment-focus-areas" title="Permanent link">&para;</a></h3>
+<h4 id="for-model-evaluation-role">For Model Evaluation Role:<a class="headerlink" href="#for-model-evaluation-role" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Deep understanding of evaluation metrics and methodologies</li>
+<li>Practical experience with model benchmarking</li>
+<li>Ability to identify and mitigate model weaknesses</li>
+<li>Strong analytical and experimental design skills</li>
+</ul>
+<h4 id="for-ai-architecture-role">For AI Architecture Role:<a class="headerlink" href="#for-ai-architecture-role" title="Permanent link">&para;</a></h4>
+<ul>
+<li>System-level thinking and design capabilities</li>
+<li>End-to-end ML lifecycle expertise</li>
+<li>Production deployment experience</li>
+<li>Stakeholder communication skills</li>
+<li>Innovation in applying AI to real-world problems</li>
+</ul>
+<h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Feel free to make reasonable assumptions where details are not specified</li>
+<li>Document all assumptions clearly</li>
+<li>Focus on practical, implementable solutions</li>
+<li>Consider Lenovo's specific ecosystem and business context</li>
+<li>Demonstrate understanding of enterprise-scale challenges</li>
+</ul>
+<hr />
+<h2 id="resources-referenced">Resources Referenced<a class="headerlink" href="#resources-referenced" title="Permanent link">&para;</a></h2>
+<p>The assignments incorporate concepts from:</p>
+<ul>
+<li>LLM Development Principles (8 Core Concepts)</li>
+<li>Context Engineering Framework</li>
+<li>Prompt Engineering Mastery Guide</li>
+<li>Advanced AI Architecture patterns</li>
+<li>Production MLOps best practices</li>
+</ul>
+<p>These assignments are designed to thoroughly assess both theoretical knowledge and practical implementation skills required for success in the respective roles at Lenovo's AAITC.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

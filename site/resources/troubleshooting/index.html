@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/resources/troubleshooting/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Troubleshooting - Lenovo AAITC Solutions</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../performance/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/resources/troubleshooting.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#troubleshooting-guide" class="nav-link">Troubleshooting Guide</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#common-installation-issues" class="nav-link">Common Installation Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#runtime-errors" class="nav-link">Runtime Errors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-issues" class="nav-link">Performance Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#api-and-web-service-issues" class="nav-link">API and Web Service Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#deployment-issues" class="nav-link">Deployment Issues</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#monitoring-and-debugging" class="nav-link">Monitoring and Debugging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#recovery-procedures" class="nav-link">Recovery Procedures</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="troubleshooting-guide">Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This comprehensive troubleshooting guide helps diagnose and resolve common issues in the AI Assignments project. It covers installation problems, runtime errors, performance issues, and deployment challenges.</p>
+<h2 id="common-installation-issues">Common Installation Issues<a class="headerlink" href="#common-installation-issues" title="Permanent link">&para;</a></h2>
+<h3 id="1-virtual-environment-issues">1. Virtual Environment Issues<a class="headerlink" href="#1-virtual-environment-issues" title="Permanent link">&para;</a></h3>
+<h4 id="problem-virtual-environment-not-activating">Problem: Virtual environment not activating<a class="headerlink" href="#problem-virtual-environment-not-activating" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Error: Execution policy prevents running scripts
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+<h4 id="problem-python-version-conflicts">Problem: Python version conflicts<a class="headerlink" href="#problem-python-version-conflicts" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Check Python version
+python --version
+
+# Create virtual environment with specific Python version
+python3.9 -m venv venv
+</code></pre>
+<h4 id="problem-package-installation-failures">Problem: Package installation failures<a class="headerlink" href="#problem-package-installation-failures" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Clear pip cache
+pip cache purge
+
+# Upgrade pip and setuptools
+pip install --upgrade pip setuptools wheel
+
+# Install packages individually to identify issues
+pip install torch
+pip install transformers
+pip install gradio
+</code></pre>
+<h3 id="2-dependency-conflicts">2. Dependency Conflicts<a class="headerlink" href="#2-dependency-conflicts" title="Permanent link">&para;</a></h3>
+<h4 id="problem-conflicting-package-versions">Problem: Conflicting package versions<a class="headerlink" href="#problem-conflicting-package-versions" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Check for conflicts
+pip check
+
+# Create requirements with exact versions
+pip freeze &gt; requirements-exact.txt
+
+# Use conda for complex environments
+conda create -n ai_assignments python=3.9
+conda activate ai_assignments
+conda install pytorch torchvision torchaudio -c pytorch
+</code></pre>
+<h4 id="problem-cudapytorch-compatibility">Problem: CUDA/PyTorch compatibility<a class="headerlink" href="#problem-cudapytorch-compatibility" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Check CUDA version
+nvidia-smi
+
+# Install compatible PyTorch version
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+</code></pre>
+<h2 id="runtime-errors">Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permanent link">&para;</a></h2>
+<h3 id="1-import-errors">1. Import Errors<a class="headerlink" href="#1-import-errors" title="Permanent link">&para;</a></h3>
+<h4 id="problem-module-not-found">Problem: Module not found<a class="headerlink" href="#problem-module-not-found" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># Check Python path
+import sys
+print(sys.path)
+
+# Add project root to Python path
+import os
+sys.path.insert(0, os.path.abspath('.'))
+
+# Use relative imports
+from src.model_evaluation.pipeline import EvaluationPipeline
+</code></pre>
+<h4 id="problem-circular-imports">Problem: Circular imports<a class="headerlink" href="#problem-circular-imports" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># Solution: Use local imports
+def some_function():
+    from src.utils.config_utils import get_config
+    config = get_config()
+    return config
+</code></pre>
+<h3 id="2-model-loading-issues">2. Model Loading Issues<a class="headerlink" href="#2-model-loading-issues" title="Permanent link">&para;</a></h3>
+<h4 id="problem-model-file-not-found">Problem: Model file not found<a class="headerlink" href="#problem-model-file-not-found" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import os
+from pathlib import Path
+
+def load_model_safely(model_path: str):
+    &quot;&quot;&quot;Load model with proper error handling.&quot;&quot;&quot;
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f&quot;Model file not found: {model_path}&quot;)
+
+    try:
+        model = torch.load(model_path, map_location='cpu')
+        return model
+    except Exception as e:
+        raise RuntimeError(f&quot;Failed to load model: {e}&quot;)
+
+# Usage
+model_path = Path(__file__).parent / &quot;models&quot; / &quot;model.pt&quot;
+model = load_model_safely(str(model_path))
+</code></pre>
+<h4 id="problem-cuda-out-of-memory">Problem: CUDA out of memory<a class="headerlink" href="#problem-cuda-out-of-memory" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import torch
+
+def handle_cuda_memory():
+    &quot;&quot;&quot;Handle CUDA memory issues.&quot;&quot;&quot;
+    if torch.cuda.is_available():
+        # Clear cache
+        torch.cuda.empty_cache()
+
+        # Set memory fraction
+        torch.cuda.set_per_process_memory_fraction(0.8)
+
+        # Use mixed precision
+        from torch.cuda.amp import autocast, GradScaler
+        scaler = GradScaler()
+
+        return scaler
+    return None
+
+# Usage in training loop
+scaler = handle_cuda_memory()
+with autocast():
+    outputs = model(inputs)
+    loss = criterion(outputs, targets)
+
+scaler.scale(loss).backward()
+scaler.step(optimizer)
+scaler.update()
+</code></pre>
+<h3 id="3-database-connection-issues">3. Database Connection Issues<a class="headerlink" href="#3-database-connection-issues" title="Permanent link">&para;</a></h3>
+<h4 id="problem-database-connection-timeout">Problem: Database connection timeout<a class="headerlink" href="#problem-database-connection-timeout" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import sqlite3
+import psycopg2
+from sqlalchemy import create_engine
+import time
+
+def test_database_connection(database_url: str, max_retries: int = 3):
+    &quot;&quot;&quot;Test database connection with retries.&quot;&quot;&quot;
+    for attempt in range(max_retries):
+        try:
+            engine = create_engine(database_url, pool_pre_ping=True)
+            with engine.connect() as conn:
+                conn.execute(&quot;SELECT 1&quot;)
+            print(f&quot;Database connection successful (attempt {attempt + 1})&quot;)
+            return engine
+        except Exception as e:
+            print(f&quot;Database connection failed (attempt {attempt + 1}): {e}&quot;)
+            if attempt &lt; max_retries - 1:
+                time.sleep(2 ** attempt)  # Exponential backoff
+            else:
+                raise
+</code></pre>
+<h4 id="problem-database-locked">Problem: Database locked<a class="headerlink" href="#problem-database-locked" title="Permanent link">&para;</a></h4>
+<pre><code class="language-sql">-- Check for locks (SQLite)
+PRAGMA database_list;
+PRAGMA lock_status;
+
+-- Unlock database (if safe to do so)
+PRAGMA wal_checkpoint(TRUNCATE);
+</code></pre>
+<h2 id="performance-issues">Performance Issues<a class="headerlink" href="#performance-issues" title="Permanent link">&para;</a></h2>
+<h3 id="1-slow-model-inference">1. Slow Model Inference<a class="headerlink" href="#1-slow-model-inference" title="Permanent link">&para;</a></h3>
+<h4 id="problem-high-latency">Problem: High latency<a class="headerlink" href="#problem-high-latency" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import time
+import torch
+from torch.utils.data import DataLoader
+
+def optimize_model_inference(model, dataloader):
+    &quot;&quot;&quot;Optimize model for inference.&quot;&quot;&quot;
+    model.eval()
+
+    # Enable optimizations
+    if torch.cuda.is_available():
+        model = model.cuda()
+        torch.backends.cudnn.benchmark = True
+
+    # Use torch.jit for optimization
+    model = torch.jit.optimize_for_inference(torch.jit.script(model))
+
+    # Batch processing
+    with torch.no_grad():
+        for batch in dataloader:
+            start_time = time.time()
+            outputs = model(batch)
+            inference_time = time.time() - start_time
+            print(f&quot;Batch inference time: {inference_time:.4f}s&quot;)
+</code></pre>
+<h4 id="problem-memory-issues-during-inference">Problem: Memory issues during inference<a class="headerlink" href="#problem-memory-issues-during-inference" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">def inference_with_memory_management(model, inputs, batch_size=32):
+    &quot;&quot;&quot;Inference with memory management.&quot;&quot;&quot;
+    results = []
+
+    # Process in batches
+    for i in range(0, len(inputs), batch_size):
+        batch = inputs[i:i + batch_size]
+
+        # Move to device
+        if torch.cuda.is_available():
+            batch = batch.cuda()
+
+        # Inference
+        with torch.no_grad():
+            outputs = model(batch)
+            results.append(outputs.cpu())
+
+        # Clear cache
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+    return torch.cat(results, dim=0)
+</code></pre>
+<h3 id="2-memory-leaks">2. Memory Leaks<a class="headerlink" href="#2-memory-leaks" title="Permanent link">&para;</a></h3>
+<h4 id="problem-increasing-memory-usage">Problem: Increasing memory usage<a class="headerlink" href="#problem-increasing-memory-usage" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import gc
+import psutil
+import torch
+
+class MemoryMonitor:
+    def __init__(self):
+        self.initial_memory = self.get_memory_usage()
+
+    def get_memory_usage(self):
+        &quot;&quot;&quot;Get current memory usage.&quot;&quot;&quot;
+        process = psutil.Process()
+        return process.memory_info().rss / 1024 / 1024  # MB
+
+    def check_memory_leak(self, threshold_mb=100):
+        &quot;&quot;&quot;Check for memory leaks.&quot;&quot;&quot;
+        current_memory = self.get_memory_usage()
+        memory_increase = current_memory - self.initial_memory
+
+        if memory_increase &gt; threshold_mb:
+            print(f&quot;Potential memory leak: {memory_increase:.2f}MB increase&quot;)
+            return True
+        return False
+
+    def cleanup_memory(self):
+        &quot;&quot;&quot;Clean up memory.&quot;&quot;&quot;
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+# Usage
+monitor = MemoryMonitor()
+# ... perform operations ...
+if monitor.check_memory_leak():
+    monitor.cleanup_memory()
+</code></pre>
+<h2 id="api-and-web-service-issues">API and Web Service Issues<a class="headerlink" href="#api-and-web-service-issues" title="Permanent link">&para;</a></h2>
+<h3 id="1-gradio-app-issues">1. Gradio App Issues<a class="headerlink" href="#1-gradio-app-issues" title="Permanent link">&para;</a></h3>
+<h4 id="problem-gradio-interface-not-loading">Problem: Gradio interface not loading<a class="headerlink" href="#problem-gradio-interface-not-loading" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import gradio as gr
+
+def create_gradio_interface():
+    &quot;&quot;&quot;Create Gradio interface with error handling.&quot;&quot;&quot;
+    try:
+        interface = gr.Interface(
+            fn=your_function,
+            inputs=&quot;text&quot;,
+            outputs=&quot;text&quot;,
+            title=&quot;AI Assignments&quot;,
+            description=&quot;Interactive AI interface&quot;
+        )
+        return interface
+    except Exception as e:
+        print(f&quot;Error creating Gradio interface: {e}&quot;)
+        return None
+
+# Start with error handling
+try:
+    interface = create_gradio_interface()
+    if interface:
+        interface.launch(
+            server_name=&quot;0.0.0.0&quot;,
+            server_port=7860,
+            share=False,
+            debug=True
+        )
+except Exception as e:
+    print(f&quot;Failed to start Gradio app: {e}&quot;)
+</code></pre>
+<h4 id="problem-cors-issues">Problem: CORS issues<a class="headerlink" href="#problem-cors-issues" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[&quot;*&quot;],  # Configure appropriately for production
+    allow_credentials=True,
+    allow_methods=[&quot;*&quot;],
+    allow_headers=[&quot;*&quot;],
+)
+</code></pre>
+<h3 id="2-api-rate-limiting">2. API Rate Limiting<a class="headerlink" href="#2-api-rate-limiting" title="Permanent link">&para;</a></h3>
+<h4 id="problem-too-many-requests">Problem: Too many requests<a class="headerlink" href="#problem-too-many-requests" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from functools import wraps
+import time
+from collections import defaultdict
+
+class RateLimiter:
+    def __init__(self, max_requests=100, window=60):
+        self.max_requests = max_requests
+        self.window = window
+        self.requests = defaultdict(list)
+
+    def is_allowed(self, client_id: str) -&gt; bool:
+        &quot;&quot;&quot;Check if request is allowed.&quot;&quot;&quot;
+        now = time.time()
+        client_requests = self.requests[client_id]
+
+        # Remove old requests
+        client_requests[:] = [req_time for req_time in client_requests 
+                            if now - req_time &lt; self.window]
+
+        # Check limit
+        if len(client_requests) &gt;= self.max_requests:
+            return False
+
+        # Add current request
+        client_requests.append(now)
+        return True
+
+# Usage
+rate_limiter = RateLimiter(max_requests=100, window=60)
+
+@app.post(&quot;/api/predict&quot;)
+async def predict(request: dict, client_id: str = &quot;default&quot;):
+    if not rate_limiter.is_allowed(client_id):
+        raise HTTPException(status_code=429, detail=&quot;Rate limit exceeded&quot;)
+
+    # Process request
+    return {&quot;result&quot;: &quot;success&quot;}
+</code></pre>
+<h2 id="deployment-issues">Deployment Issues<a class="headerlink" href="#deployment-issues" title="Permanent link">&para;</a></h2>
+<h3 id="1-docker-issues">1. Docker Issues<a class="headerlink" href="#1-docker-issues" title="Permanent link">&para;</a></h3>
+<h4 id="problem-container-wont-start">Problem: Container won't start<a class="headerlink" href="#problem-container-wont-start" title="Permanent link">&para;</a></h4>
+<pre><code class="language-dockerfile"># Add debugging to Dockerfile
+FROM python:3.9-slim
+
+# Add debugging tools
+RUN apt-get update &amp;&amp; apt-get install -y \
+    curl \
+    vim \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Add health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Use non-root user
+RUN useradd --create-home --shell /bin/bash app
+USER app
+
+# Set working directory
+WORKDIR /app
+
+# Copy and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application
+COPY . .
+
+# Start with debugging
+CMD [&quot;python&quot;, &quot;-m&quot;, &quot;src.gradio_app.main&quot;, &quot;--debug&quot;]
+</code></pre>
+<h4 id="problem-volume-mounting-issues">Problem: Volume mounting issues<a class="headerlink" href="#problem-volume-mounting-issues" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Check volume permissions
+docker run --rm -v $(pwd):/app alpine ls -la /app
+
+# Fix permissions
+sudo chown -R $USER:$USER .
+chmod -R 755 .
+
+# Use named volumes for data
+docker volume create ai_assignments_data
+docker run -v ai_assignments_data:/app/data your-image
+</code></pre>
+<h3 id="2-kubernetes-issues">2. Kubernetes Issues<a class="headerlink" href="#2-kubernetes-issues" title="Permanent link">&para;</a></h3>
+<h4 id="problem-pods-not-starting">Problem: Pods not starting<a class="headerlink" href="#problem-pods-not-starting" title="Permanent link">&para;</a></h4>
+<pre><code class="language-yaml"># Add debugging to deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-assignments-debug
+spec:
+  template:
+    spec:
+      containers:
+      - name: ai-assignments
+        image: ai-assignments:latest
+        command: [&quot;/bin/bash&quot;]
+        args: [&quot;-c&quot;, &quot;while true; do sleep 30; done&quot;]  # Keep container alive
+        env:
+        - name: DEBUG
+          value: &quot;true&quot;
+        resources:
+          requests:
+            memory: &quot;512Mi&quot;
+            cpu: &quot;250m&quot;
+          limits:
+            memory: &quot;1Gi&quot;
+            cpu: &quot;500m&quot;
+</code></pre>
+<h4 id="problem-service-not-accessible">Problem: Service not accessible<a class="headerlink" href="#problem-service-not-accessible" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Check service endpoints
+kubectl get endpoints ai-assignments-service
+
+# Check pod logs
+kubectl logs -l app=ai-assignments
+
+# Port forward for testing
+kubectl port-forward service/ai-assignments-service 8000:80
+
+# Check ingress
+kubectl describe ingress ai-assignments-ingress
+</code></pre>
+<h2 id="monitoring-and-debugging">Monitoring and Debugging<a class="headerlink" href="#monitoring-and-debugging" title="Permanent link">&para;</a></h2>
+<h3 id="1-logging-configuration">1. Logging Configuration<a class="headerlink" href="#1-logging-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="comprehensive-logging-setup">Comprehensive logging setup<a class="headerlink" href="#comprehensive-logging-setup" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import logging
+import logging.config
+import sys
+from pathlib import Path
+
+def setup_logging(log_level=&quot;INFO&quot;, log_file=None):
+    &quot;&quot;&quot;Setup comprehensive logging configuration.&quot;&quot;&quot;
+
+    log_format = &quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;
+
+    # Console handler
+    console_handler = {
+        'class': 'logging.StreamHandler',
+        'level': log_level,
+        'formatter': 'detailed',
+        'stream': sys.stdout
+    }
+
+    # File handler
+    handlers = {'console': console_handler}
+
+    if log_file:
+        handlers['file'] = {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'level': log_level,
+            'formatter': 'detailed',
+            'filename': log_file,
+            'maxBytes': 10485760,  # 10MB
+            'backupCount': 5
+        }
+
+    logging_config = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'simple': {
+                'format': '%(levelname)s - %(message)s'
+            },
+            'detailed': {
+                'format': log_format
+            }
+        },
+        'handlers': handlers,
+        'loggers': {
+            '': {
+                'handlers': list(handlers.keys()),
+                'level': log_level,
+                'propagate': False
+            }
+        }
+    }
+
+    logging.config.dictConfig(logging_config)
+
+# Usage
+setup_logging(log_level=&quot;DEBUG&quot;, log_file=&quot;logs/app.log&quot;)
+logger = logging.getLogger(__name__)
+</code></pre>
+<h3 id="2-error-tracking">2. Error Tracking<a class="headerlink" href="#2-error-tracking" title="Permanent link">&para;</a></h3>
+<h4 id="exception-handling-and-reporting">Exception handling and reporting<a class="headerlink" href="#exception-handling-and-reporting" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import traceback
+import logging
+from functools import wraps
+
+def error_handler(func):
+    &quot;&quot;&quot;Decorator for comprehensive error handling.&quot;&quot;&quot;
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            logger = logging.getLogger(func.__module__)
+            logger.error(f&quot;Error in {func.__name__}: {e}&quot;)
+            logger.error(f&quot;Traceback: {traceback.format_exc()}&quot;)
+
+            # Send to error tracking service (e.g., Sentry)
+            # sentry_sdk.capture_exception()
+
+            raise
+    return wrapper
+
+# Usage
+@error_handler
+def risky_function():
+    # Function that might fail
+    pass
+</code></pre>
+<h3 id="3-performance-monitoring">3. Performance Monitoring<a class="headerlink" href="#3-performance-monitoring" title="Permanent link">&para;</a></h3>
+<h4 id="real-time-performance-tracking">Real-time performance tracking<a class="headerlink" href="#real-time-performance-tracking" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import time
+import psutil
+import threading
+from collections import deque
+
+class PerformanceMonitor:
+    def __init__(self, max_samples=100):
+        self.max_samples = max_samples
+        self.metrics = {
+            'cpu': deque(maxlen=max_samples),
+            'memory': deque(maxlen=max_samples),
+            'response_time': deque(maxlen=max_samples)
+        }
+        self.running = False
+        self.thread = None
+
+    def start(self):
+        &quot;&quot;&quot;Start monitoring.&quot;&quot;&quot;
+        self.running = True
+        self.thread = threading.Thread(target=self._monitor_loop)
+        self.thread.daemon = True
+        self.thread.start()
+
+    def stop(self):
+        &quot;&quot;&quot;Stop monitoring.&quot;&quot;&quot;
+        self.running = False
+        if self.thread:
+            self.thread.join()
+
+    def _monitor_loop(self):
+        &quot;&quot;&quot;Monitoring loop.&quot;&quot;&quot;
+        while self.running:
+            # Collect system metrics
+            cpu_percent = psutil.cpu_percent()
+            memory_percent = psutil.virtual_memory().percent
+
+            self.metrics['cpu'].append(cpu_percent)
+            self.metrics['memory'].append(memory_percent)
+
+            time.sleep(1)
+
+    def record_response_time(self, response_time):
+        &quot;&quot;&quot;Record API response time.&quot;&quot;&quot;
+        self.metrics['response_time'].append(response_time)
+
+    def get_stats(self):
+        &quot;&quot;&quot;Get performance statistics.&quot;&quot;&quot;
+        stats = {}
+        for metric, values in self.metrics.items():
+            if values:
+                stats[metric] = {
+                    'current': values[-1],
+                    'average': sum(values) / len(values),
+                    'min': min(values),
+                    'max': max(values)
+                }
+        return stats
+
+# Usage
+monitor = PerformanceMonitor()
+monitor.start()
+
+# In API endpoint
+@app.get(&quot;/api/health&quot;)
+async def health_check():
+    start_time = time.time()
+    # ... process request ...
+    response_time = time.time() - start_time
+    monitor.record_response_time(response_time)
+
+    return {
+        &quot;status&quot;: &quot;healthy&quot;,
+        &quot;performance&quot;: monitor.get_stats()
+    }
+</code></pre>
+<h2 id="recovery-procedures">Recovery Procedures<a class="headerlink" href="#recovery-procedures" title="Permanent link">&para;</a></h2>
+<h3 id="1-data-recovery">1. Data Recovery<a class="headerlink" href="#1-data-recovery" title="Permanent link">&para;</a></h3>
+<h4 id="database-backup-and-restore">Database backup and restore<a class="headerlink" href="#database-backup-and-restore" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import sqlite3
+import shutil
+from datetime import datetime
+
+def backup_database(db_path: str, backup_dir: str = &quot;backups&quot;):
+    &quot;&quot;&quot;Create database backup.&quot;&quot;&quot;
+    backup_dir = Path(backup_dir)
+    backup_dir.mkdir(exist_ok=True)
+
+    timestamp = datetime.now().strftime(&quot;%Y%m%d_%H%M%S&quot;)
+    backup_path = backup_dir / f&quot;database_{timestamp}.db&quot;
+
+    shutil.copy2(db_path, backup_path)
+    print(f&quot;Database backed up to: {backup_path}&quot;)
+    return backup_path
+
+def restore_database(db_path: str, backup_path: str):
+    &quot;&quot;&quot;Restore database from backup.&quot;&quot;&quot;
+    shutil.copy2(backup_path, db_path)
+    print(f&quot;Database restored from: {backup_path}&quot;)
+
+# Usage
+backup_path = backup_database(&quot;ai_assignments.db&quot;)
+# ... if issues occur ...
+restore_database(&quot;ai_assignments.db&quot;, backup_path)
+</code></pre>
+<h3 id="2-service-recovery">2. Service Recovery<a class="headerlink" href="#2-service-recovery" title="Permanent link">&para;</a></h3>
+<h4 id="automatic-restart-on-failure">Automatic restart on failure<a class="headerlink" href="#automatic-restart-on-failure" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import subprocess
+import time
+import logging
+
+class ServiceManager:
+    def __init__(self, service_command, max_restarts=5):
+        self.service_command = service_command
+        self.max_restarts = max_restarts
+        self.restart_count = 0
+        self.process = None
+        self.logger = logging.getLogger(__name__)
+
+    def start_service(self):
+        &quot;&quot;&quot;Start the service.&quot;&quot;&quot;
+        try:
+            self.process = subprocess.Popen(self.service_command)
+            self.logger.info(f&quot;Service started with PID: {self.process.pid}&quot;)
+            return True
+        except Exception as e:
+            self.logger.error(f&quot;Failed to start service: {e}&quot;)
+            return False
+
+    def monitor_service(self):
+        &quot;&quot;&quot;Monitor and restart service if needed.&quot;&quot;&quot;
+        while self.restart_count &lt; self.max_restarts:
+            if self.process is None or self.process.poll() is not None:
+                self.logger.warning(&quot;Service stopped, attempting restart&quot;)
+
+                if self.start_service():
+                    self.restart_count += 1
+                    time.sleep(5)  # Wait before monitoring again
+                else:
+                    self.logger.error(&quot;Failed to restart service&quot;)
+                    break
+            else:
+                time.sleep(10)  # Check every 10 seconds
+
+        self.logger.error(&quot;Max restart attempts reached&quot;)
+
+# Usage
+service_manager = ServiceManager([&quot;python&quot;, &quot;-m&quot;, &quot;src.gradio_app.main&quot;])
+service_manager.monitor_service()
+</code></pre>
+<p>This troubleshooting guide provides comprehensive solutions for common issues encountered in the AI Assignments project, helping developers quickly diagnose and resolve problems.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-server
+  namespace: llmops-enterprise
+  labels:
+    app: ollama-server
+    component: model-serving
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ollama-server
+  template:
+    metadata:
+      labels:
+        app: ollama-server
+    spec:
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        ports:
+        - containerPort: 11434
+          name: http
+        env:
+        - name: OLLAMA_HOST
+          value: "0.0.0.0"
+        - name: OLLAMA_ORIGINS
+          value: "*"
+        - name: OLLAMA_MODELS
+          value: "/root/.ollama/models"
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2"
+            nvidia.com/gpu: 1
+          limits:
+            memory: "8Gi"
+            cpu: "4"
+            nvidia.com/gpu: 1
+        volumeMounts:
+        - name: ollama-models
+          mountPath: /root/.ollama
+        - name: model-cache
+          mountPath: /tmp/ollama
+        livenessProbe:
+          httpGet:
+            path: /api/tags
+            port: 11434
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /api/tags
+            port: 11434
+          initialDelaySeconds: 10
+          periodSeconds: 10
+      volumes:
+      - name: ollama-models
+        persistentVolumeClaim:
+          claimName: ollama-models-pvc
+      - name: model-cache
+        emptyDir: {}
+      nodeSelector:
+        accelerator: nvidia-tesla
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-service
+  namespace: llmops-enterprise
+  labels:
+    app: ollama-server
+spec:
+  type: ClusterIP
+  ports:
+  - port: 11434
+    targetPort: 11434
+    name: http
+  selector:
+    app: ollama-server
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ollama-models-pvc
+  namespace: llmops-enterprise
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: fast-ssd

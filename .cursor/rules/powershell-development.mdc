@@ -1,8 +1,7 @@
 ---
-alwaysApply: true
-description: PowerShell development workflow and commands for ai_assignments project
+description: whenever executing bash
+alwaysApply: false
 ---
-
 # PowerShell Development Workflow
 
 This project uses PowerShell for development commands. Reference the comprehensive command set in [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1).

@@ -26,6 +26,10 @@ import logging
 from concurrent.futures import ThreadPoolExecutor
 import traceback
 
+# Configure logging first
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # CrewAI imports for enhanced multi-agent orchestration
 try:
     from crewai import Agent, Task, Crew, Process
@@ -52,10 +56,6 @@ try:
 except ImportError:
     SMOLAGENTS_AVAILABLE = False
     logger.warning("SmolAgents not available. Install with: pip install smolagents")
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 
 class MessageType(Enum):

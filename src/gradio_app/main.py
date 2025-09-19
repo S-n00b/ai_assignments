@@ -27,6 +27,10 @@ from .components import (
     VisualizationDashboard,
     ReportGenerator
 )
+from .modern_dashboard import create_modern_dashboard
+from .agentic_flow_ui import create_agentic_flow_interface
+from .copilot_integration import create_copilot_interface
+from .knowledge_graph_ui import create_knowledge_graph_interface
 # MCP server import removed - using Gradio's built-in MCP capabilities
 from ..model_evaluation import (
     ComprehensiveEvaluationPipeline,
@@ -132,6 +136,19 @@ class LenovoAAITCApp:
                 # Reports and Export
                 with gr.Tab("📋 Reports", id="reports"):
                     self._create_reports_tab()
+                
+                # Modern UI Components
+                with gr.Tab("🚀 Modern Dashboard", id="modern_dashboard"):
+                    self._create_modern_dashboard_tab()
+                
+                with gr.Tab("🔄 Agentic Flow Builder", id="agentic_flow"):
+                    self._create_agentic_flow_tab()
+                
+                with gr.Tab("🤖 AI Copilot", id="ai_copilot"):
+                    self._create_copilot_tab()
+                
+                with gr.Tab("🕸️ Knowledge Graph", id="knowledge_graph"):
+                    self._create_knowledge_graph_tab()
         
         return interface
     
@@ -749,6 +766,18 @@ class LenovoAAITCApp:
         elif format_type == "json":
             return "report.json"
         return "report.txt"
+    
+    def _create_modern_dashboard_tab(self):
+        """Create the modern dashboard tab interface."""
+        return create_modern_dashboard()
+    
+    def _create_agentic_flow_tab(self):
+        """Create the agentic flow builder tab interface."""
+        return create_agentic_flow_interface()
+    
+    def _create_copilot_tab(self):
+        """Create the AI copilot tab interface."""
+        return create_copilot_interface()
 
 
 def create_gradio_app() -> gr.Blocks:

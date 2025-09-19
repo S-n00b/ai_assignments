@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/assignments/assignment1/practical-exercise/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Practical Exercise - Lenovo AAITC Solutions</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/assignments/assignment1/practical-exercise.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#practical-exercise" class="nav-link">Practical Exercise</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#exercise-objectives" class="nav-link">Exercise Objectives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#prerequisites" class="nav-link">Prerequisites</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#setup" class="nav-link">Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-1-model-creation" class="nav-link">Step 1: Model Creation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-2-training-pipeline" class="nav-link">Step 2: Training Pipeline</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-3-model-evaluation" class="nav-link">Step 3: Model Evaluation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-4-model-profiling" class="nav-link">Step 4: Model Profiling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-5-model-deployment" class="nav-link">Step 5: Model Deployment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#step-6-complete-exercise-script" class="nav-link">Step 6: Complete Exercise Script</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#expected-results" class="nav-link">Expected Results</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#key-learnings" class="nav-link">Key Learnings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#next-steps" class="nav-link">Next Steps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="practical-exercise">Practical Exercise<a class="headerlink" href="#practical-exercise" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This practical exercise guides you through implementing a complete model evaluation pipeline using the framework components. You'll build a sentiment analysis system with comprehensive evaluation, profiling, and deployment capabilities.</p>
+<h2 id="exercise-objectives">Exercise Objectives<a class="headerlink" href="#exercise-objectives" title="Permanent link">&para;</a></h2>
+<p>By the end of this exercise, you will have:</p>
+<ol>
+<li><strong>Created a sentiment classification model</strong> using BERT</li>
+<li><strong>Implemented comprehensive evaluation</strong> including bias detection and robustness testing</li>
+<li><strong>Performed detailed model profiling</strong> to understand performance characteristics</li>
+<li><strong>Deployed the model</strong> using the Model Factory system</li>
+<li><strong>Generated evaluation reports</strong> with actionable insights</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 3.8+</li>
+<li>Basic understanding of machine learning concepts</li>
+<li>Familiarity with PyTorch and Transformers library</li>
+<li>Access to a GPU (recommended but not required)</li>
+</ul>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<h3 id="1-environment-setup">1. Environment Setup<a class="headerlink" href="#1-environment-setup" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Activate virtual environment
+.\venv\Scripts\Activate.ps1
+
+# Install additional dependencies
+pip install transformers torch datasets evaluate
+pip install matplotlib seaborn plotly
+</code></pre>
+<h3 id="2-dataset-preparation">2. Dataset Preparation<a class="headerlink" href="#2-dataset-preparation" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Download and prepare dataset
+from datasets import load_dataset
+
+# Load IMDB dataset for sentiment analysis
+dataset = load_dataset(&quot;imdb&quot;)
+train_data = dataset[&quot;train&quot;]
+test_data = dataset[&quot;test&quot;]
+
+print(f&quot;Training samples: {len(train_data)}&quot;)
+print(f&quot;Test samples: {len(test_data)}&quot;)
+</code></pre>
+<h2 id="step-1-model-creation">Step 1: Model Creation<a class="headerlink" href="#step-1-model-creation" title="Permanent link">&para;</a></h2>
+<h3 id="11-create-model-configuration">1.1 Create Model Configuration<a class="headerlink" href="#11-create-model-configuration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># config/model_config.py
+from dataclasses import dataclass
+
+@dataclass
+class ModelConfig:
+    model_name: str = &quot;bert-base-uncased&quot;
+    num_classes: int = 2
+    max_length: int = 512
+    dropout: float = 0.1
+    learning_rate: float = 2e-5
+    batch_size: int = 16
+    epochs: int = 3
+    warmup_steps: int = 500
+    weight_decay: float = 0.01
+</code></pre>
+<h3 id="12-implement-model-class">1.2 Implement Model Class<a class="headerlink" href="#12-implement-model-class" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># models/sentiment_model.py
+import torch
+import torch.nn as nn
+from transformers import BertModel, BertTokenizer
+from config.model_config import ModelConfig
+
+class SentimentClassifier(nn.Module):
+    def __init__(self, config: ModelConfig):
+        super().__init__()
+        self.config = config
+        self.bert = BertModel.from_pretrained(config.model_name)
+        self.dropout = nn.Dropout(config.dropout)
+        self.classifier = nn.Linear(self.bert.config.hidden_size, config.num_classes)
+
+    def forward(self, input_ids, attention_mask, labels=None):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        pooled_output = outputs.pooler_output
+        pooled_output = self.dropout(pooled_output)
+        logits = self.classifier(pooled_output)
+
+        loss = None
+        if labels is not None:
+            loss_fct = nn.CrossEntropyLoss()
+            loss = loss_fct(logits.view(-1, self.config.num_classes), labels.view(-1))
+
+        return {&quot;loss&quot;: loss, &quot;logits&quot;: logits}
+</code></pre>
+<h2 id="step-2-training-pipeline">Step 2: Training Pipeline<a class="headerlink" href="#step-2-training-pipeline" title="Permanent link">&para;</a></h2>
+<h3 id="21-data-preprocessing">2.1 Data Preprocessing<a class="headerlink" href="#21-data-preprocessing" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># data/preprocessing.py
+from transformers import BertTokenizer
+from torch.utils.data import Dataset, DataLoader
+from typing import List, Dict
+
+class SentimentDataset(Dataset):
+    def __init__(self, texts: List[str], labels: List[int], tokenizer, max_length: int):
+        self.texts = texts
+        self.labels = labels
+        self.tokenizer = tokenizer
+        self.max_length = max_length
+
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, idx):
+        text = str(self.texts[idx])
+        label = self.labels[idx]
+
+        encoding = self.tokenizer(
+            text,
+            truncation=True,
+            padding='max_length',
+            max_length=self.max_length,
+            return_tensors='pt'
+        )
+
+        return {
+            'input_ids': encoding['input_ids'].flatten(),
+            'attention_mask': encoding['attention_mask'].flatten(),
+            'labels': torch.tensor(label, dtype=torch.long)
+        }
+
+def create_data_loaders(train_data, test_data, config):
+    tokenizer = BertTokenizer.from_pretrained(config.model_name)
+
+    train_dataset = SentimentDataset(
+        train_data['text'], train_data['label'], tokenizer, config.max_length
+    )
+    test_dataset = SentimentDataset(
+        test_data['text'], test_data['label'], tokenizer, config.max_length
+    )
+
+    train_loader = DataLoader(train_dataset, batch_size=config.batch_size, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=config.batch_size, shuffle=False)
+
+    return train_loader, test_loader, tokenizer
+</code></pre>
+<h3 id="22-training-loop">2.2 Training Loop<a class="headerlink" href="#22-training-loop" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># training/trainer.py
+import torch
+from torch.optim import AdamW
+from transformers import get_linear_schedule_with_warmup
+from tqdm import tqdm
+import numpy as np
+
+class ModelTrainer:
+    def __init__(self, model, config, train_loader, test_loader):
+        self.model = model
+        self.config = config
+        self.train_loader = train_loader
+        self.test_loader = test_loader
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model.to(self.device)
+
+        # Setup optimizer and scheduler
+        self.optimizer = AdamW(
+            self.model.parameters(),
+            lr=config.learning_rate,
+            weight_decay=config.weight_decay
+        )
+
+        total_steps = len(train_loader) * config.epochs
+        self.scheduler = get_linear_schedule_with_warmup(
+            self.optimizer,
+            num_warmup_steps=config.warmup_steps,
+            num_training_steps=total_steps
+        )
+
+    def train_epoch(self):
+        self.model.train()
+        total_loss = 0
+
+        progress_bar = tqdm(self.train_loader, desc=&quot;Training&quot;)
+        for batch in progress_bar:
+            self.optimizer.zero_grad()
+
+            input_ids = batch['input_ids'].to(self.device)
+            attention_mask = batch['attention_mask'].to(self.device)
+            labels = batch['labels'].to(self.device)
+
+            outputs = self.model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
+            loss = outputs['loss']
+
+            loss.backward()
+            self.optimizer.step()
+            self.scheduler.step()
+
+            total_loss += loss.item()
+            progress_bar.set_postfix({'loss': loss.item()})
+
+        return total_loss / len(self.train_loader)
+
+    def evaluate(self):
+        self.model.eval()
+        total_loss = 0
+        predictions = []
+        true_labels = []
+
+        with torch.no_grad():
+            for batch in tqdm(self.test_loader, desc=&quot;Evaluating&quot;):
+                input_ids = batch['input_ids'].to(self.device)
+                attention_mask = batch['attention_mask'].to(self.device)
+                labels = batch['labels'].to(self.device)
+
+                outputs = self.model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
+                loss = outputs['loss']
+                logits = outputs['logits']
+
+                total_loss += loss.item()
+                predictions.extend(torch.argmax(logits, dim=-1).cpu().numpy())
+                true_labels.extend(labels.cpu().numpy())
+
+        return {
+            'loss': total_loss / len(self.test_loader),
+            'predictions': np.array(predictions),
+            'true_labels': np.array(true_labels)
+        }
+
+    def train(self):
+        best_accuracy = 0
+
+        for epoch in range(self.config.epochs):
+            print(f&quot;\nEpoch {epoch + 1}/{self.config.epochs}&quot;)
+
+            # Training
+            train_loss = self.train_epoch()
+
+            # Evaluation
+            eval_results = self.evaluate()
+            accuracy = np.mean(eval_results['predictions'] == eval_results['true_labels'])
+
+            print(f&quot;Train Loss: {train_loss:.4f}&quot;)
+            print(f&quot;Eval Loss: {eval_results['loss']:.4f}&quot;)
+            print(f&quot;Accuracy: {accuracy:.4f}&quot;)
+
+            # Save best model
+            if accuracy &gt; best_accuracy:
+                best_accuracy = accuracy
+                torch.save(self.model.state_dict(), 'best_model.pt')
+
+        return best_accuracy
+</code></pre>
+<h2 id="step-3-model-evaluation">Step 3: Model Evaluation<a class="headerlink" href="#step-3-model-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="31-comprehensive-evaluation">3.1 Comprehensive Evaluation<a class="headerlink" href="#31-comprehensive-evaluation" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># evaluation/evaluator.py
+from model_evaluation.pipeline import EvaluationPipeline
+from model_evaluation.config import EvaluationConfig
+from sklearn.metrics import classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+class SentimentEvaluator:
+    def __init__(self, model, tokenizer, test_data):
+        self.model = model
+        self.tokenizer = tokenizer
+        self.test_data = test_data
+
+    def run_comprehensive_evaluation(self):
+        # Initialize evaluation pipeline
+        config = EvaluationConfig(
+            model_path=&quot;best_model.pt&quot;,
+            test_dataset=self.test_data,
+            bias_analysis=True,
+            robustness_testing=True,
+            performance_profiling=True
+        )
+
+        pipeline = EvaluationPipeline(config)
+
+        # Run evaluation
+        results = pipeline.evaluate()
+
+        # Generate detailed report
+        pipeline.generate_report(&quot;sentiment_evaluation_report.html&quot;)
+
+        return results
+
+    def analyze_predictions(self, predictions, true_labels):
+        # Classification report
+        report = classification_report(true_labels, predictions, target_names=['Negative', 'Positive'])
+        print(&quot;Classification Report:&quot;)
+        print(report)
+
+        # Confusion matrix
+        cm = confusion_matrix(true_labels, predictions)
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                   xticklabels=['Negative', 'Positive'],
+                   yticklabels=['Negative', 'Positive'])
+        plt.title('Confusion Matrix')
+        plt.ylabel('True Label')
+        plt.xlabel('Predicted Label')
+        plt.savefig('confusion_matrix.png')
+        plt.show()
+
+        return report, cm
+</code></pre>
+<h3 id="32-bias-detection">3.2 Bias Detection<a class="headerlink" href="#32-bias-detection" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># evaluation/bias_analysis.py
+from model_evaluation.bias_detection import BiasDetector
+import pandas as pd
+
+class SentimentBiasAnalyzer:
+    def __init__(self, model, tokenizer):
+        self.model = model
+        self.tokenizer = tokenizer
+        self.bias_detector = BiasDetector()
+
+    def analyze_demographic_bias(self, test_data):
+        # Create demographic groups (example: by text length)
+        short_texts = [text for text in test_data['text'] if len(text.split()) &lt; 20]
+        long_texts = [text for text in test_data['text'] if len(text.split()) &gt;= 50]
+
+        # Analyze bias across groups
+        bias_results = {}
+
+        for group_name, texts in [(&quot;short&quot;, short_texts), (&quot;long&quot;, long_texts)]:
+            if len(texts) &gt; 0:
+                predictions = self.predict_batch(texts)
+                bias_metrics = self.bias_detector.calculate_metrics(predictions, group_name)
+                bias_results[group_name] = bias_metrics
+
+        return bias_results
+
+    def predict_batch(self, texts):
+        predictions = []
+        for text in texts:
+            inputs = self.tokenizer(text, return_tensors='pt', truncation=True, padding=True)
+            with torch.no_grad():
+                outputs = self.model(**inputs)
+                prediction = torch.argmax(outputs['logits'], dim=-1).item()
+                predictions.append(prediction)
+        return predictions
+</code></pre>
+<h2 id="step-4-model-profiling">Step 4: Model Profiling<a class="headerlink" href="#step-4-model-profiling" title="Permanent link">&para;</a></h2>
+<h3 id="41-performance-profiling">4.1 Performance Profiling<a class="headerlink" href="#41-performance-profiling" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># profiling/model_profiler.py
+from model_evaluation.pipeline import ModelProfiler
+import time
+import psutil
+import torch
+
+class SentimentModelProfiler:
+    def __init__(self, model, tokenizer):
+        self.model = model
+        self.tokenizer = tokenizer
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    def profile_inference(self, sample_texts, num_runs=100):
+        # Warmup
+        for _ in range(10):
+            self._single_inference(sample_texts[0])
+
+        # Profile runs
+        latencies = []
+        memory_usage = []
+
+        for _ in range(num_runs):
+            start_time = time.time()
+            start_memory = psutil.Process().memory_info().rss / 1024 / 1024  # MB
+
+            self._single_inference(sample_texts[0])
+
+            end_time = time.time()
+            end_memory = psutil.Process().memory_info().rss / 1024 / 1024  # MB
+
+            latencies.append((end_time - start_time) * 1000)  # Convert to ms
+            memory_usage.append(end_memory - start_memory)
+
+        return {
+            'latencies': latencies,
+            'memory_usage': memory_usage,
+            'avg_latency': np.mean(latencies),
+            'p95_latency': np.percentile(latencies, 95),
+            'max_memory': np.max(memory_usage)
+        }
+
+    def _single_inference(self, text):
+        inputs = self.tokenizer(text, return_tensors='pt', truncation=True, padding=True)
+        with torch.no_grad():
+            outputs = self.model(**inputs)
+            prediction = torch.argmax(outputs['logits'], dim=-1)
+        return prediction
+</code></pre>
+<h2 id="step-5-model-deployment">Step 5: Model Deployment<a class="headerlink" href="#step-5-model-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="51-model-factory-integration">5.1 Model Factory Integration<a class="headerlink" href="#51-model-factory-integration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># deployment/deployer.py
+from model_factory import ModelFactory
+import torch
+
+class SentimentModelDeployer:
+    def __init__(self):
+        self.factory = ModelFactory()
+
+    def deploy_model(self, model_path, model_name=&quot;sentiment_classifier&quot;):
+        # Load trained model
+        model = torch.load(model_path)
+
+        # Register in factory
+        model_id = self.factory.register_model(
+            model=model,
+            name=model_name,
+            version=&quot;1.0.0&quot;,
+            description=&quot;BERT-based sentiment classification model&quot;,
+            tags=[&quot;nlp&quot;, &quot;sentiment&quot;, &quot;classification&quot;]
+        )
+
+        # Deploy model
+        deployment = self.factory.deploy_model(
+            model_id=model_id,
+            platform=&quot;local&quot;,
+            config={
+                &quot;host&quot;: &quot;0.0.0.0&quot;,
+                &quot;port&quot;: 8000,
+                &quot;workers&quot;: 2
+            }
+        )
+
+        # Generate API
+        api = self.factory.generate_api(
+            model_id=model_id,
+            api_type=&quot;rest&quot;,
+            endpoints=[&quot;predict&quot;, &quot;health&quot;, &quot;metrics&quot;]
+        )
+
+        # Setup monitoring
+        self.factory.setup_monitoring(
+            model_id=model_id,
+            metrics=[&quot;latency&quot;, &quot;throughput&quot;, &quot;error_rate&quot;]
+        )
+
+        return deployment, api
+</code></pre>
+<h2 id="step-6-complete-exercise-script">Step 6: Complete Exercise Script<a class="headerlink" href="#step-6-complete-exercise-script" title="Permanent link">&para;</a></h2>
+<h3 id="61-main-exercise-script">6.1 Main Exercise Script<a class="headerlink" href="#61-main-exercise-script" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># main_exercise.py
+import torch
+from datasets import load_dataset
+from config.model_config import ModelConfig
+from models.sentiment_model import SentimentClassifier
+from data.preprocessing import create_data_loaders
+from training.trainer import ModelTrainer
+from evaluation.evaluator import SentimentEvaluator
+from profiling.model_profiler import SentimentModelProfiler
+from deployment.deployer import SentimentModelDeployer
+
+def main():
+    print(&quot;=== Sentiment Analysis Model Evaluation Exercise ===\n&quot;)
+
+    # Step 1: Setup
+    print(&quot;Step 1: Setting up data and configuration...&quot;)
+    dataset = load_dataset(&quot;imdb&quot;)
+    config = ModelConfig()
+
+    # Step 2: Prepare data
+    print(&quot;Step 2: Preparing data...&quot;)
+    train_loader, test_loader, tokenizer = create_data_loaders(
+        dataset[&quot;train&quot;], dataset[&quot;test&quot;], config
+    )
+
+    # Step 3: Create and train model
+    print(&quot;Step 3: Creating and training model...&quot;)
+    model = SentimentClassifier(config)
+    trainer = ModelTrainer(model, config, train_loader, test_loader)
+    best_accuracy = trainer.train()
+    print(f&quot;Best accuracy achieved: {best_accuracy:.4f}&quot;)
+
+    # Step 4: Comprehensive evaluation
+    print(&quot;Step 4: Running comprehensive evaluation...&quot;)
+    evaluator = SentimentEvaluator(model, tokenizer, dataset[&quot;test&quot;])
+    eval_results = evaluator.run_comprehensive_evaluation()
+
+    # Step 5: Model profiling
+    print(&quot;Step 5: Profiling model performance...&quot;)
+    profiler = SentimentModelProfiler(model, tokenizer)
+    profile_results = profiler.profile_inference(dataset[&quot;test&quot;][&quot;text&quot;][:10])
+    print(f&quot;Average latency: {profile_results['avg_latency']:.2f}ms&quot;)
+    print(f&quot;P95 latency: {profile_results['p95_latency']:.2f}ms&quot;)
+
+    # Step 6: Deploy model
+    print(&quot;Step 6: Deploying model...&quot;)
+    deployer = SentimentModelDeployer()
+    deployment, api = deployer.deploy_model(&quot;best_model.pt&quot;)
+    print(f&quot;Model deployed at: {deployment.url}&quot;)
+
+    print(&quot;\n=== Exercise completed successfully! ===&quot;)
+    print(&quot;Check the generated reports:&quot;)
+    print(&quot;- sentiment_evaluation_report.html&quot;)
+    print(&quot;- confusion_matrix.png&quot;)
+    print(&quot;- Model API available at deployment URL&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2 id="expected-results">Expected Results<a class="headerlink" href="#expected-results" title="Permanent link">&para;</a></h2>
+<p>After completing this exercise, you should have:</p>
+<ol>
+<li><strong>Trained Model</strong>: A BERT-based sentiment classifier with &gt;90% accuracy</li>
+<li><strong>Evaluation Report</strong>: Comprehensive HTML report with performance metrics</li>
+<li><strong>Profiling Data</strong>: Detailed performance characteristics and resource usage</li>
+<li><strong>Deployed API</strong>: REST API endpoint for model inference</li>
+<li><strong>Monitoring</strong>: Real-time monitoring of model performance</li>
+</ol>
+<h2 id="key-learnings">Key Learnings<a class="headerlink" href="#key-learnings" title="Permanent link">&para;</a></h2>
+<p>This exercise demonstrates:</p>
+<ul>
+<li><strong>End-to-end ML pipeline</strong> from data preparation to deployment</li>
+<li><strong>Comprehensive evaluation</strong> including bias detection and robustness testing</li>
+<li><strong>Performance profiling</strong> for optimization insights</li>
+<li><strong>Model deployment</strong> using factory patterns</li>
+<li><strong>Monitoring and observability</strong> for production systems</li>
+</ul>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Experiment with different models</strong> (RoBERTa, DistilBERT, etc.)</li>
+<li><strong>Implement additional bias detection methods</strong></li>
+<li><strong>Add more robustness tests</strong> (adversarial examples, etc.)</li>
+<li><strong>Scale deployment</strong> to cloud platforms</li>
+<li><strong>Implement A/B testing</strong> for model comparison</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CUDA out of memory</strong>: Reduce batch size or use gradient checkpointing</li>
+<li><strong>Slow training</strong>: Use mixed precision training or smaller model</li>
+<li><strong>Poor accuracy</strong>: Increase training epochs or adjust learning rate</li>
+<li><strong>Deployment errors</strong>: Check port availability and dependencies</li>
+</ul>
+<h3 id="performance-tips">Performance Tips<a class="headerlink" href="#performance-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use GPU acceleration when available</li>
+<li>Implement data loading optimization</li>
+<li>Use mixed precision training</li>
+<li>Cache tokenized data for faster training</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

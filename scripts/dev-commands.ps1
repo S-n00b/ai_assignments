@@ -3,6 +3,23 @@
 # =============================================================================
 # Comprehensive PowerShell command reference for the refactored project structure
 # Updated for: ai_assignments/ (root) with src/, tests/, docs/, config/, scripts/
+#
+# IMPORTANT: PowerShell Command Chaining
+# =============================================================================
+# Never use && in PowerShell! Use these alternatives instead:
+#
+# Semicolon (;): Execute commands sequentially regardless of success/failure
+#   cd docs ; mkdocs build
+#
+# Pipeline (|): Pass output from one command to another
+#   Get-ChildItem | Where-Object {$_.Name -like "*.py"}
+#
+# Logical Operators (-and, -or): For conditional execution
+#   (Test-Path "file.txt") -and (Get-Content "file.txt")
+#
+# Pipeline Chain Operators (&&, ||): Available in PowerShell 7.5+ for pipeline chaining
+#   Get-Process "notepad" && Start-Process "notepad" -WindowStyle Maximized
+# =============================================================================
 
 # =============================================================================
 # PROJECT NAVIGATION & SETUP
@@ -12,7 +29,7 @@
 cd C:\Users\samne\PycharmProjects\ai_assignments
 
 # Activate virtual environment (from project root):
-.\venv\Scripts\Activate.ps1
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
 
 # Deactivate virtual environment:
 deactivate

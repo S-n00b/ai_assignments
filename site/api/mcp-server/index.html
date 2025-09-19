@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/api/mcp-server/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>MCP Server API - Lenovo AAITC Solutions</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/api/mcp-server.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#mcp-server-api" class="nav-link">MCP Server API</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#base-url" class="nav-link">Base URL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#authentication" class="nav-link">Authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#protocol-endpoints" class="nav-link">Protocol Endpoints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#context-management" class="nav-link">Context Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#model-integration" class="nav-link">Model Integration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#error-handling" class="nav-link">Error Handling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#websocket-support" class="nav-link">WebSocket Support</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#protocol-compliance" class="nav-link">Protocol Compliance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="mcp-server-api">MCP Server API<a class="headerlink" href="#mcp-server-api" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Model Context Protocol (MCP) Server API provides standardized endpoints for model communication, context management, and protocol compliance across different AI systems.</p>
+<h2 id="base-url">Base URL<a class="headerlink" href="#base-url" title="Permanent link">&para;</a></h2>
+<pre><code>https://mcp.ai-system.com/v1
+</code></pre>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">Authorization: Bearer &lt;your-token&gt;
+X-MCP-Version: 1.0
+</code></pre>
+<h2 id="protocol-endpoints">Protocol Endpoints<a class="headerlink" href="#protocol-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="initialize-connection">Initialize Connection<a class="headerlink" href="#initialize-connection" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">POST /mcp/initialize
+</code></pre>
+<p><strong>Request Body:</strong></p>
+<pre><code class="language-json">{
+  &quot;protocol_version&quot;: &quot;1.0&quot;,
+  &quot;capabilities&quot;: {
+    &quot;tools&quot;: true,
+    &quot;resources&quot;: true,
+    &quot;prompts&quot;: true
+  },
+  &quot;client_info&quot;: {
+    &quot;name&quot;: &quot;ai-client&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;protocol_version&quot;: &quot;1.0&quot;,
+  &quot;capabilities&quot;: {
+    &quot;tools&quot;: {
+      &quot;list_changed&quot;: true,
+      &quot;call_tool&quot;: true
+    },
+    &quot;resources&quot;: {
+      &quot;subscribe&quot;: true,
+      &quot;unsubscribe&quot;: true
+    },
+    &quot;prompts&quot;: {
+      &quot;list&quot;: true,
+      &quot;get&quot;: true
+    }
+  },
+  &quot;server_info&quot;: {
+    &quot;name&quot;: &quot;ai-system-mcp&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+  }
+}
+</code></pre>
+<h3 id="list-tools">List Tools<a class="headerlink" href="#list-tools" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /mcp/tools
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;tools&quot;: [
+    {
+      &quot;name&quot;: &quot;predict&quot;,
+      &quot;description&quot;: &quot;Make predictions using AI models&quot;,
+      &quot;input_schema&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;model_id&quot;: {&quot;type&quot;: &quot;string&quot;},
+          &quot;input_data&quot;: {&quot;type&quot;: &quot;object&quot;}
+        },
+        &quot;required&quot;: [&quot;model_id&quot;, &quot;input_data&quot;]
+      }
+    },
+    {
+      &quot;name&quot;: &quot;analyze_data&quot;,
+      &quot;description&quot;: &quot;Analyze data using statistical methods&quot;,
+      &quot;input_schema&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;data&quot;: {&quot;type&quot;: &quot;array&quot;},
+          &quot;analysis_type&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;statistical&quot;, &quot;ml&quot;]}
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+<h3 id="call-tool">Call Tool<a class="headerlink" href="#call-tool" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">POST /mcp/tools/call
+</code></pre>
+<p><strong>Request Body:</strong></p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;predict&quot;,
+  &quot;arguments&quot;: {
+    &quot;model_id&quot;: &quot;sentiment-classifier-v1&quot;,
+    &quot;input_data&quot;: {
+      &quot;text&quot;: &quot;This is a positive message&quot;
+    }
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;text&quot;: &quot;Prediction: positive (confidence: 0.94)&quot;
+    }
+  ],
+  &quot;is_error&quot;: false
+}
+</code></pre>
+<h3 id="list-resources">List Resources<a class="headerlink" href="#list-resources" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /mcp/resources
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;resources&quot;: [
+    {
+      &quot;uri&quot;: &quot;file://models/model-config.json&quot;,
+      &quot;name&quot;: &quot;Model Configuration&quot;,
+      &quot;description&quot;: &quot;Configuration for AI models&quot;,
+      &quot;mimeType&quot;: &quot;application/json&quot;
+    },
+    {
+      &quot;uri&quot;: &quot;memory://conversation/123&quot;,
+      &quot;name&quot;: &quot;Conversation Context&quot;,
+      &quot;description&quot;: &quot;Current conversation context&quot;,
+      &quot;mimeType&quot;: &quot;application/json&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="read-resource">Read Resource<a class="headerlink" href="#read-resource" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /mcp/resources/read
+</code></pre>
+<p><strong>Query Parameters:</strong>
+- <code>uri</code>: Resource URI</p>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;contents&quot;: [
+    {
+      &quot;uri&quot;: &quot;file://models/model-config.json&quot;,
+      &quot;mimeType&quot;: &quot;application/json&quot;,
+      &quot;text&quot;: &quot;{\n  \&quot;model\&quot;: {\n    \&quot;architecture\&quot;: \&quot;transformer\&quot;\n  }\n}&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="subscribe-to-resource">Subscribe to Resource<a class="headerlink" href="#subscribe-to-resource" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">POST /mcp/resources/subscribe
+</code></pre>
+<p><strong>Request Body:</strong></p>
+<pre><code class="language-json">{
+  &quot;uri&quot;: &quot;memory://conversation/123&quot;
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;uri&quot;: &quot;memory://conversation/123&quot;,
+  &quot;subscription_id&quot;: &quot;sub-123&quot;
+}
+</code></pre>
+<h3 id="list-prompts">List Prompts<a class="headerlink" href="#list-prompts" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /mcp/prompts
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;prompts&quot;: [
+    {
+      &quot;name&quot;: &quot;sentiment_analysis&quot;,
+      &quot;description&quot;: &quot;Analyze sentiment of text input&quot;,
+      &quot;arguments&quot;: [
+        {
+          &quot;name&quot;: &quot;text&quot;,
+          &quot;description&quot;: &quot;Text to analyze&quot;,
+          &quot;required&quot;: true
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h3 id="get-prompt">Get Prompt<a class="headerlink" href="#get-prompt" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">POST /mcp/prompts/get
+</code></pre>
+<p><strong>Request Body:</strong></p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;sentiment_analysis&quot;,
+  &quot;arguments&quot;: {
+    &quot;text&quot;: &quot;I love this product!&quot;
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;description&quot;: &quot;Analyze the sentiment of the provided text&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: {
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;text&quot;: &quot;Analyze the sentiment of: 'I love this product!'&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<h2 id="context-management">Context Management<a class="headerlink" href="#context-management" title="Permanent link">&para;</a></h2>
+<h3 id="update-context">Update Context<a class="headerlink" href="#update-context" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">POST /mcp/context/update
+</code></pre>
+<p><strong>Request Body:</strong></p>
+<pre><code class="language-json">{
+  &quot;context_id&quot;: &quot;session-123&quot;,
+  &quot;context_data&quot;: {
+    &quot;user_id&quot;: &quot;user-456&quot;,
+    &quot;conversation_history&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;Hello&quot;
+      },
+      {
+        &quot;role&quot;: &quot;assistant&quot;, 
+        &quot;content&quot;: &quot;Hi! How can I help you?&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="get-context">Get Context<a class="headerlink" href="#get-context" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /mcp/context/{context_id}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;context_id&quot;: &quot;session-123&quot;,
+  &quot;context_data&quot;: {
+    &quot;user_id&quot;: &quot;user-456&quot;,
+    &quot;conversation_history&quot;: [...],
+    &quot;metadata&quot;: {
+      &quot;created_at&quot;: &quot;2025-01-01T00:00:00Z&quot;,
+      &quot;last_updated&quot;: &quot;2025-01-01T00:05:00Z&quot;
+    }
+  }
+}
+</code></pre>
+<h2 id="model-integration">Model Integration<a class="headerlink" href="#model-integration" title="Permanent link">&para;</a></h2>
+<h3 id="model-discovery">Model Discovery<a class="headerlink" href="#model-discovery" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">GET /mcp/models
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;models&quot;: [
+    {
+      &quot;model_id&quot;: &quot;gpt-4&quot;,
+      &quot;name&quot;: &quot;GPT-4&quot;,
+      &quot;capabilities&quot;: [&quot;text_generation&quot;, &quot;conversation&quot;],
+      &quot;max_tokens&quot;: 8192,
+      &quot;supported_formats&quot;: [&quot;text&quot;, &quot;json&quot;]
+    },
+    {
+      &quot;model_id&quot;: &quot;claude-3&quot;,
+      &quot;name&quot;: &quot;Claude 3&quot;,
+      &quot;capabilities&quot;: [&quot;text_generation&quot;, &quot;analysis&quot;],
+      &quot;max_tokens&quot;: 100000,
+      &quot;supported_formats&quot;: [&quot;text&quot;, &quot;json&quot;, &quot;markdown&quot;]
+    }
+  ]
+}
+</code></pre>
+<h3 id="model-invocation">Model Invocation<a class="headerlink" href="#model-invocation" title="Permanent link">&para;</a></h3>
+<pre><code class="language-http">POST /mcp/models/invoke
+</code></pre>
+<p><strong>Request Body:</strong></p>
+<pre><code class="language-json">{
+  &quot;model_id&quot;: &quot;gpt-4&quot;,
+  &quot;messages&quot;: [
+    {
+      &quot;role&quot;: &quot;user&quot;,
+      &quot;content&quot;: &quot;Explain quantum computing&quot;
+    }
+  ],
+  &quot;parameters&quot;: {
+    &quot;max_tokens&quot;: 1000,
+    &quot;temperature&quot;: 0.7
+  }
+}
+</code></pre>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<h3 id="mcp-error-response">MCP Error Response<a class="headerlink" href="#mcp-error-response" title="Permanent link">&para;</a></h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;INVALID_REQUEST&quot;,
+    &quot;message&quot;: &quot;The request format is invalid&quot;,
+    &quot;data&quot;: {
+      &quot;field&quot;: &quot;arguments&quot;,
+      &quot;issue&quot;: &quot;Missing required field 'model_id'&quot;
+    }
+  }
+}
+</code></pre>
+<h3 id="error-codes">Error Codes<a class="headerlink" href="#error-codes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>INVALID_REQUEST</code>: Request format is invalid</li>
+<li><code>TOOL_NOT_FOUND</code>: Requested tool does not exist</li>
+<li><code>RESOURCE_NOT_FOUND</code>: Requested resource does not exist</li>
+<li><code>CONTEXT_ERROR</code>: Context management error</li>
+<li><code>MODEL_ERROR</code>: Model invocation error</li>
+</ul>
+<h2 id="websocket-support">WebSocket Support<a class="headerlink" href="#websocket-support" title="Permanent link">&para;</a></h2>
+<h3 id="websocket-connection">WebSocket Connection<a class="headerlink" href="#websocket-connection" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">const ws = new WebSocket('wss://mcp.ai-system.com/ws');
+ws.onmessage = function(event) {
+  const message = JSON.parse(event.data);
+  console.log('MCP Message:', message);
+};
+</code></pre>
+<h3 id="websocket-message-format">WebSocket Message Format<a class="headerlink" href="#websocket-message-format" title="Permanent link">&para;</a></h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;method&quot;: &quot;tools/call&quot;,
+  &quot;params&quot;: {
+    &quot;name&quot;: &quot;predict&quot;,
+    &quot;arguments&quot;: {...}
+  },
+  &quot;id&quot;: &quot;request-123&quot;
+}
+</code></pre>
+<h2 id="protocol-compliance">Protocol Compliance<a class="headerlink" href="#protocol-compliance" title="Permanent link">&para;</a></h2>
+<h3 id="version-negotiation">Version Negotiation<a class="headerlink" href="#version-negotiation" title="Permanent link">&para;</a></h3>
+<p>The MCP server supports version negotiation:
+- Client declares supported versions
+- Server responds with compatible version
+- Fallback to lowest common version</p>
+<h3 id="capability-discovery">Capability Discovery<a class="headerlink" href="#capability-discovery" title="Permanent link">&para;</a></h3>
+<p>Clients can discover server capabilities:
+- Tools available for invocation
+- Resources available for access
+- Prompts available for use</p>
+<h3 id="streaming-support">Streaming Support<a class="headerlink" href="#streaming-support" title="Permanent link">&para;</a></h3>
+<p>Long-running operations support streaming:
+- Real-time progress updates
+- Partial results delivery
+- Cancellation support</p>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="connection-management">Connection Management<a class="headerlink" href="#connection-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement proper connection pooling</li>
+<li>Handle connection failures gracefully</li>
+<li>Use keep-alive for long connections</li>
+</ul>
+<h3 id="error-handling_1">Error Handling<a class="headerlink" href="#error-handling_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement retry logic with exponential backoff</li>
+<li>Handle rate limiting appropriately</li>
+<li>Log errors for debugging</li>
+</ul>
+<h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use connection multiplexing</li>
+<li>Implement request batching</li>
+<li>Cache frequently accessed resources</li>
+</ul>
+<p>This MCP Server API provides a standardized interface for AI system communication, ensuring compatibility and interoperability across different AI platforms and tools.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

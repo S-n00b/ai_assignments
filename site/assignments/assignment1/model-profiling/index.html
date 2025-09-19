@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/assignments/assignment1/model-profiling/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Model Profiling - Lenovo AAITC Solutions</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/assignments/assignment1/model-profiling.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#model-profiling" class="nav-link">Model Profiling</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiling-components" class="nav-link">Profiling Components</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiling-tools" class="nav-link">Profiling Tools</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiling-metrics" class="nav-link">Profiling Metrics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiling-workflow" class="nav-link">Profiling Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#advanced-profiling-features" class="nav-link">Advanced Profiling Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#optimization-recommendations" class="nav-link">Optimization Recommendations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#profiling-reports" class="nav-link">Profiling Reports</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#integration-with-cicd" class="nav-link">Integration with CI/CD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#example-profiling-session" class="nav-link">Example Profiling Session</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="model-profiling">Model Profiling<a class="headerlink" href="#model-profiling" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Model profiling is a critical component of the evaluation framework that provides detailed insights into model performance, resource utilization, and computational efficiency. This module helps identify bottlenecks, optimize performance, and ensure models meet deployment requirements.</p>
+<h2 id="profiling-components">Profiling Components<a class="headerlink" href="#profiling-components" title="Permanent link">&para;</a></h2>
+<h3 id="1-performance-metrics">1. Performance Metrics<a class="headerlink" href="#1-performance-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Inference Latency</strong>: Time taken for single inference</li>
+<li><strong>Throughput</strong>: Number of inferences per second</li>
+<li><strong>Batch Processing</strong>: Performance with different batch sizes</li>
+<li><strong>End-to-End Latency</strong>: Total time including preprocessing and postprocessing</li>
+</ul>
+<h3 id="2-resource-utilization">2. Resource Utilization<a class="headerlink" href="#2-resource-utilization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Memory Usage</strong>: Peak and average memory consumption</li>
+<li><strong>CPU Utilization</strong>: Processor usage patterns</li>
+<li><strong>GPU Utilization</strong>: Graphics processing unit usage</li>
+<li><strong>I/O Operations</strong>: Disk and network I/O patterns</li>
+</ul>
+<h3 id="3-computational-analysis">3. Computational Analysis<a class="headerlink" href="#3-computational-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>FLOPs</strong>: Floating point operations count</li>
+<li><strong>Parameter Count</strong>: Total number of model parameters</li>
+<li><strong>Model Size</strong>: Disk storage requirements</li>
+<li><strong>Activation Memory</strong>: Memory used for intermediate computations</li>
+</ul>
+<h2 id="profiling-tools">Profiling Tools<a class="headerlink" href="#profiling-tools" title="Permanent link">&para;</a></h2>
+<h3 id="built-in-profiler">Built-in Profiler<a class="headerlink" href="#built-in-profiler" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from model_evaluation.pipeline import ModelProfiler
+
+profiler = ModelProfiler(
+    model_path=&quot;path/to/model&quot;,
+    device=&quot;cuda&quot;,  # or &quot;cpu&quot;
+    precision=&quot;fp16&quot;  # or &quot;fp32&quot;
+)
+
+# Profile model
+profile_results = profiler.profile(
+    input_data=sample_data,
+    num_runs=100,
+    warmup_runs=10
+)
+</code></pre>
+<h3 id="performance-benchmarking">Performance Benchmarking<a class="headerlink" href="#performance-benchmarking" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Benchmark different configurations
+configurations = [
+    {&quot;batch_size&quot;: 1, &quot;precision&quot;: &quot;fp32&quot;},
+    {&quot;batch_size&quot;: 4, &quot;precision&quot;: &quot;fp32&quot;},
+    {&quot;batch_size&quot;: 8, &quot;precision&quot;: &quot;fp16&quot;},
+    {&quot;batch_size&quot;: 16, &quot;precision&quot;: &quot;fp16&quot;}
+]
+
+benchmark_results = profiler.benchmark(configurations)
+</code></pre>
+<h2 id="profiling-metrics">Profiling Metrics<a class="headerlink" href="#profiling-metrics" title="Permanent link">&para;</a></h2>
+<h3 id="latency-metrics">Latency Metrics<a class="headerlink" href="#latency-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>P50 Latency</strong>: Median inference time</li>
+<li><strong>P95 Latency</strong>: 95th percentile inference time</li>
+<li><strong>P99 Latency</strong>: 99th percentile inference time</li>
+<li><strong>Max Latency</strong>: Maximum observed inference time</li>
+</ul>
+<h3 id="throughput-metrics">Throughput Metrics<a class="headerlink" href="#throughput-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Samples per Second</strong>: Throughput in samples/second</li>
+<li><strong>Tokens per Second</strong>: For language models</li>
+<li><strong>Images per Second</strong>: For vision models</li>
+<li><strong>Requests per Second</strong>: For API endpoints</li>
+</ul>
+<h3 id="memory-metrics">Memory Metrics<a class="headerlink" href="#memory-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Peak Memory</strong>: Maximum memory usage during inference</li>
+<li><strong>Average Memory</strong>: Average memory usage</li>
+<li><strong>Memory Efficiency</strong>: Memory usage per sample</li>
+<li><strong>Memory Fragmentation</strong>: Memory fragmentation analysis</li>
+</ul>
+<h2 id="profiling-workflow">Profiling Workflow<a class="headerlink" href="#profiling-workflow" title="Permanent link">&para;</a></h2>
+<pre><code class="language-mermaid">graph LR
+    A[Model Loading] --&gt; B[Warmup Runs]
+    B --&gt; C[Profile Runs]
+    C --&gt; D[Metric Collection]
+    D --&gt; E[Analysis]
+    E --&gt; F[Report Generation]
+</code></pre>
+<h2 id="advanced-profiling-features">Advanced Profiling Features<a class="headerlink" href="#advanced-profiling-features" title="Permanent link">&para;</a></h2>
+<h3 id="1-layer-wise-profiling">1. Layer-wise Profiling<a class="headerlink" href="#1-layer-wise-profiling" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Profile individual layers
+layer_profiles = profiler.profile_layers(
+    input_data=sample_data,
+    layer_names=[&quot;attention&quot;, &quot;mlp&quot;, &quot;embedding&quot;]
+)
+</code></pre>
+<h3 id="2-memory-profiling">2. Memory Profiling<a class="headerlink" href="#2-memory-profiling" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Detailed memory analysis
+memory_profile = profiler.memory_profile(
+    track_allocations=True,
+    track_deallocations=True,
+    memory_snapshots=True
+)
+</code></pre>
+<h3 id="3-gpu-profiling">3. GPU Profiling<a class="headerlink" href="#3-gpu-profiling" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># GPU-specific profiling
+gpu_profile = profiler.gpu_profile(
+    track_kernels=True,
+    track_memory_transfers=True,
+    profile_nvtx=True
+)
+</code></pre>
+<h2 id="optimization-recommendations">Optimization Recommendations<a class="headerlink" href="#optimization-recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Batch Size Tuning</strong>: Find optimal batch size for throughput/latency trade-off</li>
+<li><strong>Precision Optimization</strong>: Use mixed precision (fp16) where possible</li>
+<li><strong>Model Quantization</strong>: Reduce model size with quantization</li>
+<li><strong>Operator Fusion</strong>: Combine operations to reduce overhead</li>
+</ol>
+<h3 id="memory-optimization">Memory Optimization<a class="headerlink" href="#memory-optimization" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Gradient Checkpointing</strong>: Trade computation for memory</li>
+<li><strong>Model Sharding</strong>: Distribute model across multiple devices</li>
+<li><strong>Dynamic Batching</strong>: Adjust batch size based on available memory</li>
+<li><strong>Memory Pooling</strong>: Reuse memory allocations</li>
+</ol>
+<h2 id="profiling-reports">Profiling Reports<a class="headerlink" href="#profiling-reports" title="Permanent link">&para;</a></h2>
+<h3 id="html-report">HTML Report<a class="headerlink" href="#html-report" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Generate comprehensive HTML report
+profiler.generate_html_report(
+    output_path=&quot;profiling_report.html&quot;,
+    include_graphs=True,
+    include_details=True
+)
+</code></pre>
+<h3 id="json-report">JSON Report<a class="headerlink" href="#json-report" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Export results as JSON
+results_json = profiler.export_json(&quot;profiling_results.json&quot;)
+</code></pre>
+<h3 id="csv-export">CSV Export<a class="headerlink" href="#csv-export" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Export metrics as CSV
+profiler.export_csv(&quot;profiling_metrics.csv&quot;)
+</code></pre>
+<h2 id="integration-with-cicd">Integration with CI/CD<a class="headerlink" href="#integration-with-cicd" title="Permanent link">&para;</a></h2>
+<h3 id="automated-profiling">Automated Profiling<a class="headerlink" href="#automated-profiling" title="Permanent link">&para;</a></h3>
+<pre><code class="language-yaml"># GitHub Actions example
+- name: Profile Model Performance
+  run: |
+    python -m model_evaluation.pipeline profile \
+      --model-path models/latest \
+      --output-dir profiling_results \
+      --threshold latency:100ms throughput:1000samples/s
+</code></pre>
+<h3 id="performance-regression-detection">Performance Regression Detection<a class="headerlink" href="#performance-regression-detection" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Compare with baseline
+baseline_results = load_baseline(&quot;baseline_profiling.json&quot;)
+current_results = profiler.profile(model_path)
+
+regressions = detect_regressions(baseline_results, current_results)
+if regressions:
+    print(f&quot;Performance regressions detected: {regressions}&quot;)
+</code></pre>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="profiling-guidelines">Profiling Guidelines<a class="headerlink" href="#profiling-guidelines" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Consistent Environment</strong>: Use same hardware and software environment</li>
+<li><strong>Sufficient Sample Size</strong>: Run enough iterations for statistical significance</li>
+<li><strong>Warmup Runs</strong>: Include warmup runs to account for cold start</li>
+<li><strong>Realistic Data</strong>: Use representative input data for profiling</li>
+<li><strong>Multiple Configurations</strong>: Test various batch sizes and precisions</li>
+</ol>
+<h3 id="performance-monitoring">Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Continuous Profiling</strong>: Regular profiling in production</li>
+<li><strong>Alerting</strong>: Set up alerts for performance degradation</li>
+<li><strong>Trend Analysis</strong>: Track performance trends over time</li>
+<li><strong>Capacity Planning</strong>: Use profiling data for capacity planning</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Inconsistent Results</strong>: Ensure consistent hardware state</li>
+<li><strong>Memory Errors</strong>: Reduce batch size or enable gradient checkpointing</li>
+<li><strong>Slow Profiling</strong>: Use sampling or reduce number of runs</li>
+<li><strong>GPU Memory Issues</strong>: Monitor GPU memory usage</li>
+</ul>
+<h3 id="performance-debugging">Performance Debugging<a class="headerlink" href="#performance-debugging" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Bottleneck Identification</strong>: Use profiling to identify bottlenecks</li>
+<li><strong>Resource Utilization</strong>: Check CPU, GPU, and memory usage</li>
+<li><strong>I/O Analysis</strong>: Analyze disk and network I/O patterns</li>
+<li><strong>Dependency Analysis</strong>: Check for blocking dependencies</li>
+</ol>
+<h2 id="example-profiling-session">Example Profiling Session<a class="headerlink" href="#example-profiling-session" title="Permanent link">&para;</a></h2>
+<pre><code class="language-python">from model_evaluation.pipeline import ModelProfiler
+import torch
+
+# Initialize profiler
+profiler = ModelProfiler(
+    model_path=&quot;models/bert-base-uncased&quot;,
+    device=&quot;cuda&quot;,
+    precision=&quot;fp16&quot;
+)
+
+# Prepare sample data
+sample_inputs = torch.randint(0, 1000, (32, 128))  # batch_size=32, seq_len=128
+
+# Run profiling
+results = profiler.profile(
+    input_data=sample_inputs,
+    num_runs=100,
+    warmup_runs=10,
+    detailed_analysis=True
+)
+
+# Print key metrics
+print(f&quot;Average Latency: {results['latency']['mean']:.2f}ms&quot;)
+print(f&quot;Throughput: {results['throughput']['samples_per_second']:.0f} samples/s&quot;)
+print(f&quot;Peak Memory: {results['memory']['peak'] / 1024**3:.2f} GB&quot;)
+
+# Generate report
+profiler.generate_html_report(&quot;bert_profiling_report.html&quot;)
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

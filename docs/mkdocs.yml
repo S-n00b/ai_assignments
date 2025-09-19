@@ -1,0 +1,104 @@
+# Material for MkDocs Configuration - Lenovo AAITC Solutions
+site_name: Lenovo AAITC Solutions
+site_description: Advanced AI Model Evaluation & Architecture Framework
+site_url: https://s-n00b.github.io/ai_assignments
+site_author: Lenovo AAITC Team
+
+# Repository
+repo_name: s-n00b/ai_assignments
+repo_url: https://github.com/s-n00b/ai_assignments
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2025 Lenovo AAITC Team
+
+# Theme Configuration
+theme:
+  name: mkdocs
+  language: en
+  logo: assets/img/logo.png
+  favicon: assets/img/favicon.svg
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+
+# Markdown Extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+
+# Navigation Structure - Two Distinct Categories
+nav:
+  - Home: index.md
+
+  # Category 1: Model Enablement & UX Evaluation
+  - Model Enablement & UX Evaluation:
+      - AI Engineering Overview: category1/ai-engineering-overview.md
+      - Model Evaluation Framework: category1/model-evaluation-framework.md
+      - UX Evaluation & Testing: category1/ux-evaluation-testing.md
+      - Model Profiling & Characterization: category1/model-profiling-characterization.md
+
+  # Category 2: AI System Architecture & MLOps
+  - AI System Architecture & MLOps:
+      - System Architecture Overview: category2/system-architecture-overview.md
+
+  # Executive & Professional Content
+  - Executive Presentations:
+      - Carousel Slide Deck: executive/carousel-slide-deck.md
+
+  # Professional Skills & Blog Content
+  - Professional Skills & Insights:
+      - Executive Summary: professional/executive-summary.md
+      - AI Architecture Seniority: professional/blog-posts/ai-architecture-seniority.md
+
+  # Live Applications & Demos
+  - Live Applications: live-applications/index.md
+
+  # Development & Technical
+  - Development:
+      - GitHub Pages Setup: development/github-pages-setup.md
+
+  # Resources & Documentation
+  - Resources:
+      - Architecture Diagrams: resources/architecture.md
+      - Performance Metrics: resources/performance.md
+      - Troubleshooting: resources/troubleshooting.md
+
+# Extra Configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/s-n00b
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/lenovo
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/lenovo
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+  # Custom CSS and JS for enhanced functionality
+  css:
+    - stylesheets/extra.css
+  javascripts:
+    - javascripts/mathjax.js
+    - javascripts/mermaid.js
+
+# Build Configuration
+use_directory_urls: true
+strict: true
+
+# Documentation directory
+docs_dir: docs_content
+site_dir: ../site

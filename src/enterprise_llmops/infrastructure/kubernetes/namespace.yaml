@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: llmops-enterprise
+  labels:
+    name: llmops-enterprise
+    environment: production
+    team: aaitc
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: llmops-quota
+  namespace: llmops-enterprise
+spec:
+  hard:
+    requests.cpu: "20"
+    requests.memory: 40Gi
+    limits.cpu: "40"
+    limits.memory: 80Gi
+    persistentvolumeclaims: "10"
+    pods: "50"
+    services: "20"
+    secrets: "20"
+    configmaps: "20"

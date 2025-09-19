@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/development/contributing/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Contributing Guide - Lenovo AAITC Solutions</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/development/contributing.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#contributing-guide" class="nav-link">Contributing Guide</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#development-workflow" class="nav-link">Development Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#coding-standards" class="nav-link">Coding Standards</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pull-request-process" class="nav-link">Pull Request Process</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#issue-reporting" class="nav-link">Issue Reporting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#development-guidelines" class="nav-link">Development Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#performance-guidelines" class="nav-link">Performance Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#security-guidelines" class="nav-link">Security Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#community-guidelines" class="nav-link">Community Guidelines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#release-process" class="nav-link">Release Process</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="contributing-guide">Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Thank you for your interest in contributing to the AI Assignments project! This guide outlines the contribution process, coding standards, and best practices for developers.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Python 3.8 or higher</li>
+<li>Git</li>
+<li>Virtual environment setup</li>
+<li>Basic understanding of AI/ML concepts</li>
+</ul>
+<h3 id="setup-development-environment">Setup Development Environment<a class="headerlink" href="#setup-development-environment" title="Permanent link">&para;</a></h3>
+<h4 id="1-fork-and-clone-repository">1. Fork and Clone Repository<a class="headerlink" href="#1-fork-and-clone-repository" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Fork the repository on GitHub, then clone your fork
+git clone https://github.com/YOUR_USERNAME/ai_assignments.git
+cd ai_assignments
+
+# Add upstream remote
+git remote add upstream https://github.com/s-n00b/ai_assignments.git
+</code></pre>
+<h4 id="2-create-virtual-environment">2. Create Virtual Environment<a class="headerlink" href="#2-create-virtual-environment" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Windows
+python -m venv venv
+.\venv\Scripts\activate
+
+# Linux/macOS
+python3 -m venv venv
+source venv/bin/activate
+</code></pre>
+<h4 id="3-install-dependencies">3. Install Dependencies<a class="headerlink" href="#3-install-dependencies" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Install development dependencies
+pip install -r config/requirements.txt
+pip install -r config/requirements-testing.txt
+
+# Install pre-commit hooks
+pre-commit install
+</code></pre>
+<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-feature-branch">1. Create Feature Branch<a class="headerlink" href="#1-create-feature-branch" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Update main branch
+git checkout main
+git pull upstream main
+
+# Create feature branch
+git checkout -b feature/your-feature-name
+</code></pre>
+<h3 id="2-make-changes">2. Make Changes<a class="headerlink" href="#2-make-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Write code following the coding standards</li>
+<li>Add tests for new functionality</li>
+<li>Update documentation as needed</li>
+<li>Ensure all tests pass</li>
+</ul>
+<h3 id="3-commit-changes">3. Commit Changes<a class="headerlink" href="#3-commit-changes" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Stage changes
+git add .
+
+# Commit with descriptive message
+git commit -m &quot;feat: add new model evaluation metric
+
+- Implement F1 score calculation
+- Add unit tests for metric
+- Update documentation&quot;
+</code></pre>
+<h3 id="4-push-and-create-pull-request">4. Push and Create Pull Request<a class="headerlink" href="#4-push-and-create-pull-request" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash"># Push to your fork
+git push origin feature/your-feature-name
+
+# Create pull request on GitHub
+</code></pre>
+<h2 id="coding-standards">Coding Standards<a class="headerlink" href="#coding-standards" title="Permanent link">&para;</a></h2>
+<h3 id="python-code-style">Python Code Style<a class="headerlink" href="#python-code-style" title="Permanent link">&para;</a></h3>
+<h4 id="pep-8-compliance">PEP 8 Compliance<a class="headerlink" href="#pep-8-compliance" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Maximum line length: 88 characters (Black formatter)</li>
+<li>Use meaningful variable and function names</li>
+<li>Add docstrings for all public functions and classes</li>
+<li>Use type hints where appropriate</li>
+</ul>
+<h4 id="example-code-style">Example Code Style<a class="headerlink" href="#example-code-style" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from typing import List, Dict, Optional
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class ModelEvaluator:
+    &quot;&quot;&quot;Evaluates model performance using various metrics.&quot;&quot;&quot;
+
+    def __init__(self, model_config: Dict[str, str]) -&gt; None:
+        &quot;&quot;&quot;Initialize the model evaluator.
+
+        Args:
+            model_config: Configuration dictionary for the model
+        &quot;&quot;&quot;
+        self.config = model_config
+        self.metrics: Dict[str, float] = {}
+
+    def calculate_accuracy(self, predictions: List[int], 
+                          labels: List[int]) -&gt; float:
+        &quot;&quot;&quot;Calculate model accuracy.
+
+        Args:
+            predictions: List of predicted labels
+            labels: List of true labels
+
+        Returns:
+            Accuracy score between 0 and 1
+
+        Raises:
+            ValueError: If predictions and labels have different lengths
+        &quot;&quot;&quot;
+        if len(predictions) != len(labels):
+            raise ValueError(&quot;Predictions and labels must have same length&quot;)
+
+        correct = sum(p == l for p, l in zip(predictions, labels))
+        return correct / len(predictions)
+</code></pre>
+<h4 id="code-formatting-tools">Code Formatting Tools<a class="headerlink" href="#code-formatting-tools" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Format code with Black
+black src/ tests/
+
+# Sort imports with isort
+isort src/ tests/
+
+# Lint with flake8
+flake8 src/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+# Type checking with mypy
+mypy src/ --ignore-missing-imports
+</code></pre>
+<h3 id="documentation-standards">Documentation Standards<a class="headerlink" href="#documentation-standards" title="Permanent link">&para;</a></h3>
+<h4 id="docstring-format">Docstring Format<a class="headerlink" href="#docstring-format" title="Permanent link">&para;</a></h4>
+<p>Use Google-style docstrings:</p>
+<pre><code class="language-python">def process_data(data: List[Dict], config: Dict) -&gt; List[Dict]:
+    &quot;&quot;&quot;Process input data according to configuration.
+
+    Args:
+        data: List of dictionaries containing raw data
+        config: Configuration dictionary specifying processing steps
+
+    Returns:
+        List of processed data dictionaries
+
+    Raises:
+        ValueError: If data format is invalid
+        ConfigurationError: If config contains invalid settings
+
+    Example:
+        &gt;&gt;&gt; data = [{&quot;text&quot;: &quot;Hello world&quot;}]
+        &gt;&gt;&gt; config = {&quot;tokenize&quot;: True, &quot;lowercase&quot;: True}
+        &gt;&gt;&gt; result = process_data(data, config)
+        &gt;&gt;&gt; print(result[0][&quot;text&quot;])
+        hello world
+    &quot;&quot;&quot;
+</code></pre>
+<h4 id="markdown-documentation">Markdown Documentation<a class="headerlink" href="#markdown-documentation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Use clear headings and structure</li>
+<li>Include code examples where helpful</li>
+<li>Add diagrams for complex concepts</li>
+<li>Keep documentation up-to-date with code changes</li>
+</ul>
+<h3 id="testing-standards">Testing Standards<a class="headerlink" href="#testing-standards" title="Permanent link">&para;</a></h3>
+<h4 id="test-structure">Test Structure<a class="headerlink" href="#test-structure" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># tests/unit/test_model_evaluation.py
+import pytest
+from unittest.mock import Mock, patch
+from src.model_evaluation.pipeline import EvaluationPipeline
+
+
+class TestEvaluationPipeline:
+    &quot;&quot;&quot;Test cases for EvaluationPipeline class.&quot;&quot;&quot;
+
+    def setup_method(self):
+        &quot;&quot;&quot;Set up test fixtures before each test method.&quot;&quot;&quot;
+        self.config = {
+            &quot;model_path&quot;: &quot;test_model.pt&quot;,
+            &quot;test_dataset&quot;: &quot;test_data.csv&quot;
+        }
+        self.pipeline = EvaluationPipeline(self.config)
+
+    def test_pipeline_initialization(self):
+        &quot;&quot;&quot;Test pipeline initialization with valid config.&quot;&quot;&quot;
+        assert self.pipeline.config == self.config
+        assert self.pipeline.model is None  # Not loaded yet
+
+    def test_load_model_success(self):
+        &quot;&quot;&quot;Test successful model loading.&quot;&quot;&quot;
+        with patch('torch.load') as mock_load:
+            mock_model = Mock()
+            mock_load.return_value = mock_model
+
+            result = self.pipeline.load_model()
+
+            assert result is True
+            assert self.pipeline.model == mock_model
+            mock_load.assert_called_once_with(self.config[&quot;model_path&quot;])
+
+    def test_load_model_file_not_found(self):
+        &quot;&quot;&quot;Test model loading when file doesn't exist.&quot;&quot;&quot;
+        with patch('torch.load', side_effect=FileNotFoundError):
+            with pytest.raises(FileNotFoundError):
+                self.pipeline.load_model()
+
+    @pytest.mark.parametrize(&quot;predictions,labels,expected&quot;, [
+        ([1, 0, 1], [1, 0, 0], 0.67),  # 2/3 correct
+        ([0, 0, 0], [0, 0, 0], 1.0),   # All correct
+        ([1, 1, 1], [0, 0, 0], 0.0),   # None correct
+    ])
+    def test_calculate_accuracy(self, predictions, labels, expected):
+        &quot;&quot;&quot;Test accuracy calculation with various inputs.&quot;&quot;&quot;
+        result = self.pipeline.calculate_accuracy(predictions, labels)
+        assert abs(result - expected) &lt; 0.01
+</code></pre>
+<h4 id="test-coverage-requirements">Test Coverage Requirements<a class="headerlink" href="#test-coverage-requirements" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Aim for 80%+ code coverage</li>
+<li>Test all public methods and functions</li>
+<li>Include edge cases and error conditions</li>
+<li>Mock external dependencies</li>
+</ul>
+<h4 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash"># Run all tests
+python -m pytest tests/ -v --tb=short
+
+# Run specific test file
+python -m pytest tests/unit/test_model_evaluation.py -v
+
+# Run with coverage
+python -m pytest tests/ -v --cov=src --cov-report=html --cov-report=term-missing
+
+# Run only fast tests (exclude slow integration tests)
+python -m pytest tests/ -v -m &quot;not slow&quot;
+</code></pre>
+<h2 id="pull-request-process">Pull Request Process<a class="headerlink" href="#pull-request-process" title="Permanent link">&para;</a></h2>
+<h3 id="1-before-submitting">1. Before Submitting<a class="headerlink" href="#1-before-submitting" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Code follows style guidelines</li>
+<li>[ ] All tests pass</li>
+<li>[ ] New features have tests</li>
+<li>[ ] Documentation is updated</li>
+<li>[ ] No merge conflicts with main branch</li>
+</ul>
+<h3 id="2-pull-request-template">2. Pull Request Template<a class="headerlink" href="#2-pull-request-template" title="Permanent link">&para;</a></h3>
+<pre><code class="language-markdown">## Description
+Brief description of changes made.
+
+## Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+- [ ] Performance improvement
+- [ ] Code refactoring
+
+## Testing
+- [ ] Unit tests added/updated
+- [ ] Integration tests added/updated
+- [ ] Manual testing completed
+- [ ] All existing tests pass
+
+## Checklist
+- [ ] Code follows project style guidelines
+- [ ] Self-review completed
+- [ ] Documentation updated
+- [ ] No hardcoded values or secrets
+- [ ] Error handling implemented
+- [ ] Logging added where appropriate
+
+## Related Issues
+Closes #(issue number)
+
+## Screenshots (if applicable)
+Add screenshots to help explain your changes.
+</code></pre>
+<h3 id="3-code-review-process">3. Code Review Process<a class="headerlink" href="#3-code-review-process" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Assign appropriate reviewers</li>
+<li>Address all review comments</li>
+<li>Ensure CI/CD checks pass</li>
+<li>Get approval from maintainers before merging</li>
+</ul>
+<h2 id="issue-reporting">Issue Reporting<a class="headerlink" href="#issue-reporting" title="Permanent link">&para;</a></h2>
+<h3 id="bug-reports">Bug Reports<a class="headerlink" href="#bug-reports" title="Permanent link">&para;</a></h3>
+<p>When reporting bugs, include:</p>
+<pre><code class="language-markdown">## Bug Description
+Clear and concise description of the bug.
+
+## Steps to Reproduce
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
+
+## Expected Behavior
+What you expected to happen.
+
+## Actual Behavior
+What actually happened.
+
+## Environment
+- OS: [e.g. Windows 10, macOS 12.0, Ubuntu 20.04]
+- Python version: [e.g. 3.9.7]
+- Package versions: [e.g. torch 1.12.0, transformers 4.20.0]
+
+## Additional Context
+Add any other context about the problem here.
+</code></pre>
+<h3 id="feature-requests">Feature Requests<a class="headerlink" href="#feature-requests" title="Permanent link">&para;</a></h3>
+<p>For feature requests, include:</p>
+<pre><code class="language-markdown">## Feature Description
+Clear and concise description of the feature.
+
+## Use Case
+Describe the use case and why this feature would be valuable.
+
+## Proposed Solution
+Describe how you would like this feature to work.
+
+## Alternatives Considered
+Describe any alternative solutions you've considered.
+
+## Additional Context
+Add any other context or screenshots about the feature request.
+</code></pre>
+<h2 id="development-guidelines">Development Guidelines<a class="headerlink" href="#development-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="git-commit-messages">Git Commit Messages<a class="headerlink" href="#git-commit-messages" title="Permanent link">&para;</a></h3>
+<p>Follow conventional commit format:</p>
+<pre><code>type(scope): description
+
+[optional body]
+
+[optional footer]
+</code></pre>
+<p>Types:
+- <code>feat</code>: New feature
+- <code>fix</code>: Bug fix
+- <code>docs</code>: Documentation changes
+- <code>style</code>: Code style changes (formatting, etc.)
+- <code>refactor</code>: Code refactoring
+- <code>test</code>: Adding or updating tests
+- <code>chore</code>: Maintenance tasks</p>
+<p>Examples:</p>
+<pre><code>feat(evaluation): add F1 score metric
+fix(api): handle missing authentication token
+docs(readme): update installation instructions
+test(model): add unit tests for prediction pipeline
+</code></pre>
+<h3 id="branch-naming-convention">Branch Naming Convention<a class="headerlink" href="#branch-naming-convention" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>feature/description</code>: New features</li>
+<li><code>bugfix/description</code>: Bug fixes</li>
+<li><code>hotfix/description</code>: Critical bug fixes</li>
+<li><code>docs/description</code>: Documentation updates</li>
+<li><code>refactor/description</code>: Code refactoring</li>
+</ul>
+<h3 id="file-organization">File Organization<a class="headerlink" href="#file-organization" title="Permanent link">&para;</a></h3>
+<pre><code>src/
+├── ai_architecture/          # AI architecture components
+│   ├── __init__.py
+│   ├── agents.py            # Agent implementations
+│   ├── lifecycle.py         # Model lifecycle management
+│   └── platform.py          # Platform abstractions
+├── gradio_app/              # Gradio web application
+│   ├── __init__.py
+│   ├── main.py             # Main application entry point
+│   ├── components.py        # UI components
+│   └── mcp_server.py       # MCP server integration
+├── model_evaluation/        # Model evaluation framework
+│   ├── __init__.py
+│   ├── pipeline.py         # Evaluation pipeline
+│   ├── bias_detection.py   # Bias detection algorithms
+│   └── robustness.py       # Robustness testing
+└── utils/                   # Utility functions
+    ├── __init__.py
+    ├── config_utils.py     # Configuration management
+    ├── data_utils.py       # Data processing utilities
+    └── logging_system.py   # Logging configuration
+</code></pre>
+<h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import logging
+from typing import Optional
+
+logger = logging.getLogger(__name__)
+
+def process_data(data: Dict) -&gt; Optional[Dict]:
+    &quot;&quot;&quot;Process data with proper error handling.&quot;&quot;&quot;
+    try:
+        # Validate input
+        if not data:
+            raise ValueError(&quot;Data cannot be empty&quot;)
+
+        # Process data
+        result = perform_processing(data)
+
+        logger.info(f&quot;Successfully processed data: {len(data)} items&quot;)
+        return result
+
+    except ValueError as e:
+        logger.error(f&quot;Validation error: {e}&quot;)
+        raise
+    except Exception as e:
+        logger.error(f&quot;Unexpected error processing data: {e}&quot;)
+        # Return None or raise depending on use case
+        return None
+</code></pre>
+<h3 id="logging-best-practices">Logging Best Practices<a class="headerlink" href="#logging-best-practices" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import logging
+
+# Use module-level logger
+logger = logging.getLogger(__name__)
+
+# Different log levels
+logger.debug(&quot;Detailed debugging information&quot;)
+logger.info(&quot;General information about program execution&quot;)
+logger.warning(&quot;Something unexpected happened&quot;)
+logger.error(&quot;A serious error occurred&quot;)
+logger.critical(&quot;A critical error occurred&quot;)
+
+# Include context in log messages
+logger.info(f&quot;Processing user {user_id} request: {request_type}&quot;)
+logger.error(f&quot;Failed to load model {model_id}: {error_message}&quot;)
+</code></pre>
+<h2 id="performance-guidelines">Performance Guidelines<a class="headerlink" href="#performance-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="code-optimization">Code Optimization<a class="headerlink" href="#code-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use appropriate data structures</li>
+<li>Avoid unnecessary computations</li>
+<li>Cache expensive operations</li>
+<li>Use async/await for I/O operations</li>
+</ul>
+<h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Close file handles properly</li>
+<li>Use context managers</li>
+<li>Avoid memory leaks in long-running processes</li>
+<li>Monitor memory usage</li>
+</ul>
+<h2 id="security-guidelines">Security Guidelines<a class="headerlink" href="#security-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="input-validation">Input Validation<a class="headerlink" href="#input-validation" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from typing import Any, Dict
+
+def validate_input(data: Any) -&gt; Dict:
+    &quot;&quot;&quot;Validate and sanitize input data.&quot;&quot;&quot;
+    if not isinstance(data, dict):
+        raise ValueError(&quot;Input must be a dictionary&quot;)
+
+    # Sanitize string inputs
+    for key, value in data.items():
+        if isinstance(value, str):
+            data[key] = value.strip()
+
+    return data
+</code></pre>
+<h3 id="secret-management">Secret Management<a class="headerlink" href="#secret-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Never commit secrets to version control</li>
+<li>Use environment variables for configuration</li>
+<li>Implement proper authentication and authorization</li>
+<li>Validate all inputs and outputs</li>
+</ul>
+<h2 id="community-guidelines">Community Guidelines<a class="headerlink" href="#community-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="code-of-conduct">Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Be respectful and inclusive</li>
+<li>Provide constructive feedback</li>
+<li>Help others learn and grow</li>
+<li>Follow the project's code of conduct</li>
+</ul>
+<h3 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Check existing documentation first</li>
+<li>Search existing issues and discussions</li>
+<li>Ask questions in GitHub discussions</li>
+<li>Join community channels if available</li>
+</ul>
+<h2 id="release-process">Release Process<a class="headerlink" href="#release-process" title="Permanent link">&para;</a></h2>
+<h3 id="version-numbering">Version Numbering<a class="headerlink" href="#version-numbering" title="Permanent link">&para;</a></h3>
+<p>Follow semantic versioning (MAJOR.MINOR.PATCH):
+- MAJOR: Breaking changes
+- MINOR: New features (backward compatible)
+- PATCH: Bug fixes (backward compatible)</p>
+<h3 id="release-checklist">Release Checklist<a class="headerlink" href="#release-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Update version numbers</li>
+<li>[ ] Update CHANGELOG.md</li>
+<li>[ ] Run full test suite</li>
+<li>[ ] Update documentation</li>
+<li>[ ] Create release notes</li>
+<li>[ ] Tag release in Git</li>
+<li>[ ] Deploy to production (if applicable)</li>
+</ul>
+<p>Thank you for contributing to the AI Assignments project! Your contributions help make this project better for everyone.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

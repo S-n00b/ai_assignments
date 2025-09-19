@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Lenovo AAITC Team">
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/assignments/assignment2/agent-system/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Agent System - Lenovo AAITC Solutions</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Lenovo AAITC Solutions</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Model Enablement & UX Evaluation</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category1/ai-engineering-overview/" class="dropdown-item">AI Engineering Overview</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-evaluation-framework/" class="dropdown-item">Model Evaluation Framework</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/ux-evaluation-testing/" class="dropdown-item">UX Evaluation & Testing</a>
+</li>
+                                    
+<li>
+    <a href="../../../category1/model-profiling-characterization/" class="dropdown-item">Model Profiling & Characterization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">AI System Architecture & MLOps</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../category2/system-architecture-overview/" class="dropdown-item">System Architecture Overview</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Executive Presentations</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../executive/carousel-slide-deck/" class="dropdown-item">Carousel Slide Deck</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Professional Skills & Insights</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../professional/executive-summary/" class="dropdown-item">Executive Summary</a>
+</li>
+                                    
+<li>
+    <a href="../../../professional/blog-posts/ai-architecture-seniority/" class="dropdown-item">AI Architecture Seniority</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../live-applications/" class="nav-link">Live Applications</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Development</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../development/github-pages-setup/" class="dropdown-item">GitHub Pages Setup</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Resources</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../resources/architecture/" class="dropdown-item">Architecture Diagrams</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/performance/" class="dropdown-item">Performance Metrics</a>
+</li>
+                                    
+<li>
+    <a href="../../../resources/troubleshooting/" class="dropdown-item">Troubleshooting</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/s-n00b/ai_assignments/edit/main/docs/assignments/assignment2/agent-system.md" class="nav-link">Edit on s-n00b/ai_assignments
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#agent-system" class="nav-link">Agent System</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#system-architecture" class="nav-link">System Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#agent-types-and-capabilities" class="nav-link">Agent Types and Capabilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#agent-communication-and-coordination" class="nav-link">Agent Communication and Coordination</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#agent-orchestration" class="nav-link">Agent Orchestration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#best-practices" class="nav-link">Best Practices</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="agent-system">Agent System<a class="headerlink" href="#agent-system" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Agent System provides a comprehensive framework for building, deploying, and managing autonomous AI agents. These agents can perform complex tasks, interact with each other, and adapt to changing environments while maintaining consistency and reliability in their operations.</p>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h3>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;Agent System Core&quot;
+        A[Agent Registry]
+        B[Agent Orchestrator]
+        C[Task Scheduler]
+        D[Communication Hub]
+        E[State Manager]
+    end
+
+    subgraph &quot;Agent Types&quot;
+        F[Workflow Agents]
+        G[Decision Agents]
+        H[Data Agents]
+        I[Monitoring Agents]
+    end
+
+    subgraph &quot;Infrastructure&quot;
+        J[Message Queue]
+        K[Event Bus]
+        L[Storage Layer]
+        M[Monitoring System]
+    end
+
+    A --&gt; B
+    B --&gt; C
+    B --&gt; D
+    B --&gt; E
+    D --&gt; J
+    D --&gt; K
+    E --&gt; L
+    B --&gt; M
+    F --&gt; A
+    G --&gt; A
+    H --&gt; A
+    I --&gt; A
+</code></pre>
+<h2 id="agent-types-and-capabilities">Agent Types and Capabilities<a class="headerlink" href="#agent-types-and-capabilities" title="Permanent link">&para;</a></h2>
+<h3 id="1-workflow-agents">1. Workflow Agents<a class="headerlink" href="#1-workflow-agents" title="Permanent link">&para;</a></h3>
+<p>Workflow agents manage complex business processes and coordinate multiple tasks:</p>
+<h4 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Process Orchestration</strong>: Manage multi-step business processes</li>
+<li><strong>Task Coordination</strong>: Coordinate tasks across different systems</li>
+<li><strong>Error Handling</strong>: Robust error handling and recovery mechanisms</li>
+<li><strong>Progress Tracking</strong>: Track and report on workflow progress</li>
+</ul>
+<h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># agents/workflow_agent.py
+from typing import Dict, List, Optional, Callable
+import asyncio
+from dataclasses import dataclass
+from enum import Enum
+import uuid
+import time
+
+class WorkflowStatus(Enum):
+    PENDING = &quot;pending&quot;
+    RUNNING = &quot;running&quot;
+    COMPLETED = &quot;completed&quot;
+    FAILED = &quot;failed&quot;
+    CANCELLED = &quot;cancelled&quot;
+
+@dataclass
+class WorkflowStep:
+    id: str
+    name: str
+    action: Callable
+    dependencies: List[str] = None
+    retry_count: int = 0
+    max_retries: int = 3
+    timeout: int = 300
+    status: WorkflowStatus = WorkflowStatus.PENDING
+    result: Optional[Dict] = None
+    error: Optional[str] = None
+    started_at: Optional[float] = None
+    completed_at: Optional[float] = None
+
+class WorkflowAgent:
+    def __init__(self, agent_id: str, config: Dict):
+        self.agent_id = agent_id
+        self.config = config
+        self.workflow_steps: Dict[str, WorkflowStep] = {}
+        self.current_workflow: Optional[str] = None
+        self.status = WorkflowStatus.PENDING
+
+    def add_step(self, step_id: str, name: str, action: Callable,
+                 dependencies: List[str] = None, **kwargs) -&gt; WorkflowStep:
+        &quot;&quot;&quot;Add a step to the workflow&quot;&quot;&quot;
+        step = WorkflowStep(
+            id=step_id,
+            name=name,
+            action=action,
+            dependencies=dependencies or [],
+            **kwargs
+        )
+        self.workflow_steps[step_id] = step
+        return step
+
+    async def execute_workflow(self, workflow_id: str) -&gt; Dict:
+        &quot;&quot;&quot;Execute the complete workflow&quot;&quot;&quot;
+        self.current_workflow = workflow_id
+        self.status = WorkflowStatus.RUNNING
+
+        try:
+            # Build execution graph
+            execution_order = self._build_execution_order()
+
+            # Execute steps in order
+            for step_ids in execution_order:
+                # Execute parallel steps
+                await self._execute_parallel_steps(step_ids)
+
+            self.status = WorkflowStatus.COMPLETED
+            return self._get_workflow_results()
+
+        except Exception as e:
+            self.status = WorkflowStatus.FAILED
+            raise
+
+    def _build_execution_order(self) -&gt; List[List[str]]:
+        &quot;&quot;&quot;Build execution order based on dependencies&quot;&quot;&quot;
+        execution_order = []
+        completed_steps = set()
+
+        while len(completed_steps) &lt; len(self.workflow_steps):
+            ready_steps = []
+
+            for step_id, step in self.workflow_steps.items():
+                if (step_id not in completed_steps and
+                    all(dep in completed_steps for dep in step.dependencies)):
+                    ready_steps.append(step_id)
+
+            if not ready_steps:
+                raise Exception(&quot;Circular dependency detected in workflow&quot;)
+
+            execution_order.append(ready_steps)
+            completed_steps.update(ready_steps)
+
+        return execution_order
+
+    async def _execute_parallel_steps(self, step_ids: List[str]):
+        &quot;&quot;&quot;Execute multiple steps in parallel&quot;&quot;&quot;
+        tasks = []
+
+        for step_id in step_ids:
+            task = asyncio.create_task(self._execute_step(step_id))
+            tasks.append(task)
+
+        await asyncio.gather(*tasks, return_exceptions=True)
+
+    async def _execute_step(self, step_id: str):
+        &quot;&quot;&quot;Execute a single workflow step&quot;&quot;&quot;
+        step = self.workflow_steps[step_id]
+        step.status = WorkflowStatus.RUNNING
+        step.started_at = time.time()
+
+        try:
+            # Execute step action
+            result = await step.action()
+            step.result = result
+            step.status = WorkflowStatus.COMPLETED
+            step.completed_at = time.time()
+
+        except Exception as e:
+            step.error = str(e)
+            step.status = WorkflowStatus.FAILED
+
+            # Retry logic
+            if step.retry_count &lt; step.max_retries:
+                step.retry_count += 1
+                step.status = WorkflowStatus.PENDING
+                await asyncio.sleep(2 ** step.retry_count)  # Exponential backoff
+                await self._execute_step(step_id)
+            else:
+                raise
+
+    def _get_workflow_results(self) -&gt; Dict:
+        &quot;&quot;&quot;Get results from all completed steps&quot;&quot;&quot;
+        results = {}
+        for step_id, step in self.workflow_steps.items():
+            if step.status == WorkflowStatus.COMPLETED:
+                results[step_id] = step.result
+        return results
+</code></pre>
+<h3 id="2-decision-agents">2. Decision Agents<a class="headerlink" href="#2-decision-agents" title="Permanent link">&para;</a></h3>
+<p>Decision agents make intelligent decisions based on data and rules:</p>
+<h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Rule Engine</strong>: Flexible rule-based decision making</li>
+<li><strong>Machine Learning Integration</strong>: ML-based decision making</li>
+<li><strong>Context Awareness</strong>: Make decisions based on current context</li>
+<li><strong>Decision Tracking</strong>: Track and audit all decisions</li>
+</ul>
+<h4 id="implementation_1">Implementation<a class="headerlink" href="#implementation_1" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># agents/decision_agent.py
+from typing import Dict, List, Optional, Any
+import json
+from dataclasses import dataclass
+from abc import ABC, abstractmethod
+
+@dataclass
+class DecisionContext:
+    user_id: str
+    session_id: str
+    timestamp: float
+    data: Dict[str, Any]
+    metadata: Dict[str, Any] = None
+
+@dataclass
+class DecisionResult:
+    decision: str
+    confidence: float
+    reasoning: str
+    alternatives: List[Dict] = None
+    metadata: Dict[str, Any] = None
+
+class DecisionRule:
+    def __init__(self, rule_id: str, condition: str, action: str, priority: int = 0):
+        self.rule_id = rule_id
+        self.condition = condition
+        self.action = action
+        self.priority = priority
+        self.active = True
+
+    def evaluate(self, context: DecisionContext) -&gt; bool:
+        &quot;&quot;&quot;Evaluate if rule condition is met&quot;&quot;&quot;
+        # Simple condition evaluation - in practice, use a proper rule engine
+        try:
+            # This is a simplified implementation
+            # In practice, you'd use a proper rule engine like Drools or similar
+            return eval(self.condition, {&quot;context&quot;: context, &quot;data&quot;: context.data})
+        except:
+            return False
+
+class DecisionEngine(ABC):
+    @abstractmethod
+    def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
+        pass
+
+class RuleBasedDecisionEngine(DecisionEngine):
+    def __init__(self):
+        self.rules: List[DecisionRule] = []
+        self.decision_history: List[Dict] = []
+
+    def add_rule(self, rule: DecisionRule):
+        &quot;&quot;&quot;Add a decision rule&quot;&quot;&quot;
+        self.rules.append(rule)
+        self.rules.sort(key=lambda x: x.priority, reverse=True)
+
+    def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
+        &quot;&quot;&quot;Make decision based on rules&quot;&quot;&quot;
+
+        # Evaluate rules in priority order
+        for rule in self.rules:
+            if rule.active and rule.evaluate(context):
+                decision = DecisionResult(
+                    decision=rule.action,
+                    confidence=1.0,
+                    reasoning=f&quot;Rule {rule.rule_id} matched&quot;,
+                    metadata={&quot;rule_id&quot;: rule.rule_id}
+                )
+
+                # Log decision
+                self._log_decision(context, decision)
+                return decision
+
+        # Default decision if no rules match
+        default_decision = DecisionResult(
+            decision=&quot;default_action&quot;,
+            confidence=0.5,
+            reasoning=&quot;No rules matched, using default action&quot;
+        )
+
+        self._log_decision(context, default_decision)
+        return default_decision
+
+    def _log_decision(self, context: DecisionContext, decision: DecisionResult):
+        &quot;&quot;&quot;Log decision for audit purposes&quot;&quot;&quot;
+        log_entry = {
+            &quot;timestamp&quot;: context.timestamp,
+            &quot;user_id&quot;: context.user_id,
+            &quot;session_id&quot;: context.session_id,
+            &quot;decision&quot;: decision.decision,
+            &quot;confidence&quot;: decision.confidence,
+            &quot;reasoning&quot;: decision.reasoning,
+            &quot;context_data&quot;: context.data
+        }
+        self.decision_history.append(log_entry)
+
+class MLBasedDecisionEngine(DecisionEngine):
+    def __init__(self, model_path: str):
+        self.model_path = model_path
+        self.model = self._load_model()
+
+    def _load_model(self):
+        &quot;&quot;&quot;Load ML model for decision making&quot;&quot;&quot;
+        # Implementation depends on your ML framework
+        pass
+
+    def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
+        &quot;&quot;&quot;Make decision using ML model&quot;&quot;&quot;
+
+        # Prepare features from context
+        features = self._extract_features(context)
+
+        # Make prediction
+        prediction = self.model.predict([features])
+        confidence = self.model.predict_proba([features]).max()
+
+        decision = DecisionResult(
+            decision=str(prediction[0]),
+            confidence=float(confidence),
+            reasoning=&quot;ML model prediction&quot;,
+            metadata={&quot;model_path&quot;: self.model_path}
+        )
+
+        return decision
+
+    def _extract_features(self, context: DecisionContext) -&gt; List[float]:
+        &quot;&quot;&quot;Extract features from decision context&quot;&quot;&quot;
+        # Implementation depends on your feature engineering approach
+        return []
+
+class DecisionAgent:
+    def __init__(self, agent_id: str, decision_engine: DecisionEngine):
+        self.agent_id = agent_id
+        self.decision_engine = decision_engine
+        self.decision_cache: Dict[str, DecisionResult] = {}
+
+    async def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
+        &quot;&quot;&quot;Make a decision for the given context&quot;&quot;&quot;
+
+        # Check cache first
+        cache_key = self._generate_cache_key(context)
+        if cache_key in self.decision_cache:
+            return self.decision_cache[cache_key]
+
+        # Make decision
+        decision = self.decision_engine.make_decision(context)
+
+        # Cache decision
+        self.decision_cache[cache_key] = decision
+
+        return decision
+
+    def _generate_cache_key(self, context: DecisionContext) -&gt; str:
+        &quot;&quot;&quot;Generate cache key for context&quot;&quot;&quot;
+        # Simple hash-based cache key
+        context_str = json.dumps(context.data, sort_keys=True)
+        return f&quot;{context.user_id}_{hash(context_str)}&quot;
+</code></pre>
+<h3 id="3-data-agents">3. Data Agents<a class="headerlink" href="#3-data-agents" title="Permanent link">&para;</a></h3>
+<p>Data agents handle data processing, transformation, and analysis tasks:</p>
+<h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Data Ingestion</strong>: Collect data from various sources</li>
+<li><strong>Data Processing</strong>: Transform and clean data</li>
+<li><strong>Data Analysis</strong>: Perform statistical and ML analysis</li>
+<li><strong>Data Quality</strong>: Ensure data quality and consistency</li>
+</ul>
+<h4 id="implementation_2">Implementation<a class="headerlink" href="#implementation_2" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># agents/data_agent.py
+from typing import Dict, List, Optional, Any, Callable
+import pandas as pd
+import numpy as np
+from abc import ABC, abstractmethod
+import asyncio
+from dataclasses import dataclass
+
+@dataclass
+class DataSource:
+    source_id: str
+    source_type: str  # database, api, file, stream
+    connection_config: Dict[str, Any]
+    schema: Optional[Dict] = None
+
+@dataclass
+class DataProcessingTask:
+    task_id: str
+    task_type: str  # ingestion, transformation, analysis, quality_check
+    config: Dict[str, Any]
+    dependencies: List[str] = None
+    status: str = &quot;pending&quot;
+    result: Optional[Any] = None
+
+class DataProcessor(ABC):
+    @abstractmethod
+    async def process(self, data: Any, config: Dict) -&gt; Any:
+        pass
+
+class DataIngestionProcessor(DataProcessor):
+    async def process(self, data_source: DataSource, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Ingest data from source&quot;&quot;&quot;
+
+        if data_source.source_type == &quot;database&quot;:
+            return await self._ingest_from_database(data_source, config)
+        elif data_source.source_type == &quot;api&quot;:
+            return await self._ingest_from_api(data_source, config)
+        elif data_source.source_type == &quot;file&quot;:
+            return await self._ingest_from_file(data_source, config)
+        else:
+            raise ValueError(f&quot;Unsupported source type: {data_source.source_type}&quot;)
+
+    async def _ingest_from_database(self, source: DataSource, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Ingest data from database&quot;&quot;&quot;
+        # Implementation depends on your database connector
+        pass
+
+    async def _ingest_from_api(self, source: DataSource, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Ingest data from API&quot;&quot;&quot;
+        # Implementation depends on your API client
+        pass
+
+    async def _ingest_from_file(self, source: DataSource, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Ingest data from file&quot;&quot;&quot;
+        # Implementation depends on file format
+        pass
+
+class DataTransformationProcessor(DataProcessor):
+    async def process(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Transform data according to configuration&quot;&quot;&quot;
+
+        transformations = config.get(&quot;transformations&quot;, [])
+
+        for transformation in transformations:
+            transformation_type = transformation.get(&quot;type&quot;)
+
+            if transformation_type == &quot;filter&quot;:
+                data = await self._apply_filter(data, transformation)
+            elif transformation_type == &quot;aggregate&quot;:
+                data = await self._apply_aggregation(data, transformation)
+            elif transformation_type == &quot;join&quot;:
+                data = await self._apply_join(data, transformation)
+            elif transformation_type == &quot;custom&quot;:
+                data = await self._apply_custom_transformation(data, transformation)
+
+        return data
+
+    async def _apply_filter(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Apply filter transformation&quot;&quot;&quot;
+        condition = config.get(&quot;condition&quot;)
+        return data.query(condition)
+
+    async def _apply_aggregation(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Apply aggregation transformation&quot;&quot;&quot;
+        group_by = config.get(&quot;group_by&quot;, [])
+        aggregations = config.get(&quot;aggregations&quot;, {})
+        return data.groupby(group_by).agg(aggregations).reset_index()
+
+    async def _apply_join(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Apply join transformation&quot;&quot;&quot;
+        # Implementation for joining with other datasets
+        pass
+
+    async def _apply_custom_transformation(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
+        &quot;&quot;&quot;Apply custom transformation&quot;&quot;&quot;
+        function = config.get(&quot;function&quot;)
+        return function(data)
+
+class DataQualityProcessor(DataProcessor):
+    async def process(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Perform data quality checks&quot;&quot;&quot;
+
+        quality_checks = config.get(&quot;quality_checks&quot;, [])
+        results = {}
+
+        for check in quality_checks:
+            check_type = check.get(&quot;type&quot;)
+
+            if check_type == &quot;completeness&quot;:
+                results[check_type] = await self._check_completeness(data, check)
+            elif check_type == &quot;consistency&quot;:
+                results[check_type] = await self._check_consistency(data, check)
+            elif check_type == &quot;validity&quot;:
+                results[check_type] = await self._check_validity(data, check)
+            elif check_type == &quot;uniqueness&quot;:
+                results[check_type] = await self._check_uniqueness(data, check)
+
+        return results
+
+    async def _check_completeness(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, float]:
+        &quot;&quot;&quot;Check data completeness&quot;&quot;&quot;
+        columns = config.get(&quot;columns&quot;, data.columns.tolist())
+        completeness = {}
+
+        for column in columns:
+            null_count = data[column].isnull().sum()
+            total_count = len(data)
+            completeness[column] = 1 - (null_count / total_count)
+
+        return completeness
+
+    async def _check_consistency(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Check data consistency&quot;&quot;&quot;
+        # Implementation for consistency checks
+        return {}
+
+    async def _check_validity(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Check data validity&quot;&quot;&quot;
+        # Implementation for validity checks
+        return {}
+
+    async def _check_uniqueness(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Check data uniqueness&quot;&quot;&quot;
+        # Implementation for uniqueness checks
+        return {}
+
+class DataAgent:
+    def __init__(self, agent_id: str, config: Dict):
+        self.agent_id = agent_id
+        self.config = config
+        self.processors: Dict[str, DataProcessor] = {}
+        self.data_sources: Dict[str, DataSource] = {}
+        self.processing_tasks: Dict[str, DataProcessingTask] = {}
+
+        # Initialize processors
+        self.processors[&quot;ingestion&quot;] = DataIngestionProcessor()
+        self.processors[&quot;transformation&quot;] = DataTransformationProcessor()
+        self.processors[&quot;quality&quot;] = DataQualityProcessor()
+
+    def add_data_source(self, source: DataSource):
+        &quot;&quot;&quot;Add a data source&quot;&quot;&quot;
+        self.data_sources[source.source_id] = source
+
+    async def process_data(self, task: DataProcessingTask) -&gt; Any:
+        &quot;&quot;&quot;Process data according to task configuration&quot;&quot;&quot;
+
+        task.status = &quot;running&quot;
+
+        try:
+            if task.task_type == &quot;ingestion&quot;:
+                source_id = task.config.get(&quot;source_id&quot;)
+                source = self.data_sources[source_id]
+                result = await self.processors[&quot;ingestion&quot;].process(source, task.config)
+
+            elif task.task_type == &quot;transformation&quot;:
+                input_data = task.config.get(&quot;input_data&quot;)
+                result = await self.processors[&quot;transformation&quot;].process(input_data, task.config)
+
+            elif task.task_type == &quot;quality_check&quot;:
+                input_data = task.config.get(&quot;input_data&quot;)
+                result = await self.processors[&quot;quality&quot;].process(input_data, task.config)
+
+            task.result = result
+            task.status = &quot;completed&quot;
+
+            return result
+
+        except Exception as e:
+            task.status = &quot;failed&quot;
+            task.result = {&quot;error&quot;: str(e)}
+            raise
+</code></pre>
+<h3 id="4-monitoring-agents">4. Monitoring Agents<a class="headerlink" href="#4-monitoring-agents" title="Permanent link">&para;</a></h3>
+<p>Monitoring agents continuously monitor system health and performance:</p>
+<h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Health Monitoring</strong>: Monitor system and service health</li>
+<li><strong>Performance Monitoring</strong>: Track performance metrics</li>
+<li><strong>Alert Management</strong>: Generate and manage alerts</li>
+<li><strong>Incident Response</strong>: Automatic incident response</li>
+</ul>
+<h4 id="implementation_3">Implementation<a class="headerlink" href="#implementation_3" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># agents/monitoring_agent.py
+from typing import Dict, List, Optional, Callable
+import asyncio
+import time
+from dataclasses import dataclass
+from enum import Enum
+import psutil
+import requests
+
+class AlertSeverity(Enum):
+    LOW = &quot;low&quot;
+    MEDIUM = &quot;medium&quot;
+    HIGH = &quot;high&quot;
+    CRITICAL = &quot;critical&quot;
+
+@dataclass
+class Alert:
+    alert_id: str
+    title: str
+    description: str
+    severity: AlertSeverity
+    source: str
+    timestamp: float
+    metadata: Dict[str, Any] = None
+    acknowledged: bool = False
+    resolved: bool = False
+
+@dataclass
+class MonitoringMetric:
+    name: str
+    value: float
+    unit: str
+    timestamp: float
+    tags: Dict[str, str] = None
+
+class MonitoringCheck:
+    def __init__(self, check_id: str, name: str, check_function: Callable,
+                 interval: int = 60, threshold: Dict = None):
+        self.check_id = check_id
+        self.name = name
+        self.check_function = check_function
+        self.interval = interval
+        self.threshold = threshold or {}
+        self.last_run: Optional[float] = None
+        self.last_result: Optional[Dict] = None
+
+    async def run_check(self) -&gt; Dict:
+        &quot;&quot;&quot;Run the monitoring check&quot;&quot;&quot;
+        try:
+            result = await self.check_function()
+            self.last_result = result
+            self.last_run = time.time()
+            return result
+        except Exception as e:
+            return {&quot;error&quot;: str(e), &quot;status&quot;: &quot;failed&quot;}
+
+class SystemHealthCheck:
+    async def check_cpu_usage(self) -&gt; Dict:
+        &quot;&quot;&quot;Check CPU usage&quot;&quot;&quot;
+        cpu_percent = psutil.cpu_percent(interval=1)
+        return {
+            &quot;metric&quot;: &quot;cpu_usage&quot;,
+            &quot;value&quot;: cpu_percent,
+            &quot;unit&quot;: &quot;percent&quot;,
+            &quot;status&quot;: &quot;ok&quot; if cpu_percent &lt; 80 else &quot;warning&quot; if cpu_percent &lt; 90 else &quot;critical&quot;
+        }
+
+    async def check_memory_usage(self) -&gt; Dict:
+        &quot;&quot;&quot;Check memory usage&quot;&quot;&quot;
+        memory = psutil.virtual_memory()
+        return {
+            &quot;metric&quot;: &quot;memory_usage&quot;,
+            &quot;value&quot;: memory.percent,
+            &quot;unit&quot;: &quot;percent&quot;,
+            &quot;status&quot;: &quot;ok&quot; if memory.percent &lt; 80 else &quot;warning&quot; if memory.percent &lt; 90 else &quot;critical&quot;
+        }
+
+    async def check_disk_usage(self) -&gt; Dict:
+        &quot;&quot;&quot;Check disk usage&quot;&quot;&quot;
+        disk = psutil.disk_usage('/')
+        disk_percent = (disk.used / disk.total) * 100
+        return {
+            &quot;metric&quot;: &quot;disk_usage&quot;,
+            &quot;value&quot;: disk_percent,
+            &quot;unit&quot;: &quot;percent&quot;,
+            &quot;status&quot;: &quot;ok&quot; if disk_percent &lt; 80 else &quot;warning&quot; if disk_percent &lt; 90 else &quot;critical&quot;
+        }
+
+class ServiceHealthCheck:
+    async def check_service_endpoint(self, url: str, timeout: int = 5) -&gt; Dict:
+        &quot;&quot;&quot;Check if service endpoint is responding&quot;&quot;&quot;
+        try:
+            response = requests.get(url, timeout=timeout)
+            return {
+                &quot;metric&quot;: &quot;service_response&quot;,
+                &quot;value&quot;: response.status_code,
+                &quot;unit&quot;: &quot;status_code&quot;,
+                &quot;status&quot;: &quot;ok&quot; if response.status_code == 200 else &quot;warning&quot;,
+                &quot;response_time&quot;: response.elapsed.total_seconds()
+            }
+        except requests.exceptions.RequestException as e:
+            return {
+                &quot;metric&quot;: &quot;service_response&quot;,
+                &quot;value&quot;: 0,
+                &quot;unit&quot;: &quot;status_code&quot;,
+                &quot;status&quot;: &quot;critical&quot;,
+                &quot;error&quot;: str(e)
+            }
+
+class MonitoringAgent:
+    def __init__(self, agent_id: str, config: Dict):
+        self.agent_id = agent_id
+        self.config = config
+        self.checks: Dict[str, MonitoringCheck] = {}
+        self.alerts: List[Alert] = []
+        self.metrics_history: List[MonitoringMetric] = []
+        self.alert_handlers: List[Callable] = []
+
+        # Initialize default checks
+        self._initialize_default_checks()
+
+    def _initialize_default_checks(self):
+        &quot;&quot;&quot;Initialize default monitoring checks&quot;&quot;&quot;
+        health_checker = SystemHealthCheck()
+        service_checker = ServiceHealthCheck()
+
+        # System health checks
+        self.add_check(&quot;cpu_check&quot;, &quot;CPU Usage Check&quot;, health_checker.check_cpu_usage, 60)
+        self.add_check(&quot;memory_check&quot;, &quot;Memory Usage Check&quot;, health_checker.check_memory_usage, 60)
+        self.add_check(&quot;disk_check&quot;, &quot;Disk Usage Check&quot;, health_checker.check_disk_usage, 300)
+
+        # Service health checks
+        services = self.config.get(&quot;services&quot;, [])
+        for service in services:
+            check_id = f&quot;service_check_{service['name']}&quot;
+            check_function = lambda url=service['url']: service_checker.check_service_endpoint(url)
+            self.add_check(check_id, f&quot;Service Check - {service['name']}&quot;, check_function, 30)
+
+    def add_check(self, check_id: str, name: str, check_function: Callable,
+                  interval: int = 60, threshold: Dict = None):
+        &quot;&quot;&quot;Add a monitoring check&quot;&quot;&quot;
+        check = MonitoringCheck(check_id, name, check_function, interval, threshold)
+        self.checks[check_id] = check
+
+    def add_alert_handler(self, handler: Callable):
+        &quot;&quot;&quot;Add alert handler&quot;&quot;&quot;
+        self.alert_handlers.append(handler)
+
+    async def start_monitoring(self):
+        &quot;&quot;&quot;Start monitoring loop&quot;&quot;&quot;
+        while True:
+            await self._run_all_checks()
+            await asyncio.sleep(10)  # Check every 10 seconds
+
+    async def _run_all_checks(self):
+        &quot;&quot;&quot;Run all monitoring checks&quot;&quot;&quot;
+        current_time = time.time()
+
+        for check in self.checks.values():
+            if (check.last_run is None or
+                current_time - check.last_run &gt;= check.interval):
+                await self._run_check(check)
+
+    async def _run_check(self, check: MonitoringCheck):
+        &quot;&quot;&quot;Run a single check&quot;&quot;&quot;
+        result = await check.run_check()
+
+        # Store metric
+        if &quot;metric&quot; in result:
+            metric = MonitoringMetric(
+                name=result[&quot;metric&quot;],
+                value=result[&quot;value&quot;],
+                unit=result.get(&quot;unit&quot;, &quot;&quot;),
+                timestamp=time.time(),
+                tags={&quot;check_id&quot;: check.check_id}
+            )
+            self.metrics_history.append(metric)
+
+        # Check for alerts
+        if result.get(&quot;status&quot;) in [&quot;warning&quot;, &quot;critical&quot;]:
+            await self._create_alert(check, result)
+
+    async def _create_alert(self, check: MonitoringCheck, result: Dict):
+        &quot;&quot;&quot;Create alert from check result&quot;&quot;&quot;
+        severity = AlertSeverity.CRITICAL if result[&quot;status&quot;] == &quot;critical&quot; else AlertSeverity.MEDIUM
+
+        alert = Alert(
+            alert_id=f&quot;{check.check_id}_{int(time.time())}&quot;,
+            title=f&quot;{check.name} - {result['status'].upper()}&quot;,
+            description=f&quot;Check {check.check_id} returned status: {result['status']}&quot;,
+            severity=severity,
+            source=self.agent_id,
+            timestamp=time.time(),
+            metadata=result
+        )
+
+        self.alerts.append(alert)
+
+        # Send alert to handlers
+        for handler in self.alert_handlers:
+            try:
+                await handler(alert)
+            except Exception as e:
+                print(f&quot;Error in alert handler: {e}&quot;)
+
+    async def acknowledge_alert(self, alert_id: str):
+        &quot;&quot;&quot;Acknowledge an alert&quot;&quot;&quot;
+        for alert in self.alerts:
+            if alert.alert_id == alert_id:
+                alert.acknowledged = True
+                break
+
+    async def resolve_alert(self, alert_id: str):
+        &quot;&quot;&quot;Resolve an alert&quot;&quot;&quot;
+        for alert in self.alerts:
+            if alert.alert_id == alert_id:
+                alert.resolved = True
+                break
+
+    def get_metrics_summary(self, hours: int = 24) -&gt; Dict:
+        &quot;&quot;&quot;Get metrics summary for the last N hours&quot;&quot;&quot;
+        cutoff_time = time.time() - (hours * 3600)
+        recent_metrics = [m for m in self.metrics_history if m.timestamp &gt;= cutoff_time]
+
+        summary = {}
+        for metric in recent_metrics:
+            if metric.name not in summary:
+                summary[metric.name] = {
+                    &quot;values&quot;: [],
+                    &quot;min&quot;: float('inf'),
+                    &quot;max&quot;: float('-inf'),
+                    &quot;avg&quot;: 0
+                }
+
+            summary[metric.name][&quot;values&quot;].append(metric.value)
+            summary[metric.name][&quot;min&quot;] = min(summary[metric.name][&quot;min&quot;], metric.value)
+            summary[metric.name][&quot;max&quot;] = max(summary[metric.name][&quot;max&quot;], metric.value)
+
+        # Calculate averages
+        for metric_name, data in summary.items():
+            if data[&quot;values&quot;]:
+                data[&quot;avg&quot;] = sum(data[&quot;values&quot;]) / len(data[&quot;values&quot;])
+
+        return summary
+</code></pre>
+<h2 id="agent-communication-and-coordination">Agent Communication and Coordination<a class="headerlink" href="#agent-communication-and-coordination" title="Permanent link">&para;</a></h2>
+<h3 id="inter-agent-communication">Inter-Agent Communication<a class="headerlink" href="#inter-agent-communication" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># agents/communication.py
+from typing import Dict, List, Optional, Any
+import asyncio
+import json
+from dataclasses import dataclass
+from enum import Enum
+
+class MessageType(Enum):
+    TASK_REQUEST = &quot;task_request&quot;
+    TASK_RESPONSE = &quot;task_response&quot;
+    STATUS_UPDATE = &quot;status_update&quot;
+    EVENT_NOTIFICATION = &quot;event_notification&quot;
+    HEARTBEAT = &quot;heartbeat&quot;
+
+@dataclass
+class AgentMessage:
+    message_id: str
+    sender_id: str
+    recipient_id: str
+    message_type: MessageType
+    payload: Dict[str, Any]
+    timestamp: float
+    correlation_id: Optional[str] = None
+
+class AgentCommunicationHub:
+    def __init__(self):
+        self.agents: Dict[str, 'Agent'] = {}
+        self.message_queue: asyncio.Queue = asyncio.Queue()
+        self.message_handlers: Dict[str, List[Callable]] = {}
+        self.running = False
+
+    def register_agent(self, agent: 'Agent'):
+        &quot;&quot;&quot;Register an agent for communication&quot;&quot;&quot;
+        self.agents[agent.agent_id] = agent
+        self.message_handlers[agent.agent_id] = []
+
+    def add_message_handler(self, agent_id: str, handler: Callable):
+        &quot;&quot;&quot;Add message handler for agent&quot;&quot;&quot;
+        if agent_id not in self.message_handlers:
+            self.message_handlers[agent_id] = []
+        self.message_handlers[agent_id].append(handler)
+
+    async def send_message(self, message: AgentMessage):
+        &quot;&quot;&quot;Send message to agent&quot;&quot;&quot;
+        await self.message_queue.put(message)
+
+    async def start_message_processing(self):
+        &quot;&quot;&quot;Start processing messages&quot;&quot;&quot;
+        self.running = True
+        while self.running:
+            try:
+                message = await asyncio.wait_for(self.message_queue.get(), timeout=1.0)
+                await self._process_message(message)
+            except asyncio.TimeoutError:
+                continue
+            except Exception as e:
+                print(f&quot;Error processing message: {e}&quot;)
+
+    async def _process_message(self, message: AgentMessage):
+        &quot;&quot;&quot;Process a single message&quot;&quot;&quot;
+        if message.recipient_id in self.message_handlers:
+            for handler in self.message_handlers[message.recipient_id]:
+                try:
+                    await handler(message)
+                except Exception as e:
+                    print(f&quot;Error in message handler: {e}&quot;)
+
+    async def broadcast_message(self, sender_id: str, message_type: MessageType,
+                               payload: Dict[str, Any]):
+        &quot;&quot;&quot;Broadcast message to all agents&quot;&quot;&quot;
+        for agent_id in self.agents.keys():
+            if agent_id != sender_id:
+                message = AgentMessage(
+                    message_id=f&quot;broadcast_{int(time.time())}&quot;,
+                    sender_id=sender_id,
+                    recipient_id=agent_id,
+                    message_type=message_type,
+                    payload=payload,
+                    timestamp=time.time()
+                )
+                await self.send_message(message)
+</code></pre>
+<h2 id="agent-orchestration">Agent Orchestration<a class="headerlink" href="#agent-orchestration" title="Permanent link">&para;</a></h2>
+<h3 id="agent-orchestrator">Agent Orchestrator<a class="headerlink" href="#agent-orchestrator" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># agents/orchestrator.py
+from typing import Dict, List, Optional
+import asyncio
+import time
+from dataclasses import dataclass
+from enum import Enum
+
+class AgentStatus(Enum):
+    IDLE = &quot;idle&quot;
+    BUSY = &quot;busy&quot;
+    ERROR = &quot;error&quot;
+    OFFLINE = &quot;offline&quot;
+
+@dataclass
+class AgentTask:
+    task_id: str
+    agent_type: str
+    task_config: Dict
+    priority: int = 0
+    created_at: float = 0
+    assigned_agent: Optional[str] = None
+    status: str = &quot;pending&quot;
+
+class AgentOrchestrator:
+    def __init__(self):
+        self.agents: Dict[str, 'Agent'] = {}
+        self.agent_status: Dict[str, AgentStatus] = {}
+        self.task_queue: asyncio.PriorityQueue = asyncio.PriorityQueue()
+        self.running_tasks: Dict[str, asyncio.Task] = {}
+        self.communication_hub = AgentCommunicationHub()
+
+    def register_agent(self, agent: 'Agent'):
+        &quot;&quot;&quot;Register an agent&quot;&quot;&quot;
+        self.agents[agent.agent_id] = agent
+        self.agent_status[agent.agent_id] = AgentStatus.IDLE
+        self.communication_hub.register_agent(agent)
+
+        # Add message handler for task assignment
+        self.communication_hub.add_message_handler(
+            agent.agent_id,
+            self._handle_agent_message
+        )
+
+    async def submit_task(self, agent_type: str, task_config: Dict, priority: int = 0) -&gt; str:
+        &quot;&quot;&quot;Submit a task to be executed by an agent&quot;&quot;&quot;
+        task_id = f&quot;task_{agent_type}_{int(time.time())}&quot;
+
+        task = AgentTask(
+            task_id=task_id,
+            agent_type=agent_type,
+            task_config=task_config,
+            priority=priority,
+            created_at=time.time()
+        )
+
+        await self.task_queue.put((priority, task))
+        return task_id
+
+    async def start_orchestration(self):
+        &quot;&quot;&quot;Start the orchestration loop&quot;&quot;&quot;
+        # Start communication hub
+        asyncio.create_task(self.communication_hub.start_message_processing())
+
+        # Start task processing
+        while True:
+            try:
+                priority, task = await self.task_queue.get()
+                await self._assign_task(task)
+                self.task_queue.task_done()
+            except Exception as e:
+                print(f&quot;Error in orchestration: {e}&quot;)
+
+    async def _assign_task(self, task: AgentTask):
+        &quot;&quot;&quot;Assign task to an available agent&quot;&quot;&quot;
+        # Find available agent of the required type
+        available_agent = None
+        for agent_id, agent in self.agents.items():
+            if (agent.agent_type == task.agent_type and
+                self.agent_status[agent_id] == AgentStatus.IDLE):
+                available_agent = agent
+                break
+
+        if available_agent:
+            # Assign task to agent
+            task.assigned_agent = available_agent.agent_id
+            task.status = &quot;assigned&quot;
+
+            # Update agent status
+            self.agent_status[available_agent.agent_id] = AgentStatus.BUSY
+
+            # Send task to agent
+            message = AgentMessage(
+                message_id=f&quot;task_{task.task_id}&quot;,
+                sender_id=&quot;orchestrator&quot;,
+                recipient_id=available_agent.agent_id,
+                message_type=MessageType.TASK_REQUEST,
+                payload=task.task_config,
+                timestamp=time.time(),
+                correlation_id=task.task_id
+            )
+
+            await self.communication_hub.send_message(message)
+
+            # Create task monitoring
+            monitor_task = asyncio.create_task(
+                self._monitor_task_execution(task)
+            )
+            self.running_tasks[task.task_id] = monitor_task
+        else:
+            # No available agent, requeue task
+            await self.task_queue.put((task.priority, task))
+
+    async def _monitor_task_execution(self, task: AgentTask):
+        &quot;&quot;&quot;Monitor task execution&quot;&quot;&quot;
+        # Wait for task completion or timeout
+        try:
+            await asyncio.sleep(task.task_config.get(&quot;timeout&quot;, 300))
+
+            # If we get here, task timed out
+            task.status = &quot;timeout&quot;
+            self.agent_status[task.assigned_agent] = AgentStatus.IDLE
+
+        except Exception as e:
+            task.status = &quot;failed&quot;
+            task.error = str(e)
+            self.agent_status[task.assigned_agent] = AgentStatus.ERROR
+
+    async def _handle_agent_message(self, message: AgentMessage):
+        &quot;&quot;&quot;Handle messages from agents&quot;&quot;&quot;
+        if message.message_type == MessageType.TASK_RESPONSE:
+            # Task completed
+            task_id = message.correlation_id
+            if task_id in self.running_tasks:
+                task = self.running_tasks[task_id]
+                task.status = &quot;completed&quot;
+                task.result = message.payload
+
+                # Update agent status
+                self.agent_status[message.sender_id] = AgentStatus.IDLE
+
+                # Clean up
+                del self.running_tasks[task_id]
+
+        elif message.message_type == MessageType.STATUS_UPDATE:
+            # Agent status update
+            agent_id = message.sender_id
+            new_status = message.payload.get(&quot;status&quot;)
+            if new_status:
+                self.agent_status[agent_id] = AgentStatus(new_status)
+</code></pre>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-agent-design">1. Agent Design<a class="headerlink" href="#1-agent-design" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Single Responsibility</strong>: Each agent should have a single, well-defined responsibility</li>
+<li><strong>Stateless Design</strong>: Design agents to be stateless when possible</li>
+<li><strong>Error Handling</strong>: Implement robust error handling and recovery mechanisms</li>
+<li><strong>Resource Management</strong>: Properly manage resources and connections</li>
+</ul>
+<h3 id="2-communication">2. Communication<a class="headerlink" href="#2-communication" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Asynchronous Communication</strong>: Use asynchronous communication patterns</li>
+<li><strong>Message Queuing</strong>: Implement reliable message queuing</li>
+<li><strong>Event-Driven Architecture</strong>: Design around events and messages</li>
+<li><strong>Circuit Breakers</strong>: Implement circuit breakers for external dependencies</li>
+</ul>
+<h3 id="3-monitoring-and-observability">3. Monitoring and Observability<a class="headerlink" href="#3-monitoring-and-observability" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Logging</strong>: Log all important agent activities</li>
+<li><strong>Metrics Collection</strong>: Collect performance and health metrics</li>
+<li><strong>Distributed Tracing</strong>: Track requests across agent interactions</li>
+<li><strong>Alert Management</strong>: Implement proper alerting and notification</li>
+</ul>
+<h3 id="4-security">4. Security<a class="headerlink" href="#4-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Authentication</strong>: Implement proper authentication for agent communication</li>
+<li><strong>Authorization</strong>: Enforce access controls and permissions</li>
+<li><strong>Data Encryption</strong>: Encrypt sensitive data in transit and at rest</li>
+<li><strong>Audit Logging</strong>: Maintain audit logs for security compliance</li>
+</ul>
+<p>This comprehensive agent system provides the foundation for building sophisticated AI agent applications that can work together to solve complex problems while maintaining reliability, scalability, and observability.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2025 Lenovo AAITC Team</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
