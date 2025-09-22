@@ -587,7 +587,7 @@ class EnterpriseAIMCP:
     async def start_server(
         self,
         host: str = "0.0.0.0",
-        port: int = 8000,
+        port: int = 8081,
         max_connections: int = 100
     ) -> None
 

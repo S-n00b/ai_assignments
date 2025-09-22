@@ -9,12 +9,14 @@ This comprehensive troubleshooting guide helps diagnose and resolve common issue
 ### 1. Virtual Environment Issues
 
 #### Problem: Virtual environment not activating
+
 ```bash
 # Error: Execution policy prevents running scripts
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 #### Problem: Python version conflicts
+
 ```bash
 # Check Python version
 python --version
@@ -24,6 +26,7 @@ python3.9 -m venv venv
 ```
 
 #### Problem: Package installation failures
+
 ```bash
 # Clear pip cache
 pip cache purge
@@ -40,6 +43,7 @@ pip install gradio
 ### 2. Dependency Conflicts
 
 #### Problem: Conflicting package versions
+
 ```bash
 # Check for conflicts
 pip check
@@ -54,6 +58,7 @@ conda install pytorch torchvision torchaudio -c pytorch
 ```
 
 #### Problem: CUDA/PyTorch compatibility
+
 ```bash
 # Check CUDA version
 nvidia-smi
@@ -67,6 +72,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ### 1. Import Errors
 
 #### Problem: Module not found
+
 ```python
 # Check Python path
 import sys
@@ -81,6 +87,7 @@ from src.model_evaluation.pipeline import EvaluationPipeline
 ```
 
 #### Problem: Circular imports
+
 ```python
 # Solution: Use local imports
 def some_function():
@@ -92,6 +99,7 @@ def some_function():
 ### 2. Model Loading Issues
 
 #### Problem: Model file not found
+
 ```python
 import os
 from pathlib import Path
@@ -100,7 +108,7 @@ def load_model_safely(model_path: str):
     """Load model with proper error handling."""
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"Model file not found: {model_path}")
-    
+
     try:
         model = torch.load(model_path, map_location='cpu')
         return model
@@ -113,6 +121,7 @@ model = load_model_safely(str(model_path))
 ```
 
 #### Problem: CUDA out of memory
+
 ```python
 import torch
 
@@ -121,14 +130,14 @@ def handle_cuda_memory():
     if torch.cuda.is_available():
         # Clear cache
         torch.cuda.empty_cache()
-        
+
         # Set memory fraction
         torch.cuda.set_per_process_memory_fraction(0.8)
-        
+
         # Use mixed precision
         from torch.cuda.amp import autocast, GradScaler
         scaler = GradScaler()
-        
+
         return scaler
     return None
 
@@ -146,6 +155,7 @@ scaler.update()
 ### 3. Database Connection Issues
 
 #### Problem: Database connection timeout
+
 ```python
 import sqlite3
 import psycopg2
@@ -170,6 +180,7 @@ def test_database_connection(database_url: str, max_retries: int = 3):
 ```
 
 #### Problem: Database locked
+
 ```sql
 -- Check for locks (SQLite)
 PRAGMA database_list;
@@ -184,6 +195,7 @@ PRAGMA wal_checkpoint(TRUNCATE);
 ### 1. Slow Model Inference
 
 #### Problem: High latency
+
 ```python
 import time
 import torch
@@ -192,15 +204,15 @@ from torch.utils.data import DataLoader
 def optimize_model_inference(model, dataloader):
     """Optimize model for inference."""
     model.eval()
-    
+
     # Enable optimizations
     if torch.cuda.is_available():
         model = model.cuda()
         torch.backends.cudnn.benchmark = True
-    
+
     # Use torch.jit for optimization
     model = torch.jit.optimize_for_inference(torch.jit.script(model))
-    
+
     # Batch processing
     with torch.no_grad():
         for batch in dataloader:
@@ -211,34 +223,36 @@ def optimize_model_inference(model, dataloader):
 ```
 
 #### Problem: Memory issues during inference
+
 ```python
 def inference_with_memory_management(model, inputs, batch_size=32):
     """Inference with memory management."""
     results = []
-    
+
     # Process in batches
     for i in range(0, len(inputs), batch_size):
         batch = inputs[i:i + batch_size]
-        
+
         # Move to device
         if torch.cuda.is_available():
             batch = batch.cuda()
-        
+
         # Inference
         with torch.no_grad():
             outputs = model(batch)
             results.append(outputs.cpu())
-        
+
         # Clear cache
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
-    
+
     return torch.cat(results, dim=0)
 ```
 
 ### 2. Memory Leaks
 
 #### Problem: Increasing memory usage
+
 ```python
 import gc
 import psutil
@@ -247,22 +261,22 @@ import torch
 class MemoryMonitor:
     def __init__(self):
         self.initial_memory = self.get_memory_usage()
-    
+
     def get_memory_usage(self):
         """Get current memory usage."""
         process = psutil.Process()
         return process.memory_info().rss / 1024 / 1024  # MB
-    
+
     def check_memory_leak(self, threshold_mb=100):
         """Check for memory leaks."""
         current_memory = self.get_memory_usage()
         memory_increase = current_memory - self.initial_memory
-        
+
         if memory_increase > threshold_mb:
             print(f"Potential memory leak: {memory_increase:.2f}MB increase")
             return True
         return False
-    
+
     def cleanup_memory(self):
         """Clean up memory."""
         gc.collect()
@@ -281,6 +295,7 @@ if monitor.check_memory_leak():
 ### 1. Gradio App Issues
 
 #### Problem: Gradio interface not loading
+
 ```python
 import gradio as gr
 
@@ -314,6 +329,7 @@ except Exception as e:
 ```
 
 #### Problem: CORS issues
+
 ```python
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -333,6 +349,7 @@ app.add_middleware(
 ### 2. API Rate Limiting
 
 #### Problem: Too many requests
+
 ```python
 from functools import wraps
 import time
@@ -343,20 +360,20 @@ class RateLimiter:
         self.max_requests = max_requests
         self.window = window
         self.requests = defaultdict(list)
-    
+
     def is_allowed(self, client_id: str) -> bool:
         """Check if request is allowed."""
         now = time.time()
         client_requests = self.requests[client_id]
-        
+
         # Remove old requests
-        client_requests[:] = [req_time for req_time in client_requests 
+        client_requests[:] = [req_time for req_time in client_requests
                             if now - req_time < self.window]
-        
+
         # Check limit
         if len(client_requests) >= self.max_requests:
             return False
-        
+
         # Add current request
         client_requests.append(now)
         return True
@@ -368,7 +385,7 @@ rate_limiter = RateLimiter(max_requests=100, window=60)
 async def predict(request: dict, client_id: str = "default"):
     if not rate_limiter.is_allowed(client_id):
         raise HTTPException(status_code=429, detail="Rate limit exceeded")
-    
+
     # Process request
     return {"result": "success"}
 ```
@@ -378,6 +395,7 @@ async def predict(request: dict, client_id: str = "default"):
 ### 1. Docker Issues
 
 #### Problem: Container won't start
+
 ```dockerfile
 # Add debugging to Dockerfile
 FROM python:3.9-slim
@@ -390,7 +408,7 @@ RUN apt-get update && apt-get install -y \
 
 # Add health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+    CMD curl -f http://localhost:8080/health || exit 1
 
 # Use non-root user
 RUN useradd --create-home --shell /bin/bash app
@@ -411,6 +429,7 @@ CMD ["python", "-m", "src.gradio_app.main", "--debug"]
 ```
 
 #### Problem: Volume mounting issues
+
 ```bash
 # Check volume permissions
 docker run --rm -v $(pwd):/app alpine ls -la /app
@@ -427,6 +446,7 @@ docker run -v ai_assignments_data:/app/data your-image
 ### 2. Kubernetes Issues
 
 #### Problem: Pods not starting
+
 ```yaml
 # Add debugging to deployment
 apiVersion: apps/v1
@@ -437,23 +457,24 @@ spec:
   template:
     spec:
       containers:
-      - name: ai-assignments
-        image: ai-assignments:latest
-        command: ["/bin/bash"]
-        args: ["-c", "while true; do sleep 30; done"]  # Keep container alive
-        env:
-        - name: DEBUG
-          value: "true"
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "250m"
-          limits:
-            memory: "1Gi"
-            cpu: "500m"
+        - name: ai-assignments
+          image: ai-assignments:latest
+          command: ["/bin/bash"]
+          args: ["-c", "while true; do sleep 30; done"] # Keep container alive
+          env:
+            - name: DEBUG
+              value: "true"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
 ```
 
 #### Problem: Service not accessible
+
 ```bash
 # Check service endpoints
 kubectl get endpoints ai-assignments-service
@@ -462,7 +483,7 @@ kubectl get endpoints ai-assignments-service
 kubectl logs -l app=ai-assignments
 
 # Port forward for testing
-kubectl port-forward service/ai-assignments-service 8000:80
+kubectl port-forward service/ai-assignments-service 8080:80
 
 # Check ingress
 kubectl describe ingress ai-assignments-ingress
@@ -473,6 +494,7 @@ kubectl describe ingress ai-assignments-ingress
 ### 1. Logging Configuration
 
 #### Comprehensive logging setup
+
 ```python
 import logging
 import logging.config
@@ -481,9 +503,9 @@ from pathlib import Path
 
 def setup_logging(log_level="INFO", log_file=None):
     """Setup comprehensive logging configuration."""
-    
+
     log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    
+
     # Console handler
     console_handler = {
         'class': 'logging.StreamHandler',
@@ -491,10 +513,10 @@ def setup_logging(log_level="INFO", log_file=None):
         'formatter': 'detailed',
         'stream': sys.stdout
     }
-    
+
     # File handler
     handlers = {'console': console_handler}
-    
+
     if log_file:
         handlers['file'] = {
             'class': 'logging.handlers.RotatingFileHandler',
@@ -504,7 +526,7 @@ def setup_logging(log_level="INFO", log_file=None):
             'maxBytes': 10485760,  # 10MB
             'backupCount': 5
         }
-    
+
     logging_config = {
         'version': 1,
         'disable_existing_loggers': False,
@@ -525,7 +547,7 @@ def setup_logging(log_level="INFO", log_file=None):
             }
         }
     }
-    
+
     logging.config.dictConfig(logging_config)
 
 # Usage
@@ -536,6 +558,7 @@ logger = logging.getLogger(__name__)
 ### 2. Error Tracking
 
 #### Exception handling and reporting
+
 ```python
 import traceback
 import logging
@@ -551,10 +574,10 @@ def error_handler(func):
             logger = logging.getLogger(func.__module__)
             logger.error(f"Error in {func.__name__}: {e}")
             logger.error(f"Traceback: {traceback.format_exc()}")
-            
+
             # Send to error tracking service (e.g., Sentry)
             # sentry_sdk.capture_exception()
-            
+
             raise
     return wrapper
 
@@ -568,6 +591,7 @@ def risky_function():
 ### 3. Performance Monitoring
 
 #### Real-time performance tracking
+
 ```python
 import time
 import psutil
@@ -584,36 +608,36 @@ class PerformanceMonitor:
         }
         self.running = False
         self.thread = None
-    
+
     def start(self):
         """Start monitoring."""
         self.running = True
         self.thread = threading.Thread(target=self._monitor_loop)
         self.thread.daemon = True
         self.thread.start()
-    
+
     def stop(self):
         """Stop monitoring."""
         self.running = False
         if self.thread:
             self.thread.join()
-    
+
     def _monitor_loop(self):
         """Monitoring loop."""
         while self.running:
             # Collect system metrics
             cpu_percent = psutil.cpu_percent()
             memory_percent = psutil.virtual_memory().percent
-            
+
             self.metrics['cpu'].append(cpu_percent)
             self.metrics['memory'].append(memory_percent)
-            
+
             time.sleep(1)
-    
+
     def record_response_time(self, response_time):
         """Record API response time."""
         self.metrics['response_time'].append(response_time)
-    
+
     def get_stats(self):
         """Get performance statistics."""
         stats = {}
@@ -638,7 +662,7 @@ async def health_check():
     # ... process request ...
     response_time = time.time() - start_time
     monitor.record_response_time(response_time)
-    
+
     return {
         "status": "healthy",
         "performance": monitor.get_stats()
@@ -650,6 +674,7 @@ async def health_check():
 ### 1. Data Recovery
 
 #### Database backup and restore
+
 ```python
 import sqlite3
 import shutil
@@ -659,10 +684,10 @@ def backup_database(db_path: str, backup_dir: str = "backups"):
     """Create database backup."""
     backup_dir = Path(backup_dir)
     backup_dir.mkdir(exist_ok=True)
-    
+
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_path = backup_dir / f"database_{timestamp}.db"
-    
+
     shutil.copy2(db_path, backup_path)
     print(f"Database backed up to: {backup_path}")
     return backup_path
@@ -681,6 +706,7 @@ restore_database("ai_assignments.db", backup_path)
 ### 2. Service Recovery
 
 #### Automatic restart on failure
+
 ```python
 import subprocess
 import time
@@ -693,7 +719,7 @@ class ServiceManager:
         self.restart_count = 0
         self.process = None
         self.logger = logging.getLogger(__name__)
-    
+
     def start_service(self):
         """Start the service."""
         try:
@@ -703,13 +729,13 @@ class ServiceManager:
         except Exception as e:
             self.logger.error(f"Failed to start service: {e}")
             return False
-    
+
     def monitor_service(self):
         """Monitor and restart service if needed."""
         while self.restart_count < self.max_restarts:
             if self.process is None or self.process.poll() is not None:
                 self.logger.warning("Service stopped, attempting restart")
-                
+
                 if self.start_service():
                     self.restart_count += 1
                     time.sleep(5)  # Wait before monitoring again
@@ -718,7 +744,7 @@ class ServiceManager:
                     break
             else:
                 time.sleep(10)  # Check every 10 seconds
-        
+
         self.logger.error("Max restart attempts reached")
 
 # Usage

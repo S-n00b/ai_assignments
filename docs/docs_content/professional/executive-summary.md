@@ -168,4 +168,4 @@ This comprehensive AI architecture platform represents a paradigm shift in enter
 
 **This executive summary demonstrates the comprehensive technical leadership, architectural excellence, and business acumen required for senior AI engineering roles at Lenovo AAITC. The platform represents a significant advancement in enterprise AI operations and positions Lenovo as a leader in the hybrid-AI space.**
 
-_For detailed technical documentation and live demonstrations, please refer to the comprehensive documentation available at [http://localhost:8000](http://localhost:8000) and the live platform at [http://localhost:8080](http://localhost:8080)._
+_For detailed technical documentation and live demonstrations, please refer to the comprehensive documentation available at [http://localhost:8082](http://localhost:8082) and the live platform at [http://localhost:8080](http://localhost:8080)._

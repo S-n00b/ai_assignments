@@ -20,6 +20,8 @@ from .pipeline import ComprehensiveEvaluationPipeline
 from .robustness import RobustnessTestingSuite
 from .bias_detection import BiasDetectionSystem
 from .prompt_registries import PromptRegistryManager
+from .profiler import ModelProfiler
+from .factory import ModelFactory
 
 __version__ = "1.0.0"
 __author__ = "Lenovo AAITC"
@@ -32,5 +34,7 @@ __all__ = [
     "ComprehensiveEvaluationPipeline",
     "RobustnessTestingSuite",
     "BiasDetectionSystem",
-    "PromptRegistryManager"
+    "PromptRegistryManager",
+    "ModelProfiler",
+    "ModelFactory"
 ]

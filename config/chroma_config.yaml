@@ -1,0 +1,36 @@
+# ChromaDB Configuration
+# This file configures ChromaDB with OpenTelemetry support
+
+# Server configuration
+server:
+  host: "0.0.0.0"
+  port: 8081
+  cors_allow_origins:
+    - "http://localhost:3000"
+    - "http://localhost:7860"
+    - "http://localhost:8080"
+    - "http://localhost:5000"
+
+# Database configuration
+database:
+  impl: "duckdb+parquet"
+  persist_directory: "./chroma_db"
+
+# OpenTelemetry configuration
+telemetry:
+  enabled: true
+  otlp_endpoint: "http://localhost:4317"
+  service_name: "chromadb-server"
+  service_version: "1.0.0"
+  environment: "development"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Performance configuration
+performance:
+  max_batch_size: 1000
+  max_workers: 4
+  enable_dynamic_batching: true

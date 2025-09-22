@@ -182,7 +182,7 @@ Before deploying, preview changes locally:
 cd docs
 mkdocs serve
 
-# Access at http://localhost:8000
+# Access at http://localhost:8082
 # Auto-reloads on file changes
 ```
 

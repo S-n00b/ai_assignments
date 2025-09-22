@@ -51,12 +51,16 @@ def setup_logging(level: str = "info"):
     """Setup logging configuration."""
     log_level = getattr(logging, level.upper(), logging.INFO)
     
+    # Create logs directory if it doesn't exist
+    logs_dir = Path("logs")
+    logs_dir.mkdir(exist_ok=True)
+    
     logging.basicConfig(
         level=log_level,
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler("logs/llmops.log")
+            logging.FileHandler(logs_dir / "llmops.log")
         ]
     )
     
@@ -76,12 +80,17 @@ async def initialize_services(config: dict):
     try:
         logger.info("Initializing Enterprise LLMOps Platform...")
         
-        # Initialize Ollama Manager
+        # Initialize Ollama Manager (optional)
         if config.get("enable_ollama", True):
-            logger.info("Initializing Ollama Manager...")
-            ollama_manager = OllamaManager()
-            await ollama_manager.initialize()
-            logger.info("Ollama Manager initialized successfully")
+            try:
+                logger.info("Initializing Ollama Manager...")
+                ollama_manager = OllamaManager()
+                await ollama_manager.initialize()
+                logger.info("Ollama Manager initialized successfully")
+            except Exception as e:
+                logger.warning(f"Ollama Manager initialization failed: {e}")
+                logger.info("Continuing without Ollama support...")
+                config["enable_ollama"] = False
         
         # Initialize Model Registry
         if config.get("enable_model_registry", True):
@@ -136,8 +145,8 @@ def load_config(config_path: Optional[str] = None) -> dict:
         "optuna_n_trials": 100,
         "optuna_pruning": True,
         "vector_databases": {
-            "chroma": {"enabled": True, "url": "http://localhost:8000"},
-            "weaviate": {"enabled": True, "url": "http://localhost:8080"},
+            "chroma": {"enabled": True, "url": "http://localhost:8081"},
+            "weaviate": {"enabled": True, "url": "http://localhost:8083"},
             "pinecone": {"enabled": False, "api_key": None}
         },
         "monitoring": {
@@ -146,7 +155,7 @@ def load_config(config_path: Optional[str] = None) -> dict:
             "langfuse": {"enabled": True, "url": "http://localhost:3000"}
         },
         "integrations": {
-            "langgraph_studio": {"enabled": True, "url": "http://localhost:8000"},
+            "langgraph_studio": {"enabled": True, "url": "http://localhost:8080"},
             "neo4j": {"enabled": True, "url": "http://localhost:7474"}
         }
     }
@@ -228,6 +237,12 @@ def parse_arguments():
     )
     
     parser.add_argument(
+        "--minimal",
+        action="store_true",
+        help="Start with minimal configuration (disable optional services)"
+    )
+    
+    parser.add_argument(
         "--disable-mlflow",
         action="store_true",
         help="Disable MLflow integration"
@@ -237,6 +252,12 @@ def parse_arguments():
         "--disable-model-registry",
         action="store_true",
         help="Disable model registry"
+    )
+    
+    parser.add_argument(
+        "--enable-auth",
+        action="store_true",
+        help="Enable authentication (disabled by default for demo)"
     )
     
     return parser.parse_args()
@@ -266,28 +287,47 @@ def main():
         config["enable_gpu"] = args.enable_gpu
         config["enable_monitoring"] = args.enable_monitoring
         config["enable_automl"] = args.enable_automl
-        config["enable_ollama"] = not args.disable_ollama
+        # Handle minimal configuration
+        if args.minimal:
+            config["enable_ollama"] = False
+            config["enable_automl"] = False
+            config["enable_monitoring"] = False
+        
+        config["enable_ollama"] = not args.disable_ollama and config["enable_ollama"]
         config["enable_mlflow"] = not args.disable_mlflow
         config["enable_model_registry"] = not args.disable_model_registry
+        config["enable_auth"] = args.enable_auth
         
         # Create logs directory
         Path("logs").mkdir(exist_ok=True)
         
         # Initialize services
-        asyncio.run(initialize_services(config))
+        try:
+            asyncio.run(initialize_services(config))
+        except Exception as e:
+            logger.error(f"Service initialization failed: {e}")
+            logger.info("Starting with minimal configuration...")
         
         # Start the FastAPI application
         logger.info(f"Starting server on {config['host']}:{config['port']}")
         
-        uvicorn.run(
-            "src.enterprise_llmops.frontend.fastapi_app:app",
-            host=config["host"],
-            port=config["port"],
-            workers=config["workers"],
-            log_level=config["log_level"],
-            access_log=True,
-            reload=False
-        )
+        try:
+            # Set the config in the FastAPI app
+            from src.enterprise_llmops.frontend.fastapi_app import app
+            app.state.config = config
+            
+            uvicorn.run(
+                app,
+                host=config["host"],
+                port=config["port"],
+                workers=config["workers"],
+                log_level=config["log_level"],
+                access_log=True,
+                reload=False
+            )
+        except Exception as e:
+            logger.error(f"Failed to start FastAPI server: {e}")
+            sys.exit(1)
         
     except KeyboardInterrupt:
         logger.info("Shutting down gracefully...")

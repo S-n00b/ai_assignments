@@ -574,3 +574,245 @@ class ReportGenerator:
             return f"{filename}.xlsx"
         else:
             return f"{filename}.txt"
+
+
+class ModelProfilingInterface:
+    """
+    Interface component for model profiling and characterization.
+    
+    This class provides the UI components and logic for comprehensive
+    model profiling including performance metrics, capability matrices,
+    and deployment readiness assessments.
+    """
+    
+    def __init__(self):
+        """Initialize the model profiling interface."""
+        self.profiling_results = None
+        self.profiling_history = []
+    
+    def create_interface(self) -> gr.Blocks:
+        """Create the model profiling interface."""
+        with gr.Blocks(title="Model Profiling Interface") as interface:
+            gr.Markdown("# 🔍 Model Profiling & Characterization")
+            
+            with gr.Row():
+                with gr.Column(scale=1):
+                    self._create_profiling_controls()
+                
+                with gr.Column(scale=2):
+                    self._create_profiling_results()
+        
+        return interface
+    
+    def _create_profiling_controls(self):
+        """Create profiling control components."""
+        gr.Markdown("## Profiling Configuration")
+        
+        # Model selection for profiling
+        model_selection = gr.Dropdown(
+            choices=["GPT-5", "GPT-5-Codex", "Claude 3.5 Sonnet", "Llama 3.3"],
+            label="Select Model to Profile",
+            value="GPT-5",
+            multiselect=True
+        )
+        
+        # Profiling type selection
+        profiling_types = gr.CheckboxGroup(
+            choices=[
+                "Performance Profile",
+                "Capability Matrix", 
+                "Deployment Readiness",
+                "Cost Analysis",
+                "Scalability Assessment"
+            ],
+            label="Profiling Types",
+            value=["Performance Profile", "Capability Matrix"]
+        )
+        
+        # Performance test parameters
+        with gr.Group():
+            gr.Markdown("### Performance Test Parameters")
+            input_sizes = gr.CheckboxGroup(
+                choices=["Small (1-100 tokens)", "Medium (100-1000 tokens)", "Large (1000+ tokens)"],
+                label="Input Size Ranges",
+                value=["Small (1-100 tokens)", "Medium (100-1000 tokens)"]
+            )
+            
+            test_scenarios = gr.CheckboxGroup(
+                choices=[
+                    "Latency Measurement",
+                    "Token Generation Speed",
+                    "Memory Usage Pattern",
+                    "Computational Requirements"
+                ],
+                label="Test Scenarios",
+                value=["Latency Measurement", "Token Generation Speed"]
+            )
+        
+        # Run profiling button
+        run_profiling = gr.Button("🚀 Run Model Profiling", variant="primary")
+        
+        return run_profiling, model_selection, profiling_types, input_sizes, test_scenarios
+    
+    def _create_profiling_results(self):
+        """Create profiling results display components."""
+        gr.Markdown("## Profiling Results")
+        
+        # Results tabs
+        with gr.Tabs():
+            with gr.Tab("Performance Profile"):
+                performance_metrics = gr.DataFrame(
+                    label="Performance Metrics",
+                    headers=["Metric", "Value", "Unit", "Notes"]
+                )
+                performance_chart = gr.Plot(label="Performance Visualization")
+            
+            with gr.Tab("Capability Matrix"):
+                capability_matrix = gr.DataFrame(
+                    label="Task-Specific Capabilities",
+                    headers=["Task Type", "Strength", "Weakness", "Score"]
+                )
+                capability_chart = gr.Plot(label="Capability Radar Chart")
+            
+            with gr.Tab("Deployment Assessment"):
+                deployment_metrics = gr.DataFrame(
+                    label="Deployment Readiness",
+                    headers=["Platform", "Compatibility", "Performance", "Cost"]
+                )
+                deployment_chart = gr.Plot(label="Deployment Comparison")
+        
+        return performance_metrics, performance_chart, capability_matrix, capability_chart, deployment_metrics, deployment_chart
+
+
+class ModelFactoryInterface:
+    """
+    Interface component for Model Factory architecture.
+    
+    This class provides the UI components and logic for automated
+    model selection based on use case requirements and deployment scenarios.
+    """
+    
+    def __init__(self):
+        """Initialize the model factory interface."""
+        self.factory_results = None
+        self.selection_history = []
+    
+    def create_interface(self) -> gr.Blocks:
+        """Create the model factory interface."""
+        with gr.Blocks(title="Model Factory Interface") as interface:
+            gr.Markdown("# 🏭 Model Factory Architecture")
+            
+            with gr.Row():
+                with gr.Column(scale=1):
+                    self._create_factory_controls()
+                
+                with gr.Column(scale=2):
+                    self._create_factory_results()
+        
+        return interface
+    
+    def _create_factory_controls(self):
+        """Create model factory control components."""
+        gr.Markdown("## Use Case Configuration")
+        
+        # Use case input
+        use_case_description = gr.Textbox(
+            label="Use Case Description",
+            placeholder="Describe the specific use case (e.g., 'Internal technical documentation generation')",
+            lines=3
+        )
+        
+        # Use case taxonomy
+        use_case_category = gr.Dropdown(
+            choices=[
+                "Internal Operations",
+                "B2B Processes", 
+                "Customer Service",
+                "Technical Support",
+                "Documentation",
+                "Code Generation"
+            ],
+            label="Use Case Category",
+            value="Internal Operations"
+        )
+        
+        # Deployment scenario
+        deployment_scenario = gr.Dropdown(
+            choices=["Cloud", "Edge", "Mobile", "Hybrid"],
+            label="Deployment Scenario",
+            value="Cloud"
+        )
+        
+        # Performance requirements
+        performance_requirement = gr.Dropdown(
+            choices=["High Performance", "Balanced", "Cost Optimized"],
+            label="Performance Requirement",
+            value="Balanced"
+        )
+        
+        # Additional constraints
+        with gr.Group():
+            gr.Markdown("### Additional Constraints")
+            latency_requirement = gr.Slider(
+                minimum=0.1,
+                maximum=10.0,
+                value=2.0,
+                step=0.1,
+                label="Max Latency (seconds)"
+            )
+            
+            cost_budget = gr.Slider(
+                minimum=0.01,
+                maximum=1.0,
+                value=0.1,
+                step=0.01,
+                label="Cost Budget (per request)"
+            )
+        
+        # Run model selection
+        run_selection = gr.Button("🔍 Select Optimal Model", variant="primary")
+        
+        return (run_selection, use_case_description, use_case_category, 
+                deployment_scenario, performance_requirement, latency_requirement, cost_budget)
+    
+    def _create_factory_results(self):
+        """Create model factory results display components."""
+        gr.Markdown("## Model Selection Results")
+        
+        # Primary recommendation
+        primary_recommendation = gr.Markdown("### Primary Recommendation")
+        recommendation_card = gr.HTML("""
+        <div class="metric-card">
+            <h3>Selected Model: [Model Name]</h3>
+            <p><strong>Confidence Score:</strong> 95%</p>
+            <p><strong>Estimated Performance:</strong> High</p>
+            <p><strong>Cost per Request:</strong> $0.05</p>
+        </div>
+        """)
+        
+        # Selection rationale
+        selection_rationale = gr.Markdown("### Selection Rationale")
+        rationale_text = gr.Markdown("""
+        The selected model was chosen based on:
+        - Use case requirements analysis
+        - Performance vs. cost trade-offs
+        - Deployment scenario compatibility
+        - Latency and throughput requirements
+        """)
+        
+        # Alternative options
+        with gr.Tabs():
+            with gr.Tab("Alternative Models"):
+                alternatives_table = gr.DataFrame(
+                    label="Alternative Model Options",
+                    headers=["Model", "Score", "Pros", "Cons", "Cost"]
+                )
+            
+            with gr.Tab("Decision Tree"):
+                decision_tree = gr.Plot(label="Model Selection Decision Tree")
+            
+            with gr.Tab("Performance Comparison"):
+                performance_comparison = gr.Plot(label="Model Performance Comparison")
+        
+        return (recommendation_card, rationale_text, alternatives_table, 
+                decision_tree, performance_comparison)

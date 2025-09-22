@@ -173,7 +173,7 @@ deployment = factory.deploy_model(
     platform="local",
     config={
         "host": "0.0.0.0",
-        "port": 8000,
+        "port": 8081,
         "workers": 4
     }
 )
@@ -410,7 +410,7 @@ model_id = factory.register_model(
 deployment = factory.deploy_model(
     model_id=model_id,
     platform="local",
-    config={"port": 8000}
+    config={"port": 8081}
 )
 
 # 5. Generate API

@@ -8,66 +8,67 @@ This document provides comprehensive performance metrics, benchmarks, and optimi
 
 ### Response Time Benchmarks
 
-| Component | Average Response Time | 95th Percentile | 99th Percentile |
-|-----------|----------------------|-----------------|-----------------|
-| API Gateway | 5ms | 15ms | 25ms |
-| Model Inference | 120ms | 200ms | 300ms |
-| Database Queries | 10ms | 30ms | 50ms |
-| File Upload | 500ms | 1s | 2s |
-| WebSocket Messages | 2ms | 5ms | 10ms |
+| Component          | Average Response Time | 95th Percentile | 99th Percentile |
+| ------------------ | --------------------- | --------------- | --------------- |
+| API Gateway        | 5ms                   | 15ms            | 25ms            |
+| Model Inference    | 120ms                 | 200ms           | 300ms           |
+| Database Queries   | 10ms                  | 30ms            | 50ms            |
+| File Upload        | 500ms                 | 1s              | 2s              |
+| WebSocket Messages | 2ms                   | 5ms             | 10ms            |
 
 ### Throughput Metrics
 
-| Service | Requests/Second | Concurrent Users | Data Processing |
-|---------|----------------|------------------|-----------------|
-| API Gateway | 10,000 | 5,000 | - |
-| Model Service | 1,000 | 500 | 100MB/s |
-| Evaluation Pipeline | 100 | 50 | 50MB/s |
-| File Processing | 50 | 25 | 200MB/s |
+| Service             | Requests/Second | Concurrent Users | Data Processing |
+| ------------------- | --------------- | ---------------- | --------------- |
+| API Gateway         | 10,000          | 5,000            | -               |
+| Model Service       | 1,000           | 500              | 100MB/s         |
+| Evaluation Pipeline | 100             | 50               | 50MB/s          |
+| File Processing     | 50              | 25               | 200MB/s         |
 
 ### Resource Utilization
 
-| Resource | CPU Usage | Memory Usage | Storage I/O | Network I/O |
-|----------|-----------|--------------|-------------|-------------|
-| Model Service | 60-80% | 2-4GB | 100MB/s | 50MB/s |
-| Database | 30-50% | 1-2GB | 200MB/s | 10MB/s |
-| Cache Layer | 10-20% | 512MB | 50MB/s | 5MB/s |
-| Web Server | 20-40% | 256MB | 10MB/s | 100MB/s |
+| Resource      | CPU Usage | Memory Usage | Storage I/O | Network I/O |
+| ------------- | --------- | ------------ | ----------- | ----------- |
+| Model Service | 60-80%    | 2-4GB        | 100MB/s     | 50MB/s      |
+| Database      | 30-50%    | 1-2GB        | 200MB/s     | 10MB/s      |
+| Cache Layer   | 10-20%    | 512MB        | 50MB/s      | 5MB/s       |
+| Web Server    | 20-40%    | 256MB        | 10MB/s      | 100MB/s     |
 
 ## Model Performance Metrics
 
 ### Accuracy Benchmarks
 
-| Model Type | Dataset | Accuracy | Precision | Recall | F1-Score |
-|------------|---------|----------|-----------|--------|----------|
-| Sentiment Analysis | IMDB | 94.2% | 93.8% | 94.5% | 94.1% |
-| Text Classification | AG News | 91.5% | 91.2% | 91.8% | 91.5% |
-| Image Classification | CIFAR-10 | 89.3% | 89.0% | 89.6% | 89.3% |
-| Named Entity Recognition | CoNLL-2003 | 92.1% | 91.8% | 92.4% | 92.1% |
+| Model Type               | Dataset    | Accuracy | Precision | Recall | F1-Score |
+| ------------------------ | ---------- | -------- | --------- | ------ | -------- |
+| Sentiment Analysis       | IMDB       | 94.2%    | 93.8%     | 94.5%  | 94.1%    |
+| Text Classification      | AG News    | 91.5%    | 91.2%     | 91.8%  | 91.5%    |
+| Image Classification     | CIFAR-10   | 89.3%    | 89.0%     | 89.6%  | 89.3%    |
+| Named Entity Recognition | CoNLL-2003 | 92.1%    | 91.8%     | 92.4%  | 92.1%    |
 
 ### Inference Performance
 
-| Model | Batch Size | Latency | Throughput | Memory Usage |
-|-------|------------|---------|------------|--------------|
-| BERT-base | 1 | 25ms | 40 req/s | 1.2GB |
-| BERT-base | 8 | 85ms | 94 req/s | 2.8GB |
-| BERT-base | 16 | 150ms | 107 req/s | 4.5GB |
-| DistilBERT | 1 | 12ms | 83 req/s | 0.6GB |
-| DistilBERT | 8 | 45ms | 178 req/s | 1.4GB |
+| Model      | Batch Size | Latency | Throughput | Memory Usage |
+| ---------- | ---------- | ------- | ---------- | ------------ |
+| BERT-base  | 1          | 25ms    | 40 req/s   | 1.2GB        |
+| BERT-base  | 8          | 85ms    | 94 req/s   | 2.8GB        |
+| BERT-base  | 16         | 150ms   | 107 req/s  | 4.5GB        |
+| DistilBERT | 1          | 12ms    | 83 req/s   | 0.6GB        |
+| DistilBERT | 8          | 45ms    | 178 req/s  | 1.4GB        |
 
 ## Performance Optimization Strategies
 
 ### 1. Model Optimization
 
 #### Quantization
+
 ```python
 import torch
 from torch.quantization import quantize_dynamic
 
 # Dynamic quantization
 model_quantized = quantize_dynamic(
-    model, 
-    {torch.nn.Linear}, 
+    model,
+    {torch.nn.Linear},
     dtype=torch.qint8
 )
 
@@ -75,6 +76,7 @@ model_quantized = quantize_dynamic(
 ```
 
 #### Model Pruning
+
 ```python
 import torch.nn.utils.prune as prune
 
@@ -87,29 +89,31 @@ prune.global_unstructured(
 ```
 
 #### Knowledge Distillation
+
 ```python
 class DistillationTrainer:
     def __init__(self, teacher_model, student_model):
         self.teacher = teacher_model
         self.student = student_model
-    
+
     def distill_loss(self, student_logits, teacher_logits, labels, temperature=3):
         # Soft targets from teacher
         soft_targets = F.softmax(teacher_logits / temperature, dim=1)
         soft_prob = F.log_softmax(student_logits / temperature, dim=1)
-        
+
         # Distillation loss
         distillation_loss = F.kl_div(soft_prob, soft_targets, reduction='batchmean')
-        
+
         # Hard targets
         hard_loss = F.cross_entropy(student_logits, labels)
-        
+
         return distillation_loss * (temperature ** 2) + hard_loss
 ```
 
 ### 2. Caching Strategies
 
 #### Model Output Caching
+
 ```python
 import redis
 import hashlib
@@ -119,18 +123,18 @@ class ModelCache:
     def __init__(self, redis_client, ttl=3600):
         self.redis = redis_client
         self.ttl = ttl
-    
+
     def get_cache_key(self, model_id, input_data):
         """Generate cache key from model and input."""
         input_str = json.dumps(input_data, sort_keys=True)
         return f"model:{model_id}:{hashlib.md5(input_str.encode()).hexdigest()}"
-    
+
     def get(self, model_id, input_data):
         """Get cached prediction."""
         key = self.get_cache_key(model_id, input_data)
         result = self.redis.get(key)
         return json.loads(result) if result else None
-    
+
     def set(self, model_id, input_data, prediction):
         """Cache prediction."""
         key = self.get_cache_key(model_id, input_data)
@@ -138,6 +142,7 @@ class ModelCache:
 ```
 
 #### Database Query Caching
+
 ```python
 from functools import wraps
 import time
@@ -147,15 +152,15 @@ def cache_query(ttl=300):
         @wraps(func)
         def wrapper(*args, **kwargs):
             cache_key = f"{func.__name__}:{hash(str(args) + str(kwargs))}"
-            
+
             # Try cache first
             cached_result = cache.get(cache_key)
             if cached_result:
                 return cached_result
-            
+
             # Execute query
             result = func(*args, **kwargs)
-            
+
             # Cache result
             cache.setex(cache_key, ttl, result)
             return result
@@ -166,6 +171,7 @@ def cache_query(ttl=300):
 ### 3. Asynchronous Processing
 
 #### Async Model Inference
+
 ```python
 import asyncio
 import aiohttp
@@ -175,14 +181,14 @@ class AsyncModelService:
     def __init__(self, model_urls: List[str]):
         self.model_urls = model_urls
         self.session = None
-    
+
     async def __aenter__(self):
         self.session = aiohttp.ClientSession()
         return self
-    
+
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         await self.session.close()
-    
+
     async def batch_predict(self, inputs: List[Dict]) -> List[Dict]:
         """Process multiple inputs concurrently."""
         tasks = []
@@ -190,10 +196,10 @@ class AsyncModelService:
             model_url = self.model_urls[i % len(self.model_urls)]
             task = self._predict_single(model_url, input_data)
             tasks.append(task)
-        
+
         results = await asyncio.gather(*tasks)
         return results
-    
+
     async def _predict_single(self, model_url: str, input_data: Dict) -> Dict:
         """Single prediction request."""
         async with self.session.post(model_url, json=input_data) as response:
@@ -201,6 +207,7 @@ class AsyncModelService:
 ```
 
 #### Background Task Processing
+
 ```python
 from celery import Celery
 import time
@@ -213,17 +220,17 @@ def process_large_dataset(dataset_id: str):
     # Long-running task
     dataset = load_dataset(dataset_id)
     results = []
-    
+
     for batch in dataset.batches():
         batch_results = process_batch(batch)
         results.extend(batch_results)
-        
+
         # Update progress
         app.update_state(
             state='PROGRESS',
             meta={'current': len(results), 'total': len(dataset)}
         )
-    
+
     return results
 
 @app.task
@@ -236,6 +243,7 @@ def generate_model_report(model_id: str):
 ### 4. Database Optimization
 
 #### Connection Pooling
+
 ```python
 from sqlalchemy import create_engine
 from sqlalchemy.pool import QueuePool
@@ -252,6 +260,7 @@ engine = create_engine(
 ```
 
 #### Query Optimization
+
 ```python
 from sqlalchemy import text
 from sqlalchemy.orm import joinedload
@@ -274,6 +283,7 @@ result = session.execute(text("""
 ### 5. Memory Management
 
 #### Memory Profiling
+
 ```python
 import psutil
 import tracemalloc
@@ -284,30 +294,31 @@ def memory_profiler(func):
     def wrapper(*args, **kwargs):
         # Start memory tracing
         tracemalloc.start()
-        
+
         # Get initial memory
         process = psutil.Process()
         initial_memory = process.memory_info().rss / 1024 / 1024  # MB
-        
+
         # Execute function
         result = func(*args, **kwargs)
-        
+
         # Get final memory
         final_memory = process.memory_info().rss / 1024 / 1024  # MB
         memory_used = final_memory - initial_memory
-        
+
         # Get peak memory
         current, peak = tracemalloc.get_traced_memory()
         peak_mb = peak / 1024 / 1024
-        
+
         print(f"{func.__name__}: {memory_used:.2f}MB used, {peak_mb:.2f}MB peak")
-        
+
         tracemalloc.stop()
         return result
     return wrapper
 ```
 
 #### Garbage Collection
+
 ```python
 import gc
 import torch
@@ -316,7 +327,7 @@ def cleanup_memory():
     """Clean up memory and GPU cache."""
     # Python garbage collection
     gc.collect()
-    
+
     # PyTorch GPU cache cleanup
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
@@ -326,6 +337,7 @@ def cleanup_memory():
 ## Performance Monitoring
 
 ### Real-time Metrics
+
 ```python
 import time
 from prometheus_client import Counter, Histogram, Gauge
@@ -340,7 +352,7 @@ def track_performance(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         start_time = time.time()
-        
+
         try:
             result = func(*args, **kwargs)
             REQUEST_COUNT.labels(method='POST', endpoint=func.__name__).inc()
@@ -348,11 +360,12 @@ def track_performance(func):
         finally:
             duration = time.time() - start_time
             REQUEST_DURATION.observe(duration)
-    
+
     return wrapper
 ```
 
 ### Performance Dashboard
+
 ```python
 from flask import Flask, jsonify
 import psutil
@@ -383,6 +396,7 @@ def application_metrics():
 ## Load Testing
 
 ### Stress Testing Script
+
 ```python
 import asyncio
 import aiohttp
@@ -394,49 +408,49 @@ class LoadTester:
         self.url = url
         self.concurrent_users = concurrent_users
         self.results = []
-    
+
     async def single_request(self, session: aiohttp.ClientSession):
         """Single request test."""
         start_time = time.time()
-        
+
         try:
             async with session.get(self.url) as response:
                 await response.text()
                 success = response.status == 200
         except Exception:
             success = False
-        
+
         duration = time.time() - start_time
-        
+
         self.results.append({
             'duration': duration,
             'success': success,
             'timestamp': start_time
         })
-    
+
     async def run_test(self, duration: int = 60):
         """Run load test for specified duration."""
         async with aiohttp.ClientSession() as session:
             tasks = []
             end_time = time.time() + duration
-            
+
             while time.time() < end_time:
                 # Create concurrent requests
                 for _ in range(self.concurrent_users):
                     task = asyncio.create_task(self.single_request(session))
                     tasks.append(task)
-                
+
                 # Wait a bit before next batch
                 await asyncio.sleep(0.1)
-            
+
             # Wait for all tasks to complete
             await asyncio.gather(*tasks, return_exceptions=True)
-    
+
     def get_results(self):
         """Get test results summary."""
         durations = [r['duration'] for r in self.results if r['success']]
         success_rate = sum(r['success'] for r in self.results) / len(self.results)
-        
+
         return {
             'total_requests': len(self.results),
             'success_rate': success_rate,
@@ -448,7 +462,7 @@ class LoadTester:
 
 # Usage
 async def main():
-    tester = LoadTester('http://localhost:8000/api/health', concurrent_users=50)
+    tester = LoadTester('http://localhost:8080/api/health', concurrent_users=50)
     await tester.run_test(duration=60)
     print(tester.get_results())
 
@@ -458,30 +472,35 @@ asyncio.run(main())
 ## Performance Best Practices
 
 ### 1. Code Optimization
+
 - Use appropriate data structures
 - Avoid unnecessary computations
 - Implement lazy loading
 - Use generators for large datasets
 
 ### 2. Caching Strategy
+
 - Cache at multiple levels
 - Use appropriate TTL values
 - Implement cache invalidation
 - Monitor cache hit rates
 
 ### 3. Database Performance
+
 - Use proper indexing
 - Optimize queries
 - Implement connection pooling
 - Use read replicas for scaling
 
 ### 4. Memory Management
+
 - Monitor memory usage
 - Implement garbage collection
 - Use memory profiling tools
 - Optimize data structures
 
 ### 5. Network Optimization
+
 - Use compression
 - Implement HTTP/2
 - Use CDN for static assets

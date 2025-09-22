@@ -84,7 +84,7 @@ class PrometheusMetricsCollector:
     Provides custom metrics for model performance, agent collaboration, and infrastructure.
     """
     
-    def __init__(self, metrics_port: int = 8000):
+    def __init__(self, metrics_port: int = 8081):
         self.metrics_port = metrics_port
         self.metrics_registry = {}
         self.custom_metrics = {}
@@ -1135,7 +1135,7 @@ class MonitoringOrchestrator:
     """
     
     def __init__(self, grafana_url: str = "http://localhost:3000", 
-                 prometheus_port: int = 8000):
+                 prometheus_port: int = 8081):
         self.metrics_collector = PrometheusMetricsCollector(prometheus_port)
         self.dashboard_manager = GrafanaDashboardManager(grafana_url)
         self.alert_manager = AlertManager()

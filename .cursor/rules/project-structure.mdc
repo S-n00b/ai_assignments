@@ -1,142 +1,129 @@
 ---
 alwaysApply: true
-description: AI Assignments project structure and organization
+description: Project structure and file organization guidelines
 ---
 
-# AI Assignments Project Structure
+# Project Structure and Organization Rules
 
-## Directory Organization
+## Root Directory Structure
 
-### Core Directories
+```
+ai_assignments/
+├── src/                    # Source code (Python modules)
+├── tests/                  # Test suites (unit, integration, e2e)
+├── docs/                   # Documentation (MkDocs)
+├── config/                 # Configuration files
+├── scripts/                # Automation and utility scripts
+├── data/                   # Generated data and datasets
+├── logs/                   # Application logs
+├── site/                   # Built MkDocs site (auto-generated)
+├── venv/                   # Python virtual environment
+└── [root config files]     # Project-level configuration
+```
 
-- **`src/`**: Main source code
+## Source Code Organization
 
-  - `ai_architecture/`: AI system architecture components
-  - `gradio_app/`: Gradio web application for model evaluation prototyping
-  - `model_evaluation/`: Model evaluation and testing
-  - `enterprise_llmops/`: Enterprise LLM Operations platform
-    - `infrastructure/`: Kubernetes, Docker, Terraform configurations
-    - `automl/`: AutoML and hyperparameter optimization (Optuna)
-    - `mlops/`: MLflow integration and experiment tracking
-    - `frontend/`: FastAPI enterprise frontend
-    - `scripts/`: Deployment and management scripts
-  - `utils/`: Utility functions and helpers
+### Main Source Directories
 
-- **`tests/`**: Test suites
+- [src/enterprise_llmops/](mdc:src/enterprise_llmops/) - Enterprise LLMOps Platform (Assignment 2)
+- [src/gradio_app/](mdc:src/gradio_app/) - Model Evaluation Interface (Assignment 1)
+- [src/ai_architecture/](mdc:src/ai_architecture/) - AI system architecture components
+- [src/model_evaluation/](mdc:src/model_evaluation/) - Model evaluation pipeline
+- [src/utils/](mdc:src/utils/) - Utility functions and helpers
 
-  - `unit/`: Unit tests for individual components
-  - `integration/`: Integration tests
-  - `e2e/`: End-to-end tests
-  - `fixtures/`: Test data and mock objects
+## Configuration Files
 
-- **`docs/`**: Documentation
+### Configuration Directory Structure
 
-  - MkDocs site configuration and content
-  - Generated site in `site/` directory
-  - API documentation and guides
-  - Markdown guides and tutorials
+All configuration files in [config/](mdc:config/):
 
-- **`config/`**: Configuration files
+- [config/requirements.txt](mdc:config/requirements.txt) - Main Python dependencies
+- [config/requirements-testing.txt](mdc:config/requirements-testing.txt) - Testing dependencies
+- [config/pytest.ini](mdc:config/pytest.ini) - Pytest configuration
+- [config/enterprise-config.yaml](mdc:config/enterprise-config.yaml) - Enterprise platform config
+- [config/gradio_models.json](mdc:config/gradio_models.json) - Gradio app model configuration
 
-  - `requirements.txt`: Main dependencies
-  - `requirements-testing.txt`: Testing dependencies
-  - `pytest.ini`: Pytest configuration
+### Root Configuration Files
 
-- **`scripts/`**: Automation scripts
-  - `dev-commands.ps1`: PowerShell development commands
-  - `setup-repository.ps1`: Repository setup automation
+- [README.md](mdc:README.md) - Project overview and quick start
+- [TODO.md](mdc:TODO.md) - Task tracking and progress
+- [SERVER_COMMANDS.md](mdc:SERVER_COMMANDS.md) - Server startup commands
+- [QUICK_COMMANDS.txt](mdc:QUICK_COMMANDS.txt) - Quick reference commands
 
-## Key Configuration Files
+## Documentation Structure
 
-- **MkDocs**: [docs/mkdocs.yml](mdc:docs/mkdocs.yml)
-- **Dependencies**: [config/requirements.txt](mdc:config/requirements.txt)
-- **Testing**: [config/pytest.ini](mdc:config/pytest.ini)
-- **Development**: [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1)
-- **Enterprise Docker**: [src/enterprise_llmops/infrastructure/docker/Dockerfile](mdc:src/enterprise_llmops/infrastructure/docker/Dockerfile)
-- **Kubernetes**: [src/enterprise_llmops/infrastructure/kubernetes/](mdc:src/enterprise_llmops/infrastructure/kubernetes/)
-- **Terraform**: [src/enterprise_llmops/infrastructure/terraform/main.tf](mdc:src/enterprise_llmops/infrastructure/terraform/main.tf)
+### MkDocs Documentation Structure
 
-## Development Workflow
+All documentation in [docs/](mdc:docs/):
 
-1. Use PowerShell commands from [scripts/dev-commands.ps1](mdc:scripts/dev-commands.ps1)
-2. Run tests before committing changes
-3. Follow the project's modular architecture patterns
-4. Update documentation when adding new features
+```
+docs/
+├── mkdocs.yml                    # MkDocs configuration
+├── docs_content/                 # Documentation content
+│   ├── category1/                # Model Enablement & UX Evaluation
+│   ├── category2/                # AI System Architecture & MLOps
+│   ├── api/                      # Unified API documentation
+│   ├── assignments/              # Assignment-specific content
+│   ├── executive/                # Executive presentations
+│   ├── professional/             # Professional content
+│   ├── development/              # Development guides
+│   ├── resources/                # Resources and troubleshooting
+│   └── live-applications/        # Live application demos
+├── assets/                       # Images, CSS, JS files
+└── site/                         # Generated site (auto-generated)
+```
 
-## Application Launch Commands
+## File Naming Conventions
 
-- **Gradio App**: `python -m src.gradio_app.main --host 0.0.0.0 --port 7860`
-- **Enterprise FastAPI**: `python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080`
-- **Simplified FastAPI**: `python src/enterprise_llmops/simple_app.py`
-- **MkDocs Server**: `mkdocs serve` (from docs/ directory)
+### Python Files
 
-## Assignment Structure
+- Use snake_case: `model_evaluation.py`, `fastapi_app.py`
+- Use descriptive names that indicate functionality
 
-- **Assignment 1**: Model Evaluation Prototyping (Gradio app)
-- **Assignment 2**: Enterprise LLMOps Platform (FastAPI + Kubernetes)
+### Configuration Files
 
-## Documentation Integration
+- Use kebab-case: `enterprise-config.yaml`, `gradio-models.json`
+- Include file type in name: `.yaml`, `.json`, `.ini`
 
-### MkDocs Documentation - Enhanced Structure
+### Documentation Files
 
-- **Configuration**: [docs/mkdocs.yml](mdc:docs/mkdocs.yml)
-- **Content**: [docs/docs_content/](mdc:docs/docs_content/)
-- **Generated Site**: [site/](mdc:site/)
-- **Build Command**: `mkdocs build` (from docs/ directory)
-- **Serve Command**: `mkdocs serve` (from docs/ directory)
-- **GitHub Pages**: `https://s-n00b.github.io/ai_assignments`
+- Use kebab-case: `model-evaluation-framework.md`
+- Use descriptive names that match content
+- Use `index.md` for directory landing pages
 
-### Two-Category Organization
+### Script Files
 
-#### **Category 1: Model Enablement & UX Evaluation**
+- Use kebab-case for PowerShell: `dev-commands.ps1`
+- Use snake_case for Python: `generate_evaluation_dataset.py`
 
-- **AI Engineering Overview**: [docs/docs_content/category1/ai-engineering-overview.md](mdc:docs/docs_content/category1/ai-engineering-overview.md)
-- **Model Evaluation Framework**: [docs/docs_content/category1/model-evaluation-framework.md](mdc:docs/docs_content/category1/model-evaluation-framework.md)
-- **UX Evaluation & Testing**: [docs/docs_content/category1/ux-evaluation-testing.md](mdc:docs/docs_content/category1/ux-evaluation-testing.md)
-- **Model Profiling & Characterization**: [docs/docs_content/category1/model-profiling-characterization.md](mdc:docs/docs_content/category1/model-profiling-characterization.md)
-- **Model Factory Architecture**: [docs/docs_content/category1/model-factory-architecture.md](mdc:docs/docs_content/category1/model-factory-architecture.md)
-- **Practical Evaluation Exercise**: [docs/docs_content/category1/practical-evaluation-exercise.md](mdc:docs/docs_content/category1/practical-evaluation-exercise.md)
+## Virtual Environment Management
 
-#### **Category 2: AI System Architecture & MLOps**
+### Virtual Environment Location
 
-- **System Architecture Overview**: [docs/docs_content/category2/system-architecture-overview.md](mdc:docs/docs_content/category2/system-architecture-overview.md)
-- **MLOps & CI/CD Lifecycle**: [docs/docs_content/category2/mlops-cicd-lifecycle.md](mdc:docs/docs_content/category2/mlops-cicd-lifecycle.md)
-- **Post-Training Optimization**: [docs/docs_content/category2/post-training-optimization.md](mdc:docs/docs_content/category2/post-training-optimization.md)
-- **Frontier Model Experimentation**: [docs/docs_content/category2/frontier-model-experimentation.md](mdc:docs/docs_content/category2/frontier-model-experimentation.md)
-- **Stakeholder Vision Scoping**: [docs/docs_content/category2/stakeholder-vision-scoping.md](mdc:docs/docs_content/category2/stakeholder-vision-scoping.md)
-- **Project Management & Skills**: [docs/docs_content/category2/project-management-skills.md](mdc:docs/docs_content/category2/project-management-skills.md)
-
-### Executive & Professional Content
-
-- **Carousel Slide Deck**: [docs/docs_content/executive/carousel-slide-deck.md](mdc:docs/docs_content/executive/carousel-slide-deck.md)
-- **Executive Summary**: [docs/docs_content/professional/executive-summary.md](mdc:docs/docs_content/professional/executive-summary.md)
-- **AI Architecture Seniority Blog**: [docs/docs_content/professional/blog-posts/ai-architecture-seniority.md](mdc:docs/docs_content/professional/blog-posts/ai-architecture-seniority.md)
-
-### Live Applications & Demos
-
-- **Live Applications Index**: [docs/docs_content/live-applications/index.md](mdc:docs/docs_content/live-applications/index.md)
-- **GitHub Pages Setup**: [docs/docs_content/development/github-pages-setup.md](mdc:docs/docs_content/development/github-pages-setup.md)
-
-### FastAPI Documentation Integration
-
-- **Auto-generated docs**: Available at `/docs` endpoint when FastAPI apps are running
-- **OpenAPI spec**: Available at `/openapi.json` endpoint
-- **Embedding in MkDocs**: FastAPI docs can be embedded using iframes or by importing OpenAPI specs
-- **Custom integration**: Use FastAPI's OpenAPI output to generate MkDocs pages
-
-### Documentation URLs
-
-- **MkDocs Site**: `http://localhost:8000` (when served locally)
-- **GitHub Pages**: `https://s-n00b.github.io/ai_assignments` (public deployment)
-- **FastAPI Docs**: `http://localhost:8080/docs` (Enterprise app)
-- **Gradio App**: `http://localhost:7860` (Model evaluation interface)
-- **MLflow UI**: `http://localhost:5000` (Experiment tracking)
-- **Grafana Dashboards**: `http://localhost:3000` (Monitoring)
-- **Prometheus Metrics**: `http://localhost:9090` (Metrics collection)
-- **Neo4j Browser**: `http://localhost:7474` (Knowledge graph)
-
-## Virtual Environment
-
-- Located at: `venv/`
-- Activate with: `.\venv\Scripts\Activate.ps1`
+- Virtual environment in [venv/](mdc:venv/) directory
+- Activation script: [venv/Scripts/Activate.ps1](mdc:venv/Scripts/Activate.ps1)
 - Always activate before running Python commands
+
+### Dependency Management
+
+- Main dependencies: [config/requirements.txt](mdc:config/requirements.txt)
+- Testing dependencies: [config/requirements-testing.txt](mdc:config/requirements-testing.txt)
+- Documentation dependencies: [docs/requirements-docs.txt](mdc:docs/requirements-docs.txt)
+
+## Quality Assurance
+
+### File Organization Validation
+
+Before committing changes, verify:
+
+- [ ] Files are in correct directories according to this structure
+- [ ] No files are in root directory that should be in subdirectories
+- [ ] Configuration files are in [config/](mdc:config/) directory
+- [ ] Scripts are in [scripts/](mdc:scripts/) directory
+- [ ] Documentation follows MkDocs structure
+
+### Import Validation
+
+- [ ] All imports use correct relative paths
+- [ ] No circular import dependencies
+- [ ] External dependencies are properly declared

@@ -505,7 +505,7 @@ spec:
         - name: model-service
           image: ai-system/model-service:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 8081
           resources:
             requests:
               memory: "1Gi"
@@ -521,13 +521,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: 8000
+              port: 8081
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /ready
-              port: 8000
+              port: 8081
             initialDelaySeconds: 5
             periodSeconds: 5
 ---
@@ -540,7 +540,7 @@ spec:
     app: model-service
   ports:
     - port: 80
-      targetPort: 8000
+      targetPort: 8081
   type: LoadBalancer
 ```
 
@@ -654,7 +654,7 @@ def track_requests(func):
             REQUEST_DURATION.observe(time.time() - start_time)
     return wrapper
 
-def start_metrics_server(port: int = 8000):
+def start_metrics_server(port: int = 8081):
     """Start Prometheus metrics server"""
     start_http_server(port)
 ```

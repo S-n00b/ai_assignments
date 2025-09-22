@@ -109,7 +109,7 @@ META_API_KEY=your_meta_api_key_here
 # Application Configuration
 GRADIO_HOST=0.0.0.0
 GRADIO_PORT=7860
-MCP_SERVER_PORT=8000
+MCP_SERVER_PORT=8081
 
 # Logging Configuration
 LOG_LEVEL=INFO
@@ -233,7 +233,7 @@ python -m src.gradio_app.main --config config/production.yaml
 python -m src.gradio_app.mcp_server
 
 # Launch with custom configuration
-python -m src.gradio_app.mcp_server --host 0.0.0.0 --port 8000
+python -m src.gradio_app.mcp_server --host 0.0.0.0 --port 8081
 ```
 
 ### 6. Development Tools
@@ -330,7 +330,7 @@ COPY . .
 RUN pip install -r config/requirements.txt
 RUN pip install -r docs/requirements-docs.txt
 
-EXPOSE 7860 8000
+EXPOSE 7860 8081
 
 CMD ["python", "-m", "src.gradio_app.main", "--mcp-server"]
 ```
@@ -358,7 +358,7 @@ spec:
           image: lenovo-aaitc:latest
           ports:
             - containerPort: 7860
-            - containerPort: 8000
+            - containerPort: 8081
           env:
             - name: OPENAI_API_KEY
               valueFrom:

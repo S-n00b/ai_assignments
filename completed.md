@@ -70,7 +70,7 @@ This document tracks all tasks completed during our recent development session f
 
 - **FastAPI Backend**: Running on `http://localhost:8080`
 - **Gradio Frontend**: Running on `http://localhost:7860`
-- **MkDocs Documentation**: Available at `http://localhost:8000`
+- **MkDocs Documentation**: Available at `http://localhost:8082`
 - **Health Monitoring**: Comprehensive system health checks
 
 ### **Integration Capabilities**
@@ -131,7 +131,7 @@ This document tracks all tasks completed during our recent development session f
 
 - ✅ **FastAPI Enterprise Platform**: `http://localhost:8080`
 - ✅ **Gradio Model Evaluation**: `http://localhost:7860` (ready to launch)
-- ✅ **MkDocs Documentation**: `http://localhost:8000` (available)
+- ✅ **MkDocs Documentation**: `http://localhost:8082` (available)
 - ✅ **Health Monitoring**: All services reporting healthy status
 
 ### **Integration Points**

@@ -256,6 +256,6 @@ The result is more than just a technical achievement—it's a demonstration of w
 
 ---
 
-_This blog post represents the kind of strategic thinking and technical leadership that defines senior AI architecture roles. For more insights into our approach and to see the platform in action, visit our comprehensive documentation at [http://localhost:8000](http://localhost:8000) or explore the live platform at [http://localhost:8080](http://localhost:8080)._
+_This blog post represents the kind of strategic thinking and technical leadership that defines senior AI architecture roles. For more insights into our approach and to see the platform in action, visit our comprehensive documentation at [http://localhost:8082](http://localhost:8082) or explore the live platform at [http://localhost:8080](http://localhost:8080)._
 
 **About the Author**: This post was written as part of the Lenovo AAITC technical assignments, demonstrating advanced AI architecture capabilities and senior-level technical leadership in enterprise AI systems.

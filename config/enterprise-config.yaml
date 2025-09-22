@@ -1,0 +1,174 @@
+# Enterprise LLMOps Configuration
+# This configuration file defines all enterprise services and their settings
+
+# Service configurations
+services:
+  ollama:
+    url: "http://localhost:11434"
+    health_endpoint: "/api/tags"
+    required: true
+    timeout: 10
+    start_command: "ollama serve"
+
+  mlflow:
+    url: "http://localhost:5000"
+    health_endpoint: "/health"
+    required: true
+    timeout: 10
+    start_command: "mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db"
+
+  chroma:
+    url: "http://localhost:8081"
+    health_endpoint: "/api/v2/heartbeat"
+    required: true
+    timeout: 10
+    start_command: "chroma run --host 0.0.0.0 --port 8081 --path chroma_data"
+
+  weaviate:
+    url: "http://localhost:8083"
+    health_endpoint: "/v1/meta"
+    required: false
+    timeout: 10
+    start_command: "docker run -d -p 8083:8080 --name weaviate semitechnologies/weaviate:1.21.6"
+
+  prometheus:
+    url: "http://localhost:9090"
+    health_endpoint: "/-/healthy"
+    required: false
+    timeout: 10
+    start_command: "prometheus --config.file=prometheus.yml"
+
+  grafana:
+    url: "http://localhost:3000"
+    health_endpoint: "/api/health"
+    required: false
+    timeout: 10
+    start_command: "grafana-server --config grafana.ini"
+
+  gradio:
+    url: "http://localhost:7860"
+    health_endpoint: "/"
+    required: false
+    timeout: 10
+    start_command: "python -m src.gradio_app.main --host 0.0.0.0 --port 7860"
+
+  fastapi:
+    url: "http://localhost:8080"
+    health_endpoint: "/docs"
+    required: false
+    timeout: 10
+    start_command: "python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080"
+
+  mkdocs:
+    url: "http://localhost:8082"
+    health_endpoint: "/"
+    required: false
+    timeout: 10
+    start_command: "mkdocs serve --dev-addr 0.0.0.0:8082"
+
+# Integration test configurations
+integration_tests:
+  ollama_model_listing: true
+  mlflow_experiment_creation: true
+  chroma_collection_creation: true
+  model_evaluation_pipeline: true
+  end_to_end_workflow: true
+
+# Model configurations
+models:
+  default_ollama_models:
+    - "llama3.3:latest"
+    - "codellama:latest"
+    - "mistral:latest"
+    - "phi3:latest"
+
+  evaluation_models:
+    gpt5:
+      api_key_env: "OPENAI_API_KEY"
+      base_url: "https://api.openai.com/v1"
+      model_name: "gpt-5"
+
+    claude_3_5_sonnet:
+      api_key_env: "ANTHROPIC_API_KEY"
+      base_url: "https://api.anthropic.com/v1"
+      model_name: "claude-3-5-sonnet-20241022"
+
+# Vector database configurations
+vector_databases:
+  chroma:
+    enabled: true
+    url: "http://localhost:8081"
+    collection_name: "enterprise_documents"
+
+  weaviate:
+    enabled: false
+    url: "http://localhost:8080"
+    class_name: "EnterpriseDocument"
+
+  pinecone:
+    enabled: false
+    api_key_env: "PINECONE_API_KEY"
+    environment: "us-west1-gcp"
+    index_name: "enterprise-index"
+
+# Monitoring configurations
+monitoring:
+  prometheus:
+    enabled: true
+    url: "http://localhost:9090"
+    scrape_interval: "15s"
+
+  grafana:
+    enabled: true
+    url: "http://localhost:3000"
+    admin_user: "admin"
+    admin_password: "admin"
+
+  langfuse:
+    enabled: false
+    url: "http://localhost:3000"
+    api_key_env: "LANGFUSE_API_KEY"
+    secret_key_env: "LANGFUSE_SECRET_KEY"
+
+# Kubernetes configurations
+kubernetes:
+  namespace: "llmops-enterprise"
+  storage_class: "fast-ssd"
+  resource_limits:
+    cpu: "2"
+    memory: "4Gi"
+  resource_requests:
+    cpu: "1"
+    memory: "2Gi"
+
+# Security configurations
+security:
+  jwt_secret_key: "your-secret-key-here"
+  jwt_algorithm: "HS256"
+  access_token_expire_minutes: 30
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:7860"
+    - "http://localhost:8080"
+
+# Logging configurations
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/enterprise.log"
+  max_size: "10MB"
+  backup_count: 5
+
+# Performance configurations
+performance:
+  max_concurrent_requests: 100
+  request_timeout: 30
+  connection_pool_size: 20
+  keepalive_timeout: 5
+
+# Development configurations
+development:
+  debug_mode: false
+  hot_reload: true
+  auto_reload: true
+  log_requests: true

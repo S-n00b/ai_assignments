@@ -390,7 +390,7 @@ class TestMCPServer:
     async def test_start_server(self, mcp_server):
         """Test server startup."""
         with patch.object(mcp_server.server, 'start', new_callable=AsyncMock):
-            result = await mcp_server.start_server(port=8000)
+            result = await mcp_server.start_server(port=8081)
             
             assert result == True
     

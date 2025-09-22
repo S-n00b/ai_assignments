@@ -1,0 +1,28 @@
+ollama:
+  default_host: localhost
+  default_port: 11434
+  max_instances: 3
+  models:
+    custom_models_dir: models/custom
+    default_pull:
+    - llama3.1:8b
+    - codellama:7b
+    - mistral:7b
+    model_cache_dir: models/cache
+  monitoring:
+    alert_thresholds:
+      cpu_percent: 85
+      memory_percent: 90
+      response_time_ms: 5000
+    health_check_interval: 30
+    metrics_collection_interval: 10
+  resource_limits:
+    cpu_percent: 80
+    gpu_memory_gb: 8
+    memory_gb: 16
+  security:
+    allowed_hosts:
+    - localhost
+    - 127.0.0.1
+    api_key_required: true
+    enable_auth: true

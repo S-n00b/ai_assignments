@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatCTD - The Future of Relationship Intelligence (Single HTML Mock Demo)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Removed Faker.js dependency - using hardcoded synthetic data instead -->
+    <style>
+        :root {
+            --brand-purple: #6E42E1;
+            --brand-dark: #0A0A0A;
+            --brand-card: #141414;
+            --brand-border: #262626;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-dark);
+            color: #a3a3a3; /* neutral-400 */
+        }
+        #constellation-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .main-content { 
+            position: relative; 
+            z-index: 1; 
+            opacity: 0;
+            transition: opacity 0.8s ease-out 0.2s;
+        }
+        body.scrolled .main-content {
+            opacity: 1;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #a78bfa, #6b21a8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: var(--brand-card);
+            border: 1px solid var(--brand-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(110, 66, 225, 0.1), 0 10px 10px -5px rgba(110, 66, 225, 0.08);
+            border-color: #4c1d95;
+        }
+        
+        /* Navigation Bar Initial State */
+        .progress-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--brand-border);
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+        body.scrolled .progress-nav {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .progress-bar {
+            height: 2px;
+            background-color: var(--brand-purple);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        .nav-link { transition: color 0.3s ease; color: #737373; }
+        .nav-link.active { color: white; font-weight: 600; }
+        
+        /* Header Animation */
+        #title-slide {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out;
+            z-index: 10;
+        }
+        body.scrolled #title-slide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #initial-quote {
+            position: absolute;
+            bottom: 5vh;
+            right: 5vw;
+            max-width: 400px;
+            text-align: right;
+        }
+       
+        .fade-in-up { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .fade-in-up.is-visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scale-in.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .slide-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .slide-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tooltip { position: relative; display: inline-block; }
+        .tooltip .tooltip-text {
+            visibility: hidden; width: 240px; background-color: #1f2937; color: #fff; text-align: left; border-radius: 6px; padding: 8px 12px;
+            position: absolute; z-index: 100; bottom: 125%; left: 50%; margin-left: -120px; opacity: 0; transition: opacity 0.3s;
+            font-size: 12px; line-height: 1.5; border: 1px solid var(--brand-border);
+        }
+        .tooltip:hover .tooltip-text { visibility: visible; opacity: 1; }
+        
+        /* Modal styles */
+        #demo-modal {
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        
+        #demo-modal .bg-slate-900 {
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive modal adjustments */
+        @media (max-width: 768px) {
+            #demo-modal {
+                padding: 1rem;
+            }
+            
+            #demo-modal .bg-slate-900 {
+                border-radius: 0.5rem;
+            }
+            
+            #demo-modal .p-6 {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-height: 800px) {
+            #demo-root {
+                height: 70vh !important;
+                max-height: 600px !important;
+            }
+        }
+        
+        @media (max-height: 600px) {
+            #demo-root {
+                height: 65vh !important;
+                max-height: 500px !important;
+            }
+        }
+        
+        @media (max-height: 500px) {
+            #demo-root {
+                height: 60vh !important;
+                max-height: 400px !important;
+            }
+        }
+        .diagram-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid var(--brand-border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .diagram-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(110, 66, 225, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+        .gantt-bg { fill: #141414; }
+        .gantt-grid { stroke: #262626; stroke-width: 0.5; }
+        .gantt-phase-text { font-size: 11px; fill: #a3a3a3; font-weight: bold; }
+        .gantt-bar { 
+            fill: var(--brand-purple); 
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(110, 66, 225, 0.3));
+        }
+        .gantt-bar:hover { 
+            filter: brightness(1.2) drop-shadow(0 4px 8px rgba(110, 66, 225, 0.5)); 
+        }
+        .gantt-bar-slack { fill: var(--brand-purple); opacity: 0.3; }
+        .gantt-bar-text { 
+            font-size: 9px; 
+            fill: white; 
+            pointer-events: none; 
+            font-weight: 500;
+        }
+        .gantt-milestone { 
+            fill: #facc15; 
+            filter: drop-shadow(0 2px 4px rgba(250, 204, 21, 0.4));
+        }
+        .gantt-dependency { 
+            stroke: #facc15; 
+            stroke-width: 1.5; 
+            stroke-dasharray: 2, 2;
+            animation: dash 1s linear infinite;
+        }
+        .dag-node rect { 
+            fill: var(--brand-card); 
+            stroke: var(--brand-purple); 
+            stroke-width: 1.5; 
+            rx: 8;
+            ry: 8;
+            filter: drop-shadow(0 4px 8px rgba(110, 66, 225, 0.2));
+            transition: all 0.3s ease;
+        }
+        .dag-node rect:hover {
+            fill: #1a1a1a;
+            stroke-width: 2;
+            filter: drop-shadow(0 6px 12px rgba(110, 66, 225, 0.4));
+        }
+        .dag-node text { 
+            font-size: 12px; 
+            fill: white; 
+            text-anchor: middle; 
+            dominant-baseline: central; 
+            font-weight: 500;
+        }
+        .dag-edge { 
+            stroke: var(--brand-purple); 
+            stroke-width: 2; 
+            marker-end: url(#arrow);
+            filter: drop-shadow(0 2px 4px rgba(110, 66, 225, 0.3));
+            transition: all 0.3s ease;
+        }
+        .dag-edge:hover {
+            stroke-width: 3;
+            filter: drop-shadow(0 4px 8px rgba(110, 66, 225, 0.5));
+        }
+        .glitter-button { position: relative; overflow: hidden; }
+        .glitter-button::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, rgba(255, 255, 255, 0.1), transparent 30%);
+            animation: rotate 4s linear infinite; opacity: 0; transition: opacity 0.5s;
+        }
+        .glitter-button:hover::after { opacity: 1; }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(110, 66, 225, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(110, 66, 225, 0.6); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -6; }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        .search-card {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%);
+            border: 1px solid var(--brand-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        .search-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(110, 66, 225, 0.3), rgba(168, 85, 247, 0.2), rgba(110, 66, 225, 0.3));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .search-card:hover::before {
+            opacity: 1;
+        }
+        .search-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(110, 66, 225, 0.15);
+            border-color: rgba(110, 66, 225, 0.5);
+        }
+        .dynamic-scale {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dynamic-scale:hover {
+            transform: scale(1.02);
+        }
+        @media (max-width: 768px) {
+            .dynamic-scale {
+                transform: scale(0.95);
+            }
+            .dynamic-scale:hover {
+                transform: scale(0.98);
+            }
+        }
+        @media (max-width: 480px) {
+            .dynamic-scale {
+                transform: scale(0.9);
+            }
+            .dynamic-scale:hover {
+                transform: scale(0.93);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <canvas id="constellation-canvas"></canvas>
+    <svg width="0" height="0"><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6E42E1" /></marker><marker id="goldArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#facc15" /></marker></defs></svg>
+    
+    <div id="title-slide">
+        <div class="max-w-5xl mx-auto text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter">
+                The <span class="gradient-text">Gold Net</span> Is Your Competitive Advantage
+            </h1>
+        </div>
+        <div id="initial-quote">
+            <blockquote class="text-lg md:text-xl text-neutral-300 italic border-l-4 border-purple-700 pl-6">
+                "Imagine if every professional could instantly access the collective intelligence of their entire network—and their network's network."
+                <footer class="text-base text-neutral-400 mt-2 not-italic">— The ChatCTD Vision: Transforming Latent Connections into Strategic Assets</footer>
+            </blockquote>
+        </div>
+    </div>
+    
+    <nav class="progress-nav" id="main-nav">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <ol class="flex space-x-4 md:space-x-8 text-xs sm:text-sm">
+                    <li><a href="#vision" class="nav-link">The Opportunity</a></li>
+                    <li><a href="#solution" class="nav-link">Our Solution</a></li>
+                    <li><a href="#architecture" class="nav-link">Technical Architecture</a></li>
+                    <li><a href="#agentic" class="nav-link">AI-Powered Intelligence</a></li>
+                    <li><a href="#strategy" class="nav-link">Competitive Advantage</a></li>
+                    <li><a href="#roadmap" class="nav-link">90-Day Delivery</a></li>
+                    <li><a href="#experience" class="nav-link">Proven Team</a></li>
+                    <li><a href="#deliverable" class="nav-link">Demo</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="progress-bar" id="progressBar"></div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container mx-auto px-4 py-16 sm:py-24">
+
+            <!-- Section 1: The Opportunity -->
+            <section id="vision" class="text-center max-w-5xl mx-auto mb-48 fade-in-up">
+                <br><br>
+                <br><br>
+                 <br><br>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter pt-16">
+                    <div class="text-left">The <span class="gradient-text">$2.3 Trillion</span></div>
+                    <div class="text-right">Network Intelligence Opportunity</div>
+                </h1>
+                <br><br>
+                <p class="mt-8 text-lg text-neutral-300 italic text-left max-w-4xl mx-auto">
+                    "Every professional has access to a hidden goldmine of connections—but 99% of this value remains untapped."
+                </p>
+                <p class="text-base text-neutral-400 text-right max-w-4xl mx-auto">
+                    — The Network Intelligence Market: Where Relationships Drive Revenue
+                </p>
+                <br><br>
+                <p class="mt-8 text-lg text-neutral-400 text-justify max-w-4xl mx-auto">
+                    <strong class="text-white">The Problem:</strong> Professionals waste 40% of their time searching for the right connections. Sales teams miss 60% of warm introductions. Business development teams can't see beyond their immediate network.
+                </p>
+                <br><br>
+                <p class="mt-6 text-lg text-neutral-400 text-justify max-w-4xl mx-auto">
+                    <strong class="text-white">The Opportunity:</strong> CTD.ai transforms every user's network into a searchable, intelligent database. When users share their networks with trusted connections, we create the ultimate "Gold Net"—a collective intelligence that makes every professional exponentially more powerful.
+                </p>
+            </section>
+
+            <!-- Section 2: Our Solution -->
+            <section id="solution" class="max-w-4xl mx-auto mb-24 slide-up">
+                <p class="text-center mb-4 text-purple-400 font-semibold">The ChatCTD Solution</p>
+                <div class="card text-center dynamic-scale">
+                    <h2 class="text-3xl font-bold text-white mb-4">ChatCTD: Your Personal Network Intelligence Agent</h2>
+                    <p class="text-neutral-400 mb-6">ChatCTD transforms your professional network into a searchable, AI-powered intelligence system. But here's the game-changer: <strong class="text-yellow-300">when you share your network with trusted connections, you gain access to their networks too—creating an exponential "Gold Net" effect.</strong></p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-6 rounded-lg border border-purple-500/30">
+                            <h3 class="text-xl font-semibold text-white mb-3">🔍 Individual Intelligence</h3>
+                            <p class="text-neutral-300 text-sm mb-4">Search your own network with natural language queries</p>
+                            <div class="bg-black p-4 rounded font-mono text-left text-violet-300 text-xs border border-neutral-800">
+                                <span class="text-neutral-500 select-none">&gt; </span>"Who led an early-stage SaaS product and scaled it beyond $10M ARR?"
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 p-6 rounded-lg border border-yellow-500/30">
+                            <h3 class="text-xl font-semibold text-white mb-3">🌟 Gold Net Sharing</h3>
+                            <p class="text-neutral-300 text-sm mb-4">Share your network with trusted connections to access their networks</p>
+                            <div class="bg-black p-4 rounded font-mono text-left text-yellow-300 text-xs border border-neutral-800">
+                                <span class="text-neutral-500 select-none">&gt; </span>"Find me a fintech CTO through Sarah's network who has experience with blockchain"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 rounded-lg p-4">
+                        <p class="text-yellow-200 text-sm font-semibold">💡 The Gold Net Advantage</p>
+                        <p class="text-yellow-100 text-sm">When 10 professionals share their networks, each person gains access to 10x more connections. When 100 share, it's 100x. The network effect creates exponential value for every participant.</p>
+                    </div>
+                </div>
+                
+                <!-- Gold Net Advantage Visualization -->
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-center text-white mb-8">The Gold Net Advantage: Exponential Network Growth</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="card text-center">
+                            <h4 class="text-lg font-semibold text-white mb-4">Individual Network</h4>
+                            <div class="diagram-bg">
+                                <svg viewBox="0 0 200 200" class="w-full h-auto">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="var(--brand-purple)" stroke-width="2"/>
+                                    <circle cx="100" cy="100" r="8" fill="var(--brand-purple)"/>
+                                    <g>
+                                        <circle cx="100" cy="50" r="4" fill="white"/>
+                                        <circle cx="100" cy="150" r="4" fill="white"/>
+                                        <circle cx="50" cy="100" r="4" fill="white"/>
+                                        <circle cx="150" cy="100" r="4" fill="white"/>
+                                        <line x1="100" y1="100" x2="100" y2="50" stroke="var(--brand-purple)" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="100" y2="150" stroke="var(--brand-purple)" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="50" y2="100" stroke="var(--brand-purple)" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="150" y2="100" stroke="var(--brand-purple)" stroke-width="1"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-neutral-400 mt-4">You + 4 direct connections</p>
+                        </div>
+                        
+                        <div class="card text-center">
+                            <h4 class="text-lg font-semibold text-white mb-4">Shared Network (2 People)</h4>
+                            <div class="diagram-bg">
+                                <svg viewBox="0 0 200 200" class="w-full h-auto">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#facc15" stroke-width="2"/>
+                                    <circle cx="100" cy="100" r="8" fill="#facc15"/>
+                                    <g>
+                                        <circle cx="100" cy="50" r="4" fill="white"/>
+                                        <circle cx="100" cy="150" r="4" fill="white"/>
+                                        <circle cx="50" cy="100" r="4" fill="white"/>
+                                        <circle cx="150" cy="100" r="4" fill="white"/>
+                                        <circle cx="100" cy="30" r="3" fill="#facc15"/>
+                                        <circle cx="100" cy="170" r="3" fill="#facc15"/>
+                                        <circle cx="30" cy="100" r="3" fill="#facc15"/>
+                                        <circle cx="170" cy="100" r="3" fill="#facc15"/>
+                                        <line x1="100" y1="100" x2="100" y2="50" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="100" y2="150" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="50" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="150" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="50" x2="100" y2="30" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="150" x2="100" y2="170" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="50" y1="100" x2="30" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="150" y1="100" x2="170" y2="100" stroke="#facc15" stroke-width="1"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-neutral-400 mt-4">You + 8 connections (2x growth)</p>
+                        </div>
+                        
+                        <div class="card text-center">
+                            <h4 class="text-lg font-semibold text-white mb-4">Gold Net (10 People)</h4>
+                            <div class="diagram-bg">
+                                <svg viewBox="0 0 200 200" class="w-full h-auto">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#facc15" stroke-width="3"/>
+                                    <circle cx="100" cy="100" r="8" fill="#facc15"/>
+                                    <g>
+                                        <!-- Dense network of connections -->
+                                        <circle cx="100" cy="50" r="3" fill="white"/>
+                                        <circle cx="100" cy="150" r="3" fill="white"/>
+                                        <circle cx="50" cy="100" r="3" fill="white"/>
+                                        <circle cx="150" cy="100" r="3" fill="white"/>
+                                        <circle cx="100" cy="30" r="2" fill="#facc15"/>
+                                        <circle cx="100" cy="170" r="2" fill="#facc15"/>
+                                        <circle cx="30" cy="100" r="2" fill="#facc15"/>
+                                        <circle cx="170" cy="100" r="2" fill="#facc15"/>
+                                        <circle cx="70" cy="70" r="2" fill="#facc15"/>
+                                        <circle cx="130" cy="130" r="2" fill="#facc15"/>
+                                        <circle cx="70" cy="130" r="2" fill="#facc15"/>
+                                        <circle cx="130" cy="70" r="2" fill="#facc15"/>
+                                        <!-- Multiple connection lines -->
+                                        <line x1="100" y1="100" x2="100" y2="50" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="100" y2="150" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="50" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="150" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="50" x2="100" y2="30" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="150" x2="100" y2="170" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="50" y1="100" x2="30" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="150" y1="100" x2="170" y2="100" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="70" y2="70" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="130" y2="130" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="70" y2="130" stroke="#facc15" stroke-width="1"/>
+                                        <line x1="100" y1="100" x2="130" y2="70" stroke="#facc15" stroke-width="1"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-neutral-400 mt-4">You + 50+ connections (10x+ growth)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <div class="bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 rounded-lg p-6 max-w-4xl mx-auto">
+                            <p class="text-yellow-200 text-lg font-semibold mb-2">🌟 The Network Effect in Action</p>
+                            <p class="text-yellow-100 text-sm">When professionals share their networks through the Gold Net, each participant gains access to exponentially more connections. This creates a compounding effect where the value of the network grows faster than the number of participants.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <br><br><br>
+            <!-- Section 3: Technical Architecture -->
+            <section id="architecture" class="mb-24 scale-in">
+                <p class="text-center mb-4 text-purple-400 font-semibold">Technical Architecture</p>
+                <h2 class="text-4xl font-bold text-center text-white mb-12">Building the ChatCTD Infrastructure</h2>
+                <div class="card mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-4 text-center">Core Platform Architecture</h3>
+                        <div class="diagram-bg">
+                             <svg viewBox="0 0 500 400" class="w-full h-auto">
+                                 <!-- Data Sources -->
+                                 <g class="dag-node tooltip">
+                                     <rect x="20" y="20" width="140" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                     <text x="90" y="40" font-size="12" fill="white" text-anchor="middle" font-weight="600">Data Sources</text>
+                                     <text x="90" y="55" font-size="10" fill="#737373" text-anchor="middle">(SQL, Emails, Notes)</text>
+                                     <text x="90" y="70" font-size="9" fill="#737373" text-anchor="middle">CRM, LinkedIn</text>
+                                     <foreignObject x="20" y="20" width="140" height="60">
+                                         <span class="tooltip-text">Raw structured (CRM, LinkedIn) and unstructured (email, notes) data providing the foundation for the network graph.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- Ingestion/ETL -->
+                                 <g class="dag-node">
+                                     <rect x="200" y="20" width="140" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                     <text x="270" y="40" font-size="12" fill="white" text-anchor="middle" font-weight="600">Ingestion/ETL</text>
+                                     <text x="270" y="55" font-size="10" fill="#737373" text-anchor="middle">Data Processing</text>
+                                     <text x="270" y="70" font-size="9" fill="#737373" text-anchor="middle">Pipeline</text>
+                                 </g>
+                                 
+                                 <!-- Hybrid Search Core -->
+                                 <g class="tooltip">
+                                     <rect x="20" y="110" width="200" height="160" rx="8" fill="#141414" stroke="var(--brand-purple)" stroke-width="2"/>
+                                     <text x="120" y="130" font-size="12" fill="var(--brand-purple)" text-anchor="middle" font-weight="600">Hybrid Search Core</text>
+                                     <text x="120" y="145" font-size="10" fill="var(--brand-purple)" text-anchor="middle">Semantic + Keyword</text>
+                                     <foreignObject x="20" y="110" width="200" height="160">
+                                         <span class="tooltip-text">Combines semantic (vector) and keyword (SQL) search for optimal relevance and precision.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- Vector Database -->
+                                 <g class="dag-node tooltip">
+                                     <rect x="40" y="160" width="160" height="45" rx="6" fill="#262626"/>
+                                     <text x="120" y="180" font-size="11" fill="white" text-anchor="middle" font-weight="500">Vector Database</text>
+                                     <text x="120" y="195" font-size="9" fill="#737373" text-anchor="middle">Pinecone/Managed</text>
+                                     <foreignObject x="40" y="160" width="160" height="45">
+                                         <span class="tooltip-text">Stores numerical representations (embeddings) of text for understanding conceptual meaning. We'll use Pinecone or a similar managed service.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- SQL Database -->
+                                 <g class="dag-node tooltip">
+                                     <rect x="40" y="215" width="160" height="45" rx="6" fill="#262626"/>
+                                     <text x="120" y="235" font-size="11" fill="white" text-anchor="middle" font-weight="500">SQL Database</text>
+                                     <text x="120" y="250" font-size="9" fill="#737373" text-anchor="middle">PostgreSQL</text>
+                                     <foreignObject x="40" y="215" width="160" height="45">
+                                         <span class="tooltip-text">Stores structured relationship data, user profiles, and metadata. PostgreSQL or similar for reliability and performance.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- LLM Agent Orchestrator -->
+                                 <g class="tooltip">
+                                     <rect x="250" y="110" width="200" height="160" rx="8" fill="#141414" stroke="var(--brand-purple)" stroke-width="2"/>
+                                     <text x="350" y="130" font-size="12" fill="var(--brand-purple)" text-anchor="middle" font-weight="600">LLM Agent Orchestrator</text>
+                                     <text x="350" y="145" font-size="10" fill="var(--brand-purple)" text-anchor="middle">Query Processing</text>
+                                     <foreignObject x="250" y="110" width="200" height="160">
+                                         <span class="tooltip-text">Intelligent query processing, result ranking, and explanation generation using advanced language models.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- Query Understanding -->
+                                 <g class="dag-node tooltip">
+                                     <rect x="270" y="160" width="160" height="45" rx="6" fill="#262626"/>
+                                     <text x="350" y="180" font-size="11" fill="white" text-anchor="middle" font-weight="500">Query Understanding</text>
+                                     <text x="350" y="195" font-size="9" fill="#737373" text-anchor="middle">NLP Processing</text>
+                                     <foreignObject x="270" y="160" width="160" height="45">
+                                         <span class="tooltip-text">Natural language processing to decompose complex queries into structured search components.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- Ranking & Refinement -->
+                                 <g class="dag-node tooltip">
+                                     <rect x="270" y="215" width="160" height="45" rx="6" fill="#262626"/>
+                                     <text x="350" y="235" font-size="11" fill="white" text-anchor="middle" font-weight="500">Ranking & Refinement</text>
+                                     <text x="350" y="250" font-size="9" fill="#737373" text-anchor="middle">Relevance Scoring</text>
+                                     <foreignObject x="270" y="215" width="160" height="45">
+                                         <span class="tooltip-text">Advanced algorithms to rank results by relevance and refine based on user feedback.</span>
+                                     </foreignObject>
+                                 </g>
+                                 
+                                 <!-- ChatCTD UI -->
+                                 <g class="dag-node">
+                                     <rect x="70" y="300" width="100" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                     <text x="120" y="325" font-size="12" fill="white" text-anchor="middle" font-weight="600">ChatCTD UI</text>
+                                     <text x="120" y="340" font-size="10" fill="#737373" text-anchor="middle">User Interface</text>
+                                 </g>
+                                 
+                                 <!-- Goldmine Graph DB -->
+                                 <g class="dag-node">
+                                     <rect x="270" y="300" width="160" height="60" rx="8" fill="#262626" stroke="#facc15" stroke-width="2"/>
+                                     <text x="350" y="325" font-size="12" fill="white" text-anchor="middle" font-weight="600">Goldmine Graph DB</text>
+                                     <text x="350" y="340" font-size="10" fill="#facc15" text-anchor="middle">Neo4j/Cypher</text>
+                                 </g>
+                                 
+                                 <!-- Arrows with better positioning -->
+                                 <path class="dag-edge" d="M 160 50 L 200 50" />
+                                 <path class="dag-edge" d="M 270 80 L 270 110" />
+                                 <path class="dag-edge" d="M 220 190 L 250 190" />
+                                 <path class="dag-edge" d="M 120 270 L 120 300" />
+                                 <path class="dag-edge" d="M 350 270 L 350 300" />
+                                 <path class="dag-edge" d="M 350 270 L 120 300" />
+                                 
+                                 <!-- Gold cycling arrow from ChatCTD UI to Goldmine -->
+                                 <path d="M 170 330 Q 210 315, 270 330" stroke="#facc15" stroke-width="3" fill="none" marker-end="url(#goldArrow)" stroke-dasharray="5,5">
+                                     <animate attributeName="stroke-dashoffset" values="0;10;0" dur="2s" repeatCount="indefinite"/>
+                                 </path>
+                             </svg>
+                        </div>
+                </div>
+                
+                <div class="card mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-4 text-center">From Query to Result Flow</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="bg-purple-700 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold text-xl mx-auto mb-3">1</div>
+                            <h4 class="font-semibold text-white mb-2">Query Understanding</h4>
+                            <p class="text-sm text-neutral-400">LLM parses entities & intent.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-700 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold text-xl mx-auto mb-3">2</div>
+                            <h4 class="font-semibold text-white mb-2">Candidate Generation</h4>
+                            <p class="text-sm text-neutral-400">Hybrid search across vector and SQL DBs.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-700 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold text-xl mx-auto mb-3">3</div>
+                            <h4 class="font-semibold text-white mb-2">Ranking & Refinement</h4>
+                            <p class="text-sm text-neutral-400">Scores by relevance and relationship strength.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-700 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold text-xl mx-auto mb-3">4</div>
+                            <h4 class="font-semibold text-white mb-2">Explainable Results</h4>
+                            <p class="text-sm text-neutral-400">LLM generates summary with evidence.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-white mb-4 text-center">The "Gold Net" Vision: Shared Network Intelligence</h3>
+                     <p class="text-center text-sm text-neutral-400 max-w-3xl mx-auto mb-6">The true power emerges when users opt-in to share their networks with trusted connections. This creates the "Gold Net"—a collective intelligence where every participant gains access to exponentially more connections while maintaining strict privacy controls and compliance (GDPR, HIPAA, etc.).</p>
+                    <div class="diagram-bg">
+                        <svg viewBox="0 0 650 450" class="w-full h-auto">
+                            <!-- Compliance Guardrails -->
+                            <rect x="15" y="15" width="620" height="420" rx="12" fill="none" stroke="#facc15" stroke-dasharray="8 4" stroke-width="2"/>
+                            <text x="625" y="35" font-size="11" fill="#facc15" text-anchor="end" font-weight="600">Compliance Guardrails</text>
+                            <text x="625" y="50" font-size="10" fill="#facc15" text-anchor="end" font-weight="500">(GDPR, HIPAA, etc.)</text>
+                            
+                            <!-- Individual Networks -->
+                            <g class="dag-node tooltip">
+                                <rect x="50" y="70" width="160" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <text x="130" y="95" font-size="12" fill="white" text-anchor="middle" font-weight="600">Individual Networks</text>
+                                <text x="130" y="110" font-size="10" fill="#737373" text-anchor="middle">Personal Privacy</text>
+                                <foreignObject x="50" y="70" width="160" height="60">
+                                    <span class="tooltip-text">Each user's personal network, processed with privacy controls before sharing.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Gold Net -->
+                            <g class="tooltip">
+                                <circle cx="320" cy="200" r="90" fill="#141414" stroke="#facc15" stroke-width="3"/>
+                                <text x="320" y="190" font-size="12" fill="#facc15" text-anchor="middle" font-weight="600">Gold Net</text>
+                                <text x="320" y="205" font-size="11" fill="#facc15" text-anchor="middle" font-weight="600">Collective Intelligence</text>
+                                <text x="320" y="220" font-size="10" fill="#facc15" text-anchor="middle">Shared Networks</text>
+                                <foreignObject x="230" y="110" width="180" height="180">
+                                    <span class="tooltip-text">The shared network intelligence: when users opt-in to share, everyone gains access to exponentially more connections.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Network Sharing -->
+                            <g class="dag-node">
+                                <rect x="420" y="70" width="160" height="60" rx="8" fill="#262626" stroke="#facc15" stroke-width="1.5"/>
+                                <text x="500" y="95" font-size="12" fill="white" text-anchor="middle" font-weight="600">Network Sharing</text>
+                                <text x="500" y="110" font-size="10" fill="#737373" text-anchor="middle">Opt-in Controls</text>
+                            </g>
+                            
+                            <!-- Monitoring Components -->
+                            <g class="dag-node tooltip">
+                                <rect x="50" y="350" width="170" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <text x="135" y="375" font-size="11" fill="white" text-anchor="middle" font-weight="600">HybridGraphRAG Monitor</text>
+                                <text x="135" y="390" font-size="9" fill="#737373" text-anchor="middle">Performance Tracking</text>
+                                <foreignObject x="50" y="350" width="170" height="60">
+                                    <span class="tooltip-text">Monitors the performance and accuracy of the primary hybrid retrieval model.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <g class="dag-node tooltip">
+                                <rect x="240" y="350" width="170" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <text x="325" y="375" font-size="11" fill="white" text-anchor="middle" font-weight="600">NodeRAG (Deep Search)</text>
+                                <text x="325" y="390" font-size="9" fill="#737373" text-anchor="middle">Multi-hop Queries</text>
+                                <foreignObject x="240" y="350" width="170" height="60">
+                                    <span class="tooltip-text">Specialized retrieval monitoring for complex, multi-hop queries that require deep graph traversal.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <g class="dag-node tooltip">
+                                <rect x="430" y="350" width="170" height="60" rx="8" fill="#262626" stroke="var(--brand-purple)" stroke-width="1.5"/>
+                                <text x="515" y="375" font-size="11" fill="white" text-anchor="middle" font-weight="600">LLMOps (Perplexity/Grafana)</text>
+                                <text x="515" y="390" font-size="9" fill="#737373" text-anchor="middle">Observability Stack</text>
+                                <foreignObject x="430" y="350" width="170" height="60">
+                                    <span class="tooltip-text">Observability stack to track LLM performance, latency, cost, and potential drift over time.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Enhanced Arrows -->
+                            <path class="dag-edge" d="M 130 130 L 230 170" />
+                            <path class="dag-edge" d="M 410 170 L 420 100" />
+                            <path class="dag-edge" d="M 320 290 L 135 350" />
+                            <path class="dag-edge" d="M 320 290 L 325 350" />
+                            <path class="dag-edge" d="M 320 290 L 515 350" />
+                        </svg>
+                    </div>
+                     <p class="text-center mt-6 text-sm text-neutral-400">The Gold Net is powered by a <strong class="text-yellow-300">Cypher-based graph database (e.g., Neo4j)</strong> designed for complex, multi-hop network traversals. This enables users to find connections through multiple degrees of separation while maintaining privacy and compliance standards.</p>
+                </div>
+            </section>
+
+            <!-- AI-Powered Intelligence Section -->
+            <section id="agentic" class="max-w-6xl mx-auto mb-24 fade-in-up">
+                <p class="text-center mb-4 text-purple-400 font-semibold">AI-Powered Intelligence</p>
+                <h2 class="text-4xl font-bold text-center text-white mb-6">Advanced Agent Orchestration for Network Intelligence</h2>
+                <p class="text-center text-neutral-400 max-w-3xl mx-auto mb-8">
+                    ChatCTD leverages cutting-edge AI agents to understand complex queries, traverse network graphs, and provide intelligent recommendations. Our multi-agent system ensures accurate, relevant results while maintaining the highest standards of privacy and security.
+                </p>
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-white mb-4 text-center">Agentic Hybrid Graph RAG System</h3>
+                    <div class="diagram-bg">
+                        <svg viewBox="0 0 650 500" class="w-full h-auto">
+                            <!-- Data Sources Agent -->
+                            <g class="dag-node tooltip">
+                                <rect x="30" y="30" width="140" height="60" rx="8" fill="#262626" stroke="#facc15" stroke-width="2"/>
+                                <text x="100" y="50" font-size="12" fill="white" text-anchor="middle" font-weight="600">Data Ingestion Agent</text>
+                                <text x="100" y="65" font-size="10" fill="#737373" text-anchor="middle">Source Integration</text>
+                                <foreignObject x="30" y="30" width="140" height="60">
+                                    <span class="tooltip-text">Specialized agent for data source integration, validation, and preprocessing.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- ETL Agent -->
+                            <g class="dag-node">
+                                <rect x="200" y="30" width="140" height="60" rx="8" fill="#262626" stroke="#facc15" stroke-width="2"/>
+                                <text x="270" y="50" font-size="12" fill="white" text-anchor="middle" font-weight="600">ETL Orchestrator Agent</text>
+                                <text x="270" y="65" font-size="10" fill="#737373" text-anchor="middle">Data Pipeline</text>
+                            </g>
+                            
+                            <!-- Agentic Hybrid Search Core -->
+                            <g class="tooltip">
+                                <rect x="30" y="120" width="200" height="160" rx="8" fill="#141414" stroke="#facc15" stroke-width="2"/>
+                                <text x="130" y="140" font-size="12" fill="#facc15" text-anchor="middle" font-weight="600">Agentic Hybrid Search Core</text>
+                                <text x="130" y="155" font-size="10" fill="#facc15" text-anchor="middle">Multi-Agent System</text>
+                                <foreignObject x="30" y="120" width="200" height="160">
+                                    <span class="tooltip-text">Multi-agent system combining semantic and keyword search with intelligent routing.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Vector Agent -->
+                            <g class="dag-node tooltip">
+                                <rect x="50" y="170" width="160" height="45" rx="6" fill="#262626" stroke="#facc15" stroke-width="1.5"/>
+                                <text x="130" y="190" font-size="11" fill="white" text-anchor="middle" font-weight="500">Vector Search Agent</text>
+                                <text x="130" y="205" font-size="9" fill="#737373" text-anchor="middle">Embedding Generation</text>
+                                <foreignObject x="50" y="170" width="160" height="45">
+                                    <span class="tooltip-text">Specialized agent for embedding generation and semantic similarity matching.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Graph Agent -->
+                            <g class="dag-node tooltip">
+                                <rect x="50" y="225" width="160" height="45" rx="6" fill="#262626" stroke="#facc15" stroke-width="1.5"/>
+                                <text x="130" y="245" font-size="11" fill="white" text-anchor="middle" font-weight="500">Graph Traversal Agent</text>
+                                <text x="130" y="260" font-size="9" fill="#737373" text-anchor="middle">Network Analysis</text>
+                                <foreignObject x="50" y="225" width="160" height="45">
+                                    <span class="tooltip-text">Agent specialized in relationship traversal and network analysis.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- LLM Agent Orchestrator -->
+                            <g class="tooltip">
+                                <rect x="250" y="120" width="200" height="160" rx="8" fill="#141414" stroke="#facc15" stroke-width="2"/>
+                                <text x="350" y="140" font-size="12" fill="#facc15" text-anchor="middle" font-weight="600">LLM Agent Orchestrator</text>
+                                <text x="350" y="155" font-size="10" fill="#facc15" text-anchor="middle">Master Coordinator</text>
+                                <foreignObject x="250" y="120" width="200" height="160">
+                                    <span class="tooltip-text">Master agent coordinating specialized sub-agents for query processing and response generation.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Query Understanding Agent -->
+                            <g class="dag-node tooltip">
+                                <rect x="270" y="170" width="160" height="45" rx="6" fill="#262626" stroke="#facc15" stroke-width="1.5"/>
+                                <text x="350" y="190" font-size="11" fill="white" text-anchor="middle" font-weight="500">Query Analysis Agent</text>
+                                <text x="350" y="205" font-size="9" fill="#737373" text-anchor="middle">Intent Extraction</text>
+                                <foreignObject x="270" y="170" width="160" height="45">
+                                    <span class="tooltip-text">Agent specialized in natural language understanding and intent extraction.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- Ranking Agent -->
+                            <g class="dag-node tooltip">
+                                <rect x="270" y="225" width="160" height="45" rx="6" fill="#262626" stroke="#facc15" stroke-width="1.5"/>
+                                <text x="350" y="245" font-size="11" fill="white" text-anchor="middle" font-weight="500">Ranking & Scoring Agent</text>
+                                <text x="350" y="260" font-size="9" fill="#737373" text-anchor="middle">Relevance Scoring</text>
+                                <foreignObject x="270" y="225" width="160" height="45">
+                                    <span class="tooltip-text">Agent responsible for result ranking and relevance scoring.</span>
+                                </foreignObject>
+                            </g>
+                            
+                            <!-- ChatCTD UI Agent -->
+                            <g class="dag-node">
+                                <rect x="180" y="320" width="180" height="60" rx="8" fill="#262626" stroke="#facc15" stroke-width="2"/>
+                                <text x="270" y="345" font-size="12" fill="white" text-anchor="middle" font-weight="600">ChatCTD Interface Agent</text>
+                                <text x="270" y="360" font-size="10" fill="#737373" text-anchor="middle">User Interface</text>
+                            </g>
+                            
+                            <!-- Goldmine Graph Agent -->
+                            <g class="dag-node">
+                                <rect x="400" y="320" width="180" height="60" rx="8" fill="#262626" stroke="#facc15" stroke-width="2"/>
+                                <text x="490" y="345" font-size="12" fill="white" text-anchor="middle" font-weight="600">Goldmine Graph Agent</text>
+                                <text x="490" y="360" font-size="10" fill="#737373" text-anchor="middle">Graph Database</text>
+                            </g>
+                            
+                            <!-- Animated Bidirectional Edges -->
+                            <!-- Data Ingestion to ETL Orchestrator -->
+                            <path class="dag-edge" d="M 170 60 L 200 60" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path class="dag-edge" d="M 200 60 L 170 60" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- ETL Orchestrator to Search Core -->
+                            <path class="dag-edge" d="M 270 90 L 130 120" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path class="dag-edge" d="M 130 120 L 270 90" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- ETL Orchestrator to LLM Orchestrator -->
+                            <path class="dag-edge" d="M 270 90 L 350 120" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path class="dag-edge" d="M 350 120 L 270 90" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- Search Core to LLM Orchestrator -->
+                            <path class="dag-edge" d="M 230 200 L 250 200" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path class="dag-edge" d="M 250 200 L 230 200" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- Search Core to Interface -->
+                            <path class="dag-edge" d="M 130 280 L 180 320" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path class="dag-edge" d="M 180 320 L 130 280" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- LLM Orchestrator to Interface -->
+                            <path class="dag-edge" d="M 350 280 L 270 320" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path class="dag-edge" d="M 270 320 L 350 280" stroke="#facc15" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- Interface to Goldmine -->
+                            <path class="dag-edge" d="M 360 350 L 400 350" stroke="#facc15" stroke-width="3" marker-end="url(#goldArrow)" stroke-dasharray="5,5">
+                                <animate attributeName="stroke-dashoffset" values="0;10;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            <path class="dag-edge" d="M 400 350 L 360 350" stroke="#facc15" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="3,3" opacity="0.7">
+                                <animate attributeName="stroke-dashoffset" values="0;6;0" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                        </svg>
+                    </div>
+                    <p class="text-center mt-6 text-sm text-neutral-400">
+                        <strong class="text-neutral-200">LangGraph Framework</strong> enables sophisticated agent workflows with state management, conditional routing, and human-in-the-loop capabilities. Each specialized agent can be independently optimized, scaled, and monitored while maintaining system-wide coherence.
+                    </p>
+                    <div class="mt-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/50 rounded-lg p-4">
+                        <p class="text-purple-200 text-sm font-semibold mb-2">💡 Flexible Architecture Approach</p>
+                        <p class="text-purple-100 text-sm">The system doesn't need to be fully agented. Often times, an orchestrator client is all that's used on the retrieval pipeline. The bidirectional arrows represent the transactional chain of command that enables recursive improvement at any bottleneck in the typical RAG setup that needs to be optimized.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <br><br><br>
+            <!-- Section 4: Competitive Advantage -->
+            <section id="strategy" class="max-w-5xl mx-auto mb-24 fade-in-up">
+                 <p class="text-center mb-4 text-purple-400 font-semibold">Competitive Advantage</p>
+                 <h2 class="text-4xl font-bold text-center text-white mb-12">Why ChatCTD Will Dominate the Network Intelligence Market</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="search-card dynamic-scale"><h3 class="font-semibold text-white mb-2">🚀 Network Effect Advantage</h3><p class="text-sm text-neutral-400">Every new user exponentially increases the value for all existing users. The Gold Net becomes more powerful with each connection shared.</p></div>
+                    <div class="search-card dynamic-scale"><h3 class="font-semibold text-white mb-2">🔒 Privacy-First Design</h3><p class="text-sm text-neutral-400">Users control exactly what they share and with whom. GDPR, HIPAA, and SOC2 compliant from day one.</p></div>
+                    <div class="search-card dynamic-scale"><h3 class="font-semibold text-white mb-2">🤖 AI-Powered Intelligence</h3><p class="text-sm text-neutral-400">Advanced LLM agents understand complex queries and find connections humans would never discover manually.</p></div>
+                    <div class="search-card dynamic-scale"><h3 class="font-semibold text-white mb-2">⚡ Real-Time Network Traversal</h3><p class="text-sm text-neutral-400">Find connections through multiple degrees of separation in milliseconds, not months of networking events.</p></div>
+                 </div>
+            </section>
+
+            <!-- Section 5: 90-Day Delivery -->
+            <section id="roadmap" class="mb-24 fade-in-up">
+                <p class="text-center mb-4 text-purple-400 font-semibold">90-Day Delivery Plan</p>
+                 <h2 class="text-4xl font-bold text-center text-white mb-12">
+                    From Vision to <span class="gradient-text">Live ChatCTD</span> in 10 Weeks
+                </h2>
+                <div class="card p-4 sm:p-6">
+                    <svg viewBox="0 0 800 200" class="w-full h-auto">
+                        <rect x="0" y="0" width="800" height="200" class="gantt-bg" />
+                        <!-- Grid & Labels -->
+                        <line x1="100" y1="20" x2="780" y2="20" class="gantt-grid" />
+                        <g font-size="10" fill="#737373" text-anchor="middle">
+                            <text x="50" y="15">Weeks</text>
+                            <text x="130" y="15">2</text><line x1="160" y1="20" x2="160" y2="180" class="gantt-grid" />
+                            <text x="220" y="15">4</text><line x1="250" y1="20" x2="250" y2="180" class="gantt-grid" />
+                            <text x="310" y="15">6</text><line x1="340" y1="20" x2="340" y2="180" class="gantt-grid" />
+                            <text x="400" y="15">8</text><line x1="430" y1="20" x2="430" y2="180" class="gantt-grid" />
+                            <text x="490" y="15">10</text><line x1="520" y1="20" x2="520" y2="180" class="gantt-grid" />
+                            <text x="580" y="15">12</text><line x1="610" y1="20" x2="610" y2="180" class="gantt-grid" />
+                        </g>
+                        <!-- Phase 1: Requirements -->
+                        <text x="10" y="45" class="gantt-phase-text">Phase 1: Requirements</text>
+                        <g class="tooltip"><rect x="100" y="55" width="90" height="18" class="gantt-bar" rx="3"/><text x="105" y="67" class="gantt-bar-text">Discovery & Sprints</text><foreignObject x="100" y="55" width="90" height="18"><span class="tooltip-text">Weekly sprints for stakeholder interviews, requirements gathering, and establishing core KPIs for the POC.</span></foreignObject></g>
+                        <g class="tooltip"><rect x="100" y="80" width="150" height="18" class="gantt-bar" rx="3"/><text x="105" y="92" class="gantt-bar-text">Architecture & Data Model</text><foreignObject x="100" y="80" width="150" height="18"><span class="tooltip-text">Finalize tech stack, design database schemas, and create the detailed data flow for the RAG pipeline.</span></foreignObject></g>
+                        <g class="tooltip"><path d="M 250 85 l 8 -8 l -8 -8 l -8 8 z" class="gantt-milestone" /><text x="261" y="73" font-size="9" fill="#facc15">Arch Review</text><foreignObject x="242" y="77" width="16" height="16"><span class="tooltip-text">Critical decision point: formal stakeholder review and sign-off on the proposed architecture before development begins.</span></foreignObject></g>
+                        <!-- Phase 2: Prototype -->
+                        <text x="10" y="115" class="gantt-phase-text">Phase 2: Prototype</text>
+                        <rect x="430" y="129" width="90" height="4" class="gantt-bar-slack"/>
+                        <g class="tooltip"><rect x="250" y="125" width="180" height="18" class="gantt-bar" rx="3"/><text x="255" y="137" class="gantt-bar-text">Backend & RAG Pipeline Dev</text><foreignObject x="250" y="125" width="180" height="18"><span class="tooltip-text">Core development: build data ingestion, embedding generation, hybrid search API, and LLM agent logic. (Est. 4-6 weeks)</span></foreignObject></g>
+                        <g class="tooltip"><path d="M 430 130 l 8 -8 l -8 -8 l -8 8 z" class="gantt-milestone" /><text x="441" y="118" font-size="9" fill="#facc15">Alpha Demo</text><foreignObject x="422" y="122" width="16" height="16"><span class="tooltip-text">Internal demo of the end-to-end pipeline with a functional UI. Key feedback opportunity.</span></foreignObject></g>
+                        <!-- Phase 3: Deploy & Enable -->
+                        <text x="10" y="155" class="gantt-phase-text">Phase 3: Deploy & Enable</text>
+                        <line x1="475" y1="143" x2="475" y2="165" class="gantt-dependency"/>
+                        <g class="tooltip"><rect x="475" y="165" width="135" height="18" class="gantt-bar" rx="3"/><text x="480" y="177" class="gantt-bar-text">Testing, Handover, Docs</text><foreignObject x="475" y="165" width="135" height="18"><span class="tooltip-text">Final testing, code documentation, and knowledge transfer sessions to ensure a smooth handover to the engineering team.</span></foreignObject></g>
+                    </svg>
+                </div>
+            </section>
+            
+            <br><br><br>
+            <!-- Section 6: Proven Team -->
+            <section id="experience" class="max-w-4xl mx-auto mb-24 fade-in-up">
+                 <p class="text-center mb-4 text-purple-400 font-semibold">Proven Team</p>
+                 <h2 class="text-4xl font-bold text-center text-white mb-12">Why We're the Right Team to Build ChatCTD</h2>
+                 <div class="card">
+                     <p class="text-neutral-400 mb-6">Our team combines deep technical expertise with proven experience in enterprise AI solutions. We've successfully delivered complex systems that integrate retrieval-augmented generation (RAG), multimodal AI capabilities, and robust evaluation frameworks. Our approach to building ChatCTD leverages both cutting-edge AI-assisted development workflows and traditional software engineering rigor.</p>
+                     
+                     <div class="space-y-6">
+                         <div class="border-l-4 border-purple-700 pl-4">
+                             <h4 class="font-semibold text-white mb-2">Principal AI Architect & Agentic Workflow Specialist</h4>
+                             <p class="text-sm text-neutral-400 mb-2">3+ Years of Advanced AI-Assisted Development</p>
+                             <p class="text-sm text-neutral-400">Led by a principal developer with extensive experience in agentic development workflows and recursive code prompting. This approach provides immense bandwidth once mastered, creating the most immersive way to understand and build the very systems we're architecting. Our philosophy combines AI-assisted IDE scaffolding for accelerated development with rigorous human-in-the-loop checkpoints, comprehensive testing, and code reviews. We maintain full accountability for correctness and readability—the tools accelerate boilerplate, not judgment.</p>
+                         </div>
+                         
+                         <div class="border-l-4 border-purple-700 pl-4">
+                             <h4 class="font-semibold text-white mb-2">Enterprise AI Solutions Experience</h4>
+                             <p class="text-sm text-neutral-400 mb-2">Proven Track Record in Complex AI Systems</p>
+                             <p class="text-sm text-neutral-400">Successfully architected conversational AI systems for e-commerce and social engagement, utilizing RAG over catalog, order, and policy data with VLM integration for multimedia content. Built comprehensive evaluation frameworks with groundedness, tool-use success, and latency metrics. Delivered HIPAA-compliant medical evaluation solutions with Salesforce-Snowflake-Python stacks, demonstrating expertise in enterprise integration, data security, and stakeholder engagement.</p>
+                         </div>
+                         
+                         <div class="border-l-4 border-purple-700 pl-4">
+                             <h4 class="font-semibold text-white mb-2">Strategic Partner Network</h4>
+                             <p class="text-sm text-neutral-400 mb-2">Scalable Development Resources</p>
+                             <p class="text-sm text-neutral-400">Maintains a curated network of specialized remote development partners for Java development, additional Python AI development, and data warehousing expertise. This allows us to scale resources dynamically for projects requiring additional bandwidth or specialized skills, ensuring we can deliver complex systems like ChatCTD across the finish line with the right expertise at the right time.</p>
+                         </div>
+                     </div>
+                     
+                     <div class="mt-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/50 rounded-lg p-6">
+                         <h3 class="text-purple-200 text-lg font-semibold mb-3">🚀 Why This Approach Works for ChatCTD</h3>
+                         <p class="text-purple-100 text-sm mb-4">Building network intelligence systems requires both deep understanding of AI capabilities and practical experience in enterprise deployment. Our combination of advanced AI-assisted development workflows and traditional engineering rigor ensures we can rapidly prototype, test, and scale the complex multi-agent systems that power ChatCTD.</p>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div class="space-y-2">
+                                 <div class="text-purple-200 text-sm font-semibold">Development Philosophy:</div>
+                                 <ul class="text-purple-100 text-xs space-y-1">
+                                     <li>• AI-assisted scaffolding for speed without skipping rigor</li>
+                                     <li>• Human-in-the-loop checkpoints for quality assurance</li>
+                                     <li>• Comprehensive testing and code review processes</li>
+                                     <li>• Full accountability for correctness and maintainability</li>
+                                 </ul>
+                             </div>
+                             <div class="space-y-2">
+                                 <div class="text-purple-200 text-sm font-semibold">Proven Capabilities:</div>
+                                 <ul class="text-purple-100 text-xs space-y-1">
+                                     <li>• Enterprise AI system architecture and deployment</li>
+                                     <li>• RAG and multimodal AI integration</li>
+                                     <li>• Regulatory-compliant data handling and security</li>
+                                     <li>• Scalable partner network for specialized expertise</li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </section>
+
+            <br><br><br>
+            <!-- Section 7: Demo -->
+            <section id="deliverable" class="max-w-4xl mx-auto mb-16" style="opacity: 1 !important;">
+                 <p class="text-center mb-4 text-purple-400 font-semibold">Demo</p>
+                <div class="card text-center dynamic-scale">
+                    <h2 class="text-3xl font-bold text-white mb-2">Experience ChatCTD Today</h2>
+                    <p class="text-neutral-400 mb-8">This single HTML file demonstrates the complete ChatCTD vision—from individual network intelligence to the powerful Gold Net sharing concept. No backend required, no installation needed. Just open and experience the future of professional networking.</p>
+                    
+                    <div class="bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 rounded-lg p-4 mb-6">
+                        <p class="text-yellow-200 text-sm font-semibold mb-2">🌟 What You'll Experience</p>
+                        <ul class="text-yellow-100 text-sm text-left space-y-1">
+                            <li>• Natural language queries across 300 synthetic professionals</li>
+                            <li>• AI-powered connection pathfinding through network graphs</li>
+                            <li>• Real-time search results with relationship explanations</li>
+                            <li>• Network sharing simulation showing Gold Net expansion</li>
+                            <li>• Privacy controls and opt-in sharing mechanisms</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/50 rounded-lg p-4 mb-6">
+                        <p class="text-purple-200 text-sm font-semibold mb-2">🔗 Gold Net Sharing Preview</p>
+                        <p class="text-purple-100 text-sm">In the full implementation, users can opt-in to share their networks with trusted connections. When Sarah shares her network with Marcus, Marcus gains access to Sarah's connections, and vice versa. This creates exponential value as the network grows.</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <button id="demo-toggle" class="inline-block bg-gradient-to-r from-purple-700 to-blue-700 text-white font-semibold py-4 px-10 rounded-lg shadow-lg hover:from-purple-600 hover:to-blue-600 transition-all transform hover:scale-105" style="opacity: 1 !important; visibility: visible !important;">
+                            🚀 Launch the ChatCTD Demo
+                        </button>
+                        <p class="text-xs text-neutral-500">Single HTML file • No backend required • Works offline</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Full-Screen Demo Modal -->
+            <div id="demo-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-start justify-center p-0">
+                <div class="bg-slate-900/85 backdrop-blur-sm rounded-lg w-full h-full max-w-none max-h-full flex flex-col border border-slate-700 pb-8">
+                    <!-- Modal Header -->
+                    <div class="flex items-center justify-between p-3 border-b border-slate-700">
+                        <div>
+                            <h2 class="text-lg font-bold text-white">🌟 ChatCTD Demo</h2>
+                        </div>
+                        <button id="demo-modal-close" class="text-slate-400 hover:text-white text-xl font-bold px-2 py-1 rounded hover:bg-slate-800 transition-colors">
+                            ✕
+                        </button>
+                    </div>
+                    <!-- Modal Content -->
+                    <div class="flex-1 p-2">
+                        <div id="demo-root" class="h-full bg-slate-800 rounded-lg overflow-hidden border border-slate-600"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Help Section -->
+            <section class="max-w-4xl mx-auto mb-16">
+                <div class="card">
+                    <h2 class="text-3xl font-bold text-white mb-6 text-center">🌟 The Complete ChatCTD Vision</h2>
+                    <p class="text-neutral-400 text-center mb-8">This demo showcases the foundation of what will become the most powerful professional networking platform ever built.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-6 rounded-lg border border-purple-500/30">
+                                <h3 class="text-xl font-semibold text-white mb-3">🔍 Individual Network Intelligence</h3>
+                                <p class="text-neutral-300 text-sm mb-4">Search your personal network with natural language queries. Find connections based on skills, experience, industry, or any combination of criteria.</p>
+                                <ul class="text-neutral-400 text-sm space-y-1">
+                                    <li>• "Who in my network has scaled a SaaS company?"</li>
+                                    <li>• "Find me AI experts in healthcare"</li>
+                                    <li>• "Who knows someone at Google?"</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 p-6 rounded-lg border border-yellow-500/30">
+                                <h3 class="text-xl font-semibold text-white mb-3">🌟 Gold Net Sharing</h3>
+                                <p class="text-neutral-300 text-sm mb-4">The game-changing feature: opt-in network sharing creates exponential value for all participants.</p>
+                                <ul class="text-neutral-400 text-sm space-y-1">
+                                    <li>• Share your network with trusted connections</li>
+                                    <li>• Access their networks in return</li>
+                                    <li>• Find connections through multiple degrees</li>
+                                    <li>• Maintain full privacy controls</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-br from-green-900/30 to-teal-900/30 p-6 rounded-lg border border-green-500/30">
+                                <h3 class="text-xl font-semibold text-white mb-3">🤖 AI-Powered Intelligence</h3>
+                                <p class="text-neutral-300 text-sm mb-4">Advanced LLM agents understand complex queries and find connections humans would never discover manually.</p>
+                                <ul class="text-neutral-400 text-sm space-y-1">
+                                    <li>• Natural language query processing</li>
+                                    <li>• Multi-hop relationship traversal</li>
+                                    <li>• Contextual result ranking</li>
+                                    <li>• Explainable AI decisions</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 p-6 rounded-lg border border-indigo-500/30">
+                                <h3 class="text-xl font-semibold text-white mb-3">🔗 Enterprise Integrations</h3>
+                                <p class="text-neutral-300 text-sm mb-4">Seamlessly integrate with your existing workflow tools and communication platforms.</p>
+                                <ul class="text-neutral-400 text-sm space-y-1">
+                                    <li>• Gmail & Outlook email generation</li>
+                                    <li>• LinkedIn connection automation</li>
+                                    <li>• Salesforce & HubSpot CRM sync</li>
+                                    <li>• Google Analytics tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-500/50 rounded-lg p-6">
+                        <h3 class="text-yellow-200 text-lg font-semibold mb-3">🚀 The Network Effect Advantage</h3>
+                        <p class="text-yellow-100 text-sm mb-4">When professionals share their networks through the Gold Net, each participant gains access to exponentially more connections. This creates a compounding effect where the value of the network grows faster than the number of participants.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                            <div class="bg-yellow-900/30 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-200">10x</div>
+                                <div class="text-yellow-100 text-sm">More connections when 10 people share</div>
+                            </div>
+                            <div class="bg-yellow-900/30 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-200">100x</div>
+                                <div class="text-yellow-100 text-sm">More connections when 100 people share</div>
+                            </div>
+                            <div class="bg-yellow-900/30 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-yellow-200">∞</div>
+                                <div class="text-yellow-100 text-sm">Unlimited potential as network grows</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/50 rounded-lg p-6">
+                        <h3 class="text-purple-200 text-lg font-semibold mb-3">🔒 Privacy & Security First</h3>
+                        <p class="text-purple-100 text-sm">ChatCTD is built with enterprise-grade security and privacy controls. Users have complete control over what they share and with whom.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="space-y-2">
+                                <div class="text-purple-200 text-sm font-semibold">Privacy Controls:</div>
+                                <ul class="text-purple-100 text-xs space-y-1">
+                                    <li>• Granular sharing permissions</li>
+                                    <li>• Opt-in network sharing only</li>
+                                    <li>• Data encryption at rest and in transit</li>
+                                    <li>• Complete data portability</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="text-purple-200 text-sm font-semibold">Compliance:</div>
+                                <ul class="text-purple-100 text-xs space-y-1">
+                                    <li>• GDPR compliant</li>
+                                    <li>• HIPAA ready</li>
+                                    <li>• SOC2 Type II certified</li>
+                                    <li>• Enterprise SSO integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Footer Disclaimer -->
+            <footer class="max-w-4xl mx-auto mb-16">
+                <div class="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-6">
+                    <p class="text-yellow-200 text-sm font-semibold mb-2">📱 SINGLE HTML MOCK FRONTEND DEMO</p>
+                    <p class="text-yellow-100 text-sm">This presentation is a self-contained HTML file demonstrating the ChatCTD vision. No backend required—everything runs in your browser for easy sharing and collaboration.</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // Global data arrays
+        const companies = [
+            "TechFlow", "InnovateLab", "HealthTech Solutions", "CloudScale Inc", "DataFlow Systems", "GrowthTech",
+            "ScaleUp Ventures", "MedTech Innovations", "AI Health Systems", "NextGen Solutions", "FutureWorks",
+            "Digital Dynamics", "Smart Systems", "Quantum Labs", "Neural Networks", "Blockchain Ventures",
+            "Cyber Security Pro", "FinTech Innovations", "Green Energy Corp", "Space Technologies", "BioTech Solutions",
+            "Robotics Inc", "Virtual Reality Labs", "Augmented Systems", "Machine Learning Co", "Deep Learning Corp",
+            "Artificial Intelligence Ltd", "Data Science Solutions", "Analytics Pro", "Business Intelligence Inc",
+            "Customer Success Co", "Sales Optimization", "Marketing Automation", "Product Strategy Labs",
+            "User Experience Design", "Interface Solutions", "Mobile Development", "Web Technologies",
+            "Cloud Computing", "DevOps Solutions", "Infrastructure Systems", "Network Security",
+            "Database Management", "Software Engineering", "Quality Assurance", "Testing Solutions",
+            "Project Management", "Agile Development", "Scrum Masters", "Technical Leadership"
+        ];
+
+        // Generate 300 Synthetic People Programmatically
+        function generateSyntheticPeople() {
+            const firstNames = [
+                "Sarah", "Marcus", "Emily", "David", "Jessica", "Michael", "Amanda", "Christopher", "Jennifer", "Daniel",
+                "Ashley", "Matthew", "Stephanie", "Andrew", "Nicole", "Joshua", "Elizabeth", "William", "Megan", "James",
+                "Rachel", "John", "Lauren", "Robert", "Samantha", "Kevin", "Michelle", "Brian", "Kimberly", "Steven",
+                "Amy", "Thomas", "Angela", "Timothy", "Brittany", "Jason", "Rebecca", "Ryan", "Laura", "Jacob",
+                "Heather", "Gary", "Lisa", "Nicholas", "Nancy", "Eric", "Karen", "Jonathan", "Betty", "Stephen",
+                "Helen", "Larry", "Sandra", "Justin", "Donna", "Scott", "Carol", "Brandon", "Ruth", "Benjamin",
+                "Sharon", "Samuel", "Michelle", "Gregory", "Laura", "Alexander", "Sarah", "Patrick", "Kimberly", "Jack",
+                "Deborah", "Dennis", "Dorothy", "Jerry", "Lisa", "Tyler", "Nancy", "Aaron", "Karen", "Jose",
+                "Betty", "Henry", "Helen", "Adam", "Sharon", "Douglas", "Cynthia", "Nathan", "Marie", "Zachary",
+                "Janet", "Peter", "Frances", "Kyle", "Christine", "Noah", "Samantha", "Alan", "Debra", "Ethan"
+            ];
+            
+            const lastNames = [
+                "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
+                "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin",
+                "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson",
+                "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores",
+                "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts",
+                "Gomez", "Phillips", "Evans", "Turner", "Diaz", "Parker", "Cruz", "Edwards", "Collins", "Reyes",
+                "Stewart", "Morris", "Morales", "Murphy", "Cook", "Rogers", "Gutierrez", "Ortiz", "Morgan", "Cooper",
+                "Peterson", "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson",
+                "Watson", "Brooks", "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes"
+            ];
+            
+            
+            const industries = [
+                "Technology", "Healthcare", "Finance", "E-commerce", "Education", "Manufacturing", "Consulting",
+                "Media", "Real Estate", "Energy", "SaaS", "Fintech", "AI/ML", "Cybersecurity", "Biotech",
+                "Automotive", "Aerospace", "Telecommunications", "Retail", "Hospitality", "Transportation",
+                "Logistics", "Supply Chain", "Agriculture", "Food & Beverage", "Fashion", "Entertainment",
+                "Gaming", "Sports", "Fitness", "Travel", "Tourism", "Insurance", "Legal", "Government",
+                "Non-profit", "Pharmaceuticals", "Medical Devices", "Renewable Energy", "Clean Technology"
+            ];
+            
+            const jobAreas = [
+                "Engineering", "Product", "Marketing", "Sales", "Operations", "Strategy", "Finance", "HR",
+                "Legal", "Design", "Data", "Research", "Development", "Quality", "Support", "Business",
+                "Customer", "Technical", "Creative", "Analytical", "Management", "Leadership", "Innovation"
+            ];
+            
+            const jobDescriptors = [
+                "Senior", "Lead", "Principal", "Staff", "Chief", "Head", "Director", "Manager", "Specialist",
+                "Expert", "Consultant", "Advisor", "Architect", "Engineer", "Analyst", "Coordinator", "Executive",
+                "Strategic", "Technical", "Business", "Product", "Customer", "Data", "AI", "Cloud", "Security"
+            ];
+            
+            const jobTypes = [
+                "Manager", "Director", "Engineer", "Analyst", "Specialist", "Consultant", "Advisor", "Architect",
+                "Developer", "Designer", "Researcher", "Scientist", "Officer", "Coordinator", "Executive",
+                "Lead", "Principal", "Staff", "Senior", "Junior", "Associate", "Vice President", "President"
+            ];
+            
+            const skillsPool = [
+                "Python", "JavaScript", "React", "Node.js", "AWS", "Azure", "GCP", "Docker", "Kubernetes",
+                "Machine Learning", "Data Analytics", "SQL", "NoSQL", "MongoDB", "PostgreSQL", "Redis",
+                "Team Leadership", "Product Strategy", "B2B Sales", "Go-to-Market", "Customer Success",
+                "Cloud Architecture", "DevOps", "CI/CD", "Microservices", "API Development", "GraphQL",
+                "Venture Capital", "Angel Investing", "Startup Operations", "Revenue Growth", "Strategic Planning",
+                "Business Development", "Technical Architecture", "AI/ML", "Data Science", "Business Intelligence",
+                "Marketing Automation", "Growth Hacking", "User Experience", "User Interface", "Design Systems",
+                "Project Management", "Agile", "Scrum", "Kanban", "Risk Management", "Financial Modeling",
+                "Market Research", "Competitive Analysis", "Brand Strategy", "Content Marketing", "SEO/SEM",
+                "Social Media", "Digital Marketing", "Email Marketing", "Performance Marketing", "Analytics"
+            ];
+            
+            const bios = [
+                "passionate about scalable systems and team growth 🚀", "turning ideas into market-winning products 💡",
+                "bridging medicine and technology for better patient outcomes 🏥", "building the future of fintech 💰",
+                "creating seamless user experiences 🎨", "optimizing business processes for maximum efficiency ⚡",
+                "leading high-performance teams to success 🏆", "transforming data into actionable insights 📊",
+                "driving innovation in healthcare technology 🩺", "scaling startups from zero to unicorn 🦄",
+                "connecting people through technology 🌐", "solving complex problems with elegant solutions 🧩",
+                "empowering teams through effective leadership 👥", "building secure and reliable systems 🔒",
+                "creating engaging digital experiences 🎮", "transforming industries through AI 🤖",
+                "driving sustainable business growth 🌱", "building inclusive and diverse teams 🌈",
+                "optimizing customer journeys for better outcomes 🛤️", "creating data-driven marketing strategies 📈",
+                "building resilient and scalable architectures 🏗️", "transforming ideas into profitable ventures 💼",
+                "leading digital transformation initiatives 🔄", "creating innovative solutions for complex challenges 💡",
+                "building strong relationships and partnerships 🤝", "driving operational excellence and efficiency ⚙️",
+                "creating compelling brand stories and experiences 📖", "building high-converting sales funnels 🎯",
+                "transforming customer feedback into product improvements 🔄", "building and scaling engineering teams 👨‍💻"
+            ];
+            
+            const zodiacSigns = [
+                "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+            ];
+            
+            const people = [];
+            
+            for (let i = 1; i <= 300; i++) {
+                const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+                const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+                const company = companies[Math.floor(Math.random() * companies.length)];
+                const industry = industries[Math.floor(Math.random() * industries.length)];
+                const jobArea = jobAreas[Math.floor(Math.random() * jobAreas.length)];
+                const jobDescriptor = jobDescriptors[Math.floor(Math.random() * jobDescriptors.length)];
+                const jobType = jobTypes[Math.floor(Math.random() * jobTypes.length)];
+                const bio = bios[Math.floor(Math.random() * bios.length)];
+                const zodiacSign = zodiacSigns[Math.floor(Math.random() * zodiacSigns.length)];
+                const sex = Math.random() > 0.5 ? "male" : "female";
+                
+                // Generate 2-5 random skills
+                const numSkills = Math.floor(Math.random() * 4) + 2;
+                const selectedSkills = [];
+                for (let j = 0; j < numSkills; j++) {
+                    const skill = skillsPool[Math.floor(Math.random() * skillsPool.length)];
+                    if (!selectedSkills.includes(skill)) {
+                        selectedSkills.push(skill);
+                    }
+                }
+                
+                const name = `${firstName} ${lastName}`;
+                const title = `${jobDescriptor} ${jobType} at ${company}`;
+                
+                people.push({
+                    id: `person_${i.toString().padStart(3, '0')}`,
+                    name: name,
+                    title: title,
+                    industry: industry,
+                    skills: selectedSkills,
+                    jobArea: jobArea,
+                    jobDescriptor: jobDescriptor,
+                    jobType: jobType,
+                    sex: sex,
+                    bio: bio,
+                    zodiacSign: zodiacSign,
+                    profile: `${name} is an experienced ${jobDescriptor} ${jobType} specializing in ${jobArea} with a demonstrated history of working in the ${industry} industry. Skilled in ${selectedSkills.join(', ')}. ${bio} Previously worked at ${companies[Math.floor(Math.random() * companies.length)]} and ${companies[Math.floor(Math.random() * companies.length)]}. Known for expertise in next-generation ${industry.toLowerCase()} solutions.`
+                });
+            }
+            
+            return people;
+        }
+        
+        const SYNTHETIC_PEOPLE = generateSyntheticPeople();
+
+        // Interactive Constellation Background
+        const canvas = document.getElementById('constellation-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+            function createParticles() {
+                particles = [];
+                let particleCount = Math.floor(canvas.width * canvas.height / 20000);
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, radius: Math.random() * 1.5 + 0.5 });
+                }
+            }
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fillStyle = 'rgba(110, 66, 225, 0.5)'; ctx.fill();
+                });
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i; j < particles.length; j++) {
+                        const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                        if (dist < 120) {
+                            ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.strokeStyle = `rgba(110, 66, 225, ${1 - dist / 120})`; ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            window.addEventListener('resize', () => { resizeCanvas(); createParticles(); });
+            resizeCanvas(); createParticles(); animate();
+        }
+        
+        // --- Scroll Animation and Navigation Logic ---
+        const mainNav = document.getElementById('main-nav');
+        let hasScrolled = false;
+        function handleFirstScroll() {
+            if (window.scrollY > 50 && !hasScrolled) {
+                document.body.classList.add('scrolled');
+                hasScrolled = true;
+            }
+        }
+        window.addEventListener('scroll', handleFirstScroll);
+
+        // --- Navigation Scroll Spy & Progress Bar ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const progressBar = document.getElementById('progressBar');
+        function updateNav() {
+            let current = '';
+            const scrollY = window.scrollY;
+            const navOffset = 100; // Account for fixed navigation bar
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navOffset;
+                if (scrollY >= sectionTop) { current = section.getAttribute('id'); }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) { link.classList.add('active'); }
+            });
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollY / scrollableHeight) * 100;
+            if (progressBar) { progressBar.style.width = `${progress}%`; }
+        }
+        window.addEventListener('scroll', updateNav);
+        
+        // --- Enhanced animations on scroll for all sections ---
+        const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .slide-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.1,
+            rootMargin: '0px 0px -600px 0px' // Require 600px more scroll distance
+        });
+        animatedElements.forEach(el => observer.observe(el));
+        updateNav(); // Initial call
+
+        // Demo Modal Functionality
+        const demoToggle = document.getElementById('demo-toggle');
+        const demoModal = document.getElementById('demo-modal');
+        const demoModalClose = document.getElementById('demo-modal-close');
+        let demoInitialized = false;
+
+        console.log('Demo toggle button found:', demoToggle);
+        console.log('Demo modal found:', demoModal);
+        
+        // Force make button visible for debugging
+        if (demoToggle) {
+            demoToggle.style.display = 'inline-block';
+            demoToggle.style.opacity = '1';
+            demoToggle.style.visibility = 'visible';
+            console.log('Button forced to be visible');
+        }
+
+        // Function to show modal
+        function showDemoModal() {
+            if (demoModal) {
+                demoModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Hide the navigation bar
+                const mainNav = document.getElementById('main-nav');
+                if (mainNav) {
+                    mainNav.style.display = 'none';
+                }
+                
+                if (!demoInitialized) {
+                    try {
+                        initializeDemo();
+                        demoInitialized = true;
+                    } catch (error) {
+                        console.error('Demo initialization failed:', error);
+                        const demoRoot = document.getElementById('demo-root');
+                        if (demoRoot) {
+                            demoRoot.innerHTML = '<div class="card"><p class="text-red-400 text-center">Demo failed to load. Please refresh the page and try again.</p></div>';
+                        }
+                    }
+                }
+            }
+        }
+
+        // Function to hide modal
+        function hideDemoModal() {
+            if (demoModal) {
+                demoModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Show the navigation bar again
+                const mainNav = document.getElementById('main-nav');
+                if (mainNav) {
+                    mainNav.style.display = '';
+                }
+            }
+        }
+
+        // Demo button click handler
+        if (demoToggle) {
+            demoToggle.addEventListener('click', showDemoModal);
+        } else {
+            console.error('Demo toggle button not found!');
+        }
+
+        // Modal close button handler
+        if (demoModalClose) {
+            demoModalClose.addEventListener('click', hideDemoModal);
+        }
+
+        // Close modal on backdrop click
+        if (demoModal) {
+            demoModal.addEventListener('click', (e) => {
+                if (e.target === demoModal) {
+                    hideDemoModal();
+                }
+            });
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && demoModal && !demoModal.classList.contains('hidden')) {
+                hideDemoModal();
+            }
+        });
+
+        // Demo Initialization Function
+        function initializeDemo() {
+            const { useState, useEffect, useRef } = React;
+
+            // --- SIMULATED Personalized Intelligence SERVER ---
+            const personalizedIntelligenceServer = {
+                memory: {
+                    entities: new Set(['SaaS', 'CEO']),
+                    queries: [],
+                },
+                learn(results, query) {
+                    this.memory.queries.push(query);
+                    results.forEach(result => {
+                        if (result.title) {
+                            this.memory.entities.add(result.title.split(' at ')[0]);
+                        }
+                        if (result.industry) {
+                            this.memory.entities.add(result.industry);
+                        }
+                    });
+                },
+                getSuggestions() {
+                    const suggestions = new Set();
+                    const entities = Array.from(this.memory.entities);
+
+                    if (entities.length < 2) return [
+                        "Who is the CEO of a successful SaaS company?", 
+                        "Find me investors in the fintech space.",
+                        "Show me people with machine learning expertise."
+                    ];
+
+                    // Use hardcoded data for suggestions
+                    const industries = ['Technology', 'Healthcare', 'Finance', 'E-commerce', 'Education', 'Manufacturing', 'Consulting', 'Media', 'Real Estate', 'Energy', 'SaaS', 'Fintech', 'AI/ML', 'Cybersecurity', 'Biotech'];
+                    const jobAreas = ['Engineering', 'Marketing', 'Sales', 'Product', 'Operations', 'Strategy', 'Finance', 'HR', 'Legal', 'Design'];
+                    const jobTitles = ['CEO', 'CTO', 'VP of Engineering', 'Product Manager', 'Data Scientist', 'Marketing Director', 'Sales Executive', 'Operations Manager', 'Strategy Consultant', 'Financial Analyst'];
+                    
+                    for (let i = 0; i < 4; i++) {
+                        const entity1 = entities[Math.floor(Math.random() * entities.length)];
+                        const industry = industries[Math.floor(Math.random() * industries.length)];
+                        const jobArea = jobAreas[Math.floor(Math.random() * jobAreas.length)];
+                        const jobTitle = jobTitles[Math.floor(Math.random() * jobTitles.length)];
+                        
+                        if (industries.includes(entity1)) {
+                            suggestions.add(`Find a ${jobTitle} in the ${entity1} industry.`);
+                            suggestions.add(`Who are the top ${jobArea} professionals in ${entity1}?`);
+                        } else {
+                            suggestions.add(`Find connections with ${entity1} experience in the ${industry} space.`);
+                            suggestions.add(`Show me people who have worked as ${entity1} and are now in ${industry}.`);
+                        }
+                    }
+                    return Array.from(suggestions).slice(0, 3);
+                }
+            };
+
+            // --- Query Subscription System ---
+            const querySubscriptionSystem = {
+                plan: {
+                    name: "Professional Plan",
+                    monthlyQueries: 1000,
+                    usedQueries: 0,
+                    resetDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days from now
+                },
+                canMakeQuery() {
+                    return this.plan.usedQueries < this.plan.monthlyQueries;
+                },
+                recordQuery() {
+                    if (this.canMakeQuery()) {
+                        this.plan.usedQueries++;
+                        return true;
+                    }
+                    return false;
+                },
+                getUtilizationFraction() {
+                    return this.plan.usedQueries / this.plan.monthlyQueries;
+                },
+                getRemainingQueries() {
+                    return this.plan.monthlyQueries - this.plan.usedQueries;
+                }
+            };
+
+            // --- Helper Icons ---
+            const SearchIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-5 w-5"
+            }, 
+                React.createElement('circle', { cx: "11", cy: "11", r: "8" }),
+                React.createElement('line', { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
+            );
+
+            const BotIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-6 w-6"
+            },
+                React.createElement('path', { d: "M12 8V4H8" }),
+                React.createElement('rect', { x: "4", y: "12", width: "16", height: "8", rx: "2" }),
+                React.createElement('path', { d: "M2 12h2" }),
+                React.createElement('path', { d: "M20 12h2" }),
+                React.createElement('path', { d: "M12 12v4" })
+            );
+
+            const LoadingSpinner = ({ className = "h-5 w-5" }) => React.createElement('svg', {
+                className: `animate-spin ${className}`,
+                xmlns: "http://www.w3.org/2000/svg",
+                fill: "none",
+                viewBox: "0 0 24 24"
+            },
+                React.createElement('circle', { className: "opacity-25", cx: "12", cy: "12", r: "10", stroke: "currentColor", strokeWidth: "4" }),
+                React.createElement('path', { className: "opacity-75", fill: "currentColor", d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" })
+            );
+
+            const WorkOSIcon = () => React.createElement('svg', {
+                height: "24",
+                viewBox: "0 0 75 75",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg"
+            },
+                React.createElement('path', { d: "M37.5 0C16.789 0 0 16.789 0 37.5C0 58.211 16.789 75 37.5 75C58.211 75 75 58.211 75 37.5C75 16.789 58.211 0 37.5 0ZM37.5 68.75C20.6719 68.75 6.25 54.3281 6.25 37.5C6.25 20.6719 20.6719 6.25 37.5 6.25C54.3281 6.25 68.75 20.6719 68.75 37.5C68.75 54.3281 54.3281 68.75 37.5 68.75Z", fill: "white" }),
+                React.createElement('path', { d: "M37.5 12.5C23.5576 12.5 12.5 23.5576 12.5 37.5C12.5 51.4424 23.5576 62.5 37.5 62.5C51.4424 62.5 62.5 51.4424 62.5 37.5C62.5 23.5576 51.4424 12.5 37.5 12.5Z", fill: "white" })
+            );
+
+            const PlusIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-5 w-5"
+            },
+                React.createElement('line', { x1: "12", y1: "5", x2: "12", y2: "19" }),
+                React.createElement('line', { x1: "5", y1: "12", x2: "19", y2: "12" })
+            );
+
+            const MessageSquareIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-5 w-5"
+            },
+                React.createElement('path', { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" })
+            );
+
+            const MenuIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-6 w-6"
+            },
+                React.createElement('line', { x1: "4", x2: "20", y1: "12", y2: "12" }),
+                React.createElement('line', { x1: "4", x2: "20", y1: "6", y2: "6" }),
+                React.createElement('line', { x1: "4", x2: "20", y1: "18", y2: "18" })
+            );
+
+            const XIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-6 w-6"
+            },
+                React.createElement('line', { x1: "18", y1: "6", x2: "6", y2: "18" }),
+                React.createElement('line', { x1: "6", y1: "6", x2: "18", y2: "18" })
+            );
+
+            const SparklesIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-5 w-5"
+            },
+                React.createElement('path', { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" })
+            );
+
+            const TrashIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "16",
+                height: "16",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-4 w-4"
+            },
+                React.createElement('path', { d: "M3 6h18" }),
+                React.createElement('path', { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" }),
+                React.createElement('path', { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" })
+            );
+
+            const BellIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "16",
+                height: "16",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-4 w-4"
+            },
+                React.createElement('path', { d: "M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" }),
+                React.createElement('path', { d: "M10.3 21a1.94 1.94 0 0 0 3.4 0" })
+            );
+
+            const BarChartIcon = () => React.createElement('svg', {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "16",
+                height: "16",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                className: "h-4 w-4"
+            },
+                React.createElement('line', { x1: "12", y1: "20", x2: "12", y2: "10" }),
+                React.createElement('line', { x1: "18", y1: "20", x2: "18", y2: "4" }),
+                React.createElement('line', { x1: "6", y1: "20", x2: "6", y2: "16" })
+            );
+
+            // --- Page Components ---
+
+            const LoginScreen = ({ onLogin }) => {
+                const [isLoggingIn, setIsLoggingIn] = useState(false);
+                const handleLogin = (e) => { e.preventDefault(); setIsLoggingIn(true); setTimeout(() => onLogin(), 1500); };
+                return React.createElement('div', { className: "flex flex-col items-center justify-center min-h-screen bg-slate-900" }, 
+                    React.createElement('div', { className: "w-full max-w-md p-8 space-y-8 bg-slate-800 rounded-2xl shadow-2xl" }, 
+                        React.createElement('div', { className: "text-center" },
+                            React.createElement('h1', { className: "text-3xl font-bold text-white tracking-tight" }, "ChatCTD"),
+                            React.createElement('p', { className: "mt-2 text-slate-400" }, "Relationship Intelligence Engine")
+                        ), 
+                        React.createElement('form', { className: "mt-8 space-y-6", onSubmit: handleLogin }, 
+                            React.createElement('div', { className: "rounded-md shadow-sm -space-y-px" }, 
+                                React.createElement('input', { id: "email-address", type: "email", required: true, className: "appearance-none rounded-t-md relative block w-full px-3 py-3 border border-slate-700 bg-slate-900 text-white placeholder-slate-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", placeholder: "Enterprise Email", defaultValue: "demo@ctd.ai" }), 
+                                React.createElement('input', { id: "password", type: "password", required: true, className: "appearance-none rounded-b-md relative block w-full px-3 py-3 border border-slate-700 bg-slate-900 text-white placeholder-slate-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", placeholder: "Password", defaultValue: "password" })
+                            ), 
+                            React.createElement('button', { type: "submit", disabled: isLoggingIn, className: "group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-indigo-500 disabled:bg-indigo-800 disabled:cursor-not-allowed" }, 
+                                isLoggingIn ? React.createElement(LoadingSpinner) : React.createElement(WorkOSIcon), 
+                                React.createElement('span', { className: "ml-2" }, isLoggingIn ? 'Authenticating...' : 'Sign in with WorkOS')
+                            )
+                        )
+                    )
+                );
+            };
+
+            const QuerySuggestions = ({ suggestions, onSuggestionClick }) => {
+                if (!suggestions || suggestions.length === 0) return null;
+                return React.createElement('div', { className: "max-w-4xl mx-auto mb-4" }, 
+                    React.createElement('p', { className: "text-sm text-slate-400 mb-2 px-1" }, "Suggestions for you:"), 
+                    React.createElement('div', { className: "flex flex-wrap gap-2" }, 
+                        suggestions.map((s, i) => React.createElement('button', { key: i, onClick: () => onSuggestionClick(s), className: "bg-slate-800/70 text-slate-300 text-sm px-3 py-1.5 rounded-full hover:bg-slate-700 transition-colors" }, s))
+                    )
+                );
+            };
+
+            // Integration Modal Component
+            const IntegrationModal = ({ action, result, onClose }) => {
+                const [message, setMessage] = React.useState('');
+                const [scheduleTime, setScheduleTime] = React.useState('');
+                const [shareWithNetwork, setShareWithNetwork] = React.useState(false);
+                
+                const getActionConfig = () => {
+                    const configs = {
+                        email: { 
+                            title: 'Generate Gmail Introduction', 
+                            icon: '📧', 
+                            placeholder: 'Generate intro email based on your connection...',
+                            template: `Subject: Introduction - ${result.name} via ${result.path ? result.path[0] : 'your network'}\n\nHi ${result.name},\n\nI hope this email finds you well. I'm reaching out through ${result.path ? result.path[0] : 'a mutual connection'} who mentioned your expertise in ${result.skills.slice(0, 2).join(' and ')}.\n\nI'd love to connect and learn more about your work in ${result.industry}.\n\nBest regards,\n[Your Name]`
+                        },
+                        outlook: { 
+                            title: 'Generate Outlook Introduction', 
+                            icon: '📮', 
+                            placeholder: 'Generate Outlook email...',
+                            template: `Subject: Professional Introduction - ${result.name}\n\nDear ${result.name},\n\nI hope you're doing well. ${result.path ? result.path[0] : 'A mutual connection'} suggested I reach out to you regarding your experience with ${result.skills.slice(0, 2).join(' and ')}.\n\nI'm particularly interested in your insights on ${result.industry} and would appreciate the opportunity to connect.\n\nKind regards,\n[Your Name]`
+                        },
+                        linkedin: { 
+                            title: 'Connect on LinkedIn', 
+                            icon: '💼', 
+                            placeholder: 'Generate LinkedIn connection message...',
+                            template: `Hi ${result.name},\n\nI noticed we're both in ${result.industry} and I'm impressed by your work with ${result.skills.slice(0, 2).join(' and ')}. ${result.path ? `I see we're connected through ${result.path[0]}.` : ''}\n\nI'd love to connect and learn more about your experience.\n\nBest,\n[Your Name]`
+                        },
+                        salesforce: { 
+                            title: 'Add to Salesforce CRM', 
+                            icon: '☁️', 
+                            placeholder: 'Generate CRM correspondence...',
+                            template: `Lead: ${result.name}\nCompany: ${result.title.split(' at ')[1] || 'Unknown'}\nIndustry: ${result.industry}\nSkills: ${result.skills.join(', ')}\nConnection Path: ${result.path ? result.path.join(' → ') : 'Direct'}\nNotes: ${result.bio || 'No bio available'}`
+                        },
+                        hubspot: { 
+                            title: 'Add to HubSpot CRM', 
+                            icon: '🎯', 
+                            placeholder: 'Generate HubSpot correspondence...',
+                            template: `Contact: ${result.name}\nTitle: ${result.title}\nIndustry: ${result.industry}\nKey Skills: ${result.skills.slice(0, 3).join(', ')}\nConnection: ${result.path ? result.path.join(' → ') : 'Direct'}\nBio: ${result.bio || 'No bio available'}`
+                        },
+                        analytics: { 
+                            title: 'Track in Google Analytics', 
+                            icon: '📊', 
+                            placeholder: 'Generate analytics tracking...',
+                            template: `Event: Network Connection Made\nContact: ${result.name}\nIndustry: ${result.industry}\nConnection Type: ${result.path ? 'Multi-hop' : 'Direct'}\nSkills Match: ${result.skills.slice(0, 3).join(', ')}\nTimestamp: ${new Date().toISOString()}`
+                        },
+                        chatctd: { 
+                            title: 'Reach Out via ChatCTD', 
+                            icon: '🚀', 
+                            placeholder: 'Generate ChatCTD outreach message...',
+                            template: `Hi ${result.name}! 👋\n\nI found you through ChatCTD's network intelligence. I'm impressed by your work in ${result.industry} and your expertise with ${result.skills.slice(0, 2).join(' and ')}.\n\n${result.path ? `I see we're connected through ${result.path[0]}.` : 'I\'d love to connect and learn more about your experience.'}\n\nWould you be interested in a brief conversation about ${result.industry}? I'd love to share insights and learn from your experience.\n\nBest regards,\n[Your Name]\n\n---\n💡 This message was generated by ChatCTD's AI-powered network intelligence. Reply to continue the conversation!`
+                        }
+                    };
+                    return configs[action] || configs.email;
+                };
+                
+                const config = getActionConfig();
+                
+                React.useEffect(() => {
+                    setMessage(config.template);
+                }, [action]);
+                
+                const handleSend = () => {
+                    // In a real implementation, this would integrate with the actual services
+                    alert(`Opening ${config.title} with pre-filled content. In the full implementation, this would open the actual service.`);
+                    onClose();
+                };
+                
+                return React.createElement('div', { 
+                    className: "fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4",
+                    onClick: onClose
+                },
+                    React.createElement('div', { 
+                        className: "bg-slate-800 border border-slate-700 rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto",
+                        onClick: (e) => e.stopPropagation()
+                    },
+                        React.createElement('div', { className: "flex items-center gap-3 mb-4" },
+                            React.createElement('span', { className: "text-2xl" }, config.icon),
+                            React.createElement('h3', { className: "text-xl font-semibold text-white" }, config.title)
+                        ),
+                        React.createElement('div', { className: "mb-4" },
+                            React.createElement('label', { className: "block text-sm font-medium text-slate-300 mb-2" }, "Message Content"),
+                            React.createElement('textarea', {
+                                value: message,
+                                onChange: (e) => setMessage(e.target.value),
+                                className: "w-full bg-slate-700 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition resize-none",
+                                rows: "6",
+                                placeholder: config.placeholder
+                            })
+                        ),
+                        React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-4 mb-4" },
+                            React.createElement('div', {},
+                                React.createElement('label', { className: "block text-sm font-medium text-slate-300 mb-2" }, "Schedule (Optional)"),
+                                React.createElement('input', {
+                                    type: "datetime-local",
+                                    value: scheduleTime,
+                                    onChange: (e) => setScheduleTime(e.target.value),
+                                    className: "w-full bg-slate-700 border border-slate-600 rounded-lg p-2 text-white focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+                                })
+                            ),
+                            React.createElement('div', { className: "flex items-center gap-2" },
+                                React.createElement('input', {
+                                    type: "checkbox",
+                                    id: "shareNetwork",
+                                    checked: shareWithNetwork,
+                                    onChange: (e) => setShareWithNetwork(e.target.checked),
+                                    className: "rounded border-slate-600 bg-slate-700 text-purple-600 focus:ring-purple-500"
+                                }),
+                                React.createElement('label', { htmlFor: "shareNetwork", className: "text-sm text-slate-300" }, "Share with Gold Net")
+                            )
+                        ),
+                        React.createElement('div', { className: "flex justify-end gap-3" },
+                            React.createElement('button', {
+                                onClick: onClose,
+                                className: "px-4 py-2 text-slate-400 hover:text-white transition"
+                            }, "Cancel"),
+                            React.createElement('button', {
+                                onClick: handleSend,
+                                className: "px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition"
+                            }, "Send & Open Service")
+                        )
+                    )
+                );
+            };
+
+            // Result Card Component
+            const ResultCard = ({ result }) => {
+                const [isExpanded, setIsExpanded] = React.useState(false);
+                const [showIntegrations, setShowIntegrations] = React.useState(false);
+                const [showModal, setShowModal] = React.useState(false);
+                const [selectedAction, setSelectedAction] = React.useState(null);
+                const [showFriends, setShowFriends] = React.useState(false);
+                const [showMultihop, setShowMultihop] = React.useState(false);
+                const [showSubscribe, setShowSubscribe] = React.useState(false);
+                
+                const handleIntegrationClick = (action, e) => {
+                    e.stopPropagation();
+                    setSelectedAction(action);
+                    setShowModal(true);
+                };
+                
+                // Check if this person has direct network connections
+                const hasDirectNetwork = result.directConnections && result.directConnections.length > 0;
+                const hasMultihopConnections = result.multihopConnections && result.multihopConnections.length > 0;
+                
+                return React.createElement('li', { className: "bg-slate-800/70 border border-slate-700 rounded-lg p-4" },
+                    React.createElement('div', { className: "flex items-start justify-between mb-2" },
+                        React.createElement('div', { className: "flex-1" },
+                            React.createElement('div', { className: "flex items-center gap-2 mb-1" },
+                            React.createElement('h3', { className: "text-lg font-semibold text-white" }, result.name),
+                                hasDirectNetwork && React.createElement('span', { 
+                                    className: "bg-green-600 text-white text-xs px-2 py-1 rounded-full font-semibold",
+                                    title: "Has direct network connections via integration accounts"
+                                }, "🔗 Direct Network"),
+                                hasMultihopConnections && React.createElement('span', { 
+                                    className: "bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-semibold",
+                                    title: "Has multihop connection paths available"
+                                }, "🔗 Multihop")
+                            ),
+                            React.createElement('p', { className: "text-slate-300 text-sm" }, result.title),
+                            result.jobArea && React.createElement('p', { className: "text-slate-400 text-xs" }, `${result.jobDescriptor} ${result.jobType} in ${result.jobArea}`)
+                        ),
+                        React.createElement('div', { className: "text-xs text-slate-400" }, `Path: ${result.path.join(' → ')}`)
+                    ),
+                    React.createElement('div', { className: "flex flex-wrap gap-2 mb-2" },
+                        result.skills.map((skill, j) => React.createElement('span', { key: j, className: "bg-slate-700 text-slate-300 px-2 py-1 rounded-full text-xs" }, skill))
+                    ),
+                    result.bio && React.createElement('p', { className: "text-purple-300 text-sm mb-2 italic" }, `"${result.bio}"`),
+                    React.createElement('p', { className: "text-slate-400 text-sm mb-3" }, result.profile),
+                    React.createElement('p', { className: "text-indigo-300 text-sm bg-slate-900/50 p-3 rounded border-l-2 border-indigo-500 mb-3" }, result.explanation),
+                    
+                    // Direct Network Connections
+                    hasDirectNetwork && React.createElement('div', { className: "bg-green-900/20 border border-green-500/30 rounded-lg p-3 mb-3" },
+                        React.createElement('div', { className: "flex items-center gap-2 mb-2" },
+                            React.createElement('span', { className: "text-green-400 font-semibold text-sm" }, "🔗 Direct Network Connections"),
+                            React.createElement('button', {
+                                className: "text-green-400 hover:text-green-300 text-xs underline",
+                                onClick: () => setShowFriends(!showFriends)
+                            }, showFriends ? 'Hide' : 'Show Friends')
+                        ),
+                        showFriends && React.createElement('div', { className: "space-y-2" },
+                            result.directConnections.map((connection, idx) => 
+                                React.createElement('div', { key: idx, className: "bg-slate-800/50 rounded p-2 text-sm" },
+                                    React.createElement('div', { className: "flex items-center justify-between" },
+                                        React.createElement('span', { className: "text-white" }, connection.name),
+                                        React.createElement('span', { className: "text-green-400 text-xs" }, connection.platform)
+                                    ),
+                                    connection.lastInteraction && React.createElement('p', { className: "text-slate-400 text-xs mt-1" }, 
+                                        `Last interaction: ${connection.lastInteraction}`
+                                    )
+                                )
+                            ),
+                            React.createElement('div', { className: "bg-slate-700/50 rounded p-2 text-xs text-slate-300" },
+                                "💡 Golden Net sharing enabled - automatic updates when connections change"
+                            )
+                        )
+                    ),
+                    
+                    // Multihop Connections
+                    hasMultihopConnections && React.createElement('div', { className: "bg-blue-900/20 border border-blue-500/30 rounded-lg p-3 mb-3" },
+                        React.createElement('div', { className: "flex items-center gap-2 mb-2" },
+                            React.createElement('span', { className: "text-blue-400 font-semibold text-sm" }, "🔗 Multihop Connection Paths"),
+                            React.createElement('button', {
+                                className: "text-blue-400 hover:text-blue-300 text-xs underline",
+                                onClick: () => setShowMultihop(!showMultihop)
+                            }, showMultihop ? 'Hide' : 'Show Details')
+                        ),
+                        showMultihop && React.createElement('div', { className: "space-y-2" },
+                            result.multihopConnections.map((path, idx) => 
+                                React.createElement('div', { key: idx, className: "bg-slate-800/50 rounded p-2 text-sm" },
+                                    React.createElement('div', { className: "text-white mb-1" }, 
+                                        `Path ${idx + 1}: ${path.path.join(' → ')}`
+                                    ),
+                                    path.details && React.createElement('div', { className: "text-slate-400 text-xs space-y-1" },
+                                        path.details.map((detail, detailIdx) => 
+                                            React.createElement('p', { key: detailIdx }, 
+                                                `• ${detail.who} - ${detail.what} (${detail.when})`
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    
+                    React.createElement('div', { className: "flex justify-between items-center mb-3" },
+                        React.createElement('div', { className: "flex gap-2" },
+                        React.createElement('button', { 
+                            className: "bg-purple-700 hover:bg-purple-600 text-white px-4 py-2 rounded text-sm transition-colors",
+                            onClick: (e) => { e.stopPropagation(); setShowIntegrations(!showIntegrations); }
+                        }, showIntegrations ? 'Hide Actions' : 'Take Action'),
+                            React.createElement('button', { 
+                                className: "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-4 py-2 rounded text-sm transition-colors",
+                                onClick: (e) => { e.stopPropagation(); handleIntegrationClick('chatctd', e); }
+                            }, '🚀 Reach Out via ChatCTD'),
+                            React.createElement('button', { 
+                                className: "bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded text-sm transition-colors",
+                                onClick: (e) => { e.stopPropagation(); setShowSubscribe(!showSubscribe); }
+                            }, '🔔 Subscribe to Updates')
+                        ),
+                        React.createElement('span', { className: "text-slate-500 text-xs" }, `Connection: ${result.path ? result.path.join(' → ') : 'Direct'}`)
+                    ),
+                    
+                    showIntegrations && React.createElement('div', { className: "mt-4 pt-4 border-t border-slate-700" },
+                        React.createElement('div', { className: "grid grid-cols-2 md:grid-cols-3 gap-2" },
+                            React.createElement('button', { 
+                                className: "flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm transition-colors",
+                                title: "Generate intro email based on your connection",
+                                onClick: (e) => handleIntegrationClick('email', e)
+                            },
+                                React.createElement('span', { className: "text-xs" }, '📧'),
+                                React.createElement('span', { className: "text-xs" }, 'Gmail')
+                            ),
+                            React.createElement('button', { 
+                                className: "flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm transition-colors",
+                                title: "Generate Outlook email",
+                                onClick: (e) => handleIntegrationClick('outlook', e)
+                            },
+                                React.createElement('span', { className: "text-xs" }, '📮'),
+                                React.createElement('span', { className: "text-xs" }, 'Outlook')
+                            ),
+                            React.createElement('button', { 
+                                className: "flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-3 py-2 rounded text-sm transition-colors",
+                                title: "Connect on LinkedIn",
+                                onClick: (e) => handleIntegrationClick('linkedin', e)
+                            },
+                                React.createElement('span', { className: "text-xs" }, '💼'),
+                                React.createElement('span', { className: "text-xs" }, 'LinkedIn')
+                            ),
+                            React.createElement('button', { 
+                                className: "flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-3 py-2 rounded text-sm transition-colors",
+                                title: "Add to Salesforce CRM",
+                                onClick: (e) => handleIntegrationClick('salesforce', e)
+                            },
+                                React.createElement('span', { className: "text-xs" }, '☁️'),
+                                React.createElement('span', { className: "text-xs" }, 'Salesforce')
+                            ),
+                            React.createElement('button', { 
+                                className: "flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded text-sm transition-colors",
+                                title: "Add to HubSpot CRM",
+                                onClick: (e) => handleIntegrationClick('hubspot', e)
+                            },
+                                React.createElement('span', { className: "text-xs" }, '🎯'),
+                                React.createElement('span', { className: "text-xs" }, 'HubSpot')
+                            ),
+                            React.createElement('button', { 
+                                className: "flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm transition-colors",
+                                title: "Track in Google Analytics",
+                                onClick: (e) => handleIntegrationClick('analytics', e)
+                            },
+                                React.createElement('span', { className: "text-xs" }, '📊'),
+                                React.createElement('span', { className: "text-xs" }, 'Analytics')
+                            )
+                        )
+                    ),
+                    
+                    // Subscribe to Updates Section
+                    showSubscribe && React.createElement('div', { className: "mt-4 pt-4 border-t border-slate-700" },
+                        React.createElement('div', { className: "bg-orange-900/20 border border-orange-500/30 rounded-lg p-4" },
+                            React.createElement('h4', { className: "text-orange-400 font-semibold mb-2" }, "🔔 Subscribe to Chat Updates"),
+                            React.createElement('p', { className: "text-slate-300 text-sm mb-3" }, 
+                                "Get notified when new connections are found or when this person's network changes."
+                            ),
+                            React.createElement('div', { className: "space-y-2" },
+                                React.createElement('div', { className: "flex items-center gap-2" },
+                                    React.createElement('input', { 
+                                        type: "checkbox", 
+                                        id: `notify-new-connections-${result.name}`,
+                                        className: "rounded"
+                                    }),
+                                    React.createElement('label', { 
+                                        htmlFor: `notify-new-connections-${result.name}`,
+                                        className: "text-slate-300 text-sm"
+                                    }, "Notify when new connections are found")
+                                ),
+                                React.createElement('div', { className: "flex items-center gap-2" },
+                                    React.createElement('input', { 
+                                        type: "checkbox", 
+                                        id: `notify-network-changes-${result.name}`,
+                                        className: "rounded"
+                                    }),
+                                    React.createElement('label', { 
+                                        htmlFor: `notify-network-changes-${result.name}`,
+                                        className: "text-slate-300 text-sm"
+                                    }, "Notify when network changes")
+                                ),
+                                React.createElement('div', { className: "flex items-center gap-2" },
+                                    React.createElement('input', { 
+                                        type: "checkbox", 
+                                        id: `notify-job-changes-${result.name}`,
+                                        className: "rounded"
+                                    }),
+                                    React.createElement('label', { 
+                                        htmlFor: `notify-job-changes-${result.name}`,
+                                        className: "text-slate-300 text-sm"
+                                    }, "Notify when job/role changes")
+                                )
+                            ),
+                            React.createElement('div', { className: "flex gap-2 mt-3" },
+                                React.createElement('button', { 
+                                    className: "bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded text-sm transition-colors",
+                                    onClick: () => {
+                                        alert('✅ Subscription activated! You\'ll receive webhook notifications when this person\'s network changes.');
+                                        setShowSubscribe(false);
+                                    }
+                                }, 'Activate Subscription'),
+                                React.createElement('button', { 
+                                    className: "bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded text-sm transition-colors",
+                                    onClick: () => setShowSubscribe(false)
+                                }, 'Cancel')
+                            ),
+                            React.createElement('p', { className: "text-slate-400 text-xs mt-2" }, 
+                                "💡 Updates will be sent to your ChatCTD webhook endpoint when changes are detected."
+                            )
+                        )
+                    ),
+                    
+                    showModal && selectedAction && React.createElement(IntegrationModal, {
+                        action: selectedAction,
+                        result: result,
+                        onClose: () => { setShowModal(false); setSelectedAction(null); }
+                    })
+                );
+            };
+
+            // Chat Interface Component
+            const ChatInterface = ({ activeChat, onNewQuery, isLoading, settings, querySuggestions, setQueryForSubmit }) => {
+                const [query, setQuery] = useState(activeChat.query || "");
+                const bottomOfChatRef = useRef(null);
+
+                useEffect(() => {
+                    setQuery(activeChat.query || "");
+                }, [activeChat.id, activeChat.query]);
+
+                useEffect(() => {
+                    bottomOfChatRef.current?.scrollIntoView({ behavior: 'smooth' });
+                }, [activeChat.results, isLoading]);
+
+                const handleSubmit = (e) => {
+                    e.preventDefault();
+                    if (!query.trim() || isLoading) return;
+                    onNewQuery(query);
+                };
+
+                const handleSuggestionClick = (suggestion) => { 
+                    setQuery(suggestion); 
+                    setQueryForSubmit(suggestion); 
+                };
+
+                return React.createElement('div', { className: "bg-slate-900/80 flex-1 flex flex-col h-full" },
+                    React.createElement('main', { className: "flex-1 overflow-y-auto p-1 sm:p-2 lg:p-3" },
+                        React.createElement('div', { className: "max-w-4xl mx-auto" },
+                            !activeChat.results && !isLoading && React.createElement('div', { className: "text-center pt-2" },
+                                React.createElement('div', { className: "inline-block bg-slate-800 p-3 rounded-full mb-2" },
+                                    React.createElement(BotIcon)
+                                ),
+                                React.createElement('h1', { className: "text-3xl sm:text-4xl font-bold text-white tracking-tight" }, "ChatCTD"),
+                                React.createElement('p', { className: "text-slate-400 mt-1" }, "Your personalized intelligence engine.")
+                            ),
+                            React.createElement('div', { className: "space-y-4" },
+                                activeChat.decomposedQuery && React.createElement('div', { className: "bg-slate-800/50 border border-slate-700 rounded-lg p-4 animate-fade-in" },
+                                    React.createElement('h2', { className: "text-xl font-semibold text-white mb-4" }, "Query Decomposition Plan"),
+                                    React.createElement('div', { className: "space-y-3 text-sm" },
+                                        React.createElement('p', { className: "font-mono bg-slate-900 p-2 rounded text-indigo-300" }, activeChat.decomposedQuery.graph_query),
+                                        React.createElement('p', { className: "font-mono bg-slate-900 p-2 rounded text-teal-300" }, activeChat.decomposedQuery.vector_query),
+                                        React.createElement('p', { className: "font-mono bg-slate-900 p-2 rounded text-amber-300" }, activeChat.decomposedQuery.structured_filter)
+                                    )
+                                ),
+                                activeChat.results && React.createElement('div', { className: "animate-fade-in" },
+                                    React.createElement('h2', { className: "text-xl font-semibold text-white mb-4" }, "Ranked & Explained Results"),
+                                    activeChat.results.length > 0 ? React.createElement('ul', { className: "space-y-4" },
+                                        activeChat.results.map((result, i) => React.createElement(ResultCard, { key: i, result: result }))
+                                    ) : React.createElement('p', { className: "text-slate-400 text-center py-8" }, "No results found for your query.")
+                                ),
+                                isLoading && React.createElement('div', { className: "text-center py-8" },
+                                    React.createElement(LoadingSpinner, { className: "h-8 w-8 mx-auto mb-4 text-purple-500" }),
+                                    React.createElement('p', { className: "text-slate-400" }, "Processing your query...")
+                                ),
+                                activeChat.error && React.createElement('div', { className: "bg-red-900/20 border border-red-500/50 rounded-lg p-4 text-red-300" },
+                                    React.createElement('p', {}, activeChat.error)
+                                ),
+                                React.createElement('div', { ref: bottomOfChatRef })
+                            )
+                        )
+                    ),
+                    React.createElement('footer', { className: "p-4 sm:p-6 lg:p-8 pb-[42px] border-t border-slate-800 bg-slate-900/80" },
+                        settings.useSmartSuggestions && !isLoading && !activeChat.results && React.createElement(QuerySuggestions, { suggestions: querySuggestions, onSuggestionClick: handleSuggestionClick }),
+                        React.createElement('div', { className: "max-w-4xl mx-auto" }, 
+                            React.createElement('form', { onSubmit: handleSubmit },
+                                React.createElement('div', { className: "relative" },
+                                    React.createElement('textarea', {
+                                        value: query,
+                                        onChange: (e) => setQuery(e.target.value),
+                                        className: "w-full bg-slate-800 border border-slate-700 rounded-lg p-4 pr-28 text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition resize-none",
+                                        placeholder: "e.g., Who in my network has scaled a fintech company past Series B?",
+                                        rows: "2"
+                                    }),
+                                    React.createElement('button', {
+                                        type: "submit",
+                                        disabled: isLoading,
+                                        className: "absolute top-2 right-2 bg-indigo-600 text-white font-semibold rounded-md px-3 py-1.5 flex items-center gap-1 hover:bg-indigo-500 disabled:bg-slate-600 disabled:cursor-not-allowed transition text-sm"
+                                    },
+                                        isLoading ? React.createElement(LoadingSpinner) : React.createElement(SearchIcon),
+                                        React.createElement('span', {}, "Search")
+                                    )
+                                )
+                            ),
+                            activeChat.error && React.createElement('div', { className: "bg-yellow-900/50 border border-yellow-700 text-yellow-300 p-2 rounded-lg text-center mt-4 text-sm" },
+                                React.createElement('p', {}, activeChat.error)
+                            )
+                        )
+                    )
+                );
+            };
+
+            const Sidebar = ({ isSidebarOpen, toggleSidebar, chatHistory, activeChatId, setActiveChatId, onNewChat, onSettingsClick, onDeleteChat }) => {
+                return React.createElement('aside', { className: `bg-slate-950/80 text-slate-300 flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? 'w-64' : 'w-20'}` }, 
+                    React.createElement('div', { className: `flex items-center p-4 border-b border-slate-800 h-16 ${isSidebarOpen ? 'justify-between' : 'justify-center'}` }, 
+                        React.createElement('h2', { className: `font-bold text-white overflow-hidden transition-all ${isSidebarOpen ? 'opacity-100' : 'opacity-0 w-0'}` }, "Chat History"), 
+                        React.createElement('button', { onClick: toggleSidebar, className: "p-2 rounded-md hover:bg-slate-800" }, React.createElement(MenuIcon))
+                    ), 
+                    React.createElement('div', { className: "p-2" }, 
+                        React.createElement('button', { onClick: onNewChat, className: "w-full flex items-center gap-3 p-3 rounded-md font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-colors" }, 
+                            React.createElement(PlusIcon), 
+                            React.createElement('span', { className: `transition-opacity ${isSidebarOpen ? 'opacity-100' : 'opacity-0 sr-only'}` }, "New Chat")
+                        )
+                    ), 
+                    React.createElement('nav', { className: "overflow-y-auto p-2 space-y-1 max-h-96" }, 
+                        chatHistory.map(chat => React.createElement('div', { key: chat.id, className: `flex items-center gap-3 p-3 rounded-md text-sm truncate ${activeChatId === chat.id ? 'bg-slate-800 text-white' : 'hover:bg-slate-800/50'}` }, 
+                            React.createElement('a', { href: "#", onClick: (e) => { e.preventDefault(); setActiveChatId(chat.id); }, className: "flex items-center gap-3 flex-1" }, 
+                                React.createElement(MessageSquareIcon), 
+                                React.createElement('span', { className: `transition-opacity ${isSidebarOpen ? 'opacity-100 flex-1' : 'opacity-0 sr-only'}` }, chat.title)
+                            ),
+                            isSidebarOpen && React.createElement('button', { onClick: () => onDeleteChat(chat.id), className: "p-1 rounded hover:bg-slate-700 text-slate-400 hover:text-red-400" }, React.createElement(TrashIcon, { className: "h-4 w-4" }))
+                        ))
+                    ), 
+                    React.createElement('div', { className: "p-4 border-t border-slate-800 space-y-3" }, 
+                        // Upload from Slack/Teams section
+                        React.createElement('div', { className: "space-y-2" },
+                            React.createElement('p', { className: `text-xs text-slate-400 font-medium ${isSidebarOpen ? 'opacity-100' : 'opacity-0 sr-only'}` }, "Import Contacts"),
+                            React.createElement('div', { className: "flex gap-2" },
+                                React.createElement('button', { 
+                                    onClick: () => alert('Slack integration coming soon! This will allow you to import your Slack workspace contacts.'),
+                                    className: "flex-1 flex items-center justify-center gap-2 p-2 rounded-md bg-purple-600 hover:bg-purple-500 text-white text-xs transition-colors",
+                                    title: "Import from Slack"
+                                }, 
+                                    React.createElement('span', {}, "💬"),
+                                    isSidebarOpen && React.createElement('span', {}, "Slack")
+                                ),
+                                React.createElement('button', { 
+                                    onClick: () => alert('Microsoft Teams integration coming soon! This will allow you to import your Teams contacts.'),
+                                    className: "flex-1 flex items-center justify-center gap-2 p-2 rounded-md bg-blue-600 hover:bg-blue-500 text-white text-xs transition-colors",
+                                    title: "Import from Teams"
+                                }, 
+                                    React.createElement('span', {}, "👥"),
+                                    isSidebarOpen && React.createElement('span', {}, "Teams")
+                                )
+                            )
+                        ),
+                        // User settings
+                        React.createElement('button', { onClick: onSettingsClick, className: "w-full flex items-center gap-4 p-2 rounded-md hover:bg-slate-800" }, 
+                            React.createElement('img', { src: "https://placehold.co/40x40/64748b/FFF?text=D", alt: "User Avatar", className: "w-10 h-10 rounded-full" }), 
+                            React.createElement('div', { className: `text-left overflow-hidden transition-opacity ${isSidebarOpen ? 'opacity-100' : 'opacity-0 sr-only'}` }, 
+                                React.createElement('p', { className: "font-semibold text-white" }, "Demo User"), 
+                                React.createElement('p', { className: "text-xs text-slate-400" }, "demo@ctd.ai")
+                            )
+                        )
+                    )
+                );
+            };
+
+            const SettingsModal = ({ isOpen, onClose, settings, onSettingsChange }) => {
+                if (!isOpen) return null;
+                return React.createElement('div', { className: "fixed inset-0 bg-black/60 z-50 flex items-center justify-center", onClick: onClose }, 
+                    React.createElement('div', { className: "bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-md", onClick: e => e.stopPropagation() }, 
+                        React.createElement('div', { className: "flex justify-between items-center mb-6" },
+                            React.createElement('h2', { className: "text-2xl font-bold text-white" }, "Settings"),
+                            React.createElement('button', { onClick: onClose, className: "p-2 rounded-full hover:bg-slate-700" }, React.createElement(XIcon))
+                        ), 
+                        React.createElement('div', {}, 
+                            React.createElement('div', { className: "flex items-center justify-between p-4 bg-slate-900 rounded-lg" }, 
+                                React.createElement('div', {}, 
+                                    React.createElement('p', { className: "font-semibold text-white flex items-center gap-2" },
+                                        React.createElement(SparklesIcon, { className: settings.useSmartSuggestions ? 'text-indigo-400' : 'text-slate-500' }),
+                                        "Enable Smart Suggestions"
+                                    ), 
+                                    React.createElement('p', { className: "text-sm text-slate-400 pl-7" }, "Get personalized query suggestions.")
+                                ), 
+                                React.createElement('label', { className: "flex items-center cursor-pointer" }, 
+                                    React.createElement('div', { className: "relative" }, 
+                                        React.createElement('input', { type: "checkbox", className: "sr-only", checked: settings.useSmartSuggestions, onChange: (e) => onSettingsChange({...settings, useSmartSuggestions: e.target.checked}) }), 
+                                        React.createElement('div', { className: "block bg-slate-700 w-14 h-8 rounded-full" }), 
+                                        React.createElement('div', { className: `dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform ${settings.useSmartSuggestions ? 'transform translate-x-6 bg-indigo-500' : ''}` })
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+            };
+
+            // Main App Component
+            function App() {
+                const [appState, setAppState] = useState('login');
+                const [mockData, setMockData] = useState(null);
+                const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+                const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+                const [settings, setSettings] = useState({ useSmartSuggestions: true });
+                const [chatHistory, setChatHistory] = useState([]);
+                const [activeChatId, setActiveChatId] = useState(null);
+                const [isLoading, setIsLoading] = useState(false);
+                const [querySuggestions, setQuerySuggestions] = useState([]);
+                const [queryForSubmit, setQueryForSubmit] = useState(null);
+                const [isFakerLoaded, setIsFakerLoaded] = useState(false);
+
+                // Initialize with hardcoded synthetic data
+                useEffect(() => {
+                    console.log("Initializing with hardcoded synthetic data...");
+                    setIsFakerLoaded(true); // Set to true since we have hardcoded data
+                }, []);
+
+                // Initialize with hardcoded synthetic data
+                useEffect(() => {
+                    if (isFakerLoaded && !mockData) {
+                        console.log("Initializing mock data with hardcoded synthetic data");
+                        
+                        // Create network connections for the synthetic people
+                        const networkGraph = { 'user': [] };
+                        const peopleDict = { 'user': { name: 'You' } };
+                        
+                        // Add all synthetic people to the data structure
+                        SYNTHETIC_PEOPLE.forEach((person, index) => {
+                            peopleDict[person.id] = person;
+                            networkGraph[person.id] = [];
+                            
+                            // 50% chance of direct connection to user
+                            if (Math.random() < 0.5) {
+                                networkGraph['user'].push(person.id);
+                            }
+                        });
+                        
+                        // Create connections between people
+                        SYNTHETIC_PEOPLE.forEach((person, index) => {
+                            const numConnections = Math.floor(Math.random() * 4) + 1; // 1-4 connections
+                            const availablePeople = SYNTHETIC_PEOPLE.filter(p => p.id !== person.id);
+                            
+                            for (let j = 0; j < numConnections && j < availablePeople.length; j++) {
+                                const friend = availablePeople[Math.floor(Math.random() * availablePeople.length)];
+                                if (!networkGraph[person.id].includes(friend.id)) {
+                                    networkGraph[person.id].push(friend.id);
+                                    // Make it bidirectional
+                                    if (!networkGraph[friend.id]) networkGraph[friend.id] = [];
+                                    if (!networkGraph[friend.id].includes(person.id)) {
+                                        networkGraph[friend.id].push(person.id);
+                                    }
+                                }
+                            }
+                        });
+                        
+                        const initialData = {
+                            people: peopleDict,
+                            networkGraph: networkGraph,
+                            allPeople: SYNTHETIC_PEOPLE
+                        };
+                        
+                        setMockData(initialData);
+                        console.log(`Initialized with ${SYNTHETIC_PEOPLE.length} synthetic people`);
+                    }
+                }, [isFakerLoaded, mockData]);
+
+                useEffect(() => {
+                    if (appState === 'chat' && chatHistory.length === 0 && mockData) {
+                        handleNewChat();
+                    }
+                }, [appState, chatHistory, mockData]);
+
+                useEffect(() => {
+                    if (activeChatId && settings.useSmartSuggestions && isFakerLoaded) {
+                        const activeChat = chatHistory.find(c => c.id === activeChatId);
+                        if (activeChat && !activeChat.results && !isLoading) {
+                            setQuerySuggestions(personalizedIntelligenceServer.getSuggestions());
+                        }
+                    }
+                }, [activeChatId, settings.useSmartSuggestions, isLoading, chatHistory, isFakerLoaded]);
+
+                useEffect(() => {
+                    if (queryForSubmit) {
+                        handleNewQuery(queryForSubmit);
+                        setQueryForSubmit(null);
+                    }
+                }, [queryForSubmit]);
+
+                const handleLogin = () => setAppState('chat');
+                
+                // No need for generateInitialPeople - we use hardcoded data
+                
+                const handleNewChat = () => {
+                    const newChat = { 
+                        id: `chat_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`, 
+                        title: "New Chat", 
+                        query: "", 
+                        decomposedQuery: null, 
+                        results: null, 
+                        error: null 
+                    };
+                    setChatHistory(prev => [newChat, ...prev]);
+                    setActiveChatId(newChat.id);
+                };
+
+                const handleDeleteChat = (chatId) => {
+                    setChatHistory(prev => prev.filter(chat => chat.id !== chatId));
+                    if (activeChatId === chatId) {
+                        const remainingChats = chatHistory.filter(chat => chat.id !== chatId);
+                        if (remainingChats.length > 0) {
+                            setActiveChatId(remainingChats[0].id);
+                        } else {
+                            handleNewChat();
+                        }
+                    }
+                };
+
+                const handleNewQuery = async (query) => {
+                    if (!querySubscriptionSystem.canMakeQuery()) {
+                        updateChat(activeChatId, { error: "Query limit reached. Please upgrade your plan." });
+                        return;
+                    }
+
+                    setIsLoading(true);
+                    updateChat(activeChatId, { query, error: null, results: null, decomposedQuery: null });
+                    
+                    try {
+                        console.log("Starting query processing for:", query);
+                        
+                        const rawPlan = await mockMCPCall(`Decompose: "${query}"`);
+                        console.log("Raw plan received:", rawPlan);
+                        const decomposedQuery = JSON.parse(rawPlan);
+                        updateChat(activeChatId, { decomposedQuery });
+                        
+                        const candidates = mockSimulateDBQueries(query);
+                        console.log("Candidates found:", candidates.length);
+                        
+                        if (candidates.length === 0) {
+                            updateChat(activeChatId, { results: [] });
+                        } else {
+                            const rawExplanation = await mockMCPCall(`Explain: ${JSON.stringify(candidates)}`, query);
+                            console.log("Raw explanation received:", rawExplanation);
+                            const fullResults = JSON.parse(rawExplanation);
+                            if(settings.useSmartSuggestions) personalizedIntelligenceServer.learn(fullResults, query);
+                            
+                            const activeChat = chatHistory.find(c => c.id === activeChatId);
+                            const newTitle = (activeChat?.title === "New Chat") ? 
+                                query.split(' ').slice(0, 4).join(' ') + '...' : 
+                                activeChat?.title;
+                            updateChat(activeChatId, { results: fullResults, title: newTitle });
+                        }
+                        
+                        // Record the query usage
+                        querySubscriptionSystem.recordQuery();
+                    } catch (err) { 
+                        console.error("Query failed:", err);
+                        console.error("Error details:", err.message, err.stack);
+                        updateChat(activeChatId, { error: `Query failed: ${err.message}` });
+                    } finally { 
+                        setIsLoading(false); 
+                    }
+                };
+                
+                const updateChat = (chatId, updates) => setChatHistory(prev => prev.map(chat => chat.id === chatId ? { ...chat, ...updates } : chat));
+                
+                const mockMCPCall = async (prompt, originalQuery = '') => {
+                    await new Promise(r => setTimeout(r, 1000));
+                    if (prompt.includes('Decompose')) {
+                        return JSON.stringify({ "graph_query": "Find paths from 'user' to Person nodes", "vector_query": "Semantic search for relevant terms", "structured_filter": "Analyze profiles and skills" });
+                    }
+                    if (prompt.includes('Explain')) {
+                        try {
+                            // Extract the candidates array from the prompt
+                            const match = prompt.match(/\[.*\]/s);
+                            if (!match) {
+                                console.error('No candidates array found in prompt:', prompt);
+                                return JSON.stringify([]);
+                            }
+                            
+                            const candidates = JSON.parse(match[0]);
+                            if (!Array.isArray(candidates)) {
+                                console.error('Candidates is not an array:', candidates);
+                                return JSON.stringify([]);
+                            }
+                            
+                            const queryWords = originalQuery.toLowerCase().split(' ').filter(w => w.length > 3);
+                            return JSON.stringify(
+                                candidates.map(c => {
+                                    const matchingSkill = (c.skills || []).find(s => queryWords.some(qw => s.toLowerCase().includes(qw)));
+                                    let explanation = `Analysis indicates ${c.name} is a strong match. `;
+
+                                    if (matchingSkill) {
+                                        explanation += `Their expertise in "${matchingSkill}" directly relates to your query. `;
+                                    } else if (c.industry && queryWords.some(qw => c.industry.toLowerCase().includes(qw))) {
+                                        explanation += `Their background in the ${c.industry} industry is highly relevant. `;
+                                    } else {
+                                        explanation += `Their professional profile aligns with your search criteria. `;
+                                    }
+                                    explanation += `The recommended path is via ${c.path && c.path.length > 1 ? c.path[1] : 'a direct connection'}.`;
+                                    return { ...c, explanation };
+                                })
+                            );
+                        } catch (error) {
+                            console.error('Error in mockMCPCall Explain:', error);
+                            return JSON.stringify([]);
+                        }
+                    }
+                    return "{}";
+                };
+                
+                // No need for generateRandomPeople - we use hardcoded data
+
+                const mockSimulateDBQueries = (query) => {
+                    if (!mockData || !mockData.people) {
+                        console.log("No mock data available for query simulation");
+                        return [];
+                    }
+                    
+                    const q_lower = query.toLowerCase();
+                    console.log(`Simulating query: "${query}" against ${Object.keys(mockData.people).length} people`);
+                    
+                    // Enhanced matching logic using all Faker.js Person module fields
+                    const matches = Object.values(mockData.people).filter(p => {
+                        if (!p || p.id === 'user') return false;
+                        
+                        const titleMatch = p.title && p.title.toLowerCase().includes(q_lower);
+                        const profileMatch = p.profile && p.profile.toLowerCase().includes(q_lower);
+                        const industryMatch = p.industry && p.industry.toLowerCase().includes(q_lower);
+                        const skillsMatch = p.skills && p.skills.some(s => s.toLowerCase().includes(q_lower));
+                        const bioMatch = p.bio && p.bio.toLowerCase().includes(q_lower);
+                        const jobAreaMatch = p.jobArea && p.jobArea.toLowerCase().includes(q_lower);
+                        const jobDescriptorMatch = p.jobDescriptor && p.jobDescriptor.toLowerCase().includes(q_lower);
+                        const jobTypeMatch = p.jobType && p.jobType.toLowerCase().includes(q_lower);
+                        const nameMatch = p.name && p.name.toLowerCase().includes(q_lower);
+                        
+                        // Word-based matching for better semantic search
+                        const queryWords = q_lower.split(' ').filter(word => word.length > 2);
+                        const wordMatch = queryWords.some(word => 
+                            (p.title && p.title.toLowerCase().includes(word)) ||
+                            (p.profile && p.profile.toLowerCase().includes(word)) ||
+                            (p.industry && p.industry.toLowerCase().includes(word)) ||
+                            (p.skills && p.skills.some(s => s.toLowerCase().includes(word))) ||
+                            (p.bio && p.bio.toLowerCase().includes(word)) ||
+                            (p.jobArea && p.jobArea.toLowerCase().includes(word)) ||
+                            (p.jobDescriptor && p.jobDescriptor.toLowerCase().includes(word)) ||
+                            (p.jobType && p.jobType.toLowerCase().includes(word)) ||
+                            (p.name && p.name.toLowerCase().includes(word))
+                        );
+                        
+                        return titleMatch || profileMatch || industryMatch || skillsMatch || bioMatch || 
+                               jobAreaMatch || jobDescriptorMatch || jobTypeMatch || nameMatch || wordMatch;
+                    });
+                    
+                    console.log(`Found ${matches.length} potential matches`);
+                    
+                    // Path finding algorithm
+                    const findPath = (start, end, graph) => {
+                        if (start === end) return [start];
+                        
+                        const queue = [[start, [start]]];
+                        const visited = new Set([start]);
+                        
+                        while (queue.length > 0) {
+                            const [current, path] = queue.shift();
+                            const neighbors = graph[current] || [];
+                            
+                            for (const neighbor of neighbors) {
+                                if (!visited.has(neighbor)) {
+                                    visited.add(neighbor);
+                                    const newPath = [...path, neighbor];
+                                    
+                                    if (neighbor === end) {
+                                        return newPath;
+                                    }
+                                    
+                                    queue.push([neighbor, newPath]);
+                                }
+                            }
+                        }
+                        return null;
+                    };
+                    
+                    // Find paths and filter by connectivity
+                    const resultsWithPaths = matches.map(p => {
+                        const path = findPath('user', p.id, mockData.networkGraph);
+                        return { ...p, path };
+                    }).filter(p => p.path && p.path.length > 1); // Must have a path to user
+                    
+                    // Sort by path length (closer connections first) and take top 5
+                    const sortedResults = resultsWithPaths
+                        .sort((a, b) => a.path.length - b.path.length)
+                        .slice(0, 5)
+                        .map(p => {
+                            // Add direct network connections (simulate integration accounts)
+                            const hasDirectNetwork = Math.random() > 0.6; // 40% chance
+                            const directConnections = hasDirectNetwork ? [
+                                {
+                                    name: SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                    platform: 'LinkedIn',
+                                    lastInteraction: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toLocaleDateString()
+                                },
+                                {
+                                    name: SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                    platform: 'Twitter',
+                                    lastInteraction: new Date(Date.now() - Math.random() * 60 * 24 * 60 * 60 * 1000).toLocaleDateString()
+                                }
+                            ] : [];
+
+                            // Add multihop connections (simulate additional paths)
+                            const hasMultihopConnections = Math.random() > 0.7; // 30% chance
+                            const multihopConnections = hasMultihopConnections ? [
+                                {
+                                    path: [
+                                        SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                        SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                        p.name
+                                    ],
+                                    details: [
+                                        {
+                                            who: SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                            what: 'Former colleague at ' + companies[Math.floor(Math.random() * companies.length)],
+                                            when: new Date(Date.now() - Math.random() * 2 * 365 * 24 * 60 * 60 * 1000).toLocaleDateString()
+                                        },
+                                        {
+                                            who: SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                            what: 'Met at ' + ['Tech', 'Business', 'Innovation', 'Digital', 'Future'].join(' ') + ' conference',
+                                            when: new Date(Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000).toLocaleDateString()
+                                        }
+                                    ]
+                                },
+                                {
+                                    path: [
+                                        SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                        p.name
+                                    ],
+                                    details: [
+                                        {
+                                            who: SYNTHETIC_PEOPLE[Math.floor(Math.random() * SYNTHETIC_PEOPLE.length)].name,
+                                            what: 'University alumni from ' + ['MBA', 'Computer Science', 'Business', 'Engineering'].join(' ') + ' program',
+                                            when: new Date(Date.now() - Math.random() * 3 * 365 * 24 * 60 * 60 * 1000).toLocaleDateString()
+                                        }
+                                    ]
+                                }
+                            ] : [];
+
+                            return {
+                            ...p,
+                            path: p.path.map(id => {
+                                const person = mockData.people[id];
+                                return person ? person.name : 'Unknown';
+                                }),
+                                directConnections,
+                                multihopConnections
+                            };
+                        });
+                    
+                    console.log(`Returning ${sortedResults.length} results with paths`);
+                    return sortedResults;
+                };
+
+                const activeChat = chatHistory.find(c => c.id === activeChatId) || {};
+
+                if (appState === 'login') return React.createElement(LoginScreen, { onLogin: handleLogin });
+                if (!isFakerLoaded || !mockData) return React.createElement('div', { className: "bg-slate-900 min-h-screen flex items-center justify-center text-white" }, 
+                    React.createElement('div', { className: "text-center" },
+                        React.createElement(LoadingSpinner, { className: "h-8 w-8 mx-auto mb-4" }),
+                        React.createElement('p', { className: "text-lg mb-2" }, "Initializing ChatCTD Demo"),
+                        React.createElement('p', { className: "text-sm text-slate-400" }, "Loading synthetic network data...")
+                    )
+                );
+                
+                if (appState === 'chat') {
+                    return React.createElement('div', { className: "flex h-screen bg-slate-900 text-slate-300 font-sans" }, 
+                        React.createElement(Sidebar, {
+                            isSidebarOpen: isSidebarOpen,
+                            toggleSidebar: () => setIsSidebarOpen(!isSidebarOpen),
+                            chatHistory: chatHistory,
+                            activeChatId: activeChatId,
+                            setActiveChatId: setActiveChatId,
+                            onNewChat: handleNewChat,
+                            onSettingsClick: () => setIsSettingsOpen(true),
+                            onDeleteChat: handleDeleteChat
+                        }), 
+                        React.createElement('div', { className: "flex-1 flex flex-col h-full" },
+                            // Query utilization header
+                            React.createElement('div', { className: "bg-slate-800 border-b border-slate-700 px-4 py-2 flex items-center justify-between" },
+                                React.createElement('div', { className: "flex items-center gap-4" },
+                                    React.createElement('span', { className: "text-sm text-slate-300" }, querySubscriptionSystem.plan.name),
+                                    React.createElement('div', { className: "flex items-center gap-2" },
+                                        React.createElement(BarChartIcon),
+                                        React.createElement('span', { className: "text-xs text-slate-400" }, `${querySubscriptionSystem.plan.usedQueries}/${querySubscriptionSystem.plan.monthlyQueries} queries used`)
+                                    )
+                                ),
+                                React.createElement('div', { className: "w-32 bg-slate-700 rounded-full h-2" },
+                                    React.createElement('div', { 
+                                        className: "bg-indigo-500 h-2 rounded-full transition-all duration-300", 
+                                        style: { width: `${Math.min(querySubscriptionSystem.getUtilizationFraction() * 100, 100)}%` }
+                                    })
+                                )
+                            ),
+                            React.createElement(ChatInterface, {
+                                activeChat: activeChat,
+                                onNewQuery: handleNewQuery,
+                                isLoading: isLoading,
+                                settings: settings,
+                                querySuggestions: querySuggestions,
+                                setQueryForSubmit: setQueryForSubmit
+                            })
+                        ),
+                        React.createElement(SettingsModal, {
+                            isOpen: isSettingsOpen,
+                            onClose: () => setIsSettingsOpen(false),
+                            settings: settings,
+                            onSettingsChange: setSettings
+                        })
+                    );
+                }
+                return React.createElement('div', { className: "bg-slate-900 min-h-screen flex items-center justify-center text-white" }, "Loading Application...");
+            }
+
+            // Render the demo
+            const demoRoot = document.getElementById('demo-root');
+            if (demoRoot && React && ReactDOM) {
+                try {
+                    const root = ReactDOM.createRoot(demoRoot);
+                    root.render(React.createElement(App));
+                } catch (error) {
+                    console.error('React rendering failed:', error);
+                    demoRoot.innerHTML = '<div class="p-8 text-center"><p class="text-red-400">Demo failed to initialize. Please refresh the page.</p></div>';
+                }
+            } else {
+                console.error('Demo root element or React not found');
+                if (demoRoot) {
+                    demoRoot.innerHTML = '<div class="p-8 text-center"><p class="text-red-400">Demo dependencies not loaded. Please refresh the page.</p></div>';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+

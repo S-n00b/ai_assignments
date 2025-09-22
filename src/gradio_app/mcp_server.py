@@ -1138,7 +1138,7 @@ class EnterpriseMCPServer:
         
         logger.info(f"Initialized Enterprise MCP Server: {server_name}")
     
-    async def start_server(self, host: str = "0.0.0.0", port: int = 8000):
+    async def start_server(self, host: str = "0.0.0.0", port: int = 8081):
         """
         Start the MCP server.
         

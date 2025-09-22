@@ -1,0 +1,66 @@
+🚀 AI Assignments Project - Quick Commands Reference
+==================================================
+
+📋 Core Server Commands:
+
+1. Activate Virtual Environment:
+   & C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+
+2. Start Services (4 terminals):
+   Terminal 1: chroma run --host 0.0.0.0 --port 8081 --path chroma_data
+   Terminal 2: mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000
+   Terminal 3: python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
+   Terminal 4: python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+
+🌐 Service URLs:
+   • Enterprise Platform: http://localhost:8080
+   • Gradio App: http://localhost:7860
+   • MLflow UI: http://localhost:5000
+   • ChromaDB: http://localhost:8081
+
+🔐 Authentication:
+   Current Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc1ODQ4NDA0Mn0.R3acFFWMofqsmuklauIeYuwf74D6lS0-vgdGp-Me6mE
+   Get New Token: .\scripts\get-auth-token.ps1
+
+🔄 Sync Commands:
+   • Basic Sync: .\scripts\basic-sync.ps1
+   • Generate Dataset: python scripts\generate_evaluation_dataset.py
+   • Check Prompts: ls cache\ai_tool_prompts\
+
+🧪 Testing Commands:
+   • Run Tests: pytest tests/ -v
+   • Format Code: black src/ tests/
+   • Lint Code: flake8 src/ tests/
+
+📚 Documentation:
+   • Build Docs: cd docs/ ; mkdocs build
+   • Serve Docs: cd docs/ ; mkdocs serve
+
+🔍 Health Checks:
+   • Enterprise: curl http://localhost:8080/health
+   • MLflow: curl http://localhost:5000/health
+   • ChromaDB: curl http://localhost:8081/api/v1/heartbeat
+
+📊 API Endpoints:
+   • Models: http://localhost:8080/api/models
+   • Experiments: http://localhost:8080/api/experiments
+   • Ollama Models: http://localhost:8080/api/ollama/models
+   • Prompt Cache: http://localhost:8080/api/prompts/cache/summary
+
+🛠️ Troubleshooting:
+   • Check Ports: netstat -an | findstr ":8080"
+   • Check Processes: tasklist /fi "imagename eq python.exe"
+   • View Logs: type logs\llmops.log
+
+🎯 Quick Start Workflow:
+   1. Activate venv
+   2. Start all 4 services
+   3. Run: .\scripts\basic-sync.ps1
+   4. Access: http://localhost:8080/docs
+
+📁 Key Files:
+   • SERVER_COMMANDS.md - Complete command reference
+   • scripts/basic-sync.ps1 - Model sync script
+   • data/evaluation_datasets/ - Generated datasets
+
+✨ For complete documentation, see: SERVER_COMMANDS.md

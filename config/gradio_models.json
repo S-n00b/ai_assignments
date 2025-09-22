@@ -1,0 +1,50 @@
+﻿{
+    "model_capabilities":  {
+                               "codellama:7b":  [
+                                                    "code_generation",
+                                                    "debugging",
+                                                    "documentation"
+                                                ],
+                               "llama3.1:8b":  [
+                                                   "text_generation",
+                                                   "question_answering",
+                                                   "reasoning"
+                                               ],
+                               "gemma3:1b":  [
+                                                 "text_generation",
+                                                 "question_answering",
+                                                 "reasoning"
+                                             ],
+                               "mistral:7b":  [
+                                                  "text_generation",
+                                                  "question_answering",
+                                                  "reasoning"
+                                              ]
+                           },
+    "available_models":  [
+                             {
+                                 "type":  "general",
+                                 "name":  "llama3.1:8b",
+                                 "status":  "available",
+                                 "size_gb":  4.58
+                             },
+                             {
+                                 "type":  "code_generation",
+                                 "name":  "codellama:7b",
+                                 "status":  "available",
+                                 "size_gb":  3.56
+                             },
+                             {
+                                 "type":  "general",
+                                 "name":  "mistral:7b",
+                                 "status":  "available",
+                                 "size_gb":  4.07
+                             },
+                             {
+                                 "type":  "general",
+                                 "name":  "gemma3:1b",
+                                 "status":  "available",
+                                 "size_gb":  0.76
+                             }
+                         ]
+}

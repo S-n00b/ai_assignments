@@ -1,48 +1,205 @@
-# Lenovo AAITC Solutions - Requirements
-# Q3 2025 Model Evaluation and AI Architecture Framework
+# Lenovo AAITC Solutions - Complete Requirements
+# Organized by module usage and aligned with project structure
+# This file contains ALL dependencies for full development environment
 
-# Core dependencies
+# =============================================================================
+# CORE PYTHON STANDARD LIBRARIES (Built-in - no installation needed)
+# =============================================================================
+# asyncio, json, logging, time, datetime, pathlib, os, sys, subprocess
+# uuid, enum, dataclasses, abc, concurrent.futures, traceback
+# hashlib, secrets, re, base64, collections, typing
+
+# =============================================================================
+# CORE DATA PROCESSING & SCIENTIFIC COMPUTING
+# =============================================================================
 numpy>=1.24.0
 pandas>=2.0.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-plotly>=5.15.0
+scipy>=1.11.0
+statsmodels>=0.14.0
 
-# Machine Learning and AI
+# =============================================================================
+# WEB FRAMEWORKS & API SERVERS
+# =============================================================================
+# Assignment 1: Gradio App (Model Evaluation Interface)
+gradio>=4.0.0
+
+# Assignment 2: Enterprise FastAPI Platform
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
+pydantic-settings>=2.1.0
+
+# Additional Web Frameworks
+streamlit>=1.25.0
+
+# =============================================================================
+# MACHINE LEARNING & AI FRAMEWORKS
+# =============================================================================
+# Core ML/AI
 torch>=2.0.0
 transformers>=4.30.0
 scikit-learn>=1.3.0
 sentence-transformers>=2.2.0
 
-# Evaluation metrics
-rouge-score>=0.1.2
-bert-score>=0.3.13
-nltk>=3.8.0
-spacy>=3.6.0
+# LangChain Ecosystem (AI Architecture)
+langchain>=0.1.0
+langgraph>=0.0.20
+autogen>=0.2.0
+crewai>=0.1.0
 
-# Web framework and UI
-gradio>=4.0.0
-fastapi>=0.100.0
-uvicorn>=0.23.0
-streamlit>=1.25.0
+# Additional AI/ML Libraries
+datasets>=2.15.0
+joblib>=1.3.2
 
-# API clients for latest models
+# =============================================================================
+# API CLIENTS FOR LATEST MODELS
+# =============================================================================
 openai>=1.0.0
 anthropic>=0.7.0
 huggingface-hub>=0.16.0
 
-# Database and storage
-sqlalchemy>=2.0.0
-redis>=4.6.0
-chromadb>=0.4.0
-pinecone-client>=2.2.0
+# =============================================================================
+# EXPERIMENT TRACKING & MLOPS
+# =============================================================================
+# MLflow (Enterprise LLMOps)
+mlflow>=2.8.1
+mlflow[extras]>=2.8.1
 
-# Monitoring and logging
+# AutoML & Optimization
+optuna>=3.4.0
+ray[tune]>=2.8.0
+hyperopt>=0.2.7
+
+# Additional Experiment Tracking
+wandb>=0.15.0
+neptune>=1.2.0
+
+# =============================================================================
+# VECTOR DATABASES & EMBEDDINGS
+# =============================================================================
+chromadb>=0.4.18
+weaviate-client>=3.25.3
+pinecone-client>=2.2.4
+faiss-cpu>=1.7.4
+
+# =============================================================================
+# DATABASES & STORAGE
+# =============================================================================
+sqlalchemy>=2.0.0
+alembic>=1.13.1
+redis>=4.6.0
+psycopg2-binary>=2.9.9
+asyncpg>=0.29.0
+
+# =============================================================================
+# MONITORING & OBSERVABILITY
+# =============================================================================
 prometheus-client>=0.17.0
 grafana-api>=1.0.3
 langfuse>=2.0.0
+psutil>=5.9.0
+memory-profiler>=0.61.0
+line-profiler>=4.1.0
 
-# Testing dependencies
+# =============================================================================
+# VISUALIZATION & DASHBOARDS
+# =============================================================================
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# =============================================================================
+# ASYNC HTTP & NETWORKING
+# =============================================================================
+aiohttp>=3.8.0
+httpx>=0.24.0
+requests>=2.31.0
+urllib3>=2.0.0
+websockets>=11.0.0
+socketio>=5.10.0
+
+# =============================================================================
+# CONFIGURATION & ENVIRONMENT
+# =============================================================================
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+toml>=0.10.2
+configparser>=5.3.0
+
+# =============================================================================
+# SECURITY & AUTHENTICATION
+# =============================================================================
+python-jose[cryptography]>=3.3.0
+PyJWT>=2.8.0
+passlib[bcrypt]>=1.7.4
+cryptography>=41.0.0
+python-multipart>=0.0.6
+
+# =============================================================================
+# FILE HANDLING & UTILITIES
+# =============================================================================
+aiofiles>=24.1.0
+python-magic>=0.4.27
+tqdm>=4.65.0
+rich>=13.5.0
+click>=8.1.0
+typer>=0.9.0
+
+# =============================================================================
+# ENTERPRISE MLOPS SPECIFIC
+# =============================================================================
+# Ollama Integration
+ollama>=0.1.7
+
+# Docker & Kubernetes
+docker>=6.1.0
+kubernetes>=27.2.0
+helm>=3.13.0
+
+# =============================================================================
+# EVALUATION METRICS & NLP
+# =============================================================================
+rouge-score>=0.1.2
+bert-score>=0.3.13
+nltk>=3.8.0
+spacy>=3.6.0
+textstat>=0.7.0
+wordcloud>=1.9.0
+
+# =============================================================================
+# TIME & DATE HANDLING
+# =============================================================================
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# =============================================================================
+# FILE & DATA HANDLING
+# =============================================================================
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# =============================================================================
+# ASYNC PROGRAMMING
+# =============================================================================
+asyncio-mqtt>=0.13.0
+aioredis>=2.0.0
+
+# =============================================================================
+# IMAGE PROCESSING (Multimodal Models)
+# =============================================================================
+Pillow>=10.0.0
+opencv-python>=4.8.0
+torchvision>=0.15.0
+
+# =============================================================================
+# AUDIO PROCESSING (Multimodal Models)
+# =============================================================================
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# =============================================================================
+# TESTING FRAMEWORK (Complete)
+# =============================================================================
 pytest>=7.4.0
 pytest-asyncio>=0.21.0
 pytest-cov>=4.1.0
@@ -59,10 +216,11 @@ coverage>=7.2.0
 factory-boy>=3.3.0
 faker>=19.0.0
 responses>=0.23.0
-httpx>=0.24.0
 aioresponses>=0.7.4
 
-# Development and code quality
+# =============================================================================
+# DEVELOPMENT & CODE QUALITY (Complete)
+# =============================================================================
 black>=23.0.0
 flake8>=6.0.0
 mypy>=1.5.0
@@ -71,191 +229,182 @@ pre-commit>=3.3.0
 bandit>=1.7.0
 safety>=2.3.0
 
-# Utilities
-python-dotenv>=1.0.0
-pydantic>=2.0.0
-httpx>=0.24.0
-aiohttp>=3.8.0
-asyncio>=3.4.3
-
-# Jupyter and notebook support
+# =============================================================================
+# JUPYTER & NOTEBOOK SUPPORT
+# =============================================================================
 jupyter>=1.0.0
 ipykernel>=6.25.0
 notebook>=7.0.0
 
-# Additional AI/ML libraries
-langchain>=0.1.0
-langgraph>=0.0.20
-autogen>=0.2.0
-crewai>=0.1.0
-
-# Vector databases and embeddings
-faiss-cpu>=1.7.4
-sentence-transformers>=2.2.0
-weaviate-client>=3.25.3
-chromadb>=0.4.18
-
-# Model Context Protocol (MCP)
-mcp>=0.1.0
-
-# Production deployment
-gunicorn>=21.2.0
-docker>=6.1.0
-kubernetes>=27.2.0
-
-# Security and authentication
-cryptography>=41.0.0
-python-jose>=3.3.0
-passlib>=1.7.4
-
-# Configuration management
-pyyaml>=6.0.0
-toml>=0.10.2
-configparser>=5.3.0
-
-# Time and date handling
-python-dateutil>=2.8.0
-pytz>=2023.3
-
-# File and data handling
-openpyxl>=3.1.0
-xlsxwriter>=3.1.0
-python-magic>=0.4.27
-
-# Networking and HTTP
-requests>=2.31.0
-urllib3>=2.0.0
-websockets>=11.0.0
-
-# Async programming
-asyncio-mqtt>=0.13.0
-aioredis>=2.0.0
-
-# Scientific computing
-scipy>=1.11.0
-statsmodels>=0.14.0
-
-# Image processing (for multimodal models)
-Pillow>=10.0.0
-opencv-python>=4.8.0
-
-# Audio processing (for multimodal models)
-librosa>=0.10.0
-soundfile>=0.12.0
-
-# Text processing
-textstat>=0.7.0
-wordcloud>=1.9.0
-pyenchant>=3.2.0
-
-# Performance monitoring
-psutil>=5.9.0
-memory-profiler>=0.61.0
-line-profiler>=4.1.0
-
-# Documentation
+# =============================================================================
+# DOCUMENTATION (Complete)
+# =============================================================================
 sphinx>=7.1.0
 mkdocs>=1.5.0
 mkdocs-material>=9.2.0
 
-# Version control and CI/CD
+# =============================================================================
+# VERSION CONTROL & CI/CD
+# =============================================================================
 gitpython>=3.1.0
-pre-commit>=3.3.0
 
-# Environment management
+# =============================================================================
+# ENVIRONMENT MANAGEMENT
+# =============================================================================
 conda>=23.0.0
 pipenv>=2023.7.0
 
-# Cloud providers (optional)
+# =============================================================================
+# CLOUD PROVIDERS (Optional)
+# =============================================================================
 boto3>=1.28.0  # AWS
 google-cloud-aiplatform>=1.35.0  # Google Cloud
 azure-ai-ml>=1.12.0  # Azure
+google-cloud-storage>=2.10.0
+azure-storage-blob>=12.19.0
 
-# Additional utilities
-tqdm>=4.65.0
-rich>=13.5.0
-click>=8.1.0
-typer>=0.9.0
-
-# Model serving and inference
+# =============================================================================
+# MODEL SERVING & INFERENCE
+# =============================================================================
 torchserve>=0.8.0
 triton-client>=2.35.0
 
-# Experiment tracking
-wandb>=0.15.0
-mlflow>=2.8.1
-mlflow[extras]>=2.8.1
-neptune>=1.2.0
-
-# AutoML and Optimization
-optuna>=3.4.0
-ray[tune]>=2.8.0
-hyperopt>=0.2.7
-
-# Enterprise MLOps
-ollama>=0.1.7
-aiofiles>=24.1.0
-psutil>=7.1.0
-
-# Data validation
+# =============================================================================
+# DATA VALIDATION
+# =============================================================================
 great-expectations>=0.17.0
 pandera>=0.17.0
 
-# Time series analysis
+# =============================================================================
+# TIME SERIES ANALYSIS
+# =============================================================================
 prophet>=1.1.0
 statsforecast>=1.5.0
 
-# Graph and network analysis
+# =============================================================================
+# GRAPH & NETWORK ANALYSIS
+# =============================================================================
 networkx>=3.1.0
 igraph>=0.10.0
 
-# Geospatial analysis
+# =============================================================================
+# GEOSPATIAL ANALYSIS
+# =============================================================================
 geopandas>=0.13.0
 folium>=0.14.0
 
-# Financial analysis
+# =============================================================================
+# FINANCIAL ANALYSIS
+# =============================================================================
 yfinance>=0.2.0
 quantlib>=1.32.0
 
-# Natural language processing
-spacy>=3.6.0
+# =============================================================================
+# NATURAL LANGUAGE PROCESSING (Advanced)
+# =============================================================================
 stanza>=1.6.0
 flair>=0.12.0
 
-# Computer vision
-torchvision>=0.15.0
+# =============================================================================
+# COMPUTER VISION (Advanced)
+# =============================================================================
 albumentations>=1.3.0
 imgaug>=0.4.0
 
-# Reinforcement learning
+# =============================================================================
+# REINFORCEMENT LEARNING
+# =============================================================================
 gym>=0.29.0
 stable-baselines3>=2.0.0
 
-# Quantum computing (for future AI applications)
+# =============================================================================
+# QUANTUM COMPUTING (Future AI Applications)
+# =============================================================================
 qiskit>=0.44.0
 cirq>=1.1.0
 
-# Blockchain and Web3 (for decentralized AI)
+# =============================================================================
+# BLOCKCHAIN & WEB3 (Decentralized AI)
+# =============================================================================
 web3>=6.9.0
 eth-account>=0.8.0
 
-# Edge computing and IoT
+# =============================================================================
+# EDGE COMPUTING & IOT
+# =============================================================================
 paho-mqtt>=1.6.0
 pyserial>=3.5.0
 
-# Game development and simulation
+# =============================================================================
+# GAME DEVELOPMENT & SIMULATION
+# =============================================================================
 pygame>=2.5.0
 arcade>=2.6.0
 
-# Bioinformatics and genomics
+# =============================================================================
+# BIOINFORMATICS & GENOMICS
+# =============================================================================
 biopython>=1.81.0
 pysam>=0.21.0
 
-# Astronomy and physics
+# =============================================================================
+# ASTRONOMY & PHYSICS
+# =============================================================================
 astropy>=5.3.0
 sympy>=1.12.0
 
-# Additional specialized libraries
+# =============================================================================
+# SPECIALIZED LIBRARIES
+# =============================================================================
 rdkit>=2023.3.0  # Chemistry
 pymatgen>=2023.8.0  # Materials science
 shapely>=2.0.0  # Geometric analysis
+
+# =============================================================================
+# NEO4J INTEGRATION
+# =============================================================================
+neo4j>=5.15.0
+py2neo>=2021.2.3
+
+# =============================================================================
+# LANGGRAPH STUDIO INTEGRATION
+# =============================================================================
+langgraph-studio>=0.0.1
+
+# =============================================================================
+# JSON & SERIALIZATION
+# =============================================================================
+orjson>=3.9.10
+msgpack>=1.0.7
+
+# =============================================================================
+# CACHING
+# =============================================================================
+memcached>=1.59
+
+# =============================================================================
+# MESSAGE QUEUES
+# =============================================================================
+celery>=5.3.4
+kombu>=5.3.4
+
+# =============================================================================
+# LOGGING & STRUCTURED LOGGING
+# =============================================================================
+structlog>=23.2.0
+
+# =============================================================================
+# MODEL CONTEXT PROTOCOL (MCP)
+# =============================================================================
+mcp>=0.1.0
+
+# =============================================================================
+# SPEECH RECOGNITION & TTS (Copilot Integration)
+# =============================================================================
+speech-recognition>=3.10.0
+pyttsx3>=2.90
+
+# =============================================================================
+# STREAMLIT PLOTLY EVENTS
+# =============================================================================
+streamlit-plotly-events>=0.0.6

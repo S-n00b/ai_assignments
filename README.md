@@ -43,9 +43,9 @@ A comprehensive enterprise-grade AI operations platform built for Lenovo AAITC a
 | ---------------------- | ----- | ---------------------- | -------------------------- |
 | **Enterprise FastAPI** | 8080  | http://localhost:8080  | Main enterprise platform   |
 | **Gradio App**         | 7860  | http://localhost:7860  | Model evaluation interface |
-| **MkDocs Docs**        | 8000  | http://localhost:8000  | Documentation site         |
-| **Chroma Vector DB**   | 8000  | http://localhost:8000  | Embeddings database        |
-| **LangGraph Studio**   | 8000  | http://localhost:8000  | Workflow visualization     |
+| **MkDocs Docs**        | 8082  | http://localhost:8082  | Documentation site         |
+| **Chroma Vector DB**   | 8081  | http://localhost:8081  | Embeddings database        |
+| **LangGraph Studio**   | 8080  | http://localhost:8080  | Workflow visualization     |
 | **MLflow Tracking**    | 5000  | http://localhost:5000  | Experiment tracking        |
 | **Ollama LLM**         | 11434 | http://localhost:11434 | Local LLM server           |
 | **Grafana**            | 3000  | http://localhost:3000  | Monitoring dashboards      |
@@ -83,7 +83,7 @@ python -m src.enterprise_llmops.simple_app
 - **API Documentation**: http://localhost:8080/docs
 - **Health Check**: http://localhost:8080/health
 - **Model Evaluation**: http://localhost:7860
-- **Documentation**: http://localhost:8000
+- **Documentation**: http://localhost:8082
 - **MLflow UI**: http://localhost:5000 (when MLflow is running)
 - **Ollama API**: http://localhost:11434 (when Ollama is running)
 
@@ -157,7 +157,7 @@ ai_assignments/
 | ----------------------- | ---------------------------- | --------------------------------------------- |
 | **Enterprise Platform** | http://localhost:8080        | FastAPI backend with full enterprise features |
 | **Model Evaluation**    | http://localhost:7860        | Gradio interface for model prototyping        |
-| **Documentation**       | http://localhost:8000        | MkDocs documentation site                     |
+| **Documentation**       | http://localhost:8082        | MkDocs documentation site                     |
 | **API Docs**            | http://localhost:8080/docs   | FastAPI auto-generated documentation          |
 | **Health Check**        | http://localhost:8080/health | System health monitoring                      |
 
@@ -278,7 +278,7 @@ Our documentation is organized into two distinct categories with professional co
 
 ### **Documentation URLs**
 
-- **Local Development**: [http://localhost:8000](http://localhost:8000)
+- **Local Development**: [http://localhost:8082](http://localhost:8082)
 - **GitHub Pages**: [https://s-n00b.github.io/ai_assignments](https://s-n00b.github.io/ai_assignments)
 - **API Documentation**: [http://localhost:8080/docs](http://localhost:8080/docs)
 - **Live Applications**: [http://localhost:8080](http://localhost:8080)
@@ -350,7 +350,7 @@ This project is developed for Lenovo AAITC assignments and educational purposes.
 
 For questions and support:
 
-- Check the documentation at http://localhost:8000
+- Check the documentation at http://localhost:8082
 - Review the API documentation at http://localhost:8080/docs
 - See [completed.md](completed.md) for recent achievements
 - Check [TODO.md](TODO.md) for remaining tasks

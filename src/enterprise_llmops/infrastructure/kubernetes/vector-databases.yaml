@@ -18,46 +18,46 @@ spec:
         app: chroma-server
     spec:
       containers:
-      - name: chroma
-        image: chromadb/chroma:latest
+        - name: chroma
+          image: chromadb/chroma:latest
         ports:
-        - containerPort: 8000
+        - containerPort: 8081
           name: http
         env:
         - name: CHROMA_SERVER_HOST
           value: "0.0.0.0"
         - name: CHROMA_SERVER_HTTP_PORT
-          value: "8000"
-        - name: CHROMA_DB_IMPL
-          value: "duckdb+parquet"
-        - name: PERSIST_DIRECTORY
-          value: "/chroma/chroma"
-        resources:
-          requests:
-            memory: "2Gi"
-            cpu: "1"
-          limits:
-            memory: "4Gi"
-            cpu: "2"
-        volumeMounts:
-        - name: chroma-data
-          mountPath: /chroma
+          value: "8081"
+            - name: CHROMA_DB_IMPL
+              value: "duckdb+parquet"
+            - name: PERSIST_DIRECTORY
+              value: "/chroma/chroma"
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1"
+            limits:
+              memory: "4Gi"
+              cpu: "2"
+          volumeMounts:
+            - name: chroma-data
+              mountPath: /chroma
         livenessProbe:
           httpGet:
-            path: /api/v1/heartbeat
-            port: 8000
+            path: /api/v2/heartbeat
+            port: 8081
           initialDelaySeconds: 30
           periodSeconds: 30
         readinessProbe:
           httpGet:
-            path: /api/v1/heartbeat
-            port: 8000
+            path: /api/v2/heartbeat
+            port: 8081
           initialDelaySeconds: 10
           periodSeconds: 10
       volumes:
-      - name: chroma-data
-        persistentVolumeClaim:
-          claimName: chroma-data-pvc
+        - name: chroma-data
+          persistentVolumeClaim:
+            claimName: chroma-data-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -69,8 +69,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 8000
-    targetPort: 8000
+  - port: 8081
+    targetPort: 8081
     name: http
   selector:
     app: chroma-server
@@ -108,50 +108,50 @@ spec:
         app: weaviate-server
     spec:
       containers:
-      - name: weaviate
-        image: semitechnologies/weaviate:1.21.6
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: QUERY_DEFAULTS_LIMIT
-          value: "25"
-        - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
-          value: "true"
-        - name: PERSISTENCE_DATA_PATH
-          value: "/var/lib/weaviate"
-        - name: DEFAULT_VECTORIZER_MODULE
-          value: "none"
-        - name: ENABLE_MODULES
-          value: "text2vec-openai,text2vec-cohere,text2vec-huggingface"
-        - name: CLUSTER_HOSTNAME
-          value: "node1"
-        resources:
-          requests:
-            memory: "4Gi"
-            cpu: "2"
-          limits:
-            memory: "8Gi"
-            cpu: "4"
-        volumeMounts:
-        - name: weaviate-data
-          mountPath: /var/lib/weaviate
-        livenessProbe:
-          httpGet:
-            path: /v1/meta
-            port: 8080
-          initialDelaySeconds: 30
-          periodSeconds: 30
-        readinessProbe:
-          httpGet:
-            path: /v1/meta
-            port: 8080
-          initialDelaySeconds: 10
-          periodSeconds: 10
+        - name: weaviate
+          image: semitechnologies/weaviate:1.21.6
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: QUERY_DEFAULTS_LIMIT
+              value: "25"
+            - name: AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED
+              value: "true"
+            - name: PERSISTENCE_DATA_PATH
+              value: "/var/lib/weaviate"
+            - name: DEFAULT_VECTORIZER_MODULE
+              value: "none"
+            - name: ENABLE_MODULES
+              value: "text2vec-openai,text2vec-cohere,text2vec-huggingface"
+            - name: CLUSTER_HOSTNAME
+              value: "node1"
+          resources:
+            requests:
+              memory: "4Gi"
+              cpu: "2"
+            limits:
+              memory: "8Gi"
+              cpu: "4"
+          volumeMounts:
+            - name: weaviate-data
+              mountPath: /var/lib/weaviate
+          livenessProbe:
+            httpGet:
+              path: /v1/meta
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /v1/meta
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
       volumes:
-      - name: weaviate-data
-        persistentVolumeClaim:
-          claimName: weaviate-data-pvc
+        - name: weaviate-data
+          persistentVolumeClaim:
+            claimName: weaviate-data-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -163,9 +163,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 8080
-    targetPort: 8080
-    name: http
+    - port: 8080
+      targetPort: 8080
+      name: http
   selector:
     app: weaviate-server
 ---

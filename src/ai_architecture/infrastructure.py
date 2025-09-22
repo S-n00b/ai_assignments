@@ -468,7 +468,7 @@ class KubernetesManager:
                             "name": config.model_name,
                             "image": f"{config.model_name}:{config.model_version}",
                             "ports": [{
-                                "containerPort": 8000
+                                "containerPort": 8081
                             }],
                             "resources": {
                                 "requests": config.resources,
@@ -477,7 +477,7 @@ class KubernetesManager:
                             "livenessProbe": {
                                 "httpGet": {
                                     "path": config.health_check_path,
-                                    "port": 8000
+                                    "port": 8081
                                 },
                                 "initialDelaySeconds": 30,
                                 "periodSeconds": 10
@@ -485,7 +485,7 @@ class KubernetesManager:
                             "readinessProbe": {
                                 "httpGet": {
                                     "path": config.health_check_path,
-                                    "port": 8000
+                                    "port": 8081
                                 },
                                 "initialDelaySeconds": 5,
                                 "periodSeconds": 5
@@ -513,7 +513,7 @@ class KubernetesManager:
                 },
                 "ports": [{
                     "port": 80,
-                    "targetPort": 8000,
+                    "targetPort": 8081,
                     "protocol": "TCP"
                 }],
                 "type": "LoadBalancer"

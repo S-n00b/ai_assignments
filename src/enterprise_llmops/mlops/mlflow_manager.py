@@ -16,9 +16,18 @@ Key Features:
 import mlflow
 import mlflow.pyfunc
 import mlflow.sklearn
-import mlflow.tensorflow
-import mlflow.pytorch
-import mlflow.transformers
+try:
+    import mlflow.tensorflow
+except ImportError:
+    pass
+try:
+    import mlflow.pytorch
+except ImportError:
+    pass
+try:
+    import mlflow.transformers
+except ImportError:
+    pass
 import asyncio
 import logging
 from typing import Dict, List, Any, Optional, Union, Callable

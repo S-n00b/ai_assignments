@@ -237,7 +237,7 @@ graph TB
 
 **Technical Lead**: AI Architecture Team  
 **Email**: ai-architecture@lenovo.com  
-**Documentation**: [Local Docs](http://localhost:8000)  
+**Documentation**: [Local Docs](http://localhost:8082)  
 **Live Demo**: [Enterprise Platform](http://localhost:8080)
 
 ---

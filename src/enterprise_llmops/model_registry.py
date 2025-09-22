@@ -255,12 +255,14 @@ class EnterpriseModelRegistry:
             
             # Calculate checksum if model path provided
             checksum = ""
+            registry_model_path = model_path or f"ollama://{model_name}"  # Default to ollama path
+            
             if model_path and Path(model_path).exists():
                 checksum = self._calculate_checksum(model_path)
                 
                 # Copy model to registry storage
                 model_filename = f"{model_name}_{version}.bin"
-                registry_model_path = self.models_path / model_filename
+                registry_model_path = str(self.models_path / model_filename)
                 
                 # In a real implementation, you would copy the model file here
                 # For now, we'll just store the path

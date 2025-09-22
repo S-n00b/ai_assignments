@@ -181,7 +181,7 @@ class EnterpriseLLMOpsFrontend:
                 "description": "Lenovo AAITC Enterprise AI Model Operations",
                 "version": "2.0.0",
                 "host": "0.0.0.0",
-                "port": 8000
+                "port": 8081
             },
             "security": {
                 "secret_key": "your-secret-key-change-in-production",

@@ -29,7 +29,7 @@ markdown_extensions:
   - toc:
       permalink: true
 
-# Navigation Structure - Two Distinct Categories
+# Navigation Structure - Two Distinct Categories with Unified Documentation
 nav:
   - Home: index.md
 
@@ -44,6 +44,23 @@ nav:
   - AI System Architecture & MLOps:
       - System Architecture Overview: category2/system-architecture-overview.md
 
+  # API Documentation - Unified FastAPI & Gradio
+  - API Documentation:
+      - FastAPI Enterprise Platform: api/fastapi-enterprise.md
+      - FastAPI Interactive Docs: api/fastapi-embedded-docs.md
+      - Gradio Model Evaluation: api/gradio-model-evaluation.md
+      - ChromaDB Integration: api/chromadb-integration.md
+      - MCP Server Integration: api/mcp-server.md
+      - Model Evaluation API: api/model-evaluation.md
+      - AI Architecture API: api/ai-architecture.md
+      - Utilities API: api/utilities.md
+
+  # Live Applications & Demos
+  - Live Applications & Demos:
+      - Applications Overview: live-applications/index.md
+      - Assignment 1: Model Evaluation Engineer: assignments/assignment1/overview.md
+      - Assignment 2: Enterprise LLMOps Platform: assignments/assignment2/overview.md
+
   # Executive & Professional Content
   - Executive Presentations:
       - Carousel Slide Deck: executive/carousel-slide-deck.md
@@ -53,11 +70,13 @@ nav:
       - Executive Summary: professional/executive-summary.md
       - AI Architecture Seniority: professional/blog-posts/ai-architecture-seniority.md
 
-  # Live Applications & Demos
-  - Live Applications: live-applications/index.md
-
   # Development & Technical
   - Development:
+      - Setup & Installation: development/setup.md
+      - Testing & Quality: development/testing.md
+      - Deployment Guide: development/deployment.md
+      - Documentation Sources: development/documentation-sources.md
+      - Contributing: development/contributing.md
       - GitHub Pages Setup: development/github-pages-setup.md
 
   # Resources & Documentation
@@ -65,6 +84,7 @@ nav:
       - Architecture Diagrams: resources/architecture.md
       - Performance Metrics: resources/performance.md
       - Troubleshooting: resources/troubleshooting.md
+      - Progress Bulletin: progress-bulletin.md
 
 # Extra Configuration
 extra:

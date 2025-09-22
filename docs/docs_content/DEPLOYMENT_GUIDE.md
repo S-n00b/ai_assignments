@@ -187,7 +187,7 @@ LOG_LEVEL=DEBUG
 # API configuration
 API_HOST=0.0.0.0
 API_PORT=7860
-MCP_SERVER_PORT=8000
+MCP_SERVER_PORT=8081
 
 # Database configuration
 DATABASE_URL=sqlite:///./dev.db
@@ -267,7 +267,7 @@ ENCRYPTION_KEY=your_encryption_key_here
 # API configuration
 API_HOST=0.0.0.0
 API_PORT=7860
-MCP_SERVER_PORT=8000
+MCP_SERVER_PORT=8081
 MAX_WORKERS=4
 
 # Database configuration
@@ -390,7 +390,7 @@ server {
     }
 
     location /mcp/ {
-        proxy_pass http://127.0.0.1:8000/;
+        proxy_pass http://127.0.0.1:8082/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -454,7 +454,7 @@ RUN useradd -m -u 1000 aaitc && chown -R aaitc:aaitc /app
 USER aaitc
 
 # Expose ports
-EXPOSE 7860 8000
+EXPOSE 7860 8081
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
@@ -474,7 +474,7 @@ services:
     build: .
     ports:
       - "7860:7860"
-      - "8000:8000"
+      - "8081:8081"
     environment:
       - DATABASE_URL=postgresql://aaitc:password@db:5432/aaitc
       - REDIS_URL=redis://redis:6379/0
@@ -567,7 +567,7 @@ data:
   LOG_LEVEL: "INFO"
   API_HOST: "0.0.0.0"
   API_PORT: "7860"
-  MCP_SERVER_PORT: "8000"
+  MCP_SERVER_PORT: "8081"
 ```
 
 #### Secret
@@ -609,7 +609,7 @@ spec:
           image: lenovo/aaitc:latest
           ports:
             - containerPort: 7860
-            - containerPort: 8000
+            - containerPort: 8081
           env:
             - name: DATABASE_URL
               valueFrom:
@@ -663,8 +663,8 @@ spec:
       port: 80
       targetPort: 7860
     - name: mcp
-      port: 8000
-      targetPort: 8000
+      port: 8081
+      targetPort: 8081
   type: ClusterIP
 ```
 
@@ -744,7 +744,7 @@ kubectl set image deployment/aaitc-app aaitc=lenovo/aaitc:v1.1 -n aaitc
         "portMappings":
           [
             { "containerPort": 7860, "protocol": "tcp" },
-            { "containerPort": 8000, "protocol": "tcp" },
+            { "containerPort": 8081, "protocol": "tcp" },
           ],
         "environment": [{ "name": "ENVIRONMENT", "value": "production" }],
         "secrets":
@@ -820,7 +820,7 @@ properties:
         ports:
           - port: 7860
             protocol: TCP
-          - port: 8000
+          - port: 8081
             protocol: TCP
         environmentVariables:
           - name: ENVIRONMENT
@@ -837,7 +837,7 @@ properties:
       - protocol: TCP
         port: 7860
       - protocol: TCP
-        port: 8000
+        port: 8081
 ```
 
 ---

@@ -28,7 +28,7 @@ This section provides direct access to all live applications and services runnin
 
 ### **Documentation Site**
 
-- **URL**: [http://localhost:8000](http://localhost:8000)
+- **URL**: [http://localhost:8082](http://localhost:8082)
 - **Description**: This comprehensive MkDocs documentation site
 - **Features**:
   - Complete project documentation
@@ -179,7 +179,7 @@ mkdocs serve
 
 1. **Primary Platform**: Navigate to [http://localhost:8080](http://localhost:8080)
 2. **Model Evaluation**: Access [http://localhost:7860](http://localhost:7860)
-3. **Documentation**: Visit [http://localhost:8000](http://localhost:8000)
+3. **Documentation**: Visit [http://localhost:8082](http://localhost:8082)
 4. **API Testing**: Use [http://localhost:8080/docs](http://localhost:8080/docs)
 
 ## 🔧 **Troubleshooting**

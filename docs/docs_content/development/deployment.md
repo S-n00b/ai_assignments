@@ -7,6 +7,7 @@ This guide covers deployment strategies, environments, and best practices for th
 ## Prerequisites
 
 ### System Requirements
+
 - **Operating System**: Windows 10/11, macOS, or Linux
 - **Python**: 3.8 or higher
 - **Memory**: Minimum 8GB RAM (16GB recommended)
@@ -14,6 +15,7 @@ This guide covers deployment strategies, environments, and best practices for th
 - **GPU**: Optional but recommended for model training
 
 ### Required Software
+
 - Python 3.8+
 - Git
 - Docker (for containerized deployments)
@@ -24,6 +26,7 @@ This guide covers deployment strategies, environments, and best practices for th
 ### 1. Local Development Environment
 
 #### Windows (PowerShell)
+
 ```powershell
 # Navigate to project directory
 cd C:\Users\samne\PycharmProjects\ai_assignments
@@ -40,6 +43,7 @@ python -c "import src; print('Installation successful')"
 ```
 
 #### Linux/macOS
+
 ```bash
 # Navigate to project directory
 cd /path/to/ai_assignments
@@ -56,7 +60,9 @@ python -c "import src; print('Installation successful')"
 ```
 
 ### 2. Environment Variables
+
 Create a `.env` file in the project root:
+
 ```env
 # Database Configuration
 DATABASE_URL=sqlite:///./ai_assignments.db
@@ -68,7 +74,7 @@ DEFAULT_MODEL_PATH=./models/default
 
 # API Configuration
 API_HOST=0.0.0.0
-API_PORT=8000
+API_PORT=8080
 API_WORKERS=4
 
 # Security
@@ -89,6 +95,7 @@ METRICS_PORT=9090
 ### 1. Local Development Deployment
 
 #### Start Development Server
+
 ```powershell
 # Activate virtual environment
 .\venv\Scripts\Activate.ps1
@@ -101,11 +108,13 @@ python -m src.gradio_app.main --host 0.0.0.0 --port 7860 --share
 ```
 
 #### Start with MCP Server
+
 ```powershell
 python -m src.gradio_app.main --mcp-server --mcp-port 8001
 ```
 
 #### Run Tests
+
 ```powershell
 # Run all tests
 python -m pytest tests\ -v --tb=short
@@ -122,6 +131,7 @@ python -m pytest tests\ -v --cov=src --cov-report=html
 ### 2. Docker Deployment
 
 #### Build Docker Image
+
 ```dockerfile
 # Dockerfile
 FROM python:3.9-slim
@@ -148,17 +158,18 @@ RUN useradd --create-home --shell /bin/bash app \
 USER app
 
 # Expose port
-EXPOSE 8000
+EXPOSE 8080
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+    CMD curl -f http://localhost:8080/health || exit 1
 
 # Start application
-CMD ["python", "-m", "src.gradio_app.main", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "src.enterprise_llmops.main", "--host", "0.0.0.0", "--port", "8080"]
 ```
 
 #### Build and Run
+
 ```bash
 # Build image
 docker build -t ai-assignments:latest .
@@ -166,7 +177,7 @@ docker build -t ai-assignments:latest .
 # Run container
 docker run -d \
   --name ai-assignments \
-  -p 8000:8000 \
+  -p 8080:8080 \
   -v $(pwd)/models:/app/models \
   -v $(pwd)/logs:/app/logs \
   --env-file .env \
@@ -181,15 +192,16 @@ docker rm ai-assignments
 ```
 
 #### Docker Compose
+
 ```yaml
 # docker-compose.yml
-version: '3.8'
+version: "3.8"
 
 services:
   app:
     build: .
     ports:
-      - "8000:8000"
+      - "8080:8080"
     volumes:
       - ./models:/app/models
       - ./logs:/app/logs
@@ -227,6 +239,7 @@ volumes:
 ### 3. Kubernetes Deployment
 
 #### Namespace
+
 ```yaml
 # k8s/namespace.yaml
 apiVersion: v1
@@ -236,6 +249,7 @@ metadata:
 ```
 
 #### ConfigMap
+
 ```yaml
 # k8s/configmap.yaml
 apiVersion: v1
@@ -247,10 +261,11 @@ data:
   DATABASE_URL: "sqlite:///./data/ai_assignments.db"
   LOG_LEVEL: "INFO"
   API_HOST: "0.0.0.0"
-  API_PORT: "8000"
+  API_PORT: "8080"
 ```
 
 #### Secret
+
 ```yaml
 # k8s/secret.yaml
 apiVersion: v1
@@ -265,6 +280,7 @@ data:
 ```
 
 #### Deployment
+
 ```yaml
 # k8s/deployment.yaml
 apiVersion: apps/v1
@@ -283,55 +299,56 @@ spec:
         app: ai-assignments
     spec:
       containers:
-      - name: ai-assignments
-        image: ai-assignments:latest
-        ports:
-        - containerPort: 8000
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            configMapKeyRef:
-              name: ai-assignments-config
-              key: DATABASE_URL
-        - name: SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: ai-assignments-secret
-              key: SECRET_KEY
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "250m"
-          limits:
-            memory: "1Gi"
-            cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /ready
-            port: 8000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        volumeMounts:
-        - name: model-storage
-          mountPath: /app/models
-        - name: log-storage
-          mountPath: /app/logs
+        - name: ai-assignments
+          image: ai-assignments:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: ai-assignments-config
+                  key: DATABASE_URL
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ai-assignments-secret
+                  key: SECRET_KEY
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: model-storage
+              mountPath: /app/models
+            - name: log-storage
+              mountPath: /app/logs
       volumes:
-      - name: model-storage
-        persistentVolumeClaim:
-          claimName: model-pvc
-      - name: log-storage
-        persistentVolumeClaim:
-          claimName: log-pvc
+        - name: model-storage
+          persistentVolumeClaim:
+            claimName: model-pvc
+        - name: log-storage
+          persistentVolumeClaim:
+            claimName: log-pvc
 ```
 
 #### Service
+
 ```yaml
 # k8s/service.yaml
 apiVersion: v1
@@ -343,14 +360,15 @@ spec:
   selector:
     app: ai-assignments
   ports:
-  - port: 80
-    targetPort: 8000
+    - port: 80
+      targetPort: 8080
   type: LoadBalancer
 ```
 
 ### 4. Cloud Deployment
 
 #### AWS ECS Deployment
+
 ```json
 {
   "family": "ai-assignments",
@@ -366,7 +384,7 @@ spec:
       "image": "your-account.dkr.ecr.region.amazonaws.com/ai-assignments:latest",
       "portMappings": [
         {
-          "containerPort": 8000,
+          "containerPort": 8080,
           "protocol": "tcp"
         }
       ],
@@ -390,6 +408,7 @@ spec:
 ```
 
 #### Google Cloud Run
+
 ```yaml
 # cloud-run.yaml
 apiVersion: serving.knative.dev/v1
@@ -408,18 +427,18 @@ spec:
       containerConcurrency: 80
       timeoutSeconds: 300
       containers:
-      - image: gcr.io/project-id/ai-assignments:latest
-        ports:
-        - containerPort: 8000
-        env:
-        - name: PORT
-          value: "8000"
-        - name: DATABASE_URL
-          value: "sqlite:///./data/ai_assignments.db"
-        resources:
-          limits:
-            cpu: "2"
-            memory: "2Gi"
+        - image: gcr.io/project-id/ai-assignments:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: DATABASE_URL
+              value: "sqlite:///./data/ai_assignments.db"
+          resources:
+            limits:
+              cpu: "2"
+              memory: "2Gi"
 ```
 
 ## Configuration Management
@@ -427,6 +446,7 @@ spec:
 ### Environment-Specific Configs
 
 #### Development
+
 ```python
 # config/development.py
 DEBUG = True
@@ -436,6 +456,7 @@ REDIS_URL = "redis://localhost:6379"
 ```
 
 #### Staging
+
 ```python
 # config/staging.py
 DEBUG = False
@@ -445,6 +466,7 @@ REDIS_URL = "redis://staging-redis:6379"
 ```
 
 #### Production
+
 ```python
 # config/production.py
 DEBUG = False
@@ -457,6 +479,7 @@ ENABLE_METRICS = True
 ## Monitoring and Logging
 
 ### Application Metrics
+
 ```python
 # monitoring/metrics.py
 from prometheus_client import Counter, Histogram, Gauge, start_http_server
@@ -470,6 +493,7 @@ def start_metrics_server(port=9090):
 ```
 
 ### Logging Configuration
+
 ```python
 # logging/logging_config.py
 import logging
@@ -515,6 +539,7 @@ logging.config.dictConfig(LOGGING_CONFIG)
 ## Health Checks
 
 ### Application Health Check
+
 ```python
 # health/health_check.py
 from fastapi import FastAPI
@@ -542,9 +567,9 @@ async def readiness_check() -> Dict:
         "disk_space": check_disk_space(),
         "memory": check_memory()
     }
-    
+
     all_healthy = all(checks.values())
-    
+
     return {
         "status": "ready" if all_healthy else "not_ready",
         "checks": checks,
@@ -566,21 +591,22 @@ def check_memory() -> bool:
 ## Security Considerations
 
 ### SSL/TLS Configuration
+
 ```nginx
 # nginx.conf
 server {
     listen 443 ssl http2;
     server_name your-domain.com;
-    
+
     ssl_certificate /etc/nginx/ssl/cert.pem;
     ssl_certificate_key /etc/nginx/ssl/key.pem;
-    
+
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
     ssl_prefer_server_ciphers off;
-    
+
     location / {
-        proxy_pass http://localhost:8000;
+        proxy_pass http://localhost:8080;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -590,6 +616,7 @@ server {
 ```
 
 ### Environment Security
+
 ```bash
 # Secure environment variables
 export SECRET_KEY=$(openssl rand -hex 32)
@@ -605,17 +632,19 @@ export DATABASE_PASSWORD=$(openssl rand -base64 32)
 ### Common Issues
 
 #### Port Already in Use
+
 ```bash
 # Find process using port
-netstat -tulpn | grep :8000
+netstat -tulpn | grep :8080
 # or
-lsof -i :8000
+lsof -i :8080
 
 # Kill process
 kill -9 <PID>
 ```
 
 #### Memory Issues
+
 ```bash
 # Check memory usage
 free -h
@@ -627,6 +656,7 @@ sudo swapon -s
 ```
 
 #### Database Connection Issues
+
 ```python
 # Test database connection
 import sqlite3
@@ -639,6 +669,7 @@ except Exception as e:
 ```
 
 ### Log Analysis
+
 ```bash
 # View application logs
 tail -f logs/application.log
@@ -653,6 +684,7 @@ tail -f logs/application.log | grep -i "ERROR\|WARNING"
 ## Deployment Checklist
 
 ### Pre-Deployment
+
 - [ ] All tests passing
 - [ ] Environment variables configured
 - [ ] Database migrations applied
@@ -661,6 +693,7 @@ tail -f logs/application.log | grep -i "ERROR\|WARNING"
 - [ ] Backup strategy in place
 
 ### Post-Deployment
+
 - [ ] Health checks passing
 - [ ] Application responding correctly
 - [ ] Metrics collection working
@@ -669,6 +702,7 @@ tail -f logs/application.log | grep -i "ERROR\|WARNING"
 - [ ] Alerting configured
 
 ### Rollback Plan
+
 - [ ] Previous version tagged
 - [ ] Database rollback procedures documented
 - [ ] Configuration rollback procedures documented
