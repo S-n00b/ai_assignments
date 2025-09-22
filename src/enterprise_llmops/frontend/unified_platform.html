@@ -172,15 +172,63 @@
         }
         
         .sidebar.collapsed {
-            width: 60px;
+            width: 48px;
+            padding: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar.collapsed {
+                width: 40px;
+            }
+            
+            .sidebar-toggle {
+                left: 24px; /* Adjust for medium screens */
+            }
+            
+            .sidebar.collapsed .sidebar-toggle {
+                left: 13px; /* Center in 40px collapsed sidebar */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sidebar.collapsed {
+                width: 36px;
+            }
+            
+            .sidebar-toggle {
+                left: 22px; /* Adjust for small screens */
+            }
+            
+            .sidebar.collapsed .sidebar-toggle {
+                left: 11px; /* Center in 36px collapsed sidebar */
+            }
+            
+            .sidebar.collapsed .nav-link {
+                padding: 2px;
+                min-height: 28px;
+            }
+            
+            .sidebar.collapsed .nav-icon {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .sidebar.collapsed .nav-icon .octicon {
+                font-size: 14px;
+            }
+            
+            .sidebar.collapsed .status-badge {
+                width: 6px;
+                height: 6px;
+            }
         }
         
         .sidebar-toggle {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            width: 20px;
-            height: 20px;
+            top: 24px; /* Align with vertical center of logo section */
+            left: 28px; /* Align with horizontal center of nav icons */
+            width: 16px;
+            height: 16px;
             background: var(--lenovo-card);
             border: 1px solid var(--lenovo-border);
             border-radius: 50%;
@@ -190,6 +238,13 @@
             cursor: pointer;
             z-index: 1000;
             transition: transform 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-toggle {
+            top: 24px; /* Keep same vertical position */
+            left: 16px; /* Center horizontally in collapsed sidebar */
+            width: 14px;
+            height: 14px;
         }
         
         .sidebar-toggle:hover {
@@ -202,7 +257,7 @@
         }
         
         .hamburger {
-            width: 12px;
+            width: 10px;
             height: 2px;
             background: var(--lenovo-white);
             position: relative;
@@ -213,10 +268,21 @@
         .hamburger::after {
             content: '';
             position: absolute;
-            width: 12px;
+            width: 10px;
             height: 2px;
             background: var(--lenovo-white);
             transition: all 0.3s ease;
+        }
+        
+        .sidebar.collapsed .hamburger {
+            width: 8px;
+            height: 1px;
+        }
+        
+        .sidebar.collapsed .hamburger::before,
+        .sidebar.collapsed .hamburger::after {
+            width: 8px;
+            height: 1px;
         }
         
         .hamburger::before {
@@ -229,11 +295,95 @@
         
         .sidebar-content {
             transition: opacity 0.3s ease;
+            padding: 0;
         }
         
         .sidebar.collapsed .sidebar-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .sidebar.collapsed .sidebar-content .p-6 {
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Navigation section alignment */
+        .sidebar-content .p-4 {
+            padding-left: 1rem; /* Standard left padding */
+            padding-right: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        .sidebar.collapsed .sidebar-content .p-4 {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar.collapsed .lenovo-logo,
+        .sidebar.collapsed .text-sm {
             opacity: 0;
-            pointer-events: none;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        /* Logo section alignment */
+        .sidebar-content .p-6 {
+            padding-left: 52px; /* Align with nav icon horizontal position */
+            padding-right: 1.5rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        
+        .lenovo-logo {
+            margin-left: 0; /* Remove any default margin */
+        }
+        
+        .text-sm {
+            margin-left: 0; /* Remove any default margin */
+        }
+        
+        .sidebar.collapsed .border-b {
+            border-bottom: none;
+            padding: 0;
+            margin: 0;
+            height: 60px; /* Preserve header section height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar.collapsed .space-y-2 > * {
+            margin-bottom: 8px; /* Preserve vertical spacing between nav items */
+        }
+        
+        .sidebar.collapsed .space-y-1 > * {
+            margin-bottom: 4px; /* Preserve vertical spacing for external links */
+        }
+        
+        .sidebar.collapsed .space-y-2 > *:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sidebar.collapsed .space-y-1 > *:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sidebar.collapsed .mt-8 {
+            margin-top: 32px; /* Preserve top margin for external links section */
+        }
+        
+        .sidebar.collapsed .pt-4 {
+            padding-top: 16px; /* Preserve padding for section divider */
+        }
+        
+        .sidebar.collapsed .text-xs {
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
         }
         
         .nav-icon {
@@ -297,31 +447,91 @@
         .sidebar.collapsed .nav-link-text {
             opacity: 0;
             pointer-events: none;
+            display: none;
         }
         
         .sidebar.collapsed .nav-link {
             justify-content: center;
-            padding: 0.5rem;
+            padding: 4px;
+            margin: 0; /* Remove margin, spacing handled by parent */
+            min-height: 32px;
+            display: flex;
+            align-items: center;
         }
         
         .sidebar.collapsed .nav-icon {
             margin-right: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .sidebar.collapsed .nav-icon .octicon {
             opacity: 1;
             z-index: 10;
             position: relative;
+            font-size: 16px;
+            color: #999;
+        }
+        
+        .sidebar.collapsed .nav-link:hover .nav-icon .octicon {
+            color: var(--lenovo-red);
+            transform: scale(1.1);
+        }
+        
+        .sidebar.collapsed .nav-link.active .nav-icon .octicon {
+            color: var(--lenovo-red);
         }
         
         .sidebar.collapsed .status-badge {
             opacity: 1;
             z-index: 11;
+            width: 8px;
+            height: 8px;
+            top: 0px;
+            right: 0px;
         }
         
         .sidebar.collapsed .nav-icon {
             z-index: 10;
             position: relative;
+        }
+        
+        /* Ensure external links icons are visible when collapsed */
+        .sidebar.collapsed .nav-link .nav-icon .octicon {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: inline-block !important;
+            font-size: 16px;
+            color: #999;
+        }
+        
+        .sidebar.collapsed .nav-link:hover .nav-icon .octicon {
+            color: var(--lenovo-red) !important;
+            transform: scale(1.1);
+        }
+        
+        /* Ensure external links section remains visible when collapsed */
+        .sidebar.collapsed .mt-8 {
+            margin-top: 32px;
+        }
+        
+        .sidebar.collapsed .pt-4 {
+            padding-top: 16px;
+        }
+        
+        .sidebar.collapsed .border-t {
+            border-top: 1px solid var(--lenovo-border);
+        }
+        
+        .sidebar.collapsed .space-y-1 > * {
+            margin-bottom: 4px;
+        }
+        
+        .sidebar.collapsed .space-y-1 > *:last-child {
+            margin-bottom: 0;
         }
         
         .main-content {
@@ -408,7 +618,7 @@
                                 <span class="octicon octicon-heart-fill">♥</span>
                                 <span class="status-badge online"></span>
                             </div>
-                            <span class="nav-link-text">About & Pitch</span>
+                            <span class="nav-link-text">Assignment</span>
                         </a>
                         <a href="#" class="nav-link" data-service="chat-playground">
                             <div class="nav-icon">
@@ -464,13 +674,13 @@
                     <div class="mt-8 pt-4 border-t border-lenovo-border">
                         <div class="text-xs text-gray-500 mb-2 nav-link-text">External Links</div>
                         <div class="space-y-1">
-                            <a href="https://s-n00b.github.io/ai_assignments" target="_blank" class="nav-link text-sm">
+                            <a href="https://s-n00b.github.io/ai_assignments" target="_blank" class="nav-link">
                                 <div class="nav-icon">
                                     <span class="octicon octicon-globe">🌐</span>
                                 </div>
                                 <span class="nav-link-text">GitHub Pages</span>
                             </a>
-                            <a href="https://github.com/S-n00b/ai_assignments" target="_blank" class="nav-link text-sm">
+                            <a href="https://github.com/S-n00b/ai_assignments" target="_blank" class="nav-link">
                                 <div class="nav-icon">
                                     <span class="octicon octicon-mark-github">🐙</span>
                                 </div>
@@ -487,7 +697,7 @@
             <!-- Top Bar -->
             <div class="top-bar">
                 <div>
-                    <h1 id="service-title" class="text-xl font-semibold">About & Pitch</h1>
+                    <h1 id="service-title" class="text-xl font-semibold">Assignment</h1>
                     <div id="service-description" class="text-sm text-gray-400">Lenovo AI Architecture Meta-Assignment Portfolio</div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -503,7 +713,7 @@
             
             <!-- Content Area -->
             <div class="content-area">
-                <!-- About/Pitch Service -->
+                <!-- Assignment Service -->
                 <div id="service-about" class="service-container active">
                     <iframe id="iframe-about" class="service-frame" src="/about"></iframe>
                 </div>
@@ -683,7 +893,7 @@
         // Service configuration
         const services = {
             about: {
-                title: "About & Pitch",
+                title: "Assignment",
                 description: "Lenovo AI Architecture Meta-Assignment Portfolio",
                 url: "/about",
                 status: "online"

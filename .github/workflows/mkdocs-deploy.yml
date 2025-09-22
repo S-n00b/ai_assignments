@@ -1,10 +1,14 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy MkDocs to GitHub Pages (DISABLED - Use deploy-unified-platform.yml)
+
+# DISABLED: This workflow is replaced by deploy-unified-platform.yml
+# The unified platform now handles both MkDocs and the main site
 
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+  workflow_dispatch: # Only allow manual runs
+  # push:
+  #   branches: [main, master]
+  # pull_request:
+  #   branches: [main, master]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:

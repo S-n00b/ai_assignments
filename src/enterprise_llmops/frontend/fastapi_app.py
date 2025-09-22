@@ -713,7 +713,7 @@ async def serve_about_page():
             <!DOCTYPE html>
             <html>
             <head>
-                <title>About - Lenovo AI Architecture</title>
+                <title>Assignment - Lenovo AI Architecture</title>
                 <style>
                     body { font-family: Arial, sans-serif; margin: 40px; background: #1a1a1a; color: white; }
                     .container { max-width: 1000px; margin: 0 auto; background: #2a2a2a; padding: 40px; border-radius: 8px; border: 1px solid #404040; }
@@ -729,6 +729,28 @@ async def serve_about_page():
             </body>
             </html>
             """)
+
+
+@app.get("/assignment-pdf")
+async def serve_assignment_pdf():
+    """Serve the Lenovo AAITC Technical Assignments PDF."""
+    # Get the project root directory (3 levels up from this file)
+    current_dir = Path(__file__).parent
+    project_root = current_dir.parent.parent.parent
+    pdf_file = project_root / "docs" / "Lenovo AAITC Technical Assignments.pdf"
+    
+    if pdf_file.exists():
+        return FileResponse(
+            str(pdf_file),
+            media_type="application/pdf",
+            filename="Lenovo AAITC Technical Assignments.pdf",
+            headers={
+                "Content-Disposition": "inline; filename=Lenovo AAITC Technical Assignments.pdf",
+                "Cache-Control": "public, max-age=3600"
+            }
+        )
+    else:
+        raise HTTPException(status_code=404, detail=f"PDF file not found at {pdf_file}")
 
 
 # Health check endpoint

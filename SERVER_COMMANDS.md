@@ -1,5 +1,85 @@
 # Complete AI Assignments Project - Server Commands & Workflows
 
+## 🚀 Manual Quickstart (8 Terminals)
+
+### Automated Script
+
+```powershell
+# Run the automated script to create all 8 terminals
+.\scripts\start-unified-platform.ps1
+```
+
+### Manual Terminal Setup (8 Terminals in Order)
+
+#### Terminal 1: ChromaDB Vector Store
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+chroma run --host 0.0.0.0 --port 8081 --path chroma_data
+```
+
+#### Terminal 2: MLflow Experiment Tracking
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000
+```
+
+#### Terminal 3: LangGraph Studio
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+langgraph dev --host 0.0.0.0 --port 8083
+```
+
+#### Terminal 4: MkDocs Documentation
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+cd docs; mkdocs build; mkdocs serve --dev-addr 0.0.0.0:8082
+```
+
+#### Terminal 5: Gradio Model Evaluation
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+```
+
+#### Terminal 6: Enterprise LLMOps Platform
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
+```
+
+#### Terminal 7: Registry Sync
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+.\scripts\comprehensive-sync.ps1
+```
+
+#### Terminal 8: Development Shell
+
+```powershell
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+Write-Host 'Development shell ready. Use this for additional commands.'
+```
+
+### Service URLs (After All Services Start)
+
+- **🏠 Enterprise Platform**: http://localhost:8080
+- **📖 About & Pitch**: http://localhost:8080/about
+- **📚 API Docs**: http://localhost:8080/docs
+- **🧪 Model Evaluation**: http://localhost:7860
+- **📈 MLflow Tracking**: http://localhost:5000
+- **🗄️ ChromaDB Vector Store**: http://localhost:8081
+- **📚 MkDocs Documentation**: http://localhost:8082
+- **🎯 LangGraph Studio**: http://localhost:8083
+
+---
+
 ## 🚀 Core Server Startup Commands
 
 ### 1. Virtual Environment Activation
