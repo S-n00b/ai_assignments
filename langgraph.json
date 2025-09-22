@@ -1,0 +1,9 @@
+{
+  "dependencies": [
+    "."
+  ],
+  "graphs": {
+    "agent": "./src/ai_architecture/langgraph_agent.py:graph"
+  },
+  "env": ".env"
+}

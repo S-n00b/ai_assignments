@@ -1,50 +1,72 @@
-﻿{
-    "model_capabilities":  {
-                               "codellama:7b":  [
-                                                    "code_generation",
-                                                    "debugging",
-                                                    "documentation"
-                                                ],
-                               "llama3.1:8b":  [
-                                                   "text_generation",
-                                                   "question_answering",
-                                                   "reasoning"
-                                               ],
-                               "gemma3:1b":  [
-                                                 "text_generation",
-                                                 "question_answering",
-                                                 "reasoning"
-                                             ],
-                               "mistral:7b":  [
-                                                  "text_generation",
-                                                  "question_answering",
-                                                  "reasoning"
-                                              ]
-                           },
-    "available_models":  [
-                             {
-                                 "type":  "general",
-                                 "name":  "llama3.1:8b",
-                                 "status":  "available",
-                                 "size_gb":  4.58
-                             },
-                             {
-                                 "type":  "code_generation",
-                                 "name":  "codellama:7b",
-                                 "status":  "available",
-                                 "size_gb":  3.56
-                             },
-                             {
-                                 "type":  "general",
-                                 "name":  "mistral:7b",
-                                 "status":  "available",
-                                 "size_gb":  4.07
-                             },
-                             {
-                                 "type":  "general",
-                                 "name":  "gemma3:1b",
-                                 "status":  "available",
-                                 "size_gb":  0.76
-                             }
-                         ]
+{
+  "available_models": [
+    {
+      "name": "gemma3:4b",
+      "size_gb": 3.11,
+      "type": "general",
+      "status": "available",
+      "source": "ollama"
+    },
+    {
+      "name": "llama3.1:8b",
+      "size_gb": 4.58,
+      "type": "general",
+      "status": "available",
+      "source": "ollama"
+    },
+    {
+      "name": "codellama:7b",
+      "size_gb": 3.56,
+      "type": "code_generation",
+      "status": "available",
+      "source": "ollama"
+    },
+    {
+      "name": "mistral:7b",
+      "size_gb": 4.07,
+      "type": "general",
+      "status": "available",
+      "source": "ollama"
+    },
+    {
+      "name": "gemma3:1b",
+      "size_gb": 0.76,
+      "type": "general",
+      "status": "available",
+      "source": "ollama"
+    }
+  ],
+  "model_capabilities": {
+    "gemma3:4b": [
+      "text_generation",
+      "question_answering",
+      "reasoning",
+      "summarization"
+    ],
+    "llama3.1:8b": [
+      "text_generation",
+      "question_answering",
+      "reasoning",
+      "summarization"
+    ],
+    "codellama:7b": [
+      "code_generation",
+      "debugging",
+      "documentation",
+      "refactoring"
+    ],
+    "mistral:7b": [
+      "text_generation",
+      "question_answering",
+      "reasoning",
+      "summarization"
+    ],
+    "gemma3:1b": [
+      "text_generation",
+      "question_answering",
+      "reasoning",
+      "summarization"
+    ]
+  },
+  "last_updated": "2025-09-22T13:04:29.985461"
 }

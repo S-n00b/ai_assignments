@@ -77,6 +77,19 @@ except ImportError:
     QLORA_AVAILABLE = False
     logging.warning("QLoRA integration not available")
 
+# Import Neo4j Faker integration
+try:
+    from ...ai_architecture.neo4j_faker_integration import (
+        Neo4jFakerManager,
+        initialize_neo4j_faker_manager,
+        get_neo4j_faker_manager,
+        create_neo4j_faker_endpoints
+    )
+    NEO4J_FAKER_AVAILABLE = True
+except ImportError:
+    NEO4J_FAKER_AVAILABLE = False
+    logging.warning("Neo4j Faker integration not available")
+
 
 # Authentication models
 class UserLoginRequest(BaseModel):
@@ -139,6 +152,7 @@ optuna_optimizer: Optional[OptunaOptimizer] = None
 prompt_integration_manager: Optional[PromptIntegrationManager] = None
 langgraph_studio_manager: Optional[LangGraphStudioManager] = None
 qlora_manager: Optional[QLoRAManager] = None
+neo4j_faker_manager: Optional[Neo4jFakerManager] = None
 chroma_client = None
 connection_manager = ConnectionManager()
 
@@ -150,7 +164,7 @@ github_models_serving: Optional[GitHubModelsRemoteServing] = None
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager."""
-    global ollama_manager, model_registry, mlflow_manager, optuna_optimizer, prompt_integration_manager, langgraph_studio_manager, qlora_manager, chroma_client, github_models_client, github_models_serving
+    global ollama_manager, model_registry, mlflow_manager, optuna_optimizer, prompt_integration_manager, langgraph_studio_manager, qlora_manager, neo4j_faker_manager, chroma_client, github_models_client, github_models_serving
     
     # Startup
     logging.info("Starting Enterprise LLMOps Frontend...")
@@ -221,6 +235,18 @@ async def lifespan(app: FastAPI):
         else:
             logging.info("QLoRA integration not available")
             qlora_manager = None
+        
+        # Initialize Neo4j Faker manager
+        if NEO4J_FAKER_AVAILABLE:
+            try:
+                neo4j_faker_manager = initialize_neo4j_faker_manager()
+                logging.info("Neo4j Faker manager initialized")
+            except Exception as e:
+                logging.warning(f"Failed to initialize Neo4j Faker manager: {e}")
+                neo4j_faker_manager = None
+        else:
+            logging.info("Neo4j Faker integration not available")
+            neo4j_faker_manager = None
         
         # Initialize GitHub Models integration
         if GITHUB_MODELS_AVAILABLE:
@@ -2522,6 +2548,51 @@ else:
             "status": "unavailable",
             "message": "QLoRA integration not available. Install required dependencies.",
             "dependencies": ["torch", "transformers", "peft", "fastapi"]
+        }
+
+
+# ============================================================================
+# NEO4J FAKER INTEGRATION ENDPOINTS
+# ============================================================================
+
+if NEO4J_FAKER_AVAILABLE:
+    # Create Neo4j Faker endpoints
+    create_neo4j_faker_endpoints(app)
+    
+    @app.get("/iframe/neo4j-faker", response_class=HTMLResponse)
+    async def serve_neo4j_faker_iframe():
+        """Serve Neo4j Faker dashboard in iframe."""
+        return HTMLResponse("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Neo4j Faker Dashboard - GraphRAG Demo</title>
+            <style>
+                body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+                iframe { width: 100%; height: 100vh; border: none; }
+                .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial, sans-serif; }
+            </style>
+        </head>
+        <body>
+            <div class="loading" id="loading">Loading Neo4j Faker Dashboard...</div>
+            <iframe 
+                src="/api/neo4j-faker/dashboard" 
+                title="Neo4j Faker Dashboard"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='Failed to load Neo4j Faker Dashboard. Please ensure Neo4j and Faker are properly configured.'">
+            </iframe>
+        </body>
+        </html>
+        """)
+else:
+    @app.get("/api/neo4j-faker/status")
+    async def neo4j_faker_status():
+        """Get Neo4j Faker integration status."""
+        return {
+            "status": "unavailable",
+            "message": "Neo4j Faker integration not available. Install required dependencies.",
+            "dependencies": ["neo4j", "py2neo", "faker", "fastapi"]
         }
 
 

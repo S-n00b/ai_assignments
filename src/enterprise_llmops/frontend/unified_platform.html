@@ -445,6 +445,13 @@
                             </div>
                             <span class="nav-link-text">LangGraph Studio</span>
                         </a>
+                        <a href="#" class="nav-link" data-service="neo4j-faker">
+                            <div class="nav-icon">
+                                <span class="octicon octicon-graph">🕸️</span>
+                                <span class="status-badge unknown"></span>
+                            </div>
+                            <span class="nav-link-text">Neo4j GraphRAG Demo</span>
+                        </a>
                         <a href="#" class="nav-link" data-service="mkdocs">
                             <div class="nav-icon">
                                 <span class="octicon octicon-book">📖</span>
@@ -659,6 +666,11 @@
                     <iframe id="iframe-langgraph" class="service-frame" src="http://localhost:8083"></iframe>
                 </div>
                 
+                <!-- Neo4j Faker GraphRAG Demo Service -->
+                <div id="service-neo4j-faker" class="service-container">
+                    <iframe id="iframe-neo4j-faker" class="service-frame" src="/iframe/neo4j-faker"></iframe>
+                </div>
+                
                 <!-- MkDocs Documentation Hub Service -->
                 <div id="service-mkdocs" class="service-container">
                     <iframe id="iframe-mkdocs" class="service-frame" src="http://localhost:8082"></iframe>
@@ -704,6 +716,12 @@
                 title: "LangGraph Studio",
                 description: "Agent Visualization & Debugging",
                 url: "http://localhost:8083",
+                status: "unknown"
+            },
+            "neo4j-faker": {
+                title: "Neo4j GraphRAG Demo",
+                description: "Realistic GraphRAG Demo with Faker Data",
+                url: "/iframe/neo4j-faker",
                 status: "unknown"
             },
             mkdocs: {

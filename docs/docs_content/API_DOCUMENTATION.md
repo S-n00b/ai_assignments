@@ -8,9 +8,10 @@ This document provides comprehensive API documentation for the Lenovo AAITC Solu
 
 1. [Model Evaluation API](#model-evaluation-api)
 2. [AI Architecture API](#ai-architecture-api)
-3. [Gradio Application API](#gradio-application-api)
-4. [Utilities API](#utilities-api)
-5. [MCP Server API](#mcp-server-api)
+3. [Chat Playground API](#chat-playground-api)
+4. [Gradio Application API](#gradio-application-api)
+5. [Utilities API](#utilities-api)
+6. [MCP Server API](#mcp-server-api)
 
 ---
 
@@ -219,6 +220,87 @@ if registry.is_tool_cached("Cursor"):
 - Cursor, Claude Code, Devin AI, v0, Windsurf
 - Augment Code, Cluely, CodeBuddy, Warp, Xcode
 - Z.ai Code, dia, and more
+
+---
+
+## Chat Playground API
+
+The Chat Playground provides a comprehensive UX studio for comparing Ollama and GitHub model services side-by-side, similar to Google AI Studio's user experience.
+
+### API Endpoints
+
+#### Ollama Integration
+
+**GET** `/api/ollama/models`
+
+- **Description**: List available Ollama models
+- **Response**: `{"models": [{"name": "llama3.1:8b", "size": "4.7GB"}]}`
+
+**POST** `/api/ollama/generate`
+
+- **Description**: Generate response using Ollama
+- **Request Body**:
+  ```json
+  {
+    "model_name": "llama3.1:8b",
+    "prompt": "Explain quantum computing",
+    "parameters": {
+      "temperature": 0.7,
+      "max_tokens": 1000
+    }
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "response": "Quantum computing is a revolutionary approach...",
+    "model": "llama3.1:8b",
+    "usage": {
+      "prompt_tokens": 10,
+      "completion_tokens": 150,
+      "total_tokens": 160
+    },
+    "timestamp": "2024-01-15T10:30:00Z"
+  }
+  ```
+
+#### GitHub Models Integration
+
+**GET** `/api/github-models/available`
+
+- **Description**: List available GitHub Models
+- **Response**: `{"models": [{"id": "openai/gpt-4o", "name": "GPT-4o", "provider": "openai"}]}`
+
+**POST** `/api/github-models/generate`
+
+- **Description**: Generate response using GitHub Models
+- **Request Body**:
+  ```json
+  {
+    "model_id": "openai/gpt-4o",
+    "prompt": "Explain quantum computing",
+    "parameters": {
+      "temperature": 0.7,
+      "max_tokens": 1000
+    }
+  }
+  ```
+
+### Features
+
+- **Side-by-Side Comparison**: Real-time comparison of local and cloud models
+- **Performance Metrics**: Live tracking of response times and token usage
+- **Export Functionality**: Export chat conversations as JSON
+- **Model Management**: Dynamic model loading and selection
+- **Error Handling**: Graceful fallbacks and user feedback
+
+### Integration
+
+The Chat Playground is fully integrated with the Enterprise LLMOps platform:
+
+- **Navigation**: Accessible via sidebar after "About & Pitch"
+- **Authentication**: Uses the same authentication system
+- **Monitoring**: Integrated with platform monitoring and logging
 
 ---
 

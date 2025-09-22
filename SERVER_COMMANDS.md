@@ -7,9 +7,12 @@
 ```powershell
 # Always activate first
 & C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+
+# Or from project root with relative path
+& .\venv\Scripts\Activate.ps1
 ```
 
-### 2. Essential Services (Start in Order)
+### 2. Essential Services (Start in Order - Activate venv first for all terminals)
 
 ```powershell
 # Terminal 1: ChromaDB Vector Store
@@ -26,6 +29,31 @@ python -m src.gradio_app.main --host 0.0.0.0 --port 7860
 
 # Terminal 5: LangGraph Studio (Optional - Agent Visualization & Debugging)
 langgraph dev --host 0.0.0.0 --port 8083
+
+# Terminal 6: MkDocs Build/Host
+cd docs; mkdocs build; mkdocs serve --dev-addr 0.0.0.0:8082
+```
+
+### 3. Single-Line Service Startup Commands
+
+```powershell
+# Complete setup with virtual environment activation
+& .\venv\Scripts\Activate.ps1; cd docs; mkdocs build; mkdocs serve --dev-addr 0.0.0.0:8082
+
+# Enterprise platform with venv activation
+& .\venv\Scripts\Activate.ps1; python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
+
+# Gradio app with venv activation
+& .\venv\Scripts\Activate.ps1; python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+
+# MLflow server with venv activation
+& .\venv\Scripts\Activate.ps1; mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000
+
+# ChromaDB with venv activation
+& .\venv\Scripts\Activate.ps1; chroma run --host 0.0.0.0 --port 8081 --path chroma_data
+
+# LangGraph Studio with venv activation
+& .\venv\Scripts\Activate.ps1; langgraph dev --host 0.0.0.0 --port 8083
 ```
 
 ## 🔐 Authentication & Token Management
@@ -48,6 +76,9 @@ curl http://localhost:8080/health
 
 # Test LangGraph Studio status
 curl http://localhost:8080/api/langgraph/studios/status
+
+# Single-line API testing
+curl http://localhost:8080/health; curl http://localhost:8080/api/models; curl http://localhost:8080/api/experiments
 ```
 
 ### Production Mode (Enable Authentication)
@@ -71,6 +102,9 @@ Invoke-RestMethod -Uri 'http://localhost:8080/api/models' -Headers $headers
 ```powershell
 # Basic sync with authentication (existing script)
 .\scripts\basic-sync.ps1
+
+# With venv activation
+& .\venv\Scripts\Activate.ps1; .\scripts\basic-sync.ps1
 ```
 
 ### Comprehensive Sync (New - Recommended)
@@ -81,12 +115,21 @@ Invoke-RestMethod -Uri 'http://localhost:8080/api/models' -Headers $headers
 
 # Or run the Python version directly
 python scripts\sync_registries.py
+
+# With venv activation
+& .\venv\Scripts\Activate.ps1; .\scripts\comprehensive-sync.ps1
+
+# Python version with venv activation
+& .\venv\Scripts\Activate.ps1; python scripts\sync_registries.py
 ```
 
 ### Generate Evaluation Dataset
 
 ```powershell
 python scripts\generate_evaluation_dataset.py
+
+# With venv activation
+& .\venv\Scripts\Activate.ps1; python scripts\generate_evaluation_dataset.py
 ```
 
 ### Check Prompt Cache Status
@@ -94,6 +137,9 @@ python scripts\generate_evaluation_dataset.py
 ```powershell
 # Check cached AI tool prompts
 ls cache\ai_tool_prompts\
+
+# Check with detailed info
+ls cache\ai_tool_prompts\ -la
 ```
 
 ### Manual API Sync (No Auth Required)
@@ -107,6 +153,9 @@ curl http://localhost:8080/api/prompts/cache/summary
 
 # Get registry statistics
 curl http://localhost:8080/api/prompts/registries/statistics
+
+# Single-line API sync operations
+curl -X POST http://localhost:8080/api/prompts/sync; curl http://localhost:8080/api/prompts/cache/summary; curl http://localhost:8080/api/prompts/registries/statistics
 ```
 
 ## 🔄 Comprehensive Registry Sync Features
@@ -154,6 +203,12 @@ pytest tests/integration/ -v
 
 # All tests
 pytest tests/ -v --cov=src/
+
+# With venv activation
+& .\venv\Scripts\Activate.ps1; pytest tests/ -v --cov=src/
+
+# Single-line test execution
+& .\venv\Scripts\Activate.ps1; pytest tests/unit/ -v; pytest tests/integration/ -v; pytest tests/ -v --cov=src/
 ```
 
 ### Code Quality Checks
@@ -170,6 +225,12 @@ mypy src/
 
 # Security scan
 bandit -r src/
+
+# With venv activation
+& .\venv\Scripts\Activate.ps1; black src/ tests/; flake8 src/ tests/; mypy src/; bandit -r src/
+
+# Single-line quality check
+& .\venv\Scripts\Activate.ps1; black src/ tests/; flake8 src/ tests/; mypy src/
 ```
 
 ## 📚 Documentation Commands
@@ -180,6 +241,15 @@ bandit -r src/
 cd docs/
 mkdocs build
 mkdocs serve --dev-addr 0.0.0.0:8082  # View at http://localhost:8082
+
+# With venv activation
+& .\venv\Scripts\Activate.ps1; cd docs; mkdocs build; mkdocs serve --dev-addr 0.0.0.0:8082
+
+# Build only (no serve)
+& .\venv\Scripts\Activate.ps1; cd docs; mkdocs build
+
+# Deploy script usage
+& .\venv\Scripts\Activate.ps1; .\scripts\deploy-mkdocs.ps1 -Build -Serve
 ```
 
 ### Generate API Docs
@@ -188,6 +258,9 @@ mkdocs serve --dev-addr 0.0.0.0:8082  # View at http://localhost:8082
 # FastAPI auto-docs available at:
 # http://localhost:8080/docs
 # http://localhost:8080/redoc
+
+# Open API docs in browser (Windows)
+start http://localhost:8080/docs; start http://localhost:8080/redoc
 ```
 
 ## 🌐 Service URLs & Endpoints
@@ -309,6 +382,12 @@ netstat -an | findstr ":8083"
 
 # Check Python processes
 tasklist /fi "imagename eq python.exe"
+
+# Single-line port checking
+netstat -an | findstr ":8080"; netstat -an | findstr ":7860"; netstat -an | findstr ":5000"; netstat -an | findstr ":8081"; netstat -an | findstr ":8083"
+
+# Check all service ports at once
+netstat -an | findstr ":8080 :7860 :5000 :8081 :8082 :8083"
 ```
 
 ### Reset Services
@@ -322,6 +401,12 @@ del mlflow.db
 
 # Clear ChromaDB data
 rmdir /s chroma_data
+
+# Complete reset (stop processes and clear data)
+taskkill /f /im python.exe; del mlflow.db; rmdir /s chroma_data; rmdir /s site
+
+# Reset with confirmation
+taskkill /f /im python.exe; if (Test-Path mlflow.db) { del mlflow.db }; if (Test-Path chroma_data) { rmdir /s chroma_data }; if (Test-Path site) { rmdir /s site }
 ```
 
 ### Log Analysis
@@ -332,6 +417,15 @@ type logs\llmops.log
 
 # Real-time log monitoring
 Get-Content logs\llmops.log -Wait
+
+# Check log file size and last modified
+ls logs\llmops.log -la
+
+# Tail last 50 lines
+Get-Content logs\llmops.log -Tail 50
+
+# Search for errors in logs
+Select-String -Path logs\llmops.log -Pattern "ERROR|WARN|Exception"
 ```
 
 ## 📁 Key Directories & Files
@@ -360,6 +454,62 @@ ai_assignments/
 - `scripts/generate_evaluation_dataset.py` - Dataset generation
 - `config/gradio_models.json` - Gradio app model configuration (generated)
 - `data/evaluation_datasets/enhanced_evaluation_dataset.csv` - Generated dataset
+
+## ⚡ Quick One-Liner Commands
+
+### Essential Service Startup (One Command Each)
+
+```powershell
+# ChromaDB
+& .\venv\Scripts\Activate.ps1; chroma run --host 0.0.0.0 --port 8081 --path chroma_data
+
+# MLflow
+& .\venv\Scripts\Activate.ps1; mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000
+
+# Enterprise Platform
+& .\venv\Scripts\Activate.ps1; python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
+
+# Gradio App
+& .\venv\Scripts\Activate.ps1; python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+
+# MkDocs Documentation
+& .\venv\Scripts\Activate.ps1; cd docs; mkdocs build; mkdocs serve --dev-addr 0.0.0.0:8082
+
+# LangGraph Studio
+& .\venv\Scripts\Activate.ps1; langgraph dev --host 0.0.0.0 --port 8083
+```
+
+### Quick Testing & Validation
+
+```powershell
+# Test all API endpoints
+curl http://localhost:8080/health; curl http://localhost:8080/api/models; curl http://localhost:8080/api/experiments
+
+# Check all service ports
+netstat -an | findstr ":8080 :7860 :5000 :8081 :8082 :8083"
+
+# Run comprehensive sync
+& .\venv\Scripts\Activate.ps1; .\scripts\comprehensive-sync.ps1
+
+# Run all tests
+& .\venv\Scripts\Activate.ps1; pytest tests/ -v --cov=src/
+
+# Build and serve documentation
+& .\venv\Scripts\Activate.ps1; .\scripts\deploy-mkdocs.ps1 -Build -Serve
+```
+
+### Quick Reset & Cleanup
+
+```powershell
+# Stop all services and clear data
+taskkill /f /im python.exe; if (Test-Path mlflow.db) { del mlflow.db }; if (Test-Path chroma_data) { rmdir /s chroma_data }; if (Test-Path site) { rmdir /s site }
+
+# Check logs for errors
+Select-String -Path logs\llmops.log -Pattern "ERROR|WARN|Exception"
+
+# Health check all services
+curl http://localhost:8080/health; echo "Enterprise: OK"; curl http://localhost:5000/health; echo "MLflow: OK"; curl http://localhost:8081/api/v1/heartbeat; echo "ChromaDB: OK"
+```
 
 ## 🎯 Quick Start Checklist
 
@@ -499,6 +649,12 @@ curl http://localhost:7860/health
 
 # LangGraph Studio
 curl http://localhost:8080/api/langgraph/studios/status
+
+# Single-line health check all services
+curl http://localhost:8080/health; curl http://localhost:5000/health; curl http://localhost:8081/api/v1/heartbeat; curl http://localhost:7860/health; curl http://localhost:8080/api/langgraph/studios/status
+
+# Health check with status display
+curl http://localhost:8080/health; echo "Enterprise Platform: OK"; curl http://localhost:5000/health; echo "MLflow: OK"; curl http://localhost:8081/api/v1/heartbeat; echo "ChromaDB: OK"
 ```
 
 ### Performance Monitoring
@@ -512,6 +668,12 @@ Get-Process python | Select-Object ProcessName,WorkingSet
 
 # Check disk usage
 Get-ChildItem . -Recurse | Measure-Object -Property Length -Sum
+
+# Single-line performance check
+Get-Process python | Select-Object ProcessName,CPU,WorkingSet; Get-ChildItem . -Recurse | Measure-Object -Property Length -Sum
+
+# Monitor Python processes with details
+Get-Process python | Format-Table ProcessName,CPU,WorkingSet,StartTime -AutoSize
 ```
 
 ## 🎯 Production Deployment Commands

@@ -1,0 +1,314 @@
+/* Mermaid Diagram Styling for Lenovo AAITC Platform */
+
+/* Base Mermaid Styling */
+.mermaid {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6;
+}
+
+/* Node Styling */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+    rx: 8px !important;
+    ry: 8px !important;
+}
+
+/* Primary Node Styling */
+.mermaid .node.primary rect,
+.mermaid .node.primary circle,
+.mermaid .node.primary ellipse,
+.mermaid .node.primary polygon {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 3px !important;
+}
+
+/* Secondary Node Styling */
+.mermaid .node.secondary rect,
+.mermaid .node.secondary circle,
+.mermaid .node.secondary ellipse,
+.mermaid .node.secondary polygon {
+    fill: #f3e5f5 !important;
+    stroke: #4a148c !important;
+    stroke-width: 2px !important;
+}
+
+/* Tertiary Node Styling */
+.mermaid .node.tertiary rect,
+.mermaid .node.tertiary circle,
+.mermaid .node.tertiary ellipse,
+.mermaid .node.tertiary polygon {
+    fill: #e8f5e8 !important;
+    stroke: #1b5e20 !important;
+    stroke-width: 2px !important;
+}
+
+/* Edge Styling */
+.mermaid .edgePath .path {
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .edgeLabel {
+    background-color: #ffffff !important;
+    border: 1px solid #01579b !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    color: #01579b !important;
+}
+
+/* Arrow Styling */
+.mermaid .arrowheadPath {
+    fill: #01579b !important;
+}
+
+/* Text Styling */
+.mermaid .nodeLabel {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #01579b !important;
+    text-align: center !important;
+}
+
+/* Cluster Styling */
+.mermaid .cluster rect {
+    fill: rgba(225, 245, 254, 0.3) !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+    stroke-dasharray: 5,5 !important;
+    rx: 12px !important;
+    ry: 12px !important;
+}
+
+.mermaid .cluster-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #01579b !important;
+    fill: #01579b !important;
+}
+
+/* Flowchart Specific Styling */
+.mermaid .flowchart-link {
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .flowchart-node {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+/* Sequence Diagram Styling */
+.mermaid .actor {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .messageText {
+    fill: #01579b !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 12px !important;
+}
+
+/* Gantt Chart Styling */
+.mermaid .section0 {
+    fill: #e1f5fe !important;
+}
+
+.mermaid .section1 {
+    fill: #f3e5f5 !important;
+}
+
+.mermaid .section2 {
+    fill: #e8f5e8 !important;
+}
+
+.mermaid .section3 {
+    fill: #fff3e0 !important;
+}
+
+.mermaid .task0,
+.mermaid .task1,
+.mermaid .task2,
+.mermaid .task3 {
+    fill: #01579b !important;
+    stroke: #01579b !important;
+}
+
+/* Git Graph Styling */
+.mermaid .commit {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .branch {
+    fill: #f3e5f5 !important;
+    stroke: #4a148c !important;
+    stroke-width: 2px !important;
+}
+
+/* State Diagram Styling */
+.mermaid .state-node {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .state-label {
+    fill: #01579b !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 12px !important;
+}
+
+/* Class Diagram Styling */
+.mermaid .classBox {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .classText {
+    fill: #01579b !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 12px !important;
+}
+
+/* ER Diagram Styling */
+.mermaid .entityBox {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .attributeBox {
+    fill: #f3e5f5 !important;
+    stroke: #4a148c !important;
+    stroke-width: 1px !important;
+}
+
+/* User Journey Styling */
+.mermaid .journey-section {
+    fill: #e1f5fe !important;
+    stroke: #01579b !important;
+    stroke-width: 2px !important;
+}
+
+.mermaid .journey-task {
+    fill: #f3e5f5 !important;
+    stroke: #4a148c !important;
+    stroke-width: 1px !important;
+}
+
+/* Pie Chart Styling */
+.mermaid .pieTitleText {
+    fill: #01579b !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+.mermaid .slice {
+    stroke: #ffffff !important;
+    stroke-width: 2px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mermaid {
+        padding: 15px;
+        margin: 15px 0;
+        font-size: 12px;
+    }
+    
+    .mermaid .nodeLabel {
+        font-size: 12px !important;
+    }
+    
+    .mermaid .cluster-label {
+        font-size: 14px !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .mermaid {
+        background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        border-color: #4a5568;
+    }
+    
+    .mermaid .node rect,
+    .mermaid .node circle,
+    .mermaid .node ellipse,
+    .mermaid .node polygon {
+        fill: #2d3748 !important;
+        stroke: #63b3ed !important;
+    }
+    
+    .mermaid .nodeLabel {
+        color: #e2e8f0 !important;
+    }
+    
+    .mermaid .edgePath .path {
+        stroke: #63b3ed !important;
+    }
+    
+    .mermaid .edgeLabel {
+        background-color: #2d3748 !important;
+        border-color: #63b3ed !important;
+        color: #e2e8f0 !important;
+    }
+}
+
+/* Animation Effects */
+.mermaid .node {
+    transition: all 0.3s ease;
+}
+
+.mermaid .node:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Print Styles */
+@media print {
+    .mermaid {
+        background: white !important;
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+    
+    .mermaid .node rect,
+    .mermaid .node circle,
+    .mermaid .node ellipse,
+    .mermaid .node polygon {
+        fill: white !important;
+        stroke: #000 !important;
+        stroke-width: 1px !important;
+    }
+    
+    .mermaid .nodeLabel {
+        color: #000 !important;
+    }
+}

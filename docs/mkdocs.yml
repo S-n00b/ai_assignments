@@ -52,6 +52,16 @@ theme:
 plugins:
   - search:
       lang: en
+  - mermaid2:
+      arguments:
+        theme: base
+        themeVariables:
+          primaryColor: "#01579b"
+          primaryTextColor: "#ffffff"
+          primaryBorderColor: "#01579b"
+          lineColor: "#01579b"
+          secondaryColor: "#f3e5f5"
+          tertiaryColor: "#e8f5e8"
 
 # Markdown Extensions
 markdown_extensions:
@@ -84,12 +94,23 @@ nav:
       - Model Evaluation API: api/model-evaluation.md
       - AI Architecture API: api/ai-architecture.md
       - Utilities API: api/utilities.md
+      - Chat Playground: api/chat-playground.md
+      - Gradio App: api/gradio-app.md
 
   # Live Applications & Demos
   - Live Applications & Demos:
       - Applications Overview: live-applications/index.md
-      - Assignment 1: Model Evaluation Engineer: assignments/assignment1/overview.md
-      - Assignment 2: Enterprise LLMOps Platform: assignments/assignment2/overview.md
+      - "Assignment 1: Model Evaluation Engineer": assignments/assignment1/overview.md
+      - "Assignment 2: Enterprise LLMOps Platform": assignments/assignment2/overview.md
+      - Evaluation Framework: assignments/assignment1/evaluation-framework.md
+      - Model Factory: assignments/assignment1/model-factory.md
+      - Model Profiling: assignments/assignment1/model-profiling.md
+      - Practical Exercise: assignments/assignment1/practical-exercise.md
+      - Agent System: assignments/assignment2/agent-system.md
+      - Model Lifecycle: assignments/assignment2/model-lifecycle.md
+      - RAG System: assignments/assignment2/rag-system.md
+      - Stakeholder Communication: assignments/assignment2/stakeholder-communication.md
+      - System Architecture: assignments/assignment2/system-architecture.md
 
   # Executive & Professional Content
   - Executive Presentations:
@@ -115,6 +136,26 @@ nav:
       - Performance Metrics: resources/performance.md
       - Troubleshooting: resources/troubleshooting.md
       - Progress Bulletin: progress-bulletin.md
+
+  # Diagrams & Visualizations
+  - Diagrams & Visualizations:
+      - System Architecture: diagrams/system-architecture.md
+      - Model Evaluation Flow: diagrams/model-evaluation-flow.md
+      - Enterprise Platform: diagrams/enterprise-platform.md
+      - Service Integration: diagrams/service-integration.md
+      - Data Flow: diagrams/data-flow.md
+
+  # Additional Documentation
+  - Additional Documentation:
+      - AI Tool Prompts Integration: AI_TOOL_PROMPTS_INTEGRATION.md
+      - API Documentation: API_DOCUMENTATION.md
+      - Deployment Guide: DEPLOYMENT_GUIDE.md
+      - Interactive Features Setup: INTERACTIVE_FEATURES_SETUP.md
+      - Testing Guide: TESTING.md
+      - README Testing: README_TESTING.md
+      - Lenovo AAITC Assignments: lenovo_aaitc_assignments.md
+      - Lenovo AAITC with Sources: lenovo_aaitc_assignments_with_sources_claude_chat.md
+      - About: about.md
 
 # Extra Configuration
 extra:
@@ -142,6 +183,7 @@ extra:
   css:
     - stylesheets/extra.css
     - assets/css/lenovo-material-theme.css
+    - assets/css/mermaid-lenovo.css
   javascripts:
     - javascripts/mathjax.js
     - javascripts/mermaid.js
