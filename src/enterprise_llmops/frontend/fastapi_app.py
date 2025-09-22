@@ -41,6 +41,42 @@ from ..automl.optuna_optimizer import OptunaOptimizer, OptimizationConfig, LLMHy
 from ..mlops.mlflow_manager import MLflowManager, ExperimentConfig, ModelInfo, DeploymentConfig
 from ..prompt_integration import PromptIntegrationManager
 
+# Import GitHub Models integration
+try:
+    from ...github_models_integration.api_client import GitHubModelsAPIClient
+    from ...github_models_integration.remote_serving import GitHubModelsRemoteServing
+    GITHUB_MODELS_AVAILABLE = True
+except ImportError:
+    GITHUB_MODELS_AVAILABLE = False
+    logging.warning("GitHub Models integration not available")
+
+# Import LangGraph Studio integration
+try:
+    from ...ai_architecture.langgraph_studio_integration import (
+        LangGraphStudioManager, 
+        initialize_langgraph_studio_manager,
+        get_langgraph_studio_manager,
+        create_langgraph_studio_endpoints,
+        StudioConfig
+    )
+    LANGGRAPH_STUDIO_AVAILABLE = True
+except ImportError:
+    LANGGRAPH_STUDIO_AVAILABLE = False
+    logging.warning("LangGraph Studio integration not available")
+
+# Import QLoRA integration
+try:
+    from ...ai_architecture.qlora_integration import (
+        QLoRAManager,
+        initialize_qlora_manager,
+        get_qlora_manager,
+        create_qlora_endpoints
+    )
+    QLORA_AVAILABLE = True
+except ImportError:
+    QLORA_AVAILABLE = False
+    logging.warning("QLoRA integration not available")
+
 
 # Authentication models
 class UserLoginRequest(BaseModel):
@@ -101,14 +137,20 @@ model_registry: Optional[EnterpriseModelRegistry] = None
 mlflow_manager: Optional[MLflowManager] = None
 optuna_optimizer: Optional[OptunaOptimizer] = None
 prompt_integration_manager: Optional[PromptIntegrationManager] = None
+langgraph_studio_manager: Optional[LangGraphStudioManager] = None
+qlora_manager: Optional[QLoRAManager] = None
 chroma_client = None
 connection_manager = ConnectionManager()
+
+# GitHub Models integration
+github_models_client: Optional[GitHubModelsAPIClient] = None
+github_models_serving: Optional[GitHubModelsRemoteServing] = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager."""
-    global ollama_manager, model_registry, mlflow_manager, optuna_optimizer, prompt_integration_manager, chroma_client
+    global ollama_manager, model_registry, mlflow_manager, optuna_optimizer, prompt_integration_manager, langgraph_studio_manager, qlora_manager, chroma_client, github_models_client, github_models_serving
     
     # Startup
     logging.info("Starting Enterprise LLMOps Frontend...")
@@ -155,6 +197,43 @@ async def lifespan(app: FastAPI):
         # Initialize prompt integration manager
         prompt_integration_manager = PromptIntegrationManager()
         logging.info("Prompt integration manager initialized")
+        
+        # Initialize LangGraph Studio manager
+        if LANGGRAPH_STUDIO_AVAILABLE:
+            try:
+                langgraph_studio_manager = initialize_langgraph_studio_manager()
+                logging.info("LangGraph Studio manager initialized")
+            except Exception as e:
+                logging.warning(f"Failed to initialize LangGraph Studio manager: {e}")
+                langgraph_studio_manager = None
+        else:
+            logging.info("LangGraph Studio integration not available")
+            langgraph_studio_manager = None
+        
+        # Initialize QLoRA manager
+        if QLORA_AVAILABLE:
+            try:
+                qlora_manager = initialize_qlora_manager(model_registry)
+                logging.info("QLoRA manager initialized")
+            except Exception as e:
+                logging.warning(f"Failed to initialize QLoRA manager: {e}")
+                qlora_manager = None
+        else:
+            logging.info("QLoRA integration not available")
+            qlora_manager = None
+        
+        # Initialize GitHub Models integration
+        if GITHUB_MODELS_AVAILABLE:
+            try:
+                github_models_client = GitHubModelsAPIClient()
+                github_models_serving = GitHubModelsRemoteServing(github_models_client)
+                logging.info("GitHub Models integration initialized")
+            except Exception as e:
+                logging.error(f"Failed to initialize GitHub Models integration: {e}")
+                github_models_client = None
+                github_models_serving = None
+        else:
+            logging.warning("GitHub Models integration not available")
         
         # Initialize ChromaDB client
         try:
@@ -305,14 +384,19 @@ else:
 
 
 @app.get("/", response_class=HTMLResponse)
-async def serve_frontend():
-    """Serve the React frontend or development landing page."""
-    frontend_file = "frontend/build/index.html"
-    if os.path.exists(frontend_file):
-        return FileResponse(frontend_file)
+async def serve_unified_platform():
+    """Serve the unified platform with Lenovo branding and embedded services."""
+    unified_platform_file = "src/enterprise_llmops/frontend/unified_platform.html"
+    if os.path.exists(unified_platform_file):
+        return FileResponse(unified_platform_file)
     else:
-        # Serve a simple development landing page
-        return HTMLResponse("""
+        # Fallback to original pitch page if available
+        pitch_file = "lenovo_ai_architecture_pitch.html"
+        if os.path.exists(pitch_file):
+            return FileResponse(pitch_file)
+        else:
+            # Serve a simple development landing page
+            return HTMLResponse("""
         <!DOCTYPE html>
         <html>
         <head>
@@ -495,6 +579,55 @@ async def serve_frontend():
                 </div>
                 
                 <div class="section">
+                    <h2>🖼️ Unified Service Integration (iframe)</h2>
+                    <div style="background: #e8f4fd; padding: 15px; border-radius: 4px; margin: 10px 0;">
+                        <strong>🎯 Unified Dashboard:</strong> Access all services through a single interface with tabbed navigation and service status indicators.
+                    </div>
+                    <div class="grid">
+                        <div class="endpoint">
+                            <strong>🖥️ Unified Dashboard:</strong> 
+                            <a href="/iframe/dashboard" target="_blank">/iframe/dashboard</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/dashboard', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>🎯 Lenovo Pitch (iframe):</strong> 
+                            <a href="/iframe/lenovo-pitch" target="_blank">/iframe/lenovo-pitch</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/lenovo-pitch', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>🤖 Gradio App (iframe):</strong> 
+                            <a href="/iframe/gradio" target="_blank">/iframe/gradio</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/gradio', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>📈 MLflow (iframe):</strong> 
+                            <a href="/iframe/mlflow" target="_blank">/iframe/mlflow</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/mlflow', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>🗄️ ChromaDB (iframe):</strong> 
+                            <a href="/iframe/chromadb" target="_blank">/iframe/chromadb</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/chromadb', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>📚 Documentation (iframe):</strong> 
+                            <a href="/iframe/docs" target="_blank">/iframe/docs</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/docs', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>🎯 LangGraph Studio (iframe):</strong> 
+                            <a href="/iframe/langgraph-studio" target="_blank">/iframe/langgraph-studio</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/langgraph-studio', this)">Test</button>
+                        </div>
+                        <div class="endpoint">
+                            <strong>🔧 QLoRA Fine-Tuning (iframe):</strong> 
+                            <a href="/iframe/qlora" target="_blank">/iframe/qlora</a>
+                            <button class="test-button" onclick="testEndpoint('/iframe/qlora', this)">Test</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
                     <h2>🔧 Advanced Features</h2>
                     <div class="grid">
                         <div class="endpoint">
@@ -536,6 +669,40 @@ async def serve_frontend():
         </body>
         </html>
         """)
+
+
+@app.get("/about", response_class=HTMLResponse)
+async def serve_about_page():
+    """Serve the Lenovo AI Architecture about page."""
+    about_file = "src/enterprise_llmops/frontend/about_page.html"
+    if os.path.exists(about_file):
+        return FileResponse(about_file)
+    else:
+        # Fallback to original pitch page if available
+        pitch_file = "lenovo_ai_architecture_pitch.html"
+        if os.path.exists(pitch_file):
+            return FileResponse(pitch_file)
+        else:
+            return HTMLResponse("""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>About - Lenovo AI Architecture</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 40px; background: #1a1a1a; color: white; }
+                    .container { max-width: 1000px; margin: 0 auto; background: #2a2a2a; padding: 40px; border-radius: 8px; border: 1px solid #404040; }
+                    h1 { color: #E2231A; text-align: center; }
+                    .lenovo-gradient { background: linear-gradient(135deg, #E2231A, #C01E17); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1 class="lenovo-gradient">Lenovo AI Architecture</h1>
+                    <p>Meta-Assignment Portfolio: AI Architect Model Customization → Model Evaluation Engineer Testing → Lenovo Factory Roster</p>
+                </div>
+            </body>
+            </html>
+            """)
 
 
 # Health check endpoint
@@ -690,6 +857,64 @@ async def generate_response(
         )
         
         return response
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# GitHub Models endpoints
+@app.get("/api/github-models/available")
+async def list_github_models(user: dict = Depends(get_current_user)):
+    """List available GitHub Models."""
+    try:
+        if not GITHUB_MODELS_AVAILABLE or not github_models_client:
+            raise HTTPException(status_code=503, detail="GitHub Models integration not available")
+        
+        models = await github_models_client.get_available_models()
+        return {"models": [{"id": model.id, "name": model.name, "provider": model.provider, "description": model.description} for model in models]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/github-models/generate")
+async def generate_github_response(
+    request: Dict[str, Any],
+    user: dict = Depends(get_current_user)
+):
+    """Generate response using GitHub Models."""
+    try:
+        if not GITHUB_MODELS_AVAILABLE or not github_models_serving:
+            raise HTTPException(status_code=503, detail="GitHub Models integration not available")
+        
+        model_id = request.get("model_id")
+        prompt = request.get("prompt")
+        parameters = request.get("parameters", {})
+        
+        if not model_id or not prompt:
+            raise HTTPException(status_code=400, detail="model_id and prompt are required")
+        
+        # Create input data for GitHub Models API
+        input_data = {
+            "model": model_id,
+            "messages": [
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": parameters.get("temperature", 0.7),
+            "max_tokens": parameters.get("max_tokens", 1000)
+        }
+        
+        # Make inference request
+        response = await github_models_serving.make_inference(model_id, input_data)
+        
+        if response.success:
+            return {
+                "response": response.content,
+                "model": model_id,
+                "usage": response.usage,
+                "timestamp": response.timestamp.isoformat()
+            }
+        else:
+            raise HTTPException(status_code=500, detail=response.error or "Unknown error")
+            
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -1342,6 +1567,962 @@ async def get_prompt_registry_statistics(user: dict = Depends(get_current_user))
         return {"success": True, "statistics": stats}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================================================
+# IFRAME SERVICE INTEGRATION ENDPOINTS
+# ============================================================================
+
+@app.get("/lenovo-pitch", response_class=HTMLResponse)
+async def serve_lenovo_pitch_direct():
+    """Serve the Lenovo AI Architecture pitch page directly."""
+    pitch_file = "lenovo_ai_architecture_pitch.html"
+    if os.path.exists(pitch_file):
+        return FileResponse(pitch_file)
+    else:
+        return HTMLResponse("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Lenovo AI Architecture Pitch</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                h1 { color: #333; text-align: center; }
+                .status { background: #fff3cd; padding: 20px; border-radius: 4px; margin: 20px 0; border-left: 4px solid #ffc107; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🎯 Lenovo AI Architecture Pitch</h1>
+                <div class="status">
+                    <strong>⚠️ Pitch Page Not Found</strong><br>
+                    The Lenovo AI Architecture pitch page (lenovo_ai_architecture_pitch.html) is not available in the current directory.
+                </div>
+                <p>This endpoint serves the Lenovo pitch page for the AI Architect's enterprise platform.</p>
+            </div>
+        </body>
+        </html>
+        """)
+
+
+@app.get("/iframe/lenovo-pitch", response_class=HTMLResponse)
+async def serve_lenovo_pitch():
+    """Serve the Lenovo AI Architecture pitch page in iframe."""
+    pitch_file = "lenovo_ai_architecture_pitch.html"
+    if os.path.exists(pitch_file):
+        return FileResponse(pitch_file)
+    else:
+        return HTMLResponse("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Lenovo AI Architecture Pitch</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+                .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                h1 { color: #333; text-align: center; }
+                .status { background: #fff3cd; padding: 20px; border-radius: 4px; margin: 20px 0; border-left: 4px solid #ffc107; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🎯 Lenovo AI Architecture Pitch</h1>
+                <div class="status">
+                    <strong>⚠️ Pitch Page Not Found</strong><br>
+                    The Lenovo AI Architecture pitch page (lenovo_ai_architecture_pitch.html) is not available in the current directory.
+                </div>
+                <p>This iframe endpoint is designed to serve the Lenovo pitch page for the AI Architect's enterprise platform.</p>
+            </div>
+        </body>
+        </html>
+        """)
+
+
+@app.get("/iframe/mlflow", response_class=HTMLResponse)
+async def serve_mlflow_iframe():
+    """Serve MLflow UI in an iframe with Lenovo branding and dark theme."""
+    return HTMLResponse("""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lenovo AI Architecture - MLflow Tracking</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --lenovo-red: #E2231A;
+                --lenovo-dark-red: #C01E17;
+                --lenovo-black: #000000;
+                --lenovo-gray: #666666;
+                --lenovo-light-gray: #F5F5F5;
+                --lenovo-white: #FFFFFF;
+                --lenovo-blue: #0066CC;
+                --lenovo-dark: #1A1A1A;
+                --lenovo-card: #2A2A2A;
+                --lenovo-border: #404040;
+            }
+            
+            * { box-sizing: border-box; }
+            
+            html, body { 
+                margin: 0; 
+                padding: 0; 
+                height: 100vh; 
+                font-family: 'Inter', sans-serif;
+                background-color: var(--lenovo-dark);
+                color: var(--lenovo-white);
+                overflow: hidden;
+            }
+            
+            .lenovo-gradient {
+                background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            }
+            
+            .lenovo-text-gradient {
+                background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .mlflow-header {
+                background: var(--lenovo-gradient);
+                color: white;
+                padding: 16px 20px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                z-index: 1000;
+            }
+            
+            .mlflow-header h1 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            
+            .mlflow-header p {
+                margin: 4px 0 0 0;
+                opacity: 0.9;
+                font-size: 0.9rem;
+            }
+            
+            .mlflow-container {
+                height: calc(100vh - 80px);
+                position: relative;
+            }
+            
+            iframe { 
+                width: 100%; 
+                height: 100%; 
+                border: none;
+                background: var(--lenovo-dark);
+            }
+            
+            .loading { 
+                position: absolute; 
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%); 
+                font-family: 'Inter', sans-serif;
+                color: var(--lenovo-white);
+                text-align: center;
+                z-index: 999;
+            }
+            
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px solid var(--lenovo-border);
+                border-top: 4px solid var(--lenovo-red);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 16px;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .lenovo-logo {
+                background: var(--lenovo-text-gradient);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mlflow-header">
+            <h1><span class="lenovo-logo">Lenovo</span> AI Architecture - MLflow Tracking</h1>
+            <p>Experiment Tracking & Model Registry</p>
+        </div>
+        
+        <div class="mlflow-container">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <div>Loading MLflow UI...</div>
+            </div>
+            <iframe 
+                src="http://localhost:5000" 
+                title="MLflow Tracking"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='<div class=&quot;loading-spinner&quot;></div><div>Failed to load MLflow UI. Please ensure MLflow is running on port 5000.</div>'">
+            </iframe>
+        </div>
+    </body>
+    </html>
+    """)
+
+
+@app.get("/iframe/gradio", response_class=HTMLResponse)
+async def serve_gradio_iframe():
+    """Serve Gradio Model Evaluation interface in iframe with Lenovo branding."""
+    return HTMLResponse("""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lenovo AI Architecture - Model Evaluation</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --lenovo-red: #E2231A;
+                --lenovo-dark-red: #C01E17;
+                --lenovo-black: #000000;
+                --lenovo-gray: #666666;
+                --lenovo-light-gray: #F5F5F5;
+                --lenovo-white: #FFFFFF;
+                --lenovo-blue: #0066CC;
+                --lenovo-dark: #1A1A1A;
+                --lenovo-card: #2A2A2A;
+                --lenovo-border: #404040;
+            }
+            
+            * { box-sizing: border-box; }
+            
+            html, body { 
+                margin: 0; 
+                padding: 0; 
+                height: 100vh; 
+                font-family: 'Inter', sans-serif;
+                background-color: var(--lenovo-dark);
+                color: var(--lenovo-white);
+                overflow: hidden;
+            }
+            
+            .lenovo-gradient {
+                background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            }
+            
+            .lenovo-text-gradient {
+                background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .gradio-header {
+                background: var(--lenovo-gradient);
+                color: white;
+                padding: 16px 20px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                z-index: 1000;
+            }
+            
+            .gradio-header h1 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            
+            .gradio-header p {
+                margin: 4px 0 0 0;
+                opacity: 0.9;
+                font-size: 0.9rem;
+            }
+            
+            .gradio-container {
+                height: calc(100vh - 80px);
+                position: relative;
+            }
+            
+            iframe { 
+                width: 100%; 
+                height: 100%; 
+                border: none;
+                background: var(--lenovo-dark);
+            }
+            
+            .loading { 
+                position: absolute; 
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%); 
+                font-family: 'Inter', sans-serif;
+                color: var(--lenovo-white);
+                text-align: center;
+                z-index: 999;
+            }
+            
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px solid var(--lenovo-border);
+                border-top: 4px solid var(--lenovo-red);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 16px;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .lenovo-logo {
+                background: var(--lenovo-text-gradient);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="gradio-header">
+            <h1><span class="lenovo-logo">Lenovo</span> AI Architecture - Model Evaluation</h1>
+            <p>Model Testing & Factory Roster Framework</p>
+        </div>
+        
+        <div class="gradio-container">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <div>Loading Model Evaluation Interface...</div>
+            </div>
+            <iframe 
+                src="http://localhost:7860" 
+                title="Gradio Model Evaluation"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='<div class=&quot;loading-spinner&quot;></div><div>Failed to load Gradio app. Please ensure the Gradio app is running on port 7860.</div>'">
+            </iframe>
+        </div>
+    </body>
+    </html>
+    """)
+
+
+@app.get("/iframe/chromadb", response_class=HTMLResponse)
+async def serve_chromadb_iframe():
+    """Serve ChromaDB UI in iframe with Lenovo branding."""
+    return HTMLResponse("""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lenovo AI Architecture - ChromaDB Vector Store</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --lenovo-red: #E2231A;
+                --lenovo-dark-red: #C01E17;
+                --lenovo-black: #000000;
+                --lenovo-gray: #666666;
+                --lenovo-light-gray: #F5F5F5;
+                --lenovo-white: #FFFFFF;
+                --lenovo-blue: #0066CC;
+                --lenovo-dark: #1A1A1A;
+                --lenovo-card: #2A2A2A;
+                --lenovo-border: #404040;
+            }
+            
+            * { box-sizing: border-box; }
+            
+            html, body { 
+                margin: 0; 
+                padding: 0; 
+                height: 100vh; 
+                font-family: 'Inter', sans-serif;
+                background-color: var(--lenovo-dark);
+                color: var(--lenovo-white);
+                overflow: hidden;
+            }
+            
+            .lenovo-gradient {
+                background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            }
+            
+            .lenovo-text-gradient {
+                background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .chromadb-header {
+                background: var(--lenovo-gradient);
+                color: white;
+                padding: 16px 20px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                z-index: 1000;
+            }
+            
+            .chromadb-header h1 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            
+            .chromadb-header p {
+                margin: 4px 0 0 0;
+                opacity: 0.9;
+                font-size: 0.9rem;
+            }
+            
+            .chromadb-container {
+                height: calc(100vh - 80px);
+                position: relative;
+            }
+            
+            iframe { 
+                width: 100%; 
+                height: 100%; 
+                border: none;
+                background: var(--lenovo-dark);
+            }
+            
+            .loading { 
+                position: absolute; 
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%); 
+                font-family: 'Inter', sans-serif;
+                color: var(--lenovo-white);
+                text-align: center;
+                z-index: 999;
+            }
+            
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px solid var(--lenovo-border);
+                border-top: 4px solid var(--lenovo-red);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 16px;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .lenovo-logo {
+                background: var(--lenovo-text-gradient);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="chromadb-header">
+            <h1><span class="lenovo-logo">Lenovo</span> AI Architecture - ChromaDB Vector Store</h1>
+            <p>Vector Database for Embeddings & Knowledge Retrieval</p>
+        </div>
+        
+        <div class="chromadb-container">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <div>Loading ChromaDB UI...</div>
+            </div>
+            <iframe 
+                src="http://localhost:8081" 
+                title="ChromaDB Vector Database"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='<div class=&quot;loading-spinner&quot;></div><div>Failed to load ChromaDB UI. Please ensure ChromaDB is running on port 8081.</div>'">
+            </iframe>
+        </div>
+    </body>
+    </html>
+    """)
+
+
+@app.get("/iframe/docs", response_class=HTMLResponse)
+async def serve_docs_iframe():
+    """Serve MkDocs documentation in iframe with Lenovo branding."""
+    return HTMLResponse("""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lenovo AI Architecture - Documentation Hub</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --lenovo-red: #E2231A;
+                --lenovo-dark-red: #C01E17;
+                --lenovo-black: #000000;
+                --lenovo-gray: #666666;
+                --lenovo-light-gray: #F5F5F5;
+                --lenovo-white: #FFFFFF;
+                --lenovo-blue: #0066CC;
+                --lenovo-dark: #1A1A1A;
+                --lenovo-card: #2A2A2A;
+                --lenovo-border: #404040;
+            }
+            
+            * { box-sizing: border-box; }
+            
+            html, body { 
+                margin: 0; 
+                padding: 0; 
+                height: 100vh; 
+                font-family: 'Inter', sans-serif;
+                background-color: var(--lenovo-dark);
+                color: var(--lenovo-white);
+                overflow: hidden;
+            }
+            
+            .lenovo-gradient {
+                background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            }
+            
+            .lenovo-text-gradient {
+                background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .docs-header {
+                background: var(--lenovo-gradient);
+                color: white;
+                padding: 16px 20px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+                z-index: 1000;
+            }
+            
+            .docs-header h1 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            
+            .docs-header p {
+                margin: 4px 0 0 0;
+                opacity: 0.9;
+                font-size: 0.9rem;
+            }
+            
+            .docs-container {
+                height: calc(100vh - 80px);
+                position: relative;
+            }
+            
+            iframe { 
+                width: 100%; 
+                height: 100%; 
+                border: none;
+                background: var(--lenovo-dark);
+            }
+            
+            .loading { 
+                position: absolute; 
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%); 
+                font-family: 'Inter', sans-serif;
+                color: var(--lenovo-white);
+                text-align: center;
+                z-index: 999;
+            }
+            
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+                border: 4px solid var(--lenovo-border);
+                border-top: 4px solid var(--lenovo-red);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: 0 auto 16px;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .lenovo-logo {
+                background: var(--lenovo-text-gradient);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="docs-header">
+            <h1><span class="lenovo-logo">Lenovo</span> AI Architecture - Documentation Hub</h1>
+            <p>Global Documentation Platform with Unified API Reference</p>
+        </div>
+        
+        <div class="docs-container">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <div>Loading Documentation Hub...</div>
+            </div>
+            <iframe 
+                src="http://localhost:8082" 
+                title="MkDocs Documentation"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='<div class=&quot;loading-spinner&quot;></div><div>Failed to load MkDocs. Please ensure MkDocs is running on port 8082.</div>'">
+            </iframe>
+        </div>
+    </body>
+    </html>
+    """)
+
+
+@app.get("/iframe/dashboard", response_class=HTMLResponse)
+async def serve_unified_dashboard():
+    """Serve the unified dashboard with all embedded services."""
+    return HTMLResponse("""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lenovo AI Architecture - Unified Dashboard</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --lenovo-red: #E2231A;
+                --lenovo-dark-red: #C01E17;
+                --lenovo-black: #000000;
+                --lenovo-gray: #666666;
+                --lenovo-light-gray: #F5F5F5;
+                --lenovo-white: #FFFFFF;
+                --lenovo-blue: #0066CC;
+                --lenovo-dark: #1A1A1A;
+                --lenovo-card: #2A2A2A;
+                --lenovo-border: #404040;
+            }
+            
+            * { box-sizing: border-box; }
+            
+            html, body { 
+                margin: 0; 
+                padding: 0; 
+                height: 100%; 
+                font-family: 'Inter', sans-serif;
+                background-color: var(--lenovo-dark);
+                color: var(--lenovo-white);
+                overflow: hidden;
+            }
+            
+            .lenovo-gradient {
+                background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            }
+            
+            .lenovo-text-gradient {
+                background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .header { 
+                background: var(--lenovo-gradient);
+                color: white; 
+                padding: 20px; 
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .header h1 {
+                margin: 0 0 8px 0;
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+            
+            .header p {
+                margin: 0;
+                opacity: 0.9;
+                font-size: 1rem;
+            }
+            
+            .nav-tabs { 
+                background: var(--lenovo-card); 
+                display: flex; 
+                border-bottom: 2px solid var(--lenovo-red);
+                overflow-x: auto;
+            }
+            
+            .nav-tab { 
+                background: transparent; 
+                color: var(--lenovo-white); 
+                padding: 16px 20px; 
+                cursor: pointer; 
+                border: none; 
+                border-right: 1px solid var(--lenovo-border);
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+                display: flex;
+                align-items: center;
+            }
+            
+            .nav-tab:hover { 
+                background: rgba(226, 35, 26, 0.1);
+                color: var(--lenovo-red);
+            }
+            
+            .nav-tab.active { 
+                background: var(--lenovo-red);
+                color: white;
+                font-weight: 600;
+            }
+            
+            .content { height: calc(100vh - 140px); }
+            .tab-content { display: none; height: 100%; }
+            .tab-content.active { display: block; }
+            iframe { width: 100%; height: 100%; border: none; }
+            
+            .status-indicator { 
+                display: inline-block; 
+                width: 8px; 
+                height: 8px; 
+                border-radius: 50%; 
+                margin-right: 8px;
+                transition: all 0.3s ease;
+            }
+            
+            .status-online { background: #22c55e; }
+            .status-offline { background: #ef4444; }
+            .status-warning { background: #f59e0b; }
+            
+            .lenovo-logo {
+                background: var(--lenovo-text-gradient);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+    <body class="lenovo-dark-theme">
+        <div class="header">
+            <h1><span class="lenovo-logo">Lenovo</span> AI Architecture - Unified Dashboard</h1>
+            <p>Enterprise LLMOps Platform with Integrated Services</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('main')">
+                <span class="status-indicator status-online"></span>Main Platform
+            </button>
+            <button class="nav-tab" onclick="showTab('gradio')">
+                <span class="status-indicator" id="gradio-status"></span>Model Evaluation (Gradio)
+            </button>
+            <button class="nav-tab" onclick="showTab('mlflow')">
+                <span class="status-indicator" id="mlflow-status"></span>MLflow Tracking
+            </button>
+            <button class="nav-tab" onclick="showTab('chromadb')">
+                <span class="status-indicator" id="chromadb-status"></span>ChromaDB Vector Store
+            </button>
+            <button class="nav-tab" onclick="showTab('docs')">
+                <span class="status-indicator" id="docs-status"></span>Documentation
+            </button>
+            <button class="nav-tab" onclick="showTab('pitch')">
+                <span class="status-indicator status-online"></span>Lenovo Pitch
+            </button>
+            <button class="nav-tab" onclick="showTab('langgraph-studio')">
+                <span class="status-indicator" id="langgraph-studio-status"></span>LangGraph Studio
+            </button>
+            <button class="nav-tab" onclick="showTab('qlora')">
+                <span class="status-indicator" id="qlora-status"></span>QLoRA Fine-Tuning
+            </button>
+        </div>
+        
+        <div class="content">
+            <div id="main" class="tab-content active">
+                <iframe src="/" title="Main Enterprise Platform"></iframe>
+            </div>
+            <div id="gradio" class="tab-content">
+                <iframe src="http://localhost:7860" title="Gradio Model Evaluation" onload="updateStatus('gradio', true)" onerror="updateStatus('gradio', false)"></iframe>
+            </div>
+            <div id="mlflow" class="tab-content">
+                <iframe src="http://localhost:5000" title="MLflow Tracking" onload="updateStatus('mlflow', true)" onerror="updateStatus('mlflow', false)"></iframe>
+            </div>
+            <div id="chromadb" class="tab-content">
+                <iframe src="http://localhost:8081" title="ChromaDB Vector Store" onload="updateStatus('chromadb', true)" onerror="updateStatus('chromadb', false)"></iframe>
+            </div>
+            <div id="docs" class="tab-content">
+                <iframe src="http://localhost:8082" title="MkDocs Documentation" onload="updateStatus('docs', true)" onerror="updateStatus('docs', false)"></iframe>
+            </div>
+            <div id="pitch" class="tab-content">
+                <iframe src="/iframe/lenovo-pitch" title="Lenovo AI Architecture Pitch"></iframe>
+            </div>
+            <div id="langgraph-studio" class="tab-content">
+                <iframe src="/iframe/langgraph-studio" title="LangGraph Studio Dashboard" onload="updateStatus('langgraph-studio', true)" onerror="updateStatus('langgraph-studio', false)"></iframe>
+            </div>
+            <div id="qlora" class="tab-content">
+                <iframe src="/iframe/qlora" title="QLoRA Fine-Tuning Dashboard" onload="updateStatus('qlora', true)" onerror="updateStatus('qlora', false)"></iframe>
+            </div>
+        </div>
+        
+        <script>
+            function showTab(tabName) {
+                // Hide all tab contents
+                const contents = document.querySelectorAll('.tab-content');
+                contents.forEach(content => content.classList.remove('active'));
+                
+                // Remove active class from all tabs
+                const tabs = document.querySelectorAll('.nav-tab');
+                tabs.forEach(tab => tab.classList.remove('active'));
+                
+                // Show selected tab content
+                document.getElementById(tabName).classList.add('active');
+                
+                // Add active class to clicked tab
+                event.target.classList.add('active');
+            }
+            
+            function updateStatus(service, isOnline) {
+                const statusElement = document.getElementById(service + '-status');
+                if (statusElement) {
+                    statusElement.className = 'status-indicator ' + (isOnline ? 'status-online' : 'status-offline');
+                }
+            }
+            
+            // Check service status on load
+            window.addEventListener('load', function() {
+                // The iframe onload/onerror events will update the status indicators
+            });
+        </script>
+    </body>
+    </html>
+    """)
+
+
+# ============================================================================
+# LANGGRAPH STUDIO INTEGRATION ENDPOINTS
+# ============================================================================
+
+if LANGGRAPH_STUDIO_AVAILABLE:
+    # Create LangGraph Studio endpoints
+    create_langgraph_studio_endpoints(app)
+    
+    @app.get("/iframe/langgraph-studio", response_class=HTMLResponse)
+    async def serve_langgraph_studio_iframe():
+        """Serve LangGraph Studio dashboard in iframe."""
+        return HTMLResponse("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>LangGraph Studio Dashboard - Agent Visualization and Debugging</title>
+            <style>
+                body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+                iframe { width: 100%; height: 100vh; border: none; }
+                .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial, sans-serif; }
+            </style>
+        </head>
+        <body>
+            <div class="loading" id="loading">Loading LangGraph Studio Dashboard...</div>
+            <iframe 
+                src="/api/langgraph/studios/dashboard" 
+                title="LangGraph Studio Dashboard"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='Failed to load LangGraph Studio Dashboard. Please ensure LangGraph Studio is properly configured.'">
+            </iframe>
+        </body>
+        </html>
+        """)
+else:
+    @app.get("/api/langgraph/studios/status")
+    async def langgraph_studio_status():
+        """Get LangGraph Studio integration status."""
+        return {
+            "status": "unavailable",
+            "message": "LangGraph Studio integration not available. Install required dependencies.",
+            "dependencies": ["langgraph-cli", "langgraph", "langchain", "fastapi"],
+            "setup_instructions": "Install LangGraph CLI with: pip install langgraph-cli"
+        }
+
+# ============================================================================
+# QLORA INTEGRATION ENDPOINTS
+# ============================================================================
+
+if QLORA_AVAILABLE:
+    # Create QLoRA endpoints
+    create_qlora_endpoints(app)
+    
+    @app.get("/iframe/qlora", response_class=HTMLResponse)
+    async def serve_qlora_iframe():
+        """Serve QLoRA dashboard in iframe."""
+        return HTMLResponse("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>QLoRA Fine-Tuning Dashboard</title>
+            <style>
+                body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+                iframe { width: 100%; height: 100vh; border: none; }
+                .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial, sans-serif; }
+            </style>
+        </head>
+        <body>
+            <div class="loading" id="loading">Loading QLoRA Dashboard...</div>
+            <iframe 
+                src="/api/qlora/dashboard" 
+                title="QLoRA Fine-Tuning Dashboard"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='Failed to load QLoRA Dashboard. Please ensure QLoRA is properly configured.'">
+            </iframe>
+        </body>
+        </html>
+        """)
+else:
+    @app.get("/api/qlora/status")
+    async def qlora_status():
+        """Get QLoRA integration status."""
+        return {
+            "status": "unavailable",
+            "message": "QLoRA integration not available. Install required dependencies.",
+            "dependencies": ["torch", "transformers", "peft", "fastapi"]
+        }
 
 
 if __name__ == "__main__":

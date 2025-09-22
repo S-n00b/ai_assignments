@@ -1,0 +1,491 @@
+/* Lenovo AI Architecture Unified Theme
+ * Consistent styling across all services: FastAPI, Gradio, MkDocs, MLflow
+ * Based on Lenovo brand colors and design system with dark mode support
+ */
+
+:root {
+    /* Lenovo Brand Colors */
+    --lenovo-red: #E2231A;
+    --lenovo-dark-red: #C01E17;
+    --lenovo-black: #000000;
+    --lenovo-gray: #666666;
+    --lenovo-light-gray: #F5F5F5;
+    --lenovo-white: #FFFFFF;
+    --lenovo-blue: #0066CC;
+    --lenovo-dark: #1A1A1A;
+    --lenovo-card: #2A2A2A;
+    --lenovo-border: #404040;
+    
+    /* Dark Mode Colors */
+    --lenovo-dark-bg: #1A1A1A;
+    --lenovo-dark-card: #2A2A2A;
+    --lenovo-dark-border: #404040;
+    --lenovo-dark-text: #FFFFFF;
+    --lenovo-dark-text-secondary: #CCCCCC;
+    
+    /* ThinkPad Accent Colors */
+    --thinkpad-blue: #0066CC;
+    --thinkpad-dark-blue: #004499;
+    
+    /* Gradients */
+    --lenovo-gradient: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+    --lenovo-text-gradient: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+    --thinkpad-gradient: linear-gradient(135deg, var(--thinkpad-blue), var(--thinkpad-dark-blue));
+    
+    /* Typography */
+    --lenovo-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --lenovo-font-size-base: 16px;
+    --lenovo-font-size-sm: 14px;
+    --lenovo-font-size-lg: 18px;
+    --lenovo-font-size-xl: 20px;
+    --lenovo-font-size-2xl: 24px;
+    --lenovo-font-size-3xl: 30px;
+    --lenovo-font-size-4xl: 36px;
+    
+    /* Spacing */
+    --lenovo-spacing-xs: 0.25rem;
+    --lenovo-spacing-sm: 0.5rem;
+    --lenovo-spacing-md: 1rem;
+    --lenovo-spacing-lg: 1.5rem;
+    --lenovo-spacing-xl: 2rem;
+    --lenovo-spacing-2xl: 3rem;
+    
+    /* Border Radius */
+    --lenovo-radius-sm: 0.25rem;
+    --lenovo-radius-md: 0.5rem;
+    --lenovo-radius-lg: 0.75rem;
+    --lenovo-radius-xl: 1rem;
+    
+    /* Shadows */
+    --lenovo-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --lenovo-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --lenovo-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --lenovo-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+    --lenovo-shadow-red: 0 10px 25px rgba(226, 35, 26, 0.15);
+    --lenovo-shadow-blue: 0 15px 35px rgba(0, 102, 204, 0.1);
+    
+    /* Transitions */
+    --lenovo-transition: all 0.3s ease;
+    --lenovo-transition-fast: all 0.15s ease;
+    --lenovo-transition-slow: all 0.5s ease;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--lenovo-font-family);
+    font-size: var(--lenovo-font-size-base);
+    line-height: 1.6;
+    color: var(--lenovo-dark);
+    background-color: var(--lenovo-white);
+    margin: 0;
+    padding: 0;
+}
+
+/* Lenovo Components */
+.lenovo-gradient {
+    background: var(--lenovo-gradient);
+}
+
+.lenovo-text-gradient {
+    background: var(--lenovo-text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lenovo-card {
+    background-color: var(--lenovo-white);
+    border: 1px solid var(--lenovo-light-gray);
+    border-radius: var(--lenovo-radius-lg);
+    padding: var(--lenovo-spacing-lg);
+    box-shadow: var(--lenovo-shadow-md);
+    transition: var(--lenovo-transition);
+}
+
+.lenovo-card:hover {
+    border-color: var(--lenovo-red);
+    transform: translateY(-2px);
+    box-shadow: var(--lenovo-shadow-red);
+}
+
+.lenovo-button {
+    background: var(--lenovo-gradient);
+    color: var(--lenovo-white);
+    padding: var(--lenovo-spacing-sm) var(--lenovo-spacing-lg);
+    border: none;
+    border-radius: var(--lenovo-radius-md);
+    font-weight: 600;
+    font-size: var(--lenovo-font-size-base);
+    cursor: pointer;
+    transition: var(--lenovo-transition);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.lenovo-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--lenovo-shadow-red);
+    color: var(--lenovo-white);
+    text-decoration: none;
+}
+
+.lenovo-button:active {
+    transform: translateY(0);
+}
+
+.lenovo-button-secondary {
+    background: transparent;
+    color: var(--lenovo-red);
+    border: 2px solid var(--lenovo-red);
+}
+
+.lenovo-button-secondary:hover {
+    background: var(--lenovo-red);
+    color: var(--lenovo-white);
+}
+
+/* ThinkPad Components */
+.thinkpad-accent {
+    background: var(--thinkpad-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.thinkpad-card {
+    background: linear-gradient(135deg, var(--lenovo-white), rgba(0, 102, 204, 0.05));
+    border: 2px solid var(--lenovo-light-gray);
+}
+
+.thinkpad-card:hover {
+    border-color: var(--thinkpad-blue);
+    box-shadow: var(--lenovo-shadow-blue);
+}
+
+/* Typography */
+.lenovo-heading-1 {
+    font-size: var(--lenovo-font-size-4xl);
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0 0 var(--lenovo-spacing-lg) 0;
+}
+
+.lenovo-heading-2 {
+    font-size: var(--lenovo-font-size-3xl);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 var(--lenovo-spacing-md) 0;
+}
+
+.lenovo-heading-3 {
+    font-size: var(--lenovo-font-size-2xl);
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 var(--lenovo-spacing-md) 0;
+}
+
+.lenovo-text-large {
+    font-size: var(--lenovo-font-size-lg);
+    line-height: 1.6;
+}
+
+.lenovo-text-small {
+    font-size: var(--lenovo-font-size-sm);
+    line-height: 1.5;
+}
+
+/* Status Indicators */
+.lenovo-status-online {
+    color: #22c55e;
+}
+
+.lenovo-status-offline {
+    color: #ef4444;
+}
+
+.lenovo-status-warning {
+    color: #f59e0b;
+}
+
+.lenovo-status-info {
+    color: var(--thinkpad-blue);
+}
+
+/* Badges and Tags */
+.lenovo-badge {
+    background: rgba(226, 35, 26, 0.1);
+    border: 1px solid var(--lenovo-red);
+    color: var(--lenovo-red);
+    padding: var(--lenovo-spacing-xs) var(--lenovo-spacing-sm);
+    border-radius: var(--lenovo-radius-xl);
+    font-size: var(--lenovo-font-size-sm);
+    font-weight: 500;
+    display: inline-block;
+}
+
+.lenovo-badge-blue {
+    background: rgba(0, 102, 204, 0.1);
+    border-color: var(--thinkpad-blue);
+    color: var(--thinkpad-blue);
+}
+
+.lenovo-badge-success {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+/* Layout Utilities */
+.lenovo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--lenovo-spacing-lg);
+}
+
+.lenovo-grid {
+    display: grid;
+    gap: var(--lenovo-spacing-lg);
+}
+
+.lenovo-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.lenovo-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.lenovo-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.lenovo-flex {
+    display: flex;
+    gap: var(--lenovo-spacing-md);
+}
+
+.lenovo-flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.lenovo-flex-between {
+    justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .lenovo-grid-2,
+    .lenovo-grid-3,
+    .lenovo-grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .lenovo-heading-1 {
+        font-size: var(--lenovo-font-size-3xl);
+    }
+    
+    .lenovo-heading-2 {
+        font-size: var(--lenovo-font-size-2xl);
+    }
+    
+    .lenovo-container {
+        padding: 0 var(--lenovo-spacing-md);
+    }
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lenovo-white: var(--lenovo-dark-bg);
+        --lenovo-dark: var(--lenovo-dark-text);
+        --lenovo-light-gray: var(--lenovo-dark-card);
+        --lenovo-card: var(--lenovo-dark-card);
+        --lenovo-border: var(--lenovo-dark-border);
+    }
+    
+    body {
+        background-color: var(--lenovo-dark-bg);
+        color: var(--lenovo-dark-text);
+    }
+    
+    .lenovo-card {
+        background-color: var(--lenovo-dark-card);
+        border-color: var(--lenovo-dark-border);
+        color: var(--lenovo-dark-text);
+    }
+}
+
+/* Force Dark Theme for Unified Platform */
+.lenovo-dark-theme {
+    --lenovo-white: var(--lenovo-dark-bg);
+    --lenovo-dark: var(--lenovo-dark-text);
+    --lenovo-light-gray: var(--lenovo-dark-card);
+    --lenovo-card: var(--lenovo-dark-card);
+    --lenovo-border: var(--lenovo-dark-border);
+}
+
+.lenovo-dark-theme body {
+    background-color: var(--lenovo-dark-bg);
+    color: var(--lenovo-dark-text);
+}
+
+.lenovo-dark-theme .lenovo-card {
+    background-color: var(--lenovo-dark-card);
+    border-color: var(--lenovo-dark-border);
+    color: var(--lenovo-dark-text);
+}
+
+.lenovo-dark-theme .lenovo-button {
+    background: var(--lenovo-gradient);
+    color: var(--lenovo-white);
+}
+
+.lenovo-dark-theme .lenovo-button:hover {
+    box-shadow: var(--lenovo-shadow-red);
+}
+
+/* Animation Keyframes */
+@keyframes lenovo-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes lenovo-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lenovo-slide-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.lenovo-pulse {
+    animation: lenovo-pulse 2s ease-in-out infinite;
+}
+
+.lenovo-fade-in {
+    animation: lenovo-fade-in 0.6s ease-out;
+}
+
+.lenovo-slide-in {
+    animation: lenovo-slide-in 0.5s ease-out;
+}
+
+/* Service-Specific Overrides */
+
+/* FastAPI Service Styling */
+.fastapi-lenovo-theme {
+    --primary-color: var(--lenovo-red);
+    --secondary-color: var(--thinkpad-blue);
+    --background-color: var(--lenovo-white);
+    --text-color: var(--lenovo-dark);
+    --border-color: var(--lenovo-light-gray);
+}
+
+/* FastAPI Dark Theme */
+.fastapi-lenovo-theme.lenovo-dark-theme {
+    --background-color: var(--lenovo-dark-bg);
+    --text-color: var(--lenovo-dark-text);
+    --border-color: var(--lenovo-dark-border);
+}
+
+/* Gradio Service Styling */
+.gradio-lenovo-theme {
+    --gradio-primary: var(--lenovo-red);
+    --gradio-secondary: var(--thinkpad-blue);
+    --gradio-background: var(--lenovo-white);
+    --gradio-text: var(--lenovo-dark);
+    --gradio-border: var(--lenovo-light-gray);
+}
+
+/* Gradio Dark Theme */
+.gradio-lenovo-theme.lenovo-dark-theme {
+    --gradio-background: var(--lenovo-dark-bg);
+    --gradio-text: var(--lenovo-dark-text);
+    --gradio-border: var(--lenovo-dark-border);
+}
+
+/* MLflow Service Styling */
+.mlflow-lenovo-theme {
+    --mlflow-primary: var(--lenovo-red);
+    --mlflow-secondary: var(--thinkpad-blue);
+    --mlflow-background: var(--lenovo-white);
+    --mlflow-text: var(--lenovo-dark);
+    --mlflow-border: var(--lenovo-light-gray);
+}
+
+/* MLflow Dark Theme */
+.mlflow-lenovo-theme.lenovo-dark-theme {
+    --mlflow-background: var(--lenovo-dark-bg);
+    --mlflow-text: var(--lenovo-dark-text);
+    --mlflow-border: var(--lenovo-dark-border);
+}
+
+/* MkDocs Service Styling */
+.mkdocs-lenovo-theme {
+    --md-primary-fg-color: var(--lenovo-red);
+    --md-primary-fg-color--light: var(--lenovo-red);
+    --md-primary-fg-color--dark: var(--lenovo-dark-red);
+    --md-accent-fg-color: var(--thinkpad-blue);
+    --md-default-bg-color: var(--lenovo-white);
+    --md-default-fg-color: var(--lenovo-dark);
+    --md-code-bg-color: var(--lenovo-light-gray);
+    --md-footer-bg-color: var(--lenovo-dark);
+    --md-footer-fg-color: var(--lenovo-white);
+}
+
+/* MkDocs Dark Theme */
+.mkdocs-lenovo-theme.lenovo-dark-theme {
+    --md-default-bg-color: var(--lenovo-dark-bg);
+    --md-default-fg-color: var(--lenovo-dark-text);
+    --md-code-bg-color: var(--lenovo-dark-card);
+    --md-footer-bg-color: var(--lenovo-dark-bg);
+    --md-footer-fg-color: var(--lenovo-dark-text);
+}
+
+/* Utility Classes */
+.lenovo-text-center { text-align: center; }
+.lenovo-text-left { text-align: left; }
+.lenovo-text-right { text-align: right; }
+
+.lenovo-mb-0 { margin-bottom: 0; }
+.lenovo-mb-1 { margin-bottom: var(--lenovo-spacing-xs); }
+.lenovo-mb-2 { margin-bottom: var(--lenovo-spacing-sm); }
+.lenovo-mb-3 { margin-bottom: var(--lenovo-spacing-md); }
+.lenovo-mb-4 { margin-bottom: var(--lenovo-spacing-lg); }
+.lenovo-mb-5 { margin-bottom: var(--lenovo-spacing-xl); }
+
+.lenovo-mt-0 { margin-top: 0; }
+.lenovo-mt-1 { margin-top: var(--lenovo-spacing-xs); }
+.lenovo-mt-2 { margin-top: var(--lenovo-spacing-sm); }
+.lenovo-mt-3 { margin-top: var(--lenovo-spacing-md); }
+.lenovo-mt-4 { margin-top: var(--lenovo-spacing-lg); }
+.lenovo-mt-5 { margin-top: var(--lenovo-spacing-xl); }
+
+.lenovo-p-0 { padding: 0; }
+.lenovo-p-1 { padding: var(--lenovo-spacing-xs); }
+.lenovo-p-2 { padding: var(--lenovo-spacing-sm); }
+.lenovo-p-3 { padding: var(--lenovo-spacing-md); }
+.lenovo-p-4 { padding: var(--lenovo-spacing-lg); }
+.lenovo-p-5 { padding: var(--lenovo-spacing-xl); }
+
+/* Print Styles */
+@media print {
+    .lenovo-button {
+        background: none !important;
+        color: var(--lenovo-dark) !important;
+        border: 1px solid var(--lenovo-dark) !important;
+    }
+    
+    .lenovo-card {
+        box-shadow: none !important;
+        border: 1px solid var(--lenovo-dark) !important;
+    }
+}

@@ -14,10 +14,39 @@ copyright: Copyright &copy; 2025 Lenovo AAITC Team
 
 # Theme Configuration
 theme:
-  name: mkdocs
+  name: material
   language: en
   logo: assets/img/logo.png
   favicon: assets/img/favicon.svg
+  palette:
+    # Light mode
+    - scheme: default
+      primary: red
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: red
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+  font:
+    text: Inter
+    code: JetBrains Mono
 
 # Plugins
 plugins:
@@ -49,6 +78,7 @@ nav:
       - FastAPI Enterprise Platform: api/fastapi-enterprise.md
       - FastAPI Interactive Docs: api/fastapi-embedded-docs.md
       - Gradio Model Evaluation: api/gradio-model-evaluation.md
+      - LangGraph Studio Integration: api/langgraph-studio.md
       - ChromaDB Integration: api/chromadb-integration.md
       - MCP Server Integration: api/mcp-server.md
       - Model Evaluation API: api/model-evaluation.md
@@ -111,6 +141,7 @@ extra:
   # Custom CSS and JS for enhanced functionality
   css:
     - stylesheets/extra.css
+    - assets/css/lenovo-material-theme.css
   javascripts:
     - javascripts/mathjax.js
     - javascripts/mermaid.js

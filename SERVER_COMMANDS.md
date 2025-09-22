@@ -23,6 +23,9 @@ python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
 
 # Terminal 4: Gradio Model Evaluation App
 python -m src.gradio_app.main --host 0.0.0.0 --port 7860
+
+# Terminal 5: LangGraph Studio (Optional - Agent Visualization & Debugging)
+langgraph dev --host 0.0.0.0 --port 8083
 ```
 
 ## 🔐 Authentication & Token Management
@@ -42,6 +45,9 @@ curl http://localhost:8080/api/experiments
 
 # Test health endpoint
 curl http://localhost:8080/health
+
+# Test LangGraph Studio status
+curl http://localhost:8080/api/langgraph/studios/status
 ```
 
 ### Production Mode (Enable Authentication)
@@ -193,6 +199,7 @@ mkdocs serve --dev-addr 0.0.0.0:8082  # View at http://localhost:8082
 - **MLflow UI**: http://localhost:5000
 - **ChromaDB**: http://localhost:8081
 - **Documentation**: http://localhost:8082 (when mkdocs serve)
+- **LangGraph Studio**: http://localhost:8083 (when running)
 
 ### API Endpoints (Demo Mode - No Auth Required)
 
@@ -202,6 +209,7 @@ mkdocs serve --dev-addr 0.0.0.0:8082  # View at http://localhost:8082
 - **Prompt Cache**: http://localhost:8080/api/prompts/cache/summary
 - **Health Check**: http://localhost:8080/health
 - **API Documentation**: http://localhost:8080/docs
+- **LangGraph Studio API**: http://localhost:8080/api/langgraph/studios/status
 
 ## 🔄 Complete Workflow Examples
 
@@ -225,10 +233,14 @@ python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
 # Terminal 4: Gradio App
 python -m src.gradio_app.main --host 0.0.0.0 --port 7860
 
+# Terminal 5: LangGraph Studio (Optional)
+langgraph dev --host 0.0.0.0 --port 8083
+
 # 4. Test API endpoints (no authentication required)
 curl http://localhost:8080/health
 curl http://localhost:8080/api/models
 curl http://localhost:8080/api/experiments
+curl http://localhost:8080/api/langgraph/studios/status
 
 # 5. Comprehensive sync (recommended)
 .\scripts\comprehensive-sync.ps1
@@ -240,6 +252,7 @@ curl http://localhost:8080/api/experiments
 # - Enterprise Platform: http://localhost:8080/docs
 # - Model Evaluation: http://localhost:7860
 # - MLflow Tracking: http://localhost:5000
+# - LangGraph Studio: http://localhost:8083
 ```
 
 ### Workflow 2: Development & Testing (Demo Mode)
@@ -292,6 +305,7 @@ netstat -an | findstr ":8080"
 netstat -an | findstr ":7860"
 netstat -an | findstr ":5000"
 netstat -an | findstr ":8081"
+netstat -an | findstr ":8083"
 
 # Check Python processes
 tasklist /fi "imagename eq python.exe"
@@ -354,11 +368,12 @@ ai_assignments/
 3. ✅ Start MLflow (port 5000)
 4. ✅ Start Enterprise Platform (port 8080)
 5. ✅ Start Gradio App (port 7860)
-6. ✅ Run comprehensive sync script (recommended)
+6. ✅ Start LangGraph Studio (port 8083) - Optional
+7. ✅ Run comprehensive sync script (recommended)
    - OR run basic sync script (existing)
-7. ✅ Test API endpoints (no auth required in demo mode)
-8. ✅ Access services via URLs
-9. ✅ Use interactive landing page for testing
+8. ✅ Test API endpoints (no auth required in demo mode)
+9. ✅ Access services via URLs
+10. ✅ Use interactive landing page for testing
 
 ## 🔗 Integration Points
 
@@ -418,6 +433,36 @@ curl http://localhost:8081/api/v1/heartbeat
 curl http://localhost:8081/api/v1/collections
 ```
 
+### LangGraph Studio Operations
+
+```powershell
+# Install LangGraph CLI (if not already installed)
+pip install langgraph-cli
+
+# Start LangGraph Studio
+langgraph dev --host 0.0.0.0 --port 8083
+
+# Check LangGraph Studio status via API
+curl http://localhost:8080/api/langgraph/studios/status
+
+# Get studio information
+curl http://localhost:8080/api/langgraph/studios/info
+
+# Create a new studio session
+curl -X POST http://localhost:8080/api/langgraph/studios/sessions \
+  -H "Content-Type: application/json" \
+  -d '{"mode": "graph", "metadata": {"project": "ai-architecture"}}'
+
+# Get available assistants
+curl http://localhost:8080/api/langgraph/studios/assistants
+
+# Get available threads
+curl http://localhost:8080/api/langgraph/studios/threads
+
+# Access LangGraph Studio dashboard
+# Open http://localhost:8083 in browser
+```
+
 ## 🔧 Configuration Management
 
 ### Environment Variables
@@ -451,6 +496,9 @@ curl http://localhost:8081/api/v1/heartbeat
 
 # Gradio App
 curl http://localhost:7860/health
+
+# LangGraph Studio
+curl http://localhost:8080/api/langgraph/studios/status
 ```
 
 ### Performance Monitoring

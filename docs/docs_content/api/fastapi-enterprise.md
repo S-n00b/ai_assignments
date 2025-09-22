@@ -222,7 +222,8 @@ monitoring:
 integrations:
   langgraph_studio:
     enabled: true
-    url: "http://localhost:8080"
+    url: "http://localhost:8080/api/langgraph/studios"
+    studio_port: 8083
   neo4j:
     enabled: true
     url: "http://localhost:7474"

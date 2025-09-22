@@ -80,25 +80,255 @@ class LenovoModelEvaluationApp:
         """
         with gr.Blocks(
             title="Lenovo AAITC Assignment 1: Model Evaluation Engineer",
-            theme=gr.themes.Soft(),
+            theme=gr.themes.Soft(
+                primary_hue="red",
+                secondary_hue="blue",
+                neutral_hue="gray"
+            ),
             css="""
+            /* Lenovo Dark Theme Variables */
+            :root {
+                --lenovo-red: #E2231A;
+                --lenovo-dark-red: #C01E17;
+                --lenovo-black: #000000;
+                --lenovo-gray: #666666;
+                --lenovo-light-gray: #F5F5F5;
+                --lenovo-white: #FFFFFF;
+                --lenovo-blue: #0066CC;
+                --lenovo-dark: #1A1A1A;
+                --lenovo-card: #2A2A2A;
+                --lenovo-border: #404040;
+                --lenovo-dark-bg: #1A1A1A;
+                --lenovo-dark-card: #2A2A2A;
+                --lenovo-dark-border: #404040;
+                --lenovo-dark-text: #FFFFFF;
+                --lenovo-dark-text-secondary: #CCCCCC;
+            }
+            
+            /* Force Dark Theme */
             .gradio-container {
                 max-width: 1400px !important;
                 margin: auto !important;
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+                background-color: var(--lenovo-dark-bg) !important;
+                color: var(--lenovo-dark-text) !important;
             }
+            
+            /* Dark theme body */
+            body {
+                background-color: var(--lenovo-dark-bg) !important;
+                color: var(--lenovo-dark-text) !important;
+            }
+            
+            /* Lenovo gradient definition */
+            .lenovo-gradient {
+                background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red)) !important;
+            }
+            
+            .lenovo-text-gradient {
+                background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue)) !important;
+                background-clip: text !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+            
             .tab-nav {
-                background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-                color: white;
-                padding: 1rem;
-                border-radius: 8px;
-                margin-bottom: 1rem;
+                background: var(--lenovo-gradient) !important;
+                color: white !important;
+                padding: 1rem !important;
+                border-radius: 0.75rem !important;
+                margin-bottom: 1rem !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
             }
+            
             .metric-card {
-                background: white;
-                border-radius: 8px;
-                padding: 1rem;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                margin: 0.5rem;
+                background: var(--lenovo-dark-card) !important;
+                border: 1px solid var(--lenovo-dark-border) !important;
+                border-radius: 0.75rem !important;
+                padding: 1rem !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+                margin: 0.5rem !important;
+                transition: all 0.3s ease !important;
+                color: var(--lenovo-dark-text) !important;
+            }
+            
+            .metric-card:hover {
+                border-color: var(--lenovo-red) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 10px 25px rgba(226, 35, 26, 0.15) !important;
+            }
+            
+            /* Gradio button styling */
+            .gradio-button {
+                background: var(--lenovo-gradient) !important;
+                color: white !important;
+                border: none !important;
+                border-radius: 0.5rem !important;
+                font-weight: 600 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .gradio-button:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 10px 25px rgba(226, 35, 26, 0.15) !important;
+            }
+            
+            /* Gradio tab styling */
+            .tab-nav button {
+                background: transparent !important;
+                color: white !important;
+                border: none !important;
+                padding: 0.5rem 1rem !important;
+                border-radius: 0.25rem !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .tab-nav button:hover {
+                background: rgba(255, 255, 255, 0.1) !important;
+            }
+            
+            .tab-nav button.selected {
+                background: rgba(255, 255, 255, 0.2) !important;
+            }
+            
+            /* Gradio input styling */
+            .gradio-textbox,
+            .gradio-dropdown,
+            .gradio-checkbox {
+                background: var(--lenovo-dark-card) !important;
+                border: 1px solid var(--lenovo-dark-border) !important;
+                border-radius: 0.5rem !important;
+                transition: all 0.3s ease !important;
+                color: var(--lenovo-dark-text) !important;
+            }
+            
+            .gradio-textbox:focus,
+            .gradio-dropdown:focus,
+            .gradio-checkbox:focus {
+                border-color: var(--lenovo-red) !important;
+                box-shadow: 0 0 0 3px rgba(226, 35, 26, 0.1) !important;
+            }
+            
+            /* Gradio progress bar */
+            .gradio-progress {
+                background: var(--lenovo-dark-border) !important;
+                border-radius: 0.25rem !important;
+            }
+            
+            .gradio-progress .progress-bar {
+                background: var(--lenovo-gradient) !important;
+                border-radius: 0.25rem !important;
+            }
+            
+            /* Gradio dataframe styling */
+            .gradio-dataframe {
+                border: 1px solid var(--lenovo-dark-border) !important;
+                border-radius: 0.5rem !important;
+                overflow: hidden !important;
+                background: var(--lenovo-dark-card) !important;
+            }
+            
+            .gradio-dataframe table {
+                border-collapse: collapse !important;
+                background: var(--lenovo-dark-card) !important;
+            }
+            
+            .gradio-dataframe th {
+                background: var(--lenovo-dark-border) !important;
+                color: var(--lenovo-dark-text) !important;
+                font-weight: 600 !important;
+                padding: 0.75rem !important;
+            }
+            
+            .gradio-dataframe td {
+                padding: 0.5rem 0.75rem !important;
+                border-bottom: 1px solid var(--lenovo-dark-border) !important;
+                color: var(--lenovo-dark-text) !important;
+            }
+            
+            .gradio-dataframe tr:hover {
+                background: rgba(226, 35, 26, 0.1) !important;
+            }
+            
+            /* Gradio plot styling */
+            .gradio-plot {
+                border: 1px solid var(--lenovo-dark-border) !important;
+                border-radius: 0.5rem !important;
+                padding: 1rem !important;
+                background: var(--lenovo-dark-card) !important;
+            }
+            
+            /* Lenovo branding elements */
+            .lenovo-logo {
+                background: var(--lenovo-text-gradient) !important;
+                background-clip: text !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                font-weight: 900 !important;
+                font-size: 1.5rem !important;
+            }
+            
+            .thinkpad-accent {
+                background: linear-gradient(135deg, var(--lenovo-blue), #004499) !important;
+                background-clip: text !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+            
+            /* Status indicators */
+            .status-indicator {
+                display: inline-block !important;
+                width: 8px !important;
+                height: 8px !important;
+                border-radius: 50% !important;
+                margin-right: 8px !important;
+            }
+            
+            .status-online {
+                background: #22c55e !important;
+            }
+            
+            .status-offline {
+                background: #ef4444 !important;
+            }
+            
+            .status-warning {
+                background: #f59e0b !important;
+            }
+            
+            /* Additional dark theme overrides */
+            .gradio-panel {
+                background: var(--lenovo-dark-card) !important;
+                border: 1px solid var(--lenovo-dark-border) !important;
+                border-radius: 0.75rem !important;
+            }
+            
+            .gradio-header {
+                background: var(--lenovo-gradient) !important;
+                color: white !important;
+                border-radius: 0.75rem 0.75rem 0 0 !important;
+            }
+            
+            /* Override Gradio's default theme colors */
+            .gradio-container .gradio-interface {
+                background: var(--lenovo-dark-bg) !important;
+            }
+            
+            /* Ensure all text is visible in dark theme */
+            .gradio-container * {
+                color: var(--lenovo-dark-text) !important;
+            }
+            
+            /* Override specific Gradio components */
+            .gradio-container .gr-button {
+                background: var(--lenovo-gradient) !important;
+                color: white !important;
+                border: none !important;
+            }
+            
+            .gradio-container .gr-button:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 10px 25px rgba(226, 35, 26, 0.15) !important;
             }
             """
         ) as interface:

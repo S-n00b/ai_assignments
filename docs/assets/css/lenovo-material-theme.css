@@ -1,0 +1,389 @@
+/* Lenovo Material Theme for MkDocs
+ * Custom styling to integrate Lenovo branding with Material theme
+ */
+
+/* Import Lenovo Theme Variables */
+@import url('../../../../src/enterprise_llmops/frontend/lenovo-theme.css');
+
+/* Override Material theme colors with Lenovo branding */
+:root {
+  /* Lenovo Red as primary color */
+  --md-primary-fg-color: #E2231A;
+  --md-primary-fg-color--light: #E2231A;
+  --md-primary-fg-color--dark: #C01E17;
+  
+  /* ThinkPad Blue as accent color */
+  --md-accent-fg-color: #0066CC;
+  --md-accent-fg-color--transparent: rgba(0, 102, 204, 0.1);
+  
+  /* Lenovo brand colors for various elements */
+  --md-default-bg-color: #FFFFFF;
+  --md-default-fg-color: #1A1A1A;
+  --md-default-fg-color--light: #666666;
+  --md-default-fg-color--lighter: #999999;
+  --md-default-fg-color--lightest: #CCCCCC;
+  
+  /* Code and syntax highlighting */
+  --md-code-bg-color: #F5F5F5;
+  --md-code-fg-color: #1A1A1A;
+  
+  /* Footer styling */
+  --md-footer-bg-color: #1A1A1A;
+  --md-footer-fg-color: #FFFFFF;
+  --md-footer-fg-color--light: #CCCCCC;
+  --md-footer-fg-color--lighter: #999999;
+  
+  /* Header styling */
+  --md-header-bg-color: #E2231A;
+  --md-header-fg-color: #FFFFFF;
+  
+  /* Navigation styling */
+  --md-nav-bg-color: #FFFFFF;
+  --md-nav-fg-color: #1A1A1A;
+  
+  /* Table styling */
+  --md-table-bg-color: #FFFFFF;
+  --md-table-fg-color: #1A1A1A;
+  --md-table-bg-color--light: #F5F5F5;
+  
+  /* Link colors */
+  --md-typeset-a-color: #E2231A;
+  --md-typeset-a-color--hover: #C01E17;
+  
+  /* Admonition colors */
+  --md-admonition-bg-color: #F5F5F5;
+  --md-admonition-fg-color: #1A1A1A;
+  
+  /* Focus colors */
+  --md-focus-color: rgba(226, 35, 26, 0.1);
+}
+
+/* Dark mode overrides */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #E2231A;
+  --md-primary-fg-color--light: #E2231A;
+  --md-primary-fg-color--dark: #C01E17;
+  --md-accent-fg-color: #0066CC;
+  
+  --md-default-bg-color: #1A1A1A;
+  --md-default-fg-color: #FFFFFF;
+  --md-default-fg-color--light: #CCCCCC;
+  --md-default-fg-color--lighter: #999999;
+  --md-default-fg-color--lightest: #666666;
+  
+  --md-code-bg-color: #2A2A2A;
+  --md-code-fg-color: #FFFFFF;
+  
+  --md-footer-bg-color: #000000;
+  --md-footer-fg-color: #FFFFFF;
+  
+  --md-header-bg-color: #E2231A;
+  --md-header-fg-color: #FFFFFF;
+  
+  --md-nav-bg-color: #1A1A1A;
+  --md-nav-fg-color: #FFFFFF;
+  
+  --md-table-bg-color: #2A2A2A;
+  --md-table-fg-color: #FFFFFF;
+  --md-table-bg-color--light: #404040;
+  
+  --md-typeset-a-color: #E2231A;
+  --md-typeset-a-color--hover: #C01E17;
+  
+  --md-admonition-bg-color: #2A2A2A;
+  --md-admonition-fg-color: #FFFFFF;
+}
+
+/* Lenovo branding elements */
+.md-header {
+  background: var(--lenovo-gradient) !important;
+  box-shadow: var(--lenovo-shadow-md) !important;
+}
+
+.md-header__title {
+  font-family: var(--lenovo-font-family) !important;
+  font-weight: 700 !important;
+}
+
+.md-header__title .md-header__ellipsis {
+  color: white !important;
+}
+
+/* Navigation tabs styling */
+.md-tabs {
+  background: var(--lenovo-light-gray) !important;
+  border-bottom: 2px solid var(--lenovo-red) !important;
+}
+
+.md-tabs__link {
+  color: var(--lenovo-dark) !important;
+  font-weight: 500 !important;
+  transition: var(--lenovo-transition) !important;
+}
+
+.md-tabs__link:hover {
+  color: var(--lenovo-red) !important;
+  background: rgba(226, 35, 26, 0.05) !important;
+}
+
+.md-tabs__link--active {
+  color: var(--lenovo-red) !important;
+  background: rgba(226, 35, 26, 0.1) !important;
+  font-weight: 600 !important;
+}
+
+/* Sidebar navigation */
+.md-nav__link {
+  color: var(--lenovo-dark) !important;
+  transition: var(--lenovo-transition) !important;
+}
+
+.md-nav__link:hover {
+  color: var(--lenovo-red) !important;
+}
+
+.md-nav__link--active {
+  color: var(--lenovo-red) !important;
+  font-weight: 600 !important;
+}
+
+/* Content styling */
+.md-content {
+  font-family: var(--lenovo-font-family) !important;
+}
+
+.md-content h1,
+.md-content h2,
+.md-content h3,
+.md-content h4,
+.md-content h5,
+.md-content h6 {
+  font-family: var(--lenovo-font-family) !important;
+  font-weight: 600 !important;
+  color: var(--lenovo-dark) !important;
+}
+
+.md-content h1 {
+  color: var(--lenovo-red) !important;
+  border-bottom: 3px solid var(--lenovo-red) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.md-content h2 {
+  color: var(--thinkpad-blue) !important;
+  border-bottom: 2px solid var(--thinkpad-blue) !important;
+  padding-bottom: 0.25rem !important;
+}
+
+/* Links */
+.md-content a {
+  color: var(--lenovo-red) !important;
+  text-decoration: none !important;
+  transition: var(--lenovo-transition) !important;
+}
+
+.md-content a:hover {
+  color: var(--lenovo-dark-red) !important;
+  text-decoration: underline !important;
+}
+
+/* Code blocks */
+.md-content pre {
+  background: var(--lenovo-light-gray) !important;
+  border: 1px solid var(--lenovo-border) !important;
+  border-radius: var(--lenovo-radius-md) !important;
+  box-shadow: var(--lenovo-shadow-sm) !important;
+}
+
+.md-content code {
+  background: var(--lenovo-light-gray) !important;
+  color: var(--lenovo-red) !important;
+  border-radius: var(--lenovo-radius-sm) !important;
+  padding: 0.125rem 0.25rem !important;
+}
+
+/* Tables */
+.md-content table {
+  border: 1px solid var(--lenovo-light-gray) !important;
+  border-radius: var(--lenovo-radius-md) !important;
+  overflow: hidden !important;
+  box-shadow: var(--lenovo-shadow-sm) !important;
+}
+
+.md-content table th {
+  background: var(--lenovo-light-gray) !important;
+  color: var(--lenovo-dark) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--lenovo-red) !important;
+}
+
+.md-content table td {
+  border-bottom: 1px solid var(--lenovo-light-gray) !important;
+}
+
+.md-content table tr:hover {
+  background: rgba(226, 35, 26, 0.05) !important;
+}
+
+/* Admonitions */
+.md-content .admonition {
+  border: 1px solid var(--lenovo-light-gray) !important;
+  border-radius: var(--lenovo-radius-md) !important;
+  box-shadow: var(--lenovo-shadow-sm) !important;
+}
+
+.md-content .admonition-title {
+  background: var(--lenovo-light-gray) !important;
+  color: var(--lenovo-dark) !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--lenovo-light-gray) !important;
+}
+
+/* Lenovo-specific components */
+.lenovo-card {
+  background: var(--lenovo-white) !important;
+  border: 1px solid var(--lenovo-light-gray) !important;
+  border-radius: var(--lenovo-radius-lg) !important;
+  padding: var(--lenovo-spacing-lg) !important;
+  margin: var(--lenovo-spacing-md) 0 !important;
+  box-shadow: var(--lenovo-shadow-md) !important;
+  transition: var(--lenovo-transition) !important;
+}
+
+.lenovo-card:hover {
+  border-color: var(--lenovo-red) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--lenovo-shadow-red) !important;
+}
+
+.lenovo-button {
+  background: var(--lenovo-gradient) !important;
+  color: white !important;
+  padding: var(--lenovo-spacing-sm) var(--lenovo-spacing-lg) !important;
+  border: none !important;
+  border-radius: var(--lenovo-radius-md) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  transition: var(--lenovo-transition) !important;
+}
+
+.lenovo-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--lenovo-shadow-red) !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.lenovo-badge {
+  background: rgba(226, 35, 26, 0.1) !important;
+  border: 1px solid var(--lenovo-red) !important;
+  color: var(--lenovo-red) !important;
+  padding: var(--lenovo-spacing-xs) var(--lenovo-spacing-sm) !important;
+  border-radius: var(--lenovo-radius-xl) !important;
+  font-size: var(--lenovo-font-size-sm) !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+}
+
+.thinkpad-badge {
+  background: rgba(0, 102, 204, 0.1) !important;
+  border: 1px solid var(--thinkpad-blue) !important;
+  color: var(--thinkpad-blue) !important;
+  padding: var(--lenovo-spacing-xs) var(--lenovo-spacing-sm) !important;
+  border-radius: var(--lenovo-radius-xl) !important;
+  font-size: var(--lenovo-font-size-sm) !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+}
+
+/* Status indicators */
+.status-indicator {
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  margin-right: 8px !important;
+}
+
+.status-online {
+  background: #22c55e !important;
+}
+
+.status-offline {
+  background: #ef4444 !important;
+}
+
+.status-warning {
+  background: #f59e0b !important;
+}
+
+/* Footer styling */
+.md-footer {
+  background: var(--lenovo-dark) !important;
+  color: var(--lenovo-white) !important;
+}
+
+.md-footer-meta {
+  background: var(--lenovo-black) !important;
+}
+
+.md-footer-meta__inner {
+  color: var(--lenovo-white) !important;
+}
+
+/* Search styling */
+.md-search__form {
+  background: var(--lenovo-white) !important;
+  border: 1px solid var(--lenovo-light-gray) !important;
+  border-radius: var(--lenovo-radius-md) !important;
+}
+
+.md-search__input {
+  color: var(--lenovo-dark) !important;
+}
+
+.md-search__input::placeholder {
+  color: var(--lenovo-gray) !important;
+}
+
+.md-search__input:focus {
+  border-color: var(--lenovo-red) !important;
+  box-shadow: 0 0 0 3px rgba(226, 35, 26, 0.1) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .md-header__title {
+    font-size: var(--lenovo-font-size-lg) !important;
+  }
+  
+  .md-content h1 {
+    font-size: var(--lenovo-font-size-2xl) !important;
+  }
+  
+  .md-content h2 {
+    font-size: var(--lenovo-font-size-xl) !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-nav,
+  .md-footer {
+    display: none !important;
+  }
+  
+  .md-content {
+    color: black !important;
+    background: white !important;
+  }
+  
+  .lenovo-button {
+    background: none !important;
+    color: black !important;
+    border: 1px solid black !important;
+  }
+}
