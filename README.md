@@ -157,6 +157,7 @@ ai_assignments/
 | Service                 | URL                          | Description                                   |
 | ----------------------- | ---------------------------- | --------------------------------------------- |
 | **Enterprise Platform** | http://localhost:8080        | FastAPI backend with full enterprise features |
+| **Chat Playground**     | http://localhost:8080        | Ollama & GitHub Models side-by-side comparison |
 | **Model Evaluation**    | http://localhost:7860        | Gradio interface for model prototyping        |
 | **Documentation**       | http://localhost:8082        | MkDocs documentation site                     |
 | **API Docs**            | http://localhost:8080/docs   | FastAPI auto-generated documentation          |
@@ -325,9 +326,9 @@ pytest --cov=src tests/
 
 ### **Immediate (1-2 days)**
 
-1. **Install Enterprise Dependencies**: MLflow, Optuna, vector database clients
-2. **Launch Gradio App**: Resolve import issues and start model evaluation
-3. **Connect Services**: Link to actual Ollama, MLflow, and vector databases
+1. **LangGraph Studio Integration**: Integrate LangGraph Studio for agent visualization and debugging
+2. **QLoRA Fine-Tuning**: Implement QLoRA adapter management and fine-tuning capabilities
+3. **Neo4j UI with Faker**: Create realistic GraphRAG demo with Faker-generated data
 4. **End-to-End Testing**: Validate complete enterprise workflow
 
 ### **Short Term (1-2 weeks)**
@@ -360,5 +361,5 @@ For questions and support:
 ---
 
 **Last Updated**: January 19, 2025  
-**Status**: Enterprise LLMOps Platform 85% Complete  
-**Ready for**: Production deployment and integration testing
+**Status**: Enterprise LLMOps Platform 95% Complete  
+**Ready for**: Final integration testing and production deployment
