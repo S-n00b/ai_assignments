@@ -1,282 +1,292 @@
-# GitHub Pages Migration Guide
+# GitHub Pages Migration Guide - Unified Platform
 
-## Replace Jekyll with Unified Platform
+## 🎯 Overview
 
-### 🎯 Overview
+This guide provides step-by-step instructions to migrate from the old Jekyll site to the new unified platform on GitHub Pages. The migration replaces the static Jekyll site with your interactive unified platform while maintaining all MkDocs documentation.
 
-This guide will help you completely remove the old Jekyll documentation site and replace it with your unified platform, making it accessible via GitHub Pages.
+## 🚀 Quick Migration (3 Commands)
 
-### 🚨 Current Problem
+```powershell
+# 1. Clean up old Jekyll files
+.\scripts\deploy-github-pages.ps1 -Clean
 
-The current GitHub Pages site at https://s-n00b.github.io/ai_assignments/ is showing a broken Jekyll site with Chirpy theme. We need to:
+# 2. Build the unified platform
+.\scripts\deploy-github-pages.ps1 -Build
 
-1. **Remove all Jekyll files and configurations**
-2. **Deploy the unified platform as the main site**
-3. **Integrate MkDocs documentation within the platform**
-4. **Set up proper GitHub Actions for deployment**
-
-### ✅ Solution Architecture
-
-#### **New GitHub Pages Structure**
-
-```
-https://s-n00b.github.io/ai_assignments/
-├── index.html (Unified Platform - Main Entry Point)
-├── about/ (Assignment Overview)
-├── site/ (MkDocs Documentation)
-└── assets/ (Static Assets)
+# 3. Deploy to GitHub Pages
+.\scripts\deploy-github-pages.ps1 -Deploy
 ```
 
-#### **Deployment Strategy**
+## 📁 What You'll Get
 
-1. **Main Entry Point**: `unified_platform.html` becomes `index.html`
-2. **Documentation Hub**: MkDocs builds to `site/` directory
-3. **Static Assets**: All assets served from root
-4. **GitHub Actions**: Automated deployment on push to main
+After migration, your GitHub Pages site will have:
 
-### 🚀 Step-by-Step Migration
+- **Main Site**: https://s-n00b.github.io/ai_assignments/ (Unified Platform)
+- **Assignment Overview**: https://s-n00b.github.io/ai_assignments/about/
+- **Documentation**: https://s-n00b.github.io/ai_assignments/site/
+- **No More Jekyll**: Completely removed and replaced
 
-#### **Step 1: Clean Up Old Jekyll Files**
+## 🔧 How It Works
+
+### Unified Platform as Main Entry
+- Your `unified_platform.html` becomes the main `index.html`
+- Interactive demo environment accessible via GitHub Pages
+- All functionality preserved in static form
+
+### MkDocs Integration
+- Documentation builds to `site/` directory
+- Accessible within the platform at `/site/`
+- Full MkDocs functionality maintained
+
+### Assignment Overview
+- Static page showing both assignments
+- Professional presentation for stakeholders
+- Links to live demos and documentation
+
+### GitHub Actions Automation
+- Automated deployment on every push to main
+- No manual intervention required
+- Builds and deploys both platform and documentation
+
+## 📋 Detailed Migration Steps
+
+### Step 1: Clean Up Old Jekyll Files
 
 ```powershell
 # Run the cleanup script
 .\scripts\deploy-github-pages.ps1 -Clean
 ```
 
-This will remove:
-
+This removes:
 - `_config.yml`
-- `_layouts/`
-- `_includes/`
-- `_posts/`
-- `_sass/`
-- `_site/`
-- `Gemfile`
-- `Gemfile.lock`
-- `.jekyll-cache/`
-- `.jekyll-metadata`
+- `_layouts/`, `_includes/`, `_posts/`, `_sass/`
+- `_site/`, `Gemfile`, `Gemfile.lock`
+- `.jekyll-cache/`, `.jekyll-metadata`
+- Any old Jekyll-generated `index.html`
 
-#### **Step 2: Build the New Platform**
+### Step 2: Build the Unified Platform
 
 ```powershell
-# Build the unified platform
+# Build everything locally
 .\scripts\deploy-github-pages.ps1 -Build
 ```
 
-This will:
+This creates:
+- `index.html` (unified platform)
+- `about/index.html` (assignment overview)
+- `site/` (MkDocs documentation)
 
-- Build MkDocs documentation to `site/`
-- Copy `unified_platform.html` to `index.html`
-- Create `about/index.html` for assignment overview
-- Set up proper directory structure
-
-#### **Step 3: Deploy to GitHub Pages**
+### Step 3: Deploy to GitHub Pages
 
 ```powershell
-# Deploy everything
+# Deploy to GitHub Pages
 .\scripts\deploy-github-pages.ps1 -Deploy
 ```
 
-This will:
+This:
+- Adds all changes to git
+- Commits with timestamp
+- Pushes to main branch
+- Triggers GitHub Actions deployment
 
-- Commit all changes to git
-- Push to main branch
-- Trigger GitHub Actions deployment
-- Deploy to GitHub Pages
+## 🔄 GitHub Actions Workflow
 
-### 🔧 GitHub Actions Configuration
+The migration uses the existing `.github/workflows/deploy-unified-platform.yml` workflow:
 
-The new workflow (`.github/workflows/deploy-unified-platform.yml`) will:
+### Workflow Features
+- **Trigger**: Push to main/master branch
+- **Permissions**: Full GitHub Pages deployment access
+- **Concurrency**: Prevents multiple deployments
+- **Build Process**: 
+  1. Setup Python 3.11
+  2. Install MkDocs dependencies
+  3. Build documentation to `site/`
+  4. Create unified platform structure
+  5. Upload artifact for deployment
 
-1. **Build MkDocs Documentation**
+### Workflow Steps
+1. **Checkout**: Full repository checkout
+2. **Setup Python**: Python 3.11 with caching
+3. **Install Dependencies**: MkDocs and plugins
+4. **Build MkDocs**: Documentation to `site/`
+5. **Create Platform**: Unified platform as `index.html`
+6. **Create About Page**: Assignment overview
+7. **Upload Artifact**: Ready for deployment
+8. **Deploy**: Automatic GitHub Pages deployment
 
-   - Install dependencies
-   - Build documentation to `site/`
-   - Create unified platform structure
+## 🌐 Service Integration
 
-2. **Create Main Entry Point**
+### Port Configuration
+| Service | Port | URL | Description |
+|---|---|-----|----|
+| **GitHub Pages** | 443 | https://s-n00b.github.io/ai_assignments/ | Main unified platform |
+| **About Page** | 443 | https://s-n00b.github.io/ai_assignments/about/ | Assignment overview |
+| **Documentation** | 443 | https://s-n00b.github.io/ai_assignments/site/ | MkDocs documentation |
 
-   - Copy `unified_platform.html` to `index.html`
-   - Create `about/index.html` for assignment overview
-   - Set up proper directory structure
+### Local Development URLs
+| Service | Port | URL | Description |
+|---|---|-----|----|
+| **Enterprise Platform** | 8080 | http://localhost:8080 | Full interactive platform |
+| **Gradio App** | 7860 | http://localhost:7860 | Model evaluation interface |
+| **MkDocs** | 8082 | http://localhost:8082 | Local documentation |
+| **MLflow** | 5000 | http://localhost:5000 | Experiment tracking |
+| **ChromaDB** | 8081 | http://localhost:8081 | Vector database |
 
-3. **Deploy to GitHub Pages**
-   - Upload all files as artifact
-   - Deploy to GitHub Pages environment
+## 🛠️ Troubleshooting
 
-### 📁 New File Structure
+### Common Issues
 
-After migration, your repository will have:
-
-```
-ai_assignments/
-├── index.html (Unified Platform - Main Entry)
-├── about/
-│   └── index.html (Assignment Overview)
-├── site/ (MkDocs Documentation)
-├── src/ (Source Code)
-├── docs/ (MkDocs Source)
-└── .github/workflows/
-    └── deploy-unified-platform.yml
-```
-
-### 🌐 Access Points
-
-After deployment, users can access:
-
-- **Main Platform**: https://s-n00b.github.io/ai_assignments/
-- **Assignment Overview**: https://s-n00b.github.io/ai_assignments/about/
-- **Documentation**: https://s-n00b.github.io/ai_assignments/site/
-- **Unified Platform**: https://s-n00b.github.io/ai_assignments/ (main entry)
-
-### 🔄 GitHub Codespaces Alternative
-
-Since you mentioned GitHub Codespaces, here's how to set it up:
-
-#### **Option 1: GitHub Codespaces (Recommended for Demos)**
-
-1. **Create `.devcontainer/devcontainer.json`**:
-
-```json
-{
-  "name": "Lenovo AI Architecture",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {}
-  },
-  "postCreateCommand": "pip install -r config/requirements.txt && pip install -r docs/requirements-docs.txt",
-  "portsAttributes": {
-    "8080": { "label": "FastAPI Platform" },
-    "7860": { "label": "Gradio App" },
-    "5000": { "label": "MLflow" },
-    "8000": { "label": "ChromaDB" },
-    "8082": { "label": "MkDocs" }
-  },
-  "forwardPorts": [8080, 7860, 5000, 8000, 8082],
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.pylint",
-        "ms-toolsai.jupyter"
-      ]
-    }
-  }
-}
-```
-
-2. **Create `codespace-setup.sh`**:
-
-```bash
-#!/bin/bash
-# Setup script for GitHub Codespaces
-
-echo "Setting up Lenovo AI Architecture environment..."
-
-# Install dependencies
-pip install -r config/requirements.txt
-pip install -r docs/requirements-docs.txt
-
-# Start services in background
-python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080 &
-python -m src.gradio_app.main --host 0.0.0.0 --port 7860 &
-cd docs && mkdocs serve --dev-addr 0.0.0.0:8082 &
-
-echo "Services started:"
-echo "- FastAPI Platform: http://localhost:8080"
-echo "- Gradio App: http://localhost:7860"
-echo "- MkDocs: http://localhost:8082"
-echo "- GitHub Pages: https://s-n00b.github.io/ai_assignments/"
-```
-
-#### **Option 2: GitHub Pages with Static Demo**
-
-The unified platform will work as a static demo on GitHub Pages, with:
-
-- **Interactive UI**: Full unified platform interface
-- **Static Content**: Assignment overview and documentation
-- **Local Development**: Instructions for running full services
-
-### 🛠️ Troubleshooting
-
-#### **Common Issues**
-
-1. **Jekyll Still Showing**
-
-   - Check if `_config.yml` exists and remove it
-   - Ensure GitHub Pages is set to "GitHub Actions" source
-   - Clear browser cache
-
-2. **Unified Platform Not Loading**
-
-   - Verify `index.html` exists in root directory
-   - Check GitHub Actions deployment logs
-   - Ensure all assets are properly copied
-
-3. **MkDocs Not Accessible**
-   - Verify `site/` directory exists
-   - Check MkDocs build process in GitHub Actions
-   - Ensure proper file permissions
-
-#### **Debug Commands**
-
+#### 1. Jekyll Files Still Present
 ```powershell
-# Check current status
+# Check for remaining Jekyll files
+Get-ChildItem -Recurse -Name | Where-Object { $_ -match "jekyll|_config|_layouts|_includes|_posts|_sass|_site|Gemfile" }
+
+# Remove manually if needed
+Remove-Item -Recurse -Force "_config.yml", "_layouts", "_includes", "_posts", "_sass", "_site", "Gemfile", "Gemfile.lock", ".jekyll-cache", ".jekyll-metadata" -ErrorAction SilentlyContinue
+```
+
+#### 2. GitHub Actions Not Triggering
+```powershell
+# Check workflow file exists
+Test-Path ".github/workflows/deploy-unified-platform.yml"
+
+# Verify it's not disabled
+Get-Content ".github/workflows/deploy-unified-platform.yml" | Select-String "on:"
+```
+
+#### 3. Build Failures
+```powershell
+# Check MkDocs build locally
+cd docs
+mkdocs build --site-dir ../site
+
+# Check Python dependencies
+pip install -r docs/requirements-docs.txt
+```
+
+#### 4. Deployment Issues
+```powershell
+# Check git status
 git status
+
+# Check if changes are committed
 git log --oneline -5
 
-# Verify file structure
-ls -la
-ls -la site/
-ls -la about/
+# Force push if needed (be careful!)
+git push origin main --force
+```
+
+### Debug Commands
+
+```powershell
+# Check GitHub Actions status
+# Go to: https://github.com/s-n00b/ai_assignments/actions
+
+# Check Pages deployment
+# Go to: https://github.com/s-n00b/ai_assignments/settings/pages
 
 # Test local build
 .\scripts\deploy-github-pages.ps1 -Build
+# Then open index.html in browser
+
+# Check file structure
+Get-ChildItem -Name | Sort-Object
 ```
 
-### 📊 Expected Results
+## 📊 Migration Checklist
 
-After successful migration:
+### Pre-Migration
+- [ ] Backup current repository
+- [ ] Check GitHub Pages settings
+- [ ] Verify workflow permissions
+- [ ] Test local build process
 
-1. **GitHub Pages Site**: https://s-n00b.github.io/ai_assignments/
+### Migration Steps
+- [ ] Run cleanup script
+- [ ] Build unified platform
+- [ ] Deploy to GitHub Pages
+- [ ] Verify deployment
 
-   - Shows unified platform interface
-   - All navigation working
-   - Documentation accessible
+### Post-Migration
+- [ ] Test main site functionality
+- [ ] Verify about page loads
+- [ ] Check documentation access
+- [ ] Test all links and navigation
 
-2. **GitHub Actions**:
+## 🚀 Advanced Configuration
 
-   - Automatic deployment on push
-   - Build logs show successful deployment
-   - No Jekyll-related errors
+### Custom Domain (Optional)
+If you want to use a custom domain:
 
-3. **Repository Structure**:
-   - Clean, organized file structure
-   - No Jekyll files remaining
-   - Proper GitHub Actions workflow
+1. Add `CNAME` file to repository root:
+```
+your-domain.com
+```
 
-### 🎉 Next Steps
+2. Update GitHub Pages settings:
+- Go to repository Settings > Pages
+- Set custom domain
+- Enable HTTPS
 
-After migration:
+### Environment Variables
+The workflow uses these default settings:
+- Python version: 3.11
+- MkDocs theme: Material
+- Build directory: `site/`
+- Output directory: repository root
 
-1. **Test the Site**: Visit https://s-n00b.github.io/ai_assignments/
-2. **Verify Navigation**: Check all links work
-3. **Test Documentation**: Ensure MkDocs is accessible
-4. **Update README**: Document the new structure
-5. **Share with Stakeholders**: Provide the GitHub Pages URL
+### Customization
+To customize the deployment:
 
-### 📞 Support
+1. **Modify workflow**: Edit `.github/workflows/deploy-unified-platform.yml`
+2. **Update script**: Edit `scripts/deploy-github-pages.ps1`
+3. **Change content**: Modify `src/enterprise_llmops/frontend/unified_platform.html`
 
-If you encounter issues:
+## 🔄 Rollback Procedure
 
-1. **Check GitHub Actions**: Look for deployment errors
-2. **Verify File Structure**: Ensure all files are in correct locations
-3. **Test Locally**: Use the build script to test locally
-4. **Check Permissions**: Ensure GitHub Pages has proper permissions
+If you need to rollback to the previous setup:
+
+```powershell
+# 1. Disable the new workflow
+Rename-Item ".github/workflows/deploy-unified-platform.yml" ".github/workflows/deploy-unified-platform.yml.disabled"
+
+# 2. Re-enable old workflow (if it exists)
+Rename-Item ".github/workflows/mkdocs-deploy.yml.disabled" ".github/workflows/mkdocs-deploy.yml"
+
+# 3. Remove new files
+Remove-Item "index.html", "about" -Recurse -Force -ErrorAction SilentlyContinue
+
+# 4. Commit and push
+git add .
+git commit -m "Rollback to previous GitHub Pages setup"
+git push origin main
+```
+
+## 📞 Support
+
+### Getting Help
+- Check GitHub Actions logs: https://github.com/s-n00b/ai_assignments/actions
+- Review Pages settings: https://github.com/s-n00b/ai_assignments/settings/pages
+- Test locally first with `.\scripts\deploy-github-pages.ps1 -Build`
+
+### Verification Commands
+```powershell
+# Test local build
+.\scripts\deploy-github-pages.ps1 -Build
+
+# Check file structure
+Get-ChildItem -Name | Sort-Object
+
+# Verify git status
+git status
+
+# Check workflow file
+Get-Content ".github/workflows/deploy-unified-platform.yml" | Select-String "on:"
+```
 
 ---
 
 **Last Updated**: 2025-01-27  
 **Version**: 1.0.0  
-**Status**: Ready for Migration  
-**Integration**: Full GitHub Pages Deployment
+**Status**: Production Ready  
+**Integration**: Full GitHub Pages Integration
