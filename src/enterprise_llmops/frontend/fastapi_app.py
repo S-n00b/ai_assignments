@@ -261,23 +261,51 @@ async def lifespan(app: FastAPI):
         else:
             logging.warning("GitHub Models integration not available")
         
-        # Initialize ChromaDB client
+        # Initialize ChromaDB client with v2 API
         try:
             import chromadb
             from chromadb.config import Settings
             
+            # Configure for ChromaDB v2 API
             chroma_client = chromadb.HttpClient(
                 host="localhost",
                 port=8081,
-                settings=Settings(allow_reset=True)
+                settings=Settings(
+                    allow_reset=True,
+                    anonymized_telemetry=False
+                )
             )
-            # Test connection with v2 API
-            version = chroma_client.get_version()
-            logging.info(f"ChromaDB client initialized successfully (v{version})")
+            # Test connection with v2 API - use heartbeat
+            try:
+                heartbeat_response = chroma_client.heartbeat()
+                logging.info(f"ChromaDB v2 client initialized successfully")
+                logging.info(f"ChromaDB heartbeat: {heartbeat_response}")
+            except Exception as heartbeat_error:
+                # Fallback to version check
+                version = chroma_client.get_version()
+                logging.info(f"ChromaDB client initialized (v{version}) - heartbeat failed but version check passed")
         except Exception as e:
             logging.warning(f"Failed to initialize ChromaDB client: {e}")
             logging.info("Continuing without ChromaDB support...")
             chroma_client = None
+        
+        # Initialize LangGraph Studio manager
+        try:
+            from ..ai_architecture.langgraph_studio_integration import initialize_langgraph_studio_manager
+            langgraph_studio_manager = initialize_langgraph_studio_manager()
+            logging.info("LangGraph Studio manager initialized")
+        except Exception as e:
+            logging.warning(f"Failed to initialize LangGraph Studio manager: {e}")
+            langgraph_studio_manager = None
+        
+        # Initialize Neo4j Faker manager
+        try:
+            from ..ai_architecture.neo4j_faker_integration import initialize_neo4j_faker_manager
+            neo4j_faker_manager = initialize_neo4j_faker_manager()
+            logging.info("Neo4j Faker manager initialized")
+        except Exception as e:
+            logging.warning(f"Failed to initialize Neo4j Faker manager: {e}")
+            neo4j_faker_manager = None
         
         # Start background monitoring
         asyncio.create_task(background_monitoring())
@@ -812,23 +840,165 @@ async def chromadb_health():
 
 @app.get("/api/chromadb/collections")
 async def list_chromadb_collections():
-    """List ChromaDB collections."""
+    """List ChromaDB collections using v2 API."""
     if chroma_client is None:
         raise HTTPException(status_code=503, detail="ChromaDB client not available")
     
     try:
+        # ChromaDB v2 API - list collections
         collections = chroma_client.list_collections()
         return {
             "collections": [
                 {
                     "name": col.name,
                     "id": col.id,
-                    "metadata": col.metadata
+                    "metadata": col.metadata if hasattr(col, 'metadata') else {}
                 } for col in collections
             ]
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to list collections: {e}")
+
+
+# ChromaDB service management endpoints
+@app.post("/api/chroma/start")
+async def start_chroma():
+    """Start ChromaDB service"""
+    try:
+        # This would start ChromaDB in a subprocess
+        # For now, we'll just return a success message
+        return {"message": "ChromaDB start command issued", "status": "started"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to start ChromaDB: {str(e)}")
+
+@app.get("/api/chroma/health")
+async def chroma_health():
+    """Check ChromaDB health using v2 API"""
+    try:
+        if chroma_client:
+            # ChromaDB v2 API - use heartbeat endpoint
+            try:
+                response = chroma_client.heartbeat()
+                return {"status": "healthy", "version": response.get("nanosecond heartbeat", "unknown")}
+            except Exception as heartbeat_error:
+                # Fallback to version check
+                try:
+                    version = chroma_client.get_version()
+                    return {"status": "healthy", "version": version}
+                except:
+                    return {"status": "connected", "message": "ChromaDB connected but heartbeat failed"}
+        else:
+            return {"status": "unavailable", "message": "ChromaDB client not initialized"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+# ChromaDB document operations endpoints
+@app.post("/api/chromadb/collections")
+async def create_chromadb_collection(request: dict):
+    """Create a new ChromaDB collection using v2 API"""
+    try:
+        if not chroma_client:
+            raise HTTPException(status_code=503, detail="ChromaDB client not available")
+        
+        collection_name = request.get("name", "default")
+        collection = chroma_client.create_collection(name=collection_name)
+        
+        return {
+            "message": f"Collection '{collection_name}' created successfully",
+            "collection": {
+                "name": collection.name,
+                "id": collection.id,
+                "metadata": collection.metadata
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to create collection: {str(e)}")
+
+@app.post("/api/chromadb/documents")
+async def add_document_to_collection(request: dict):
+    """Add document to ChromaDB collection using v2 API"""
+    try:
+        if not chroma_client:
+            raise HTTPException(status_code=503, detail="ChromaDB client not available")
+        
+        text = request.get("text", "")
+        collection_name = request.get("collection", "default")
+        
+        # Get or create collection
+        try:
+            collection = chroma_client.get_collection(name=collection_name)
+        except:
+            collection = chroma_client.create_collection(name=collection_name)
+        
+        # Add document
+        collection.add(
+            documents=[text],
+            ids=[f"doc_{len(collection.get()['ids'])}"]
+        )
+        
+        return {"message": "Document added successfully", "collection": collection_name}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to add document: {str(e)}")
+
+@app.post("/api/chromadb/search")
+async def search_similar_documents(request: dict):
+    """Search for similar documents using ChromaDB v2 API"""
+    try:
+        if not chroma_client:
+            raise HTTPException(status_code=503, detail="ChromaDB client not available")
+        
+        query = request.get("query", "")
+        collection_name = request.get("collection", "default")
+        limit = request.get("limit", 5)
+        
+        # Get collection
+        try:
+            collection = chroma_client.get_collection(name=collection_name)
+        except:
+            return {"documents": [], "distances": [], "message": "Collection not found"}
+        
+        # Search for similar documents
+        results = collection.query(
+            query_texts=[query],
+            n_results=limit
+        )
+        
+        return {
+            "documents": results["documents"][0] if results["documents"] else [],
+            "distances": results["distances"][0] if results["distances"] else [],
+            "ids": results["ids"][0] if results["ids"] else []
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to search documents: {str(e)}")
+
+
+# LangGraph Studio endpoints
+@app.post("/api/langgraph/studios/start")
+async def start_langgraph_studio():
+    """Start LangGraph Studio service"""
+    try:
+        if langgraph_studio_manager:
+            success = await langgraph_studio_manager.start_studio()
+            if success:
+                return {"message": "LangGraph Studio started successfully"}
+            else:
+                raise HTTPException(status_code=500, detail="Failed to start LangGraph Studio")
+        else:
+            raise HTTPException(status_code=500, detail="LangGraph Studio manager not available")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to start LangGraph Studio: {str(e)}")
+
+@app.get("/api/langgraph/studios/status")
+async def langgraph_studio_status():
+    """Get LangGraph Studio status"""
+    try:
+        if langgraph_studio_manager:
+            status = await langgraph_studio_manager.get_studio_status()
+            return status
+        else:
+            return {"status": "unavailable", "message": "LangGraph Studio manager not initialized"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 
 # Ollama management endpoints

@@ -883,17 +883,163 @@
                 
                 <!-- ChromaDB Vector Store Service -->
                 <div id="service-chroma" class="service-container">
-                    <iframe id="iframe-chroma" class="service-frame" src="http://localhost:8081"></iframe>
+                    <div id="chroma-content" class="h-full flex flex-col bg-gray-900">
+                        <!-- Header -->
+                        <div class="bg-gray-800 border-b border-gray-700 p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-xl font-semibold text-white">🗄️ ChromaDB Vector Store</h2>
+                                    <p class="text-sm text-gray-400">Tools & RAG - Knowledge Retrieval System for GenAI Stack</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button id="test-chroma" class="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors">
+                                        Test v2 API
+                                    </button>
+                                    <button id="refresh-chroma" class="px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors">
+                                        Refresh Status
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- GenAI Stack Context -->
+                        <div class="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border-b border-blue-800/30 p-4">
+                            <div class="text-center">
+                                <h3 class="text-lg font-semibold text-blue-300 mb-2">🔗 GenAI Stack Integration</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                                    <div class="bg-gray-800/50 p-2 rounded text-center">
+                                        <div class="text-yellow-400">📊</div>
+                                        <div class="text-gray-300">Evaluation</div>
+                                    </div>
+                                    <div class="bg-gray-800/50 p-2 rounded text-center">
+                                        <div class="text-red-400">🛡️</div>
+                                        <div class="text-gray-300">Guardrails</div>
+                                    </div>
+                                    <div class="bg-gray-800/50 p-2 rounded text-center border-2 border-blue-500">
+                                        <div class="text-blue-400">🔧</div>
+                                        <div class="text-blue-300 font-semibold">Tools & RAG</div>
+                                    </div>
+                                    <div class="bg-gray-800/50 p-2 rounded text-center">
+                                        <div class="text-green-400">🧠</div>
+                                        <div class="text-gray-300">Core LLM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Content -->
+                        <div class="flex-1 overflow-y-auto p-4">
+                            <div id="chroma-status" class="text-center text-gray-500 py-8">
+                                <div class="text-4xl mb-2">🗄️</div>
+                                <p>ChromaDB Vector Store</p>
+                                <p class="text-sm mt-2">Click "Test v2 API" to check connection and view collections</p>
+                            </div>
+                            
+                            <!-- Vector Operations Demo -->
+                            <div id="chroma-demo" class="hidden">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    <!-- Collections Panel -->
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-white mb-3">📚 Collections</h3>
+                                        <div id="collections-list" class="space-y-2">
+                                            <!-- Collections will be loaded here -->
+                                        </div>
+                                        <button id="create-collection" class="mt-3 w-full px-3 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors">
+                                            + Create New Collection
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Vector Operations Panel -->
+                                    <div class="bg-gray-800 p-4 rounded-lg">
+                                        <h3 class="text-lg font-semibold text-white mb-3">🔍 Vector Operations</h3>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <label class="block text-sm text-gray-300 mb-1">Add Document</label>
+                                                <textarea id="document-text" placeholder="Enter document text..." class="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white text-sm" rows="3"></textarea>
+                                                <button id="add-document" class="mt-2 px-3 py-1 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors">
+                                                    Add to Collection
+                                                </button>
+                                            </div>
+                                            
+                                            <div>
+                                                <label class="block text-sm text-gray-300 mb-1">Search Similar</label>
+                                                <input id="search-query" type="text" placeholder="Enter search query..." class="w-full p-2 bg-gray-700 border border-gray-600 rounded text-white text-sm">
+                                                <button id="search-similar" class="mt-2 px-3 py-1 bg-purple-600 text-white rounded text-sm hover:bg-purple-700 transition-colors">
+                                                    Find Similar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Results Panel -->
+                                <div class="mt-6 bg-gray-800 p-4 rounded-lg">
+                                    <h3 class="text-lg font-semibold text-white mb-3">📊 Results</h3>
+                                    <div id="chroma-results" class="text-gray-300">
+                                        <!-- Results will be displayed here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- LangGraph Studio Service -->
                 <div id="service-langgraph" class="service-container">
-                    <iframe id="iframe-langgraph" class="service-frame" src="http://localhost:8083"></iframe>
+                    <div id="langgraph-content" class="h-full flex flex-col bg-gray-900">
+                        <div class="bg-gray-800 border-b border-gray-700 p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-xl font-semibold text-white">LangGraph Studio</h2>
+                                    <p class="text-sm text-gray-400">Agent visualization and debugging interface</p>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <button id="start-langgraph" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                                        Start Studio
+                                    </button>
+                                    <button id="open-langgraph" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                        Open Studio
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-4">
+                            <div id="langgraph-status" class="text-center text-gray-500 py-8">
+                                <div class="text-4xl mb-2">🔄</div>
+                                <p>LangGraph Studio</p>
+                                <p class="text-sm mt-2">Click "Start Studio" to launch the agent visualization interface</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Neo4j Faker GraphRAG Demo Service -->
+                <!-- Neo4j GraphRAG Demo Service -->
                 <div id="service-neo4j-faker" class="service-container">
-                    <iframe id="iframe-neo4j-faker" class="service-frame" src="/iframe/neo4j-faker"></iframe>
+                    <div id="neo4j-content" class="h-full flex flex-col bg-gray-900">
+                        <div class="bg-gray-800 border-b border-gray-700 p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-xl font-semibold text-white">Neo4j GraphRAG Demo</h2>
+                                    <p class="text-sm text-gray-400">Realistic GraphRAG demonstration with Faker data</p>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <button id="generate-data" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                                        Generate Data
+                                    </button>
+                                    <button id="open-dashboard" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                        Open Dashboard
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 overflow-y-auto p-4">
+                            <div id="neo4j-status" class="text-center text-gray-500 py-8">
+                                <div class="text-4xl mb-2">🕸️</div>
+                                <p>Neo4j GraphRAG Demo</p>
+                                <p class="text-sm mt-2">Click "Generate Data" to create realistic graph data for demonstration</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- MkDocs Documentation Hub Service -->
@@ -1528,7 +1674,250 @@
             }
         }
         
-        // Override switchService to initialize chat playground
+        // Service-specific initialization functions
+        function initializeChromaService() {
+            const testButton = document.getElementById('test-chroma');
+            const refreshButton = document.getElementById('refresh-chroma');
+            const statusDiv = document.getElementById('chroma-status');
+            const demoDiv = document.getElementById('chroma-demo');
+            const collectionsList = document.getElementById('collections-list');
+            const createCollectionBtn = document.getElementById('create-collection');
+            const addDocumentBtn = document.getElementById('add-document');
+            const searchSimilarBtn = document.getElementById('search-similar');
+            const resultsDiv = document.getElementById('chroma-results');
+            
+            if (testButton) {
+                testButton.addEventListener('click', async () => {
+                    statusDiv.innerHTML = '<div class="text-center text-gray-500 py-8"><div class="text-4xl mb-2">🔄</div><p>Testing ChromaDB v2 API...</p></div>';
+                    
+                    try {
+                        const response = await fetch('/api/chroma/health');
+                        const result = await response.json();
+                        
+                        if (response.ok && result.status === 'healthy') {
+                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>ChromaDB v2 API Connected!</p><p class="text-sm mt-2">Status: ' + result.status + '</p></div>';
+                            demoDiv.classList.remove('hidden');
+                            loadCollections();
+                        } else {
+                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>ChromaDB connection failed</p><p class="text-sm mt-2">' + (result.message || 'Service unavailable') + '</p></div>';
+                        }
+                    } catch (error) {
+                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Connection test failed</p><p class="text-sm mt-2">' + error.message + '</p></div>';
+                    }
+                });
+            }
+            
+            if (refreshButton) {
+                refreshButton.addEventListener('click', () => {
+                    loadCollections();
+                });
+            }
+            
+            if (createCollectionBtn) {
+                createCollectionBtn.addEventListener('click', async () => {
+                    const collectionName = prompt('Enter collection name:');
+                    if (collectionName) {
+                        try {
+                            const response = await fetch('/api/chromadb/collections', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ name: collectionName })
+                            });
+                            
+                            if (response.ok) {
+                                loadCollections();
+                                resultsDiv.innerHTML = '<div class="text-green-400">✅ Collection "' + collectionName + '" created successfully!</div>';
+                            } else {
+                                resultsDiv.innerHTML = '<div class="text-red-400">❌ Failed to create collection</div>';
+                            }
+                        } catch (error) {
+                            resultsDiv.innerHTML = '<div class="text-red-400">❌ Error: ' + error.message + '</div>';
+                        }
+                    }
+                });
+            }
+            
+            if (addDocumentBtn) {
+                addDocumentBtn.addEventListener('click', async () => {
+                    const text = document.getElementById('document-text').value;
+                    if (text.trim()) {
+                        try {
+                            const response = await fetch('/api/chromadb/documents', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ 
+                                    text: text,
+                                    collection: 'default'
+                                })
+                            });
+                            
+                            if (response.ok) {
+                                resultsDiv.innerHTML = '<div class="text-green-400">✅ Document added to collection!</div>';
+                                document.getElementById('document-text').value = '';
+                            } else {
+                                resultsDiv.innerHTML = '<div class="text-red-400">❌ Failed to add document</div>';
+                            }
+                        } catch (error) {
+                            resultsDiv.innerHTML = '<div class="text-red-400">❌ Error: ' + error.message + '</div>';
+                        }
+                    }
+                });
+            }
+            
+            if (searchSimilarBtn) {
+                searchSimilarBtn.addEventListener('click', async () => {
+                    const query = document.getElementById('search-query').value;
+                    if (query.trim()) {
+                        try {
+                            const response = await fetch('/api/chromadb/search', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ 
+                                    query: query,
+                                    collection: 'default',
+                                    limit: 5
+                                })
+                            });
+                            
+                            if (response.ok) {
+                                const results = await response.json();
+                                displaySearchResults(results);
+                            } else {
+                                resultsDiv.innerHTML = '<div class="text-red-400">❌ Search failed</div>';
+                            }
+                        } catch (error) {
+                            resultsDiv.innerHTML = '<div class="text-red-400">❌ Error: ' + error.message + '</div>';
+                        }
+                    }
+                });
+            }
+            
+            async function loadCollections() {
+                try {
+                    const response = await fetch('/api/chromadb/collections');
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        collectionsList.innerHTML = '';
+                        if (data.collections && data.collections.length > 0) {
+                            data.collections.forEach(collection => {
+                                const collectionDiv = document.createElement('div');
+                                collectionDiv.className = 'bg-gray-700 p-2 rounded text-sm';
+                                collectionDiv.innerHTML = `
+                                    <div class="font-medium text-white">${collection.name}</div>
+                                    <div class="text-gray-400 text-xs">ID: ${collection.id}</div>
+                                `;
+                                collectionsList.appendChild(collectionDiv);
+                            });
+                        } else {
+                            collectionsList.innerHTML = '<div class="text-gray-400 text-sm">No collections found</div>';
+                        }
+                    }
+                } catch (error) {
+                    collectionsList.innerHTML = '<div class="text-red-400 text-sm">Error loading collections</div>';
+                }
+            }
+            
+            function displaySearchResults(results) {
+                if (results.documents && results.documents.length > 0) {
+                    let html = '<div class="space-y-2">';
+                    results.documents.forEach((doc, index) => {
+                        html += `
+                            <div class="bg-gray-700 p-3 rounded">
+                                <div class="text-sm text-gray-400">Result ${index + 1} (Score: ${results.distances ? results.distances[index].toFixed(3) : 'N/A'})</div>
+                                <div class="text-white mt-1">${doc}</div>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                    resultsDiv.innerHTML = html;
+                } else {
+                    resultsDiv.innerHTML = '<div class="text-gray-400">No similar documents found</div>';
+                }
+            }
+        }
+        
+        function initializeLangGraphService() {
+            const startButton = document.getElementById('start-langgraph');
+            const openButton = document.getElementById('open-langgraph');
+            const statusDiv = document.getElementById('langgraph-status');
+            
+            if (startButton) {
+                startButton.addEventListener('click', async () => {
+                    statusDiv.innerHTML = '<div class="text-center text-gray-500 py-8"><div class="text-4xl mb-2">🔄</div><p>Starting LangGraph Studio...</p></div>';
+                    
+                    try {
+                        const response = await fetch('/api/langgraph/studios/start', { method: 'POST' });
+                        const result = await response.json();
+                        
+                        if (response.ok) {
+                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>LangGraph Studio started!</p><p class="text-sm mt-2">Agent visualization interface is ready</p></div>';
+                        } else {
+                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Failed to start LangGraph Studio</p><p class="text-sm mt-2">' + (result.detail || 'Unknown error') + '</p></div>';
+                        }
+                    } catch (error) {
+                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Error starting LangGraph Studio</p><p class="text-sm mt-2">' + error.message + '</p></div>';
+                    }
+                });
+            }
+            
+            if (openButton) {
+                openButton.addEventListener('click', () => {
+                    window.open('http://localhost:8083', '_blank');
+                });
+            }
+        }
+        
+        function initializeNeo4jService() {
+            const generateButton = document.getElementById('generate-data');
+            const dashboardButton = document.getElementById('open-dashboard');
+            const statusDiv = document.getElementById('neo4j-status');
+            
+            if (generateButton) {
+                generateButton.addEventListener('click', async () => {
+                    statusDiv.innerHTML = '<div class="text-center text-gray-500 py-8"><div class="text-4xl mb-2">🔄</div><p>Generating realistic GraphRAG data...</p></div>';
+                    
+                    try {
+                        const config = {
+                            domain: 'enterprise',
+                            num_users: 50,
+                            num_organizations: 10,
+                            num_projects: 25,
+                            num_documents: 100,
+                            num_interactions: 200,
+                            num_relationships: 150,
+                            include_temporal_data: true,
+                            date_range_days: 365,
+                            seed: Math.floor(Math.random() * 10000)
+                        };
+                        
+                        const response = await fetch('/api/neo4j-faker/generate', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(config)
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (response.ok) {
+                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>GraphRAG data generated successfully!</p><p class="text-sm mt-2">' + result.nodes.length + ' nodes, ' + result.edges.length + ' edges created</p></div>';
+                        } else {
+                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Failed to generate data</p><p class="text-sm mt-2">' + (result.detail || 'Unknown error') + '</p></div>';
+                        }
+                    } catch (error) {
+                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Error generating data</p><p class="text-sm mt-2">' + error.message + '</p></div>';
+                    }
+                });
+            }
+            
+            if (dashboardButton) {
+                dashboardButton.addEventListener('click', () => {
+                    window.open('/api/neo4j-faker/dashboard', '_blank');
+                });
+            }
+        }
+        
+        // Override switchService to initialize services
         const originalSwitchService = switchService;
         switchService = function(serviceName) {
             originalSwitchService(serviceName);
@@ -1536,6 +1925,12 @@
             if (serviceName === 'chat-playground') {
                 // Small delay to ensure DOM is ready
                 setTimeout(initializeChatPlayground, 100);
+            } else if (serviceName === 'chroma') {
+                setTimeout(initializeChromaService, 100);
+            } else if (serviceName === 'langgraph') {
+                setTimeout(initializeLangGraphService, 100);
+            } else if (serviceName === 'neo4j-faker') {
+                setTimeout(initializeNeo4jService, 100);
             }
         };
     </script>
