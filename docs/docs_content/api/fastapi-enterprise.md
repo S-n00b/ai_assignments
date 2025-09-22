@@ -14,6 +14,7 @@ The Enterprise LLMOps Platform is a comprehensive FastAPI-based backend that pro
 - **Experiment Tracking**: MLflow integration for reproducible ML workflows
 - **AutoML**: Optuna hyperparameter optimization
 - **Vector Databases**: Chroma, Weaviate, Pinecone integration
+- **Graph Database**: Neo4j service integration with GraphRAG capabilities
 - **Authentication**: JWT-based security with demo mode support
 
 ### Service Integration
@@ -23,6 +24,7 @@ The Enterprise LLMOps Platform is a comprehensive FastAPI-based backend that pro
 - **Optuna Optimizer**: Automated hyperparameter tuning
 - **Prompt Integration**: AI tool prompt management and caching
 - **ChromaDB Client**: Vector database operations
+- **Neo4j Service**: Graph database operations and GraphRAG queries
 
 ## 🌐 API Endpoints
 
@@ -87,6 +89,21 @@ The Enterprise LLMOps Platform is a comprehensive FastAPI-based backend that pro
 - `POST /api/prompts/sync` - Sync AI tool prompts
 - `POST /api/prompts/dataset/generate` - Generate evaluation dataset
 - `GET /api/prompts/registries/statistics` - Registry statistics
+
+#### Neo4j Graph Database
+
+- `GET /api/neo4j/health` - Neo4j service health status
+- `GET /api/neo4j/info` - Database information and statistics
+- `POST /api/neo4j/query` - Execute custom Cypher queries
+- `POST /api/neo4j/graphrag` - GraphRAG semantic search
+- `GET /api/neo4j/org-structure` - Lenovo organizational data
+- `GET /api/neo4j/b2b-clients` - B2B client relationships
+- `GET /api/neo4j/project-dependencies` - Project network analysis
+- `GET /api/neo4j/employees` - Employee information
+- `GET /api/neo4j/departments` - Department data
+- `GET /api/neo4j/projects` - Project information
+- `GET /api/neo4j/skills` - Skills and certifications
+- `GET /api/neo4j/analytics/*` - Analytics endpoints
 
 ### WebSocket Endpoints
 
@@ -235,14 +252,16 @@ integrations:
 
 The platform integrates with several external services:
 
-| Service                | Port | URL                   | Description                 |
-| ---------------------- | ---- | --------------------- | --------------------------- |
-| **Enterprise FastAPI** | 8080 | http://localhost:8080 | Main enterprise platform    |
-| **Gradio App**         | 7860 | http://localhost:7860 | Model evaluation interface  |
-| **MLflow Tracking**    | 5000 | http://localhost:5000 | Experiment tracking         |
-| **ChromaDB**           | 8081 | http://localhost:8081 | Vector database             |
-| **MkDocs**             | 8082 | http://localhost:8082 | Master documentation site   |
-| **Weaviate**           | 8083 | http://localhost:8083 | Alternative vector database |
+| Service                | Port | URL                             | Description                  |
+| ---------------------- | ---- | ------------------------------- | ---------------------------- |
+| **Enterprise FastAPI** | 8080 | http://localhost:8080           | Main enterprise platform     |
+| **Gradio App**         | 7860 | http://localhost:7860           | Model evaluation interface   |
+| **MLflow Tracking**    | 5000 | http://localhost:5000           | Experiment tracking          |
+| **ChromaDB**           | 8081 | http://localhost:8081           | Vector database              |
+| **MkDocs**             | 8082 | http://localhost:8082           | Master documentation site    |
+| **Weaviate**           | 8083 | http://localhost:8083           | Alternative vector database  |
+| **Neo4j Browser**      | 7474 | http://localhost:7474           | Neo4j graph database browser |
+| **Neo4j API**          | 8080 | http://localhost:8080/api/neo4j | Neo4j service endpoints      |
 
 ### Service Dependencies
 
@@ -252,7 +271,11 @@ The platform integrates with several external services:
   - **Status**: ✅ Operational (v1.0.0)
 - **MLflow**: Experiment tracking and model registry
 - **Ollama**: Local LLM serving (optional)
-- **Neo4j**: Knowledge graph database (optional)
+- **Neo4j**: Knowledge graph database with GraphRAG capabilities
+  - **API Endpoints**: `/api/neo4j/health`, `/api/neo4j/query`, `/api/neo4j/graphrag`
+  - **Browser**: http://localhost:7474
+  - **Service API**: http://localhost:8080/api/neo4j
+  - **Status**: ✅ Operational (v1.0.0)
 - **Prometheus/Grafana**: Monitoring stack (optional)
 
 ### ChromaDB Integration Details
@@ -337,6 +360,13 @@ pytest tests/ -v
 curl http://localhost:8080/health
 curl http://localhost:8080/api/info
 curl http://localhost:8080/api/status
+
+# Test Neo4j endpoints
+curl http://localhost:8080/api/neo4j/health
+curl http://localhost:8080/api/neo4j/info
+curl -X POST http://localhost:8080/api/neo4j/query \
+  -H "Content-Type: application/json" \
+  -d '{"query": "RETURN 1 as test"}'
 ```
 
 ## 🔗 Integration with Gradio App

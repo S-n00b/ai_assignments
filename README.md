@@ -39,22 +39,23 @@ A comprehensive enterprise-grade AI operations platform built for Lenovo AAITC a
 
 #### **All Service Ports**
 
-| Service                | Port  | URL                    | Description                |
-| ---------------------- | ----- | ---------------------- | -------------------------- |
-| **Enterprise FastAPI** | 8080  | http://localhost:8080  | Main enterprise platform   |
-| **Gradio App**         | 7860  | http://localhost:7860  | Model evaluation interface |
-| **MkDocs Docs**        | 8082  | http://localhost:8082  | Documentation site         |
-| **Chroma Vector DB**   | 8081  | http://localhost:8081  | Embeddings database        |
-| **LangGraph Studio**   | 8080  | http://localhost:8080  | Workflow visualization     |
-| **MLflow Tracking**    | 5000  | http://localhost:5000  | Experiment tracking        |
-| **Ollama LLM**         | 11434 | http://localhost:11434 | Local LLM server           |
-| **Grafana**            | 3000  | http://localhost:3000  | Monitoring dashboards      |
-| **LangFuse**           | 3000  | http://localhost:3000  | LLM observability          |
-| **Prometheus**         | 9090  | http://localhost:9090  | Metrics collection         |
-| **Neo4j**              | 7474  | http://localhost:7474  | Knowledge graph database   |
-| **Redis**              | 6379  | redis://localhost:6379 | Caching and sessions       |
-| **MCP Server**         | 8001  | http://localhost:8001  | Model Context Protocol     |
-| **Additional Service** | 8002  | http://localhost:8002  | Secondary service          |
+| Service                | Port  | URL                             | Description                |
+| ---------------------- | ----- | ------------------------------- | -------------------------- |
+| **Enterprise FastAPI** | 8080  | http://localhost:8080           | Main enterprise platform   |
+| **Gradio App**         | 7860  | http://localhost:7860           | Model evaluation interface |
+| **MkDocs Docs**        | 8082  | http://localhost:8082           | Documentation site         |
+| **Chroma Vector DB**   | 8081  | http://localhost:8081           | Embeddings database        |
+| **LangGraph Studio**   | 8080  | http://localhost:8080           | Workflow visualization     |
+| **MLflow Tracking**    | 5000  | http://localhost:5000           | Experiment tracking        |
+| **Ollama LLM**         | 11434 | http://localhost:11434          | Local LLM server           |
+| **Grafana**            | 3000  | http://localhost:3000           | Monitoring dashboards      |
+| **LangFuse**           | 3000  | http://localhost:3000           | LLM observability          |
+| **Prometheus**         | 9090  | http://localhost:9090           | Metrics collection         |
+| **Neo4j Browser**      | 7474  | http://localhost:7474           | Knowledge graph database   |
+| **Neo4j API**          | 8080  | http://localhost:8080/api/neo4j | Neo4j service endpoints    |
+| **Redis**              | 6379  | redis://localhost:6379          | Caching and sessions       |
+| **MCP Server**         | 8001  | http://localhost:8001           | Model Context Protocol     |
+| **Additional Service** | 8002  | http://localhost:8002           | Secondary service          |
 
 #### **Launch Applications**
 
@@ -72,7 +73,12 @@ mkdocs serve
 # 4. Optional: Simplified FastAPI App (Alternative)
 python -m src.enterprise_llmops.simple_app
 
-# 5. Optional: Individual Services (if running separately)
+# 5. Neo4j Graph Database (if running separately)
+# Install Neo4j Desktop or Community Edition
+# Start Neo4j service: bolt://localhost:7687
+# Username: neo4j, Password: password
+
+# 6. Optional: Individual Services (if running separately)
 # MLflow: python -m mlflow server --host 0.0.0.0 --port 5000
 # Ollama: ollama serve (runs on 11434)
 ```
@@ -84,6 +90,8 @@ python -m src.enterprise_llmops.simple_app
 - **Health Check**: http://localhost:8080/health
 - **Model Evaluation**: http://localhost:7860
 - **Documentation**: http://localhost:8082
+- **Neo4j Browser**: http://localhost:7474 (when Neo4j is running)
+- **Neo4j API**: http://localhost:8080/api/neo4j
 - **MLflow UI**: http://localhost:5000 (when MLflow is running)
 - **Ollama API**: http://localhost:11434 (when Ollama is running)
 
@@ -128,6 +136,15 @@ ai_assignments/
 
 ## 🔧 **Key Features**
 
+### **Graph Database Integration**
+
+- ✅ **Neo4j Service**: Dedicated Neo4j integration with REST API endpoints
+- ✅ **GraphRAG Capabilities**: Semantic search and knowledge retrieval
+- ✅ **Lenovo Org Structure**: Realistic organizational data with Faker
+- ✅ **B2B Client Scenarios**: Enterprise client relationship mapping
+- ✅ **Enterprise Patterns**: Org charts, project networks, knowledge graphs
+- ✅ **Graph Analytics**: Real-time insights and relationship analysis
+
 ### **Enterprise Infrastructure**
 
 - ✅ **Kubernetes Deployment**: Production-ready container orchestration
@@ -146,7 +163,7 @@ ai_assignments/
 
 - ✅ **FastAPI Backend**: RESTful API with WebSocket support
 - ✅ **Real-time Monitoring**: Live system status and metrics
-- ✅ **Knowledge Graphs**: Neo4j integration for relationship mapping
+- ✅ **Knowledge Graphs**: Neo4j integration with dedicated service endpoints
 - ✅ **Workflow Visualization**: LangGraph Studio-style interfaces
 - ✅ **Chat Playground**: Side-by-side Ollama & GitHub Models comparison with Google AI Studio-like UX
 
@@ -154,14 +171,16 @@ ai_assignments/
 
 > **Note**: For complete port information, see the [Port Configuration](#-port-configuration--quick-start) section above.
 
-| Service                 | URL                          | Description                                    |
-| ----------------------- | ---------------------------- | ---------------------------------------------- |
-| **Enterprise Platform** | http://localhost:8080        | FastAPI backend with full enterprise features  |
-| **Chat Playground**     | http://localhost:8080        | Ollama & GitHub Models side-by-side comparison |
-| **Model Evaluation**    | http://localhost:7860        | Gradio interface for model prototyping         |
-| **Documentation**       | http://localhost:8082        | MkDocs documentation site                      |
-| **API Docs**            | http://localhost:8080/docs   | FastAPI auto-generated documentation           |
-| **Health Check**        | http://localhost:8080/health | System health monitoring                       |
+| Service                 | URL                             | Description                                    |
+| ----------------------- | ------------------------------- | ---------------------------------------------- |
+| **Enterprise Platform** | http://localhost:8080           | FastAPI backend with full enterprise features  |
+| **Chat Playground**     | http://localhost:8080           | Ollama & GitHub Models side-by-side comparison |
+| **Model Evaluation**    | http://localhost:7860           | Gradio interface for model prototyping         |
+| **Documentation**       | http://localhost:8082           | MkDocs documentation site                      |
+| **API Docs**            | http://localhost:8080/docs      | FastAPI auto-generated documentation           |
+| **Health Check**        | http://localhost:8080/health    | System health monitoring                       |
+| **Neo4j Browser**       | http://localhost:7474           | Neo4j graph database browser                   |
+| **Neo4j API**           | http://localhost:8080/api/neo4j | Neo4j service endpoints and GraphRAG queries   |
 
 ### **Port Conflict Resolution**
 
@@ -310,6 +329,12 @@ pytest --cov=src tests/
 .\scripts\dev-commands.ps1 -Build
 .\scripts\dev-commands.ps1 -Test
 .\scripts\dev-commands.ps1 -Deploy
+
+# Generate Neo4j graphs
+python scripts\generate_lenovo_graphs_simple.py
+
+# Or use batch file (Windows)
+scripts\generate-lenovo-graphs.bat
 ```
 
 ## 📈 **Progress Status**

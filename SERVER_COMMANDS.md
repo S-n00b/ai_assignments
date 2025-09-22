@@ -1,15 +1,28 @@
 # Complete AI Assignments Project - Server Commands & Workflows
 
-## 🚀 Manual Quickstart (8 Terminals)
+## 🚀 Manual Quickstart (9 Terminals)
 
 ### Automated Script
 
 ```powershell
-# Run the automated script to create all 8 terminals
+# Run the automated script to create all 9 terminals
 .\scripts\start-unified-platform.ps1
 ```
 
-### Manual Terminal Setup (8 Terminals in Order)
+### Neo4j Graph Generation
+
+```powershell
+# Activate virtual environment first
+& C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+
+# Generate Lenovo graphs (Python script - recommended)
+python scripts\generate_lenovo_graphs_simple.py
+
+# Or use batch file (Windows)
+scripts\generate-lenovo-graphs.bat
+```
+
+### Manual Terminal Setup (9 Terminals in Order)
 
 #### Terminal 1: ChromaDB Vector Store
 
@@ -60,7 +73,23 @@ python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
 .\scripts\comprehensive-sync.ps1
 ```
 
-#### Terminal 8: Development Shell
+#### Terminal 8: Neo4j Graph Database
+
+```powershell
+# Install Neo4j Desktop or Community Edition
+# Download from: https://neo4j.com/download/
+
+# Start Neo4j service (Windows Service or Desktop)
+# Default connection: bolt://localhost:7687
+# Username: neo4j, Password: password
+
+# Or run Neo4j in Docker (alternative)
+docker run --name neo4j -p 7474:7474 -p 7687:7687 -d -v $PWD/neo4j_data:/data -v $PWD/neo4j_logs:/logs -v $PWD/neo4j_import:/var/lib/neo4j/import -v $PWD/neo4j_plugins:/plugins --env NEO4J_AUTH=neo4j/password neo4j:latest
+
+# Access Neo4j Browser at: http://localhost:7474
+```
+
+#### Terminal 9: Development Shell
 
 ```powershell
 & C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
@@ -77,6 +106,8 @@ Write-Host 'Development shell ready. Use this for additional commands.'
 - **🗄️ ChromaDB Vector Store**: http://localhost:8081
 - **📚 MkDocs Documentation**: http://localhost:8082
 - **🎯 LangGraph Studio**: http://localhost:8083
+- **🔗 Neo4j Browser**: http://localhost:7474
+- **📊 Neo4j API**: http://localhost:8080/api/neo4j
 
 ---
 
@@ -363,6 +394,10 @@ start http://localhost:8080/docs; start http://localhost:8080/redoc
 - **Health Check**: http://localhost:8080/health
 - **API Documentation**: http://localhost:8080/docs
 - **LangGraph Studio API**: http://localhost:8080/api/langgraph/studios/status
+- **Neo4j Health**: http://localhost:8080/api/neo4j/health
+- **Neo4j Info**: http://localhost:8080/api/neo4j/info
+- **Neo4j Query**: http://localhost:8080/api/neo4j/query
+- **Neo4j GraphRAG**: http://localhost:8080/api/neo4j/graphrag
 
 ## 🔄 Complete Workflow Examples
 
@@ -394,6 +429,8 @@ curl http://localhost:8080/health
 curl http://localhost:8080/api/models
 curl http://localhost:8080/api/experiments
 curl http://localhost:8080/api/langgraph/studios/status
+curl http://localhost:8080/api/neo4j/health
+curl http://localhost:8080/api/neo4j/info
 
 # 5. Comprehensive sync (recommended)
 .\scripts\comprehensive-sync.ps1
@@ -406,6 +443,8 @@ curl http://localhost:8080/api/langgraph/studios/status
 # - Model Evaluation: http://localhost:7860
 # - MLflow Tracking: http://localhost:5000
 # - LangGraph Studio: http://localhost:8083
+# - Neo4j Browser: http://localhost:7474
+# - Neo4j API: http://localhost:8080/api/neo4j
 ```
 
 ### Workflow 2: Development & Testing (Demo Mode)
@@ -563,10 +602,10 @@ ai_assignments/
 
 ```powershell
 # Test all API endpoints
-curl http://localhost:8080/health; curl http://localhost:8080/api/models; curl http://localhost:8080/api/experiments
+curl http://localhost:8080/health; curl http://localhost:8080/api/models; curl http://localhost:8080/api/experiments; curl http://localhost:8080/api/neo4j/health
 
 # Check all service ports
-netstat -an | findstr ":8080 :7860 :5000 :8081 :8082 :8083"
+netstat -an | findstr ":8080 :7860 :5000 :8081 :8082 :8083 :7474"
 
 # Run comprehensive sync
 & .\venv\Scripts\Activate.ps1; .\scripts\comprehensive-sync.ps1
@@ -588,7 +627,7 @@ taskkill /f /im python.exe; if (Test-Path mlflow.db) { del mlflow.db }; if (Test
 Select-String -Path logs\llmops.log -Pattern "ERROR|WARN|Exception"
 
 # Health check all services
-curl http://localhost:8080/health; echo "Enterprise: OK"; curl http://localhost:5000/health; echo "MLflow: OK"; curl http://localhost:8081/api/v1/heartbeat; echo "ChromaDB: OK"
+curl http://localhost:8080/health; echo "Enterprise: OK"; curl http://localhost:5000/health; echo "MLflow: OK"; curl http://localhost:8081/api/v1/heartbeat; echo "ChromaDB: OK"; curl http://localhost:8080/api/neo4j/health; echo "Neo4j: OK"
 ```
 
 ## 🎯 Quick Start Checklist
@@ -731,7 +770,7 @@ curl http://localhost:7860/health
 curl http://localhost:8080/api/langgraph/studios/status
 
 # Single-line health check all services
-curl http://localhost:8080/health; curl http://localhost:5000/health; curl http://localhost:8081/api/v1/heartbeat; curl http://localhost:7860/health; curl http://localhost:8080/api/langgraph/studios/status
+curl http://localhost:8080/health; curl http://localhost:5000/health; curl http://localhost:8081/api/v1/heartbeat; curl http://localhost:7860/health; curl http://localhost:8080/api/langgraph/studios/status; curl http://localhost:8080/api/neo4j/health
 
 # Health check with status display
 curl http://localhost:8080/health; echo "Enterprise Platform: OK"; curl http://localhost:5000/health; echo "MLflow: OK"; curl http://localhost:8081/api/v1/heartbeat; echo "ChromaDB: OK"

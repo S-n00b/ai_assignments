@@ -39,6 +39,8 @@
 <li>LangGraph Studio Integration ✅ COMPLETED</li>
 <li>QLoRA Fine-Tuning Capabilities ✅ COMPLETED</li>
 <li>Neo4j UI with Faker Data ✅ COMPLETED</li>
+<li>Neo4j Service Integration ✅ COMPLETED</li>
+<li>GraphRAG API Endpoints ✅ COMPLETED</li>
 <li>Faker Configuration Controls ✅ COMPLETED</li>
 <li>MkDocs Documentation Finalization ✅ COMPLETED</li>
 <li>Service Connections & Testing ✅ COMPLETED</li>

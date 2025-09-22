@@ -130,9 +130,20 @@ nav:
       - Contributing: development/contributing.md
       - GitHub Pages Setup: development/github-pages-setup.md
 
+  # API Documentation
+  - API Documentation:
+      - FastAPI Enterprise: api/fastapi-enterprise.md
+      - Gradio Model Evaluation: api/gradio-model-evaluation.md
+      - Neo4j Service: api/neo4j-service.md
+      - MCP Server: api/mcp-server.md
+      - Model Evaluation: api/model-evaluation.md
+      - AI Architecture: api/ai-architecture.md
+      - Utilities: api/utilities.md
+
   # Resources & Documentation
   - Resources:
       - Architecture Diagrams: resources/architecture.md
+      - Lenovo Graph Structure: resources/lenovo-graph-structure.md
       - Performance Metrics: resources/performance.md
       - Troubleshooting: resources/troubleshooting.md
       - Progress Bulletin: progress-bulletin.md

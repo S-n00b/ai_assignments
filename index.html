@@ -162,6 +162,11 @@
             box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
         }
         
+        .status-demo {
+            background: #8b5cf6;
+            box-shadow: 0 0 6px rgba(139, 92, 246, 0.5);
+        }
+        
         .sidebar {
             width: 280px;
             background: var(--lenovo-card);
@@ -890,6 +895,10 @@
     </div>
 
     <script>
+        // Detect if we're running on GitHub Pages or localhost
+        const isGitHubPages = window.location.hostname === 's-n00b.github.io' || 
+                              window.location.hostname.includes('github.io');
+        
         // Service configuration
         const services = {
             about: {
@@ -907,25 +916,25 @@
             gradio: {
                 title: "Model Evaluation",
                 description: "Gradio Model Testing Interface",
-                url: "http://localhost:7860",
+                url: isGitHubPages ? "https://gradio-demo.herokuapp.com" : "http://localhost:7860",
                 status: "unknown"
             },
             mlflow: {
                 title: "MLflow Tracking",
                 description: "MLflow Experiment Tracking UI",
-                url: "http://localhost:5000",
+                url: isGitHubPages ? "https://mlflow-demo.herokuapp.com" : "http://localhost:5000",
                 status: "unknown"
             },
             chroma: {
                 title: "ChromaDB Vector Store",
                 description: "ChromaDB Vector Database Interface",
-                url: "http://localhost:8081",
+                url: isGitHubPages ? "https://chroma-demo.herokuapp.com" : "http://localhost:8081",
                 status: "unknown"
             },
             langgraph: {
                 title: "LangGraph Studio",
                 description: "Agent Visualization & Debugging",
-                url: "http://localhost:8083",
+                url: isGitHubPages ? "https://langgraph-demo.herokuapp.com" : "http://localhost:8083",
                 status: "unknown"
             },
             "neo4j-faker": {
@@ -937,7 +946,7 @@
             mkdocs: {
                 title: "Documentation Hub",
                 description: "MkDocs Global Documentation Site",
-                url: "http://localhost:8082",
+                url: isGitHubPages ? "https://s-n00b.github.io/ai_assignments" : "http://localhost:8082",
                 status: "unknown"
             }
         };
@@ -1014,7 +1023,8 @@
             const statusText = {
                 'online': 'Online',
                 'offline': 'Offline',
-                'unknown': 'Checking...'
+                'unknown': 'Checking...',
+                'demo': 'Demo Available'
             };
             
             statusElement.innerHTML = `<span class="status-indicator status-${status}"></span>${statusText[status]}`;
@@ -1031,21 +1041,50 @@
         
         async function checkServiceStatuses() {
             for (const [serviceName, service] of Object.entries(services)) {
-                if (serviceName === 'about') {
-                    // This is served by the same FastAPI app
+                if (serviceName === 'about' || serviceName === 'chat-playground') {
+                    // These are served by the same FastAPI app
                     updateServiceStatus(serviceName, 'online');
                     continue;
                 }
                 
+                if (serviceName === 'neo4j-faker') {
+                    // This is an iframe service, always show as available
+                    updateServiceStatus(serviceName, 'online');
+                    continue;
+                }
+                
+                // For GitHub Pages, show services as "demo available" instead of checking status
+                if (isGitHubPages) {
+                    if (serviceName === 'mkdocs') {
+                        updateServiceStatus(serviceName, 'online');
+                    } else {
+                        updateServiceStatus(serviceName, 'demo');
+                    }
+                    continue;
+                }
+                
+                // For localhost, check actual service status
                 try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+                    
                     const response = await fetch(service.url, {
                         method: 'HEAD',
                         mode: 'no-cors',
-                        cache: 'no-cache'
+                        cache: 'no-cache',
+                        signal: controller.signal
                     });
+                    
+                    clearTimeout(timeoutId);
                     updateServiceStatus(serviceName, 'online');
                 } catch (error) {
-                    updateServiceStatus(serviceName, 'offline');
+                    // For services that might not be running, show as unknown instead of offline
+                    if (serviceName === 'gradio' || serviceName === 'mlflow' || serviceName === 'chroma' || 
+                        serviceName === 'langgraph' || serviceName === 'mkdocs') {
+                        updateServiceStatus(serviceName, 'unknown');
+                    } else {
+                        updateServiceStatus(serviceName, 'offline');
+                    }
                 }
             }
         }

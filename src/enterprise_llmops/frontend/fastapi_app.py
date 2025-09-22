@@ -41,6 +41,15 @@ from ..automl.optuna_optimizer import OptunaOptimizer, OptimizationConfig, LLMHy
 from ..mlops.mlflow_manager import MLflowManager, ExperimentConfig, ModelInfo, DeploymentConfig
 from ..prompt_integration import PromptIntegrationManager
 
+# Import Neo4j service integration
+try:
+    from ..neo4j_service import initialize_neo4j_service, shutdown_neo4j_service, Neo4jConfig
+    from ..api.neo4j_endpoints import router as neo4j_router
+    NEO4J_SERVICE_AVAILABLE = True
+except ImportError:
+    NEO4J_SERVICE_AVAILABLE = False
+    logging.warning("Neo4j service integration not available")
+
 # Import GitHub Models integration
 try:
     from ...github_models_integration.api_client import GitHubModelsAPIClient
@@ -164,7 +173,7 @@ github_models_serving: Optional[GitHubModelsRemoteServing] = None
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager."""
-    global ollama_manager, model_registry, mlflow_manager, optuna_optimizer, prompt_integration_manager, langgraph_studio_manager, qlora_manager, neo4j_faker_manager, chroma_client, github_models_client, github_models_serving
+    global ollama_manager, model_registry, mlflow_manager, optuna_optimizer, prompt_integration_manager, langgraph_studio_manager, qlora_manager, neo4j_faker_manager, neo4j_service, chroma_client, github_models_client, github_models_serving
     
     # Startup
     logging.info("Starting Enterprise LLMOps Frontend...")
@@ -307,6 +316,24 @@ async def lifespan(app: FastAPI):
             logging.warning(f"Failed to initialize Neo4j Faker manager: {e}")
             neo4j_faker_manager = None
         
+        # Initialize Neo4j service
+        if NEO4J_SERVICE_AVAILABLE:
+            try:
+                neo4j_config = Neo4jConfig(
+                    uri=app.state.config.get("neo4j_uri", "bolt://localhost:7687"),
+                    username=app.state.config.get("neo4j_username", "neo4j"),
+                    password=app.state.config.get("neo4j_password", "password"),
+                    database=app.state.config.get("neo4j_database", "neo4j")
+                )
+                neo4j_service = await initialize_neo4j_service(neo4j_config)
+                logging.info("Neo4j service initialized")
+            except Exception as e:
+                logging.warning(f"Failed to initialize Neo4j service: {e}")
+                neo4j_service = None
+        else:
+            logging.info("Neo4j service integration not available")
+            neo4j_service = None
+        
         # Start background monitoring
         asyncio.create_task(background_monitoring())
         
@@ -327,6 +354,9 @@ async def lifespan(app: FastAPI):
     if model_registry:
         model_registry.close()
     
+    if neo4j_service:
+        await shutdown_neo4j_service()
+    
     logging.info("Shutdown complete")
 
 
@@ -344,7 +374,7 @@ app = FastAPI(
     - **AutoML**: Optuna hyperparameter optimization
     - **Vector Databases**: Chroma, Weaviate, Pinecone integration
     - **Monitoring**: Prometheus, Grafana, LangFuse observability
-    - **Knowledge Graphs**: Neo4j integration for relationship mapping
+    - **Knowledge Graphs**: Neo4j service integration with GraphRAG capabilities
     - **Real-time Updates**: WebSocket connections for live monitoring
     
     ### 📊 Applications
@@ -355,6 +385,8 @@ app = FastAPI(
     - **MLflow UI**: http://localhost:5000
     - **ChromaDB**: http://localhost:8081  
     - **Gradio App**: http://localhost:7860
+    - **Neo4j Browser**: http://localhost:7474
+    - **Neo4j API**: http://localhost:8080/api/neo4j
     - **Documentation**: http://localhost:8082 (MkDocs)
     
     ### 🔐 Authentication
@@ -2785,6 +2817,51 @@ else:
             "status": "unavailable",
             "message": "Neo4j Faker integration not available. Install required dependencies.",
             "dependencies": ["neo4j", "py2neo", "faker", "fastapi"]
+        }
+
+
+# ============================================================================
+# NEO4J SERVICE INTEGRATION
+# ============================================================================
+
+if NEO4J_SERVICE_AVAILABLE:
+    # Include Neo4j service router
+    app.include_router(neo4j_router)
+    
+    @app.get("/iframe/neo4j-service", response_class=HTMLResponse)
+    async def serve_neo4j_service_iframe():
+        """Serve Neo4j service dashboard in iframe."""
+        return HTMLResponse("""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Neo4j Service Dashboard</title>
+            <style>
+                body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+                iframe { width: 100%; height: 100vh; border: none; }
+                .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial, sans-serif; }
+            </style>
+        </head>
+        <body>
+            <div class="loading" id="loading">Loading Neo4j Service Dashboard...</div>
+            <iframe 
+                src="/api/neo4j/health" 
+                title="Neo4j Service Dashboard"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                onload="document.getElementById('loading').style.display='none'"
+                onerror="document.getElementById('loading').innerHTML='Failed to load Neo4j Service Dashboard. Please ensure Neo4j is running.'">
+            </iframe>
+        </body>
+        </html>
+        """)
+else:
+    @app.get("/api/neo4j/status")
+    async def neo4j_service_status():
+        """Get Neo4j service integration status."""
+        return {
+            "status": "unavailable",
+            "message": "Neo4j service integration not available. Install required dependencies.",
+            "dependencies": ["neo4j", "py2neo"]
         }
 
 

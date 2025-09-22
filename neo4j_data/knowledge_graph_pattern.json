@@ -1,0 +1,3837 @@
+{
+  "pattern_type": "knowledge_graph",
+  "metadata": {
+    "pattern_type": "knowledge_graph",
+    "total_concepts": 40,
+    "total_sources": 20,
+    "avg_relationships_per_concept": 5.925
+  },
+  "created_at": "2025-09-22T19:05:41.395432",
+  "nodes": [
+    {
+      "id": "concept_1",
+      "label": "Business Process Concept 1",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 1",
+        "category": "Business Process",
+        "description": "Concern peace term read measure nice bank teacher. Huge where letter million surface. Difficult someone event economic often yourself common.",
+        "complexity": "intermediate",
+        "usage_frequency": 9,
+        "last_updated": "2025-02-13",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.347434"
+    },
+    {
+      "id": "concept_2",
+      "label": "Innovation Concept 2",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 2",
+        "category": "Innovation",
+        "description": "Spend mean who either let. Picture lose pretty relationship its. Author spend study traditional agreement I.\nCollege source could sure spring. Radio travel term room.",
+        "complexity": "intermediate",
+        "usage_frequency": 14,
+        "last_updated": "2024-12-19",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.347434"
+    },
+    {
+      "id": "concept_3",
+      "label": "Business Process Concept 3",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 3",
+        "category": "Business Process",
+        "description": "Impact less base save dinner you. Outside too change finally listen relationship team tax.\nWide about season born. Condition contain main better.",
+        "complexity": "advanced",
+        "usage_frequency": 35,
+        "last_updated": "2025-04-08",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.348184"
+    },
+    {
+      "id": "concept_4",
+      "label": "Business Process Concept 4",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 4",
+        "category": "Business Process",
+        "description": "Change project imagine interesting word. Group back education prepare ability south spring.\nProbably need quickly international. Letter herself sit thing. Everybody face possible perhaps four.",
+        "complexity": "basic",
+        "usage_frequency": 87,
+        "last_updated": "2025-03-28",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.348184"
+    },
+    {
+      "id": "concept_5",
+      "label": "Business Process Concept 5",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 5",
+        "category": "Business Process",
+        "description": "Again class sound walk according agreement. Life particular beyond score wind too happen.",
+        "complexity": "basic",
+        "usage_frequency": 83,
+        "last_updated": "2025-08-05",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.348934"
+    },
+    {
+      "id": "concept_6",
+      "label": "Performance Concept 6",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Performance Concept 6",
+        "category": "Performance",
+        "description": "World economy entire best dinner each. Look color nearly school color performance. Decade generation artist economic stage figure coach.",
+        "complexity": "intermediate",
+        "usage_frequency": 46,
+        "last_updated": "2025-09-03",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.348934"
+    },
+    {
+      "id": "concept_7",
+      "label": "Quality Concept 7",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Quality Concept 7",
+        "category": "Quality",
+        "description": "Body general wrong sense thus. Investment protect people far performance set first magazine. Stay out own drive. Market play speech take throughout add four case.",
+        "complexity": "advanced",
+        "usage_frequency": 28,
+        "last_updated": "2025-02-14",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.349683"
+    },
+    {
+      "id": "concept_8",
+      "label": "Performance Concept 8",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Performance Concept 8",
+        "category": "Performance",
+        "description": "Buy continue week budget admit story eight drug. Avoid chance public account. Note move statement.\nThrow people finally risk build. Response young doctor available expert arm.",
+        "complexity": "basic",
+        "usage_frequency": 88,
+        "last_updated": "2024-12-21",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.349683"
+    },
+    {
+      "id": "concept_9",
+      "label": "Technology Concept 9",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 9",
+        "category": "Technology",
+        "description": "Sell such enter training.\nConsider natural social campaign. Wait serious program arrive kitchen.",
+        "complexity": "intermediate",
+        "usage_frequency": 18,
+        "last_updated": "2024-11-13",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.350434"
+    },
+    {
+      "id": "concept_10",
+      "label": "Technology Concept 10",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 10",
+        "category": "Technology",
+        "description": "Senior child company. Role push condition war.\nCell picture his cold training fast. Truth figure describe performance sort former.",
+        "complexity": "intermediate",
+        "usage_frequency": 81,
+        "last_updated": "2024-12-15",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.351190"
+    },
+    {
+      "id": "concept_11",
+      "label": "Compliance Concept 11",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Compliance Concept 11",
+        "category": "Compliance",
+        "description": "Read data fund week. Positive bill claim commercial family evidence company. Film able push show final enjoy such.\nFund clearly cold our certain sort agency. Evening brother place both.",
+        "complexity": "advanced",
+        "usage_frequency": 51,
+        "last_updated": "2025-01-01",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.351936"
+    },
+    {
+      "id": "concept_12",
+      "label": "Innovation Concept 12",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 12",
+        "category": "Innovation",
+        "description": "Statement argue several site class. Receive foreign eat like information talk.\nStage book walk economy recognize chair. Final chair participant. Such manage concern audience media.",
+        "complexity": "intermediate",
+        "usage_frequency": 34,
+        "last_updated": "2025-07-08",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.352684"
+    },
+    {
+      "id": "concept_13",
+      "label": "Innovation Concept 13",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 13",
+        "category": "Innovation",
+        "description": "Someone person lead wrong ever hope. Traditional major wish glass knowledge individual past. Late future you many support race plan if.",
+        "complexity": "intermediate",
+        "usage_frequency": 49,
+        "last_updated": "2025-04-04",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.352684"
+    },
+    {
+      "id": "concept_14",
+      "label": "Domain Knowledge Concept 14",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Domain Knowledge Concept 14",
+        "category": "Domain Knowledge",
+        "description": "Approach one call focus conference success will.\nLong sound fight idea everyone son audience. Right five move rate future with everything. Company put fight share catch a sister.",
+        "complexity": "basic",
+        "usage_frequency": 29,
+        "last_updated": "2025-04-17",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.352684"
+    },
+    {
+      "id": "concept_15",
+      "label": "Technology Concept 15",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 15",
+        "category": "Technology",
+        "description": "Green south hospital sense. Reason according wish provide describe. American through themselves kid good chance chance. Tough ball child tell drive.",
+        "complexity": "basic",
+        "usage_frequency": 55,
+        "last_updated": "2025-08-27",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.353439"
+    },
+    {
+      "id": "concept_16",
+      "label": "Domain Knowledge Concept 16",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Domain Knowledge Concept 16",
+        "category": "Domain Knowledge",
+        "description": "Bar for collection Mr beat need memory. Process end interest sport parent organization late. Should such human mean read example. Evening positive world our like artist example.",
+        "complexity": "basic",
+        "usage_frequency": 61,
+        "last_updated": "2024-11-16",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.353439"
+    },
+    {
+      "id": "concept_17",
+      "label": "Innovation Concept 17",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 17",
+        "category": "Innovation",
+        "description": "Occur or western majority. Establish pull available husband recently best.",
+        "complexity": "intermediate",
+        "usage_frequency": 94,
+        "last_updated": "2024-11-30",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.354188"
+    },
+    {
+      "id": "concept_18",
+      "label": "Innovation Concept 18",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 18",
+        "category": "Innovation",
+        "description": "World edge deep feel. Spend campaign Congress human half toward. Inside cup themselves affect keep popular son with. Industry floor enough.",
+        "complexity": "intermediate",
+        "usage_frequency": 74,
+        "last_updated": "2025-09-21",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.354188"
+    },
+    {
+      "id": "concept_19",
+      "label": "Domain Knowledge Concept 19",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Domain Knowledge Concept 19",
+        "category": "Domain Knowledge",
+        "description": "Go every still car sell law. Mother find law late general sister good. Home explain trade increase place official special. Rise ask beat financial.",
+        "complexity": "intermediate",
+        "usage_frequency": 66,
+        "last_updated": "2025-01-14",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.355686"
+    },
+    {
+      "id": "concept_20",
+      "label": "Business Process Concept 20",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 20",
+        "category": "Business Process",
+        "description": "Option democratic I which newspaper.\nOf former discover receive short purpose. Word if who. Trouble whatever develop paper.",
+        "complexity": "basic",
+        "usage_frequency": 59,
+        "last_updated": "2025-02-22",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.355686"
+    },
+    {
+      "id": "concept_21",
+      "label": "Business Process Concept 21",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 21",
+        "category": "Business Process",
+        "description": "Executive professional approach relate kid.\nNation bit task professional.\nPressure contain person. Spring behavior police human.",
+        "complexity": "advanced",
+        "usage_frequency": 34,
+        "last_updated": "2024-11-28",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.355686"
+    },
+    {
+      "id": "concept_22",
+      "label": "Performance Concept 22",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Performance Concept 22",
+        "category": "Performance",
+        "description": "Receive no tonight billion administration thank baby.\nHand lot article whose field politics quickly anyone. Staff television institution modern machine writer put guess.",
+        "complexity": "intermediate",
+        "usage_frequency": 79,
+        "last_updated": "2025-07-11",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.356434"
+    },
+    {
+      "id": "concept_23",
+      "label": "Quality Concept 23",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Quality Concept 23",
+        "category": "Quality",
+        "description": "Nation drop parent manager plan most. Senior television easy interesting old responsibility follow. City ground ground technology relate he cause thing.",
+        "complexity": "intermediate",
+        "usage_frequency": 53,
+        "last_updated": "2025-09-11",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.356434"
+    },
+    {
+      "id": "concept_24",
+      "label": "Technology Concept 24",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 24",
+        "category": "Technology",
+        "description": "Memory happen fear hear may military. Win remember need car author who test.\nWest step wonder case. Professional above professional.\nReal direction particularly. No blood attack.",
+        "complexity": "basic",
+        "usage_frequency": 40,
+        "last_updated": "2025-03-31",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.357194"
+    },
+    {
+      "id": "concept_25",
+      "label": "Performance Concept 25",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Performance Concept 25",
+        "category": "Performance",
+        "description": "Draw particular share interest. Tend election including chair day very. City thing project international staff about.\nHeart focus quickly region risk for.",
+        "complexity": "intermediate",
+        "usage_frequency": 72,
+        "last_updated": "2024-10-07",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.357949"
+    },
+    {
+      "id": "concept_26",
+      "label": "Technology Concept 26",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 26",
+        "category": "Technology",
+        "description": "Break seem vote still fund. Someone police heavy whom defense training power. Answer you recently road off lawyer.\nEnough exist view south low. Because eight sound where these wife from feeling.",
+        "complexity": "intermediate",
+        "usage_frequency": 60,
+        "last_updated": "2025-04-05",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.357949"
+    },
+    {
+      "id": "concept_27",
+      "label": "Compliance Concept 27",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Compliance Concept 27",
+        "category": "Compliance",
+        "description": "Them why watch card common customer. Concern small year professional. Gun American account realize economic difference. Product represent station him.",
+        "complexity": "intermediate",
+        "usage_frequency": 48,
+        "last_updated": "2024-11-11",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.359434"
+    },
+    {
+      "id": "concept_28",
+      "label": "Technology Concept 28",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 28",
+        "category": "Technology",
+        "description": "Food protect system and four high time.\nMother tax hit set rise else notice. With administration to lawyer citizen often much.",
+        "complexity": "intermediate",
+        "usage_frequency": 5,
+        "last_updated": "2024-10-20",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.360191"
+    },
+    {
+      "id": "concept_29",
+      "label": "Business Process Concept 29",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 29",
+        "category": "Business Process",
+        "description": "Trade mean skin foreign service last action. General yet long rather. Loss Republican newspaper evening.\nLike even natural for heart somebody hand be. Start kind already rock.",
+        "complexity": "intermediate",
+        "usage_frequency": 1,
+        "last_updated": "2025-04-11",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.361682"
+    },
+    {
+      "id": "concept_30",
+      "label": "Technology Concept 30",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 30",
+        "category": "Technology",
+        "description": "Officer again so situation matter sense rock forward. From father expert garden employee language general.",
+        "complexity": "basic",
+        "usage_frequency": 62,
+        "last_updated": "2025-07-24",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.361682"
+    },
+    {
+      "id": "concept_31",
+      "label": "Security Concept 31",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Security Concept 31",
+        "category": "Security",
+        "description": "Others write dream concern behind treat Mrs. Allow short charge share. Nature American teach avoid. Account around front maybe develop offer lay drop.",
+        "complexity": "basic",
+        "usage_frequency": 93,
+        "last_updated": "2025-03-19",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.361682"
+    },
+    {
+      "id": "concept_32",
+      "label": "Best Practice Concept 32",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Best Practice Concept 32",
+        "category": "Best Practice",
+        "description": "Total cold drive continue then single. Once company worry despite city certainly act person. Treat several history loss.",
+        "complexity": "intermediate",
+        "usage_frequency": 34,
+        "last_updated": "2025-03-24",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.362434"
+    },
+    {
+      "id": "concept_33",
+      "label": "Quality Concept 33",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Quality Concept 33",
+        "category": "Quality",
+        "description": "Foreign get here friend. Point everybody personal ago. Party office benefit hot expert.\nProcess prove against leave its add. Class best fish control small per. Specific American movie girl.",
+        "complexity": "intermediate",
+        "usage_frequency": 38,
+        "last_updated": "2024-12-07",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.363183"
+    },
+    {
+      "id": "concept_34",
+      "label": "Performance Concept 34",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Performance Concept 34",
+        "category": "Performance",
+        "description": "How itself budget. Ago rock away artist. Focus conference score hospital main meeting.",
+        "complexity": "basic",
+        "usage_frequency": 82,
+        "last_updated": "2024-10-22",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.363183"
+    },
+    {
+      "id": "concept_35",
+      "label": "Innovation Concept 35",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 35",
+        "category": "Innovation",
+        "description": "Character any woman set offer. Edge give onto check despite.\nWish return respond under treat kitchen hot. Choose president still arrive second red support.",
+        "complexity": "intermediate",
+        "usage_frequency": 32,
+        "last_updated": "2025-02-20",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.363934"
+    },
+    {
+      "id": "concept_36",
+      "label": "Innovation Concept 36",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 36",
+        "category": "Innovation",
+        "description": "By order firm color.\nNational light five buy hold language action. Response election old reduce our for throw. South program fire.",
+        "complexity": "basic",
+        "usage_frequency": 40,
+        "last_updated": "2025-04-15",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.363934"
+    },
+    {
+      "id": "concept_37",
+      "label": "Compliance Concept 37",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Compliance Concept 37",
+        "category": "Compliance",
+        "description": "Leg federal safe shoulder. Plant open responsibility hour result.\nSeven suggest share. Simple time dog hand Mrs military.",
+        "complexity": "basic",
+        "usage_frequency": 5,
+        "last_updated": "2025-01-09",
+        "expertise_level": "beginner"
+      },
+      "created_at": "2025-09-22T19:05:41.364682"
+    },
+    {
+      "id": "concept_38",
+      "label": "Business Process Concept 38",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Business Process Concept 38",
+        "category": "Business Process",
+        "description": "Town president young offer later many. Do something treat close reach fight.\nSimilar them study feel first rest condition. Whose moment beat.",
+        "complexity": "basic",
+        "usage_frequency": 58,
+        "last_updated": "2024-09-29",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.364682"
+    },
+    {
+      "id": "concept_39",
+      "label": "Innovation Concept 39",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Innovation Concept 39",
+        "category": "Innovation",
+        "description": "Western really claim. Education fine wrong large first. Simply administration much first.\nOr drop issue impact someone smile.",
+        "complexity": "intermediate",
+        "usage_frequency": 7,
+        "last_updated": "2024-11-05",
+        "expertise_level": "intermediate"
+      },
+      "created_at": "2025-09-22T19:05:41.365436"
+    },
+    {
+      "id": "concept_40",
+      "label": "Technology Concept 40",
+      "node_type": "knowledge_concept",
+      "properties": {
+        "name": "Technology Concept 40",
+        "category": "Technology",
+        "description": "Around tree I writer responsibility white. Past red actually party during little. Main appear these begin painting right head.\nBuild popular language thing however contain never type.",
+        "complexity": "intermediate",
+        "usage_frequency": 73,
+        "last_updated": "2025-02-22",
+        "expertise_level": "expert"
+      },
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "source_1",
+      "label": "Knowledge Source 1",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 1",
+        "type": "expert",
+        "reliability": 0.7479039695788445,
+        "last_updated": "2024-09-19",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.377444"
+    },
+    {
+      "id": "source_2",
+      "label": "Knowledge Source 2",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 2",
+        "type": "database",
+        "reliability": 0.9376947350114934,
+        "last_updated": "2025-03-13",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.377444"
+    },
+    {
+      "id": "source_3",
+      "label": "Knowledge Source 3",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 3",
+        "type": "training",
+        "reliability": 0.7634715713313369,
+        "last_updated": "2023-11-08",
+        "access_level": "internal"
+      },
+      "created_at": "2025-09-22T19:05:41.377444"
+    },
+    {
+      "id": "source_4",
+      "label": "Knowledge Source 4",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 4",
+        "type": "expert",
+        "reliability": 0.6897395550174795,
+        "last_updated": "2023-10-15",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.377444"
+    },
+    {
+      "id": "source_5",
+      "label": "Knowledge Source 5",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 5",
+        "type": "document",
+        "reliability": 0.585320012260381,
+        "last_updated": "2025-01-07",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.377444"
+    },
+    {
+      "id": "source_6",
+      "label": "Knowledge Source 6",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 6",
+        "type": "training",
+        "reliability": 0.9136057440453262,
+        "last_updated": "2025-06-08",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_7",
+      "label": "Knowledge Source 7",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 7",
+        "type": "database",
+        "reliability": 0.9655380678782111,
+        "last_updated": "2024-08-01",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_8",
+      "label": "Knowledge Source 8",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 8",
+        "type": "database",
+        "reliability": 0.8190393417539238,
+        "last_updated": "2025-04-14",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_9",
+      "label": "Knowledge Source 9",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 9",
+        "type": "expert",
+        "reliability": 0.9803358807433992,
+        "last_updated": "2023-11-23",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_10",
+      "label": "Knowledge Source 10",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 10",
+        "type": "database",
+        "reliability": 0.9514478339824763,
+        "last_updated": "2024-07-11",
+        "access_level": "internal"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_11",
+      "label": "Knowledge Source 11",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 11",
+        "type": "database",
+        "reliability": 0.5550885688747164,
+        "last_updated": "2024-05-27",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_12",
+      "label": "Knowledge Source 12",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 12",
+        "type": "document",
+        "reliability": 0.7136144156766995,
+        "last_updated": "2025-07-17",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_13",
+      "label": "Knowledge Source 13",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 13",
+        "type": "video",
+        "reliability": 0.6782465005988987,
+        "last_updated": "2024-11-10",
+        "access_level": "internal"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_14",
+      "label": "Knowledge Source 14",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 14",
+        "type": "document",
+        "reliability": 0.8486861955498132,
+        "last_updated": "2024-11-07",
+        "access_level": "internal"
+      },
+      "created_at": "2025-09-22T19:05:41.378183"
+    },
+    {
+      "id": "source_15",
+      "label": "Knowledge Source 15",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 15",
+        "type": "training",
+        "reliability": 0.9256221497242176,
+        "last_updated": "2024-06-14",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "source_16",
+      "label": "Knowledge Source 16",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 16",
+        "type": "video",
+        "reliability": 0.6405121625277777,
+        "last_updated": "2024-07-01",
+        "access_level": "internal"
+      },
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "source_17",
+      "label": "Knowledge Source 17",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 17",
+        "type": "video",
+        "reliability": 0.9347423146928409,
+        "last_updated": "2025-09-14",
+        "access_level": "public"
+      },
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "source_18",
+      "label": "Knowledge Source 18",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 18",
+        "type": "training",
+        "reliability": 0.821249102384541,
+        "last_updated": "2025-04-13",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "source_19",
+      "label": "Knowledge Source 19",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 19",
+        "type": "training",
+        "reliability": 0.5651147556315004,
+        "last_updated": "2025-08-26",
+        "access_level": "internal"
+      },
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "source_20",
+      "label": "Knowledge Source 20",
+      "node_type": "knowledge_source",
+      "properties": {
+        "name": "Source 20",
+        "type": "document",
+        "reliability": 0.5862120191874273,
+        "last_updated": "2024-05-10",
+        "access_level": "confidential"
+      },
+      "created_at": "2025-09-22T19:05:41.378930"
+    }
+  ],
+  "edges": [
+    {
+      "id": "relates_to_concept_1_concept_7",
+      "source": "concept_1",
+      "target": "concept_7",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.8712403725490299,
+        "confidence": 0.8143119104348742,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_1_concept_27",
+      "source": "concept_1",
+      "target": "concept_27",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.21737011082150243,
+        "confidence": 0.9859099568184473,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_2_concept_32",
+      "source": "concept_2",
+      "target": "concept_32",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.2994380588377823,
+        "confidence": 0.6372303928790438,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_2_concept_14",
+      "source": "concept_2",
+      "target": "concept_14",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.628519232095418,
+        "confidence": 0.5747008099369493,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_2_concept_21",
+      "source": "concept_2",
+      "target": "concept_21",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.39413153731631356,
+        "confidence": 0.5178802820110493,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_2_concept_7",
+      "source": "concept_2",
+      "target": "concept_7",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.9132630981341117,
+        "confidence": 0.9255854575601277,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_3_concept_17",
+      "source": "concept_3",
+      "target": "concept_17",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.1979192834500927,
+        "confidence": 0.9488888576831016,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366188"
+    },
+    {
+      "id": "relates_to_concept_3_concept_23",
+      "source": "concept_3",
+      "target": "concept_23",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.45968855362757266,
+        "confidence": 0.7880980574508114,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_3_concept_18",
+      "source": "concept_3",
+      "target": "concept_18",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.8390366022932207,
+        "confidence": 0.5160297913651425,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_3_concept_4",
+      "source": "concept_3",
+      "target": "concept_4",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.7557323854191652,
+        "confidence": 0.9671353892652474,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_4_concept_18",
+      "source": "concept_4",
+      "target": "concept_18",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.9799080322233625,
+        "confidence": 0.9535072809083522,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_4_concept_20",
+      "source": "concept_4",
+      "target": "concept_20",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.774159419815112,
+        "confidence": 0.7217365267390925,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_4_concept_8",
+      "source": "concept_4",
+      "target": "concept_8",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.17482935327168164,
+        "confidence": 0.514706591707304,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_4_concept_30",
+      "source": "concept_4",
+      "target": "concept_30",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.8985656884483468,
+        "confidence": 0.546304308849481,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_5_concept_35",
+      "source": "concept_5",
+      "target": "concept_35",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.8550127482293765,
+        "confidence": 0.5558582299533925,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_5_concept_13",
+      "source": "concept_5",
+      "target": "concept_13",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.35125715264110347,
+        "confidence": 0.5447300051751368,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_5_concept_8",
+      "source": "concept_5",
+      "target": "concept_8",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.6159313669090787,
+        "confidence": 0.745363426500619,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.366936"
+    },
+    {
+      "id": "relates_to_concept_6_concept_20",
+      "source": "concept_6",
+      "target": "concept_20",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.5144772439454125,
+        "confidence": 0.9137911887255834,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_6_concept_25",
+      "source": "concept_6",
+      "target": "concept_25",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.15020568910621576,
+        "confidence": 0.9541879421355106,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_7_concept_38",
+      "source": "concept_7",
+      "target": "concept_38",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.43046986889239436,
+        "confidence": 0.8234892431703644,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_7_concept_8",
+      "source": "concept_7",
+      "target": "concept_8",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.9853811099982215,
+        "confidence": 0.9571171299824186,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_7_concept_9",
+      "source": "concept_7",
+      "target": "concept_9",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.10757945046207834,
+        "confidence": 0.7399746463032504,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_7_concept_29",
+      "source": "concept_7",
+      "target": "concept_29",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.97684402110439,
+        "confidence": 0.609426993564074,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_7_concept_20",
+      "source": "concept_7",
+      "target": "concept_20",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.46593116776416355,
+        "confidence": 0.6746101480482252,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_8_concept_40",
+      "source": "concept_8",
+      "target": "concept_40",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.18934995453813186,
+        "confidence": 0.7873841636953886,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_8_concept_22",
+      "source": "concept_8",
+      "target": "concept_22",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.2095269976450228,
+        "confidence": 0.6451907537465871,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_8_concept_13",
+      "source": "concept_8",
+      "target": "concept_13",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.23812995110183255,
+        "confidence": 0.9246903145025988,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_8_concept_11",
+      "source": "concept_8",
+      "target": "concept_11",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.14950608521166772,
+        "confidence": 0.7532190692813938,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.367684"
+    },
+    {
+      "id": "relates_to_concept_8_concept_21",
+      "source": "concept_8",
+      "target": "concept_21",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.8369371143209446,
+        "confidence": 0.8816001079422011,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_9_concept_18",
+      "source": "concept_9",
+      "target": "concept_18",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.3594647893907599,
+        "confidence": 0.5028499725845343,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_9_concept_17",
+      "source": "concept_9",
+      "target": "concept_17",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.656877374692298,
+        "confidence": 0.5924708197723032,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_9_concept_19",
+      "source": "concept_9",
+      "target": "concept_19",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.6935619848866713,
+        "confidence": 0.5255875255423088,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_10_concept_40",
+      "source": "concept_10",
+      "target": "concept_40",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.5618517993725684,
+        "confidence": 0.5221517615453839,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_10_concept_31",
+      "source": "concept_10",
+      "target": "concept_31",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.15458462076802337,
+        "confidence": 0.6933594629889215,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_10_concept_29",
+      "source": "concept_10",
+      "target": "concept_29",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.8972049174300727,
+        "confidence": 0.8238516701114317,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_10_concept_28",
+      "source": "concept_10",
+      "target": "concept_28",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.6535330878184751,
+        "confidence": 0.7906425935453958,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_11_concept_17",
+      "source": "concept_11",
+      "target": "concept_17",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.32961957949218945,
+        "confidence": 0.640623264763996,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_11_concept_15",
+      "source": "concept_11",
+      "target": "concept_15",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.27989179751580356,
+        "confidence": 0.5769148598220031,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_11_concept_20",
+      "source": "concept_11",
+      "target": "concept_20",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.24076210384593136,
+        "confidence": 0.9503191648651905,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.368437"
+    },
+    {
+      "id": "relates_to_concept_12_concept_29",
+      "source": "concept_12",
+      "target": "concept_29",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.5444011052437124,
+        "confidence": 0.9815038349414938,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_12_concept_32",
+      "source": "concept_12",
+      "target": "concept_32",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.9158559029355268,
+        "confidence": 0.8832051455211214,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_13_concept_26",
+      "source": "concept_13",
+      "target": "concept_26",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.4972847105749616,
+        "confidence": 0.9150035915366368,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_13_concept_30",
+      "source": "concept_13",
+      "target": "concept_30",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.967149223065553,
+        "confidence": 0.9311669581693134,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_13_concept_27",
+      "source": "concept_13",
+      "target": "concept_27",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.7812157741300847,
+        "confidence": 0.7720841071904,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_13_concept_25",
+      "source": "concept_13",
+      "target": "concept_25",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.40724259896425763,
+        "confidence": 0.5774135255637369,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_14_concept_37",
+      "source": "concept_14",
+      "target": "concept_37",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.7979424578711714,
+        "confidence": 0.5988123033477486,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_14_concept_23",
+      "source": "concept_14",
+      "target": "concept_23",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.27841883652870714,
+        "confidence": 0.9826703972838342,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_15_concept_21",
+      "source": "concept_15",
+      "target": "concept_21",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.6165794510642914,
+        "confidence": 0.7864161031858348,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_15_concept_24",
+      "source": "concept_15",
+      "target": "concept_24",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.956286814545683,
+        "confidence": 0.8659138699032398,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_15_concept_29",
+      "source": "concept_15",
+      "target": "concept_29",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.10929278585951369,
+        "confidence": 0.5273289630514664,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_15_concept_33",
+      "source": "concept_15",
+      "target": "concept_33",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.3756175220551954,
+        "confidence": 0.5490200388628997,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369190"
+    },
+    {
+      "id": "relates_to_concept_16_concept_26",
+      "source": "concept_16",
+      "target": "concept_26",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.4741255512401237,
+        "confidence": 0.610611310784728,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369945"
+    },
+    {
+      "id": "relates_to_concept_16_concept_31",
+      "source": "concept_16",
+      "target": "concept_31",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.6151734833136763,
+        "confidence": 0.6623666957595628,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369945"
+    },
+    {
+      "id": "relates_to_concept_16_concept_40",
+      "source": "concept_16",
+      "target": "concept_40",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.5289934084398626,
+        "confidence": 0.7554602323244677,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369945"
+    },
+    {
+      "id": "relates_to_concept_17_concept_26",
+      "source": "concept_17",
+      "target": "concept_26",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.7038576737973983,
+        "confidence": 0.9360817570530519,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369945"
+    },
+    {
+      "id": "relates_to_concept_17_concept_40",
+      "source": "concept_17",
+      "target": "concept_40",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.7447204325521916,
+        "confidence": 0.8157848188557852,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.369945"
+    },
+    {
+      "id": "relates_to_concept_17_concept_31",
+      "source": "concept_17",
+      "target": "concept_31",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.8325716553819613,
+        "confidence": 0.7486013520662369,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.370686"
+    },
+    {
+      "id": "relates_to_concept_18_concept_38",
+      "source": "concept_18",
+      "target": "concept_38",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.7765875922820195,
+        "confidence": 0.7708095065150378,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.370686"
+    },
+    {
+      "id": "relates_to_concept_18_concept_37",
+      "source": "concept_18",
+      "target": "concept_37",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.7946326771481814,
+        "confidence": 0.5191504297800513,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.370686"
+    },
+    {
+      "id": "relates_to_concept_18_concept_35",
+      "source": "concept_18",
+      "target": "concept_35",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.15310218507740078,
+        "confidence": 0.8173938507261295,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.370686"
+    },
+    {
+      "id": "relates_to_concept_18_concept_22",
+      "source": "concept_18",
+      "target": "concept_22",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.7732678934434807,
+        "confidence": 0.7421807715532718,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.370686"
+    },
+    {
+      "id": "relates_to_concept_18_concept_27",
+      "source": "concept_18",
+      "target": "concept_27",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.8721854285089211,
+        "confidence": 0.7035280898373223,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.370686"
+    },
+    {
+      "id": "relates_to_concept_19_concept_27",
+      "source": "concept_19",
+      "target": "concept_27",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.8803670580934139,
+        "confidence": 0.5654722887519328,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.371433"
+    },
+    {
+      "id": "relates_to_concept_19_concept_25",
+      "source": "concept_19",
+      "target": "concept_25",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.1728817540267666,
+        "confidence": 0.581115961573685,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.371433"
+    },
+    {
+      "id": "relates_to_concept_19_concept_37",
+      "source": "concept_19",
+      "target": "concept_37",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.44606550247848786,
+        "confidence": 0.9318102824858636,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.371433"
+    },
+    {
+      "id": "relates_to_concept_20_concept_28",
+      "source": "concept_20",
+      "target": "concept_28",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.8377182288479884,
+        "confidence": 0.7591388246951531,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.371433"
+    },
+    {
+      "id": "relates_to_concept_20_concept_40",
+      "source": "concept_20",
+      "target": "concept_40",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.7782756390253474,
+        "confidence": 0.5523975229055107,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.371433"
+    },
+    {
+      "id": "relates_to_concept_20_concept_33",
+      "source": "concept_20",
+      "target": "concept_33",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.7638891998775109,
+        "confidence": 0.6606363437872758,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.371433"
+    },
+    {
+      "id": "relates_to_concept_20_concept_24",
+      "source": "concept_20",
+      "target": "concept_24",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.8271112780053946,
+        "confidence": 0.6404395433815022,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_21_concept_31",
+      "source": "concept_21",
+      "target": "concept_31",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.5231097398453697,
+        "confidence": 0.6694246800731585,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_22_concept_23",
+      "source": "concept_22",
+      "target": "concept_23",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.5759181165050655,
+        "confidence": 0.8423648294642392,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_22_concept_33",
+      "source": "concept_22",
+      "target": "concept_33",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.104275293561303,
+        "confidence": 0.7830517491371918,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_22_concept_26",
+      "source": "concept_22",
+      "target": "concept_26",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.8636733732553398,
+        "confidence": 0.9135933628348871,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_22_concept_40",
+      "source": "concept_22",
+      "target": "concept_40",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.48980566981863016,
+        "confidence": 0.869522287435795,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_22_concept_37",
+      "source": "concept_22",
+      "target": "concept_37",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.25483990082557706,
+        "confidence": 0.6383358175686341,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_23_concept_24",
+      "source": "concept_23",
+      "target": "concept_24",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.865764544201695,
+        "confidence": 0.5054932252878919,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_23_concept_30",
+      "source": "concept_23",
+      "target": "concept_30",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.46466463235607947,
+        "confidence": 0.8961601362393129,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372191"
+    },
+    {
+      "id": "relates_to_concept_23_concept_35",
+      "source": "concept_23",
+      "target": "concept_35",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.22916465023623012,
+        "confidence": 0.7485417680065678,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_23_concept_32",
+      "source": "concept_23",
+      "target": "concept_32",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.8852268949969713,
+        "confidence": 0.9299204667855447,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_24_concept_39",
+      "source": "concept_24",
+      "target": "concept_39",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.4474312871073478,
+        "confidence": 0.7755797906149824,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_24_concept_36",
+      "source": "concept_24",
+      "target": "concept_36",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.74442341043145,
+        "confidence": 0.7771667437775073,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_24_concept_25",
+      "source": "concept_24",
+      "target": "concept_25",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.32428598530036234,
+        "confidence": 0.705458120597414,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_24_concept_40",
+      "source": "concept_24",
+      "target": "concept_40",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.7719556796652874,
+        "confidence": 0.7358086042967007,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_24_concept_31",
+      "source": "concept_24",
+      "target": "concept_31",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.27482629677449993,
+        "confidence": 0.5014422586772422,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_25_concept_40",
+      "source": "concept_25",
+      "target": "concept_40",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.7452176303700597,
+        "confidence": 0.604054934171889,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_25_concept_37",
+      "source": "concept_25",
+      "target": "concept_37",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.10754654563224107,
+        "confidence": 0.5224371772471006,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.372947"
+    },
+    {
+      "id": "relates_to_concept_26_concept_31",
+      "source": "concept_26",
+      "target": "concept_31",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.13534977136754572,
+        "confidence": 0.9246751602802278,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_26_concept_38",
+      "source": "concept_26",
+      "target": "concept_38",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.5249083290243031,
+        "confidence": 0.6655380071677256,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_26_concept_32",
+      "source": "concept_26",
+      "target": "concept_32",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.46435961898232436,
+        "confidence": 0.5026815111855178,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_27_concept_36",
+      "source": "concept_27",
+      "target": "concept_36",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.7751361877854833,
+        "confidence": 0.6900142182765876,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_27_concept_35",
+      "source": "concept_27",
+      "target": "concept_35",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.8233676902862455,
+        "confidence": 0.6905883140200242,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_27_concept_32",
+      "source": "concept_27",
+      "target": "concept_32",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.4538016363255416,
+        "confidence": 0.6135526563505969,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_27_concept_34",
+      "source": "concept_27",
+      "target": "concept_34",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.45561619996870384,
+        "confidence": 0.6059361659358083,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_28_concept_33",
+      "source": "concept_28",
+      "target": "concept_33",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.5489417736800365,
+        "confidence": 0.6009446861286464,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_28_concept_36",
+      "source": "concept_28",
+      "target": "concept_36",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.49534695586491717,
+        "confidence": 0.872214542062751,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_28_concept_40",
+      "source": "concept_28",
+      "target": "concept_40",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.2855092470512106,
+        "confidence": 0.6943222130984084,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_28_concept_32",
+      "source": "concept_28",
+      "target": "concept_32",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.563217535050865,
+        "confidence": 0.7785045247704381,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_29_concept_33",
+      "source": "concept_29",
+      "target": "concept_33",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.256859896504987,
+        "confidence": 0.7368444047767377,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_29_concept_30",
+      "source": "concept_29",
+      "target": "concept_30",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.5823723062991898,
+        "confidence": 0.9126014024905198,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_30_concept_33",
+      "source": "concept_30",
+      "target": "concept_33",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.9547580889231962,
+        "confidence": 0.7924161815991094,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_31_concept_36",
+      "source": "concept_31",
+      "target": "concept_36",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.5511847486288887,
+        "confidence": 0.9256134478432825,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_31_concept_35",
+      "source": "concept_31",
+      "target": "concept_35",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.8678719759843502,
+        "confidence": 0.936346113164345,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.373683"
+    },
+    {
+      "id": "relates_to_concept_32_concept_36",
+      "source": "concept_32",
+      "target": "concept_36",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.292118874291391,
+        "confidence": 0.8997352645973806,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.374434"
+    },
+    {
+      "id": "relates_to_concept_33_concept_39",
+      "source": "concept_33",
+      "target": "concept_39",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.3078102894957167,
+        "confidence": 0.681409333719903,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.374434"
+    },
+    {
+      "id": "relates_to_concept_33_concept_36",
+      "source": "concept_33",
+      "target": "concept_36",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.33573811821461574,
+        "confidence": 0.8322885966366952,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.374434"
+    },
+    {
+      "id": "relates_to_concept_33_concept_35",
+      "source": "concept_33",
+      "target": "concept_35",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.8101266478870859,
+        "confidence": 0.5961051364896365,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.374434"
+    },
+    {
+      "id": "relates_to_concept_33_concept_34",
+      "source": "concept_33",
+      "target": "concept_34",
+      "relationship_type": "prerequisite",
+      "properties": {
+        "strength": 0.45099260674444985,
+        "confidence": 0.6740133950786704,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.374434"
+    },
+    {
+      "id": "relates_to_concept_34_concept_37",
+      "source": "concept_34",
+      "target": "concept_37",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.9906547303071873,
+        "confidence": 0.9345130947283111,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_34_concept_38",
+      "source": "concept_34",
+      "target": "concept_38",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.6711725925134963,
+        "confidence": 0.6534130878740294,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_34_concept_40",
+      "source": "concept_34",
+      "target": "concept_40",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.373746178035253,
+        "confidence": 0.8648524770464657,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_35_concept_38",
+      "source": "concept_35",
+      "target": "concept_38",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.5790775821938227,
+        "confidence": 0.5872112692736233,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_35_concept_39",
+      "source": "concept_35",
+      "target": "concept_39",
+      "relationship_type": "implements",
+      "properties": {
+        "strength": 0.3116930434300782,
+        "confidence": 0.9972267167613291,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_36_concept_40",
+      "source": "concept_36",
+      "target": "concept_40",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.7151855085936553,
+        "confidence": 0.9562510704610515,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_36_concept_37",
+      "source": "concept_36",
+      "target": "concept_37",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.19828586391936945,
+        "confidence": 0.9285617297590723,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375183"
+    },
+    {
+      "id": "relates_to_concept_37_concept_40",
+      "source": "concept_37",
+      "target": "concept_40",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.8480955587197739,
+        "confidence": 0.8209186185154799,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375933"
+    },
+    {
+      "id": "relates_to_concept_37_concept_39",
+      "source": "concept_37",
+      "target": "concept_39",
+      "relationship_type": "part_of",
+      "properties": {
+        "strength": 0.9575018256982983,
+        "confidence": 0.8710510456912177,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375933"
+    },
+    {
+      "id": "relates_to_concept_37_concept_38",
+      "source": "concept_37",
+      "target": "concept_38",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.6369694925675803,
+        "confidence": 0.5163781907742244,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375933"
+    },
+    {
+      "id": "relates_to_concept_38_concept_40",
+      "source": "concept_38",
+      "target": "concept_40",
+      "relationship_type": "related_to",
+      "properties": {
+        "strength": 0.7302798651747204,
+        "confidence": 0.6396433653494845,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.375933"
+    },
+    {
+      "id": "relates_to_concept_39_concept_40",
+      "source": "concept_39",
+      "target": "concept_40",
+      "relationship_type": "conflicts_with",
+      "properties": {
+        "strength": 0.7425657293584099,
+        "confidence": 0.6539159467379045,
+        "last_verified": "2025-09-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.376683"
+    },
+    {
+      "id": "documented_in_concept_1_source_20",
+      "source": "concept_1",
+      "target": "source_20",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7187807835527201,
+        "last_referenced": "2025-05-16"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "documented_in_concept_1_source_12",
+      "source": "concept_1",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9020794326299175,
+        "last_referenced": "2024-11-05"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "documented_in_concept_1_source_11",
+      "source": "concept_1",
+      "target": "source_11",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5429658405280607,
+        "last_referenced": "2025-01-12"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.378930"
+    },
+    {
+      "id": "documented_in_concept_1_source_3",
+      "source": "concept_1",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.4217703594807358,
+        "last_referenced": "2025-02-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_2_source_5",
+      "source": "concept_2",
+      "target": "source_5",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.45399104818574093,
+        "last_referenced": "2025-08-13"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_2_source_20",
+      "source": "concept_2",
+      "target": "source_20",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8737559721856467,
+        "last_referenced": "2024-10-07"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_3_source_14",
+      "source": "concept_3",
+      "target": "source_14",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.925726919596459,
+        "last_referenced": "2025-06-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_3_source_9",
+      "source": "concept_3",
+      "target": "source_9",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.704980074795698,
+        "last_referenced": "2025-08-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_3_source_2",
+      "source": "concept_3",
+      "target": "source_2",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8902994024964881,
+        "last_referenced": "2025-02-12"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_3_source_7",
+      "source": "concept_3",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.43342412952088066,
+        "last_referenced": "2024-09-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_3_source_12",
+      "source": "concept_3",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6773151004139709,
+        "last_referenced": "2025-04-03"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_4_source_16",
+      "source": "concept_4",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9511234567378997,
+        "last_referenced": "2025-02-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.379682"
+    },
+    {
+      "id": "documented_in_concept_4_source_9",
+      "source": "concept_4",
+      "target": "source_9",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5940149331380913,
+        "last_referenced": "2025-04-15"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_4_source_1",
+      "source": "concept_4",
+      "target": "source_1",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6344268196765452,
+        "last_referenced": "2025-01-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_4_source_13",
+      "source": "concept_4",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6675092894827672,
+        "last_referenced": "2024-10-22"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_4_source_11",
+      "source": "concept_4",
+      "target": "source_11",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.35376384139552586,
+        "last_referenced": "2025-06-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_5_source_17",
+      "source": "concept_5",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5787005211354856,
+        "last_referenced": "2024-11-24"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_5_source_10",
+      "source": "concept_5",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6849411940237891,
+        "last_referenced": "2025-08-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_6_source_13",
+      "source": "concept_6",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9949859119838755,
+        "last_referenced": "2024-09-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_6_source_10",
+      "source": "concept_6",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5461365336724606,
+        "last_referenced": "2025-04-08"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_6_source_17",
+      "source": "concept_6",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9219891797195601,
+        "last_referenced": "2024-10-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.380435"
+    },
+    {
+      "id": "documented_in_concept_6_source_18",
+      "source": "concept_6",
+      "target": "source_18",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9293241028029997,
+        "last_referenced": "2025-01-12"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.381185"
+    },
+    {
+      "id": "documented_in_concept_6_source_2",
+      "source": "concept_6",
+      "target": "source_2",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6629195391977408,
+        "last_referenced": "2025-02-11"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.381185"
+    },
+    {
+      "id": "documented_in_concept_7_source_10",
+      "source": "concept_7",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.36744080106880295,
+        "last_referenced": "2025-08-20"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.381934"
+    },
+    {
+      "id": "documented_in_concept_7_source_18",
+      "source": "concept_7",
+      "target": "source_18",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8555558325353461,
+        "last_referenced": "2025-01-06"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.383438"
+    },
+    {
+      "id": "documented_in_concept_7_source_19",
+      "source": "concept_7",
+      "target": "source_19",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.41472571553189347,
+        "last_referenced": "2024-11-15"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.383438"
+    },
+    {
+      "id": "documented_in_concept_7_source_15",
+      "source": "concept_7",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5711561249163662,
+        "last_referenced": "2024-11-22"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.383438"
+    },
+    {
+      "id": "documented_in_concept_8_source_12",
+      "source": "concept_8",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.31298763759844844,
+        "last_referenced": "2024-12-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.383438"
+    },
+    {
+      "id": "documented_in_concept_9_source_9",
+      "source": "concept_9",
+      "target": "source_9",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.459278014999031,
+        "last_referenced": "2025-04-06"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.383438"
+    },
+    {
+      "id": "documented_in_concept_9_source_18",
+      "source": "concept_9",
+      "target": "source_18",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5240388076516052,
+        "last_referenced": "2025-05-08"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.383438"
+    },
+    {
+      "id": "documented_in_concept_9_source_12",
+      "source": "concept_9",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8844492699991511,
+        "last_referenced": "2025-01-28"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_9_source_16",
+      "source": "concept_9",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6181292752755088,
+        "last_referenced": "2025-04-03"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_9_source_2",
+      "source": "concept_9",
+      "target": "source_2",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.3068611093625183,
+        "last_referenced": "2024-09-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_10_source_4",
+      "source": "concept_10",
+      "target": "source_4",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6638779686805919,
+        "last_referenced": "2024-11-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_10_source_12",
+      "source": "concept_10",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7372545312666992,
+        "last_referenced": "2025-05-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_10_source_6",
+      "source": "concept_10",
+      "target": "source_6",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5400910655697209,
+        "last_referenced": "2025-08-20"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_11_source_3",
+      "source": "concept_11",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.4626126688244955,
+        "last_referenced": "2024-11-15"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_11_source_1",
+      "source": "concept_11",
+      "target": "source_1",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5270592630120972,
+        "last_referenced": "2025-06-06"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_11_source_13",
+      "source": "concept_11",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9072947858577634,
+        "last_referenced": "2025-06-10"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_11_source_15",
+      "source": "concept_11",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9007968833625535,
+        "last_referenced": "2025-04-02"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_12_source_8",
+      "source": "concept_12",
+      "target": "source_8",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.47681109869996086,
+        "last_referenced": "2024-10-31"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_12_source_11",
+      "source": "concept_12",
+      "target": "source_11",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5008948354806866,
+        "last_referenced": "2025-06-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384187"
+    },
+    {
+      "id": "documented_in_concept_12_source_3",
+      "source": "concept_12",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8181295474002148,
+        "last_referenced": "2025-07-09"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_13_source_7",
+      "source": "concept_13",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.3348745922370841,
+        "last_referenced": "2024-09-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_13_source_17",
+      "source": "concept_13",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.42458886843115656,
+        "last_referenced": "2025-07-13"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_13_source_12",
+      "source": "concept_13",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6278237646957332,
+        "last_referenced": "2025-03-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_14_source_12",
+      "source": "concept_14",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8995726891169229,
+        "last_referenced": "2024-10-17"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_14_source_14",
+      "source": "concept_14",
+      "target": "source_14",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9631810327426462,
+        "last_referenced": "2025-05-16"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_15_source_13",
+      "source": "concept_15",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6697120213718248,
+        "last_referenced": "2025-04-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_15_source_5",
+      "source": "concept_15",
+      "target": "source_5",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.37202434691607905,
+        "last_referenced": "2025-06-04"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_16_source_9",
+      "source": "concept_16",
+      "target": "source_9",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9566302986434991,
+        "last_referenced": "2025-07-22"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.384934"
+    },
+    {
+      "id": "documented_in_concept_17_source_15",
+      "source": "concept_17",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8957204853216749,
+        "last_referenced": "2025-01-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_17_source_17",
+      "source": "concept_17",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5742693835792565,
+        "last_referenced": "2025-05-29"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_17_source_1",
+      "source": "concept_17",
+      "target": "source_1",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9482958806866191,
+        "last_referenced": "2024-10-31"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_18_source_10",
+      "source": "concept_18",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7691669586711158,
+        "last_referenced": "2025-06-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_19_source_17",
+      "source": "concept_19",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6987309561468259,
+        "last_referenced": "2024-12-19"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_19_source_6",
+      "source": "concept_19",
+      "target": "source_6",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.774463318776057,
+        "last_referenced": "2025-03-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_20_source_19",
+      "source": "concept_20",
+      "target": "source_19",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.485587793315564,
+        "last_referenced": "2024-10-24"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_20_source_13",
+      "source": "concept_20",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8549828259236232,
+        "last_referenced": "2024-10-27"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_20_source_3",
+      "source": "concept_20",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6179714278058215,
+        "last_referenced": "2025-08-20"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_21_source_3",
+      "source": "concept_21",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5119457907715814,
+        "last_referenced": "2025-07-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_21_source_13",
+      "source": "concept_21",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.788814830652808,
+        "last_referenced": "2024-11-19"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.385689"
+    },
+    {
+      "id": "documented_in_concept_21_source_10",
+      "source": "concept_21",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7927402831191699,
+        "last_referenced": "2025-05-30"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_22_source_7",
+      "source": "concept_22",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8274602135637026,
+        "last_referenced": "2024-12-16"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_22_source_18",
+      "source": "concept_22",
+      "target": "source_18",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7610135685862669,
+        "last_referenced": "2025-06-27"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_23_source_4",
+      "source": "concept_23",
+      "target": "source_4",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9609366863948516,
+        "last_referenced": "2025-05-30"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_23_source_16",
+      "source": "concept_23",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7736082238992077,
+        "last_referenced": "2025-07-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_23_source_11",
+      "source": "concept_23",
+      "target": "source_11",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8431763521822833,
+        "last_referenced": "2024-10-12"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_24_source_3",
+      "source": "concept_24",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5587538781659092,
+        "last_referenced": "2025-06-21"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_24_source_15",
+      "source": "concept_24",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.45862451271782906,
+        "last_referenced": "2025-08-15"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_24_source_14",
+      "source": "concept_24",
+      "target": "source_14",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7995914565498259,
+        "last_referenced": "2025-02-16"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_24_source_18",
+      "source": "concept_24",
+      "target": "source_18",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5081256538540453,
+        "last_referenced": "2025-05-20"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_24_source_4",
+      "source": "concept_24",
+      "target": "source_4",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6694455985797269,
+        "last_referenced": "2025-01-26"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_25_source_7",
+      "source": "concept_25",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.497280311620017,
+        "last_referenced": "2025-08-11"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.386441"
+    },
+    {
+      "id": "documented_in_concept_26_source_8",
+      "source": "concept_26",
+      "target": "source_8",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6702336113252887,
+        "last_referenced": "2025-01-03"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.387937"
+    },
+    {
+      "id": "documented_in_concept_26_source_20",
+      "source": "concept_26",
+      "target": "source_20",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8425274408115333,
+        "last_referenced": "2025-08-30"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.387937"
+    },
+    {
+      "id": "documented_in_concept_26_source_3",
+      "source": "concept_26",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.897723425393808,
+        "last_referenced": "2025-08-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.387937"
+    },
+    {
+      "id": "documented_in_concept_27_source_17",
+      "source": "concept_27",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5158098612261267,
+        "last_referenced": "2024-10-03"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_27_source_12",
+      "source": "concept_27",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5926929896489131,
+        "last_referenced": "2025-05-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_28_source_1",
+      "source": "concept_28",
+      "target": "source_1",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8442956331865428,
+        "last_referenced": "2025-08-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_28_source_2",
+      "source": "concept_28",
+      "target": "source_2",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7699287054276038,
+        "last_referenced": "2025-08-18"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_28_source_15",
+      "source": "concept_28",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8103882729002712,
+        "last_referenced": "2025-01-06"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_28_source_10",
+      "source": "concept_28",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5433594020464579,
+        "last_referenced": "2025-05-10"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_29_source_19",
+      "source": "concept_29",
+      "target": "source_19",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.44101138774867715,
+        "last_referenced": "2024-12-29"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.388687"
+    },
+    {
+      "id": "documented_in_concept_30_source_16",
+      "source": "concept_30",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9981931366014796,
+        "last_referenced": "2025-03-17"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.389444"
+    },
+    {
+      "id": "documented_in_concept_30_source_10",
+      "source": "concept_30",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6554384935103986,
+        "last_referenced": "2025-05-02"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.389444"
+    },
+    {
+      "id": "documented_in_concept_31_source_17",
+      "source": "concept_31",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9907033397212999,
+        "last_referenced": "2025-07-29"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.389444"
+    },
+    {
+      "id": "documented_in_concept_32_source_17",
+      "source": "concept_32",
+      "target": "source_17",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8614859801202681,
+        "last_referenced": "2025-07-12"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.389444"
+    },
+    {
+      "id": "documented_in_concept_32_source_3",
+      "source": "concept_32",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.3765990953526675,
+        "last_referenced": "2025-01-24"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390212"
+    },
+    {
+      "id": "documented_in_concept_32_source_4",
+      "source": "concept_32",
+      "target": "source_4",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.3592624936678246,
+        "last_referenced": "2024-12-14"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390212"
+    },
+    {
+      "id": "documented_in_concept_32_source_7",
+      "source": "concept_32",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7539722406259531,
+        "last_referenced": "2025-05-26"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390212"
+    },
+    {
+      "id": "documented_in_concept_33_source_14",
+      "source": "concept_33",
+      "target": "source_14",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8948677958765088,
+        "last_referenced": "2025-02-20"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_34_source_2",
+      "source": "concept_34",
+      "target": "source_2",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.876234896382359,
+        "last_referenced": "2024-10-31"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_34_source_14",
+      "source": "concept_34",
+      "target": "source_14",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9555350230057318,
+        "last_referenced": "2025-04-03"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_34_source_3",
+      "source": "concept_34",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8109279926314537,
+        "last_referenced": "2024-12-15"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_34_source_6",
+      "source": "concept_34",
+      "target": "source_6",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.46365228494694255,
+        "last_referenced": "2025-07-19"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_34_source_4",
+      "source": "concept_34",
+      "target": "source_4",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6123326752908841,
+        "last_referenced": "2025-05-03"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_35_source_5",
+      "source": "concept_35",
+      "target": "source_5",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5473914694235962,
+        "last_referenced": "2025-04-22"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.390934"
+    },
+    {
+      "id": "documented_in_concept_36_source_7",
+      "source": "concept_36",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.4106100218067531,
+        "last_referenced": "2024-12-25"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.391681"
+    },
+    {
+      "id": "documented_in_concept_36_source_9",
+      "source": "concept_36",
+      "target": "source_9",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8358837220351341,
+        "last_referenced": "2025-03-19"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.391681"
+    },
+    {
+      "id": "documented_in_concept_36_source_16",
+      "source": "concept_36",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8771392225177104,
+        "last_referenced": "2025-04-28"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.391681"
+    },
+    {
+      "id": "documented_in_concept_36_source_12",
+      "source": "concept_36",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9848030174331737,
+        "last_referenced": "2025-01-31"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.391681"
+    },
+    {
+      "id": "documented_in_concept_36_source_5",
+      "source": "concept_36",
+      "target": "source_5",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.5952259279654306,
+        "last_referenced": "2025-05-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.391681"
+    },
+    {
+      "id": "documented_in_concept_37_source_13",
+      "source": "concept_37",
+      "target": "source_13",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6391430088286071,
+        "last_referenced": "2025-03-11"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.391681"
+    },
+    {
+      "id": "documented_in_concept_37_source_10",
+      "source": "concept_37",
+      "target": "source_10",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.4092156861423254,
+        "last_referenced": "2024-10-13"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.392434"
+    },
+    {
+      "id": "documented_in_concept_37_source_16",
+      "source": "concept_37",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.32640428480848255,
+        "last_referenced": "2024-11-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.392434"
+    },
+    {
+      "id": "documented_in_concept_37_source_12",
+      "source": "concept_37",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.6917313006419246,
+        "last_referenced": "2025-08-01"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.392434"
+    },
+    {
+      "id": "documented_in_concept_37_source_7",
+      "source": "concept_37",
+      "target": "source_7",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.48740072603613693,
+        "last_referenced": "2025-08-06"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.393188"
+    },
+    {
+      "id": "documented_in_concept_38_source_11",
+      "source": "concept_38",
+      "target": "source_11",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.35013300775186545,
+        "last_referenced": "2025-07-08"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.393945"
+    },
+    {
+      "id": "documented_in_concept_39_source_15",
+      "source": "concept_39",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.763815765064501,
+        "last_referenced": "2024-12-19"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_39_source_4",
+      "source": "concept_39",
+      "target": "source_4",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.3979833799339476,
+        "last_referenced": "2024-12-22"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_39_source_16",
+      "source": "concept_39",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.41492548142377883,
+        "last_referenced": "2025-01-20"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_39_source_6",
+      "source": "concept_39",
+      "target": "source_6",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.8151347327175402,
+        "last_referenced": "2025-03-27"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_40_source_16",
+      "source": "concept_40",
+      "target": "source_16",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.7717391903011565,
+        "last_referenced": "2024-12-23"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_40_source_11",
+      "source": "concept_40",
+      "target": "source_11",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.794628626572619,
+        "last_referenced": "2025-02-04"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_40_source_12",
+      "source": "concept_40",
+      "target": "source_12",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.9127827005311511,
+        "last_referenced": "2024-12-15"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.394684"
+    },
+    {
+      "id": "documented_in_concept_40_source_15",
+      "source": "concept_40",
+      "target": "source_15",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.526898978945269,
+        "last_referenced": "2025-05-29"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.395432"
+    },
+    {
+      "id": "documented_in_concept_40_source_3",
+      "source": "concept_40",
+      "target": "source_3",
+      "relationship_type": "documented_in",
+      "properties": {
+        "relevance": 0.34837236067430793,
+        "last_referenced": "2024-11-10"
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-22T19:05:41.395432"
+    }
+  ]
+}

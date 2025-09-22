@@ -1,0 +1,49 @@
+{
+  "generation_timestamp": "7156.484",
+  "lenovo_organizational_structure": {
+    "total_nodes": 615,
+    "total_edges": 5516,
+    "departments": 15,
+    "employees": 500,
+    "projects": 50
+  },
+  "b2b_client_scenarios": {
+    "total_nodes": 2902,
+    "total_edges": 2682,
+    "clients": 20,
+    "solutions": 59
+  },
+  "enterprise_patterns": {
+    "total_patterns": 5,
+    "patterns": [
+      {
+        "name": "org_hierarchy",
+        "nodes": 1370,
+        "edges": 1369
+      },
+      {
+        "name": "project_network",
+        "nodes": 60,
+        "edges": 101
+      },
+      {
+        "name": "knowledge_graph",
+        "nodes": 60,
+        "edges": 237
+      },
+      {
+        "name": "business_process",
+        "nodes": 81,
+        "edges": 71
+      },
+      {
+        "name": "customer_journey",
+        "nodes": 275,
+        "edges": 766
+      }
+    ]
+  },
+  "graphrag_integration": {
+    "status": "disabled"
+  }
+}
