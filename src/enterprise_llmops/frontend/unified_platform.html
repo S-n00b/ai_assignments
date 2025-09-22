@@ -1198,15 +1198,34 @@
                     continue;
                 }
                 
+                if (serviceName === 'chat-playground') {
+                    // This is served by the same FastAPI app
+                    updateServiceStatus(serviceName, 'online');
+                    continue;
+                }
+                
                 try {
+                    // For external services, use a more robust check
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+                    
                     const response = await fetch(service.url, {
                         method: 'HEAD',
                         mode: 'no-cors',
-                        cache: 'no-cache'
+                        cache: 'no-cache',
+                        signal: controller.signal
                     });
+                    
+                    clearTimeout(timeoutId);
                     updateServiceStatus(serviceName, 'online');
                 } catch (error) {
-                    updateServiceStatus(serviceName, 'offline');
+                    // For services that might not be running, show as unknown instead of offline
+                    if (serviceName === 'gradio' || serviceName === 'mlflow' || serviceName === 'chroma' || 
+                        serviceName === 'langgraph' || serviceName === 'neo4j-faker' || serviceName === 'mkdocs') {
+                        updateServiceStatus(serviceName, 'unknown');
+                    } else {
+                        updateServiceStatus(serviceName, 'offline');
+                    }
                 }
             }
         }
@@ -1694,15 +1713,15 @@
                         const response = await fetch('/api/chroma/health');
                         const result = await response.json();
                         
-                        if (response.ok && result.status === 'healthy') {
-                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>ChromaDB v2 API Connected!</p><p class="text-sm mt-2">Status: ' + result.status + '</p></div>';
+                        if (response.ok && (result.status === 'healthy' || result.status === 'connected')) {
+                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>ChromaDB v2 API Connected!</p><p class="text-sm mt-2">Status: ' + result.status + '</p><p class="text-xs mt-1">Vector database ready for RAG operations</p></div>';
                             demoDiv.classList.remove('hidden');
                             loadCollections();
                         } else {
-                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>ChromaDB connection failed</p><p class="text-sm mt-2">' + (result.message || 'Service unavailable') + '</p></div>';
+                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>ChromaDB connection failed</p><p class="text-sm mt-2">' + (result.message || 'Service unavailable') + '</p><p class="text-xs mt-1">Make sure ChromaDB is running: chroma run --host 0.0.0.0 --port 8081</p></div>';
                         }
                     } catch (error) {
-                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Connection test failed</p><p class="text-sm mt-2">' + error.message + '</p></div>';
+                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Connection test failed</p><p class="text-sm mt-2">' + error.message + '</p><p class="text-xs mt-1">Check if ChromaDB service is running on port 8081</p></div>';
                     }
                 });
             }
@@ -1847,16 +1866,21 @@
                     statusDiv.innerHTML = '<div class="text-center text-gray-500 py-8"><div class="text-4xl mb-2">🔄</div><p>Starting LangGraph Studio...</p></div>';
                     
                     try {
-                        const response = await fetch('/api/langgraph/studios/start', { method: 'POST' });
+                        const response = await fetch('/api/langgraph/studios/start', { 
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        });
                         const result = await response.json();
                         
                         if (response.ok) {
-                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>LangGraph Studio started!</p><p class="text-sm mt-2">Agent visualization interface is ready</p></div>';
+                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>LangGraph Studio started!</p><p class="text-sm mt-2">Agent visualization interface is ready</p><p class="text-xs mt-1">Access at: http://localhost:8083</p></div>';
                         } else {
-                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Failed to start LangGraph Studio</p><p class="text-sm mt-2">' + (result.detail || 'Unknown error') + '</p></div>';
+                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Failed to start LangGraph Studio</p><p class="text-sm mt-2">' + (result.detail || 'Unknown error') + '</p><p class="text-xs mt-1">Make sure LangGraph is installed: pip install langgraph</p></div>';
                         }
                     } catch (error) {
-                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Error starting LangGraph Studio</p><p class="text-sm mt-2">' + error.message + '</p></div>';
+                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Error starting LangGraph Studio</p><p class="text-sm mt-2">' + error.message + '</p><p class="text-xs mt-1">Check if the service is properly configured</p></div>';
                     }
                 });
             }
@@ -1900,12 +1924,14 @@
                         const result = await response.json();
                         
                         if (response.ok) {
-                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>GraphRAG data generated successfully!</p><p class="text-sm mt-2">' + result.nodes.length + ' nodes, ' + result.edges.length + ' edges created</p></div>';
+                            const nodeCount = result.nodes ? result.nodes.length : result.nodes_created || 0;
+                            const edgeCount = result.edges ? result.edges.length : result.edges_created || 0;
+                            statusDiv.innerHTML = '<div class="text-center text-green-500 py-8"><div class="text-4xl mb-2">✅</div><p>GraphRAG data generated successfully!</p><p class="text-sm mt-2">' + nodeCount + ' nodes, ' + edgeCount + ' edges created</p><p class="text-xs mt-1">Data includes realistic enterprise relationships and interactions</p></div>';
                         } else {
-                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Failed to generate data</p><p class="text-sm mt-2">' + (result.detail || 'Unknown error') + '</p></div>';
+                            statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Failed to generate data</p><p class="text-sm mt-2">' + (result.detail || 'Unknown error') + '</p><p class="text-xs mt-1">Make sure Neo4j and Faker are installed: pip install neo4j py2neo faker</p></div>';
                         }
                     } catch (error) {
-                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Error generating data</p><p class="text-sm mt-2">' + error.message + '</p></div>';
+                        statusDiv.innerHTML = '<div class="text-center text-red-500 py-8"><div class="text-4xl mb-2">❌</div><p>Error generating data</p><p class="text-sm mt-2">' + error.message + '</p><p class="text-xs mt-1">Check if Neo4j Faker integration is available</p></div>';
                     }
                 });
             }

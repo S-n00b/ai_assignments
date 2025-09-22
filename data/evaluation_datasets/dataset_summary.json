@@ -1,43 +1,43 @@
 {
-  "dataset_size": 16,
+  "dataset_size": 18,
   "category_distribution": {
-    "code_generation": 4,
-    "question_answering": 4,
-    "technical_documentation": 3,
-    "reasoning": 3,
-    "creative_writing": 2
+    "code_generation": 5,
+    "question_answering": 5,
+    "reasoning": 5,
+    "creative_writing": 2,
+    "technical_documentation": 1
   },
   "quality_metrics": {
-    "total_prompts": 16,
-    "avg_quality_score": 0.7792461220474107,
+    "total_prompts": 18,
+    "avg_quality_score": 0.7449878291431571,
     "quality_distribution": {
-      "high_quality": 7,
-      "medium_quality": 9,
+      "high_quality": 5,
+      "medium_quality": 13,
       "low_quality": 0
     },
     "category_distribution": {
-      "code_generation": 4,
-      "question_answering": 4,
-      "technical_documentation": 3,
-      "reasoning": 3,
-      "creative_writing": 2
+      "code_generation": 5,
+      "question_answering": 5,
+      "reasoning": 5,
+      "creative_writing": 2,
+      "technical_documentation": 1
     },
     "source_distribution": {
-      "promptbase": 11,
-      "diffusiondb": 5
+      "promptbase": 15,
+      "diffusiondb": 3
     },
     "difficulty_distribution": {
-      "medium": 10,
-      "easy": 4,
-      "hard": 2
+      "hard": 9,
+      "easy": 8,
+      "medium": 1
     },
-    "avg_prompt_length": 51.25,
+    "avg_prompt_length": 53.888888888888886,
     "length_distribution": {
-      "short": 16,
+      "short": 18,
       "medium": 0,
       "long": 0
     }
   },
   "ai_tool_prompts_loaded": 201,
-  "generation_timestamp": "2025-09-22T17:26:24.748692"
+  "generation_timestamp": "2025-09-22T18:43:08.186266"
 }
