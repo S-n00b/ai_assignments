@@ -715,7 +715,80 @@
             <div class="content-area">
                 <!-- Assignment Service -->
                 <div id="service-about" class="service-container active">
-                    <iframe id="iframe-about" class="service-frame" src="/about"></iframe>
+                    <div id="about-content" class="h-full flex flex-col bg-gray-900">
+                        <!-- Assignment Header -->
+                        <div class="bg-gray-800 border-b border-gray-700 p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h2 class="text-xl font-semibold text-white">Lenovo AI Architecture</h2>
+                                    <p class="text-sm text-gray-400">Advanced AI Model Evaluation & Architecture Framework</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Assignment Content -->
+                        <div class="flex-1 overflow-y-auto p-8">
+                            <div class="max-w-4xl mx-auto text-center">
+                                <div class="text-6xl font-bold mb-8 bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
+                                    Lenovo AI Architecture
+                                </div>
+                                <div class="text-2xl text-gray-300 mb-12">Advanced AI Model Evaluation & Architecture Framework</div>
+                                
+                                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                                        <h3 class="text-xl font-semibold mb-4 text-red-400">Assignment 1: Model Evaluation Engineer</h3>
+                                        <p class="text-gray-300 mb-4">Comprehensive model evaluation framework with Gradio interface for testing and comparing AI models.</p>
+                                        <ul class="text-sm text-gray-400 space-y-2">
+                                            <li>• Model Evaluation Pipeline</li>
+                                            <li>• Model Profiling & Characterization</li>
+                                            <li>• Practical Evaluation Exercise</li>
+                                            <li>• Model Factory Framework</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                                        <h3 class="text-xl font-semibold mb-4 text-red-400">Assignment 2: Enterprise LLMOps Platform</h3>
+                                        <p class="text-gray-300 mb-4">Full-stack enterprise platform with FastAPI backend, model registry, and MLOps capabilities.</p>
+                                        <ul class="text-sm text-gray-400 space-y-2">
+                                            <li>• Enterprise FastAPI Platform</li>
+                                            <li>• Model Registry & Lifecycle</li>
+                                            <li>• RAG System with ChromaDB</li>
+                                            <li>• Agent System with LangGraph</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 mb-8">
+                                    <h3 class="text-2xl font-semibold mb-6 text-red-400">Live Demo Access</h3>
+                                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                                        <div>
+                                            <div class="text-4xl mb-2">🚀</div>
+                                            <div class="font-semibold mb-2">Unified Platform</div>
+                                            <div class="text-sm text-gray-400">Interactive demo environment</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-4xl mb-2">📊</div>
+                                            <div class="font-semibold mb-2">Model Evaluation</div>
+                                            <div class="text-sm text-gray-400">Gradio testing interface</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-4xl mb-2">📚</div>
+                                            <div class="font-semibold mb-2">Documentation</div>
+                                            <div class="text-sm text-gray-400">Comprehensive guides</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <div class="text-lg text-gray-300 mb-4">Ready to explore the Lenovo AI Architecture framework?</div>
+                                    <div class="text-sm text-gray-500">
+                                        This is a static preview. For the full interactive experience, 
+                                        <br>run the services locally using the provided scripts.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Chat Playground Service -->
@@ -895,7 +968,7 @@
             about: {
                 title: "Assignment",
                 description: "Lenovo AI Architecture Meta-Assignment Portfolio",
-                url: "/about",
+                url: "#",
                 status: "online"
             },
             "chat-playground": {
@@ -1051,6 +1124,10 @@
         }
         
         function refreshCurrentService() {
+            if (currentService === 'about') {
+                // For the about service, we don't need to refresh as it's embedded content
+                return;
+            }
             const iframe = document.querySelector(`#service-${currentService} iframe`);
             if (iframe) {
                 iframe.src = iframe.src;
