@@ -2695,12 +2695,12 @@ if LANGGRAPH_STUDIO_AVAILABLE:
     
     @app.get("/iframe/langgraph-studio", response_class=HTMLResponse)
     async def serve_langgraph_studio_iframe():
-        """Serve LangGraph Studio dashboard in iframe."""
+        """Serve LangGraph Studio in iframe."""
         return HTMLResponse("""
         <!DOCTYPE html>
         <html>
         <head>
-            <title>LangGraph Studio Dashboard - Agent Visualization and Debugging</title>
+            <title>LangGraph Studio - Agent Visualization and Debugging</title>
             <style>
                 body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
                 iframe { width: 100%; height: 100vh; border: none; }
@@ -2708,13 +2708,13 @@ if LANGGRAPH_STUDIO_AVAILABLE:
             </style>
         </head>
         <body>
-            <div class="loading" id="loading">Loading LangGraph Studio Dashboard...</div>
+            <div class="loading" id="loading">Loading LangGraph Studio...</div>
             <iframe 
-                src="/api/langgraph/studios/dashboard" 
-                title="LangGraph Studio Dashboard"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                src="http://localhost:8083" 
+                title="LangGraph Studio"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
                 onload="document.getElementById('loading').style.display='none'"
-                onerror="document.getElementById('loading').innerHTML='Failed to load LangGraph Studio Dashboard. Please ensure LangGraph Studio is properly configured.'">
+                onerror="document.getElementById('loading').innerHTML='Failed to load LangGraph Studio. Please ensure LangGraph Studio is running on port 8083.'">
             </iframe>
         </body>
         </html>
@@ -2783,28 +2783,124 @@ if NEO4J_FAKER_AVAILABLE:
     # Create Neo4j Faker endpoints
     create_neo4j_faker_endpoints(app)
     
+    @app.get("/api/neo4j-faker/load-existing")
+    async def load_existing_neo4j_data():
+        """Load existing Neo4j data from neo4j_data folder"""
+        import json
+        from pathlib import Path
+        
+        try:
+            neo4j_data_path = Path("neo4j_data")
+            if not neo4j_data_path.exists():
+                return {"error": "neo4j_data folder not found"}
+            
+            # Load generation report
+            generation_report = {}
+            report_file = neo4j_data_path / "generation_report.json"
+            if report_file.exists():
+                with open(report_file, 'r') as f:
+                    generation_report = json.load(f)
+            
+            # Load main data files
+            data_files = {
+                "lenovo_org_structure": "lenovo_org_structure.json",
+                "b2b_client_scenarios": "b2b_client_scenarios.json",
+                "org_hierarchy_pattern": "org_hierarchy_pattern.json",
+                "project_network_pattern": "project_network_pattern.json",
+                "knowledge_graph_pattern": "knowledge_graph_pattern.json",
+                "business_process_pattern": "business_process_pattern.json",
+                "customer_journey_pattern": "customer_journey_pattern.json"
+            }
+            
+            loaded_data = {}
+            for key, filename in data_files.items():
+                file_path = neo4j_data_path / filename
+                if file_path.exists():
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        loaded_data[key] = json.load(f)
+            
+            return {
+                "status": "success",
+                "generation_report": generation_report,
+                "data_files": loaded_data,
+                "available_files": list(loaded_data.keys()),
+                "message": f"Loaded {len(loaded_data)} data files from neo4j_data folder"
+            }
+            
+        except Exception as e:
+            return {"error": f"Failed to load Neo4j data: {str(e)}"}
+    
+    @app.get("/api/neo4j-faker/cypher-queries")
+    async def get_sample_cypher_queries():
+        """Get sample Cypher queries for the loaded data"""
+        return {
+            "queries": {
+                "org_hierarchy": "MATCH (p:person)-[:reports_to]->(m:person) RETURN p, m LIMIT 20",
+                "project_dependencies": "MATCH (p1:project)-[:depends_on]->(p2:project) RETURN p1, p2 LIMIT 20",
+                "client_relationships": "MATCH (c:client)-[:serves]-(s:solution) RETURN c, s LIMIT 20",
+                "employee_skills": "MATCH (p:person)-[:has_skill]->(s:skill) RETURN p, s LIMIT 20",
+                "department_structure": "MATCH (d:department)-[:contains]->(p:person) RETURN d, p LIMIT 20",
+                "project_teams": "MATCH (p:project)-[:has_team_member]->(person:person) RETURN p, person LIMIT 20"
+            },
+            "instructions": "Use these queries in Neo4j Browser to explore the generated data"
+        }
+    
     @app.get("/iframe/neo4j-faker", response_class=HTMLResponse)
-    async def serve_neo4j_faker_iframe():
-        """Serve Neo4j Faker dashboard in iframe."""
+    async def serve_neo4j_browser_iframe():
+        """Serve Neo4j Browser in iframe."""
         return HTMLResponse("""
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Neo4j Faker Dashboard - GraphRAG Demo</title>
+            <title>Neo4j Browser</title>
             <style>
-                body { margin: 0; padding: 0; height: 100vh; overflow: hidden; }
+                body { margin: 0; padding: 0; height: 100vh; overflow: hidden; background: #1a1a1a; }
                 iframe { width: 100%; height: 100vh; border: none; }
-                .loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial, sans-serif; }
+                .loading { 
+                    position: absolute; 
+                    top: 50%; 
+                    left: 50%; 
+                    transform: translate(-50%, -50%); 
+                    font-family: 'Inter', sans-serif;
+                    color: #ffffff;
+                    background: #2a2a2a;
+                    padding: 2rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid #404040;
+                    text-align: center;
+                }
+                .error {
+                    color: #ef4444;
+                    background: rgba(239, 68, 68, 0.1);
+                    border-color: #ef4444;
+                }
             </style>
         </head>
         <body>
-            <div class="loading" id="loading">Loading Neo4j Faker Dashboard...</div>
+            <div class="loading" id="loading">
+                <div style="font-size: 1.5rem; margin-bottom: 1rem;">🕸️</div>
+                <div>Loading Neo4j Browser...</div>
+                <div style="font-size: 0.875rem; color: #999; margin-top: 0.5rem;">Connecting to Neo4j database</div>
+            </div>
             <iframe 
-                src="/api/neo4j-faker/dashboard" 
-                title="Neo4j Faker Dashboard"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                src="http://localhost:7474" 
+                title="Neo4j Browser"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
                 onload="document.getElementById('loading').style.display='none'"
-                onerror="document.getElementById('loading').innerHTML='Failed to load Neo4j Faker Dashboard. Please ensure Neo4j and Faker are properly configured.'">
+                onerror="
+                    const loading = document.getElementById('loading');
+                    loading.className = 'loading error';
+                    loading.innerHTML = `
+                        <div style='font-size: 1.5rem; margin-bottom: 1rem;'>❌</div>
+                        <div>Failed to load Neo4j Browser</div>
+                        <div style='font-size: 0.875rem; color: #999; margin-top: 0.5rem;'>
+                            Please ensure Neo4j is running on port 7474
+                        </div>
+                        <div style='font-size: 0.75rem; color: #666; margin-top: 1rem;'>
+                            Start Neo4j with: neo4j start
+                        </div>
+                    `;
+                ">
             </iframe>
         </body>
         </html>

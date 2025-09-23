@@ -29,6 +29,21 @@ A comprehensive enterprise-grade AI operations platform built for Lenovo AAITC a
    pip install -r config/requirements-testing.txt
    ```
 
+3. **Install Neo4j Desktop (Required for Graph Database Features)**
+
+   - Download Neo4j Desktop from: https://neo4j.com/download/
+   - Install and create a new database project
+   - Start a local database (default settings: bolt://localhost:7687, neo4j/password)
+   - The Neo4j Browser will be available at http://localhost:7474
+   - Our application will automatically connect to this instance
+
+4. **Install LangGraph Studio (Required for Agent Visualization)**
+
+   - Run the setup script: `.\scripts\setup-langgraph-studio.ps1`
+   - Or manually install: `pip install langgraph-cli langgraph-studio`
+   - Start LangGraph Studio: `langgraph dev --host localhost --port 8083`
+   - Access at: http://localhost:8083 or via unified platform
+
 ### 🚨 **Port Configuration & Quick Start**
 
 **⚠️ IMPORTANT: Port 3000 Conflict**
@@ -78,7 +93,14 @@ python -m src.enterprise_llmops.simple_app
 # Start Neo4j service: bolt://localhost:7687
 # Username: neo4j, Password: password
 
-# 6. Optional: Individual Services (if running separately)
+# 6. Neo4j Desktop Setup (Required for Graph Database Features)
+# - Download and install Neo4j Desktop from https://neo4j.com/download/
+# - Create a new database project in Neo4j Desktop
+# - Start the database (default: bolt://localhost:7687, neo4j/password)
+# - Neo4j Browser will be available at http://localhost:7474
+# - Our application automatically connects to this instance
+
+# 7. Optional: Individual Services (if running separately)
 # MLflow: python -m mlflow server --host 0.0.0.0 --port 5000
 # Ollama: ollama serve (runs on 11434)
 ```
@@ -90,7 +112,7 @@ python -m src.enterprise_llmops.simple_app
 - **Health Check**: http://localhost:8080/health
 - **Model Evaluation**: http://localhost:7860
 - **Documentation**: http://localhost:8082
-- **Neo4j Browser**: http://localhost:7474 (when Neo4j is running)
+- **Neo4j Browser**: http://localhost:8080/iframe/neo4j-browser (embedded service)
 - **Neo4j API**: http://localhost:8080/api/neo4j
 - **MLflow UI**: http://localhost:5000 (when MLflow is running)
 - **Ollama API**: http://localhost:11434 (when Ollama is running)
@@ -138,9 +160,9 @@ ai_assignments/
 
 ### **Graph Database Integration**
 
-- ✅ **Neo4j Service**: Dedicated Neo4j integration with REST API endpoints
+- ✅ **Neo4j Browser**: Complete Neo4j Browser embedded service integration (leverages Neo4j Desktop)
 - ✅ **GraphRAG Capabilities**: Semantic search and knowledge retrieval
-- ✅ **Lenovo Org Structure**: Realistic organizational data with Faker
+- ✅ **Lenovo Org Structure**: Realistic organizational data with existing graph data
 - ✅ **B2B Client Scenarios**: Enterprise client relationship mapping
 - ✅ **Enterprise Patterns**: Org charts, project networks, knowledge graphs
 - ✅ **Graph Analytics**: Real-time insights and relationship analysis
@@ -163,7 +185,7 @@ ai_assignments/
 
 - ✅ **FastAPI Backend**: RESTful API with WebSocket support
 - ✅ **Real-time Monitoring**: Live system status and metrics
-- ✅ **Knowledge Graphs**: Neo4j integration with dedicated service endpoints
+- ✅ **Knowledge Graphs**: Neo4j Browser embedded service with existing org/enterprise data
 - ✅ **Workflow Visualization**: LangGraph Studio-style interfaces
 - ✅ **Chat Playground**: Side-by-side Ollama & GitHub Models comparison with Google AI Studio-like UX
 
@@ -171,16 +193,42 @@ ai_assignments/
 
 > **Note**: For complete port information, see the [Port Configuration](#-port-configuration--quick-start) section above.
 
-| Service                 | URL                             | Description                                    |
-| ----------------------- | ------------------------------- | ---------------------------------------------- |
-| **Enterprise Platform** | http://localhost:8080           | FastAPI backend with full enterprise features  |
-| **Chat Playground**     | http://localhost:8080           | Ollama & GitHub Models side-by-side comparison |
-| **Model Evaluation**    | http://localhost:7860           | Gradio interface for model prototyping         |
-| **Documentation**       | http://localhost:8082           | MkDocs documentation site                      |
-| **API Docs**            | http://localhost:8080/docs      | FastAPI auto-generated documentation           |
-| **Health Check**        | http://localhost:8080/health    | System health monitoring                       |
-| **Neo4j Browser**       | http://localhost:7474           | Neo4j graph database browser                   |
-| **Neo4j API**           | http://localhost:8080/api/neo4j | Neo4j service endpoints and GraphRAG queries   |
+| Service                 | URL                                        | Description                                    |
+| ----------------------- | ------------------------------------------ | ---------------------------------------------- |
+| **Enterprise Platform** | http://localhost:8080                      | FastAPI backend with full enterprise features  |
+| **Chat Playground**     | http://localhost:8080                      | Ollama & GitHub Models side-by-side comparison |
+| **Model Evaluation**    | http://localhost:7860                      | Gradio interface for model prototyping         |
+| **Documentation**       | http://localhost:8082                      | MkDocs documentation site                      |
+| **API Docs**            | http://localhost:8080/docs                 | FastAPI auto-generated documentation           |
+| **Health Check**        | http://localhost:8080/health               | System health monitoring                       |
+| **Neo4j Browser**       | http://localhost:8080/iframe/neo4j-browser | Neo4j Browser embedded service                 |
+| **Neo4j API**           | http://localhost:8080/api/neo4j            | Neo4j service endpoints and GraphRAG queries   |
+
+### **Neo4j Desktop Integration**
+
+Our application leverages Neo4j Desktop in the most efficient way possible:
+
+**How It Works:**
+
+- ✅ **No Desktop Embedding Required**: We don't embed the entire Neo4j Desktop application
+- ✅ **Browser Integration**: Our iframe connects directly to the Neo4j Browser (port 7474)
+- ✅ **Database Connection**: Connects to your Neo4j database instance (port 7687)
+- ✅ **Existing Data**: Works with your existing `neo4j_data/` folder and any data you've imported
+
+**Setup Process:**
+
+1. Install Neo4j Desktop from https://neo4j.com/download/
+2. Create a new database project
+3. Start the database (default: bolt://localhost:7687, neo4j/password)
+4. Import your existing data from the `neo4j_data/` folder
+5. Our application automatically connects via the embedded Neo4j Browser
+
+**Benefits:**
+
+- **Lightweight**: Only the browser interface is embedded, not the entire desktop
+- **Flexible**: You can manage your database through Neo4j Desktop normally
+- **Integrated**: Seamlessly embedded in our unified platform
+- **Existing Data**: Works with all your pre-existing graph data
 
 ### **Port Conflict Resolution**
 
@@ -355,7 +403,7 @@ scripts\generate-lenovo-graphs.bat
 
 1. **✅ LangGraph Studio Integration**: Agent visualization and debugging fully operational
 2. **✅ QLoRA Fine-Tuning**: Adapter management and fine-tuning capabilities implemented
-3. **✅ Neo4j UI with Faker**: Realistic GraphRAG demo with interactive knowledge graphs
+3. **✅ Neo4j Browser Integration**: Complete Neo4j Browser embedded service with existing org/enterprise graph data
 4. **✅ End-to-End Testing**: Complete enterprise workflow validated and verified
 5. **✅ Service Connections**: All services connected and operational (FastAPI, Gradio, MLflow, ChromaDB, LangGraph Studio)
 6. **✅ Production Readiness**: Platform ready for production deployment
@@ -365,7 +413,7 @@ scripts\generate-lenovo-graphs.bat
 - **Enterprise Platform**: Fully operational with unified UX/UI
 - **Model Evaluation**: Complete testing and profiling system
 - **Agent Orchestration**: Advanced workflow management and debugging
-- **Knowledge Management**: Graph-based data visualization
+- **Knowledge Management**: Neo4j Browser embedded service for graph-based data visualization
 - **Real-time Monitoring**: Live status and health checks
 
 ## 🤝 **Contributing**

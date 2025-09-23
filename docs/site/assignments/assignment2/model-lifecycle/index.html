@@ -1,0 +1,4492 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Advanced AI Model Evaluation & Architecture Framework">
+      
+      
+        <meta name="author" content="Lenovo AAITC Team">
+      
+      
+        <link rel="canonical" href="https://s-n00b.github.io/ai_assignments/assignments/assignment2/model-lifecycle/">
+      
+      
+        <link rel="prev" href="../agent-system/">
+      
+      
+        <link rel="next" href="../rag-system/">
+      
+      
+      <link rel="icon" href="../../../assets/img/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Model Lifecycle - Lenovo AAITC Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-XXXXXXXXXX",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-lifecycle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Lenovo AAITC Solutions" class="md-header__button md-logo" aria-label="Lenovo AAITC Solutions" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lenovo AAITC Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Lifecycle
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/s-n00b/ai_assignments" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    s-n00b/ai_assignments
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../category1/ai-engineering-overview/" class="md-tabs__link">
+          
+  
+  
+  Model Enablement & UX Evaluation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../category2/system-architecture-overview/" class="md-tabs__link">
+          
+  
+  
+  AI System Architecture & MLOps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../api/fastapi-enterprise/" class="md-tabs__link">
+          
+  
+  
+  API Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../live-applications/" class="md-tabs__link">
+          
+  
+  
+  Live Applications & Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../executive/carousel-slide-deck/" class="md-tabs__link">
+          
+  
+  
+  Executive Presentations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../professional/executive-summary/" class="md-tabs__link">
+          
+  
+  
+  Professional Skills & Insights
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../development/setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../api/fastapi-enterprise/" class="md-tabs__link">
+          
+  
+  
+  API Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../resources/architecture/" class="md-tabs__link">
+          
+  
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../diagrams/system-architecture/" class="md-tabs__link">
+          
+  
+  
+  Diagrams & Visualizations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI_TOOL_PROMPTS_INTEGRATION/" class="md-tabs__link">
+          
+  
+  
+  Additional Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Lenovo AAITC Solutions" class="md-nav__button md-logo" aria-label="Lenovo AAITC Solutions" data-md-component="logo">
+      
+  <img src="../../../assets/img/logo.png" alt="logo">
+
+    </a>
+    Lenovo AAITC Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/s-n00b/ai_assignments" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    s-n00b/ai_assignments
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Model Enablement & UX Evaluation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Model Enablement & UX Evaluation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../category1/ai-engineering-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Engineering Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../category1/model-evaluation-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Evaluation Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../category1/ux-evaluation-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UX Evaluation & Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../category1/model-profiling-characterization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Profiling & Characterization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI System Architecture & MLOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI System Architecture & MLOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../category2/system-architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Architecture Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/fastapi-enterprise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastAPI Enterprise Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/fastapi-embedded-docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastAPI Interactive Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/gradio-model-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gradio Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/langgraph-studio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LangGraph Studio Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/chromadb-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChromaDB Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Server Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/model-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Evaluation API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/ai-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Architecture API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utilities API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/chat-playground/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chat Playground
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/gradio-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gradio App
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Live Applications & Demos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Live Applications & Demos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../live-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Applications Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment1/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assignment 1: Model Evaluation Engineer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assignment 2: Enterprise LLMOps Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment1/evaluation-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evaluation Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment1/model-factory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Factory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment1/model-profiling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Profiling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment1/practical-exercise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Practical Exercise
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Model Lifecycle
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Lifecycle
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Stages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-development-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Development Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Development Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-training-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Training Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Training Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-validation-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Validation Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Validation Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-deployment-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Deployment Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Deployment Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-monitoring-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Monitoring Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Monitoring Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-retirement-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Retirement Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Retirement Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Orchestration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-lifecycle-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Lifecycle Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lifecycle-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Lifecycle Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Quality Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoring-and-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Monitoring and Alerting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-documentation-and-knowledge-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Documentation and Knowledge Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rag-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAG System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stakeholder-communication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stakeholder Communication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Executive Presentations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Executive Presentations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../executive/carousel-slide-deck/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Carousel Slide Deck
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Professional Skills & Insights
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Professional Skills & Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../professional/executive-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Executive Summary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../professional/blog-posts/ai-architecture-seniority/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Architecture Seniority
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup & Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing & Quality
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/documentation-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/github-pages-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Pages Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            API Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/fastapi-enterprise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastAPI Enterprise Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/gradio-model-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gradio Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/neo4j-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neo4j Service
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Server Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/model-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Evaluation API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/ai-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Architecture API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utilities API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture Diagrams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/lenovo-graph-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenovo Graph Structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance Metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../progress-bulletin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Progress Bulletin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Diagrams & Visualizations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Diagrams & Visualizations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/system-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/model-evaluation-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Evaluation Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/enterprise-platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enterprise Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/service-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diagrams/data-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Additional Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AI_TOOL_PROMPTS_INTEGRATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI Tool Prompts Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_DOCUMENTATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DEPLOYMENT_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../INTERACTIVE_FEATURES_SETUP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interactive Features Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../README_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    README Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lenovo_aaitc_assignments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenovo AAITC Assignments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lenovo_aaitc_assignments_with_sources_claude_chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lenovo AAITC with Sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Stages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-development-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Development Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Development Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-training-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Training Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Training Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-validation-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Validation Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Validation Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-deployment-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Deployment Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Deployment Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-monitoring-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Monitoring Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Monitoring Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-retirement-stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Retirement Stage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Retirement Stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Orchestration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-lifecycle-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Lifecycle Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lifecycle-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Lifecycle Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Quality Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoring-and-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Monitoring and Alerting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-documentation-and-knowledge-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Documentation and Knowledge Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="model-lifecycle">Model Lifecycle<a class="headerlink" href="#model-lifecycle" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Model Lifecycle Management system provides comprehensive tools for managing AI models throughout their entire lifecycle - from development and training to deployment, monitoring, and eventual retirement. This system ensures models are properly versioned, tracked, and maintained throughout their operational life.</p>
+<h2 id="lifecycle-stages">Lifecycle Stages<a class="headerlink" href="#lifecycle-stages" title="Permanent link">&para;</a></h2>
+<h3 id="1-development-stage">1. Development Stage<a class="headerlink" href="#1-development-stage" title="Permanent link">&para;</a></h3>
+<p>The development stage encompasses model creation, experimentation, and initial validation:</p>
+<h4 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model Experimentation</strong>: Track experiments with different architectures and hyperparameters</li>
+<li><strong>Version Control</strong>: Automatic versioning of model configurations and code</li>
+<li><strong>Development Environment</strong>: Isolated environments for model development</li>
+<li><strong>Collaborative Development</strong>: Support for team-based model development</li>
+</ul>
+<h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># lifecycle/development.py
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+import hashlib
+import json
+from datetime import datetime
+import mlflow
+
+@dataclass
+class ModelExperiment:
+    experiment_id: str
+    name: str
+    description: str
+    model_config: Dict
+    hyperparameters: Dict
+    dataset_info: Dict
+    metrics: Dict = field(default_factory=dict)
+    artifacts: List[str] = field(default_factory=list)
+    created_at: datetime = field(default_factory=datetime.now)
+    status: str = &quot;active&quot;
+
+class ModelDevelopmentManager:
+    def __init__(self, mlflow_tracking_uri: str = &quot;http://localhost:5000&quot;):
+        self.mlflow_client = mlflow.tracking.MlflowClient(tracking_uri=mlflow_tracking_uri)
+
+    def create_experiment(self, name: str, description: str) -&gt; str:
+        &quot;&quot;&quot;Create a new MLflow experiment&quot;&quot;&quot;
+        experiment = self.mlflow_client.create_experiment(
+            name=name,
+            tags={&quot;description&quot;: description}
+        )
+        return experiment
+
+    def start_run(self, experiment_id: str, run_name: str) -&gt; str:
+        &quot;&quot;&quot;Start a new MLflow run&quot;&quot;&quot;
+        run = self.mlflow_client.create_run(
+            experiment_id=experiment_id,
+            run_name=run_name
+        )
+        return run.info.run_id
+
+    def log_model_config(self, run_id: str, config: Dict):
+        &quot;&quot;&quot;Log model configuration&quot;&quot;&quot;
+        self.mlflow_client.log_param(run_id, &quot;model_config&quot;, json.dumps(config))
+
+    def log_hyperparameters(self, run_id: str, hyperparams: Dict):
+        &quot;&quot;&quot;Log hyperparameters&quot;&quot;&quot;
+        for key, value in hyperparams.items():
+            self.mlflow_client.log_param(run_id, key, value)
+
+    def log_metrics(self, run_id: str, metrics: Dict):
+        &quot;&quot;&quot;Log training metrics&quot;&quot;&quot;
+        for key, value in metrics.items():
+            self.mlflow_client.log_metric(run_id, key, value)
+
+    def log_artifacts(self, run_id: str, artifact_path: str):
+        &quot;&quot;&quot;Log model artifacts&quot;&quot;&quot;
+        self.mlflow_client.log_artifacts(run_id, artifact_path)
+
+    def register_model(self, run_id: str, model_name: str, model_path: str):
+        &quot;&quot;&quot;Register model in MLflow Model Registry&quot;&quot;&quot;
+        model_uri = f&quot;runs:/{run_id}/{model_path}&quot;
+        model_version = self.mlflow_client.create_model_version(
+            name=model_name,
+            source=model_uri,
+            run_id=run_id
+        )
+        return model_version.version
+</code></pre>
+<h3 id="2-training-stage">2. Training Stage<a class="headerlink" href="#2-training-stage" title="Permanent link">&para;</a></h3>
+<p>The training stage focuses on model training, validation, and initial evaluation:</p>
+<h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Distributed Training</strong>: Support for multi-GPU and multi-node training</li>
+<li><strong>Training Monitoring</strong>: Real-time monitoring of training progress</li>
+<li><strong>Checkpointing</strong>: Automatic model checkpointing and recovery</li>
+<li><strong>Hyperparameter Optimization</strong>: Automated hyperparameter tuning</li>
+</ul>
+<h4 id="implementation_1">Implementation<a class="headerlink" href="#implementation_1" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># lifecycle/training.py
+import torch
+import torch.distributed as dist
+from torch.nn.parallel import DistributedDataParallel as DDP
+import os
+import time
+from typing import Dict, Callable, Optional
+
+class TrainingManager:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.is_distributed = dist.is_initialized()
+
+    def setup_distributed_training(self):
+        &quot;&quot;&quot;Setup distributed training&quot;&quot;&quot;
+        if 'RANK' in os.environ:
+            dist.init_process_group(backend='nccl')
+            self.local_rank = int(os.environ['LOCAL_RANK'])
+            torch.cuda.set_device(self.local_rank)
+            self.device = torch.device(f'cuda:{self.local_rank}')
+
+    def train_model(self, model, train_loader, val_loader, optimizer, scheduler,
+                   num_epochs: int, checkpoint_callback: Optional[Callable] = None):
+        &quot;&quot;&quot;Train model with monitoring and checkpointing&quot;&quot;&quot;
+
+        if self.is_distributed:
+            model = DDP(model, device_ids=[self.local_rank])
+
+        model.to(self.device)
+        best_val_loss = float('inf')
+
+        for epoch in range(num_epochs):
+            # Training phase
+            train_loss = self._train_epoch(model, train_loader, optimizer, epoch)
+
+            # Validation phase
+            val_loss = self._validate_epoch(model, val_loader, epoch)
+
+            # Update learning rate
+            if scheduler:
+                scheduler.step()
+
+            # Log metrics
+            self._log_training_metrics(epoch, train_loss, val_loss)
+
+            # Save checkpoint if validation loss improved
+            if val_loss &lt; best_val_loss:
+                best_val_loss = val_loss
+                self._save_checkpoint(model, optimizer, epoch, val_loss)
+
+            # Custom checkpoint callback
+            if checkpoint_callback:
+                checkpoint_callback(model, epoch, val_loss)
+
+    def _train_epoch(self, model, train_loader, optimizer, epoch):
+        &quot;&quot;&quot;Train for one epoch&quot;&quot;&quot;
+        model.train()
+        total_loss = 0
+
+        for batch_idx, batch in enumerate(train_loader):
+            optimizer.zero_grad()
+
+            # Move batch to device
+            batch = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v
+                    for k, v in batch.items()}
+
+            # Forward pass
+            outputs = model(**batch)
+            loss = outputs['loss']
+
+            # Backward pass
+            loss.backward()
+            optimizer.step()
+
+            total_loss += loss.item()
+
+            if batch_idx % self.config.get('log_interval', 100) == 0:
+                print(f'Epoch {epoch}, Batch {batch_idx}, Loss: {loss.item():.4f}')
+
+        return total_loss / len(train_loader)
+
+    def _validate_epoch(self, model, val_loader, epoch):
+        &quot;&quot;&quot;Validate for one epoch&quot;&quot;&quot;
+        model.eval()
+        total_loss = 0
+
+        with torch.no_grad():
+            for batch in val_loader:
+                batch = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v
+                        for k, v in batch.items()}
+
+                outputs = model(**batch)
+                loss = outputs['loss']
+                total_loss += loss.item()
+
+        return total_loss / len(val_loader)
+
+    def _save_checkpoint(self, model, optimizer, epoch, val_loss):
+        &quot;&quot;&quot;Save model checkpoint&quot;&quot;&quot;
+        checkpoint = {
+            'epoch': epoch,
+            'model_state_dict': model.module.state_dict() if self.is_distributed else model.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'val_loss': val_loss,
+            'config': self.config
+        }
+
+        checkpoint_path = f&quot;checkpoints/model_epoch_{epoch}_loss_{val_loss:.4f}.pt&quot;
+        torch.save(checkpoint, checkpoint_path)
+        print(f&quot;Checkpoint saved: {checkpoint_path}&quot;)
+</code></pre>
+<h3 id="3-validation-stage">3. Validation Stage<a class="headerlink" href="#3-validation-stage" title="Permanent link">&para;</a></h3>
+<p>The validation stage ensures model quality and readiness for deployment:</p>
+<h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Comprehensive Testing</strong>: Thorough testing of model performance</li>
+<li><strong>Bias Detection</strong>: Automated bias and fairness testing</li>
+<li><strong>Robustness Testing</strong>: Testing model resilience to adversarial inputs</li>
+<li><strong>Performance Benchmarking</strong>: Detailed performance analysis</li>
+</ul>
+<h4 id="implementation_2">Implementation<a class="headerlink" href="#implementation_2" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># lifecycle/validation.py
+from model_evaluation.pipeline import EvaluationPipeline
+from model_evaluation.config import EvaluationConfig
+from typing import Dict, List
+import json
+import time
+
+class ModelValidator:
+    def __init__(self, validation_config: Dict):
+        self.config = validation_config
+        self.validation_results = {}
+
+    def validate_model(self, model_path: str, test_data: str, validation_criteria: Dict) -&gt; Dict:
+        &quot;&quot;&quot;Comprehensive model validation&quot;&quot;&quot;
+
+        validation_start = time.time()
+
+        # Initialize evaluation pipeline
+        eval_config = EvaluationConfig(
+            model_path=model_path,
+            test_dataset=test_data,
+            bias_analysis=True,
+            robustness_testing=True,
+            performance_profiling=True
+        )
+
+        pipeline = EvaluationPipeline(eval_config)
+
+        # Run validation tests
+        results = {
+            'performance_validation': self._validate_performance(pipeline),
+            'bias_validation': self._validate_bias(pipeline),
+            'robustness_validation': self._validate_robustness(pipeline),
+            'security_validation': self._validate_security(pipeline),
+            'compliance_validation': self._validate_compliance(pipeline)
+        }
+
+        # Generate validation report
+        validation_report = self._generate_validation_report(results)
+
+        # Check if model passes validation criteria
+        validation_status = self._check_validation_criteria(results, validation_criteria)
+
+        validation_time = time.time() - validation_start
+
+        return {
+            'validation_status': validation_status,
+            'validation_results': results,
+            'validation_report': validation_report,
+            'validation_time': validation_time,
+            'timestamp': time.time()
+        }
+
+    def _validate_performance(self, pipeline) -&gt; Dict:
+        &quot;&quot;&quot;Validate model performance metrics&quot;&quot;&quot;
+        performance_results = pipeline.evaluate_performance()
+
+        return {
+            'accuracy': performance_results.get('accuracy', 0),
+            'precision': performance_results.get('precision', 0),
+            'recall': performance_results.get('recall', 0),
+            'f1_score': performance_results.get('f1_score', 0),
+            'latency': performance_results.get('latency', 0),
+            'throughput': performance_results.get('throughput', 0),
+            'memory_usage': performance_results.get('memory_usage', 0)
+        }
+
+    def _validate_bias(self, pipeline) -&gt; Dict:
+        &quot;&quot;&quot;Validate model bias and fairness&quot;&quot;&quot;
+        bias_results = pipeline.evaluate_bias()
+
+        return {
+            'demographic_parity': bias_results.get('demographic_parity', {}),
+            'equalized_odds': bias_results.get('equalized_odds', {}),
+            'calibration': bias_results.get('calibration', {}),
+            'bias_score': bias_results.get('overall_bias_score', 0)
+        }
+
+    def _validate_robustness(self, pipeline) -&gt; Dict:
+        &quot;&quot;&quot;Validate model robustness&quot;&quot;&quot;
+        robustness_results = pipeline.evaluate_robustness()
+
+        return {
+            'adversarial_robustness': robustness_results.get('adversarial_robustness', {}),
+            'distribution_shift': robustness_results.get('distribution_shift', {}),
+            'noise_robustness': robustness_results.get('noise_robustness', {}),
+            'robustness_score': robustness_results.get('overall_robustness_score', 0)
+        }
+
+    def _validate_security(self, pipeline) -&gt; Dict:
+        &quot;&quot;&quot;Validate model security&quot;&quot;&quot;
+        # Implement security validation checks
+        return {
+            'input_validation': True,
+            'output_sanitization': True,
+            'model_integrity': True,
+            'data_privacy': True
+        }
+
+    def _validate_compliance(self, pipeline) -&gt; Dict:
+        &quot;&quot;&quot;Validate regulatory compliance&quot;&quot;&quot;
+        # Implement compliance validation checks
+        return {
+            'gdpr_compliance': True,
+            'ccpa_compliance': True,
+            'industry_standards': True,
+            'audit_trail': True
+        }
+
+    def _check_validation_criteria(self, results: Dict, criteria: Dict) -&gt; str:
+        &quot;&quot;&quot;Check if model meets validation criteria&quot;&quot;&quot;
+
+        # Performance criteria
+        if results['performance_validation']['accuracy'] &lt; criteria.get('min_accuracy', 0.8):
+            return 'FAILED - Accuracy below threshold'
+
+        # Bias criteria
+        if results['bias_validation']['bias_score'] &gt; criteria.get('max_bias_score', 0.1):
+            return 'FAILED - Bias score above threshold'
+
+        # Robustness criteria
+        if results['robustness_validation']['robustness_score'] &lt; criteria.get('min_robustness', 0.7):
+            return 'FAILED - Robustness below threshold'
+
+        # Latency criteria
+        if results['performance_validation']['latency'] &gt; criteria.get('max_latency', 100):
+            return 'FAILED - Latency above threshold'
+
+        return 'PASSED'
+
+    def _generate_validation_report(self, results: Dict) -&gt; str:
+        &quot;&quot;&quot;Generate detailed validation report&quot;&quot;&quot;
+        report = {
+            'validation_summary': {
+                'total_tests': len(results),
+                'passed_tests': sum(1 for r in results.values() if r.get('status') == 'PASSED'),
+                'failed_tests': sum(1 for r in results.values() if r.get('status') == 'FAILED')
+            },
+            'detailed_results': results,
+            'recommendations': self._generate_recommendations(results)
+        }
+
+        return json.dumps(report, indent=2)
+
+    def _generate_recommendations(self, results: Dict) -&gt; List[str]:
+        &quot;&quot;&quot;Generate improvement recommendations&quot;&quot;&quot;
+        recommendations = []
+
+        # Performance recommendations
+        if results['performance_validation']['accuracy'] &lt; 0.9:
+            recommendations.append(&quot;Consider additional training or hyperparameter tuning to improve accuracy&quot;)
+
+        # Bias recommendations
+        if results['bias_validation']['bias_score'] &gt; 0.05:
+            recommendations.append(&quot;Implement bias mitigation techniques to reduce model bias&quot;)
+
+        # Robustness recommendations
+        if results['robustness_validation']['robustness_score'] &lt; 0.8:
+            recommendations.append(&quot;Improve model robustness through adversarial training or data augmentation&quot;)
+
+        return recommendations
+</code></pre>
+<h3 id="4-deployment-stage">4. Deployment Stage<a class="headerlink" href="#4-deployment-stage" title="Permanent link">&para;</a></h3>
+<p>The deployment stage manages model deployment to production environments:</p>
+<h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Multi-Environment Deployment</strong>: Deploy to dev, staging, and production</li>
+<li><strong>Blue-Green Deployment</strong>: Zero-downtime deployments</li>
+<li><strong>Canary Releases</strong>: Gradual rollout of new models</li>
+<li><strong>Rollback Capabilities</strong>: Quick rollback to previous versions</li>
+</ul>
+<h4 id="implementation_3">Implementation<a class="headerlink" href="#implementation_3" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># lifecycle/deployment.py
+from typing import Dict, List, Optional
+import asyncio
+import time
+from enum import Enum
+
+class DeploymentStatus(Enum):
+    PENDING = &quot;pending&quot;
+    DEPLOYING = &quot;deploying&quot;
+    ACTIVE = &quot;active&quot;
+    FAILED = &quot;failed&quot;
+    ROLLING_BACK = &quot;rolling_back&quot;
+
+class DeploymentStrategy(Enum):
+    BLUE_GREEN = &quot;blue_green&quot;
+    CANARY = &quot;canary&quot;
+    ROLLING = &quot;rolling&quot;
+
+class ModelDeploymentManager:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.deployments: Dict[str, Dict] = {}
+        self.active_deployments: Dict[str, str] = {}
+
+    async def deploy_model(self, model_id: str, version: str, environment: str,
+                          strategy: DeploymentStrategy = DeploymentStrategy.BLUE_GREEN,
+                          config: Optional[Dict] = None) -&gt; str:
+        &quot;&quot;&quot;Deploy model to environment&quot;&quot;&quot;
+
+        deployment_id = f&quot;{model_id}-{version}-{environment}-{int(time.time())}&quot;
+
+        deployment = {
+            'id': deployment_id,
+            'model_id': model_id,
+            'version': version,
+            'environment': environment,
+            'strategy': strategy,
+            'status': DeploymentStatus.PENDING,
+            'config': config or {},
+            'created_at': time.time(),
+            'updated_at': time.time()
+        }
+
+        self.deployments[deployment_id] = deployment
+
+        try:
+            # Execute deployment based on strategy
+            if strategy == DeploymentStrategy.BLUE_GREEN:
+                await self._deploy_blue_green(deployment)
+            elif strategy == DeploymentStrategy.CANARY:
+                await self._deploy_canary(deployment)
+            elif strategy == DeploymentStrategy.ROLLING:
+                await self._deploy_rolling(deployment)
+
+            deployment['status'] = DeploymentStatus.ACTIVE
+            self.active_deployments[model_id] = deployment_id
+
+        except Exception as e:
+            deployment['status'] = DeploymentStatus.FAILED
+            deployment['error'] = str(e)
+            raise
+
+        finally:
+            deployment['updated_at'] = time.time()
+
+        return deployment_id
+
+    async def _deploy_blue_green(self, deployment: Dict):
+        &quot;&quot;&quot;Blue-green deployment strategy&quot;&quot;&quot;
+        deployment['status'] = DeploymentStatus.DEPLOYING
+
+        # Deploy to green environment
+        green_endpoint = await self._deploy_to_environment(
+            deployment, f&quot;green-{deployment['environment']}&quot;
+        )
+
+        # Run health checks
+        await self._run_health_checks(green_endpoint)
+
+        # Switch traffic to green
+        await self._switch_traffic(deployment['model_id'], green_endpoint)
+
+        # Cleanup blue environment
+        await self._cleanup_old_deployment(deployment['model_id'])
+
+    async def _deploy_canary(self, deployment: Dict):
+        &quot;&quot;&quot;Canary deployment strategy&quot;&quot;&quot;
+        deployment['status'] = DeploymentStatus.DEPLOYING
+
+        # Deploy canary version
+        canary_endpoint = await self._deploy_to_environment(
+            deployment, f&quot;canary-{deployment['environment']}&quot;
+        )
+
+        # Gradually increase traffic
+        traffic_percentages = [5, 10, 25, 50, 100]
+
+        for percentage in traffic_percentages:
+            await self._set_traffic_percentage(deployment['model_id'], canary_endpoint, percentage)
+
+            # Wait and monitor
+            await asyncio.sleep(300)  # 5 minutes
+
+            # Check health metrics
+            if not await self._check_deployment_health(canary_endpoint):
+                # Rollback if health checks fail
+                await self._rollback_deployment(deployment['id'])
+                return
+
+        # Promote to full traffic
+        await self._promote_deployment(deployment['id'])
+
+    async def _deploy_rolling(self, deployment: Dict):
+        &quot;&quot;&quot;Rolling deployment strategy&quot;&quot;&quot;
+        deployment['status'] = DeploymentStatus.DEPLOYING
+
+        # Get current deployment instances
+        current_instances = await self._get_deployment_instances(deployment['model_id'])
+
+        # Update instances one by one
+        for instance in current_instances:
+            await self._update_instance(instance, deployment)
+            await self._wait_for_instance_health(instance)
+
+        deployment['status'] = DeploymentStatus.ACTIVE
+
+    async def rollback_deployment(self, deployment_id: str) -&gt; bool:
+        &quot;&quot;&quot;Rollback deployment to previous version&quot;&quot;&quot;
+        if deployment_id not in self.deployments:
+            return False
+
+        deployment = self.deployments[deployment_id]
+        deployment['status'] = DeploymentStatus.ROLLING_BACK
+
+        try:
+            # Get previous version
+            previous_version = await self._get_previous_version(deployment['model_id'])
+
+            if not previous_version:
+                raise Exception(&quot;No previous version found&quot;)
+
+            # Deploy previous version
+            await self._deploy_model(
+                deployment['model_id'],
+                previous_version,
+                deployment['environment'],
+                deployment['strategy']
+            )
+
+            deployment['status'] = DeploymentStatus.ACTIVE
+            return True
+
+        except Exception as e:
+            deployment['status'] = DeploymentStatus.FAILED
+            deployment['rollback_error'] = str(e)
+            return False
+
+    async def _deploy_to_environment(self, deployment: Dict, environment: str) -&gt; str:
+        &quot;&quot;&quot;Deploy model to specific environment&quot;&quot;&quot;
+        # Implementation depends on deployment platform (Kubernetes, Docker, etc.)
+        # This is a placeholder implementation
+        endpoint = f&quot;https://{environment}.example.com/models/{deployment['model_id']}&quot;
+
+        # Simulate deployment time
+        await asyncio.sleep(30)
+
+        return endpoint
+
+    async def _run_health_checks(self, endpoint: str) -&gt; bool:
+        &quot;&quot;&quot;Run health checks on deployment&quot;&quot;&quot;
+        # Implement health check logic
+        # Check if model responds correctly to test requests
+        return True
+
+    async def _switch_traffic(self, model_id: str, new_endpoint: str):
+        &quot;&quot;&quot;Switch traffic to new deployment&quot;&quot;&quot;
+        # Update load balancer or service mesh configuration
+        pass
+
+    async def _cleanup_old_deployment(self, model_id: str):
+        &quot;&quot;&quot;Clean up old deployment resources&quot;&quot;&quot;
+        # Remove old instances and resources
+        pass
+</code></pre>
+<h3 id="5-monitoring-stage">5. Monitoring Stage<a class="headerlink" href="#5-monitoring-stage" title="Permanent link">&para;</a></h3>
+<p>The monitoring stage provides continuous monitoring of deployed models:</p>
+<h4 id="features_4">Features<a class="headerlink" href="#features_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Performance Monitoring</strong>: Real-time performance metrics</li>
+<li><strong>Data Drift Detection</strong>: Monitor for changes in input data distribution</li>
+<li><strong>Model Drift Detection</strong>: Monitor for model performance degradation</li>
+<li><strong>Alert Management</strong>: Automated alerts for issues</li>
+</ul>
+<h4 id="implementation_4">Implementation<a class="headerlink" href="#implementation_4" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># lifecycle/monitoring.py
+from typing import Dict, List, Optional
+import asyncio
+import time
+from collections import deque
+import numpy as np
+from dataclasses import dataclass
+
+@dataclass
+class MonitoringMetric:
+    name: str
+    value: float
+    timestamp: float
+    tags: Dict[str, str] = None
+
+class ModelMonitor:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.metrics_buffer: Dict[str, deque] = {}
+        self.alerts: List[Dict] = []
+        self.drift_detectors: Dict[str, 'DriftDetector'] = {}
+
+    async def start_monitoring(self, model_id: str, deployment_id: str):
+        &quot;&quot;&quot;Start monitoring a deployed model&quot;&quot;&quot;
+
+        # Initialize monitoring components
+        await self._initialize_metrics_collection(model_id)
+        await self._initialize_drift_detection(model_id)
+        await self._initialize_alerting(model_id)
+
+        # Start monitoring tasks
+        monitoring_tasks = [
+            asyncio.create_task(self._collect_performance_metrics(model_id)),
+            asyncio.create_task(self._monitor_data_drift(model_id)),
+            asyncio.create_task(self._monitor_model_drift(model_id)),
+            asyncio.create_task(self._check_alerts(model_id))
+        ]
+
+        await asyncio.gather(*monitoring_tasks)
+
+    async def _collect_performance_metrics(self, model_id: str):
+        &quot;&quot;&quot;Collect performance metrics&quot;&quot;&quot;
+        while True:
+            try:
+                # Collect latency metrics
+                latency = await self._measure_latency(model_id)
+                self._record_metric(model_id, 'latency', latency)
+
+                # Collect throughput metrics
+                throughput = await self._measure_throughput(model_id)
+                self._record_metric(model_id, 'throughput', throughput)
+
+                # Collect error rate
+                error_rate = await self._measure_error_rate(model_id)
+                self._record_metric(model_id, 'error_rate', error_rate)
+
+                # Collect resource usage
+                cpu_usage = await self._measure_cpu_usage(model_id)
+                memory_usage = await self._measure_memory_usage(model_id)
+                self._record_metric(model_id, 'cpu_usage', cpu_usage)
+                self._record_metric(model_id, 'memory_usage', memory_usage)
+
+                await asyncio.sleep(self.config.get('metrics_interval', 60))
+
+            except Exception as e:
+                print(f&quot;Error collecting metrics for {model_id}: {e}&quot;)
+                await asyncio.sleep(60)
+
+    async def _monitor_data_drift(self, model_id: str):
+        &quot;&quot;&quot;Monitor for data drift&quot;&quot;&quot;
+        while True:
+            try:
+                # Get recent input data
+                recent_data = await self._get_recent_inputs(model_id, hours=24)
+
+                if len(recent_data) &gt; 100:  # Minimum sample size
+                    # Compare with baseline data
+                    drift_score = await self._calculate_data_drift(model_id, recent_data)
+
+                    if drift_score &gt; self.config.get('data_drift_threshold', 0.1):
+                        await self._trigger_data_drift_alert(model_id, drift_score)
+
+                await asyncio.sleep(self.config.get('drift_check_interval', 3600))
+
+            except Exception as e:
+                print(f&quot;Error monitoring data drift for {model_id}: {e}&quot;)
+                await asyncio.sleep(3600)
+
+    async def _monitor_model_drift(self, model_id: str):
+        &quot;&quot;&quot;Monitor for model performance drift&quot;&quot;&quot;
+        while True:
+            try:
+                # Get recent predictions and actual outcomes
+                recent_data = await self._get_recent_predictions(model_id, hours=24)
+
+                if len(recent_data) &gt; 100:
+                    # Calculate performance metrics
+                    accuracy = self._calculate_accuracy(recent_data)
+
+                    # Compare with baseline performance
+                    baseline_accuracy = await self._get_baseline_accuracy(model_id)
+                    performance_drop = baseline_accuracy - accuracy
+
+                    if performance_drop &gt; self.config.get('performance_drop_threshold', 0.05):
+                        await self._trigger_performance_drift_alert(model_id, performance_drop)
+
+                await asyncio.sleep(self.config.get('drift_check_interval', 3600))
+
+            except Exception as e:
+                print(f&quot;Error monitoring model drift for {model_id}: {e}&quot;)
+                await asyncio.sleep(3600)
+
+    def _record_metric(self, model_id: str, metric_name: str, value: float):
+        &quot;&quot;&quot;Record a metric value&quot;&quot;&quot;
+        key = f&quot;{model_id}_{metric_name}&quot;
+        if key not in self.metrics_buffer:
+            self.metrics_buffer[key] = deque(maxlen=1000)
+
+        metric = MonitoringMetric(
+            name=metric_name,
+            value=value,
+            timestamp=time.time(),
+            tags={'model_id': model_id}
+        )
+
+        self.metrics_buffer[key].append(metric)
+
+    async def _trigger_data_drift_alert(self, model_id: str, drift_score: float):
+        &quot;&quot;&quot;Trigger data drift alert&quot;&quot;&quot;
+        alert = {
+            'type': 'data_drift',
+            'model_id': model_id,
+            'severity': 'high',
+            'message': f'Data drift detected: {drift_score:.3f}',
+            'timestamp': time.time()
+        }
+
+        await self._send_alert(alert)
+
+    async def _trigger_performance_drift_alert(self, model_id: str, performance_drop: float):
+        &quot;&quot;&quot;Trigger performance drift alert&quot;&quot;&quot;
+        alert = {
+            'type': 'performance_drift',
+            'model_id': model_id,
+            'severity': 'high',
+            'message': f'Performance degradation detected: {performance_drop:.3f}',
+            'timestamp': time.time()
+        }
+
+        await self._send_alert(alert)
+
+    async def _send_alert(self, alert: Dict):
+        &quot;&quot;&quot;Send alert to configured channels&quot;&quot;&quot;
+        # Implementation depends on alerting system (Slack, email, PagerDuty, etc.)
+        print(f&quot;ALERT: {alert}&quot;)
+        self.alerts.append(alert)
+</code></pre>
+<h3 id="6-retirement-stage">6. Retirement Stage<a class="headerlink" href="#6-retirement-stage" title="Permanent link">&para;</a></h3>
+<p>The retirement stage manages the graceful retirement of models:</p>
+<h4 id="features_5">Features<a class="headerlink" href="#features_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Retirement Planning</strong>: Plan model retirement with stakeholders</li>
+<li><strong>Data Archival</strong>: Archive model artifacts and metadata</li>
+<li><strong>Knowledge Transfer</strong>: Transfer knowledge to replacement models</li>
+<li><strong>Resource Cleanup</strong>: Clean up resources and dependencies</li>
+</ul>
+<h4 id="implementation_5">Implementation<a class="headerlink" href="#implementation_5" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python"># lifecycle/retirement.py
+from typing import Dict, List, Optional
+import asyncio
+import time
+from enum import Enum
+
+class RetirementStatus(Enum):
+    PLANNED = &quot;planned&quot;
+    IN_PROGRESS = &quot;in_progress&quot;
+    COMPLETED = &quot;completed&quot;
+    CANCELLED = &quot;cancelled&quot;
+
+class ModelRetirementManager:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.retirement_plans: Dict[str, Dict] = {}
+
+    async def plan_retirement(self, model_id: str, reason: str,
+                            replacement_model_id: Optional[str] = None,
+                            retirement_date: Optional[float] = None) -&gt; str:
+        &quot;&quot;&quot;Plan model retirement&quot;&quot;&quot;
+
+        plan_id = f&quot;retirement_{model_id}_{int(time.time())}&quot;
+
+        retirement_plan = {
+            'id': plan_id,
+            'model_id': model_id,
+            'replacement_model_id': replacement_model_id,
+            'reason': reason,
+            'planned_retirement_date': retirement_date or time.time() + 30 * 24 * 3600,  # 30 days default
+            'status': RetirementStatus.PLANNED,
+            'created_at': time.time(),
+            'stakeholders': [],
+            'dependencies': [],
+            'artifacts_to_archive': []
+        }
+
+        # Identify stakeholders and dependencies
+        await self._identify_stakeholders(retirement_plan)
+        await self._identify_dependencies(retirement_plan)
+        await self._identify_artifacts(retirement_plan)
+
+        self.retirement_plans[plan_id] = retirement_plan
+
+        # Notify stakeholders
+        await self._notify_stakeholders(retirement_plan)
+
+        return plan_id
+
+    async def execute_retirement(self, plan_id: str) -&gt; bool:
+        &quot;&quot;&quot;Execute model retirement&quot;&quot;&quot;
+        if plan_id not in self.retirement_plans:
+            return False
+
+        plan = self.retirement_plans[plan_id]
+        plan['status'] = RetirementStatus.IN_PROGRESS
+
+        try:
+            # Step 1: Stop new deployments
+            await self._stop_new_deployments(plan['model_id'])
+
+            # Step 2: Gradual traffic reduction
+            await self._reduce_traffic_gradually(plan['model_id'])
+
+            # Step 3: Knowledge transfer
+            if plan['replacement_model_id']:
+                await self._transfer_knowledge(plan['model_id'], plan['replacement_model_id'])
+
+            # Step 4: Archive artifacts
+            await self._archive_artifacts(plan)
+
+            # Step 5: Update dependencies
+            await self._update_dependencies(plan)
+
+            # Step 6: Clean up resources
+            await self._cleanup_resources(plan['model_id'])
+
+            # Step 7: Update documentation
+            await self._update_documentation(plan)
+
+            plan['status'] = RetirementStatus.COMPLETED
+            plan['completed_at'] = time.time()
+
+            # Notify stakeholders of completion
+            await self._notify_retirement_completion(plan)
+
+            return True
+
+        except Exception as e:
+            plan['status'] = RetirementStatus.CANCELLED
+            plan['error'] = str(e)
+            await self._notify_retirement_failure(plan)
+            return False
+
+    async def _identify_stakeholders(self, plan: Dict):
+        &quot;&quot;&quot;Identify stakeholders for retirement&quot;&quot;&quot;
+        # Implementation depends on your organization's structure
+        plan['stakeholders'] = [
+            'data-science-team',
+            'engineering-team',
+            'product-team',
+            'business-stakeholders'
+        ]
+
+    async def _identify_dependencies(self, plan: Dict):
+        &quot;&quot;&quot;Identify systems that depend on the model&quot;&quot;&quot;
+        # Check for downstream systems, APIs, and integrations
+        plan['dependencies'] = [
+            'api-gateway',
+            'web-application',
+            'mobile-app',
+            'analytics-pipeline'
+        ]
+
+    async def _identify_artifacts(self, plan: Dict):
+        &quot;&quot;&quot;Identify artifacts to archive&quot;&quot;&quot;
+        plan['artifacts_to_archive'] = [
+            'model-weights',
+            'training-data',
+            'evaluation-results',
+            'deployment-configs',
+            'monitoring-logs'
+        ]
+
+    async def _notify_stakeholders(self, plan: Dict):
+        &quot;&quot;&quot;Notify stakeholders of retirement plan&quot;&quot;&quot;
+        # Implementation depends on notification system
+        print(f&quot;Notifying stakeholders of retirement plan for model {plan['model_id']}&quot;)
+
+    async def _stop_new_deployments(self, model_id: str):
+        &quot;&quot;&quot;Stop new deployments of the model&quot;&quot;&quot;
+        # Mark model as deprecated in deployment system
+        pass
+
+    async def _reduce_traffic_gradually(self, model_id: str):
+        &quot;&quot;&quot;Gradually reduce traffic to the model&quot;&quot;&quot;
+        # Reduce traffic percentage over time
+        traffic_percentages = [100, 75, 50, 25, 0]
+
+        for percentage in traffic_percentages:
+            await self._set_traffic_percentage(model_id, percentage)
+            await asyncio.sleep(7 * 24 * 3600)  # Wait 1 week between reductions
+
+    async def _transfer_knowledge(self, old_model_id: str, new_model_id: str):
+        &quot;&quot;&quot;Transfer knowledge from old model to new model&quot;&quot;&quot;
+        # Document lessons learned, best practices, and performance characteristics
+        knowledge_doc = {
+            'old_model_id': old_model_id,
+            'new_model_id': new_model_id,
+            'lessons_learned': [],
+            'best_practices': [],
+            'performance_characteristics': {},
+            'migration_notes': []
+        }
+
+        # Save knowledge document
+        await self._save_knowledge_document(knowledge_doc)
+
+    async def _archive_artifacts(self, plan: Dict):
+        &quot;&quot;&quot;Archive model artifacts&quot;&quot;&quot;
+        for artifact in plan['artifacts_to_archive']:
+            await self._archive_artifact(plan['model_id'], artifact)
+
+    async def _cleanup_resources(self, model_id: str):
+        &quot;&quot;&quot;Clean up model resources&quot;&quot;&quot;
+        # Remove deployments, containers, storage, etc.
+        pass
+
+    async def _update_documentation(self, plan: Dict):
+        &quot;&quot;&quot;Update documentation to reflect model retirement&quot;&quot;&quot;
+        # Update model registry, documentation, and wiki pages
+        pass
+</code></pre>
+<h2 id="lifecycle-orchestration">Lifecycle Orchestration<a class="headerlink" href="#lifecycle-orchestration" title="Permanent link">&para;</a></h2>
+<h3 id="complete-lifecycle-manager">Complete Lifecycle Manager<a class="headerlink" href="#complete-lifecycle-manager" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># lifecycle/manager.py
+from typing import Dict, List, Optional
+import asyncio
+from lifecycle.development import ModelDevelopmentManager
+from lifecycle.training import TrainingManager
+from lifecycle.validation import ModelValidator
+from lifecycle.deployment import ModelDeploymentManager
+from lifecycle.monitoring import ModelMonitor
+from lifecycle.retirement import ModelRetirementManager
+
+class ModelLifecycleManager:
+    def __init__(self, config: Dict):
+        self.config = config
+        self.development_manager = ModelDevelopmentManager(config.get('mlflow', {}))
+        self.training_manager = TrainingManager(config.get('training', {}))
+        self.validator = ModelValidator(config.get('validation', {}))
+        self.deployment_manager = ModelDeploymentManager(config.get('deployment', {}))
+        self.monitor = ModelMonitor(config.get('monitoring', {}))
+        self.retirement_manager = ModelRetirementManager(config.get('retirement', {}))
+
+        self.model_lifecycle: Dict[str, Dict] = {}
+
+    async def create_model_lifecycle(self, model_id: str, config: Dict) -&gt; str:
+        &quot;&quot;&quot;Create a new model lifecycle&quot;&quot;&quot;
+        lifecycle_id = f&quot;lifecycle_{model_id}_{int(time.time())}&quot;
+
+        lifecycle = {
+            'id': lifecycle_id,
+            'model_id': model_id,
+            'config': config,
+            'stages': {
+                'development': {'status': 'active', 'started_at': time.time()},
+                'training': {'status': 'pending'},
+                'validation': {'status': 'pending'},
+                'deployment': {'status': 'pending'},
+                'monitoring': {'status': 'pending'},
+                'retirement': {'status': 'pending'}
+            },
+            'artifacts': {},
+            'metadata': {}
+        }
+
+        self.model_lifecycle[lifecycle_id] = lifecycle
+
+        return lifecycle_id
+
+    async def progress_to_stage(self, lifecycle_id: str, stage: str) -&gt; bool:
+        &quot;&quot;&quot;Progress model lifecycle to next stage&quot;&quot;&quot;
+        if lifecycle_id not in self.model_lifecycle:
+            return False
+
+        lifecycle = self.model_lifecycle[lifecycle_id]
+
+        try:
+            if stage == 'training':
+                await self._start_training_stage(lifecycle)
+            elif stage == 'validation':
+                await self._start_validation_stage(lifecycle)
+            elif stage == 'deployment':
+                await self._start_deployment_stage(lifecycle)
+            elif stage == 'monitoring':
+                await self._start_monitoring_stage(lifecycle)
+            elif stage == 'retirement':
+                await self._start_retirement_stage(lifecycle)
+
+            lifecycle['stages'][stage]['status'] = 'active'
+            lifecycle['stages'][stage]['started_at'] = time.time()
+
+            return True
+
+        except Exception as e:
+            lifecycle['stages'][stage]['status'] = 'failed'
+            lifecycle['stages'][stage]['error'] = str(e)
+            return False
+
+    async def get_lifecycle_status(self, lifecycle_id: str) -&gt; Dict:
+        &quot;&quot;&quot;Get current lifecycle status&quot;&quot;&quot;
+        if lifecycle_id not in self.model_lifecycle:
+            return {}
+
+        return self.model_lifecycle[lifecycle_id]
+
+    async def _start_training_stage(self, lifecycle: Dict):
+        &quot;&quot;&quot;Start training stage&quot;&quot;&quot;
+        # Implementation for starting training
+        pass
+
+    async def _start_validation_stage(self, lifecycle: Dict):
+        &quot;&quot;&quot;Start validation stage&quot;&quot;&quot;
+        # Implementation for starting validation
+        pass
+
+    async def _start_deployment_stage(self, lifecycle: Dict):
+        &quot;&quot;&quot;Start deployment stage&quot;&quot;&quot;
+        # Implementation for starting deployment
+        pass
+
+    async def _start_monitoring_stage(self, lifecycle: Dict):
+        &quot;&quot;&quot;Start monitoring stage&quot;&quot;&quot;
+        # Implementation for starting monitoring
+        pass
+
+    async def _start_retirement_stage(self, lifecycle: Dict):
+        &quot;&quot;&quot;Start retirement stage&quot;&quot;&quot;
+        # Implementation for starting retirement
+        pass
+</code></pre>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-lifecycle-management">1. Lifecycle Management<a class="headerlink" href="#1-lifecycle-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Clear Stage Transitions</strong>: Define clear criteria for moving between stages</li>
+<li><strong>Automated Workflows</strong>: Automate stage transitions where possible</li>
+<li><strong>Audit Trails</strong>: Maintain comprehensive audit trails for all lifecycle events</li>
+<li><strong>Stakeholder Communication</strong>: Keep stakeholders informed of lifecycle progress</li>
+</ul>
+<h3 id="2-quality-gates">2. Quality Gates<a class="headerlink" href="#2-quality-gates" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Validation Criteria</strong>: Define clear validation criteria for each stage</li>
+<li><strong>Automated Testing</strong>: Implement automated testing at each stage</li>
+<li><strong>Performance Benchmarks</strong>: Establish performance benchmarks</li>
+<li><strong>Compliance Checks</strong>: Ensure regulatory compliance at each stage</li>
+</ul>
+<h3 id="3-monitoring-and-alerting">3. Monitoring and Alerting<a class="headerlink" href="#3-monitoring-and-alerting" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Monitoring</strong>: Monitor all aspects of model performance</li>
+<li><strong>Proactive Alerting</strong>: Set up alerts for potential issues</li>
+<li><strong>Regular Reviews</strong>: Conduct regular lifecycle reviews</li>
+<li><strong>Continuous Improvement</strong>: Continuously improve lifecycle processes</li>
+</ul>
+<h3 id="4-documentation-and-knowledge-management">4. Documentation and Knowledge Management<a class="headerlink" href="#4-documentation-and-knowledge-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Documentation</strong>: Document all lifecycle stages</li>
+<li><strong>Knowledge Transfer</strong>: Ensure knowledge transfer between stages</li>
+<li><strong>Lessons Learned</strong>: Capture and share lessons learned</li>
+<li><strong>Best Practices</strong>: Maintain and update best practices</li>
+</ul>
+<p>This comprehensive model lifecycle management system ensures that AI models are properly managed throughout their entire operational life, from initial development to eventual retirement, providing visibility, control, and quality assurance at every stage.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Lenovo AAITC Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/s-n00b" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/lenovo" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/lenovo" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

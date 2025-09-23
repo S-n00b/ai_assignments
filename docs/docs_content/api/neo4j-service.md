@@ -1,577 +1,132 @@
-# Neo4j Service API Documentation
+# Neo4j GraphRAG Service Documentation
 
 ## 🎯 Overview
 
-The Neo4j Service provides comprehensive graph database integration for the Lenovo Enterprise LLMOps Platform, featuring GraphRAG capabilities, organizational structure analysis, and real-time graph analytics.
+The Neo4j GraphRAG Service provides comprehensive knowledge graph capabilities for the Lenovo AAITC Enterprise Platform, enabling advanced semantic search, relationship analysis, and intelligent data retrieval.
 
 ## 🚀 Key Features
 
 ### Core Capabilities
 
-- **Graph Database Operations**: Full CRUD operations for graph data
-- **GraphRAG Integration**: Semantic search and knowledge retrieval
-- **Lenovo Org Structure**: Realistic organizational data with Faker
-- **B2B Client Scenarios**: Enterprise client relationship mapping
-- **Enterprise Patterns**: Org charts, project networks, knowledge graphs
-- **Real-time Analytics**: Live insights and relationship analysis
+- **Knowledge Graph Management**: Complete graph database operations
+- **GraphRAG Implementation**: Advanced retrieval-augmented generation
+- **Faker Data Integration**: Realistic test data generation
+- **Lenovo Organization Modeling**: Enterprise structure representation
+- **B2B Relationship Mapping**: Client and project relationship analysis
+- **Skills & Certification Tracking**: Employee competency management
 
 ### Integration Features
 
-- **FastAPI Integration**: RESTful API endpoints for all operations
-- **Async Operations**: High-performance asynchronous query execution
-- **Connection Pooling**: Optimized database connection management
-- **Health Monitoring**: Service status and performance tracking
-- **Error Handling**: Comprehensive error handling and logging
+- **FastAPI Backend Integration**: Seamless API integration
+- **Real-time Graph Visualization**: Interactive graph exploration
+- **Advanced Cypher Queries**: Custom graph query capabilities
+- **Automated Data Generation**: Faker-based test data creation
 
-## 🌐 Service Integration
-
-### Port Configuration
-
-| Service            | Port | URL                             | Description                  |
-| ------------------ | ---- | ------------------------------- | ---------------------------- |
-| **Neo4j Browser**  | 7474 | http://localhost:7474           | Neo4j graph database browser |
-| **Neo4j API**      | 8080 | http://localhost:8080/api/neo4j | Neo4j service endpoints      |
-| **Neo4j Database** | 7687 | bolt://localhost:7687           | Neo4j database connection    |
-
-### Service Dependencies
-
-- **Neo4j Database**: Core graph database engine
-- **Enterprise Platform**: FastAPI integration
-- **GraphRAG**: Semantic search capabilities
-- **Faker**: Realistic data generation
-
-## 📚 API Endpoints
+## 🌐 API Endpoints
 
 ### Health & Status
 
-#### GET /api/neo4j/health
-
-Get Neo4j service health status.
-
-**Response:**
-
-```json
-{
-  "status": "healthy",
-  "uri": "bolt://localhost:7687",
-  "database": "neo4j",
-  "timestamp": "2024-12-19T10:30:00Z",
-  "query_response": {
-    "status": "healthy",
-    "timestamp": "2024-12-19T10:30:00Z"
-  },
-  "execution_time": 0.05
-}
-```
-
-#### GET /api/neo4j/info
-
-Get Neo4j database information and statistics.
-
-**Response:**
-
-```json
-{
-  "node_count": 5000,
-  "relationship_count": 15000,
-  "labels": ["person", "department", "project", "client"],
-  "relationship_types": ["reports_to", "works_in", "participates_in"],
-  "indexes": [
-    {
-      "description": "INDEX ON :person(id)",
-      "state": "ONLINE",
-      "type": "BTREE"
-    }
-  ]
-}
-```
+- `GET /api/neo4j/health` - Neo4j service health status
+- `GET /api/neo4j/info` - Database information and statistics
 
 ### Graph Operations
 
-#### POST /api/neo4j/query
+- `POST /api/neo4j/query` - Execute custom Cypher queries
+- `POST /api/neo4j/graphrag` - GraphRAG semantic search
+- `GET /api/neo4j/org-structure` - Lenovo organizational data
+- `GET /api/neo4j/b2b-clients` - B2B client relationships
+- `GET /api/neo4j/project-dependencies` - Project network analysis
 
-Execute custom Cypher queries.
+### Data Management
 
-**Request:**
-
-```json
-{
-  "query": "MATCH (n) RETURN count(n) as total_nodes",
-  "parameters": {},
-  "timeout": 30
-}
-```
-
-**Response:**
-
-```json
-{
-  "data": [{ "total_nodes": 5000 }],
-  "summary": {
-    "nodes_created": 0,
-    "relationships_created": 0,
-    "properties_set": 0
-  },
-  "execution_time": 0.1,
-  "query_type": "read"
-}
-```
-
-#### POST /api/neo4j/graphrag
-
-Execute GraphRAG semantic search queries.
-
-**Request:**
-
-```json
-{
-  "query": "What is Lenovo's flagship laptop series?",
-  "limit": 10
-}
-```
-
-**Response:**
-
-```json
-{
-  "query": "What is Lenovo's flagship laptop series?",
-  "results": [
-    {
-      "d": {
-        "id": "doc_1",
-        "text_content": "ThinkPad is Lenovo's flagship laptop series...",
-        "metadata": { "type": "product_info" }
-      },
-      "entities": [{ "name": "ThinkPad", "type": "product" }],
-      "concepts": [{ "name": "laptop", "type": "product_category" }]
-    }
-  ],
-  "execution_time": 0.2,
-  "total_results": 1
-}
-```
-
-### Lenovo Data
-
-#### GET /api/neo4j/org-structure
-
-Get Lenovo organizational structure data.
-
-**Response:**
-
-```json
-{
-  "organizational_data": [
-    {
-      "p": {
-        "id": "emp_1",
-        "name": "John Smith",
-        "role": "Senior Engineer",
-        "level": "individual_contributor"
-      },
-      "m": {
-        "id": "emp_2",
-        "name": "Jane Doe",
-        "role": "Engineering Manager",
-        "level": "management"
-      },
-      "d": {
-        "id": "dept_1",
-        "name": "Engineering",
-        "budget": 5000000
-      }
-    }
-  ],
-  "execution_time": 0.15,
-  "total_relationships": 500
-}
-```
-
-#### GET /api/neo4j/b2b-clients
-
-Get B2B client data and relationships.
-
-**Response:**
-
-```json
-{
-  "client_data": [
-    {
-      "c": {
-        "id": "client_1",
-        "name": "Acme Corporation",
-        "industry": "Technology",
-        "contract_value": 1000000
-      },
-      "s": {
-        "id": "sol_1",
-        "name": "ThinkPad Laptop Fleet",
-        "implementation_status": "completed"
-      },
-      "client_employees": [
-        {
-          "id": "client_emp_1",
-          "name": "Client Manager",
-          "role": "IT Manager"
-        }
-      ]
-    }
-  ],
-  "execution_time": 0.12,
-  "total_clients": 20
-}
-```
-
-#### GET /api/neo4j/project-dependencies
-
-Get project dependency network.
-
-**Response:**
-
-```json
-{
-  "project_dependencies": [
-    {
-      "p1": {
-        "id": "proj_1",
-        "name": "AI Platform Development",
-        "status": "active",
-        "priority": "high"
-      },
-      "p2": {
-        "id": "proj_2",
-        "name": "Infrastructure Setup",
-        "status": "completed",
-        "priority": "critical"
-      },
-      "team_members": [
-        {
-          "id": "emp_1",
-          "name": "Project Lead",
-          "role": "Technical Lead"
-        }
-      ]
-    }
-  ],
-  "execution_time": 0.18,
-  "total_dependencies": 50
-}
-```
-
-### Employee & Organization Data
-
-#### GET /api/neo4j/employees
-
-Get employee information with optional filtering.
-
-**Parameters:**
-
-- `limit` (int): Maximum number of employees (default: 50)
-- `department` (string): Filter by department name
-
-**Response:**
-
-```json
-{
-  "employees": [
-    {
-      "id": "emp_1",
-      "name": "John Smith",
-      "role": "Senior Engineer",
-      "department": "Engineering",
-      "level": "individual_contributor",
-      "skills": ["Python", "Machine Learning", "DevOps"]
-    }
-  ],
-  "total_returned": 50,
-  "execution_time": 0.1
-}
-```
-
-#### GET /api/neo4j/departments
-
-Get department information with employee counts.
-
-**Response:**
-
-```json
-{
-  "departments": [
-    {
-      "d": {
-        "id": "dept_1",
-        "name": "Engineering",
-        "budget": 5000000,
-        "headcount": 150
-      },
-      "employee_count": 150
-    }
-  ],
-  "total_departments": 15,
-  "execution_time": 0.08
-}
-```
-
-#### GET /api/neo4j/projects
-
-Get project information with team assignments.
-
-**Parameters:**
-
-- `status` (string): Filter by project status
-- `limit` (int): Maximum number of projects (default: 50)
-
-**Response:**
-
-```json
-{
-  "projects": [
-    {
-      "p": {
-        "id": "proj_1",
-        "name": "AI Platform Development",
-        "status": "active",
-        "priority": "high",
-        "budget": 2000000
-      },
-      "team_members": [
-        {
-          "id": "emp_1",
-          "name": "Project Manager",
-          "role": "lead"
-        }
-      ]
-    }
-  ],
-  "total_returned": 50,
-  "execution_time": 0.12
-}
-```
-
-#### GET /api/neo4j/skills
-
-Get skills and certifications information.
-
-**Parameters:**
-
-- `category` (string): Filter by skill category
-
-**Response:**
-
-```json
-{
-  "skills": [
-    {
-      "s": {
-        "id": "skill_1",
-        "name": "Python",
-        "category": "technical",
-        "demand_level": "high"
-      },
-      "employee_count": 120
-    }
-  ],
-  "total_skills": 50,
-  "execution_time": 0.09
-}
-```
+- `GET /api/neo4j/employees` - Employee information
+- `GET /api/neo4j/departments` - Department data
+- `GET /api/neo4j/projects` - Project information
+- `GET /api/neo4j/skills` - Skills and certifications
 
 ### Analytics
 
-#### GET /api/neo4j/analytics/org-chart
-
-Get organizational chart analytics.
-
-**Response:**
-
-```json
-{
-  "management_hierarchy": [
-    {
-      "m": {
-        "id": "emp_1",
-        "name": "CEO",
-        "role": "Chief Executive Officer"
-      },
-      "report_count": 8,
-      "direct_reports": [
-        {
-          "id": "emp_2",
-          "name": "CTO",
-          "role": "Chief Technology Officer"
-        }
-      ]
-    }
-  ],
-  "execution_time": 0.2
-}
-```
-
-#### GET /api/neo4j/analytics/project-metrics
-
-Get project metrics and analytics.
-
-**Response:**
-
-```json
-{
-  "project_metrics": [
-    {
-      "status": "active",
-      "count": 25,
-      "avg_budget": 1500000,
-      "sample_projects": [
-        "AI Platform Development",
-        "Infrastructure Modernization"
-      ]
-    }
-  ],
-  "execution_time": 0.15
-}
-```
-
-#### GET /api/neo4j/analytics/skill-gaps
-
-Get skill gap analysis.
-
-**Response:**
-
-```json
-{
-  "skill_gaps": [
-    {
-      "s": {
-        "id": "skill_1",
-        "name": "Quantum Computing",
-        "category": "emerging"
-      },
-      "employee_count": 2
-    }
-  ],
-  "total_gaps": 15,
-  "execution_time": 0.1
-}
-```
+- `GET /api/neo4j/analytics/*` - Advanced analytics endpoints
 
 ## 🔧 Configuration
 
-### Environment Variables
+### Service Setup
 
 ```bash
-# Neo4j Configuration
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USERNAME=neo4j
-NEO4J_PASSWORD=password
-NEO4J_DATABASE=neo4j
-
-# Connection Pool Settings
-NEO4J_MAX_CONNECTION_LIFETIME=3600
-NEO4J_MAX_CONNECTION_POOL_SIZE=50
-NEO4J_CONNECTION_ACQUISITION_TIMEOUT=60
+# Start Neo4j service
+docker run -d \
+  --name neo4j \
+  -p 7474:7474 \
+  -p 7687:7687 \
+  -v neo4j_data:/data \
+  -v neo4j_logs:/logs \
+  -e NEO4J_AUTH=neo4j/password \
+  neo4j:latest
 ```
 
-### Service Configuration
+### API Integration
 
 ```python
-from src.enterprise_llmops.neo4j_service import Neo4jConfig
+# Neo4j service client
+from src.enterprise_llmops.neo4j_service import Neo4jService
 
-config = Neo4jConfig(
-    uri="bolt://localhost:7687",
-    username="neo4j",
-    password="password",
-    database="neo4j",
-    max_connection_lifetime=3600,
-    max_connection_pool_size=50,
-    connection_acquisition_timeout=60
-)
+neo4j = Neo4jService()
+result = await neo4j.execute_query("MATCH (n) RETURN n LIMIT 10")
 ```
 
-## 📊 Usage Examples
+## 📊 Graph Schema
 
-### Basic Query Execution
+### Core Entities
 
-```python
-import requests
+```cypher
+// Employee Entity
+CREATE (e:Employee {
+  id: $id,
+  name: $name,
+  email: $email,
+  role: $role,
+  department: $department
+})
 
-# Health check
-response = requests.get("http://localhost:8080/api/neo4j/health")
-print(response.json())
+// Department Entity
+CREATE (d:Department {
+  id: $id,
+  name: $name,
+  manager: $manager
+})
 
-# Custom query
-query_data = {
-    "query": "MATCH (p:person) WHERE p.level = 'executive' RETURN p",
-    "parameters": {},
-    "timeout": 30
-}
-response = requests.post("http://localhost:8080/api/neo4j/query", json=query_data)
-print(response.json())
+// Project Entity
+CREATE (p:Project {
+  id: $id,
+  name: $name,
+  status: $status,
+  budget: $budget
+})
 ```
 
-### GraphRAG Query
+### Relationships
 
-```python
-# GraphRAG semantic search
-graphrag_data = {
-    "query": "Tell me about Lenovo's AI capabilities",
-    "limit": 5
-}
-response = requests.post("http://localhost:8080/api/neo4j/graphrag", json=graphrag_data)
-print(response.json())
+```cypher
+// Employee-Department Relationship
+MATCH (e:Employee), (d:Department)
+WHERE e.department = d.name
+CREATE (e)-[:WORKS_IN]->(d)
+
+// Employee-Project Relationship
+MATCH (e:Employee), (p:Project)
+WHERE e.id IN p.team_members
+CREATE (e)-[:WORKING_ON]->(p)
 ```
 
-### Organizational Analysis
+## 🚀 Quick Start
 
-```python
-# Get organizational structure
-response = requests.get("http://localhost:8080/api/neo4j/org-structure")
-org_data = response.json()
+### 1. Access Neo4j Browser
 
-# Get project dependencies
-response = requests.get("http://localhost:8080/api/neo4j/project-dependencies")
-project_data = response.json()
+- **URL**: http://localhost:7474
+- **Username**: neo4j
+- **Password**: password
 
-# Get skill gap analysis
-response = requests.get("http://localhost:8080/api/neo4j/analytics/skill-gaps")
-skill_gaps = response.json()
-```
-
-## 🚨 Troubleshooting
-
-### Common Issues
-
-#### Connection Failed
-
-```bash
-# Check Neo4j status
-curl http://localhost:8080/api/neo4j/health
-
-# Verify Neo4j is running
-neo4j status
-
-# Check connection settings
-# Default: bolt://localhost:7687, username: neo4j, password: password
-```
-
-#### Query Timeout
-
-```bash
-# Increase timeout in query request
-{
-  "query": "MATCH (n) RETURN n",
-  "timeout": 60
-}
-```
-
-#### Authentication Error
-
-```bash
-# Verify credentials
-curl -u neo4j:password http://localhost:8080/api/neo4j/health
-```
-
-### Debug Procedures
-
-#### Check Service Status
+### 2. Test API Endpoints
 
 ```bash
 # Health check
@@ -579,35 +134,126 @@ curl http://localhost:8080/api/neo4j/health
 
 # Database info
 curl http://localhost:8080/api/neo4j/info
-```
 
-#### Test Query Execution
-
-```bash
-# Simple test query
+# Custom query
 curl -X POST http://localhost:8080/api/neo4j/query \
   -H "Content-Type: application/json" \
-  -d '{"query": "RETURN 1 as test"}'
+  -d '{"query": "MATCH (n) RETURN count(n) as total_nodes"}'
+```
+
+### 3. GraphRAG Search
+
+```bash
+# Semantic search
+curl -X POST http://localhost:8080/api/neo4j/graphrag \
+  -H "Content-Type: application/json" \
+  -d '{"query": "Find employees working on AI projects"}'
+```
+
+## 📈 Performance & Scaling
+
+### Optimization Features
+
+- **Index Management**: Automatic index creation for common queries
+- **Query Caching**: Result caching for frequently accessed data
+- **Connection Pooling**: Efficient database connection management
+- **Batch Operations**: Bulk data processing capabilities
+
+### Monitoring
+
+- **Query Performance**: Execution time tracking
+- **Memory Usage**: Graph database memory monitoring
+- **Connection Status**: Active connection tracking
+- **Error Rates**: Query failure monitoring
+
+## 🔗 Integration Examples
+
+### FastAPI Integration
+
+```python
+@app.get("/api/neo4j/org-structure")
+async def get_org_structure():
+    query = """
+    MATCH (d:Department)-[:MANAGES]->(e:Employee)
+    RETURN d.name as department, 
+           collect(e.name) as employees
+    """
+    return await neo4j.execute_query(query)
+```
+
+### Gradio Integration
+
+```python
+def visualize_org_chart():
+    query = """
+    MATCH (d:Department)-[:MANAGES]->(e:Employee)
+    RETURN d, e
+    """
+    results = neo4j.execute_query(query)
+    return create_graph_visualization(results)
+```
+
+## 🛠️ Development
+
+### Code Structure
+
+```
+src/enterprise_llmops/
+├── neo4j_service.py          # Neo4j service implementation
+├── graph_operations.py       # Graph query operations
+├── faker_integration.py      # Test data generation
+└── analytics/
+    ├── org_analysis.py       # Organization analytics
+    ├── project_analysis.py   # Project analytics
+    └── skills_analysis.py    # Skills analytics
+```
+
+### Adding New Queries
+
+1. Define query in `graph_operations.py`
+2. Add endpoint in FastAPI application
+3. Update documentation
+4. Add tests
+
+### Testing
+
+```bash
+# Test Neo4j connectivity
+python -m pytest tests/test_neo4j.py -v
+
+# Test specific endpoints
+curl http://localhost:8080/api/neo4j/health
+```
+
+## 🚨 Troubleshooting
+
+### Common Issues
+
+1. **Connection Refused**: Ensure Neo4j is running on port 7474
+2. **Authentication Failed**: Check username/password configuration
+3. **Query Timeout**: Optimize complex queries or increase timeout
+4. **Memory Issues**: Monitor Neo4j memory usage
+
+### Debug Mode
+
+```bash
+# Enable debug logging
+export NEO4J_DEBUG=true
+python -m src.enterprise_llmops.main --log-level debug
 ```
 
 ## 📞 Support
 
-### Resources
+For issues and questions:
 
-- **Neo4j Documentation**: [Neo4j Graph Database](https://neo4j.com/docs/)
-- **GraphRAG Research**: [Microsoft GraphRAG](https://github.com/microsoft/graphrag)
-- **FastAPI Documentation**: [FastAPI Docs](https://fastapi.tiangolo.com/)
-
-### Getting Help
-
-- Check the health endpoint for service status
-- Review Neo4j logs for database issues
-- Verify connection settings and credentials
-- Test with simple queries first
+1. Check the [FastAPI documentation](fastapi-enterprise.md)
+2. Review the [troubleshooting guide](../resources/troubleshooting.md)
+3. Check the [progress bulletin](../progress-bulletin.md)
+4. Access Neo4j browser at http://localhost:7474
 
 ---
 
-**Last Updated**: 2024-12-19  
-**Version**: 1.0.0  
+**Last Updated**: January 19, 2025  
+**Version**: 2.1.0  
 **Status**: Production Ready  
-**Integration**: Full Neo4j Service Integration
+**Integration**: Full Enterprise Platform Integration

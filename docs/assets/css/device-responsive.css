@@ -1,0 +1,297 @@
+/* Device Responsive CSS for MkDocs Material Theme */
+
+/* Mobile First Approach */
+@media screen and (max-width: 768px) {
+  /* Navigation adjustments */
+  .md-nav--primary .md-nav__title {
+    font-size: 1.1rem;
+  }
+  
+  .md-nav__item {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Content adjustments */
+  .md-content {
+    padding: 1rem 0.5rem;
+  }
+  
+  /* Chart responsiveness */
+  .mermaid {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Grid cards responsive */
+  .grid.cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Tables responsive */
+  .md-typeset table:not([class]) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .grid.cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .md-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Desktop optimizations */
+@media screen and (min-width: 1025px) {
+  .grid.cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .md-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  /* Larger charts on desktop */
+  .mermaid {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Chart rendering improvements */
+.mermaid {
+  background: var(--md-default-bg-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress bulletin responsive */
+.progress-bulletin {
+  padding: 1rem;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .status-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Achievement grid responsive */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Timeline responsive */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .timeline {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* Code blocks responsive */
+.md-typeset pre {
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Navigation tabs responsive */
+.md-tabs {
+  overflow-x: auto;
+}
+
+.md-tabs__list {
+  white-space: nowrap;
+}
+
+/* Search responsive */
+.md-search__form {
+  max-width: 100%;
+}
+
+/* Footer responsive */
+.md-footer {
+  padding: 1rem;
+}
+
+/* Print styles */
+@media print {
+  .md-nav,
+  .md-tabs,
+  .md-search,
+  .md-footer {
+    display: none;
+  }
+  
+  .md-content {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mermaid {
+    break-inside: avoid;
+  }
+}
+
+/* Dark mode enhancements */
+[data-md-color-scheme="slate"] .mermaid {
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-code-fg-color--light);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .mermaid {
+    border: 2px solid var(--md-accent-fg-color);
+  }
+  
+  .grid.cards {
+    border: 1px solid var(--md-accent-fg-color);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .md-nav__item,
+  .md-tabs__item,
+  .md-search__form {
+    transition: none;
+  }
+}
+
+/* Focus improvements for accessibility */
+.md-nav__link:focus,
+.md-tabs__link:focus,
+.md-search__input:focus {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.mermaid:not([data-processed="true"]) {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.mermaid[data-processed="true"] {
+  opacity: 1;
+}
+
+/* Error states */
+.mermaid.error {
+  border: 2px solid var(--md-error-fg-color);
+  background: var(--md-error-bg-color);
+  color: var(--md-error-fg-color);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Evaluation Scale Styles */
+.evaluation-scale {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--md-code-bg-color);
+  border-radius: 8px;
+  border: 1px solid var(--md-code-fg-color--light);
+}
+
+.scale-item {
+  margin-bottom: 1.5rem;
+}
+
+.scale-item:last-child {
+  margin-bottom: 0;
+}
+
+.scale-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--md-code-fg-color);
+}
+
+.scale-bar {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--md-code-fg-color--light);
+}
+
+.scale-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+  border-radius: 12px;
+  transition: width 0.8s ease-in-out;
+  position: relative;
+}
+
+.scale-text {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--md-code-fg-color);
+  z-index: 2;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .evaluation-scale {
+  background: var(--md-code-bg-color);
+  border-color: var(--md-code-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .scale-bar {
+  background: var(--md-default-fg-color--lightest);
+  border-color: var(--md-code-fg-color--light);
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+  .evaluation-scale {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .scale-bar {
+    height: 20px;
+  }
+  
+  .scale-text {
+    font-size: 0.75rem;
+    right: 6px;
+  }
+}

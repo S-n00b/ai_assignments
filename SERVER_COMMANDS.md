@@ -86,10 +86,27 @@ python -m src.enterprise_llmops.main --host 0.0.0.0 --port 8080
 # Or run Neo4j in Docker (alternative)
 docker run --name neo4j -p 7474:7474 -p 7687:7687 -d -v $PWD/neo4j_data:/data -v $PWD/neo4j_logs:/logs -v $PWD/neo4j_import:/var/lib/neo4j/import -v $PWD/neo4j_plugins:/plugins --env NEO4J_AUTH=neo4j/password neo4j:latest
 
-# Access Neo4j Browser at: http://localhost:7474
+# Access Neo4j Browser at: http://localhost:8080/iframe/neo4j-browser (embedded service)
+# Direct Neo4j Browser access: http://localhost:7474 (requires Neo4j Desktop)
 ```
 
-#### Terminal 9: Development Shell
+#### Terminal 9: LangGraph Studio
+
+```powershell
+# Install LangGraph Studio dependencies
+pip install langgraph-cli langgraph-studio
+
+# Run setup script (recommended)
+.\scripts\setup-langgraph-studio.ps1
+
+# Start LangGraph Studio
+langgraph dev --host localhost --port 8083
+
+# Access LangGraph Studio at: http://localhost:8083
+# Or via unified platform at: http://localhost:8080/iframe/langgraph-studio
+```
+
+#### Terminal 10: Development Shell
 
 ```powershell
 & C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1

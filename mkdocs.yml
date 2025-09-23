@@ -1,0 +1,248 @@
+# Material for MkDocs Configuration - Lenovo AAITC Solutions
+site_name: Lenovo AAITC Solutions
+site_description: Advanced AI Model Evaluation & Architecture Framework
+site_url: https://s-n00b.github.io/ai_assignments
+site_author: Lenovo AAITC Team
+
+# Repository
+repo_name: s-n00b/ai_assignments
+repo_url: https://github.com/s-n00b/ai_assignments
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2025 Lenovo AAITC Team
+
+# Theme Configuration
+theme:
+  name: material
+  language: en
+  logo: assets/img/logo.png
+  favicon: assets/img/favicon.svg
+  palette:
+    # Light mode
+    - scheme: default
+      primary: red
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: red
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - mermaid2:
+      arguments:
+        theme: base
+        themeVariables:
+          primaryColor: "#01579b"
+          primaryTextColor: "#ffffff"
+          primaryBorderColor: "#01579b"
+          lineColor: "#01579b"
+          secondaryColor: "#f3e5f5"
+          tertiaryColor: "#e8f5e8"
+        securityLevel: "loose"
+        startOnLoad: true
+
+# Markdown Extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator:
+        !!python/name:material.extensions.emoji.to_svg # Navigation Structure - Two Distinct Categories with Unified Documentation
+
+nav:
+  - Home: index.md
+
+  # Category 1: Model Enablement & UX Evaluation
+  - Model Enablement & UX Evaluation:
+      - AI Engineering Overview: category1/ai-engineering-overview.md
+      - Model Evaluation Framework: category1/model-evaluation-framework.md
+      - UX Evaluation & Testing: category1/ux-evaluation-testing.md
+      - Model Profiling & Characterization: category1/model-profiling-characterization.md
+      - API Documentation: category1/api-documentation.md
+      - Live Demo: category1/live-demo.md
+      - Model Factory Architecture: category1/model-factory-architecture.md
+      - Practical Evaluation Exercise: category1/practical-evaluation-exercise.md
+
+  # Category 2: AI System Architecture & MLOps
+  - AI System Architecture & MLOps:
+      - System Architecture Overview: category2/system-architecture-overview.md
+      - API Documentation: category2/api-documentation.md
+      - Frontier Model Experimentation: category2/frontier-model-experimentation.md
+      - Live Demo: category2/live-demo.md
+      - MLOps CI/CD Lifecycle: category2/mlops-cicd-lifecycle.md
+      - Post-Training Optimization: category2/post-training-optimization.md
+      - Project Management Skills: category2/project-management-skills.md
+      - Stakeholder Vision & Scoping: category2/stakeholder-vision-scoping.md
+
+  # Enterprise Platform Components
+  - Enterprise Platform:
+      - Assignment: assignments/assignment1/overview.md
+      - Chat Playground: api/chat-playground.md
+      - Model Evaluation: api/gradio-model-evaluation.md
+      - MLflow Tracking: api/mlflow-integration.md
+      - ChromaDB Vector Store: api/chromadb-integration.md
+      - LangGraph Studio: api/langgraph-studio.md
+      - Neo4j GraphRAG Demo: api/neo4j-integration.md
+      - Documentation Hub: index.md
+
+  # API Documentation - Unified FastAPI & Gradio
+  - API Documentation:
+      - FastAPI Enterprise Platform: api/fastapi-enterprise.md
+      - FastAPI Interactive Docs: api/fastapi-embedded-docs.md
+      - Gradio Model Evaluation: api/gradio-model-evaluation.md
+      - LangGraph Studio Integration: api/langgraph-studio.md
+      - ChromaDB Integration: api/chromadb-integration.md
+      - Neo4j Integration: api/neo4j-integration.md
+      - MLflow Integration: api/mlflow-integration.md
+      - MCP Server Integration: api/mcp-server.md
+      - Model Evaluation API: api/model-evaluation.md
+      - AI Architecture API: api/ai-architecture.md
+      - Utilities API: api/utilities.md
+      - Chat Playground: api/chat-playground.md
+      - Gradio App: api/gradio-app.md
+
+  # Live Applications & Demos
+  - Live Applications & Demos:
+      - Applications Overview: live-applications/index.md
+      - "Assignment 1: Model Evaluation Engineer": assignments/assignment1/overview.md
+      - "Assignment 2: Enterprise LLMOps Platform": assignments/assignment2/overview.md
+      - Evaluation Framework: assignments/assignment1/evaluation-framework.md
+      - Model Factory: assignments/assignment1/model-factory.md
+      - Model Profiling: assignments/assignment1/model-profiling.md
+      - Practical Exercise: assignments/assignment1/practical-exercise.md
+      - Agent System: assignments/assignment2/agent-system.md
+      - Model Lifecycle: assignments/assignment2/model-lifecycle.md
+      - RAG System: assignments/assignment2/rag-system.md
+      - Stakeholder Communication: assignments/assignment2/stakeholder-communication.md
+      - System Architecture: assignments/assignment2/system-architecture.md
+
+  # Executive & Professional Content
+  - Executive Presentations:
+      - Carousel Slide Deck: executive/carousel-slide-deck.md
+
+  # Professional Skills & Blog Content
+  - Professional Skills & Insights:
+      - Executive Summary: professional/executive-summary.md
+      - AI Architecture Seniority: professional/blog-posts/ai-architecture-seniority.md
+
+  # Development & Technical
+  - Development:
+      - Setup & Installation: development/setup.md
+      - Testing & Quality: development/testing.md
+      - Deployment Guide: development/deployment.md
+      - Documentation Sources: development/documentation-sources.md
+      - Contributing: development/contributing.md
+      - GitHub Pages Setup: development/github-pages-setup.md
+
+  # API Documentation
+  - API Documentation:
+      - FastAPI Enterprise: api/fastapi-enterprise.md
+      - Gradio Model Evaluation: api/gradio-model-evaluation.md
+      - Neo4j Service: api/neo4j-service.md
+      - MCP Server: api/mcp-server.md
+      - Model Evaluation: api/model-evaluation.md
+      - AI Architecture: api/ai-architecture.md
+      - Utilities: api/utilities.md
+
+  # Resources & Documentation
+  - Resources:
+      - Architecture Diagrams: resources/architecture.md
+      - Lenovo Graph Structure: resources/lenovo-graph-structure.md
+      - Performance Metrics: resources/performance.md
+      - Troubleshooting: resources/troubleshooting.md
+      - Progress Bulletin: progress-bulletin.md
+
+  # Diagrams & Visualizations
+  - Diagrams & Visualizations:
+      - System Architecture: diagrams/system-architecture.md
+      - Model Evaluation Flow: diagrams/model-evaluation-flow.md
+      - Enterprise Platform: diagrams/enterprise-platform.md
+      - Service Integration: diagrams/service-integration.md
+      - Data Flow: diagrams/data-flow.md
+
+  # Additional Documentation
+  - Additional Documentation:
+      - AI Tool Prompts Integration: AI_TOOL_PROMPTS_INTEGRATION.md
+      - API Documentation: API_DOCUMENTATION.md
+      - Deployment Guide: DEPLOYMENT_GUIDE.md
+      - Interactive Features Setup: INTERACTIVE_FEATURES_SETUP.md
+      - Testing Guide: TESTING.md
+      - README Testing: README_TESTING.md
+      - Lenovo AAITC Assignments: lenovo_aaitc_assignments.md
+      - Lenovo AAITC with Sources: lenovo_aaitc_assignments_with_sources_claude_chat.md
+      - About: about.md
+
+# Extra Configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/s-n00b
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/lenovo
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/lenovo
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+  # Custom CSS and JS for enhanced functionality
+  css:
+    - stylesheets/extra.css
+    - assets/css/lenovo-material-theme.css
+    - assets/css/mermaid-lenovo.css
+    - assets/css/device-responsive.css
+  javascripts:
+    - javascripts/mathjax.js
+    - javascripts/mermaid.js
+
+# Build Configuration
+use_directory_urls: true
+strict: false
+
+# Documentation directory
+docs_dir: docs/docs_content
+site_dir: site

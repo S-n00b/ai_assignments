@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenovo AI Architecture - Assignment Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
+    <style>
+        :root {
+            --lenovo-red: #E2231A;
+            --lenovo-dark-red: #C01E17;
+            --lenovo-black: #000000;
+            --lenovo-gray: #666666;
+            --lenovo-light-gray: #F5F5F5;
+            --lenovo-white: #FFFFFF;
+            --lenovo-blue: #0066CC;
+            --lenovo-dark: #1A1A1A;
+            --lenovo-card: #2A2A2A;
+            --lenovo-border: #404040;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--lenovo-dark);
+            color: var(--lenovo-white);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .lenovo-gradient {
+            background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+        }
+        
+        .lenovo-text-gradient {
+            background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .lenovo-card {
+            background-color: var(--lenovo-card);
+            border: 1px solid var(--lenovo-border);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .lenovo-card:hover {
+            border-color: var(--lenovo-red);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(226, 35, 26, 0.15);
+        }
+        
+        .lenovo-button {
+            background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .lenovo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(226, 35, 26, 0.3);
+        }
+        
+        .lenovo-logo {
+            background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 2rem;
+        }
+        
+        .thinkpad-accent {
+            background: linear-gradient(135deg, var(--lenovo-blue), #004499);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .assignment-highlight {
+            border-left: 4px solid var(--lenovo-red);
+            background: rgba(226, 35, 26, 0.05);
+        }
+        
+        .tech-badge {
+            background: rgba(226, 35, 26, 0.1);
+            border: 1px solid var(--lenovo-red);
+            color: var(--lenovo-red);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--lenovo-red);
+        }
+        
+        .lenovo-section {
+            background: linear-gradient(135deg, var(--lenovo-dark), #2A2A2A);
+        }
+        
+        .think-system-card {
+            background: linear-gradient(135deg, var(--lenovo-card), rgba(0, 102, 204, 0.05));
+            border: 2px solid var(--lenovo-border);
+        }
+        
+        .think-system-card:hover {
+            border-color: var(--lenovo-blue);
+            box-shadow: 0 15px 35px rgba(0, 102, 204, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--lenovo-dark) 0%, var(--lenovo-black) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(226, 35, 26, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            opacity: 0.3;
+        }
+        
+        /* Mermaid diagram styling */
+        .mermaid {
+            background: transparent;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Ensure Mermaid diagrams are visible in dark theme */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: var(--lenovo-card);
+            stroke: var(--lenovo-border);
+            stroke-width: 2px;
+        }
+        
+        .mermaid .node .label {
+            color: var(--lenovo-white);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .mermaid .edgePath .path {
+            stroke: var(--lenovo-red);
+            stroke-width: 2px;
+        }
+        
+        .mermaid .edgeLabel {
+            background: var(--lenovo-card);
+            color: var(--lenovo-white);
+            border: 1px solid var(--lenovo-border);
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-pattern"></div>
+        <div class="relative z-10 text-center px-6">
+            <div class="mb-8">
+                <h1 class="text-6xl md:text-8xl font-black mb-6">
+                    <span class="lenovo-logo">Lenovo</span>
+                    <br>
+                    <span class="thinkpad-accent">AI Architecture</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+                    Meta-Assignment Portfolio: AI Architect Model Customization → Model Evaluation Engineer Testing → Lenovo Factory Roster
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                <button onclick="scrollToSection('overview')" class="lenovo-button text-lg px-8 py-4">
+                    Explore Portfolio
+                </button>
+                <button onclick="scrollToSection('assignments')" class="text-gray-400 hover:text-white transition-colors border border-gray-600 px-6 py-3 rounded-lg">
+                    View Assignments →
+                </button>
+            </div>
+            
+            <!-- Integrated Services Navigation -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="lenovo-card p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center lenovo-text-gradient">🚀 Integrated Services</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <a href="#" onclick="parent.switchService('docs')" class="lenovo-button text-center">
+                            <div class="font-semibold">Enterprise Platform</div>
+                            <div class="text-sm opacity-75">FastAPI Backend (Port 8080)</div>
+                        </a>
+                        <a href="#" onclick="parent.switchService('gradio')" class="lenovo-button text-center">
+                            <div class="font-semibold">Model Evaluation</div>
+                            <div class="text-sm opacity-75">Gradio Interface (Port 7860)</div>
+                        </a>
+                        <a href="#" onclick="parent.switchService('mkdocs')" class="lenovo-button text-center">
+                            <div class="font-semibold">Documentation</div>
+                            <div class="text-sm opacity-75">MkDocs Site (Port 8082)</div>
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4 mt-4">
+                        <a href="#" onclick="parent.switchService('mlflow')" class="lenovo-button text-center">
+                            <div class="font-semibold">MLflow Tracking</div>
+                            <div class="text-sm opacity-75">Experiment Tracking (Port 5000)</div>
+                        </a>
+                        <a href="#" onclick="parent.switchService('chroma')" class="lenovo-button text-center">
+                            <div class="font-semibold">ChromaDB</div>
+                            <div class="text-sm opacity-75">Vector Database (Port 8081)</div>
+                        </a>
+                        <a href="#" onclick="parent.switchService('langgraph')" class="lenovo-button text-center">
+                            <div class="font-semibold">LangGraph Studio</div>
+                            <div class="text-sm opacity-75">Agent Visualization (Port 8083)</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <blockquote class="text-lg italic text-gray-400 border-l-4 border-lenovo-red pl-6">
+                    "I wanted to show what I can build - a comprehensive hierarchical workflow where AI Architect customizes models with fine-tuning and QLoRA adapters, while Model Evaluation Engineer tests all models (raw foundation + custom) for Lenovo's production factory roster."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 lenovo-section">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="lenovo-text-gradient">Meta-Assignment</span>
+                        <br>Innovation for Lenovo
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        This portfolio demonstrates the result of that vision - a complete enterprise platform with AI Architect model customization capabilities and Model Evaluation Engineer testing frameworks, 
+                        all integrated into a unified Lenovo factory roster system that showcases advanced AI engineering skills.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="lenovo-card p-6 text-center">
+                            <div class="metric-number">2</div>
+                            <div class="text-gray-400">Complete Assignments</div>
+                        </div>
+                        <div class="lenovo-card p-6 text-center">
+                            <div class="metric-number">15+</div>
+                            <div class="text-gray-400">Technical Tasks</div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToSection('assignments')" class="lenovo-button">
+                        View Assignments
+                    </button>
+                </div>
+                
+                <div>
+                    <div class="lenovo-card p-8">
+                        <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">Assignment Highlights</h3>
+                        <div class="space-y-4">
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="font-semibold text-lenovo-red mb-2">AI Architect Model Customization</h4>
+                                <p class="text-gray-300 text-sm">Fine-tuning, QLoRA adapters, custom embeddings, and hybrid RAG workflows</p>
+                            </div>
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="font-semibold text-lenovo-blue mb-2">Model Evaluation & Factory Roster</h4>
+                                <p class="text-gray-300 text-sm">Tests all models (raw foundation + custom) for Lenovo production factory roster</p>
+                            </div>
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="font-semibold text-lenovo-red mb-2">Enterprise Platform Integration</h4>
+                                <p class="text-gray-300 text-sm">Unified FastAPI platform with embedded services and ThinkSystem optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Assignments Section -->
+    <section id="assignments" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="lenovo-text-gradient">Assignment Portfolio</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Hierarchical workflow: AI Architect customizes models → Model Evaluation Engineer tests all models → Factory roster for Lenovo production
+                </p>
+                
+                <!-- Download PDF Button -->
+                <div class="mt-8">
+                    <button onclick="showPDFModal()" class="lenovo-button text-lg px-8 py-4 inline-flex items-center gap-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        View Assignment PDF
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Assignment 1: Model Evaluation -->
+                <div class="think-system-card p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 lenovo-gradient rounded-xl flex items-center justify-center mr-6">
+                            <span class="text-white font-bold text-2xl">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white">Model Testing & Factory Roster</h3>
+                            <p class="text-gray-400">Model Evaluation Engineer - Tests All Models for Production</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4 text-lenovo-red">Key Components:</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Tests Raw Foundation Models (GPT-5, Claude 3.5, Llama 3.3)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Tests AI Architect's Custom Models & QLoRA Adapters</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Stress Testing at Business & Consumer Use Case Levels</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Adds Model Profiles to Lenovo Factory Roster</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4 text-lenovo-red">Technical Stack:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">PyTorch</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">NumPy</span>
+                            <span class="tech-badge">MLflow</span>
+                            <span class="tech-badge">LangChain</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="showAssignmentDetails(1)" class="lenovo-button w-full">
+                        View Complete Assignment
+                    </button>
+                </div>
+                
+                <!-- Assignment 2: AI Architecture -->
+                <div class="think-system-card p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-lenovo-blue rounded-xl flex items-center justify-center mr-6">
+                            <span class="text-white font-bold text-2xl">2</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white">Model Customization & Platform</h3>
+                            <p class="text-gray-400">AI Architect - Customizes Models & Builds Enterprise Platform</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4 text-lenovo-blue">Key Components:</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>Fine-tuning Foundation Models for Lenovo Use Cases</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>Creating Specialized QLoRA Adapters (Custom MoE)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>Training Custom Embeddings for Domain Knowledge</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>Hybrid RAG/Multi-Agent Workflow Design</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-4 text-lenovo-blue">Technical Stack:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">QLoRA</span>
+                            <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">Fine-tuning</span>
+                            <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">Custom Embeddings</span>
+                            <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">RAG Workflows</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="showAssignmentDetails(2)" class="lenovo-button w-full">
+                        View Complete Assignment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technical Architecture Section -->
+    <section id="architecture" class="py-20 lenovo-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="lenovo-text-gradient">Technical Architecture</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Hierarchical workflow: AI Architect customizes models → Model Evaluation Engineer tests all models → Factory roster integration
+                </p>
+            </div>
+            
+            <!-- Model Evaluation Framework Architecture -->
+            <div class="lenovo-card p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-lenovo-red">Model Testing & Factory Roster Framework</h3>
+                <div id="evaluation-architecture" class="mermaid">
+                    sequenceDiagram
+                        participant U as Model Evaluation Engineer
+                        participant EP as Evaluation Pipeline
+                        participant RM as Raw Foundation Models
+                        participant CM as Custom Architect Models
+                        participant MC as Metrics Calculator
+                        participant BA as Bias Analyzer
+                        participant RT as Robustness Tester
+                        participant FR as Factory Roster
+
+                        U->>EP: Test Raw Foundation Models
+                        EP->>RM: Load GPT-5, Claude 3.5, Llama 3.3
+                        RM->>EP: Model Inference Results
+                        U->>EP: Test Custom Architect Models
+                        EP->>CM: Load QLoRA Adapters & Fine-tuned Models
+                        CM->>EP: Custom Model Results
+                        EP->>MC: Calculate Performance Metrics
+                        MC->>MC: Compute Accuracy, F1, BLEU for All Models
+                        MC-->>EP: Performance Metrics
+                        EP->>BA: Analyze Bias & Fairness
+                        BA->>BA: Statistical Parity Analysis
+                        BA-->>EP: Bias Analysis Results
+                        EP->>RT: Test Robustness
+                        RT->>RT: Stress Testing at Business/Consumer Levels
+                        RT-->>EP: Robustness Results
+                        EP->>FR: Add Model Profiles to Factory Roster
+                        FR->>FR: Production-Ready Model Registry
+                        FR-->>U: Factory Roster Updated
+                </div>
+                <div class="mt-6 grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Key Components:</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Tests both raw foundation and custom architect models</li>
+                            <li>• Multi-metric evaluation system for all model types</li>
+                            <li>• Bias detection and mitigation across model variants</li>
+                            <li>• Stress testing at business and consumer use case levels</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Process Flow:</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Test raw foundation models (GPT-5, Claude 3.5, Llama 3.3)</li>
+                            <li>• Test AI Architect's custom models and QLoRA adapters</li>
+                            <li>• Comprehensive metrics calculation for all model types</li>
+                            <li>• Bias analysis and fairness assessment</li>
+                            <li>• Stress testing at business and consumer use case levels</li>
+                            <li>• Add tested model profiles to Lenovo factory roster</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Architect Model Customization -->
+            <div class="lenovo-card p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-lenovo-blue">AI Architect Model Customization System</h3>
+                <div id="model-factory-architecture" class="mermaid">
+                    graph TB
+                        A[AI Architect] --> B[Model Customizer]
+                        A --> C[QLoRA Adapter Creator]
+                        A --> D[Custom Embedding Trainer]
+                        A --> E[Hybrid RAG Designer]
+
+                        B --> F[Fine-tuning Pipeline]
+                        B --> G[Lenovo Domain Adaptation]
+                        B --> H[Post-training Optimization]
+
+                        C --> I[Specialized Adapter Training]
+                        C --> J[Custom MoE Architecture]
+                        C --> K[Adapter Composition]
+
+                        D --> L[Domain-specific Embeddings]
+                        D --> M[Knowledge Graph Integration]
+                        D --> N[Vector Database Training]
+
+                        E --> O[Multi-agent Workflows]
+                        E --> P[RAG Pipeline Design]
+                        E --> Q[Enterprise Integration]
+                </div>
+                <div class="mt-6 grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Key Components:</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Fine-tuning foundation models for Lenovo use cases</li>
+                            <li>• Creating specialized QLoRA adapters (custom MoE)</li>
+                            <li>• Training custom embeddings for domain knowledge</li>
+                            <li>• Designing hybrid RAG/multi-agent workflows</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Customization Capabilities:</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Lenovo domain-specific fine-tuning</li>
+                            <li>• Multi-adapter composition for custom MoE</li>
+                            <li>• Custom embedding training for knowledge domains</li>
+                            <li>• Hybrid RAG pipeline integration</li>
+                            <li>• Multi-agent workflow orchestration</li>
+                            <li>• Enterprise platform deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enterprise System Architecture -->
+            <div class="lenovo-card p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-lenovo-blue">Enterprise AI Platform with Unified UX/UI</h3>
+                <div id="enterprise-architecture" class="mermaid">
+                    graph TB
+                        subgraph "Unified UX/UI Layer"
+                            A[FastAPI Enterprise Platform]
+                            B[Lenovo Assignment Page]
+                            C[Model Testing Interface]
+                            D[MLflow UI]
+                            E[ChromaDB UI]
+                            F[MkDocs Global Docs Hub]
+                        end
+
+                        subgraph "AI Architect Services"
+                            G[Model Customization]
+                            H[QLoRA Adapter Training]
+                            I[Custom Embedding Training]
+                            J[Hybrid RAG Designer]
+                        end
+
+                        subgraph "Model Evaluation Services"
+                            K[Raw Foundation Model Testing]
+                            L[Custom Model Testing]
+                            M[Factory Roster Management]
+                            N[Stress Testing Pipeline]
+                        end
+
+                        subgraph "Data & Infrastructure"
+                            O[Vector Database]
+                            P[Model Registry]
+                            Q[Factory Roster]
+                            R[Enterprise Storage]
+                        end
+
+                        A --> B
+                        A --> C
+                        A --> D
+                        A --> E
+                        A --> F
+                        A --> G
+                        A --> K
+                        G --> H
+                        G --> I
+                        G --> J
+                        K --> L
+                        L --> M
+                        M --> N
+                        G --> P
+                        K --> Q
+                        L --> Q
+                        P --> R
+                        Q --> R
+                </div>
+                <div class="mt-6 grid md:grid-cols-4 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Unified UX/UI</h4>
+                        <ul class="space-y-1 text-gray-300 text-sm">
+                            <li>• FastAPI Enterprise Platform (8080)</li>
+                            <li>• Lenovo Assignment Page</li>
+                            <li>• Model Testing Interface (7860)</li>
+                            <li>• MkDocs Global Docs Hub (8082)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">AI Architect Services</h4>
+                        <ul class="space-y-1 text-gray-300 text-sm">
+                            <li>• Model Customization</li>
+                            <li>• QLoRA Adapter Training</li>
+                            <li>• Custom Embedding Training</li>
+                            <li>• Hybrid RAG Designer</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Model Evaluation</h4>
+                        <ul class="space-y-1 text-gray-300 text-sm">
+                            <li>• Raw Foundation Model Testing</li>
+                            <li>• Custom Model Testing</li>
+                            <li>• Factory Roster Management</li>
+                            <li>• Stress Testing Pipeline</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Data & Infrastructure</h4>
+                        <ul class="space-y-1 text-gray-300 text-sm">
+                            <li>• Vector Database</li>
+                            <li>• Model Registry</li>
+                            <li>• Factory Roster</li>
+                            <li>• Enterprise Storage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hierarchical Model Workflow -->
+            <div class="lenovo-card p-8">
+                <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">Hierarchical Model Workflow: Customization → Testing → Factory Roster</h3>
+                <div id="ollama-architecture" class="mermaid">
+                    graph TB
+                        subgraph "AI Architect Model Customization"
+                            AC[AI Architect]
+                            FT[Fine-tuning Pipeline]
+                            QA[QLoRA Adapter Training]
+                            CE[Custom Embedding Training]
+                            HR[Hybrid RAG Designer]
+                            AC --> FT
+                            AC --> QA
+                            AC --> CE
+                            AC --> HR
+                        end
+
+                        subgraph "Raw Foundation Models"
+                            RM[Raw Foundation Models]
+                            RC[Foundation Categories]
+                            RM --> RC
+                            RC --> GPT[GPT-5, Claude 3.5]
+                            RC --> LLM[Llama 3.3, Others]
+                        end
+
+                        subgraph "Model Evaluation Engineer"
+                            ME[Model Evaluation Engineer]
+                            RT[Raw Model Testing]
+                            CT[Custom Model Testing]
+                            ST[Stress Testing]
+                            FR[Factory Roster Management]
+                            ME --> RT
+                            ME --> CT
+                            ME --> ST
+                            ME --> FR
+                        end
+
+                        subgraph "Lenovo Factory Roster"
+                            LR[Lenovo Factory Roster]
+                            PR[Production-Ready Models]
+                            LR --> PR
+                        end
+
+                        FT --> CT
+                        QA --> CT
+                        CE --> CT
+                        HR --> CT
+                        RM --> RT
+                        RT --> FR
+                        CT --> FR
+                        ST --> FR
+                        FR --> LR
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-lg font-semibold mb-3 lenovo-text-gradient">Workflow Benefits:</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-lenovo-red mb-2">AI Architect Customization</h5>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li>• Fine-tunes foundation models for Lenovo use cases</li>
+                                <li>• Creates specialized QLoRA adapters (custom MoE)</li>
+                                <li>• Trains custom embeddings for domain knowledge</li>
+                                <li>• Designs hybrid RAG/multi-agent workflows</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-lenovo-blue mb-2">Model Evaluation & Factory Roster</h5>
+                            <ul class="space-y-1 text-gray-300 text-sm">
+                                <li>• Tests both raw foundation and custom models</li>
+                                <li>• Stress testing at business and consumer levels</li>
+                                <li>• Adds tested model profiles to factory roster</li>
+                                <li>• Quality assurance for production deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Strategic Implementation Section -->
+    <section id="strategy" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="lenovo-text-gradient">Strategic Implementation</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Hierarchical workflow implementation: AI Architect model customization → Model Evaluation Engineer testing → Factory roster deployment
+                </p>
+            </div>
+            
+            <!-- 90-Day Strategic Plan -->
+            <div class="lenovo-card p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-lenovo-blue">90-Day Strategic Implementation Plan</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 lenovo-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold text-xl">1</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-lenovo-red">Phase 1: AI Architect Setup</h4>
+                        <p class="text-gray-300 mb-4">Establish model customization infrastructure and fine-tuning capabilities</p>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Fine-tuning pipeline setup for Lenovo use cases</li>
+                            <li>• QLoRA adapter training infrastructure</li>
+                            <li>• Custom embedding training capabilities</li>
+                            <li>• Hybrid RAG workflow design tools</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-lenovo-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold text-xl">2</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-lenovo-blue">Phase 2: Model Evaluation Setup</h4>
+                        <p class="text-gray-300 mb-4">Build comprehensive testing framework for all model types</p>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Raw foundation model testing pipeline</li>
+                            <li>• Custom model and adapter testing framework</li>
+                            <li>• Stress testing at business and consumer levels</li>
+                            <li>• Factory roster management system</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 lenovo-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold text-xl">3</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-lenovo-red">Phase 3: Factory Roster Deployment</h4>
+                        <p class="text-gray-300 mb-4">Production deployment of tested models to Lenovo factory roster</p>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Deploy tested models to production factory roster</li>
+                            <li>• Unified UX/UI with embedded services</li>
+                            <li>• Monitoring and observability for all model types</li>
+                            <li>• Continuous model evaluation and roster updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documentation Integration -->
+            <div class="lenovo-card p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">MkDocs Global Documentation Hub</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-lenovo-blue">Documentation Architecture</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span><strong>MkDocs Global Hub (Port 8082)</strong> - Central documentation platform</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span><strong>FastAPI Docs Integration</strong> - Embeds 8080/docs into MkDocs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span><strong>Unified Documentation</strong> - Single source of truth for all APIs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span><strong>GitHub Pages Deployment</strong> - Public access at s-n00b.github.io</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-lenovo-red">Service Integration</h4>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-lenovo-card rounded-lg border border-lenovo-border">
+                                <h5 class="font-semibold text-lenovo-red mb-2">MkDocs (Port 8082)</h5>
+                                <p class="text-sm text-gray-300">Global documentation hub serving all project documentation</p>
+                            </div>
+                            <div class="p-4 bg-lenovo-card rounded-lg border border-lenovo-border">
+                                <h5 class="font-semibold text-lenovo-blue mb-2">FastAPI Docs (Port 8080/docs)</h5>
+                                <p class="text-sm text-gray-300">Embedded within MkDocs for unified API documentation</p>
+                            </div>
+                            <div class="p-4 bg-lenovo-card rounded-lg border border-lenovo-border">
+                                <h5 class="font-semibold text-lenovo-red mb-2">GitHub Pages</h5>
+                                <p class="text-sm text-gray-300">Public deployment at https://s-n00b.github.io/ai_assignments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LLM Application Stack -->
+            <div class="lenovo-card p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">Enterprise LLM Application Stack</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-lenovo-red/20 border-2 border-lenovo-red rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-lenovo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2 text-lenovo-red">Evaluation Harnesses</h4>
+                        <p class="text-sm text-gray-300">Automated testing, performance monitoring, and quality assurance</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-lenovo-blue/20 border-2 border-lenovo-blue rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-lenovo-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2 text-lenovo-blue">Guardrails</h4>
+                        <p class="text-sm text-gray-300">Safety measures, content filtering, and compliance controls</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-lenovo-red/20 border-2 border-lenovo-red rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-lenovo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2 text-lenovo-red">Tools & RAG</h4>
+                        <p class="text-sm text-gray-300">External functionality and knowledge retrieval systems</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-lenovo-blue/20 border-2 border-lenovo-blue rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-lenovo-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2 text-lenovo-blue">Core LLM</h4>
+                        <p class="text-sm text-gray-300">Foundation model providing core language understanding</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-lenovo-card rounded-lg border border-lenovo-border">
+                    <h5 class="text-lg font-semibold mb-2 lenovo-text-gradient">Stack Benefits for Lenovo</h5>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• <strong>Modularity:</strong> Independent component scaling</li>
+                            <li>• <strong>Security:</strong> Multi-layered protection</li>
+                            <li>• <strong>Compliance:</strong> Built-in governance</li>
+                        </ul>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• <strong>Scalability:</strong> Enterprise-grade performance</li>
+                            <li>• <strong>Maintainability:</strong> Clean separation of concerns</li>
+                            <li>• <strong>Quality:</strong> Continuous evaluation and testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unified AI Ecosystem -->
+            <div class="lenovo-card p-8">
+                <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">Unified AI Ecosystem for Lenovo</h3>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-lenovo-red">On-Device AI</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Instant, private assistance on ThinkPad and Moto devices</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Low-latency processing for real-time interactions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
+                                <span>Privacy-preserving local model inference</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-lenovo-blue">Enterprise Services</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>Large-scale computation and complex reasoning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>Centralized model management and synchronization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
+                                <span>ThinkSystem server infrastructure integration</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 p-6 bg-gradient-to-r from-lenovo-red/10 to-lenovo-blue/10 rounded-lg border border-lenovo-border">
+                    <h5 class="text-lg font-semibold mb-3 lenovo-text-gradient">Central AI Platform</h5>
+                    <p class="text-gray-300 mb-4">A unified platform that synchronizes AI experiences across Lenovo's ecosystem, managing models, ensuring consistent behavior, and providing seamless integration between on-device and enterprise capabilities.</p>
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div class="text-center">
+                            <div class="text-lenovo-red font-semibold">Model Versioning</div>
+                            <div class="text-gray-400">Consistent deployments</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lenovo-blue font-semibold">Performance Monitoring</div>
+                            <div class="text-gray-400">Real-time insights</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lenovo-red font-semibold">Deployment Strategies</div>
+                            <div class="text-gray-400">Optimized rollouts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Live Demo Section -->
+    <section id="demo" class="py-20 lenovo-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="lenovo-text-gradient">Live Implementation</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Interactive demonstrations of the hierarchical workflow: AI Architect model customization → Model Evaluation Engineer testing → Factory roster
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="lenovo-card p-8 text-center">
+                    <div class="w-20 h-20 lenovo-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Model Testing & Factory Roster</h3>
+                    <p class="text-gray-400 mb-6">Tests all models (raw foundation + custom architect models) for Lenovo factory roster</p>
+                    <button onclick="launchDemo('evaluation')" class="lenovo-button w-full">
+                        Launch Demo
+                    </button>
+                    <div class="mt-4">
+                        <a href="http://localhost:7860" target="_blank" class="lenovo-button-secondary w-full text-center">
+                            Open Gradio App Directly
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lenovo-card p-8 text-center">
+                    <div class="w-20 h-20 bg-lenovo-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Architect Model Customization</h3>
+                    <p class="text-gray-400 mb-6">Fine-tuning, QLoRA adapters, custom embeddings, and hybrid RAG workflows</p>
+                    <button onclick="launchDemo('architecture')" class="lenovo-button w-full">
+                        Launch Demo
+                    </button>
+                    <div class="mt-4">
+                        <a href="http://localhost:8080/docs" target="_blank" class="lenovo-button-secondary w-full text-center">
+                            Open FastAPI Docs Directly
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-4 gap-6 mt-8">
+                <div class="lenovo-card p-6 text-center">
+                    <div class="w-16 h-16 lenovo-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">Enterprise Platform</h4>
+                    <p class="text-gray-400 text-sm mb-4">Unified FastAPI platform with embedded services</p>
+                    <a href="http://localhost:8080" target="_blank" class="lenovo-button text-sm w-full">
+                        Open Platform
+                    </a>
+                </div>
+                
+                <div class="lenovo-card p-6 text-center">
+                    <div class="w-16 h-16 bg-lenovo-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">MLflow Tracking</h4>
+                    <p class="text-gray-400 text-sm mb-4">Experiment tracking and model registry</p>
+                    <a href="http://localhost:5000" target="_blank" class="lenovo-button text-sm w-full">
+                        Open MLflow
+                    </a>
+                </div>
+                
+                <div class="lenovo-card p-6 text-center">
+                    <div class="w-16 h-16 lenovo-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">ChromaDB</h4>
+                    <p class="text-gray-400 text-sm mb-4">Vector database for embeddings</p>
+                    <a href="http://localhost:8081" target="_blank" class="lenovo-button text-sm w-full">
+                        Open ChromaDB
+                    </a>
+                </div>
+                
+                <div class="lenovo-card p-6 text-center">
+                    <div class="w-16 h-16 bg-lenovo-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-bold mb-2">LangGraph Studio</h4>
+                    <p class="text-gray-400 text-sm mb-4">Agent visualization & debugging</p>
+                    <a href="http://localhost:8083" target="_blank" class="lenovo-button text-sm w-full">
+                        Open Studio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results Section -->
+    <section id="results" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="lenovo-text-gradient">Project Results</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Hierarchical workflow deliverables: AI Architect model customization + Model Evaluation Engineer testing + Factory roster integration
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="lenovo-card p-6 text-center">
+                    <div class="metric-number">100%</div>
+                    <div class="text-gray-400">Assignment Completion</div>
+                </div>
+                <div class="lenovo-card p-6 text-center">
+                    <div class="metric-number">15+</div>
+                    <div class="text-gray-400">Technical Tasks</div>
+                </div>
+                <div class="lenovo-card p-6 text-center">
+                    <div class="metric-number">2</div>
+                    <div class="text-gray-400">Role Evaluations</div>
+                </div>
+                <div class="lenovo-card p-6 text-center">
+                    <div class="metric-number">5</div>
+                    <div class="text-gray-400">Live Demos</div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 lenovo-text-gradient">Technical Deliverables</h3>
+                    <div class="space-y-6">
+                        <div class="lenovo-card p-6">
+                            <h4 class="text-xl font-semibold mb-3 text-lenovo-red">Model Testing & Factory Roster Framework</h4>
+                            <p class="text-gray-300 mb-4">Tests all models (raw foundation + custom architect models) with stress testing at business and consumer levels for Lenovo factory roster.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge" style="background: rgba(34, 197, 94, 0.1); border-color: #22c55e; color: #22c55e;">Complete</span>
+                                <span class="tech-badge">Factory Ready</span>
+                            </div>
+                        </div>
+                        
+                        <div class="lenovo-card p-6">
+                            <h4 class="text-xl font-semibold mb-3 text-lenovo-blue">AI Architect Model Customization Platform</h4>
+                            <p class="text-gray-300 mb-4">Fine-tuning, QLoRA adapters, custom embeddings, and hybrid RAG workflows with unified UX/UI and embedded services.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge" style="background: rgba(34, 197, 94, 0.1); border-color: #22c55e; color: #22c55e;">Complete</span>
+                                <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">Customizable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 lenovo-text-gradient">Key Achievements</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 lenovo-gradient rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Hierarchical Workflow Innovation</h4>
+                                <p class="text-gray-300">Created comprehensive hierarchical workflow: AI Architect customizes models → Model Evaluation Engineer tests all models → Factory roster</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-lenovo-blue rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">AI Architect Model Customization Excellence</h4>
+                                <p class="text-gray-300">Fine-tuning, QLoRA adapters, custom embeddings, and hybrid RAG workflows with unified UX/UI platform</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 lenovo-gradient rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Model Evaluation & Factory Roster Excellence</h4>
+                                <p class="text-gray-300">Tests all models (raw foundation + custom architect models) with stress testing for Lenovo factory roster</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 lenovo-section">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="lenovo-text-gradient">Ready to Discuss</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Let's explore how this hierarchical workflow demonstrates AI Architect model customization and Model Evaluation Engineer testing capabilities for Lenovo's factory roster
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="lenovo-card p-8">
+                        <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">Assignment Overview</h3>
+                        <p class="text-gray-300 mb-6">
+                            This hierarchical workflow showcases AI Architect model customization capabilities (fine-tuning, QLoRA adapters, custom embeddings, hybrid RAG) 
+                            and Model Evaluation Engineer testing of all models for Lenovo's production factory roster.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-lenovo-red rounded-full mr-3"></div>
+                                <span class="text-gray-300">AI Architect Model Customization (Fine-tuning, QLoRA, Custom Embeddings)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-lenovo-blue rounded-full mr-3"></div>
+                                <span class="text-gray-300">Model Evaluation Engineer Testing (Raw Foundation + Custom Models)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-lenovo-red rounded-full mr-3"></div>
+                                <span class="text-gray-300">Factory Roster Management for Lenovo Production</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-lenovo-blue rounded-full mr-3"></div>
+                                <span class="text-gray-300">MkDocs Global Docs Hub (8082) with FastAPI Docs Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lenovo-card p-8">
+                        <h3 class="text-2xl font-bold mb-6 lenovo-text-gradient">Next Steps</h3>
+                        <p class="text-gray-300 mb-6">
+                            I'm excited to discuss how this hierarchical workflow demonstrates AI Architect model customization capabilities 
+                            and Model Evaluation Engineer testing expertise for Lenovo's factory roster and AI initiatives.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <button onclick="downloadPortfolio()" class="lenovo-button w-full">
+                                View GitHub Repository
+                            </button>
+                            <button onclick="scheduleMeeting()" class="w-full px-6 py-3 border border-lenovo-red rounded-lg text-lenovo-red hover:text-white hover:bg-lenovo-red transition-all">
+                                Schedule Discussion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Assignment Details Modal -->
+    <div id="assignment-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="lenovo-card max-w-6xl w-full max-h-[95vh] overflow-hidden">
+                <div class="p-4 border-b border-lenovo-border">
+                    <div class="flex justify-between items-center">
+                        <h3 id="modal-title" class="text-xl font-bold lenovo-text-gradient">Assignment Details</h3>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="modal-content" class="p-4 overflow-y-auto max-h-[calc(95vh-120px)]">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="lenovo-card max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6 border-b border-lenovo-border">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold lenovo-text-gradient">Assignment PDF</h3>
+                        <div class="flex items-center space-x-4">
+                            <button onclick="downloadPDF()" class="lenovo-button text-sm">
+                                Download PDF
+                            </button>
+                            <button onclick="closePDFModal()" class="text-gray-400 hover:text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <iframe id="pdf-viewer" class="w-full h-[70vh] border border-lenovo-border rounded-lg" src="/assignment-pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH" onerror="handlePDFError()"></iframe>
+                    <div id="pdf-error" class="hidden text-center p-8">
+                        <div class="text-red-400 mb-4">
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 19.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-2">PDF Viewer Not Available</h3>
+                        <p class="text-gray-300 mb-4">Your browser doesn't support PDF viewing in this format.</p>
+                        <button onclick="downloadPDF()" class="lenovo-button">
+                            Download PDF Instead
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Assignment details
+        const assignmentData = {
+            1: {
+                title: "Assignment 1: Model Testing & Factory Roster Framework",
+                content: `
+                    <div class="grid lg:grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Part A: Model Testing Framework Design (40%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Tests raw foundation models (GPT-5, Claude 3.5, Llama 3.3)</li>
+                                    <li>• Tests AI Architect's custom models and QLoRA adapters</li>
+                                    <li>• Performance metrics (BLEU, ROUGE, perplexity, F1-score, custom metrics)</li>
+                                    <li>• Stress testing at business and consumer use case levels</li>
+                                    <li>• Bias detection and mitigation strategies for all model types</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Part B: Factory Roster Management (30%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Factory roster management for Lenovo production models</li>
+                                    <li>• Model profile creation for tested models (raw + custom)</li>
+                                    <li>• Production deployment routing with performance vs. cost trade-offs</li>
+                                    <li>• System architecture diagram and API specification</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Part C: Practical Testing Exercise (30%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Hands-on testing of raw foundation models vs. custom architect models</li>
+                                    <li>• Experimental design with stress testing at business and consumer levels</li>
+                                    <li>• Results analysis with model profiles for factory roster</li>
+                                    <li>• Executive and technical reporting with factory roster dashboard</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lenovo-card p-3">
+                                <h5 class="font-semibold text-lenovo-red mb-2 text-sm">Evaluation Criteria:</h5>
+                                <ul class="text-gray-300 text-xs space-y-1">
+                                    <li>• Technical depth and accuracy (40%)</li>
+                                    <li>• Practical applicability to Lenovo's ecosystem (25%)</li>
+                                    <li>• Code quality and documentation (20%)</li>
+                                    <li>• Innovation and creative problem-solving (15%)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                title: "Assignment 2: AI Architect Model Customization Platform",
+                content: `
+                    <div class="grid lg:grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Part A: Model Customization Architecture (35%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Fine-tuning pipeline for Lenovo domain-specific use cases</li>
+                                    <li>• QLoRA adapter training and custom MoE architecture</li>
+                                    <li>• Custom embedding training for domain knowledge</li>
+                                    <li>• Hybrid RAG/multi-agent workflow design</li>
+                                    <li>• Unified UX/UI with embedded services platform</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Part B: Custom Model Development (30%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Fine-tuning foundation models for Lenovo-specific domains</li>
+                                    <li>• QLoRA adapter training and composition for custom MoE</li>
+                                    <li>• Custom embedding training for knowledge domains</li>
+                                    <li>• Model versioning and deployment to evaluation pipeline</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Part C: Hybrid RAG & Multi-Agent Workflows (20%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Hybrid RAG pipeline design with custom embeddings</li>
+                                    <li>• Multi-agent collaboration patterns for Lenovo workflows</li>
+                                    <li>• Tool calling framework using MCP (Model Context Protocol)</li>
+                                    <li>• Enterprise integration with unified UX/UI platform</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="assignment-highlight p-4 rounded-lg">
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Part D: Unified Platform & Communication (15%)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm ml-3">
+                                    <li>• Unified UX/UI with embedded services (Lenovo assignment, MLflow, ChromaDB, MkDocs Global Docs Hub)</li>
+                                    <li>• Technical documentation with ADRs</li>
+                                    <li>• API documentation with OpenAPI/Swagger specs</li>
+                                    <li>• Enterprise platform integration and stakeholder communication</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lenovo-card p-3">
+                                <h5 class="font-semibold text-lenovo-blue mb-2 text-sm">Evaluation Criteria:</h5>
+                                <ul class="text-gray-300 text-xs space-y-1">
+                                    <li>• Architectural sophistication and scalability (35%)</li>
+                                    <li>• Technical depth and implementation feasibility (30%)</li>
+                                    <li>• Innovation and forward-thinking approach (20%)</li>
+                                    <li>• Communication clarity and documentation quality (15%)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+        
+        // Navigation functions
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function showAssignmentDetails(assignmentNumber) {
+            const modal = document.getElementById('assignment-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            title.textContent = assignmentData[assignmentNumber].title;
+            content.innerHTML = assignmentData[assignmentNumber].content;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function closeModal() {
+            document.getElementById('assignment-modal').classList.add('hidden');
+        }
+        
+        function showPDFModal() {
+            document.getElementById('pdf-modal').classList.remove('hidden');
+        }
+        
+        function closePDFModal() {
+            document.getElementById('pdf-modal').classList.add('hidden');
+        }
+        
+        function handlePDFError() {
+            // Hide the iframe and show the error message
+            document.getElementById('pdf-viewer').style.display = 'none';
+            document.getElementById('pdf-error').classList.remove('hidden');
+        }
+        
+        function downloadPDF() {
+            // Create a proper download link with the correct endpoint
+            const link = document.createElement('a');
+            link.href = '/assignment-pdf';
+            link.download = 'Lenovo AAITC Technical Assignments.pdf';
+            link.target = '_blank';
+            
+            // Add proper headers and ensure the download works
+            fetch('/assignment-pdf')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    link.href = url;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => {
+                    console.error('Error downloading PDF:', error);
+                    // Fallback to direct link
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+        }
+        
+        function downloadPortfolio() {
+            window.open('https://github.com/S-n00b/ai_assignments', '_blank');
+        }
+        
+        function scheduleMeeting() {
+            window.open('https://calendly.com/samneubauer', '_blank');
+        }
+        
+        function launchDemo(demoType) {
+            // Launch the actual demo applications based on type
+            const demoUrls = {
+                'evaluation': 'http://localhost:7860',
+                'architecture': 'http://localhost:8080/docs',
+                'agents': 'http://localhost:8083',
+                'mlflow': 'http://localhost:5000',
+                'chroma': 'http://localhost:8081',
+                'docs': 'http://localhost:8082',
+                'platform': 'http://localhost:8080'
+            };
+            
+            const url = demoUrls[demoType] || 'http://localhost:8080';
+            window.open(url, '_blank');
+        }
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closePDFModal();
+            }
+        });
+        
+        // Close modal on backdrop click
+        document.getElementById('assignment-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'assignment-modal') {
+                closeModal();
+            }
+        });
+        
+        document.getElementById('pdf-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'pdf-modal') {
+                closePDFModal();
+            }
+        });
+        
+        // Initialize Mermaid diagrams
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#E2231A',
+                primaryTextColor: '#ffffff',
+                primaryBorderColor: '#E2231A',
+                lineColor: '#666666',
+                secondaryColor: '#0066CC',
+                tertiaryColor: '#2A2A2A',
+                background: '#1A1A1A',
+                mainBkg: '#2A2A2A',
+                secondBkg: '#404040',
+                tertiaryBkg: '#666666'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+    </script>
+</body>
+</html>
