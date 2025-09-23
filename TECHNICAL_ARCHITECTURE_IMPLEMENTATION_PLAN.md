@@ -408,7 +408,7 @@ src/model_evaluation/evaluation_endpoints/
 ### 6.1 Enhanced Unified Platform
 
 ```python
-# Enhanced unified platform with clear data flow
+# Enhanced unified platform starting from src/enterprise_llmops/frontend/unified_platform.html with clear data flow
 src/enterprise_llmops/frontend/enhanced_unified_platform.html
 ├── ai_architect_workspace.py               # AI Architect customization interface
 ├── model_evaluation_workspace.py           # Model Evaluation Engineer interface
