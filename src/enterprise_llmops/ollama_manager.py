@@ -33,6 +33,9 @@ except ImportError:
 from pathlib import Path
 import yaml
 
+# Phase 2: Small Model Integration
+from .small_models import SmallModelOptimizer, MobileDeploymentConfigManager, ModelPerformanceMonitor
+
 
 @dataclass
 class OllamaModel:
@@ -107,6 +110,11 @@ class OllamaManager:
         
         # Initialize HTTP session for Ollama API
         self.session = None
+        
+        # Phase 2: Initialize small model components
+        self.small_model_optimizer = SmallModelOptimizer()
+        self.mobile_deployment_manager = MobileDeploymentConfigManager()
+        self.performance_monitor = ModelPerformanceMonitor()
         
     def _load_config(self, config_path: str) -> Dict[str, Any]:
         """Load Ollama configuration from YAML file."""
@@ -684,10 +692,178 @@ class OllamaManager:
             if self.session:
                 await self.session.close()
             
+            # Phase 2: Stop performance monitoring
+            await self.performance_monitor.stop_monitoring()
+            
             self.logger.info("Ollama manager shutdown complete")
             
         except Exception as e:
             self.logger.error(f"Error during shutdown: {e}")
+    
+    # Phase 2: Small Model Integration Methods
+    
+    async def setup_small_models(self):
+        """Setup small models for Phase 2."""
+        try:
+            self.logger.info("Setting up small models for Phase 2")
+            
+            # Get small models configuration
+            small_models = self.small_model_optimizer.get_small_models_list()
+            
+            # Start performance monitoring
+            await self.performance_monitor.start_monitoring()
+            
+            # Register small models for monitoring
+            for model in small_models:
+                self.performance_monitor.register_model(model["name"])
+                self.logger.info(f"Registered small model for monitoring: {model['name']}")
+            
+            self.logger.info(f"Setup complete for {len(small_models)} small models")
+            return small_models
+            
+        except Exception as e:
+            self.logger.error(f"Error setting up small models: {e}")
+            raise
+    
+    async def optimize_small_model(self, model_name: str, optimization_type: str = "quantization"):
+        """Optimize a small model for mobile deployment."""
+        try:
+            self.logger.info(f"Optimizing small model {model_name} with {optimization_type}")
+            
+            # Use small model optimizer
+            result = await self.small_model_optimizer.optimize_model(model_name, optimization_type)
+            
+            if result.success:
+                self.logger.info(f"Optimization successful: {model_name}")
+                self.logger.info(f"Size reduction: {result.original_size_gb:.2f}GB -> {result.optimized_size_gb:.2f}GB")
+                self.logger.info(f"Compression ratio: {result.compression_ratio:.2f}")
+            else:
+                self.logger.error(f"Optimization failed: {result.error}")
+            
+            return result
+            
+        except Exception as e:
+            self.logger.error(f"Error optimizing model {model_name}: {e}")
+            raise
+    
+    def get_deployment_config(self, model_name: str, platform: str):
+        """Get deployment configuration for a model on a platform."""
+        try:
+            return self.mobile_deployment_manager.get_deployment_config(model_name, platform)
+        except Exception as e:
+            self.logger.error(f"Error getting deployment config: {e}")
+            return None
+    
+    def validate_deployment(self, model_name: str, platform: str, model_size_gb: float):
+        """Validate model deployment on a platform."""
+        try:
+            return self.mobile_deployment_manager.validate_deployment_config(
+                self.mobile_deployment_manager.DeploymentPlatform(platform),
+                model_name,
+                model_size_gb
+            )
+        except Exception as e:
+            self.logger.error(f"Error validating deployment: {e}")
+            return {"valid": False, "error": str(e)}
+    
+    async def get_small_model_performance(self, model_name: str):
+        """Get performance metrics for a small model."""
+        try:
+            # Get current metrics
+            current_metrics = self.performance_monitor.get_current_metrics(model_name)
+            
+            # Get performance summary
+            summary = self.performance_monitor.get_performance_summary(model_name, hours=1)
+            
+            # Get benchmark results
+            benchmark = await self.small_model_optimizer.benchmark_model(model_name)
+            
+            return {
+                "model_name": model_name,
+                "current_metrics": current_metrics,
+                "performance_summary": summary,
+                "benchmark_results": benchmark,
+                "timestamp": datetime.now().isoformat()
+            }
+            
+        except Exception as e:
+            self.logger.error(f"Error getting performance for {model_name}: {e}")
+            return {"error": str(e)}
+    
+    async def compare_small_models(self, model_names: List[str]):
+        """Compare multiple small models."""
+        try:
+            comparison_results = {
+                "models": {},
+                "rankings": {},
+                "recommendations": {}
+            }
+            
+            for model_name in model_names:
+                # Get model configuration
+                model_config = self.small_model_optimizer.small_models.get(model_name)
+                if not model_config:
+                    continue
+                
+                # Get performance data
+                performance_data = await self.get_small_model_performance(model_name)
+                
+                comparison_results["models"][model_name] = {
+                    "config": {
+                        "provider": model_config.provider,
+                        "parameters": model_config.parameters,
+                        "size_gb": model_config.size_gb,
+                        "use_case": model_config.use_case,
+                        "deployment_targets": model_config.deployment_targets
+                    },
+                    "performance": performance_data
+                }
+            
+            # Calculate rankings
+            models_by_size = sorted(model_names, 
+                                  key=lambda m: comparison_results["models"][m]["config"]["size_gb"])
+            models_by_parameters = sorted(model_names, 
+                                        key=lambda m: comparison_results["models"][m]["config"]["parameters"])
+            
+            comparison_results["rankings"] = {
+                "smallest_size": models_by_size[0] if models_by_size else None,
+                "fewest_parameters": models_by_parameters[0] if models_by_parameters else None
+            }
+            
+            # Generate recommendations
+            comparison_results["recommendations"] = {
+                "mobile_deployment": models_by_size[0] if models_by_size else None,
+                "edge_deployment": models_by_size[0] if models_by_size else None,
+                "embedded_deployment": models_by_size[0] if models_by_size else None
+            }
+            
+            return comparison_results
+            
+        except Exception as e:
+            self.logger.error(f"Error comparing models: {e}")
+            return {"error": str(e)}
+    
+    def get_small_models_status(self):
+        """Get status of all small models."""
+        try:
+            # Get performance monitor status
+            monitor_status = self.performance_monitor.get_all_models_status()
+            
+            # Get small models list
+            small_models = self.small_model_optimizer.get_small_models_list()
+            
+            return {
+                "phase": "Phase 2: Model Integration & Small Model Selection",
+                "small_models_count": len(small_models),
+                "monitoring_active": monitor_status["monitoring_active"],
+                "models": small_models,
+                "monitor_status": monitor_status,
+                "timestamp": datetime.now().isoformat()
+            }
+            
+        except Exception as e:
+            self.logger.error(f"Error getting small models status: {e}")
+            return {"error": str(e)}
 
 
 # Import uuid for request IDs

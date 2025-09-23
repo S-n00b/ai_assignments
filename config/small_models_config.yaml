@@ -98,20 +98,26 @@ small_models:
 
 # GitHub Models API Configuration
 github_models_api:
-  base_url: https://api.github.com/repos
+  base_url: https://models.github.ai
   organization: Brantwood
   authentication:
     token_env_var: GITHUB_MODELS_TOKEN
     scopes:
-      - repo
-      - read:packages
+      - models:read
   rate_limits:
     requests_per_hour: 5000
     requests_per_minute: 100
-  model_endpoints:
-    pull: /{org}/{repo}/packages/container/{package_name}/versions
-    list: /{org}/{repo}/packages/container
-    metadata: /{org}/{repo}/packages/container/{package_name}
+  inference_endpoints:
+    chat_completions: /inference/chat/completions
+    org_chat_completions: /inference/orgs/{org}/chat/completions
+    model_catalog: /catalog/models
+  api_version: "2022-11-28"
+  supported_models:
+    - openai/gpt-4.1
+    - microsoft/phi-4-mini
+    - meta/llama-3.2-3b
+    - alibaba/qwen-2.5-3b
+    - mistral/mistral-nemo
 
 # Ollama Integration Configuration
 ollama_integration:
@@ -122,7 +128,7 @@ ollama_integration:
     pruning_ratio: 0.1
     enable_distillation: true
     teacher_model: llama3.1:8b
-  
+
   mobile_deployment_configs:
     android:
       target_arch: arm64-v8a

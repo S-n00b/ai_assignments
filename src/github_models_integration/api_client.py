@@ -17,6 +17,8 @@ import os
 from pathlib import Path
 import yaml
 
+from .inference_client import GitHubModelsInferenceClient
+
 
 @dataclass
 class GitHubModel:
@@ -56,6 +58,9 @@ class GitHubModelsAPIClient:
         self.base_url = "https://api.github.com"
         self.organization = self.config["github_models_api"]["organization"]
         self.token = self._get_auth_token()
+        
+        # Initialize inference client
+        self.inference_client = GitHubModelsInferenceClient(organization=self.organization)
         
     def _load_config(self, config_path: str) -> Dict[str, Any]:
         """Load configuration from YAML file."""
@@ -117,6 +122,9 @@ class GitHubModelsAPIClient:
                 headers=headers,
                 timeout=aiohttp.ClientTimeout(total=30)
             )
+            
+            # Initialize inference client
+            await self.inference_client.initialize()
             
             self.logger.info("GitHub Models API client initialized successfully")
             
@@ -183,11 +191,39 @@ class GitHubModelsAPIClient:
         remaining = response.headers.get("X-RateLimit-Remaining")
         return int(remaining) if remaining else None
     
+    async def get_model_catalog(self):
+        """Get the catalog of available models from GitHub Models."""
+        try:
+            return await self.inference_client.get_model_catalog()
+        except Exception as e:
+            self.logger.error(f"Error getting model catalog: {e}")
+            return []
+    
+    async def test_small_models_inference(self):
+        """Test inference with small models for Phase 2."""
+        try:
+            return await self.inference_client.test_small_models()
+        except Exception as e:
+            self.logger.error(f"Error testing small models inference: {e}")
+            return {"error": str(e)}
+    
+    async def run_phase2_evaluation(self, model_id: str, prompt: str):
+        """Run Phase 2 evaluation with a specific model."""
+        try:
+            return await self.inference_client.run_phase2_evaluation(model_id, prompt)
+        except Exception as e:
+            self.logger.error(f"Error running Phase 2 evaluation: {e}")
+            return {"error": str(e)}
+    
     async def shutdown(self):
         """Shutdown the GitHub Models API client."""
         try:
             if self.session:
                 await self.session.close()
+            
+            # Shutdown inference client
+            await self.inference_client.shutdown()
+            
             self.logger.info("GitHub Models API client shutdown complete")
         except Exception as e:
             self.logger.error(f"Error during shutdown: {e}")
