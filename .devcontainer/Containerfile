@@ -1,0 +1,77 @@
+FROM mcr.microsoft.com/devcontainers/python:3.11-bullseye
+
+# Install system dependencies
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    build-essential \
+    curl \
+    git \
+    gnupg2 \
+    lsb-release \
+    software-properties-common \
+    vim \
+    wget \
+    zsh \
+    postgresql-client \
+    redis-tools \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Podman
+RUN apt-get update && apt-get -y install \
+    podman \
+    podman-compose \
+    buildah \
+    skopeo \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configure Podman for rootless operation
+RUN echo "unqualified-search-registries = ['docker.io', 'quay.io', 'ghcr.io']" >> /etc/containers/registries.conf \
+    && echo "vscode:100000:65536" >> /etc/subuid \
+    && echo "vscode:100000:65536" >> /etc/subgid
+
+# Install Python dependencies globally
+COPY config/requirements.txt /tmp/requirements.txt
+RUN pip install --upgrade pip \
+    && pip install -r /tmp/requirements.txt \
+    && rm /tmp/requirements.txt
+
+# Install Node.js dependencies globally
+RUN npm install -g \
+    typescript \
+    @types/node \
+    eslint \
+    prettier \
+    serve \
+    http-server
+
+# Install additional tools
+RUN pip install \
+    black \
+    isort \
+    flake8 \
+    pylint \
+    mypy \
+    pytest \
+    pytest-cov \
+    httpx \
+    rich
+
+# Create necessary directories
+RUN mkdir -p /workspace/data /workspace/logs /workspace/mlruns \
+    && chown -R vscode:vscode /workspace
+
+# Switch to vscode user
+USER vscode
+
+# Configure shell
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+    && echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.zshrc \
+    && echo 'export PYTHONPATH=/workspace:$PYTHONPATH' >> ~/.zshrc
+
+# Set up Git configuration
+RUN git config --global core.editor "code --wait" \
+    && git config --global init.defaultBranch main
+
+WORKDIR /workspace
