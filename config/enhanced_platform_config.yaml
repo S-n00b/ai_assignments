@@ -1,0 +1,317 @@
+# Enhanced Unified Platform Configuration
+# Phase 6: Unified Platform Integration with Clear Data Flow
+
+platform:
+  name: "Lenovo AI Architecture - Enhanced Unified Platform"
+  version: "2.0.0"
+  description: "Complete Phase 6 implementation with AI Architect and Model Evaluation workspaces"
+  phase: "Phase 6 - Unified Platform Integration with Clear Data Flow"
+  startup_timeout: 30 # seconds
+  health_check_interval: 30 # seconds
+
+# Workspace Configurations
+workspaces:
+  ai_architect:
+    enabled: true
+    port: 8080
+    path: "/ai-architect"
+    features:
+      model_customization: true
+      fine_tuning: true
+      qlora_adapters: true
+      custom_embeddings: true
+      hybrid_rag: true
+      langchain_integration: true
+      llamaindex_integration: true
+      smolagent_workflows: true
+      langgraph_workflows: true
+    monitoring:
+      performance_tracking: true
+      real_time_metrics: true
+      alerting: true
+
+  model_evaluation:
+    enabled: true
+    port: 8080
+    path: "/model-evaluation"
+    features:
+      raw_model_testing: true
+      custom_model_testing: true
+      agentic_workflow_testing: true
+      retrieval_workflow_testing: true
+      stress_testing: true
+      factory_roster_integration: true
+    evaluation_suites:
+      performance: ["latency", "throughput", "accuracy", "memory"]
+      stress: ["load_testing", "concurrent_users", "data_volume"]
+      edge_cases:
+        ["error_handling", "boundary_conditions", "fallback_scenarios"]
+
+  factory_roster:
+    enabled: true
+    port: 8080
+    path: "/factory-roster"
+    features:
+      production_deployment: true
+      model_versioning: true
+      environment_management: true
+      performance_analytics: true
+      alerting_system: true
+      model_registry_integration: true
+    environments:
+      production:
+        auto_scaling: true
+        min_instances: 2
+        max_instances: 10
+        health_checks: true
+      staging:
+        auto_scaling: false
+        min_instances: 1
+        max_instances: 3
+        health_checks: true
+      testing:
+        auto_scaling: false
+        min_instances: 1
+        max_instances: 2
+        health_checks: false
+
+  monitoring:
+    enabled: true
+    port: 8080
+    path: "/monitoring"
+    features:
+      real_time_monitoring: true
+      performance_analytics: true
+      alerting_system: true
+      dashboard_creation: true
+      websocket_updates: true
+    metrics:
+      system_metrics: ["cpu_usage", "memory_usage", "disk_usage", "network_io"]
+      application_metrics:
+        ["request_rate", "response_time", "error_rate", "throughput"]
+      model_metrics:
+        ["inference_latency", "model_accuracy", "prediction_confidence"]
+    alerting:
+      thresholds:
+        cpu_usage: 0.9
+        memory_usage: 0.9
+        response_time: 1000 # ms
+        error_rate: 0.05
+      channels: ["email", "slack", "webhook"]
+
+  data_flow:
+    enabled: true
+    port: 8080
+    path: "/data-flow"
+    features:
+      real_time_visualization: true
+      service_integration_tracking: true
+      data_flow_analytics: true
+      mermaid_diagrams: true
+      websocket_updates: true
+    visualization:
+      mermaid_enabled: true
+      interactive_diagrams: true
+      real_time_updates: true
+      auto_layout: true
+
+# Service Integration Matrix
+services:
+  fastapi_platform:
+    name: "FastAPI Platform"
+    port: 8080
+    url: "http://localhost:8080"
+    purpose: "Main enterprise platform"
+    data_flow: "Central hub"
+    health_endpoint: "/health"
+    integration: "All services"
+    status: "online"
+
+  gradio_app:
+    name: "Gradio Evaluation"
+    port: 7860
+    url: "http://localhost:7860"
+    purpose: "Model evaluation interface"
+    data_flow: "Direct integration"
+    health_endpoint: "/health"
+    integration: "All model types"
+    status: "online"
+
+  mlflow_tracking:
+    name: "MLflow Tracking"
+    port: 5000
+    url: "http://localhost:5000"
+    purpose: "Experiment tracking"
+    data_flow: "All experiments"
+    health_endpoint: "/health"
+    integration: "All components"
+    status: "online"
+
+  chromadb:
+    name: "ChromaDB"
+    port: 8081
+    url: "http://localhost:8081"
+    purpose: "Vector database"
+    data_flow: "RAG workflows"
+    health_endpoint: "/health"
+    integration: "LangChain/LlamaIndex"
+    status: "online"
+
+  neo4j:
+    name: "Neo4j"
+    port: 7687
+    url: "http://localhost:7687"
+    purpose: "Graph database"
+    data_flow: "Knowledge graphs"
+    health_endpoint: "/health"
+    integration: "GraphRAG workflows"
+    status: "online"
+
+  duckdb:
+    name: "DuckDB"
+    port: "embedded"
+    url: "embedded"
+    purpose: "Analytics database"
+    data_flow: "User data"
+    health_endpoint: "N/A"
+    integration: "Chat analytics"
+    status: "online"
+
+  langgraph_studio:
+    name: "LangGraph Studio"
+    port: 8083
+    url: "http://localhost:8083"
+    purpose: "Agent visualization"
+    data_flow: "Agent workflows"
+    health_endpoint: "/health"
+    integration: "SmolAgent/LangGraph"
+    status: "online"
+
+# Integration Settings
+integration:
+  auto_start_services: true
+  service_dependencies: true
+  health_monitoring: true
+  performance_tracking: true
+  data_flow_visualization: true
+  real_time_updates: true
+  websocket_support: true
+
+# Data Flow Configuration
+data_flow:
+  enabled: true
+  update_interval: 5 # seconds
+  retention_hours: 24
+  visualization:
+    mermaid_enabled: true
+    interactive_diagrams: true
+    real_time_updates: true
+    auto_layout: true
+  metrics:
+    flow_rate_tracking: true
+    latency_monitoring: true
+    throughput_analysis: true
+    error_tracking: true
+
+# Monitoring Configuration
+monitoring:
+  enabled: true
+  collection_interval: 5 # seconds
+  retention_hours: 24
+  prometheus:
+    enabled: true
+    port: 9090
+    url: "http://localhost:9090"
+  grafana:
+    enabled: true
+    port: 3000
+    url: "http://localhost:3000"
+  alerting:
+    enabled: true
+    channels: ["email", "slack", "webhook"]
+    thresholds:
+      cpu_usage: 0.9
+      memory_usage: 0.9
+      response_time: 1000 # ms
+      error_rate: 0.05
+
+# MLflow Integration
+mlflow:
+  enabled: true
+  tracking_uri: "http://localhost:5000"
+  experiment_tracking: true
+  model_registry: true
+  performance_metrics: true
+  integration:
+    ai_architect: true
+    model_evaluation: true
+    factory_roster: true
+    monitoring: true
+    data_flow: true
+
+# Security Configuration
+security:
+  authentication:
+    enabled: false # Demo mode - set to true for production
+    jwt_secret: "your_jwt_secret_here"
+    token_expiry: 3600 # seconds
+  cors:
+    allowed_origins: ["*"]
+    allowed_methods: ["*"]
+    allowed_headers: ["*"]
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 100
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    console: true
+    file: true
+    file_path: "logs/enhanced_platform.log"
+  rotation:
+    max_bytes: 10485760 # 10MB
+    backup_count: 5
+
+# Performance Configuration
+performance:
+  max_workers: 4
+  timeout: 30 # seconds
+  retry_attempts: 3
+  cache:
+    enabled: true
+    ttl: 300 # seconds
+    max_size: 1000
+  optimization:
+    compression: true
+    minification: true
+    static_files: true
+
+# Development Configuration
+development:
+  debug: true
+  reload: true
+  hot_reload: true
+  profiling: false
+  testing:
+    enabled: true
+    test_suite: "pytest"
+    coverage: true
+    parallel: true
+
+# Production Configuration
+production:
+  debug: false
+  reload: false
+  hot_reload: false
+  profiling: true
+  monitoring:
+    enabled: true
+    metrics: true
+    alerting: true
+  scaling:
+    horizontal: true
+    vertical: true
+    auto_scaling: true

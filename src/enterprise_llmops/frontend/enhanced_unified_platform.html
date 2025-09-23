@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenovo AI Architecture - Enhanced Unified Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Octicons for animated icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/19.0.0/octicons.min.css">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --lenovo-red: #E2231A;
+            --lenovo-dark-red: #C01E17;
+            --lenovo-black: #000000;
+            --lenovo-gray: #666666;
+            --lenovo-light-gray: #F5F5F5;
+            --lenovo-white: #FFFFFF;
+            --lenovo-blue: #0066CC;
+            --lenovo-dark: #1A1A1A;
+            --lenovo-card: #2A2A2A;
+            --lenovo-border: #404040;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--lenovo-dark);
+            color: var(--lenovo-white);
+        }
+        
+        .lenovo-gradient {
+            background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+        }
+        
+        .lenovo-text-gradient {
+            background: linear-gradient(90deg, var(--lenovo-red), var(--lenovo-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .lenovo-button {
+            background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .lenovo-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(226, 35, 26, 0.3);
+        }
+        
+        .lenovo-button.active {
+            background: linear-gradient(135deg, var(--lenovo-blue), #004499);
+        }
+        
+        .lenovo-logo {
+            background: linear-gradient(135deg, var(--lenovo-red), var(--lenovo-dark-red));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: #999;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--lenovo-white);
+            background-color: rgba(226, 35, 26, 0.1);
+        }
+        
+        .workspace-card {
+            background: var(--lenovo-card);
+            border: 1px solid var(--lenovo-border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .workspace-card:hover {
+            border-color: var(--lenovo-red);
+            box-shadow: 0 8px 32px rgba(226, 35, 26, 0.1);
+        }
+        
+        .service-status {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        
+        .status-online { background-color: #10B981; }
+        .status-offline { background-color: #EF4444; }
+        .status-warning { background-color: #F59E0B; }
+        
+        .data-flow-arrow {
+            animation: flow 2s ease-in-out infinite;
+        }
+        
+        @keyframes flow {
+            0%, 100% { opacity: 0.5; transform: translateX(0); }
+            50% { opacity: 1; transform: translateX(10px); }
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, var(--lenovo-card), #333);
+            border: 1px solid var(--lenovo-border);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--lenovo-red);
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="min-h-screen bg-gray-900">
+        <!-- Navigation Header -->
+        <nav class="bg-gray-800 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="lenovo-logo">Lenovo AI</div>
+                        <nav class="hidden md:flex space-x-8 ml-10">
+                            <a href="#ai-architect" class="nav-link active" data-workspace="ai-architect">
+                                <span class="octicon octicon-tools"></span>
+                                AI Architect
+                            </a>
+                            <a href="#model-evaluation" class="nav-link" data-workspace="model-evaluation">
+                                <span class="octicon octicon-graph"></span>
+                                Model Evaluation
+                            </a>
+                            <a href="#factory-roster" class="nav-link" data-workspace="factory-roster">
+                                <span class="octicon octicon-package"></span>
+                                Factory Roster
+                            </a>
+                            <a href="#monitoring" class="nav-link" data-workspace="monitoring">
+                                <span class="octicon octicon-pulse"></span>
+                                Monitoring
+                            </a>
+                            <a href="#data-flow" class="nav-link" data-workspace="data-flow">
+                                <span class="octicon octicon-git-branch"></span>
+                                Data Flow
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-sm text-gray-400">
+                            <span class="service-status status-online"></span>
+                            All Systems Operational
+                        </div>
+                        <button class="lenovo-button" onclick="refreshData()">
+                            <span class="octicon octicon-sync"></span>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <!-- AI Architect Workspace -->
+            <div id="ai-architect-workspace" class="workspace-section">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">AI Architect Workspace</h1>
+                    <p class="text-gray-400">Model customization, fine-tuning, and deployment management</p>
+                </div>
+
+                <!-- Model Customization Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="workspace-card">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                            <span class="octicon octicon-gear mr-2"></span>
+                            Model Customization
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <span class="text-sm text-gray-300">Fine-tuning Pipeline</span>
+                                <button class="lenovo-button text-sm" onclick="startFineTuning()">
+                                    <span class="octicon octicon-play mr-1"></span>
+                                    Start
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <span class="text-sm text-gray-300">QLoRA Adapters</span>
+                                <button class="lenovo-button text-sm" onclick="createAdapters()">
+                                    <span class="octicon octicon-plus mr-1"></span>
+                                    Create
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <span class="text-sm text-gray-300">Custom Embeddings</span>
+                                <button class="lenovo-button text-sm" onclick="trainEmbeddings()">
+                                    <span class="octicon octicon-database mr-1"></span>
+                                    Train
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workspace-card">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                            <span class="octicon octicon-git-branch mr-2"></span>
+                            RAG Workflows
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <span class="text-sm text-gray-300">Hybrid RAG Setup</span>
+                                <button class="lenovo-button text-sm" onclick="setupHybridRAG()">
+                                    <span class="octicon octicon-settings mr-1"></span>
+                                    Configure
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <span class="text-sm text-gray-300">LangChain Integration</span>
+                                <button class="lenovo-button text-sm" onclick="setupLangChain()">
+                                    <span class="octicon octicon-link mr-1"></span>
+                                    Connect
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <span class="text-sm text-gray-300">LlamaIndex Retrieval</span>
+                                <button class="lenovo-button text-sm" onclick="setupLlamaIndex()">
+                                    <span class="octicon octicon-search mr-1"></span>
+                                    Setup
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agentic Workflows Section -->
+                <div class="workspace-card mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-workflow mr-2"></span>
+                        Agentic Workflows
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-white mb-2">SmolAgent Workflows</h4>
+                            <p class="text-sm text-gray-400 mb-3">Mobile-optimized agent workflows</p>
+                            <button class="lenovo-button text-sm" onclick="openSmolAgent()">
+                                <span class="octicon octicon-device-mobile mr-1"></span>
+                                Open Designer
+                            </button>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <h4 class="font-semibold text-white mb-2">LangGraph Workflows</h4>
+                            <p class="text-sm text-gray-400 mb-3">Visual workflow design and execution</p>
+                            <button class="lenovo-button text-sm" onclick="openLangGraph()">
+                                <span class="octicon octicon-graph mr-1"></span>
+                                Open Studio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model Evaluation Workspace -->
+            <div id="model-evaluation-workspace" class="workspace-section hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">Model Evaluation Engineer Workspace</h1>
+                    <p class="text-gray-400">Comprehensive model testing and evaluation framework</p>
+                </div>
+
+                <!-- Evaluation Pipeline Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="workspace-card">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                            <span class="octicon octicon-beaker mr-2"></span>
+                            Raw Model Testing
+                        </h3>
+                        <div class="space-y-3">
+                            <button class="w-full lenovo-button text-sm" onclick="testRawModels()">
+                                <span class="octicon octicon-play mr-1"></span>
+                                Test Foundation Models
+                            </button>
+                            <button class="w-full lenovo-button text-sm" onclick="testSmallModels()">
+                                <span class="octicon octicon-device-mobile mr-1"></span>
+                                Test Small Models
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workspace-card">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                            <span class="octicon octicon-tools mr-2"></span>
+                            Custom Model Testing
+                        </h3>
+                        <div class="space-y-3">
+                            <button class="w-full lenovo-button text-sm" onclick="testCustomModels()">
+                                <span class="octicon octicon-gear mr-1"></span>
+                                Test Custom Models
+                            </button>
+                            <button class="w-full lenovo-button text-sm" onclick="testFineTunedModels()">
+                                <span class="octicon octicon-git-branch mr-1"></span>
+                                Test Fine-tuned Models
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workspace-card">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                            <span class="octicon octicon-workflow mr-2"></span>
+                            Workflow Testing
+                        </h3>
+                        <div class="space-y-3">
+                            <button class="w-full lenovo-button text-sm" onclick="testAgenticWorkflows()">
+                                <span class="octicon octicon-workflow mr-1"></span>
+                                Test Agentic Workflows
+                            </button>
+                            <button class="w-full lenovo-button text-sm" onclick="testRetrievalWorkflows()">
+                                <span class="octicon octicon-search mr-1"></span>
+                                Test Retrieval Workflows
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evaluation Results -->
+                <div class="workspace-card">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-graph mr-2"></span>
+                        Evaluation Results
+                    </h3>
+                    <div id="evaluation-results" class="space-y-4">
+                        <div class="text-center text-gray-400 py-8">
+                            <span class="octicon octicon-beaker text-4xl mb-4 block"></span>
+                            Run evaluations to see results here
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Factory Roster Dashboard -->
+            <div id="factory-roster-workspace" class="workspace-section hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">Factory Roster Management</h1>
+                    <p class="text-gray-400">Production-ready model deployment and management</p>
+                </div>
+
+                <!-- Production Models -->
+                <div class="workspace-card mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-package mr-2"></span>
+                        Production Models
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-semibold text-white">phi-4-mini</h4>
+                                <span class="service-status status-online"></span>
+                            </div>
+                            <p class="text-sm text-gray-400">Mobile Edge Deployment</p>
+                            <div class="mt-2 flex space-x-2">
+                                <button class="lenovo-button text-xs" onclick="deployModel('phi-4-mini')">Deploy</button>
+                                <button class="lenovo-button text-xs" onclick="monitorModel('phi-4-mini')">Monitor</button>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-semibold text-white">llama-3.2-3b</h4>
+                                <span class="service-status status-online"></span>
+                            </div>
+                            <p class="text-sm text-gray-400">On-Device Inference</p>
+                            <div class="mt-2 flex space-x-2">
+                                <button class="lenovo-button text-xs" onclick="deployModel('llama-3.2-3b')">Deploy</button>
+                                <button class="lenovo-button text-xs" onclick="monitorModel('llama-3.2-3b')">Monitor</button>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-800 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-semibold text-white">qwen-2.5-3b</h4>
+                                <span class="service-status status-warning"></span>
+                            </div>
+                            <p class="text-sm text-gray-400">Chinese Mobile Support</p>
+                            <div class="mt-2 flex space-x-2">
+                                <button class="lenovo-button text-xs" onclick="deployModel('qwen-2.5-3b')">Deploy</button>
+                                <button class="lenovo-button text-xs" onclick="monitorModel('qwen-2.5-3b')">Monitor</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deployment Status -->
+                <div class="workspace-card">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-pulse mr-2"></span>
+                        Deployment Status
+                    </h3>
+                    <div id="deployment-status" class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                            <div>
+                                <span class="text-sm font-medium text-white">Production Deployment</span>
+                                <p class="text-xs text-gray-400">Last updated: 2 minutes ago</p>
+                            </div>
+                            <span class="service-status status-online"></span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                            <div>
+                                <span class="text-sm font-medium text-white">Model Registry</span>
+                                <p class="text-xs text-gray-400">12 models registered</p>
+                            </div>
+                            <span class="service-status status-online"></span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                            <div>
+                                <span class="text-sm font-medium text-white">MLflow Tracking</span>
+                                <p class="text-xs text-gray-400">45 experiments tracked</p>
+                            </div>
+                            <span class="service-status status-online"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Monitoring Dashboard -->
+            <div id="monitoring-workspace" class="workspace-section hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">Real-time Monitoring</h1>
+                    <p class="text-gray-400">Performance analytics and system health monitoring</p>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="metric-card">
+                        <div class="metric-value" id="total-requests">1,247</div>
+                        <div class="metric-label">Total Requests</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="avg-latency">142ms</div>
+                        <div class="metric-label">Avg Latency</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="success-rate">99.2%</div>
+                        <div class="metric-label">Success Rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="active-models">4</div>
+                        <div class="metric-label">Active Models</div>
+                    </div>
+                </div>
+
+                <!-- Service Status -->
+                <div class="workspace-card">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-pulse mr-2"></span>
+                        Service Status
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <div>
+                                    <span class="text-sm font-medium text-white">FastAPI Platform</span>
+                                    <p class="text-xs text-gray-400">Port 8080</p>
+                                </div>
+                                <span class="service-status status-online"></span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <div>
+                                    <span class="text-sm font-medium text-white">Gradio App</span>
+                                    <p class="text-xs text-gray-400">Port 7860</p>
+                                </div>
+                                <span class="service-status status-online"></span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <div>
+                                    <span class="text-sm font-medium text-white">MLflow Tracking</span>
+                                    <p class="text-xs text-gray-400">Port 5000</p>
+                                </div>
+                                <span class="service-status status-online"></span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <div>
+                                    <span class="text-sm font-medium text-white">ChromaDB</span>
+                                    <p class="text-xs text-gray-400">Port 8081</p>
+                                </div>
+                                <span class="service-status status-online"></span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <div>
+                                    <span class="text-sm font-medium text-white">Neo4j</span>
+                                    <p class="text-xs text-gray-400">Port 7687</p>
+                                </div>
+                                <span class="service-status status-online"></span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                <div>
+                                    <span class="text-sm font-medium text-white">LangGraph Studio</span>
+                                    <p class="text-xs text-gray-400">Port 8083</p>
+                                </div>
+                                <span class="service-status status-online"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Flow Visualization -->
+            <div id="data-flow-workspace" class="workspace-section hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white mb-2">Unified Data Flow</h1>
+                    <p class="text-gray-400">Real-time data flow visualization across all components</p>
+                </div>
+
+                <!-- Data Flow Diagram -->
+                <div class="workspace-card mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-git-branch mr-2"></span>
+                        Data Flow Architecture
+                    </h3>
+                    <div id="data-flow-diagram" class="bg-gray-800 rounded-lg p-6">
+                        <div class="text-center text-gray-400">
+                            <span class="octicon octicon-git-branch text-4xl mb-4 block"></span>
+                            <p>Data flow visualization will be rendered here</p>
+                            <button class="lenovo-button mt-4" onclick="renderDataFlow()">
+                                <span class="octicon octicon-play mr-1"></span>
+                                Render Flow
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integration Matrix -->
+                <div class="workspace-card">
+                    <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                        <span class="octicon octicon-table mr-2"></span>
+                        Service Integration Matrix
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="text-left py-3 px-4 text-gray-300">Service</th>
+                                    <th class="text-left py-3 px-4 text-gray-300">Port</th>
+                                    <th class="text-left py-3 px-4 text-gray-300">Purpose</th>
+                                    <th class="text-left py-3 px-4 text-gray-300">Data Flow</th>
+                                    <th class="text-left py-3 px-4 text-gray-300">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-4 text-white">FastAPI Platform</td>
+                                    <td class="py-3 px-4 text-gray-400">8080</td>
+                                    <td class="py-3 px-4 text-gray-400">Main enterprise platform</td>
+                                    <td class="py-3 px-4 text-gray-400">Central hub</td>
+                                    <td class="py-3 px-4"><span class="service-status status-online"></span> Online</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-4 text-white">Gradio Evaluation</td>
+                                    <td class="py-3 px-4 text-gray-400">7860</td>
+                                    <td class="py-3 px-4 text-gray-400">Model evaluation interface</td>
+                                    <td class="py-3 px-4 text-gray-400">Direct integration</td>
+                                    <td class="py-3 px-4"><span class="service-status status-online"></span> Online</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-4 text-white">MLflow Tracking</td>
+                                    <td class="py-3 px-4 text-gray-400">5000</td>
+                                    <td class="py-3 px-4 text-gray-400">Experiment tracking</td>
+                                    <td class="py-3 px-4 text-gray-400">All experiments</td>
+                                    <td class="py-3 px-4"><span class="service-status status-online"></span> Online</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-4 text-white">ChromaDB</td>
+                                    <td class="py-3 px-4 text-gray-400">8081</td>
+                                    <td class="py-3 px-4 text-gray-400">Vector database</td>
+                                    <td class="py-3 px-4 text-gray-400">RAG workflows</td>
+                                    <td class="py-3 px-4"><span class="service-status status-online"></span> Online</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-4 text-white">Neo4j</td>
+                                    <td class="py-3 px-4 text-gray-400">7687</td>
+                                    <td class="py-3 px-4 text-gray-400">Graph database</td>
+                                    <td class="py-3 px-4 text-gray-400">Knowledge graphs</td>
+                                    <td class="py-3 px-4"><span class="service-status status-online"></span> Online</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-4 text-white">LangGraph Studio</td>
+                                    <td class="py-3 px-4 text-gray-400">8083</td>
+                                    <td class="py-3 px-4 text-gray-400">Agent visualization</td>
+                                    <td class="py-3 px-4 text-gray-400">Agent workflows</td>
+                                    <td class="py-3 px-4"><span class="service-status status-online"></span> Online</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#E2231A',
+                primaryTextColor: '#FFFFFF',
+                primaryBorderColor: '#C01E17',
+                lineColor: '#666666',
+                secondaryColor: '#2A2A2A',
+                tertiaryColor: '#404040'
+            }
+        });
+
+        // Workspace navigation
+        function showWorkspace(workspace) {
+            // Hide all workspaces
+            document.querySelectorAll('.workspace-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected workspace
+            document.getElementById(workspace + '-workspace').classList.remove('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`[data-workspace="${workspace}"]`).classList.add('active');
+        }
+
+        // Navigation event listeners
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const workspace = link.getAttribute('data-workspace');
+                showWorkspace(workspace);
+            });
+        });
+
+        // AI Architect functions
+        function startFineTuning() {
+            alert('Starting fine-tuning pipeline...');
+            // Implementation would call the fine-tuning API
+        }
+
+        function createAdapters() {
+            alert('Creating QLoRA adapters...');
+            // Implementation would call the adapter creation API
+        }
+
+        function trainEmbeddings() {
+            alert('Training custom embeddings...');
+            // Implementation would call the embedding training API
+        }
+
+        function setupHybridRAG() {
+            alert('Setting up hybrid RAG workflows...');
+            // Implementation would call the RAG setup API
+        }
+
+        function setupLangChain() {
+            alert('Configuring LangChain integration...');
+            // Implementation would call the LangChain setup API
+        }
+
+        function setupLlamaIndex() {
+            alert('Setting up LlamaIndex retrieval...');
+            // Implementation would call the LlamaIndex setup API
+        }
+
+        function openSmolAgent() {
+            window.open('http://localhost:8083', '_blank');
+        }
+
+        function openLangGraph() {
+            window.open('http://localhost:8083', '_blank');
+        }
+
+        // Model Evaluation functions
+        function testRawModels() {
+            alert('Testing raw foundation models...');
+            // Implementation would call the model testing API
+        }
+
+        function testSmallModels() {
+            alert('Testing small models...');
+            // Implementation would call the small model testing API
+        }
+
+        function testCustomModels() {
+            alert('Testing custom models...');
+            // Implementation would call the custom model testing API
+        }
+
+        function testFineTunedModels() {
+            alert('Testing fine-tuned models...');
+            // Implementation would call the fine-tuned model testing API
+        }
+
+        function testAgenticWorkflows() {
+            alert('Testing agentic workflows...');
+            // Implementation would call the agentic workflow testing API
+        }
+
+        function testRetrievalWorkflows() {
+            alert('Testing retrieval workflows...');
+            // Implementation would call the retrieval workflow testing API
+        }
+
+        // Factory Roster functions
+        function deployModel(modelName) {
+            alert(`Deploying ${modelName} to production...`);
+            // Implementation would call the deployment API
+        }
+
+        function monitorModel(modelName) {
+            alert(`Opening monitoring for ${modelName}...`);
+            // Implementation would open model monitoring dashboard
+        }
+
+        // Data flow visualization
+        function renderDataFlow() {
+            const diagram = `
+                graph TB
+                    subgraph "Data Generation Layer"
+                        A[Enterprise Data Generators] --> B[ChromaDB Vector Store]
+                        A --> C[Neo4j Graph Database]
+                        A --> D[DuckDB Analytics]
+                        A --> E[MLflow Experiments]
+                    end
+
+                    subgraph "AI Architect Layer"
+                        F[AI Architect] --> G[Model Customization]
+                        G --> H[Fine-tuning Pipeline]
+                        G --> I[QLoRA Adapters]
+                        G --> J[Custom Embeddings]
+                        G --> K[Hybrid RAG]
+                        G --> L[LangChain/LlamaIndex]
+                        G --> M[SmolAgent Workflows]
+                        G --> N[LangGraph Workflows]
+                    end
+
+                    subgraph "Model Evaluation Layer"
+                        O[Model Evaluation Engineer] --> P[Raw Model Testing]
+                        O --> Q[Custom Model Testing]
+                        O --> R[Agentic Workflow Testing]
+                        O --> S[Retrieval Workflow Testing]
+                        P --> T[Factory Roster]
+                        Q --> T
+                        R --> T
+                        S --> T
+                    end
+
+                    subgraph "MLflow Experiment Tracking"
+                        E --> U[All Experiments]
+                        H --> U
+                        I --> U
+                        J --> U
+                        K --> U
+                        L --> U
+                        M --> U
+                        N --> U
+                        P --> U
+                        Q --> U
+                        R --> U
+                        S --> U
+                    end
+
+                    subgraph "Production Deployment"
+                        T --> V[Production Models]
+                        V --> W[Real-time Monitoring]
+                        W --> X[Performance Analytics]
+                    end
+
+                    B --> K
+                    C --> K
+                    D --> K
+                    K --> L
+                    L --> M
+                    M --> N
+                    N --> R
+                    L --> S
+            `;
+
+            document.getElementById('data-flow-diagram').innerHTML = '<div class="mermaid">' + diagram + '</div>';
+            mermaid.init(undefined, document.getElementById('data-flow-diagram'));
+        }
+
+        // Refresh data function
+        function refreshData() {
+            // Update metrics
+            document.getElementById('total-requests').textContent = Math.floor(Math.random() * 2000) + 1000;
+            document.getElementById('avg-latency').textContent = Math.floor(Math.random() * 100) + 100 + 'ms';
+            document.getElementById('success-rate').textContent = (99 + Math.random()).toFixed(1) + '%';
+            
+            alert('Data refreshed successfully!');
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show AI Architect workspace by default
+            showWorkspace('ai-architect');
+            
+            // Start real-time updates
+            setInterval(refreshData, 30000); // Update every 30 seconds
+        });
+    </script>
+</body>
+</html>

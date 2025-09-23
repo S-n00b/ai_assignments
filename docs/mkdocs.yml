@@ -125,6 +125,7 @@ nav:
   - Development:
       - Setup & Installation: development/setup.md
       - Testing & Quality: development/testing.md
+      - Comprehensive Testing Guide: development/testing-guide.md
       - Deployment Guide: development/deployment.md
       - Documentation Sources: development/documentation-sources.md
       - Contributing: development/contributing.md
@@ -134,6 +135,7 @@ nav:
   - API Documentation:
       - FastAPI Enterprise: api/fastapi-enterprise.md
       - Gradio Model Evaluation: api/gradio-model-evaluation.md
+      - Pytest Testing Infrastructure: api/pytest-testing-infrastructure.md
       - Neo4j Service: api/neo4j-service.md
       - MCP Server: api/mcp-server.md
       - Model Evaluation: api/model-evaluation.md
