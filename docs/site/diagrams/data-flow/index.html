@@ -9,7 +9,7 @@
 <meta content="Lenovo AAITC Team" name="author"/>
 <link href="https://s-n00b.github.io/ai_assignments/diagrams/data-flow/" rel="canonical"/>
 <link href="../service-integration/" rel="prev"/>
-<link href="../../AI_TOOL_PROMPTS_INTEGRATION/" rel="next"/>
+<link href="../../phase2/phase2-implementation-guide/" rel="next"/>
 <link href="../../assets/img/favicon.svg" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.20" name="generator"/>
 <title>Data Flow - Lenovo AAITC Solutions</title>
@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -651,6 +660,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -712,6 +729,14 @@
 <a class="md-nav__link" href="../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -991,7 +1016,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -999,9 +1024,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1199,7 +1290,7 @@
 <p>This section contains comprehensive data flow diagrams showing how data moves through the Lenovo AAITC platform, from user input to model output and storage.</p>
 <h2 id="complete-data-flow-architecture">🔄 Complete Data Flow Architecture<a class="headerlink" href="#complete-data-flow-architecture" title="Permanent link">¶</a></h2>
 <h3 id="end-to-end-data-flow">End-to-End Data Flow<a class="headerlink" href="#end-to-end-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">flowchart TD
+<pre class="mermaid"><code>flowchart TD
     A[User Input] --&gt; B[FastAPI Platform]
     B --&gt; C[Request Processing]
     C --&gt; D[Authentication &amp; Authorization]
@@ -1250,10 +1341,9 @@
     style T fill:#fff8e1,stroke:#ff6f00,stroke-width:2px
     style W fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px
     style Y fill:#f9fbe7,stroke:#827717,stroke-width:2px
-    style Z fill:#fce4ec,stroke:#ad1457,stroke-width:2px
-</div>
+    style Z fill:#fce4ec,stroke:#ad1457,stroke-width:2px</code></pre>
 <h3 id="model-evaluation-data-flow">Model Evaluation Data Flow<a class="headerlink" href="#model-evaluation-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant U as User
     participant G as Gradio App
     participant F as FastAPI Platform
@@ -1287,10 +1377,9 @@
     F-&gt;&gt;P: Record Performance Metrics
 
     F--&gt;&gt;G: Evaluation Results
-    G--&gt;&gt;U: Display Results
-</div>
+    G--&gt;&gt;U: Display Results</code></pre>
 <h3 id="knowledge-graph-data-flow">Knowledge Graph Data Flow<a class="headerlink" href="#knowledge-graph-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Neo4j Knowledge Graph Data Flow"
         A[Document Input] --&gt; B[Text Processing]
         B --&gt; C[Entity Recognition]
@@ -1332,10 +1421,9 @@
     style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px
     style Q fill:#fce4ec,stroke:#e91e63,stroke-width:2px
     style R fill:#e1f5fe,stroke:#00bcd4,stroke-width:2px
-    style S fill:#f1f8e9,stroke:#8bc34a,stroke-width:2px
-</div>
+    style S fill:#f1f8e9,stroke:#8bc34a,stroke-width:2px</code></pre>
 <h3 id="vector-database-data-flow">Vector Database Data Flow<a class="headerlink" href="#vector-database-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "ChromaDB Vector Data Flow"
         A[Document Input] --&gt; B[Text Chunking]
         B --&gt; C[Embedding Generation]
@@ -1368,11 +1456,10 @@
     style K fill:#fce4ec,stroke:#ad1457,stroke-width:2px
     style L fill:#ffebee,stroke:#c62828,stroke-width:2px
     style M fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
-    style N fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
-</div>
+    style N fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px</code></pre>
 <h2 id="experiment-tracking-data-flow">🔄 Experiment Tracking Data Flow<a class="headerlink" href="#experiment-tracking-data-flow" title="Permanent link">¶</a></h2>
 <h3 id="mlflow-experiment-data-flow">MLflow Experiment Data Flow<a class="headerlink" href="#mlflow-experiment-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "MLflow Experiment Tracking"
         A[Model Evaluation Start] --&gt; B[Experiment Creation]
         B --&gt; C[Run Initialization]
@@ -1409,10 +1496,9 @@
     style N fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
     style O fill:#e0f2f1,stroke:#009688,stroke-width:2px
     style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-    style Q fill:#fce4ec,stroke:#e91e63,stroke-width:2px
-</div>
+    style Q fill:#fce4ec,stroke:#e91e63,stroke-width:2px</code></pre>
 <h3 id="qlora-fine-tuning-data-flow">QLoRA Fine-Tuning Data Flow<a class="headerlink" href="#qlora-fine-tuning-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "QLoRA Fine-Tuning Data Flow"
         A[Base Model] --&gt; B[Dataset Preparation]
         B --&gt; C[Training Configuration]
@@ -1451,11 +1537,10 @@
     style M fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
     style N fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
     style O fill:#e0f2f1,stroke:#009688,stroke-width:2px
-    style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-</div>
+    style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px</code></pre>
 <h2 id="monitoring-observability-data-flow">📊 Monitoring &amp; Observability Data Flow<a class="headerlink" href="#monitoring-observability-data-flow" title="Permanent link">¶</a></h2>
 <h3 id="metrics-collection-flow">Metrics Collection Flow<a class="headerlink" href="#metrics-collection-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "Monitoring Data Flow"
         A[Application Metrics] --&gt; B[Prometheus Collection]
         B --&gt; C[Metric Storage]
@@ -1489,10 +1574,9 @@
     style M fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
     style N fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
     style O fill:#e0f2f1,stroke:#009688,stroke-width:2px
-    style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-</div>
+    style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px</code></pre>
 <h3 id="real-time-data-processing">Real-time Data Processing<a class="headerlink" href="#real-time-data-processing" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Real-time Data Processing"
         A[User Input] --&gt; B[Stream Processing]
         B --&gt; C[Data Validation]
@@ -1527,8 +1611,7 @@
     style M fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
     style N fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
     style O fill:#e0f2f1,stroke:#009688,stroke-width:2px
-    style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px
-</div>
+    style P fill:#fff3e0,stroke:#ff9800,stroke-width:2px</code></pre>
 <hr/>
 <p><strong>Last Updated</strong>: January 19, 2025<br/>
 <strong>Version</strong>: 2.1.0<br/>
@@ -1610,16 +1693,5 @@
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

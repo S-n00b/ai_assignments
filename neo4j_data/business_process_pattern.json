@@ -3,1237 +3,1177 @@
   "metadata": {
     "pattern_type": "business_process",
     "total_processes": 12,
-    "total_stages": 69,
-    "avg_stages_per_process": 5.75
+    "total_stages": 65,
+    "avg_stages_per_process": 5.416666666666667
   },
-  "created_at": "2025-09-22T19:05:41.414196",
+  "created_at": "2025-09-24T11:37:16.391157",
   "nodes": [
     {
       "id": "process_1",
-      "label": "Budget Planning",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Budget Planning",
-        "description": "College may site smile cause very TV. Western go pay water type. Might movie answer street.\nCall responsibility protect rise treat high. Child box direction. Newspaper smile system moment different about. Opportunity town paper.",
-        "owner": "Lauren Hughes",
-        "frequency": "daily",
-        "complexity": "high",
-        "automation_level": "manual",
-        "compliance_required": false,
-        "sla_hours": 26
-      },
-      "created_at": "2025-09-22T19:05:41.396187"
-    },
-    {
-      "id": "process_2",
-      "label": "Employee Onboarding",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Employee Onboarding",
-        "description": "Skin American person art address black position understand.\nReason accept sense item. Professional maintain prevent understand capital performance represent. First class add certain admit season.\nDefense head only and quickly view son.\nIn fly current different place prepare.",
-        "owner": "Joseph Cochran",
-        "frequency": "daily",
-        "complexity": "low",
-        "automation_level": "manual",
-        "compliance_required": false,
-        "sla_hours": 126
-      },
-      "created_at": "2025-09-22T19:05:41.396932"
-    },
-    {
-      "id": "process_3",
-      "label": "Performance Review",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Performance Review",
-        "description": "Behind lay experience skin decade table true. Shoulder full pattern political.\nItself cause point stay position. Hundred floor their message price thousand. Name summer degree man yet today rather.\nQuestion yes civil it. Administration court space rate begin run.",
-        "owner": "Megan Jensen",
-        "frequency": "monthly",
-        "complexity": "low",
-        "automation_level": "semi_automated",
-        "compliance_required": true,
-        "sla_hours": 55
-      },
-      "created_at": "2025-09-22T19:05:41.398433"
-    },
-    {
-      "id": "process_4",
-      "label": "Support Process",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Support Process",
-        "description": "Task where positive interview unit skill. Meeting oil top buy similar style. White cultural full rate.\nWhich say thousand special team same happy. Great free fear but expect. Exactly dog ground security.\nPosition dream western player. Crime face institution. Summer plan part page.",
-        "owner": "Lori Sanders",
-        "frequency": "monthly",
-        "complexity": "high",
-        "automation_level": "fully_automated",
-        "compliance_required": false,
-        "sla_hours": 42
-      },
-      "created_at": "2025-09-22T19:05:41.399185"
-    },
-    {
-      "id": "process_5",
-      "label": "Customer Onboarding",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Customer Onboarding",
-        "description": "Represent enough my occur moment seat. Generation per watch detail south. Or week human determine finish.\nEvening capital maintain cultural name new. Follow chair this billion analysis tonight.\nSame activity street. Business seat against fear partner. And general than cause difference top.",
-        "owner": "Nicole Allison",
-        "frequency": "annually",
-        "complexity": "medium",
-        "automation_level": "fully_automated",
-        "compliance_required": true,
-        "sla_hours": 106
-      },
-      "created_at": "2025-09-22T19:05:41.400684"
-    },
-    {
-      "id": "process_6",
-      "label": "Risk Assessment",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Risk Assessment",
-        "description": "Protect action material candidate return. Model watch old night.\nBetter structure suddenly sing. Dog more cold. Population letter stuff court. Every environmental benefit weight special him drug.\nUnderstand during ability address forget free.",
-        "owner": "Rachel Lane",
-        "frequency": "weekly",
-        "complexity": "medium",
-        "automation_level": "semi_automated",
-        "compliance_required": true,
-        "sla_hours": 1
-      },
-      "created_at": "2025-09-22T19:05:41.400684"
-    },
-    {
-      "id": "process_7",
       "label": "Compliance Review",
       "node_type": "business_process",
       "properties": {
         "name": "Compliance Review",
-        "description": "Population this item meet yes provide.\nParticipant hand industry while.\nThank officer author suffer site social. Agent officer military. Allow course rest term listen character.\nPopular record care race. Base threat contain week cause.",
-        "owner": "Amy Santos",
-        "frequency": "monthly",
-        "complexity": "low",
-        "automation_level": "fully_automated",
-        "compliance_required": true,
-        "sla_hours": 95
-      },
-      "created_at": "2025-09-22T19:05:41.402189"
-    },
-    {
-      "id": "process_8",
-      "label": "Support Process",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Support Process",
-        "description": "Bed officer arm myself.\nSet father language hope unit front. Life authority speak challenge product near. Morning back month.\nAfter although choose own her leg. Become technology cell day. Allow make too civil sit.\nYet window born fly. Than beautiful sense night. Ball let go.",
-        "owner": "Robin Mcintosh",
-        "frequency": "annually",
-        "complexity": "medium",
+        "description": "Event ok north test.\nApply us attack decade. Become former great style certain ago.\nBelieve right Mr simply sit thousand expert. Great sort drive drive some radio.\nShow in parent need many court. Cultural simply treat step article evening share gun.",
+        "owner": "Mark Parsons",
+        "frequency": "weekly",
+        "complexity": "high",
         "automation_level": "manual",
         "compliance_required": true,
         "sla_hours": 68
       },
-      "created_at": "2025-09-22T19:05:41.403686"
+      "created_at": "2025-09-24T11:37:16.383908"
     },
     {
-      "id": "process_9",
+      "id": "process_2",
+      "label": "Incident Response",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Incident Response",
+        "description": "When staff girl glass black be. Important possible member center road another effort. Through arm only.\nAttack push information charge peace admit statement to. Read off picture night town around hard. Compare young population admit.",
+        "owner": "Carrie Harrison",
+        "frequency": "annually",
+        "complexity": "medium",
+        "automation_level": "semi_automated",
+        "compliance_required": true,
+        "sla_hours": 75
+      },
+      "created_at": "2025-09-24T11:37:16.384646"
+    },
+    {
+      "id": "process_3",
+      "label": "Incident Response",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Incident Response",
+        "description": "Under product task own matter stay. Mention peace arrive.\nCommercial so door. Treat staff cost along great.\nMy north amount who Republican second Republican. Wait blood consider condition month miss at.\nAhead every hear particularly around so. Owner matter lose reach.",
+        "owner": "Kim Vang",
+        "frequency": "quarterly",
+        "complexity": "low",
+        "automation_level": "semi_automated",
+        "compliance_required": true,
+        "sla_hours": 109
+      },
+      "created_at": "2025-09-24T11:37:16.384646"
+    },
+    {
+      "id": "process_4",
+      "label": "Performance Review",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Performance Review",
+        "description": "Simple what whole summer energy summer ability. Assume card fact. Your national establish big.\nProve store book environment. Consider wrong prepare near cut. Find line especially light talk.\nFoot even audience responsibility class report. End usually bring.",
+        "owner": "John Little",
+        "frequency": "quarterly",
+        "complexity": "low",
+        "automation_level": "semi_automated",
+        "compliance_required": true,
+        "sla_hours": 102
+      },
+      "created_at": "2025-09-24T11:37:16.385394"
+    },
+    {
+      "id": "process_5",
+      "label": "Compliance Review",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Compliance Review",
+        "description": "With right they.\nMoment people ground. Character military threat consumer conference tree animal. Pressure west western.\nPressure manage land sea. Ok least memory opportunity heavy tax design.",
+        "owner": "Angelica Green",
+        "frequency": "weekly",
+        "complexity": "high",
+        "automation_level": "fully_automated",
+        "compliance_required": false,
+        "sla_hours": 118
+      },
+      "created_at": "2025-09-24T11:37:16.386144"
+    },
+    {
+      "id": "process_6",
       "label": "Sales Process",
       "node_type": "business_process",
       "properties": {
         "name": "Sales Process",
-        "description": "Similar oil policy enter. Deal arrive Republican consider school see upon budget. General card small. Consumer tell song note scientist.\nHelp page be value. State recognize member million full still peace.",
-        "owner": "Monica Brooks",
-        "frequency": "daily",
+        "description": "Public push control out there eat. Seem cell media account will result.\nWithin involve measure main say again performance. Section dog future air control military hour method.\nSupport science western trial. Stage section individual leader will.",
+        "owner": "Jennifer Martinez",
+        "frequency": "monthly",
         "complexity": "medium",
         "automation_level": "fully_automated",
         "compliance_required": true,
-        "sla_hours": 135
+        "sla_hours": 30
       },
-      "created_at": "2025-09-22T19:05:41.406687"
+      "created_at": "2025-09-24T11:37:16.386671"
     },
     {
-      "id": "process_10",
+      "id": "process_7",
+      "label": "Employee Onboarding",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Employee Onboarding",
+        "description": "Your shoulder collection southern. Goal defense rest represent authority road central. Trip beyond fly memory.\nNumber data expect talk level common. Husband consider do yard kitchen. Lay part truth Republican southern sure.",
+        "owner": "Mitchell Lopez",
+        "frequency": "quarterly",
+        "complexity": "high",
+        "automation_level": "semi_automated",
+        "compliance_required": false,
+        "sla_hours": 131
+      },
+      "created_at": "2025-09-24T11:37:16.387408"
+    },
+    {
+      "id": "process_8",
+      "label": "Compliance Review",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Compliance Review",
+        "description": "Of level network teach just take. Address black continue thought against left another. Write machine someone market bill.\nWin floor before question the. Arrive soldier free finally. Each him under once general lead teach.",
+        "owner": "Christopher Mccoy",
+        "frequency": "monthly",
+        "complexity": "medium",
+        "automation_level": "fully_automated",
+        "compliance_required": true,
+        "sla_hours": 39
+      },
+      "created_at": "2025-09-24T11:37:16.387408"
+    },
+    {
+      "id": "process_9",
       "label": "Risk Assessment",
       "node_type": "business_process",
       "properties": {
         "name": "Risk Assessment",
-        "description": "Boy head decide range. At little apply local manager.\nBody cold physical candidate southern. Simple somebody have forget message pick.\nLetter thought understand husband military use. Account draw Republican audience option consider writer night.",
-        "owner": "Sandra Mcdowell",
+        "description": "North anything trip usually present analysis surface of. Strategy talk light bit. Watch media memory rise some.\nSong space cover dinner society during ten. Hope someone old laugh billion leave. Tree interest so notice state.",
+        "owner": "Jose Garza",
+        "frequency": "weekly",
+        "complexity": "medium",
+        "automation_level": "semi_automated",
+        "compliance_required": false,
+        "sla_hours": 140
+      },
+      "created_at": "2025-09-24T11:37:16.388158"
+    },
+    {
+      "id": "process_10",
+      "label": "Support Process",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Support Process",
+        "description": "Wife watch role something wear. Peace anything tell art serve. Respond approach account vote.\nAudience college determine important allow pay. American inside culture budget policy.\nSpace soon source beat wait. Character season people include agency. One under century community.",
+        "owner": "Adam Riley",
+        "frequency": "weekly",
+        "complexity": "low",
+        "automation_level": "semi_automated",
+        "compliance_required": true,
+        "sla_hours": 78
+      },
+      "created_at": "2025-09-24T11:37:16.388158"
+    },
+    {
+      "id": "process_11",
+      "label": "Vendor Management",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Vendor Management",
+        "description": "Toward able church. Itself music own add fine send term speak. Social view room dog across.\nYou pick miss arrive it produce rock. Community character beautiful for.\nProfessor choose pressure very feeling environmental. Find apply article speak matter exist assume. Event he card direction decide.",
+        "owner": "Kelli Meyer",
+        "frequency": "daily",
+        "complexity": "low",
+        "automation_level": "manual",
+        "compliance_required": true,
+        "sla_hours": 108
+      },
+      "created_at": "2025-09-24T11:37:16.388907"
+    },
+    {
+      "id": "process_12",
+      "label": "Sales Process",
+      "node_type": "business_process",
+      "properties": {
+        "name": "Sales Process",
+        "description": "South now media paper. His deal action person. Learn receive physical ready. Building while peace pass eye report worry.\nPaper stay certain student generation address. People we gas future letter. Network ok result market once short vote.",
+        "owner": "Theresa Turner",
         "frequency": "annually",
         "complexity": "medium",
         "automation_level": "manual",
         "compliance_required": true,
-        "sla_hours": 143
+        "sla_hours": 83
       },
-      "created_at": "2025-09-22T19:05:41.408198"
-    },
-    {
-      "id": "process_11",
-      "label": "Budget Planning",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Budget Planning",
-        "description": "Determine east hold discussion worker bag I responsibility. Hear writer model money officer color pattern.\nAnd area son later.\nFour carry describe people rock. Determine current determine method budget.\nShoulder kitchen civil party news. All perform raise black.",
-        "owner": "Timothy Smith",
-        "frequency": "quarterly",
-        "complexity": "low",
-        "automation_level": "fully_automated",
-        "compliance_required": true,
-        "sla_hours": 93
-      },
-      "created_at": "2025-09-22T19:05:41.410436"
-    },
-    {
-      "id": "process_12",
-      "label": "Risk Assessment",
-      "node_type": "business_process",
-      "properties": {
-        "name": "Risk Assessment",
-        "description": "Everybody market reveal war hour question chair. Same century challenge bill order total. Phone western fill until. Kid never nation.\nPass probably throughout. Your range doctor anything nation. By speak and.\nBed agree a member someone half general. Door expert political state to whose.",
-        "owner": "Karen Berg",
-        "frequency": "daily",
-        "complexity": "medium",
-        "automation_level": "manual",
-        "compliance_required": false,
-        "sla_hours": 105
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
       "id": "stage_process_1_1",
-      "label": "Budget Planning - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_1",
-        "stage_type": "monitoring",
-        "duration_hours": 7,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_1_2",
-      "label": "Budget Planning - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_1",
-        "stage_type": "closure",
-        "duration_hours": 47,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_1_3",
-      "label": "Budget Planning - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_1",
-        "stage_type": "execution",
-        "duration_hours": 22,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_1_4",
-      "label": "Budget Planning - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_1",
-        "stage_type": "planning",
-        "duration_hours": 7,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_1_5",
-      "label": "Budget Planning - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_1",
-        "stage_type": "maintenance",
-        "duration_hours": 6,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_1",
-      "label": "Employee Onboarding - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_2",
-        "stage_type": "closure",
-        "duration_hours": 14,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_2",
-      "label": "Employee Onboarding - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_2",
-        "stage_type": "closure",
-        "duration_hours": 10,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_3",
-      "label": "Employee Onboarding - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_2",
-        "stage_type": "planning",
-        "duration_hours": 3,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_4",
-      "label": "Employee Onboarding - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_2",
-        "stage_type": "maintenance",
-        "duration_hours": 22,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_5",
-      "label": "Employee Onboarding - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_2",
-        "stage_type": "closure",
-        "duration_hours": 42,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_6",
-      "label": "Employee Onboarding - Stage 6",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 6",
-        "process_id": "process_2",
-        "stage_type": "closure",
-        "duration_hours": 14,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_7",
-      "label": "Employee Onboarding - Stage 7",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 7",
-        "process_id": "process_2",
-        "stage_type": "initiation",
-        "duration_hours": 47,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_2_8",
-      "label": "Employee Onboarding - Stage 8",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 8",
-        "process_id": "process_2",
-        "stage_type": "monitoring",
-        "duration_hours": 16,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_1",
-      "label": "Performance Review - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_3",
-        "stage_type": "execution",
-        "duration_hours": 48,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_2",
-      "label": "Performance Review - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_3",
-        "stage_type": "monitoring",
-        "duration_hours": 46,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_3",
-      "label": "Performance Review - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_3",
-        "stage_type": "monitoring",
-        "duration_hours": 48,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_4",
-      "label": "Performance Review - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_3",
-        "stage_type": "monitoring",
-        "duration_hours": 9,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_5",
-      "label": "Performance Review - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_3",
-        "stage_type": "planning",
-        "duration_hours": 42,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_6",
-      "label": "Performance Review - Stage 6",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 6",
-        "process_id": "process_3",
-        "stage_type": "monitoring",
-        "duration_hours": 31,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_3_7",
-      "label": "Performance Review - Stage 7",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 7",
-        "process_id": "process_3",
-        "stage_type": "closure",
-        "duration_hours": 9,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_4_1",
-      "label": "Support Process - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_4",
-        "stage_type": "execution",
-        "duration_hours": 34,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_4_2",
-      "label": "Support Process - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_4",
-        "stage_type": "closure",
-        "duration_hours": 27,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_4_3",
-      "label": "Support Process - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_4",
-        "stage_type": "monitoring",
-        "duration_hours": 40,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_5_1",
-      "label": "Customer Onboarding - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_5",
-        "stage_type": "monitoring",
-        "duration_hours": 19,
-        "responsible_role": "specialist",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_5_2",
-      "label": "Customer Onboarding - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_5",
-        "stage_type": "closure",
-        "duration_hours": 39,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "stage_process_5_3",
-      "label": "Customer Onboarding - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_5",
-        "stage_type": "initiation",
-        "duration_hours": 8,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_5_4",
-      "label": "Customer Onboarding - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_5",
-        "stage_type": "maintenance",
-        "duration_hours": 23,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_6_1",
-      "label": "Risk Assessment - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_6",
-        "stage_type": "initiation",
-        "duration_hours": 12,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_6_2",
-      "label": "Risk Assessment - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_6",
-        "stage_type": "closure",
-        "duration_hours": 30,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_6_3",
-      "label": "Risk Assessment - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_6",
-        "stage_type": "execution",
-        "duration_hours": 23,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_6_4",
-      "label": "Risk Assessment - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_6",
-        "stage_type": "monitoring",
-        "duration_hours": 24,
-        "responsible_role": "specialist",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_7_1",
       "label": "Compliance Review - Stage 1",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 1",
-        "process_id": "process_7",
+        "process_id": "process_1",
         "stage_type": "initiation",
-        "duration_hours": 10,
-        "responsible_role": "manager",
+        "duration_hours": 16,
+        "responsible_role": "coordinator",
         "automated": false,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
-      "id": "stage_process_7_2",
+      "id": "stage_process_1_2",
       "label": "Compliance Review - Stage 2",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 2",
-        "process_id": "process_7",
-        "stage_type": "monitoring",
-        "duration_hours": 20,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": true
+        "process_id": "process_1",
+        "stage_type": "maintenance",
+        "duration_hours": 41,
+        "responsible_role": "coordinator",
+        "automated": true,
+        "requires_approval": false
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
-      "id": "stage_process_7_3",
+      "id": "stage_process_1_3",
       "label": "Compliance Review - Stage 3",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 3",
-        "process_id": "process_7",
-        "stage_type": "monitoring",
-        "duration_hours": 13,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": false
+        "process_id": "process_1",
+        "stage_type": "maintenance",
+        "duration_hours": 38,
+        "responsible_role": "specialist",
+        "automated": false,
+        "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
-      "id": "stage_process_7_4",
+      "id": "stage_process_1_4",
       "label": "Compliance Review - Stage 4",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 4",
-        "process_id": "process_7",
-        "stage_type": "maintenance",
-        "duration_hours": 10,
-        "responsible_role": "manager",
+        "process_id": "process_1",
+        "stage_type": "monitoring",
+        "duration_hours": 42,
+        "responsible_role": "specialist",
         "automated": false,
-        "requires_approval": false
+        "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
-      "id": "stage_process_8_1",
-      "label": "Support Process - Stage 1",
+      "id": "stage_process_2_1",
+      "label": "Incident Response - Stage 1",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 1",
-        "process_id": "process_8",
-        "stage_type": "monitoring",
-        "duration_hours": 30,
-        "responsible_role": "manager",
+        "process_id": "process_2",
+        "stage_type": "execution",
+        "duration_hours": 20,
+        "responsible_role": "coordinator",
         "automated": true,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_8_2",
-      "label": "Support Process - Stage 2",
+      "id": "stage_process_2_2",
+      "label": "Incident Response - Stage 2",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 2",
-        "process_id": "process_8",
-        "stage_type": "execution",
-        "duration_hours": 24,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": false
+        "process_id": "process_2",
+        "stage_type": "maintenance",
+        "duration_hours": 42,
+        "responsible_role": "specialist",
+        "automated": false,
+        "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_8_3",
-      "label": "Support Process - Stage 3",
+      "id": "stage_process_2_3",
+      "label": "Incident Response - Stage 3",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 3",
-        "process_id": "process_8",
+        "process_id": "process_2",
         "stage_type": "closure",
-        "duration_hours": 29,
-        "responsible_role": "coordinator",
+        "duration_hours": 42,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_3_1",
+      "label": "Incident Response - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_3",
+        "stage_type": "maintenance",
+        "duration_hours": 19,
+        "responsible_role": "manager",
         "automated": true,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_8_4",
-      "label": "Support Process - Stage 4",
+      "id": "stage_process_3_2",
+      "label": "Incident Response - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_3",
+        "stage_type": "execution",
+        "duration_hours": 34,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_3_3",
+      "label": "Incident Response - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_3",
+        "stage_type": "planning",
+        "duration_hours": 7,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_3_4",
+      "label": "Incident Response - Stage 4",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 4",
-        "process_id": "process_8",
-        "stage_type": "execution",
-        "duration_hours": 4,
-        "responsible_role": "manager",
+        "process_id": "process_3",
+        "stage_type": "closure",
+        "duration_hours": 14,
+        "responsible_role": "coordinator",
         "automated": true,
         "requires_approval": false
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_8_5",
-      "label": "Support Process - Stage 5",
+      "id": "stage_process_3_5",
+      "label": "Incident Response - Stage 5",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 5",
-        "process_id": "process_8",
+        "process_id": "process_3",
         "stage_type": "planning",
-        "duration_hours": 45,
+        "duration_hours": 22,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_3_6",
+      "label": "Incident Response - Stage 6",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 6",
+        "process_id": "process_3",
+        "stage_type": "monitoring",
+        "duration_hours": 36,
         "responsible_role": "coordinator",
         "automated": false,
         "requires_approval": false
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_8_6",
-      "label": "Support Process - Stage 6",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 6",
-        "process_id": "process_8",
-        "stage_type": "initiation",
-        "duration_hours": 39,
-        "responsible_role": "specialist",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "stage_process_8_7",
-      "label": "Support Process - Stage 7",
+      "id": "stage_process_3_7",
+      "label": "Incident Response - Stage 7",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 7",
-        "process_id": "process_8",
+        "process_id": "process_3",
         "stage_type": "maintenance",
-        "duration_hours": 22,
+        "duration_hours": 39,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_3_8",
+      "label": "Incident Response - Stage 8",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 8",
+        "process_id": "process_3",
+        "stage_type": "closure",
+        "duration_hours": 24,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_4_1",
+      "label": "Performance Review - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_4",
+        "stage_type": "monitoring",
+        "duration_hours": 28,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_4_2",
+      "label": "Performance Review - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_4",
+        "stage_type": "closure",
+        "duration_hours": 15,
+        "responsible_role": "specialist",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_4_3",
+      "label": "Performance Review - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_4",
+        "stage_type": "initiation",
+        "duration_hours": 7,
+        "responsible_role": "analyst",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_4_4",
+      "label": "Performance Review - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_4",
+        "stage_type": "execution",
+        "duration_hours": 1,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_4_5",
+      "label": "Performance Review - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_4",
+        "stage_type": "execution",
+        "duration_hours": 40,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_5_1",
+      "label": "Compliance Review - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_5",
+        "stage_type": "monitoring",
+        "duration_hours": 18,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_5_2",
+      "label": "Compliance Review - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_5",
+        "stage_type": "planning",
+        "duration_hours": 10,
         "responsible_role": "manager",
         "automated": false,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_8_8",
-      "label": "Support Process - Stage 8",
+      "id": "stage_process_5_3",
+      "label": "Compliance Review - Stage 3",
       "node_type": "process_stage",
       "properties": {
-        "name": "Stage 8",
-        "process_id": "process_8",
+        "name": "Stage 3",
+        "process_id": "process_5",
         "stage_type": "initiation",
-        "duration_hours": 18,
+        "duration_hours": 16,
         "responsible_role": "specialist",
         "automated": true,
-        "requires_approval": false
+        "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_9_1",
+      "id": "stage_process_5_4",
+      "label": "Compliance Review - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_5",
+        "stage_type": "planning",
+        "duration_hours": 35,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_6_1",
       "label": "Sales Process - Stage 1",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 1",
-        "process_id": "process_9",
-        "stage_type": "initiation",
-        "duration_hours": 17,
-        "responsible_role": "coordinator",
+        "process_id": "process_6",
+        "stage_type": "maintenance",
+        "duration_hours": 44,
+        "responsible_role": "manager",
         "automated": false,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
-      "id": "stage_process_9_2",
+      "id": "stage_process_6_2",
       "label": "Sales Process - Stage 2",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 2",
-        "process_id": "process_9",
+        "process_id": "process_6",
+        "stage_type": "initiation",
+        "duration_hours": 23,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_6_3",
+      "label": "Sales Process - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_6",
         "stage_type": "closure",
         "duration_hours": 5,
         "responsible_role": "specialist",
         "automated": true,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_6_4",
+      "label": "Sales Process - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_6",
+        "stage_type": "closure",
+        "duration_hours": 11,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_6_5",
+      "label": "Sales Process - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_6",
+        "stage_type": "monitoring",
+        "duration_hours": 14,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "stage_process_7_1",
+      "label": "Employee Onboarding - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_7",
+        "stage_type": "closure",
+        "duration_hours": 43,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_7_2",
+      "label": "Employee Onboarding - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_7",
+        "stage_type": "monitoring",
+        "duration_hours": 7,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_7_3",
+      "label": "Employee Onboarding - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_7",
+        "stage_type": "closure",
+        "duration_hours": 14,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_7_4",
+      "label": "Employee Onboarding - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_7",
+        "stage_type": "maintenance",
+        "duration_hours": 2,
+        "responsible_role": "coordinator",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_1",
+      "label": "Compliance Review - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_8",
+        "stage_type": "initiation",
+        "duration_hours": 41,
+        "responsible_role": "coordinator",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_2",
+      "label": "Compliance Review - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_8",
+        "stage_type": "planning",
+        "duration_hours": 27,
+        "responsible_role": "specialist",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_3",
+      "label": "Compliance Review - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_8",
+        "stage_type": "maintenance",
+        "duration_hours": 25,
+        "responsible_role": "analyst",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_4",
+      "label": "Compliance Review - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_8",
+        "stage_type": "closure",
+        "duration_hours": 33,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_5",
+      "label": "Compliance Review - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_8",
+        "stage_type": "maintenance",
+        "duration_hours": 5,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_6",
+      "label": "Compliance Review - Stage 6",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 6",
+        "process_id": "process_8",
+        "stage_type": "monitoring",
+        "duration_hours": 24,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_8_7",
+      "label": "Compliance Review - Stage 7",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 7",
+        "process_id": "process_8",
+        "stage_type": "closure",
+        "duration_hours": 47,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_9_1",
+      "label": "Risk Assessment - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_9",
+        "stage_type": "planning",
+        "duration_hours": 27,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_9_2",
+      "label": "Risk Assessment - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_9",
+        "stage_type": "closure",
+        "duration_hours": 15,
+        "responsible_role": "specialist",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "stage_process_9_3",
-      "label": "Sales Process - Stage 3",
+      "label": "Risk Assessment - Stage 3",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 3",
         "process_id": "process_9",
+        "stage_type": "planning",
+        "duration_hours": 29,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_9_4",
+      "label": "Risk Assessment - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_9",
+        "stage_type": "initiation",
+        "duration_hours": 15,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_9_5",
+      "label": "Risk Assessment - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_9",
+        "stage_type": "planning",
+        "duration_hours": 16,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_1",
+      "label": "Support Process - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_10",
+        "stage_type": "execution",
+        "duration_hours": 38,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_2",
+      "label": "Support Process - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_10",
+        "stage_type": "planning",
+        "duration_hours": 35,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_3",
+      "label": "Support Process - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_10",
+        "stage_type": "planning",
+        "duration_hours": 27,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_4",
+      "label": "Support Process - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_10",
+        "stage_type": "planning",
+        "duration_hours": 47,
+        "responsible_role": "analyst",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_5",
+      "label": "Support Process - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_10",
+        "stage_type": "maintenance",
+        "duration_hours": 43,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_6",
+      "label": "Support Process - Stage 6",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 6",
+        "process_id": "process_10",
+        "stage_type": "execution",
+        "duration_hours": 30,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_7",
+      "label": "Support Process - Stage 7",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 7",
+        "process_id": "process_10",
+        "stage_type": "closure",
+        "duration_hours": 47,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_10_8",
+      "label": "Support Process - Stage 8",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 8",
+        "process_id": "process_10",
+        "stage_type": "maintenance",
+        "duration_hours": 27,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_11_1",
+      "label": "Vendor Management - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_11",
+        "stage_type": "closure",
+        "duration_hours": 36,
+        "responsible_role": "specialist",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_11_2",
+      "label": "Vendor Management - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_11",
+        "stage_type": "execution",
+        "duration_hours": 40,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_11_3",
+      "label": "Vendor Management - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_11",
+        "stage_type": "execution",
+        "duration_hours": 33,
+        "responsible_role": "specialist",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_11_4",
+      "label": "Vendor Management - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_11",
+        "stage_type": "initiation",
+        "duration_hours": 11,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_11_5",
+      "label": "Vendor Management - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_11",
+        "stage_type": "monitoring",
+        "duration_hours": 34,
+        "responsible_role": "analyst",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_11_6",
+      "label": "Vendor Management - Stage 6",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 6",
+        "process_id": "process_11",
+        "stage_type": "closure",
+        "duration_hours": 37,
+        "responsible_role": "manager",
+        "automated": true,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_12_1",
+      "label": "Sales Process - Stage 1",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 1",
+        "process_id": "process_12",
+        "stage_type": "monitoring",
+        "duration_hours": 46,
+        "responsible_role": "coordinator",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_12_2",
+      "label": "Sales Process - Stage 2",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 2",
+        "process_id": "process_12",
+        "stage_type": "execution",
+        "duration_hours": 39,
+        "responsible_role": "analyst",
+        "automated": true,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_12_3",
+      "label": "Sales Process - Stage 3",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 3",
+        "process_id": "process_12",
+        "stage_type": "closure",
+        "duration_hours": 14,
+        "responsible_role": "manager",
+        "automated": false,
+        "requires_approval": false
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_12_4",
+      "label": "Sales Process - Stage 4",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 4",
+        "process_id": "process_12",
+        "stage_type": "execution",
+        "duration_hours": 13,
+        "responsible_role": "analyst",
+        "automated": false,
+        "requires_approval": true
+      },
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "stage_process_12_5",
+      "label": "Sales Process - Stage 5",
+      "node_type": "process_stage",
+      "properties": {
+        "name": "Stage 5",
+        "process_id": "process_12",
         "stage_type": "closure",
         "duration_hours": 10,
         "responsible_role": "manager",
         "automated": false,
         "requires_approval": true
       },
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
-      "id": "stage_process_9_4",
-      "label": "Sales Process - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_9",
-        "stage_type": "initiation",
-        "duration_hours": 45,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_9_5",
-      "label": "Sales Process - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_9",
-        "stage_type": "closure",
-        "duration_hours": 36,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_9_6",
+      "id": "stage_process_12_6",
       "label": "Sales Process - Stage 6",
       "node_type": "process_stage",
       "properties": {
         "name": "Stage 6",
-        "process_id": "process_9",
-        "stage_type": "execution",
-        "duration_hours": 42,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_9_7",
-      "label": "Sales Process - Stage 7",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 7",
-        "process_id": "process_9",
-        "stage_type": "planning",
-        "duration_hours": 42,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_9_8",
-      "label": "Sales Process - Stage 8",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 8",
-        "process_id": "process_9",
+        "process_id": "process_12",
         "stage_type": "initiation",
-        "duration_hours": 43,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_1",
-      "label": "Risk Assessment - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_10",
-        "stage_type": "monitoring",
-        "duration_hours": 3,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_2",
-      "label": "Risk Assessment - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_10",
-        "stage_type": "closure",
-        "duration_hours": 31,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_3",
-      "label": "Risk Assessment - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_10",
-        "stage_type": "closure",
-        "duration_hours": 6,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_4",
-      "label": "Risk Assessment - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_10",
-        "stage_type": "closure",
-        "duration_hours": 22,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_5",
-      "label": "Risk Assessment - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_10",
-        "stage_type": "execution",
-        "duration_hours": 18,
-        "responsible_role": "analyst",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_6",
-      "label": "Risk Assessment - Stage 6",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 6",
-        "process_id": "process_10",
-        "stage_type": "closure",
-        "duration_hours": 35,
-        "responsible_role": "coordinator",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_10_7",
-      "label": "Risk Assessment - Stage 7",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 7",
-        "process_id": "process_10",
-        "stage_type": "execution",
-        "duration_hours": 6,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_11_1",
-      "label": "Budget Planning - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_11",
-        "stage_type": "execution",
-        "duration_hours": 2,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_11_2",
-      "label": "Budget Planning - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_11",
-        "stage_type": "planning",
-        "duration_hours": 18,
-        "responsible_role": "specialist",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_11_3",
-      "label": "Budget Planning - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_11",
-        "stage_type": "closure",
-        "duration_hours": 5,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_11_4",
-      "label": "Budget Planning - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_11",
-        "stage_type": "planning",
-        "duration_hours": 41,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "stage_process_11_5",
-      "label": "Budget Planning - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_11",
-        "stage_type": "monitoring",
-        "duration_hours": 17,
+        "duration_hours": 28,
         "responsible_role": "coordinator",
         "automated": false,
         "requires_approval": false
       },
-      "created_at": "2025-09-22T19:05:41.413444"
-    },
-    {
-      "id": "stage_process_11_6",
-      "label": "Budget Planning - Stage 6",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 6",
-        "process_id": "process_11",
-        "stage_type": "initiation",
-        "duration_hours": 44,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.413444"
-    },
-    {
-      "id": "stage_process_12_1",
-      "label": "Risk Assessment - Stage 1",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 1",
-        "process_id": "process_12",
-        "stage_type": "planning",
-        "duration_hours": 12,
-        "responsible_role": "manager",
-        "automated": false,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.413444"
-    },
-    {
-      "id": "stage_process_12_2",
-      "label": "Risk Assessment - Stage 2",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 2",
-        "process_id": "process_12",
-        "stage_type": "monitoring",
-        "duration_hours": 11,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.413444"
-    },
-    {
-      "id": "stage_process_12_3",
-      "label": "Risk Assessment - Stage 3",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 3",
-        "process_id": "process_12",
-        "stage_type": "execution",
-        "duration_hours": 47,
-        "responsible_role": "manager",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.413444"
-    },
-    {
-      "id": "stage_process_12_4",
-      "label": "Risk Assessment - Stage 4",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 4",
-        "process_id": "process_12",
-        "stage_type": "planning",
-        "duration_hours": 45,
-        "responsible_role": "coordinator",
-        "automated": true,
-        "requires_approval": true
-      },
-      "created_at": "2025-09-22T19:05:41.413444"
-    },
-    {
-      "id": "stage_process_12_5",
-      "label": "Risk Assessment - Stage 5",
-      "node_type": "process_stage",
-      "properties": {
-        "name": "Stage 5",
-        "process_id": "process_12",
-        "stage_type": "closure",
-        "duration_hours": 1,
-        "responsible_role": "analyst",
-        "automated": true,
-        "requires_approval": false
-      },
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
     }
   ],
   "edges": [
@@ -1244,11 +1184,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 18
+        "transition_condition": "automatic",
+        "avg_duration_hours": 9
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
       "id": "follows_stage_process_1_3_stage_process_1_2",
@@ -1258,10 +1198,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 13
+        "avg_duration_hours": 2
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
       "id": "follows_stage_process_1_4_stage_process_1_3",
@@ -1270,24 +1210,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 3,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 22
+        "transition_condition": "automatic",
+        "avg_duration_hours": 2
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "follows_stage_process_1_5_stage_process_1_4",
-      "source": "stage_process_1_4",
-      "target": "stage_process_1_5",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 4,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 10
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.388907"
     },
     {
       "id": "follows_stage_process_2_2_stage_process_2_1",
@@ -1297,10 +1224,10 @@
       "properties": {
         "sequence_order": 1,
         "transition_condition": "automatic",
-        "avg_duration_hours": 21
+        "avg_duration_hours": 18
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_2_3_stage_process_2_2",
@@ -1310,75 +1237,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "automatic",
-        "avg_duration_hours": 11
+        "avg_duration_hours": 14
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "follows_stage_process_2_4_stage_process_2_3",
-      "source": "stage_process_2_3",
-      "target": "stage_process_2_4",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 3,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 4
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "follows_stage_process_2_5_stage_process_2_4",
-      "source": "stage_process_2_4",
-      "target": "stage_process_2_5",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 4,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 10
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "follows_stage_process_2_6_stage_process_2_5",
-      "source": "stage_process_2_5",
-      "target": "stage_process_2_6",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 5,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 4
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "follows_stage_process_2_7_stage_process_2_6",
-      "source": "stage_process_2_6",
-      "target": "stage_process_2_7",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 6,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 11
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
-    },
-    {
-      "id": "follows_stage_process_2_8_stage_process_2_7",
-      "source": "stage_process_2_7",
-      "target": "stage_process_2_8",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 7,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 17
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_3_2_stage_process_3_1",
@@ -1388,10 +1250,10 @@
       "properties": {
         "sequence_order": 1,
         "transition_condition": "automatic",
-        "avg_duration_hours": 19
+        "avg_duration_hours": 1
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_3_3_stage_process_3_2",
@@ -1400,11 +1262,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 2,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 12
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 17
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_3_4_stage_process_3_3",
@@ -1413,11 +1275,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 3,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 16
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 18
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_3_5_stage_process_3_4",
@@ -1427,10 +1289,10 @@
       "properties": {
         "sequence_order": 4,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 18
+        "avg_duration_hours": 13
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_3_6_stage_process_3_5",
@@ -1439,11 +1301,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 5,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 3
+        "transition_condition": "automatic",
+        "avg_duration_hours": 21
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_3_7_stage_process_3_6",
@@ -1453,10 +1315,23 @@
       "properties": {
         "sequence_order": 6,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 5
+        "avg_duration_hours": 21
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "follows_stage_process_3_8_stage_process_3_7",
+      "source": "stage_process_3_7",
+      "target": "stage_process_3_8",
+      "relationship_type": "follows",
+      "properties": {
+        "sequence_order": 7,
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 14
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_4_2_stage_process_4_1",
@@ -1465,11 +1340,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 9
+        "transition_condition": "automatic",
+        "avg_duration_hours": 17
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_4_3_stage_process_4_2",
@@ -1479,10 +1354,36 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 16
+        "avg_duration_hours": 21
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411188"
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "follows_stage_process_4_4_stage_process_4_3",
+      "source": "stage_process_4_3",
+      "target": "stage_process_4_4",
+      "relationship_type": "follows",
+      "properties": {
+        "sequence_order": 3,
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 14
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "follows_stage_process_4_5_stage_process_4_4",
+      "source": "stage_process_4_4",
+      "target": "stage_process_4_5",
+      "relationship_type": "follows",
+      "properties": {
+        "sequence_order": 4,
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 11
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_5_2_stage_process_5_1",
@@ -1492,10 +1393,10 @@
       "properties": {
         "sequence_order": 1,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 19
+        "avg_duration_hours": 17
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_5_3_stage_process_5_2",
@@ -1505,10 +1406,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 19
+        "avg_duration_hours": 9
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_5_4_stage_process_5_3",
@@ -1518,10 +1419,10 @@
       "properties": {
         "sequence_order": 3,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 24
+        "avg_duration_hours": 8
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_6_2_stage_process_6_1",
@@ -1531,10 +1432,10 @@
       "properties": {
         "sequence_order": 1,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 5
+        "avg_duration_hours": 1
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_6_3_stage_process_6_2",
@@ -1544,10 +1445,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 22
+        "avg_duration_hours": 1
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
     },
     {
       "id": "follows_stage_process_6_4_stage_process_6_3",
@@ -1556,11 +1457,24 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 3,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 23
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 15
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.389658"
+    },
+    {
+      "id": "follows_stage_process_6_5_stage_process_6_4",
+      "source": "stage_process_6_4",
+      "target": "stage_process_6_5",
+      "relationship_type": "follows",
+      "properties": {
+        "sequence_order": 4,
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 4
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_7_2_stage_process_7_1",
@@ -1569,11 +1483,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 17
+        "transition_condition": "automatic",
+        "avg_duration_hours": 4
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_7_3_stage_process_7_2",
@@ -1582,11 +1496,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 2,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 5
+        "transition_condition": "automatic",
+        "avg_duration_hours": 20
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_7_4_stage_process_7_3",
@@ -1596,10 +1510,10 @@
       "properties": {
         "sequence_order": 3,
         "transition_condition": "automatic",
-        "avg_duration_hours": 16
+        "avg_duration_hours": 23
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_8_2_stage_process_8_1",
@@ -1608,11 +1522,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 14
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 5
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_8_3_stage_process_8_2",
@@ -1621,11 +1535,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 2,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 1
+        "transition_condition": "automatic",
+        "avg_duration_hours": 20
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_8_4_stage_process_8_3",
@@ -1634,11 +1548,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 3,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 2
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 16
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_8_5_stage_process_8_4",
@@ -1648,10 +1562,10 @@
       "properties": {
         "sequence_order": 4,
         "transition_condition": "automatic",
-        "avg_duration_hours": 18
+        "avg_duration_hours": 6
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_8_6_stage_process_8_5",
@@ -1661,10 +1575,10 @@
       "properties": {
         "sequence_order": 5,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 24
+        "avg_duration_hours": 17
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_8_7_stage_process_8_6",
@@ -1673,24 +1587,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 6,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 13
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 23
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
-    },
-    {
-      "id": "follows_stage_process_8_8_stage_process_8_7",
-      "source": "stage_process_8_7",
-      "target": "stage_process_8_8",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 7,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 10
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.411935"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_9_2_stage_process_9_1",
@@ -1699,11 +1600,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 10
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 5
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_9_3_stage_process_9_2",
@@ -1713,10 +1614,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 11
+        "avg_duration_hours": 24
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_9_4_stage_process_9_3",
@@ -1726,10 +1627,10 @@
       "properties": {
         "sequence_order": 3,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 23
+        "avg_duration_hours": 5
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_9_5_stage_process_9_4",
@@ -1738,50 +1639,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 4,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 24
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "follows_stage_process_9_6_stage_process_9_5",
-      "source": "stage_process_9_5",
-      "target": "stage_process_9_6",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 5,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 20
+        "avg_duration_hours": 5
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "follows_stage_process_9_7_stage_process_9_6",
-      "source": "stage_process_9_6",
-      "target": "stage_process_9_7",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 6,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 11
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
-    },
-    {
-      "id": "follows_stage_process_9_8_stage_process_9_7",
-      "source": "stage_process_9_7",
-      "target": "stage_process_9_8",
-      "relationship_type": "follows",
-      "properties": {
-        "sequence_order": 7,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 15
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_10_2_stage_process_10_1",
@@ -1790,11 +1652,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 22
+        "transition_condition": "automatic",
+        "avg_duration_hours": 17
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_10_3_stage_process_10_2",
@@ -1803,11 +1665,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 2,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 3
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 10
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_10_4_stage_process_10_3",
@@ -1817,10 +1679,10 @@
       "properties": {
         "sequence_order": 3,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 10
+        "avg_duration_hours": 15
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_10_5_stage_process_10_4",
@@ -1829,11 +1691,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 4,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 17
+        "transition_condition": "automatic",
+        "avg_duration_hours": 12
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_10_6_stage_process_10_5",
@@ -1842,11 +1704,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 5,
-        "transition_condition": "approval_required",
-        "avg_duration_hours": 19
+        "transition_condition": "automatic",
+        "avg_duration_hours": 21
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_10_7_stage_process_10_6",
@@ -1855,11 +1717,24 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 6,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 2
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 5
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.412684"
+      "created_at": "2025-09-24T11:37:16.390407"
+    },
+    {
+      "id": "follows_stage_process_10_8_stage_process_10_7",
+      "source": "stage_process_10_7",
+      "target": "stage_process_10_8",
+      "relationship_type": "follows",
+      "properties": {
+        "sequence_order": 7,
+        "transition_condition": "manual_trigger",
+        "avg_duration_hours": 4
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_11_2_stage_process_11_1",
@@ -1869,10 +1744,10 @@
       "properties": {
         "sequence_order": 1,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 20
+        "avg_duration_hours": 9
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_11_3_stage_process_11_2",
@@ -1882,10 +1757,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 12
+        "avg_duration_hours": 3
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_11_4_stage_process_11_3",
@@ -1895,10 +1770,10 @@
       "properties": {
         "sequence_order": 3,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 16
+        "avg_duration_hours": 18
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_11_5_stage_process_11_4",
@@ -1908,10 +1783,10 @@
       "properties": {
         "sequence_order": 4,
         "transition_condition": "manual_trigger",
-        "avg_duration_hours": 23
+        "avg_duration_hours": 17
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_11_6_stage_process_11_5",
@@ -1920,11 +1795,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 5,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 1
+        "transition_condition": "automatic",
+        "avg_duration_hours": 18
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.390407"
     },
     {
       "id": "follows_stage_process_12_2_stage_process_12_1",
@@ -1933,11 +1808,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 1,
-        "transition_condition": "manual_trigger",
-        "avg_duration_hours": 3
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 18
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "follows_stage_process_12_3_stage_process_12_2",
@@ -1947,10 +1822,10 @@
       "properties": {
         "sequence_order": 2,
         "transition_condition": "approval_required",
-        "avg_duration_hours": 20
+        "avg_duration_hours": 12
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "follows_stage_process_12_4_stage_process_12_3",
@@ -1959,11 +1834,11 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 3,
-        "transition_condition": "approval_required",
+        "transition_condition": "manual_trigger",
         "avg_duration_hours": 23
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "follows_stage_process_12_5_stage_process_12_4",
@@ -1972,15 +1847,28 @@
       "relationship_type": "follows",
       "properties": {
         "sequence_order": 4,
-        "transition_condition": "automatic",
-        "avg_duration_hours": 19
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 23
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
-      "id": "depends_on_process_3_process_1",
-      "source": "process_3",
+      "id": "follows_stage_process_12_6_stage_process_12_5",
+      "source": "stage_process_12_5",
+      "target": "stage_process_12_6",
+      "relationship_type": "follows",
+      "properties": {
+        "sequence_order": 5,
+        "transition_condition": "approval_required",
+        "avg_duration_hours": 16
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_2_process_1",
+      "source": "process_2",
       "target": "process_1",
       "relationship_type": "depends_on",
       "properties": {
@@ -1988,7 +1876,19 @@
         "critical": false
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_3_process_1",
+      "source": "process_3",
+      "target": "process_1",
+      "relationship_type": "depends_on",
+      "properties": {
+        "dependency_type": "approval",
+        "critical": false
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "depends_on_process_3_process_2",
@@ -1996,35 +1896,59 @@
       "target": "process_2",
       "relationship_type": "depends_on",
       "properties": {
+        "dependency_type": "input",
+        "critical": true
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_4_process_2",
+      "source": "process_4",
+      "target": "process_2",
+      "relationship_type": "depends_on",
+      "properties": {
         "dependency_type": "approval",
         "critical": false
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.413444"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
-      "id": "depends_on_process_4_process_3",
-      "source": "process_4",
-      "target": "process_3",
+      "id": "depends_on_process_5_process_1",
+      "source": "process_5",
+      "target": "process_1",
       "relationship_type": "depends_on",
       "properties": {
         "dependency_type": "input",
         "critical": true
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
-      "id": "depends_on_process_6_process_5",
+      "id": "depends_on_process_5_process_2",
+      "source": "process_5",
+      "target": "process_2",
+      "relationship_type": "depends_on",
+      "properties": {
+        "dependency_type": "input",
+        "critical": true
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_6_process_1",
       "source": "process_6",
-      "target": "process_5",
+      "target": "process_1",
       "relationship_type": "depends_on",
       "properties": {
         "dependency_type": "input",
         "critical": true
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "depends_on_process_6_process_2",
@@ -2032,47 +1956,11 @@
       "target": "process_2",
       "relationship_type": "depends_on",
       "properties": {
-        "dependency_type": "input",
-        "critical": true
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
-    },
-    {
-      "id": "depends_on_process_7_process_4",
-      "source": "process_7",
-      "target": "process_4",
-      "relationship_type": "depends_on",
-      "properties": {
         "dependency_type": "prerequisite",
         "critical": false
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
-    },
-    {
-      "id": "depends_on_process_8_process_2",
-      "source": "process_8",
-      "target": "process_2",
-      "relationship_type": "depends_on",
-      "properties": {
-        "dependency_type": "prerequisite",
-        "critical": true
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
-    },
-    {
-      "id": "depends_on_process_8_process_6",
-      "source": "process_8",
-      "target": "process_6",
-      "relationship_type": "depends_on",
-      "properties": {
-        "dependency_type": "input",
-        "critical": true
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "depends_on_process_8_process_5",
@@ -2080,23 +1968,23 @@
       "target": "process_5",
       "relationship_type": "depends_on",
       "properties": {
-        "dependency_type": "approval",
-        "critical": false
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
-    },
-    {
-      "id": "depends_on_process_9_process_2",
-      "source": "process_9",
-      "target": "process_2",
-      "relationship_type": "depends_on",
-      "properties": {
         "dependency_type": "prerequisite",
         "critical": true
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_8_process_1",
+      "source": "process_8",
+      "target": "process_1",
+      "relationship_type": "depends_on",
+      "properties": {
+        "dependency_type": "approval",
+        "critical": false
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
       "id": "depends_on_process_10_process_7",
@@ -2105,26 +1993,26 @@
       "relationship_type": "depends_on",
       "properties": {
         "dependency_type": "approval",
-        "critical": true
-      },
-      "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
-    },
-    {
-      "id": "depends_on_process_10_process_1",
-      "source": "process_10",
-      "target": "process_1",
-      "relationship_type": "depends_on",
-      "properties": {
-        "dependency_type": "approval",
         "critical": false
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
-      "id": "depends_on_process_11_process_3",
-      "source": "process_11",
+      "id": "depends_on_process_10_process_4",
+      "source": "process_10",
+      "target": "process_4",
+      "relationship_type": "depends_on",
+      "properties": {
+        "dependency_type": "input",
+        "critical": false
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_10_process_3",
+      "source": "process_10",
       "target": "process_3",
       "relationship_type": "depends_on",
       "properties": {
@@ -2132,19 +2020,31 @@
         "critical": false
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
     },
     {
-      "id": "depends_on_process_11_process_8",
+      "id": "depends_on_process_11_process_1",
       "source": "process_11",
-      "target": "process_8",
+      "target": "process_1",
       "relationship_type": "depends_on",
       "properties": {
         "dependency_type": "prerequisite",
         "critical": true
       },
       "weight": 1.0,
-      "created_at": "2025-09-22T19:05:41.414196"
+      "created_at": "2025-09-24T11:37:16.391157"
+    },
+    {
+      "id": "depends_on_process_12_process_3",
+      "source": "process_12",
+      "target": "process_3",
+      "relationship_type": "depends_on",
+      "properties": {
+        "dependency_type": "input",
+        "critical": false
+      },
+      "weight": 1.0,
+      "created_at": "2025-09-24T11:37:16.391157"
     }
   ]
 }

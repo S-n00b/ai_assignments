@@ -2,278 +2,322 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/AI_TOOL_PROMPTS_INTEGRATION/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/API_DOCUMENTATION/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/DEPLOYMENT_GUIDE/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/INTERACTIVE_FEATURES_SETUP/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/MKDOCS_AUDIT_REPORT/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/README_TESTING/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/TESTING/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/about/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/lenovo_aaitc_assignments/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/lenovo_aaitc_assignments_with_sources_claude_chat/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/progress-bulletin/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/ai-architecture/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/chat-playground/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/chromadb-integration/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/fastapi-embedded-docs/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/fastapi-enterprise/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/gradio-app/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/gradio-model-evaluation/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/langgraph-studio/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/mcp-server/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/api/mlflow-integration/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/model-evaluation/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/api/neo4j-integration/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/neo4j-service/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/api/pytest-testing-infrastructure/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/api/utilities/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment1/evaluation-framework/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment1/model-factory/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment1/model-profiling/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment1/overview/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment1/practical-exercise/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment2/agent-system/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment2/model-lifecycle/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment2/overview/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment2/rag-system/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment2/stakeholder-communication/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/assignments/assignment2/system-architecture/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/ai-engineering-overview/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/api-documentation/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/live-demo/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/model-evaluation-framework/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/model-factory-architecture/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/model-profiling-characterization/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/practical-evaluation-exercise/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category1/ux-evaluation-testing/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/api-documentation/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/frontier-model-experimentation/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/live-demo/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/mlops-cicd-lifecycle/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/post-training-optimization/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/project-management-skills/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/stakeholder-vision-scoping/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/category2/system-architecture-overview/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/development/contributing/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/development/deployment/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/development/documentation-sources/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/development/github-pages-setup/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/development/setup/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/development/testing-guide/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/development/testing/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/diagrams/data-flow/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/diagrams/enterprise-platform/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/diagrams/model-evaluation-flow/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/diagrams/service-integration/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/diagrams/system-architecture/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/executive/carousel-slide-deck/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/live-applications/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/phase2/phase2-implementation-guide/</loc>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/phase6/phase6_implementation_guide/</loc>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/phase7/phase7_implementation_guide/</loc>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/phase8/phase8_implementation_guide/</loc>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/phase9/phase9_implementation_guide/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/professional/executive-summary/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/professional/blog-posts/ai-architecture-seniority/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/resources/architecture/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/resources/lenovo-graph-structure/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/resources/performance/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
+    </url>
+    <url>
+         <loc>https://s-n00b.github.io/ai_assignments/resources/testing-infrastructure-summary/</loc>
+         <lastmod>2025-09-24</lastmod>
     </url>
     <url>
          <loc>https://s-n00b.github.io/ai_assignments/resources/troubleshooting/</loc>
-         <lastmod>2025-09-23</lastmod>
+         <lastmod>2025-09-24</lastmod>
     </url>
 </urlset>

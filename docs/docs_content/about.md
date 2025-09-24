@@ -2,17 +2,32 @@
 
 ## 🚀 Advanced AI Model Evaluation & Architecture Framework
 
-A comprehensive solution for Lenovo's Advanced AI Technology Center (AAITC) featuring state-of-the-art model evaluation capabilities, AI architecture design, and enterprise-grade infrastructure for the latest Q3 2025 foundation models.
+A comprehensive solution for Lenovo's Advanced AI Technology Center (AAITC) featuring state-of-the-art model evaluation capabilities, AI architecture design, and enterprise-grade infrastructure with enhanced MCP integration, NVIDIA NeMo Agent Toolkit, and advanced context engineering for optimal user experience.
 
 ## ✨ Key Features
 
-- **Latest Model Support**: GPT-5, GPT-5-Codex, Claude 3.5 Sonnet, Llama 3.3
+### Core Platform Capabilities
+
+- **Latest Model Support**: GPT-5, GPT-5-Codex, Claude 3.5 Sonnet, Llama 3.3, NVIDIA Build Platform Models
 - **Enhanced Experimental Scale**: Integration with open-source prompt registries (DiffusionDB, PromptBase)
-- **Production-Ready Gradio Frontend**: Interactive web interface with MCP server integration
-- **Comprehensive Evaluation**: Quality, performance, robustness, and bias analysis
-- **Layered Architecture**: Clean, maintainable Python modules following GenAI best practices
-- **Real-Time Monitoring**: Performance tracking and alerting capabilities
-- **Enterprise Infrastructure**: Terraform, Kubernetes, Helm, GitLab, Jenkins, Prefect, Ollama, BentoML
+- **Production-Ready Interfaces**: Gradio, Open WebUI, and FastAPI with MCP server integration
+- **Comprehensive Evaluation**: Quality, performance, robustness, and bias analysis across all model types
+- **Advanced Architecture**: Clean, maintainable Python modules with enhanced MCP protocols
+
+### Advanced Integration Features
+
+- **Enhanced MCP Integration**: A2A, AGUI, MemoryOS MCP with unified mcp-use library
+- **NVIDIA NeMo Agent Toolkit**: Framework-agnostic agent orchestration with profiling and observability
+- **Open WebUI Model Playground**: Enhanced model playground with dual chat interface and observability monitoring
+- **FastMCP Integration**: Function calls and MCP integration for non-native services
+- **Context Engineering**: Advanced context understanding and personalization with DuckDB user data management
+- **Memory Architecture**: 4-layer memory system (short-term, long-term, semantic, episodic) with MemoryOS MCP
+- **RAG Orchestration**: Multiple RAG approaches (Document, Conversational, Multi-modal, Hybrid, Context-aware, Personalized, Temporal)
+
+### Enterprise Infrastructure
+
+- **Multi-Database Integration**: ChromaDB, Neo4j, DuckDB, MLflow with unified data flow
+- **Real-Time Monitoring**: Performance tracking and alerting capabilities with WebSocket support
 - **Advanced Fine-Tuning**: LoRA/QLoRA, multi-task, continual learning, quantization techniques
 - **Custom Adapter Registry**: Centralized adapter management with metadata tracking
 - **Hybrid Cloud Architecture**: Multi-cloud, edge, security, compliance, and monitoring

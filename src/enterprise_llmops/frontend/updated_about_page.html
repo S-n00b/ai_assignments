@@ -208,8 +208,8 @@
         .mermaid .node.tertiary circle,
         .mermaid .node.tertiary ellipse,
         .mermaid .node.tertiary polygon {
-            fill: rgba(255, 77, 77, 0.1);
-            stroke: var(--lenovo-red);
+            fill: rgba(34, 197, 94, 0.1);
+            stroke: #22c55e;
         }
         
         .mermaid .node.success rect,
@@ -226,6 +226,130 @@
         .mermaid .node.warning polygon {
             fill: rgba(245, 158, 11, 0.1);
             stroke: #f59e0b;
+        }
+        
+        /* Specific styling for Model Testing Framework diagram */
+        #evaluation-architecture .node rect,
+        #evaluation-architecture .node circle,
+        #evaluation-architecture .node ellipse,
+        #evaluation-architecture .node polygon {
+            fill: var(--lenovo-card);
+            stroke: var(--lenovo-red);
+        }
+        
+        /* Model Testing Framework - Primary Actors (Red) */
+        #evaluation-architecture .node[id*="U"] rect,
+        #evaluation-architecture .node[id*="EP"] rect {
+            fill: var(--lenovo-card);
+            stroke: var(--lenovo-red);
+            stroke-width: 3px;
+        }
+        
+        /* Model Testing Framework - Model Components (Blue) */
+        #evaluation-architecture .node[id*="RM"] rect,
+        #evaluation-architecture .node[id*="CM"] rect {
+            fill: rgba(77, 157, 255, 0.1);
+            stroke: var(--lenovo-blue);
+            stroke-width: 3px;
+        }
+        
+        /* Model Testing Framework - Analysis Components (Green) */
+        #evaluation-architecture .node[id*="MC"] rect,
+        #evaluation-architecture .node[id*="BA"] rect,
+        #evaluation-architecture .node[id*="RT"] rect {
+            fill: rgba(34, 197, 94, 0.1);
+            stroke: #22c55e;
+            stroke-width: 3px;
+        }
+        
+        /* Model Testing Framework - Factory Registry (Orange) */
+        #evaluation-architecture .node[id*="FR"] rect {
+            fill: rgba(245, 158, 11, 0.1);
+            stroke: #f59e0b;
+            stroke-width: 3px;
+        }
+        
+        /* AI Architect Model Customization - Core AI Architect Role (Red) */
+        #model-factory-architecture .node[id*="A"] rect {
+            fill: var(--lenovo-card);
+            stroke: var(--lenovo-red);
+            stroke-width: 3px;
+        }
+        
+        /* AI Architect Model Customization - Model Customization Components (Blue) */
+        #model-factory-architecture .node[id*="B"] rect,
+        #model-factory-architecture .node[id*="C"] rect,
+        #model-factory-architecture .node[id*="D"] rect,
+        #model-factory-architecture .node[id*="E"] rect {
+            fill: rgba(77, 157, 255, 0.1);
+            stroke: var(--lenovo-blue);
+            stroke-width: 3px;
+        }
+        
+        /* AI Architect Model Customization - Implementation Pipelines (Green) */
+        #model-factory-architecture .node[id*="F"] rect,
+        #model-factory-architecture .node[id*="G"] rect,
+        #model-factory-architecture .node[id*="H"] rect,
+        #model-factory-architecture .node[id*="I"] rect,
+        #model-factory-architecture .node[id*="J"] rect,
+        #model-factory-architecture .node[id*="K"] rect,
+        #model-factory-architecture .node[id*="L"] rect,
+        #model-factory-architecture .node[id*="M"] rect,
+        #model-factory-architecture .node[id*="N"] rect,
+        #model-factory-architecture .node[id*="O"] rect,
+        #model-factory-architecture .node[id*="P"] rect {
+            fill: rgba(34, 197, 94, 0.1);
+            stroke: #22c55e;
+            stroke-width: 3px;
+        }
+        
+        /* AI Architect Model Customization - Enterprise Integration Points (Orange) */
+        #model-factory-architecture .node[id*="Q"] rect {
+            fill: rgba(245, 158, 11, 0.1);
+            stroke: #f59e0b;
+            stroke-width: 3px;
+        }
+        
+        /* Enterprise AI Platform - Unified UX/UI Layer (Red) */
+        #enterprise-architecture .node[id*="A"] rect,
+        #enterprise-architecture .node[id*="B"] rect,
+        #enterprise-architecture .node[id*="C"] rect,
+        #enterprise-architecture .node[id*="D"] rect,
+        #enterprise-architecture .node[id*="E"] rect,
+        #enterprise-architecture .node[id*="F"] rect {
+            fill: var(--lenovo-card);
+            stroke: var(--lenovo-red);
+            stroke-width: 3px;
+        }
+        
+        /* Enterprise AI Platform - AI Architect Services (Blue) */
+        #enterprise-architecture .node[id*="G"] rect,
+        #enterprise-architecture .node[id*="H"] rect,
+        #enterprise-architecture .node[id*="I"] rect,
+        #enterprise-architecture .node[id*="J"] rect {
+            fill: rgba(77, 157, 255, 0.1);
+            stroke: var(--lenovo-blue);
+            stroke-width: 3px;
+        }
+        
+        /* Enterprise AI Platform - Model Evaluation Services (Green) */
+        #enterprise-architecture .node[id*="K"] rect,
+        #enterprise-architecture .node[id*="L"] rect,
+        #enterprise-architecture .node[id*="M"] rect,
+        #enterprise-architecture .node[id*="N"] rect {
+            fill: rgba(34, 197, 94, 0.1);
+            stroke: #22c55e;
+            stroke-width: 3px;
+        }
+        
+        /* Enterprise AI Platform - Data & Infrastructure (Orange) */
+        #enterprise-architecture .node[id*="O"] rect,
+        #enterprise-architecture .node[id*="P"] rect,
+        #enterprise-architecture .node[id*="Q"] rect,
+        #enterprise-architecture .node[id*="R"] rect {
+            fill: rgba(245, 158, 11, 0.1);
+            stroke: #f59e0b;
+            stroke-width: 3px;
         }
         
         .mermaid .node .label {
@@ -264,6 +388,24 @@
             stroke: #f59e0b;
             stroke-width: 2px;
             stroke-dasharray: 3,3;
+        }
+        
+        /* Model Testing Framework - Edge colors matching node categories */
+        #evaluation-architecture .edgePath .path {
+            stroke: var(--lenovo-red);
+            stroke-width: 2px;
+        }
+        
+        /* AI Architect Model Customization - Edge colors matching node categories */
+        #model-factory-architecture .edgePath .path {
+            stroke: var(--lenovo-red);
+            stroke-width: 2px;
+        }
+        
+        /* Enterprise AI Platform - Edge colors matching node categories */
+        #enterprise-architecture .edgePath .path {
+            stroke: var(--lenovo-red);
+            stroke-width: 2px;
         }
         
         /* Enhanced edge labels with better positioning */
@@ -315,6 +457,37 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
         
+        /* Model Testing Framework - Actor color coding */
+        #evaluation-architecture .actor {
+            fill: var(--lenovo-card);
+            stroke: var(--lenovo-red);
+            stroke-width: 3px;
+        }
+        
+        /* Model Testing Framework - Model Components actors (Blue) */
+        #evaluation-architecture .actor[id*="RM"],
+        #evaluation-architecture .actor[id*="CM"] {
+            fill: rgba(77, 157, 255, 0.1);
+            stroke: var(--lenovo-blue);
+            stroke-width: 3px;
+        }
+        
+        /* Model Testing Framework - Analysis Components actors (Green) */
+        #evaluation-architecture .actor[id*="MC"],
+        #evaluation-architecture .actor[id*="BA"],
+        #evaluation-architecture .actor[id*="RT"] {
+            fill: rgba(34, 197, 94, 0.1);
+            stroke: #22c55e;
+            stroke-width: 3px;
+        }
+        
+        /* Model Testing Framework - Factory Registry actor (Orange) */
+        #evaluation-architecture .actor[id*="FR"] {
+            fill: rgba(245, 158, 11, 0.1);
+            stroke: #f59e0b;
+            stroke-width: 3px;
+        }
+        
         .mermaid .messageLine0,
         .mermaid .messageLine1 {
             stroke: var(--lenovo-red);
@@ -364,6 +537,19 @@
             align-items: center;
             margin-bottom: 0.5rem;
             font-size: 12px;
+        }
+        
+        .mermaid-legend .legend-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .mermaid-legend .legend-row .legend-item {
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 120px;
         }
         
         .mermaid-legend .legend-color {
@@ -780,6 +966,103 @@
                     This comprehensive implementation demonstrates the complete end-to-end technical architecture through realistic enterprise data and model evaluation workflows, showcasing both AI Architect model customization and Model Evaluation Engineer testing capabilities for Lenovo's Model Factory Registry with enhanced MCP integration.
                 </p>
                 
+                <!-- Evaluation Framework Context -->
+                <div class="max-w-6xl mx-auto mb-12">
+                    <div class="assignment-highlight p-8 rounded-lg mb-8">
+                        <h3 class="text-2xl font-bold mb-6 text-lenovo-red">The AI Evaluation Revolution: Why Data & Testing Frameworks Are Critical Now</h3>
+                        <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                            Everyone's talking about AI observability and evals right now, and resultantly, everyone's testing major platforms, demonstrating how to use them, and breaking down the differences while everyone tries to solve the problem in their enterprise silo. The truth is we're going through a wildly rapid growth spurt in terms of AI's adoption and demand. These are new markets, and the whole world wants in, but a framework still needs to claim the throne, and it's all around complex human-like discourse.
+                        </p>
+                        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                            We've witnessed a seismic shift this year compared to the previous two - the focus has moved from sheer context window size and multimodal capabilities to <strong class="text-lenovo-red">data quality and inference reliability</strong>. Companies are realizing that having the biggest model means nothing if you can't trust its outputs in production. This is why evaluation frameworks aren't just nice-to-have anymore; they're the foundation of enterprise AI success.
+                        </p>
+                    </div>
+                    
+                    <!-- Three Core Capabilities -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="assignment-highlight p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-lenovo-red">Capability 1: Prompt Management</h3>
+                            <p class="text-sm text-gray-300 mb-4">Prompt management lets you define reusable prompts and test them in a playground. Without it, you end up copy-pasting prompts and breaking things when you tweak them.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li>• Version prompts systematically</li>
+                                <li>• Parametrize inputs for flexibility</li>
+                                <li>• Replay prompts on historical data</li>
+                                <li>• A/B test in production environments</li>
+                                <li>• Compare models side-by-side</li>
+                            </ul>
+                            <p class="text-xs text-gray-500 mt-4 italic">Think of it as Git for your prompts. A single place to manage, test, and evolve them.</p>
+                        </div>
+                        
+                        <div class="assignment-highlight p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-lenovo-red">Capability 2: Observability</h3>
+                            <p class="text-sm text-gray-300 mb-4">Observability is about logging and understanding what LLMs are actually doing. There are two critical aspects that matter for enterprise deployment.</p>
+                            <div class="space-y-3">
+                                <div>
+                                    <h4 class="text-sm font-semibold text-lenovo-blue mb-2">What gets logged:</h4>
+                                    <ul class="space-y-1 text-xs text-gray-400">
+                                        <li>• <strong>Requests:</strong> one prompt → one response</li>
+                                        <li>• <strong>Traces:</strong> connected requests in one workflow</li>
+                                    </ul>
+                                    <p class="text-xs text-gray-500 mt-2 italic">Perfect for debugging agents, agentic workflows, and chatbots.</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-lenovo-blue mb-2">How logs get captured:</h4>
+                                    <ul class="space-y-1 text-xs text-gray-400">
+                                        <li>• Direct API calls</li>
+                                        <li>• Vendor SDKs/wrappers</li>
+                                        <li>• OpenTelemetry integration</li>
+                                        <li>• Gateway-based capture</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="assignment-highlight p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4 text-lenovo-red">Capability 3: Evaluations</h3>
+                            <p class="text-sm text-gray-300 mb-4">If observability tells you what happened, evaluations tell you whether it was good. This is where the rubber meets the road for production AI systems.</p>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li>• <strong>Eval types:</strong> Code-based, LLM-as-judge, human evals</li>
+                                <li>• <strong>Online evals:</strong> pull a slice of production traffic automatically</li>
+                                <li>• <strong>Labeling queues:</strong> a queue of examples for scoring</li>
+                                <li>• <strong>Agreement tracking:</strong> human vs. model judgments</li>
+                                <li>• <strong>Error analysis:</strong> systematic failure investigation</li>
+                            </ul>
+                            <p class="text-xs text-gray-500 mt-4 italic">Done well, evals close the loop: log → sample → evaluate → improve.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Cross-Cutting Capabilities -->
+                    <div class="assignment-highlight p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold mb-4 text-lenovo-red">Two Cross-Cutting Capabilities: Datasets and Monitoring</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Datasets: The Glue Between Capabilities</h4>
+                                <p class="text-sm text-gray-300 mb-3">The glue between prompt management, observability, and evals. You can use datasets to replay prompts, build eval benchmarks, and track improvements over time.</p>
+                                <ul class="space-y-1 text-sm text-gray-400">
+                                    <li>• Version and label datasets systematically</li>
+                                    <li>• Reuse across different evaluation scenarios</li>
+                                    <li>• Track improvements over time</li>
+                                    <li>• Build comprehensive eval benchmarks</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">Monitoring: Beyond Raw Logging</h4>
+                                <p class="text-sm text-gray-300 mb-3">Goes beyond raw logging. It means running evals continuously on production traffic, surfacing drift, and alerting you when quality drops.</p>
+                                <ul class="space-y-1 text-sm text-gray-400">
+                                    <li>• Continuous evaluation on production traffic</li>
+                                    <li>• Real-time quality drift detection</li>
+                                    <li>• Automated alerting systems</li>
+                                    <li>• Performance regression prevention</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+                    This comprehensive implementation demonstrates the complete end-to-end technical architecture through realistic enterprise data and model evaluation workflows, showcasing both AI Architect model customization and Model Evaluation Engineer testing capabilities for Lenovo's Model Factory Registry with enhanced MCP integration.
+                </p>
+                
                 <!-- Implementation Highlights -->
                 <div class="grid md:grid-cols-3 gap-6 mb-12">
                     <div class="assignment-highlight p-6 rounded-lg">
@@ -824,45 +1107,83 @@
                         participant BA as Bias Analyzer
                         participant RT as Robustness Tester
                         participant FR as Factory Registry
+                        
+                        %% Apply coloring based on legend
+                        rect rgb(255, 200, 200)
+                            Note over U,EP: Primary Actors
+                        end
+                        rect rgb(200, 200, 255)
+                            Note over RM,CM: Model Components
+                        end
+                        rect rgb(200, 255, 200)
+                            Note over MC,RT: Analysis Components
+                        end
+                        rect rgb(255, 200, 100)
+                            Note over FR: Factory Registry
+                        end
 
+                        Note over U,FR: Lenovo Model Factory Testing Pipeline
+                        U->>EP: Initialize Model Testing Framework
+                        EP->>EP: Setup Evaluation Environment
+                        
+                        Note over U,FR: Raw Foundation Model Testing
                         U->>EP: Test Raw Foundation Models
                         EP->>RM: Load GPT-5, Claude 3.5, Llama 3.3
                         RM->>EP: Model Inference Results
+                        EP->>MC: Calculate Foundation Model Metrics
+                        MC->>MC: Compute Accuracy, F1, BLEU, Perplexity
+                        MC-->>EP: Foundation Model Performance
+                        
+                        Note over U,FR: Custom Architect Model Testing
                         U->>EP: Test Custom Architect Models
                         EP->>CM: Load QLoRA Adapters & Fine-tuned Models
                         CM->>EP: Custom Model Results
-                        EP->>MC: Calculate Performance Metrics
-                        MC->>MC: Compute Accuracy, F1, BLEU for All Models
-                        MC-->>EP: Performance Metrics
-                        EP->>BA: Analyze Bias & Fairness
+                        EP->>MC: Calculate Custom Model Metrics
+                        MC->>MC: Compute Domain-Specific Performance
+                        MC-->>EP: Custom Model Performance
+                        
+                        Note over U,FR: Bias & Fairness Analysis
+                        EP->>BA: Analyze Bias & Fairness (All Models)
                         BA->>BA: Statistical Parity Analysis
+                        BA->>BA: Demographic Parity Testing
                         BA-->>EP: Bias Analysis Results
-                        EP->>RT: Test Robustness
-                        RT->>RT: Stress Testing at Business/Consumer Levels
+                        
+                        Note over U,FR: Robustness & Stress Testing
+                        EP->>RT: Test Model Robustness
+                        RT->>RT: Business-Level Stress Testing
+                        RT->>RT: Consumer-Level Stress Testing
+                        RT->>RT: Edge Case Validation
                         RT-->>EP: Robustness Results
-                        EP->>FR: Add Model Profiles to Factory Registry
-                        FR->>FR: Production-Ready Model Registry
+                        
+                        Note over U,FR: Factory Registry Integration
+                        EP->>FR: Add Comprehensive Model Profiles
+                        FR->>FR: Validate Production Readiness
+                        FR->>FR: Update Model Registry
                         FR-->>U: Factory Registry Updated
+                        
+                        Note over U,FR: Production Deployment Ready
                 </div>
                 
                 <!-- Legend for Model Testing Framework -->
                 <div class="mermaid-legend">
                     <h4>Model Testing Framework Legend</h4>
-                    <div class="legend-item">
-                        <div class="legend-color primary"></div>
-                        <div class="legend-text">Primary Actors (Evaluation Engineer, Pipeline)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color secondary"></div>
-                        <div class="legend-text">Model Components (Raw & Custom Models)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color tertiary"></div>
-                        <div class="legend-text">Analysis Components (Metrics, Bias, Robustness)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color warning"></div>
-                        <div class="legend-text">Factory Registry (Production Deployment)</div>
+                    <div class="legend-row">
+                        <div class="legend-item">
+                            <div class="legend-color primary"></div>
+                            <div class="legend-text">Primary<br>Actors</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color secondary"></div>
+                            <div class="legend-text">Model<br>Components</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color tertiary"></div>
+                            <div class="legend-text">Analysis<br>Components</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color warning"></div>
+                            <div class="legend-text">Factory<br>Registry</div>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-6 grid md:grid-cols-2 gap-8">
@@ -919,21 +1240,23 @@
                 <!-- Legend for AI Architect Model Customization -->
                 <div class="mermaid-legend">
                     <h4>AI Architect Model Customization Legend</h4>
-                    <div class="legend-item">
-                        <div class="legend-color primary"></div>
-                        <div class="legend-text">Core AI Architect Role</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color secondary"></div>
-                        <div class="legend-text">Model Customization Components</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color tertiary"></div>
-                        <div class="legend-text">Implementation Pipelines</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color warning"></div>
-                        <div class="legend-text">Enterprise Integration Points</div>
+                    <div class="legend-row">
+                        <div class="legend-item">
+                            <div class="legend-color primary"></div>
+                            <div class="legend-text">Core AI<br>Architect Role</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color secondary"></div>
+                            <div class="legend-text">Model<br>Customization<br>Components</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color tertiary"></div>
+                            <div class="legend-text">Implementation<br>Pipelines</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color warning"></div>
+                            <div class="legend-text">Enterprise<br>Integration<br>Points</div>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-6 grid md:grid-cols-2 gap-8">
@@ -1018,21 +1341,23 @@
                 <!-- Legend for Enterprise AI Platform -->
                 <div class="mermaid-legend">
                     <h4>Enterprise AI Platform Legend</h4>
-                    <div class="legend-item">
-                        <div class="legend-color primary"></div>
-                        <div class="legend-text">Unified UX/UI Layer (User Interface)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color secondary"></div>
-                        <div class="legend-text">AI Architect Services (Model Customization)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color tertiary"></div>
-                        <div class="legend-text">Model Evaluation Services (Testing & Registry)</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color warning"></div>
-                        <div class="legend-text">Data & Infrastructure (Storage & Management)</div>
+                    <div class="legend-row">
+                        <div class="legend-item">
+                            <div class="legend-color primary"></div>
+                            <div class="legend-text">Unified<br>UX/UI Layer</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color secondary"></div>
+                            <div class="legend-text">AI Architect<br>Services</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color tertiary"></div>
+                            <div class="legend-text">Model Evaluation<br>Services</div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color warning"></div>
+                            <div class="legend-text">Data &<br>Infrastructure</div>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-6 grid md:grid-cols-4 gap-6">
@@ -1095,7 +1420,9 @@
                 <!-- FastAPI Enterprise Platform -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">🚀</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">FastAPI Enterprise</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 8080</p>
@@ -1108,7 +1435,9 @@
                 <!-- Gradio Model Evaluation -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">⚙️</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">Gradio App</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 7860</p>
@@ -1121,7 +1450,9 @@
                 <!-- MLflow Tracking -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">📊</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">MLflow</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 5000</p>
@@ -1134,7 +1465,9 @@
                 <!-- ChromaDB Vector Store -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">🗄️</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">ChromaDB</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 8000</p>
@@ -1147,7 +1480,9 @@
                 <!-- LangGraph Studio -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">🔄</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">LangGraph</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 8083</p>
@@ -1160,7 +1495,9 @@
                 <!-- Neo4j GraphRAG -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">🕸️</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">Neo4j</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 7474</p>
@@ -1173,7 +1510,9 @@
                 <!-- MkDocs Documentation -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">📖</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">MkDocs</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 8082</p>
@@ -1186,7 +1525,9 @@
                 <!-- Chat Playground -->
                 <div class="lenovo-card p-6 text-center hover:scale-105 transition-transform">
                     <div class="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-4 icon-container">
-                        <span class="text-white font-bold text-2xl">💬</span>
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
                     </div>
                     <h4 class="font-semibold text-white mb-2">Chat Playground</h4>
                     <p class="text-sm text-gray-400 mb-1">Port 8080</p>
@@ -1283,7 +1624,7 @@
                 <div class="lenovo-card p-6 text-center">
                     <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-container">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                         </svg>
                     </div>
                     <h4 class="text-lg font-bold mb-2">MLflow Tracking</h4>
@@ -1527,15 +1868,16 @@
                         </p>
                         
                         <div class="space-y-4">
+                            <br>
                             <a href="https://github.com/S-n00b/ai_assignments" class="lenovo-button w-full">
                                 View GitHub Repository
                             </a>
-                            <p>Try out the latest push. Follow README.md to activate end-to-end capabilities<br><br></p>
-                            <br>
+                            <p><i>Try out the latest push. Follow README.md to activate end-to-end capabilities <br><br></i></p>
+                            <br>                            
                             <a href="https://s-n00b.github.io/ai_assignments" class="w-full px-6 py-3 border border-lenovo-red rounded-lg text-lenovo-red hover:text-white hover:bg-lenovo-red transition-all">
                                 View Complete Documentation
                             </a>
-                            <p>mk-docs deployment unifying all endpoint APIs up to OpenAPI v2 spec<br><br></p>
+                            <p><i>mk-docs deployment unifying all endpoint APIs up to OpenAPI v2 spec<br><br></i></p>
                         </div>
                     </div>
                 </div>

@@ -454,7 +454,27 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../AI_TOOL_PROMPTS_INTEGRATION/" class="md-tabs__link">
+        <a href="../../phase2/phase2-implementation-guide/" class="md-tabs__link">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MKDOCS_AUDIT_REPORT/" class="md-tabs__link">
           
   
   
@@ -1661,6 +1681,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../development/testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../development/deployment/" class="md-nav__link">
         
   
@@ -1834,6 +1877,29 @@
   
   <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/pytest-testing-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
   
@@ -2330,7 +2396,7 @@
   
   
   <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
   
@@ -2341,9 +2407,199 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/phase2-implementation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase6/phase6_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase7/phase7_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase8/phase8_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase9/phase9_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS_AUDIT_REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2748,22 +3004,22 @@
 </ul>
 <h2 id="implementation">🚀 Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
 <h3 id="qlora-fine-tuning">QLoRA Fine-Tuning<a class="headerlink" href="#qlora-fine-tuning" title="Permanent link">&para;</a></h3>
-<pre><code class="language-python"># QLoRA configuration
-qlora_config = {
-    &quot;r&quot;: 16,
-    &quot;lora_alpha&quot;: 32,
-    &quot;target_modules&quot;: [&quot;q_proj&quot;, &quot;v_proj&quot;],
-    &quot;lora_dropout&quot;: 0.1,
-    &quot;bias&quot;: &quot;none&quot;,
-    &quot;task_type&quot;: &quot;CAUSAL_LM&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># QLoRA configuration</span>
+<span class="n">qlora_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="s2">&quot;lora_alpha&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="s2">&quot;target_modules&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;q_proj&quot;</span><span class="p">,</span> <span class="s2">&quot;v_proj&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;lora_dropout&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="s2">&quot;bias&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;task_type&quot;</span><span class="p">:</span> <span class="s2">&quot;CAUSAL_LM&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="quantization-implementation">Quantization Implementation<a class="headerlink" href="#quantization-implementation" title="Permanent link">&para;</a></h3>
-<pre><code class="language-python"># Dynamic quantization
-quantized_model = torch.quantization.quantize_dynamic(
-    model, {torch.nn.Linear}, dtype=torch.qint8
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dynamic quantization</span>
+<span class="n">quantized_model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">quantization</span><span class="o">.</span><span class="n">quantize_dynamic</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span> <span class="p">{</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">},</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">qint8</span>
+<span class="p">)</span>
+</code></pre></div>
 <h2 id="performance-metrics">📊 Performance Metrics<a class="headerlink" href="#performance-metrics" title="Permanent link">&para;</a></h2>
 <h3 id="optimization-benefits">Optimization Benefits<a class="headerlink" href="#optimization-benefits" title="Permanent link">&para;</a></h3>
 <ul>

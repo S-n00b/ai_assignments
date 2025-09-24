@@ -8,6 +8,9 @@ mkdocs-mermaid2-plugin>=1.1.0
 mkdocs-minify-plugin>=0.7.0
 mkdocs-redirects>=1.2.0
 
+# Markdown extensions for FontAwesome support
+pymdown-extensions>=10.0.0
+
 # Optional plugins (may fail on some systems)
 mkdocs-git-revision-date-localized-plugin>=1.2.0
 mkdocs-awesome-pages-plugin>=2.9.0

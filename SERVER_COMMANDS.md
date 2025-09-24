@@ -6,7 +6,7 @@
 
 ```powershell
 # Run the automated script to create all 9 terminals
-.\scripts\start-unified-platform.ps1
+# TODO [DEBUG]: .\scripts\start-unified-platform.ps1
 ```
 
 ### Neo4j Graph Generation

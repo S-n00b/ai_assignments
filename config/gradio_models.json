@@ -1,21 +1,16 @@
 ﻿{
     "model_capabilities":  {
+                               "danielsheep/qwen3-coder-30b-a3b-instruct-1m-unsloth:ud-iq3_xxs":  [
+                                                                                                      "code_generation",
+                                                                                                      "debugging",
+                                                                                                      "documentation"
+                                                                                                  ],
                                "codellama:7b":  [
                                                     "code_generation",
                                                     "debugging",
                                                     "documentation"
                                                 ],
-                               "llama3.1:8b":  [
-                                                   "text_generation",
-                                                   "question_answering",
-                                                   "reasoning"
-                                               ],
                                "gemma3:4b":  [
-                                                 "text_generation",
-                                                 "question_answering",
-                                                 "reasoning"
-                                             ],
-                               "gemma3:1b":  [
                                                  "text_generation",
                                                  "question_answering",
                                                  "reasoning"
@@ -24,9 +19,36 @@
                                                   "text_generation",
                                                   "question_answering",
                                                   "reasoning"
-                                              ]
+                                              ],
+                               "llama3.1:8b":  [
+                                                   "text_generation",
+                                                   "question_answering",
+                                                   "reasoning"
+                                               ],
+                               "qwen3:8b":  [
+                                                "text_generation",
+                                                "question_answering",
+                                                "reasoning"
+                                            ],
+                               "gemma3:1b":  [
+                                                 "text_generation",
+                                                 "question_answering",
+                                                 "reasoning"
+                                             ]
                            },
     "available_models":  [
+                             {
+                                 "type":  "code_generation",
+                                 "name":  "danielsheep/qwen3-coder-30b-a3b-instruct-1m-unsloth:ud-iq3_xxs",
+                                 "status":  "available",
+                                 "size_gb":  11.99
+                             },
+                             {
+                                 "type":  "general",
+                                 "name":  "qwen3:8b",
+                                 "status":  "available",
+                                 "size_gb":  4.87
+                             },
                              {
                                  "type":  "general",
                                  "name":  "gemma3:4b",

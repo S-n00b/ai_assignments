@@ -460,7 +460,27 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../AI_TOOL_PROMPTS_INTEGRATION/" class="md-tabs__link">
+        <a href="../../phase2/phase2-implementation-guide/" class="md-tabs__link">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MKDOCS_AUDIT_REPORT/" class="md-tabs__link">
           
   
   
@@ -1934,6 +1954,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../development/testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../development/deployment/" class="md-nav__link">
         
   
@@ -2107,6 +2150,29 @@
   
   <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytest-testing-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
   
@@ -2603,7 +2669,7 @@
   
   
   <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
   
@@ -2614,9 +2680,199 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/phase2-implementation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase6/phase6_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase7/phase7_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase8/phase8_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase9/phase9_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS_AUDIT_REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -3124,18 +3380,18 @@
 </ul>
 <h2 id="structurearchitecture">📊 Structure/Architecture<a class="headerlink" href="#structurearchitecture" title="Permanent link">&para;</a></h2>
 <h3 id="service-configuration">Service Configuration<a class="headerlink" href="#service-configuration" title="Permanent link">&para;</a></h3>
-<pre><code class="language-yaml"># LangGraph Studio Configuration
-langgraph_studio:
-  enabled: true
-  host: &quot;localhost&quot;
-  port: 8080
-  studio_port: 8083 # Changed from 8081 to avoid conflict with ChromaDB
-  mode: &quot;graph&quot; # or &quot;chat&quot;
-  enable_langsmith: true
-  langsmith_api_key: &quot;${LANGSMITH_API_KEY}&quot;
-  langsmith_project: &quot;ai-architecture&quot;
-  log_level: &quot;INFO&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># LangGraph Studio Configuration</span>
+<span class="nt">langgraph_studio</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localhost&quot;</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">  </span><span class="nt">studio_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8083</span><span class="w"> </span><span class="c1"># Changed from 8081 to avoid conflict with ChromaDB</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;graph&quot;</span><span class="w"> </span><span class="c1"># or &quot;chat&quot;</span>
+<span class="w">  </span><span class="nt">enable_langsmith</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">langsmith_api_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${LANGSMITH_API_KEY}&quot;</span>
+<span class="w">  </span><span class="nt">langsmith_project</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ai-architecture&quot;</span>
+<span class="w">  </span><span class="nt">log_level</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;INFO&quot;</span>
+</code></pre></div>
 <h3 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3255,35 +3511,35 @@ langgraph_studio:
 </ol>
 <h2 id="configuration">🔧 Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<pre><code class="language-bash"># Install LangGraph CLI
-pip install langgraph-cli
+<div class="highlight"><pre><span></span><code><span class="c1"># Install LangGraph CLI</span>
+pip<span class="w"> </span>install<span class="w"> </span>langgraph-cli
 
-# Verify installation
-langgraph --version
-</code></pre>
+<span class="c1"># Verify installation</span>
+langgraph<span class="w"> </span>--version
+</code></pre></div>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<pre><code class="language-bash"># LangSmith Integration (Optional)
-export LANGSMITH_API_KEY=&quot;your-api-key&quot;
-export LANGSMITH_PROJECT=&quot;ai-architecture&quot;
+<div class="highlight"><pre><span></span><code><span class="c1"># LangSmith Integration (Optional)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANGSMITH_API_KEY</span><span class="o">=</span><span class="s2">&quot;your-api-key&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANGSMITH_PROJECT</span><span class="o">=</span><span class="s2">&quot;ai-architecture&quot;</span>
 
-# Studio Configuration
-export LANGGRAPH_STUDIO_HOST=&quot;localhost&quot;
-export LANGGRAPH_STUDIO_PORT=&quot;8083&quot;
-export LANGGRAPH_STUDIO_MODE=&quot;graph&quot;
-</code></pre>
+<span class="c1"># Studio Configuration</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANGGRAPH_STUDIO_HOST</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANGGRAPH_STUDIO_PORT</span><span class="o">=</span><span class="s2">&quot;8083&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LANGGRAPH_STUDIO_MODE</span><span class="o">=</span><span class="s2">&quot;graph&quot;</span>
+</code></pre></div>
 <h3 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h3>
-<pre><code class="language-bash"># 1. Activate virtual environment
-&amp; C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Activate virtual environment</span>
+<span class="p">&amp;</span><span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\s</span>amne<span class="se">\P</span>ycharmProjects<span class="se">\a</span>i_assignments<span class="se">\v</span>env<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
 
-# 2. Start LangGraph Studio
-langgraph dev --host 0.0.0.0 --port 8083
+<span class="c1"># 2. Start LangGraph Studio</span>
+langgraph<span class="w"> </span>dev<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8083</span>
 
-# 3. Access Studio Interface
-# Open http://localhost:8083 in browser
+<span class="c1"># 3. Access Studio Interface</span>
+<span class="c1"># Open http://localhost:8083 in browser</span>
 
-# 4. Access API Endpoints
-curl http://localhost:8080/api/langgraph/studios/status
-</code></pre>
+<span class="c1"># 4. Access API Endpoints</span>
+curl<span class="w"> </span>http://localhost:8080/api/langgraph/studios/status
+</code></pre></div>
 <h2 id="documentation">📚 Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
 <h3 id="studio-modes">Studio Modes<a class="headerlink" href="#studio-modes" title="Permanent link">&para;</a></h3>
 <h4 id="graph-mode">Graph Mode<a class="headerlink" href="#graph-mode" title="Permanent link">&para;</a></h4>
@@ -3311,20 +3567,19 @@ curl http://localhost:8080/api/langgraph/studios/status
 <ol>
 <li><strong>LangGraph CLI Not Found</strong></li>
 </ol>
-<p><code>bash
-   # Install LangGraph CLI
-   pip install langgraph-cli</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install LangGraph CLI</span>
+pip<span class="w"> </span>install<span class="w"> </span>langgraph-cli
+</code></pre></div>
 <ol>
 <li><strong>Port Conflicts</strong></li>
 </ol>
-<p>```bash</p>
-<p>```</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 <h1 id="check-port-availability">Check port availability<a class="headerlink" href="#check-port-availability" title="Permanent link">&para;</a></h1>
 <p>netstat -an | findstr :8083</p>
 <h1 id="use-different-port-if-needed">Use different port if needed<a class="headerlink" href="#use-different-port-if-needed" title="Permanent link">&para;</a></h1>
 <p>langgraph dev --port 8084</p>
-<pre><code>
-3. **LangSmith Connection Issues**
+<div class="highlight"><pre><span></span><code>3. **LangSmith Connection Issues**
 
 ```bash
 # Verify API key
@@ -3332,85 +3587,85 @@ echo $LANGSMITH_API_KEY
 
 # Test connection
 curl -H &quot;Authorization: Bearer $LANGSMITH_API_KEY&quot; https://api.smith.langchain.com/projects
-</code></pre>
+</code></pre></div>
 <h4 id="debug-commands">Debug Commands<a class="headerlink" href="#debug-commands" title="Permanent link">&para;</a></h4>
-<pre><code class="language-bash"># Check studio status
-curl http://localhost:8080/api/langgraph/studios/status
+<div class="highlight"><pre><span></span><code><span class="c1"># Check studio status</span>
+curl<span class="w"> </span>http://localhost:8080/api/langgraph/studios/status
 
-# View studio logs
-langgraph dev --log-level debug
+<span class="c1"># View studio logs</span>
+langgraph<span class="w"> </span>dev<span class="w"> </span>--log-level<span class="w"> </span>debug
 
-# Test API endpoints
-curl http://localhost:8080/api/langgraph/studios/info
-</code></pre>
+<span class="c1"># Test API endpoints</span>
+curl<span class="w"> </span>http://localhost:8080/api/langgraph/studios/info
+</code></pre></div>
 <h2 id="development">🛠️ Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
 <h3 id="api-integration-example">API Integration Example<a class="headerlink" href="#api-integration-example" title="Permanent link">&para;</a></h3>
-<pre><code class="language-python">import requests
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-# Get studio status
-response = requests.get(&quot;http://localhost:8080/api/langgraph/studios/status&quot;)
-status = response.json()
+<span class="c1"># Get studio status</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://localhost:8080/api/langgraph/studios/status&quot;</span><span class="p">)</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-# Create new session
-session_data = {
-    &quot;mode&quot;: &quot;graph&quot;,
-    &quot;metadata&quot;: {&quot;project&quot;: &quot;ai-architecture&quot;}
-}
-response = requests.post(
-    &quot;http://localhost:8080/api/langgraph/studios/sessions&quot;,
-    json=session_data
-)
-session = response.json()
+<span class="c1"># Create new session</span>
+<span class="n">session_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;graph&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;ai-architecture&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;http://localhost:8080/api/langgraph/studios/sessions&quot;</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="n">session_data</span>
+<span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-# Get assistants
-response = requests.get(&quot;http://localhost:8080/api/langgraph/studios/assistants&quot;)
-assistants = response.json()
-</code></pre>
+<span class="c1"># Get assistants</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://localhost:8080/api/langgraph/studios/assistants&quot;</span><span class="p">)</span>
+<span class="n">assistants</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
 <h3 id="studio-session-management">Studio Session Management<a class="headerlink" href="#studio-session-management" title="Permanent link">&para;</a></h3>
-<pre><code class="language-python">from src.ai_architecture.langgraph_studio_integration import (
-    LangGraphStudioManager,
-    StudioConfig,
-    StudioMode
-)
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.ai_architecture.langgraph_studio_integration</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LangGraphStudioManager</span><span class="p">,</span>
+    <span class="n">StudioConfig</span><span class="p">,</span>
+    <span class="n">StudioMode</span>
+<span class="p">)</span>
 
-# Initialize manager
-config = StudioConfig(
-    host=&quot;localhost&quot;,
-    port=8080,
-    studio_port=8083,
-    mode=StudioMode.GRAPH,
-    enable_langsmith=True
-)
+<span class="c1"># Initialize manager</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">StudioConfig</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>
+    <span class="n">studio_port</span><span class="o">=</span><span class="mi">8083</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="n">StudioMode</span><span class="o">.</span><span class="n">GRAPH</span><span class="p">,</span>
+    <span class="n">enable_langsmith</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 
-manager = LangGraphStudioManager(config)
+<span class="n">manager</span> <span class="o">=</span> <span class="n">LangGraphStudioManager</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-# Start studio
-await manager.start_studio()
+<span class="c1"># Start studio</span>
+<span class="k">await</span> <span class="n">manager</span><span class="o">.</span><span class="n">start_studio</span><span class="p">()</span>
 
-# Create session
-session_id = await manager.create_session(
-    mode=StudioMode.GRAPH,
-    metadata={&quot;project&quot;: &quot;ai-architecture&quot;}
-)
+<span class="c1"># Create session</span>
+<span class="n">session_id</span> <span class="o">=</span> <span class="k">await</span> <span class="n">manager</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span>
+    <span class="n">mode</span><span class="o">=</span><span class="n">StudioMode</span><span class="o">.</span><span class="n">GRAPH</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;ai-architecture&quot;</span><span class="p">}</span>
+<span class="p">)</span>
 
-# Get studio information
-info = await manager.get_studio_info()
-</code></pre>
+<span class="c1"># Get studio information</span>
+<span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">manager</span><span class="o">.</span><span class="n">get_studio_info</span><span class="p">()</span>
+</code></pre></div>
 <h2 id="troubleshooting_1">🚨 Troubleshooting<a class="headerlink" href="#troubleshooting_1" title="Permanent link">&para;</a></h2>
 <h3 id="service-status">Service Status<a class="headerlink" href="#service-status" title="Permanent link">&para;</a></h3>
 <p>Check the current status of LangGraph Studio:</p>
-<pre><code class="language-bash"># API endpoint
-curl http://localhost:8080/api/langgraph/studios/status
+<div class="highlight"><pre><span></span><code><span class="c1"># API endpoint</span>
+curl<span class="w"> </span>http://localhost:8080/api/langgraph/studios/status
 
-# Expected response
-{
-  &quot;status&quot;: &quot;running&quot;,
-  &quot;base_url&quot;: &quot;http://localhost:8083&quot;,
-  &quot;api_url&quot;: &quot;http://localhost:8080/api/langgraph/studios&quot;,
-  &quot;sessions_count&quot;: 0,
-  &quot;uptime&quot;: 120.5
-}
-</code></pre>
+<span class="c1"># Expected response</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;status&quot;</span>:<span class="w"> </span><span class="s2">&quot;running&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;base_url&quot;</span>:<span class="w"> </span><span class="s2">&quot;http://localhost:8083&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;api_url&quot;</span>:<span class="w"> </span><span class="s2">&quot;http://localhost:8080/api/langgraph/studios&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;sessions_count&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">  </span><span class="s2">&quot;uptime&quot;</span>:<span class="w"> </span><span class="m">120</span>.5
+<span class="o">}</span>
+</code></pre></div>
 <h3 id="common-error-messages">Common Error Messages<a class="headerlink" href="#common-error-messages" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -3439,9 +3694,9 @@ curl http://localhost:8080/api/langgraph/studios/status
 <h2 id="support">📞 Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
 <h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>LangGraph Studio Documentation</strong>: <a href="https://studio.langchain.com">studio.langchain.com</a>{:target="_blank"}</li>
-<li><strong>LangGraph CLI Documentation</strong>: <a href="https://langchain-ai.github.io/langgraph/cli/">LangGraph CLI Guide</a>{:target="_blank"}</li>
-<li><strong>LangSmith Integration</strong>: <a href="https://docs.smith.langchain.com/">LangSmith Documentation</a>{:target="_blank"}</li>
+<li><strong>LangGraph Studio Documentation</strong>: <a href="https://studio.langchain.com" target="_blank">studio.langchain.com</a></li>
+<li><strong>LangGraph CLI Documentation</strong>: <a href="https://langchain-ai.github.io/langgraph/cli/" target="_blank">LangGraph CLI Guide</a></li>
+<li><strong>LangSmith Integration</strong>: <a href="https://docs.smith.langchain.com/" target="_blank">LangSmith Documentation</a></li>
 </ul>
 <h3 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h3>
 <ol>

@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -878,6 +887,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -939,6 +956,14 @@
 <a class="md-nav__link" href="../../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -1106,7 +1131,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -1114,9 +1139,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1429,7 +1520,7 @@
 <p>The Agent System provides a comprehensive framework for building, deploying, and managing autonomous AI agents. These agents can perform complex tasks, interact with each other, and adapt to changing environments while maintaining consistency and reliability in their operations.</p>
 <h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">¶</a></h2>
 <h3 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Agent System Core"
         A[Agent Registry]
         B[Agent Orchestrator]
@@ -1463,8 +1554,7 @@
     F --&gt; A
     G --&gt; A
     H --&gt; A
-    I --&gt; A
-</div>
+    I --&gt; A</code></pre>
 <h2 id="agent-types-and-capabilities">Agent Types and Capabilities<a class="headerlink" href="#agent-types-and-capabilities" title="Permanent link">¶</a></h2>
 <h3 id="1-workflow-agents">1. Workflow Agents<a class="headerlink" href="#1-workflow-agents" title="Permanent link">¶</a></h3>
 <p>Workflow agents manage complex business processes and coordinate multiple tasks:</p>
@@ -1476,143 +1566,143 @@
 <li><strong>Progress Tracking</strong>: Track and report on workflow progress</li>
 </ul>
 <h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># agents/workflow_agent.py
-from typing import Dict, List, Optional, Callable
-import asyncio
-from dataclasses import dataclass
-from enum import Enum
-import uuid
-import time
+<div class="highlight"><pre><span></span><code><span class="c1"># agents/workflow_agent.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-class WorkflowStatus(Enum):
-    PENDING = "pending"
-    RUNNING = "running"
-    COMPLETED = "completed"
-    FAILED = "failed"
-    CANCELLED = "cancelled"
+<span class="k">class</span><span class="w"> </span><span class="nc">WorkflowStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">PENDING</span> <span class="o">=</span> <span class="s2">"pending"</span>
+    <span class="n">RUNNING</span> <span class="o">=</span> <span class="s2">"running"</span>
+    <span class="n">COMPLETED</span> <span class="o">=</span> <span class="s2">"completed"</span>
+    <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">"failed"</span>
+    <span class="n">CANCELLED</span> <span class="o">=</span> <span class="s2">"cancelled"</span>
 
-@dataclass
-class WorkflowStep:
-    id: str
-    name: str
-    action: Callable
-    dependencies: List[str] = None
-    retry_count: int = 0
-    max_retries: int = 3
-    timeout: int = 300
-    status: WorkflowStatus = WorkflowStatus.PENDING
-    result: Optional[Dict] = None
-    error: Optional[str] = None
-    started_at: Optional[float] = None
-    completed_at: Optional[float] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WorkflowStep</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">action</span><span class="p">:</span> <span class="n">Callable</span>
+    <span class="n">dependencies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">retry_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">WorkflowStatus</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">PENDING</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">error</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">started_at</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">completed_at</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-class WorkflowAgent:
-    def __init__(self, agent_id: str, config: Dict):
-        self.agent_id = agent_id
-        self.config = config
-        self.workflow_steps: Dict[str, WorkflowStep] = {}
-        self.current_workflow: Optional[str] = None
-        self.status = WorkflowStatus.PENDING
+<span class="k">class</span><span class="w"> </span><span class="nc">WorkflowAgent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workflow_steps</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">WorkflowStep</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_workflow</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">PENDING</span>
 
-    def add_step(self, step_id: str, name: str, action: Callable,
-                 dependencies: List[str] = None, **kwargs) -&gt; WorkflowStep:
-        """Add a step to the workflow"""
-        step = WorkflowStep(
-            id=step_id,
-            name=name,
-            action=action,
-            dependencies=dependencies or [],
-            **kwargs
-        )
-        self.workflow_steps[step_id] = step
-        return step
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                 <span class="n">dependencies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WorkflowStep</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Add a step to the workflow"""</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="n">WorkflowStep</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">step_id</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span>
+            <span class="n">dependencies</span><span class="o">=</span><span class="n">dependencies</span> <span class="ow">or</span> <span class="p">[],</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">workflow_steps</span><span class="p">[</span><span class="n">step_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span>
+        <span class="k">return</span> <span class="n">step</span>
 
-    async def execute_workflow(self, workflow_id: str) -&gt; Dict:
-        """Execute the complete workflow"""
-        self.current_workflow = workflow_id
-        self.status = WorkflowStatus.RUNNING
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_workflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">workflow_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Execute the complete workflow"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_workflow</span> <span class="o">=</span> <span class="n">workflow_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">RUNNING</span>
 
-        try:
-            # Build execution graph
-            execution_order = self._build_execution_order()
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Build execution graph</span>
+            <span class="n">execution_order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_execution_order</span><span class="p">()</span>
 
-            # Execute steps in order
-            for step_ids in execution_order:
-                # Execute parallel steps
-                await self._execute_parallel_steps(step_ids)
+            <span class="c1"># Execute steps in order</span>
+            <span class="k">for</span> <span class="n">step_ids</span> <span class="ow">in</span> <span class="n">execution_order</span><span class="p">:</span>
+                <span class="c1"># Execute parallel steps</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_execute_parallel_steps</span><span class="p">(</span><span class="n">step_ids</span><span class="p">)</span>
 
-            self.status = WorkflowStatus.COMPLETED
-            return self._get_workflow_results()
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">COMPLETED</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_workflow_results</span><span class="p">()</span>
 
-        except Exception as e:
-            self.status = WorkflowStatus.FAILED
-            raise
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">FAILED</span>
+            <span class="k">raise</span>
 
-    def _build_execution_order(self) -&gt; List[List[str]]:
-        """Build execution order based on dependencies"""
-        execution_order = []
-        completed_steps = set()
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_execution_order</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">"""Build execution order based on dependencies"""</span>
+        <span class="n">execution_order</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">completed_steps</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
-        while len(completed_steps) &lt; len(self.workflow_steps):
-            ready_steps = []
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">completed_steps</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_steps</span><span class="p">):</span>
+            <span class="n">ready_steps</span> <span class="o">=</span> <span class="p">[]</span>
 
-            for step_id, step in self.workflow_steps.items():
-                if (step_id not in completed_steps and
-                    all(dep in completed_steps for dep in step.dependencies)):
-                    ready_steps.append(step_id)
+            <span class="k">for</span> <span class="n">step_id</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">workflow_steps</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">step_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">completed_steps</span> <span class="ow">and</span>
+                    <span class="nb">all</span><span class="p">(</span><span class="n">dep</span> <span class="ow">in</span> <span class="n">completed_steps</span> <span class="k">for</span> <span class="n">dep</span> <span class="ow">in</span> <span class="n">step</span><span class="o">.</span><span class="n">dependencies</span><span class="p">)):</span>
+                    <span class="n">ready_steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">step_id</span><span class="p">)</span>
 
-            if not ready_steps:
-                raise Exception("Circular dependency detected in workflow")
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ready_steps</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Circular dependency detected in workflow"</span><span class="p">)</span>
 
-            execution_order.append(ready_steps)
-            completed_steps.update(ready_steps)
+            <span class="n">execution_order</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ready_steps</span><span class="p">)</span>
+            <span class="n">completed_steps</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ready_steps</span><span class="p">)</span>
 
-        return execution_order
+        <span class="k">return</span> <span class="n">execution_order</span>
 
-    async def _execute_parallel_steps(self, step_ids: List[str]):
-        """Execute multiple steps in parallel"""
-        tasks = []
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_execute_parallel_steps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Execute multiple steps in parallel"""</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
 
-        for step_id in step_ids:
-            task = asyncio.create_task(self._execute_step(step_id))
-            tasks.append(task)
+        <span class="k">for</span> <span class="n">step_id</span> <span class="ow">in</span> <span class="n">step_ids</span><span class="p">:</span>
+            <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_execute_step</span><span class="p">(</span><span class="n">step_id</span><span class="p">))</span>
+            <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
 
-        await asyncio.gather(*tasks, return_exceptions=True)
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">,</span> <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    async def _execute_step(self, step_id: str):
-        """Execute a single workflow step"""
-        step = self.workflow_steps[step_id]
-        step.status = WorkflowStatus.RUNNING
-        step.started_at = time.time()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_execute_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Execute a single workflow step"""</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">workflow_steps</span><span class="p">[</span><span class="n">step_id</span><span class="p">]</span>
+        <span class="n">step</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">RUNNING</span>
+        <span class="n">step</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        try:
-            # Execute step action
-            result = await step.action()
-            step.result = result
-            step.status = WorkflowStatus.COMPLETED
-            step.completed_at = time.time()
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Execute step action</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">step</span><span class="o">.</span><span class="n">action</span><span class="p">()</span>
+            <span class="n">step</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="n">step</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">COMPLETED</span>
+            <span class="n">step</span><span class="o">.</span><span class="n">completed_at</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        except Exception as e:
-            step.error = str(e)
-            step.status = WorkflowStatus.FAILED
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">step</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">step</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">FAILED</span>
 
-            # Retry logic
-            if step.retry_count &lt; step.max_retries:
-                step.retry_count += 1
-                step.status = WorkflowStatus.PENDING
-                await asyncio.sleep(2 ** step.retry_count)  # Exponential backoff
-                await self._execute_step(step_id)
-            else:
-                raise
+            <span class="c1"># Retry logic</span>
+            <span class="k">if</span> <span class="n">step</span><span class="o">.</span><span class="n">retry_count</span> <span class="o">&lt;</span> <span class="n">step</span><span class="o">.</span><span class="n">max_retries</span><span class="p">:</span>
+                <span class="n">step</span><span class="o">.</span><span class="n">retry_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">step</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">PENDING</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">step</span><span class="o">.</span><span class="n">retry_count</span><span class="p">)</span>  <span class="c1"># Exponential backoff</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_execute_step</span><span class="p">(</span><span class="n">step_id</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>
 
-    def _get_workflow_results(self) -&gt; Dict:
-        """Get results from all completed steps"""
-        results = {}
-        for step_id, step in self.workflow_steps.items():
-            if step.status == WorkflowStatus.COMPLETED:
-                results[step_id] = step.result
-        return results
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_workflow_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get results from all completed steps"""</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">step_id</span><span class="p">,</span> <span class="n">step</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">workflow_steps</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">step</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">WorkflowStatus</span><span class="o">.</span><span class="n">COMPLETED</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">step_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">result</span>
+        <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
 <h3 id="2-decision-agents">2. Decision Agents<a class="headerlink" href="#2-decision-agents" title="Permanent link">¶</a></h3>
 <p>Decision agents make intelligent decisions based on data and rules:</p>
 <h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">¶</a></h4>
@@ -1623,163 +1713,163 @@ class WorkflowAgent:
 <li><strong>Decision Tracking</strong>: Track and audit all decisions</li>
 </ul>
 <h4 id="implementation_1">Implementation<a class="headerlink" href="#implementation_1" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># agents/decision_agent.py
-from typing import Dict, List, Optional, Any
-import json
-from dataclasses import dataclass
-from abc import ABC, abstractmethod
+<div class="highlight"><pre><span></span><code><span class="c1"># agents/decision_agent.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 
-@dataclass
-class DecisionContext:
-    user_id: str
-    session_id: str
-    timestamp: float
-    data: Dict[str, Any]
-    metadata: Dict[str, Any] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DecisionContext</span><span class="p">:</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-@dataclass
-class DecisionResult:
-    decision: str
-    confidence: float
-    reasoning: str
-    alternatives: List[Dict] = None
-    metadata: Dict[str, Any] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DecisionResult</span><span class="p">:</span>
+    <span class="n">decision</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">confidence</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">reasoning</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">alternatives</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-class DecisionRule:
-    def __init__(self, rule_id: str, condition: str, action: str, priority: int = 0):
-        self.rule_id = rule_id
-        self.condition = condition
-        self.action = action
-        self.priority = priority
-        self.active = True
+<span class="k">class</span><span class="w"> </span><span class="nc">DecisionRule</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rule_id</span> <span class="o">=</span> <span class="n">rule_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">priority</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">True</span>
 
-    def evaluate(self, context: DecisionContext) -&gt; bool:
-        """Evaluate if rule condition is met"""
-        # Simple condition evaluation - in practice, use a proper rule engine
-        try:
-            # This is a simplified implementation
-            # In practice, you'd use a proper rule engine like Drools or similar
-            return eval(self.condition, {"context": context, "data": context.data})
-        except:
-            return False
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Evaluate if rule condition is met"""</span>
+        <span class="c1"># Simple condition evaluation - in practice, use a proper rule engine</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># This is a simplified implementation</span>
+            <span class="c1"># In practice, you'd use a proper rule engine like Drools or similar</span>
+            <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="p">,</span> <span class="p">{</span><span class="s2">"context"</span><span class="p">:</span> <span class="n">context</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">})</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-class DecisionEngine(ABC):
-    @abstractmethod
-    def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
-        pass
+<span class="k">class</span><span class="w"> </span><span class="nc">DecisionEngine</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DecisionResult</span><span class="p">:</span>
+        <span class="k">pass</span>
 
-class RuleBasedDecisionEngine(DecisionEngine):
-    def __init__(self):
-        self.rules: List[DecisionRule] = []
-        self.decision_history: List[Dict] = []
+<span class="k">class</span><span class="w"> </span><span class="nc">RuleBasedDecisionEngine</span><span class="p">(</span><span class="n">DecisionEngine</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">DecisionRule</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decision_history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
-    def add_rule(self, rule: DecisionRule):
-        """Add a decision rule"""
-        self.rules.append(rule)
-        self.rules.sort(key=lambda x: x.priority, reverse=True)
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rule</span><span class="p">:</span> <span class="n">DecisionRule</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Add a decision rule"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">priority</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
-        """Make decision based on rules"""
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DecisionResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Make decision based on rules"""</span>
 
-        # Evaluate rules in priority order
-        for rule in self.rules:
-            if rule.active and rule.evaluate(context):
-                decision = DecisionResult(
-                    decision=rule.action,
-                    confidence=1.0,
-                    reasoning=f"Rule {rule.rule_id} matched",
-                    metadata={"rule_id": rule.rule_id}
-                )
+        <span class="c1"># Evaluate rules in priority order</span>
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">active</span> <span class="ow">and</span> <span class="n">rule</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+                <span class="n">decision</span> <span class="o">=</span> <span class="n">DecisionResult</span><span class="p">(</span>
+                    <span class="n">decision</span><span class="o">=</span><span class="n">rule</span><span class="o">.</span><span class="n">action</span><span class="p">,</span>
+                    <span class="n">confidence</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                    <span class="n">reasoning</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Rule </span><span class="si">{</span><span class="n">rule</span><span class="o">.</span><span class="n">rule_id</span><span class="si">}</span><span class="s2"> matched"</span><span class="p">,</span>
+                    <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">"rule_id"</span><span class="p">:</span> <span class="n">rule</span><span class="o">.</span><span class="n">rule_id</span><span class="p">}</span>
+                <span class="p">)</span>
 
-                # Log decision
-                self._log_decision(context, decision)
-                return decision
+                <span class="c1"># Log decision</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_log_decision</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">decision</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">decision</span>
 
-        # Default decision if no rules match
-        default_decision = DecisionResult(
-            decision="default_action",
-            confidence=0.5,
-            reasoning="No rules matched, using default action"
-        )
+        <span class="c1"># Default decision if no rules match</span>
+        <span class="n">default_decision</span> <span class="o">=</span> <span class="n">DecisionResult</span><span class="p">(</span>
+            <span class="n">decision</span><span class="o">=</span><span class="s2">"default_action"</span><span class="p">,</span>
+            <span class="n">confidence</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">reasoning</span><span class="o">=</span><span class="s2">"No rules matched, using default action"</span>
+        <span class="p">)</span>
 
-        self._log_decision(context, default_decision)
-        return default_decision
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_decision</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">default_decision</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">default_decision</span>
 
-    def _log_decision(self, context: DecisionContext, decision: DecisionResult):
-        """Log decision for audit purposes"""
-        log_entry = {
-            "timestamp": context.timestamp,
-            "user_id": context.user_id,
-            "session_id": context.session_id,
-            "decision": decision.decision,
-            "confidence": decision.confidence,
-            "reasoning": decision.reasoning,
-            "context_data": context.data
-        }
-        self.decision_history.append(log_entry)
+    <span class="k">def</span><span class="w"> </span><span class="nf">_log_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">,</span> <span class="n">decision</span><span class="p">:</span> <span class="n">DecisionResult</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Log decision for audit purposes"""</span>
+        <span class="n">log_entry</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"timestamp"</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
+            <span class="s2">"user_id"</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span>
+            <span class="s2">"session_id"</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">session_id</span><span class="p">,</span>
+            <span class="s2">"decision"</span><span class="p">:</span> <span class="n">decision</span><span class="o">.</span><span class="n">decision</span><span class="p">,</span>
+            <span class="s2">"confidence"</span><span class="p">:</span> <span class="n">decision</span><span class="o">.</span><span class="n">confidence</span><span class="p">,</span>
+            <span class="s2">"reasoning"</span><span class="p">:</span> <span class="n">decision</span><span class="o">.</span><span class="n">reasoning</span><span class="p">,</span>
+            <span class="s2">"context_data"</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">data</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decision_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
 
-class MLBasedDecisionEngine(DecisionEngine):
-    def __init__(self, model_path: str):
-        self.model_path = model_path
-        self.model = self._load_model()
+<span class="k">class</span><span class="w"> </span><span class="nc">MLBasedDecisionEngine</span><span class="p">(</span><span class="n">DecisionEngine</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_path</span> <span class="o">=</span> <span class="n">model_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_model</span><span class="p">()</span>
 
-    def _load_model(self):
-        """Load ML model for decision making"""
-        # Implementation depends on your ML framework
-        pass
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Load ML model for decision making"""</span>
+        <span class="c1"># Implementation depends on your ML framework</span>
+        <span class="k">pass</span>
 
-    def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
-        """Make decision using ML model"""
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DecisionResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Make decision using ML model"""</span>
 
-        # Prepare features from context
-        features = self._extract_features(context)
+        <span class="c1"># Prepare features from context</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_features</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 
-        # Make prediction
-        prediction = self.model.predict([features])
-        confidence = self.model.predict_proba([features]).max()
+        <span class="c1"># Make prediction</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">features</span><span class="p">])</span>
+        <span class="n">confidence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="n">features</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-        decision = DecisionResult(
-            decision=str(prediction[0]),
-            confidence=float(confidence),
-            reasoning="ML model prediction",
-            metadata={"model_path": self.model_path}
-        )
+        <span class="n">decision</span> <span class="o">=</span> <span class="n">DecisionResult</span><span class="p">(</span>
+            <span class="n">decision</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="n">confidence</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">confidence</span><span class="p">),</span>
+            <span class="n">reasoning</span><span class="o">=</span><span class="s2">"ML model prediction"</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">"model_path"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">}</span>
+        <span class="p">)</span>
 
-        return decision
+        <span class="k">return</span> <span class="n">decision</span>
 
-    def _extract_features(self, context: DecisionContext) -&gt; List[float]:
-        """Extract features from decision context"""
-        # Implementation depends on your feature engineering approach
-        return []
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Extract features from decision context"""</span>
+        <span class="c1"># Implementation depends on your feature engineering approach</span>
+        <span class="k">return</span> <span class="p">[]</span>
 
-class DecisionAgent:
-    def __init__(self, agent_id: str, decision_engine: DecisionEngine):
-        self.agent_id = agent_id
-        self.decision_engine = decision_engine
-        self.decision_cache: Dict[str, DecisionResult] = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">DecisionAgent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">decision_engine</span><span class="p">:</span> <span class="n">DecisionEngine</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decision_engine</span> <span class="o">=</span> <span class="n">decision_engine</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decision_cache</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DecisionResult</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def make_decision(self, context: DecisionContext) -&gt; DecisionResult:
-        """Make a decision for the given context"""
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">make_decision</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DecisionResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Make a decision for the given context"""</span>
 
-        # Check cache first
-        cache_key = self._generate_cache_key(context)
-        if cache_key in self.decision_cache:
-            return self.decision_cache[cache_key]
+        <span class="c1"># Check cache first</span>
+        <span class="n">cache_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_cache_key</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cache_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">decision_cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">decision_cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span>
 
-        # Make decision
-        decision = self.decision_engine.make_decision(context)
+        <span class="c1"># Make decision</span>
+        <span class="n">decision</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decision_engine</span><span class="o">.</span><span class="n">make_decision</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
 
-        # Cache decision
-        self.decision_cache[cache_key] = decision
+        <span class="c1"># Cache decision</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decision_cache</span><span class="p">[</span><span class="n">cache_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">decision</span>
 
-        return decision
+        <span class="k">return</span> <span class="n">decision</span>
 
-    def _generate_cache_key(self, context: DecisionContext) -&gt; str:
-        """Generate cache key for context"""
-        # Simple hash-based cache key
-        context_str = json.dumps(context.data, sort_keys=True)
-        return f"{context.user_id}_{hash(context_str)}"
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_cache_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">DecisionContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Generate cache key for context"""</span>
+        <span class="c1"># Simple hash-based cache key</span>
+        <span class="n">context_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">context</span><span class="o">.</span><span class="n">user_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">hash</span><span class="p">(</span><span class="n">context_str</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
 <h3 id="3-data-agents">3. Data Agents<a class="headerlink" href="#3-data-agents" title="Permanent link">¶</a></h3>
 <p>Data agents handle data processing, transformation, and analysis tasks:</p>
 <h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">¶</a></h4>
@@ -1790,198 +1880,198 @@ class DecisionAgent:
 <li><strong>Data Quality</strong>: Ensure data quality and consistency</li>
 </ul>
 <h4 id="implementation_2">Implementation<a class="headerlink" href="#implementation_2" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># agents/data_agent.py
-from typing import Dict, List, Optional, Any, Callable
-import pandas as pd
-import numpy as np
-from abc import ABC, abstractmethod
-import asyncio
-from dataclasses import dataclass
+<div class="highlight"><pre><span></span><code><span class="c1"># agents/data_agent.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
-@dataclass
-class DataSource:
-    source_id: str
-    source_type: str  # database, api, file, stream
-    connection_config: Dict[str, Any]
-    schema: Optional[Dict] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataSource</span><span class="p">:</span>
+    <span class="n">source_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">source_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># database, api, file, stream</span>
+    <span class="n">connection_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="n">schema</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-@dataclass
-class DataProcessingTask:
-    task_id: str
-    task_type: str  # ingestion, transformation, analysis, quality_check
-    config: Dict[str, Any]
-    dependencies: List[str] = None
-    status: str = "pending"
-    result: Optional[Any] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataProcessingTask</span><span class="p">:</span>
+    <span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">task_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># ingestion, transformation, analysis, quality_check</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="n">dependencies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pending"</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-class DataProcessor(ABC):
-    @abstractmethod
-    async def process(self, data: Any, config: Dict) -&gt; Any:
-        pass
+<span class="k">class</span><span class="w"> </span><span class="nc">DataProcessor</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">pass</span>
 
-class DataIngestionProcessor(DataProcessor):
-    async def process(self, data_source: DataSource, config: Dict) -&gt; pd.DataFrame:
-        """Ingest data from source"""
+<span class="k">class</span><span class="w"> </span><span class="nc">DataIngestionProcessor</span><span class="p">(</span><span class="n">DataProcessor</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Ingest data from source"""</span>
 
-        if data_source.source_type == "database":
-            return await self._ingest_from_database(data_source, config)
-        elif data_source.source_type == "api":
-            return await self._ingest_from_api(data_source, config)
-        elif data_source.source_type == "file":
-            return await self._ingest_from_file(data_source, config)
-        else:
-            raise ValueError(f"Unsupported source type: {data_source.source_type}")
+        <span class="k">if</span> <span class="n">data_source</span><span class="o">.</span><span class="n">source_type</span> <span class="o">==</span> <span class="s2">"database"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ingest_from_database</span><span class="p">(</span><span class="n">data_source</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_source</span><span class="o">.</span><span class="n">source_type</span> <span class="o">==</span> <span class="s2">"api"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ingest_from_api</span><span class="p">(</span><span class="n">data_source</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data_source</span><span class="o">.</span><span class="n">source_type</span> <span class="o">==</span> <span class="s2">"file"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ingest_from_file</span><span class="p">(</span><span class="n">data_source</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unsupported source type: </span><span class="si">{</span><span class="n">data_source</span><span class="o">.</span><span class="n">source_type</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def _ingest_from_database(self, source: DataSource, config: Dict) -&gt; pd.DataFrame:
-        """Ingest data from database"""
-        # Implementation depends on your database connector
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_ingest_from_database</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Ingest data from database"""</span>
+        <span class="c1"># Implementation depends on your database connector</span>
+        <span class="k">pass</span>
 
-    async def _ingest_from_api(self, source: DataSource, config: Dict) -&gt; pd.DataFrame:
-        """Ingest data from API"""
-        # Implementation depends on your API client
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_ingest_from_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Ingest data from API"""</span>
+        <span class="c1"># Implementation depends on your API client</span>
+        <span class="k">pass</span>
 
-    async def _ingest_from_file(self, source: DataSource, config: Dict) -&gt; pd.DataFrame:
-        """Ingest data from file"""
-        # Implementation depends on file format
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_ingest_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Ingest data from file"""</span>
+        <span class="c1"># Implementation depends on file format</span>
+        <span class="k">pass</span>
 
-class DataTransformationProcessor(DataProcessor):
-    async def process(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
-        """Transform data according to configuration"""
+<span class="k">class</span><span class="w"> </span><span class="nc">DataTransformationProcessor</span><span class="p">(</span><span class="n">DataProcessor</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Transform data according to configuration"""</span>
 
-        transformations = config.get("transformations", [])
+        <span class="n">transformations</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"transformations"</span><span class="p">,</span> <span class="p">[])</span>
 
-        for transformation in transformations:
-            transformation_type = transformation.get("type")
+        <span class="k">for</span> <span class="n">transformation</span> <span class="ow">in</span> <span class="n">transformations</span><span class="p">:</span>
+            <span class="n">transformation_type</span> <span class="o">=</span> <span class="n">transformation</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span>
 
-            if transformation_type == "filter":
-                data = await self._apply_filter(data, transformation)
-            elif transformation_type == "aggregate":
-                data = await self._apply_aggregation(data, transformation)
-            elif transformation_type == "join":
-                data = await self._apply_join(data, transformation)
-            elif transformation_type == "custom":
-                data = await self._apply_custom_transformation(data, transformation)
+            <span class="k">if</span> <span class="n">transformation_type</span> <span class="o">==</span> <span class="s2">"filter"</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">transformation</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">transformation_type</span> <span class="o">==</span> <span class="s2">"aggregate"</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_aggregation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">transformation</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">transformation_type</span> <span class="o">==</span> <span class="s2">"join"</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_join</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">transformation</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">transformation_type</span> <span class="o">==</span> <span class="s2">"custom"</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_custom_transformation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">transformation</span><span class="p">)</span>
 
-        return data
+        <span class="k">return</span> <span class="n">data</span>
 
-    async def _apply_filter(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
-        """Apply filter transformation"""
-        condition = config.get("condition")
-        return data.query(condition)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_apply_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Apply filter transformation"""</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"condition"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
 
-    async def _apply_aggregation(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
-        """Apply aggregation transformation"""
-        group_by = config.get("group_by", [])
-        aggregations = config.get("aggregations", {})
-        return data.groupby(group_by).agg(aggregations).reset_index()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_apply_aggregation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Apply aggregation transformation"""</span>
+        <span class="n">group_by</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"group_by"</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">aggregations</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"aggregations"</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_by</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">aggregations</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
-    async def _apply_join(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
-        """Apply join transformation"""
-        # Implementation for joining with other datasets
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_apply_join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Apply join transformation"""</span>
+        <span class="c1"># Implementation for joining with other datasets</span>
+        <span class="k">pass</span>
 
-    async def _apply_custom_transformation(self, data: pd.DataFrame, config: Dict) -&gt; pd.DataFrame:
-        """Apply custom transformation"""
-        function = config.get("function")
-        return function(data)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_apply_custom_transformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Apply custom transformation"""</span>
+        <span class="n">function</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"function"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-class DataQualityProcessor(DataProcessor):
-    async def process(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
-        """Perform data quality checks"""
+<span class="k">class</span><span class="w"> </span><span class="nc">DataQualityProcessor</span><span class="p">(</span><span class="n">DataProcessor</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Perform data quality checks"""</span>
 
-        quality_checks = config.get("quality_checks", [])
-        results = {}
+        <span class="n">quality_checks</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"quality_checks"</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 
-        for check in quality_checks:
-            check_type = check.get("type")
+        <span class="k">for</span> <span class="n">check</span> <span class="ow">in</span> <span class="n">quality_checks</span><span class="p">:</span>
+            <span class="n">check_type</span> <span class="o">=</span> <span class="n">check</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"type"</span><span class="p">)</span>
 
-            if check_type == "completeness":
-                results[check_type] = await self._check_completeness(data, check)
-            elif check_type == "consistency":
-                results[check_type] = await self._check_consistency(data, check)
-            elif check_type == "validity":
-                results[check_type] = await self._check_validity(data, check)
-            elif check_type == "uniqueness":
-                results[check_type] = await self._check_uniqueness(data, check)
+            <span class="k">if</span> <span class="n">check_type</span> <span class="o">==</span> <span class="s2">"completeness"</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">check_type</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_completeness</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">check</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">check_type</span> <span class="o">==</span> <span class="s2">"consistency"</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">check_type</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_consistency</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">check</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">check_type</span> <span class="o">==</span> <span class="s2">"validity"</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">check_type</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_validity</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">check</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">check_type</span> <span class="o">==</span> <span class="s2">"uniqueness"</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">check_type</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_uniqueness</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">check</span><span class="p">)</span>
 
-        return results
+        <span class="k">return</span> <span class="n">results</span>
 
-    async def _check_completeness(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, float]:
-        """Check data completeness"""
-        columns = config.get("columns", data.columns.tolist())
-        completeness = {}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_completeness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Check data completeness"""</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"columns"</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">completeness</span> <span class="o">=</span> <span class="p">{}</span>
 
-        for column in columns:
-            null_count = data[column].isnull().sum()
-            total_count = len(data)
-            completeness[column] = 1 - (null_count / total_count)
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="n">null_count</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">total_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">completeness</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">null_count</span> <span class="o">/</span> <span class="n">total_count</span><span class="p">)</span>
 
-        return completeness
+        <span class="k">return</span> <span class="n">completeness</span>
 
-    async def _check_consistency(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
-        """Check data consistency"""
-        # Implementation for consistency checks
-        return {}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_consistency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Check data consistency"""</span>
+        <span class="c1"># Implementation for consistency checks</span>
+        <span class="k">return</span> <span class="p">{}</span>
 
-    async def _check_validity(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
-        """Check data validity"""
-        # Implementation for validity checks
-        return {}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_validity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Check data validity"""</span>
+        <span class="c1"># Implementation for validity checks</span>
+        <span class="k">return</span> <span class="p">{}</span>
 
-    async def _check_uniqueness(self, data: pd.DataFrame, config: Dict) -&gt; Dict[str, Any]:
-        """Check data uniqueness"""
-        # Implementation for uniqueness checks
-        return {}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_check_uniqueness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Check data uniqueness"""</span>
+        <span class="c1"># Implementation for uniqueness checks</span>
+        <span class="k">return</span> <span class="p">{}</span>
 
-class DataAgent:
-    def __init__(self, agent_id: str, config: Dict):
-        self.agent_id = agent_id
-        self.config = config
-        self.processors: Dict[str, DataProcessor] = {}
-        self.data_sources: Dict[str, DataSource] = {}
-        self.processing_tasks: Dict[str, DataProcessingTask] = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">DataAgent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataProcessor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_sources</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataSource</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processing_tasks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataProcessingTask</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-        # Initialize processors
-        self.processors["ingestion"] = DataIngestionProcessor()
-        self.processors["transformation"] = DataTransformationProcessor()
-        self.processors["quality"] = DataQualityProcessor()
+        <span class="c1"># Initialize processors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">[</span><span class="s2">"ingestion"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataIngestionProcessor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">[</span><span class="s2">"transformation"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataTransformationProcessor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">[</span><span class="s2">"quality"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DataQualityProcessor</span><span class="p">()</span>
 
-    def add_data_source(self, source: DataSource):
-        """Add a data source"""
-        self.data_sources[source.source_id] = source
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_data_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">DataSource</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Add a data source"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_sources</span><span class="p">[</span><span class="n">source</span><span class="o">.</span><span class="n">source_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span>
 
-    async def process_data(self, task: DataProcessingTask) -&gt; Any:
-        """Process data according to task configuration"""
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">DataProcessingTask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Process data according to task configuration"""</span>
 
-        task.status = "running"
+        <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"running"</span>
 
-        try:
-            if task.task_type == "ingestion":
-                source_id = task.config.get("source_id")
-                source = self.data_sources[source_id]
-                result = await self.processors["ingestion"].process(source, task.config)
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">task_type</span> <span class="o">==</span> <span class="s2">"ingestion"</span><span class="p">:</span>
+                <span class="n">source_id</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"source_id"</span><span class="p">)</span>
+                <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_sources</span><span class="p">[</span><span class="n">source_id</span><span class="p">]</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">[</span><span class="s2">"ingestion"</span><span class="p">]</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
 
-            elif task.task_type == "transformation":
-                input_data = task.config.get("input_data")
-                result = await self.processors["transformation"].process(input_data, task.config)
+            <span class="k">elif</span> <span class="n">task</span><span class="o">.</span><span class="n">task_type</span> <span class="o">==</span> <span class="s2">"transformation"</span><span class="p">:</span>
+                <span class="n">input_data</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"input_data"</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">[</span><span class="s2">"transformation"</span><span class="p">]</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
 
-            elif task.task_type == "quality_check":
-                input_data = task.config.get("input_data")
-                result = await self.processors["quality"].process(input_data, task.config)
+            <span class="k">elif</span> <span class="n">task</span><span class="o">.</span><span class="n">task_type</span> <span class="o">==</span> <span class="s2">"quality_check"</span><span class="p">:</span>
+                <span class="n">input_data</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"input_data"</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">[</span><span class="s2">"quality"</span><span class="p">]</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">task</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
 
-            task.result = result
-            task.status = "completed"
+            <span class="n">task</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"completed"</span>
 
-            return result
+            <span class="k">return</span> <span class="n">result</span>
 
-        except Exception as e:
-            task.status = "failed"
-            task.result = {"error": str(e)}
-            raise
-</code></pre>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"failed"</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+            <span class="k">raise</span>
+</code></pre></div>
 <h3 id="4-monitoring-agents">4. Monitoring Agents<a class="headerlink" href="#4-monitoring-agents" title="Permanent link">¶</a></h3>
 <p>Monitoring agents continuously monitor system health and performance:</p>
 <h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">¶</a></h4>
@@ -1992,487 +2082,487 @@ class DataAgent:
 <li><strong>Incident Response</strong>: Automatic incident response</li>
 </ul>
 <h4 id="implementation_3">Implementation<a class="headerlink" href="#implementation_3" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># agents/monitoring_agent.py
-from typing import Dict, List, Optional, Callable
-import asyncio
-import time
-from dataclasses import dataclass
-from enum import Enum
-import psutil
-import requests
+<div class="highlight"><pre><span></span><code><span class="c1"># agents/monitoring_agent.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-class AlertSeverity(Enum):
-    LOW = "low"
-    MEDIUM = "medium"
-    HIGH = "high"
-    CRITICAL = "critical"
+<span class="k">class</span><span class="w"> </span><span class="nc">AlertSeverity</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">LOW</span> <span class="o">=</span> <span class="s2">"low"</span>
+    <span class="n">MEDIUM</span> <span class="o">=</span> <span class="s2">"medium"</span>
+    <span class="n">HIGH</span> <span class="o">=</span> <span class="s2">"high"</span>
+    <span class="n">CRITICAL</span> <span class="o">=</span> <span class="s2">"critical"</span>
 
-@dataclass
-class Alert:
-    alert_id: str
-    title: str
-    description: str
-    severity: AlertSeverity
-    source: str
-    timestamp: float
-    metadata: Dict[str, Any] = None
-    acknowledged: bool = False
-    resolved: bool = False
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Alert</span><span class="p">:</span>
+    <span class="n">alert_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">severity</span><span class="p">:</span> <span class="n">AlertSeverity</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">acknowledged</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">resolved</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 
-@dataclass
-class MonitoringMetric:
-    name: str
-    value: float
-    unit: str
-    timestamp: float
-    tags: Dict[str, str] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MonitoringMetric</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-class MonitoringCheck:
-    def __init__(self, check_id: str, name: str, check_function: Callable,
-                 interval: int = 60, threshold: Dict = None):
-        self.check_id = check_id
-        self.name = name
-        self.check_function = check_function
-        self.interval = interval
-        self.threshold = threshold or {}
-        self.last_run: Optional[float] = None
-        self.last_result: Optional[Dict] = None
+<span class="k">class</span><span class="w"> </span><span class="nc">MonitoringCheck</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">check_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                 <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_id</span> <span class="o">=</span> <span class="n">check_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_function</span> <span class="o">=</span> <span class="n">check_function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="n">interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-    async def run_check(self) -&gt; Dict:
-        """Run the monitoring check"""
-        try:
-            result = await self.check_function()
-            self.last_result = result
-            self.last_run = time.time()
-            return result
-        except Exception as e:
-            return {"error": str(e), "status": "failed"}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_check</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Run the monitoring check"""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_function</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_result</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_run</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"failed"</span><span class="p">}</span>
 
-class SystemHealthCheck:
-    async def check_cpu_usage(self) -&gt; Dict:
-        """Check CPU usage"""
-        cpu_percent = psutil.cpu_percent(interval=1)
-        return {
-            "metric": "cpu_usage",
-            "value": cpu_percent,
-            "unit": "percent",
-            "status": "ok" if cpu_percent &lt; 80 else "warning" if cpu_percent &lt; 90 else "critical"
-        }
+<span class="k">class</span><span class="w"> </span><span class="nc">SystemHealthCheck</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">check_cpu_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check CPU usage"""</span>
+        <span class="n">cpu_percent</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"metric"</span><span class="p">:</span> <span class="s2">"cpu_usage"</span><span class="p">,</span>
+            <span class="s2">"value"</span><span class="p">:</span> <span class="n">cpu_percent</span><span class="p">,</span>
+            <span class="s2">"unit"</span><span class="p">:</span> <span class="s2">"percent"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span> <span class="k">if</span> <span class="n">cpu_percent</span> <span class="o">&lt;</span> <span class="mi">80</span> <span class="k">else</span> <span class="s2">"warning"</span> <span class="k">if</span> <span class="n">cpu_percent</span> <span class="o">&lt;</span> <span class="mi">90</span> <span class="k">else</span> <span class="s2">"critical"</span>
+        <span class="p">}</span>
 
-    async def check_memory_usage(self) -&gt; Dict:
-        """Check memory usage"""
-        memory = psutil.virtual_memory()
-        return {
-            "metric": "memory_usage",
-            "value": memory.percent,
-            "unit": "percent",
-            "status": "ok" if memory.percent &lt; 80 else "warning" if memory.percent &lt; 90 else "critical"
-        }
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">check_memory_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check memory usage"""</span>
+        <span class="n">memory</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"metric"</span><span class="p">:</span> <span class="s2">"memory_usage"</span><span class="p">,</span>
+            <span class="s2">"value"</span><span class="p">:</span> <span class="n">memory</span><span class="o">.</span><span class="n">percent</span><span class="p">,</span>
+            <span class="s2">"unit"</span><span class="p">:</span> <span class="s2">"percent"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span> <span class="k">if</span> <span class="n">memory</span><span class="o">.</span><span class="n">percent</span> <span class="o">&lt;</span> <span class="mi">80</span> <span class="k">else</span> <span class="s2">"warning"</span> <span class="k">if</span> <span class="n">memory</span><span class="o">.</span><span class="n">percent</span> <span class="o">&lt;</span> <span class="mi">90</span> <span class="k">else</span> <span class="s2">"critical"</span>
+        <span class="p">}</span>
 
-    async def check_disk_usage(self) -&gt; Dict:
-        """Check disk usage"""
-        disk = psutil.disk_usage('/')
-        disk_percent = (disk.used / disk.total) * 100
-        return {
-            "metric": "disk_usage",
-            "value": disk_percent,
-            "unit": "percent",
-            "status": "ok" if disk_percent &lt; 80 else "warning" if disk_percent &lt; 90 else "critical"
-        }
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">check_disk_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check disk usage"""</span>
+        <span class="n">disk</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+        <span class="n">disk_percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">disk</span><span class="o">.</span><span class="n">used</span> <span class="o">/</span> <span class="n">disk</span><span class="o">.</span><span class="n">total</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">"metric"</span><span class="p">:</span> <span class="s2">"disk_usage"</span><span class="p">,</span>
+            <span class="s2">"value"</span><span class="p">:</span> <span class="n">disk_percent</span><span class="p">,</span>
+            <span class="s2">"unit"</span><span class="p">:</span> <span class="s2">"percent"</span><span class="p">,</span>
+            <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span> <span class="k">if</span> <span class="n">disk_percent</span> <span class="o">&lt;</span> <span class="mi">80</span> <span class="k">else</span> <span class="s2">"warning"</span> <span class="k">if</span> <span class="n">disk_percent</span> <span class="o">&lt;</span> <span class="mi">90</span> <span class="k">else</span> <span class="s2">"critical"</span>
+        <span class="p">}</span>
 
-class ServiceHealthCheck:
-    async def check_service_endpoint(self, url: str, timeout: int = 5) -&gt; Dict:
-        """Check if service endpoint is responding"""
-        try:
-            response = requests.get(url, timeout=timeout)
-            return {
-                "metric": "service_response",
-                "value": response.status_code,
-                "unit": "status_code",
-                "status": "ok" if response.status_code == 200 else "warning",
-                "response_time": response.elapsed.total_seconds()
-            }
-        except requests.exceptions.RequestException as e:
-            return {
-                "metric": "service_response",
-                "value": 0,
-                "unit": "status_code",
-                "status": "critical",
-                "error": str(e)
-            }
+<span class="k">class</span><span class="w"> </span><span class="nc">ServiceHealthCheck</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">check_service_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check if service endpoint is responding"""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">"metric"</span><span class="p">:</span> <span class="s2">"service_response"</span><span class="p">,</span>
+                <span class="s2">"value"</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span>
+                <span class="s2">"unit"</span><span class="p">:</span> <span class="s2">"status_code"</span><span class="p">,</span>
+                <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span> <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span> <span class="k">else</span> <span class="s2">"warning"</span><span class="p">,</span>
+                <span class="s2">"response_time"</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">elapsed</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">"metric"</span><span class="p">:</span> <span class="s2">"service_response"</span><span class="p">,</span>
+                <span class="s2">"value"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">"unit"</span><span class="p">:</span> <span class="s2">"status_code"</span><span class="p">,</span>
+                <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"critical"</span><span class="p">,</span>
+                <span class="s2">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="p">}</span>
 
-class MonitoringAgent:
-    def __init__(self, agent_id: str, config: Dict):
-        self.agent_id = agent_id
-        self.config = config
-        self.checks: Dict[str, MonitoringCheck] = {}
-        self.alerts: List[Alert] = []
-        self.metrics_history: List[MonitoringMetric] = []
-        self.alert_handlers: List[Callable] = []
+<span class="k">class</span><span class="w"> </span><span class="nc">MonitoringAgent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">MonitoringCheck</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alerts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Alert</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics_history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">MonitoringMetric</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alert_handlers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
-        # Initialize default checks
-        self._initialize_default_checks()
+        <span class="c1"># Initialize default checks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_default_checks</span><span class="p">()</span>
 
-    def _initialize_default_checks(self):
-        """Initialize default monitoring checks"""
-        health_checker = SystemHealthCheck()
-        service_checker = ServiceHealthCheck()
+    <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_default_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Initialize default monitoring checks"""</span>
+        <span class="n">health_checker</span> <span class="o">=</span> <span class="n">SystemHealthCheck</span><span class="p">()</span>
+        <span class="n">service_checker</span> <span class="o">=</span> <span class="n">ServiceHealthCheck</span><span class="p">()</span>
 
-        # System health checks
-        self.add_check("cpu_check", "CPU Usage Check", health_checker.check_cpu_usage, 60)
-        self.add_check("memory_check", "Memory Usage Check", health_checker.check_memory_usage, 60)
-        self.add_check("disk_check", "Disk Usage Check", health_checker.check_disk_usage, 300)
+        <span class="c1"># System health checks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_check</span><span class="p">(</span><span class="s2">"cpu_check"</span><span class="p">,</span> <span class="s2">"CPU Usage Check"</span><span class="p">,</span> <span class="n">health_checker</span><span class="o">.</span><span class="n">check_cpu_usage</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_check</span><span class="p">(</span><span class="s2">"memory_check"</span><span class="p">,</span> <span class="s2">"Memory Usage Check"</span><span class="p">,</span> <span class="n">health_checker</span><span class="o">.</span><span class="n">check_memory_usage</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_check</span><span class="p">(</span><span class="s2">"disk_check"</span><span class="p">,</span> <span class="s2">"Disk Usage Check"</span><span class="p">,</span> <span class="n">health_checker</span><span class="o">.</span><span class="n">check_disk_usage</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 
-        # Service health checks
-        services = self.config.get("services", [])
-        for service in services:
-            check_id = f"service_check_{service['name']}"
-            check_function = lambda url=service['url']: service_checker.check_service_endpoint(url)
-            self.add_check(check_id, f"Service Check - {service['name']}", check_function, 30)
+        <span class="c1"># Service health checks</span>
+        <span class="n">services</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"services"</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
+            <span class="n">check_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"service_check_</span><span class="si">{</span><span class="n">service</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+            <span class="n">check_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]:</span> <span class="n">service_checker</span><span class="o">.</span><span class="n">check_service_endpoint</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_check</span><span class="p">(</span><span class="n">check_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Service Check - </span><span class="si">{</span><span class="n">service</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">check_function</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 
-    def add_check(self, check_id: str, name: str, check_function: Callable,
-                  interval: int = 60, threshold: Dict = None):
-        """Add a monitoring check"""
-        check = MonitoringCheck(check_id, name, check_function, interval, threshold)
-        self.checks[check_id] = check
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">check_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                  <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Add a monitoring check"""</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">MonitoringCheck</span><span class="p">(</span><span class="n">check_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">check_function</span><span class="p">,</span> <span class="n">interval</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checks</span><span class="p">[</span><span class="n">check_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">check</span>
 
-    def add_alert_handler(self, handler: Callable):
-        """Add alert handler"""
-        self.alert_handlers.append(handler)
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_alert_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Add alert handler"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alert_handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
 
-    async def start_monitoring(self):
-        """Start monitoring loop"""
-        while True:
-            await self._run_all_checks()
-            await asyncio.sleep(10)  # Check every 10 seconds
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start_monitoring</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Start monitoring loop"""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_all_checks</span><span class="p">()</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Check every 10 seconds</span>
 
-    async def _run_all_checks(self):
-        """Run all monitoring checks"""
-        current_time = time.time()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_run_all_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Run all monitoring checks"""</span>
+        <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        for check in self.checks.values():
-            if (check.last_run is None or
-                current_time - check.last_run &gt;= check.interval):
-                await self._run_check(check)
+        <span class="k">for</span> <span class="n">check</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">checks</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="o">.</span><span class="n">last_run</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span>
+                <span class="n">current_time</span> <span class="o">-</span> <span class="n">check</span><span class="o">.</span><span class="n">last_run</span> <span class="o">&gt;=</span> <span class="n">check</span><span class="o">.</span><span class="n">interval</span><span class="p">):</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_check</span><span class="p">(</span><span class="n">check</span><span class="p">)</span>
 
-    async def _run_check(self, check: MonitoringCheck):
-        """Run a single check"""
-        result = await check.run_check()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_run_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check</span><span class="p">:</span> <span class="n">MonitoringCheck</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Run a single check"""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">check</span><span class="o">.</span><span class="n">run_check</span><span class="p">()</span>
 
-        # Store metric
-        if "metric" in result:
-            metric = MonitoringMetric(
-                name=result["metric"],
-                value=result["value"],
-                unit=result.get("unit", ""),
-                timestamp=time.time(),
-                tags={"check_id": check.check_id}
-            )
-            self.metrics_history.append(metric)
+        <span class="c1"># Store metric</span>
+        <span class="k">if</span> <span class="s2">"metric"</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">metric</span> <span class="o">=</span> <span class="n">MonitoringMetric</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="s2">"metric"</span><span class="p">],</span>
+                <span class="n">value</span><span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="s2">"value"</span><span class="p">],</span>
+                <span class="n">unit</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"unit"</span><span class="p">,</span> <span class="s2">""</span><span class="p">),</span>
+                <span class="n">timestamp</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">"check_id"</span><span class="p">:</span> <span class="n">check</span><span class="o">.</span><span class="n">check_id</span><span class="p">}</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
 
-        # Check for alerts
-        if result.get("status") in ["warning", "critical"]:
-            await self._create_alert(check, result)
+        <span class="c1"># Check for alerts</span>
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"status"</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"warning"</span><span class="p">,</span> <span class="s2">"critical"</span><span class="p">]:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_alert</span><span class="p">(</span><span class="n">check</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 
-    async def _create_alert(self, check: MonitoringCheck, result: Dict):
-        """Create alert from check result"""
-        severity = AlertSeverity.CRITICAL if result["status"] == "critical" else AlertSeverity.MEDIUM
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_create_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">check</span><span class="p">:</span> <span class="n">MonitoringCheck</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create alert from check result"""</span>
+        <span class="n">severity</span> <span class="o">=</span> <span class="n">AlertSeverity</span><span class="o">.</span><span class="n">CRITICAL</span> <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"critical"</span> <span class="k">else</span> <span class="n">AlertSeverity</span><span class="o">.</span><span class="n">MEDIUM</span>
 
-        alert = Alert(
-            alert_id=f"{check.check_id}_{int(time.time())}",
-            title=f"{check.name} - {result['status'].upper()}",
-            description=f"Check {check.check_id} returned status: {result['status']}",
-            severity=severity,
-            source=self.agent_id,
-            timestamp=time.time(),
-            metadata=result
-        )
+        <span class="n">alert</span> <span class="o">=</span> <span class="n">Alert</span><span class="p">(</span>
+            <span class="n">alert_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">check</span><span class="o">.</span><span class="n">check_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">check</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'status'</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Check </span><span class="si">{</span><span class="n">check</span><span class="o">.</span><span class="n">check_id</span><span class="si">}</span><span class="s2"> returned status: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'status'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="n">severity</span><span class="o">=</span><span class="n">severity</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agent_id</span><span class="p">,</span>
+            <span class="n">timestamp</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">result</span>
+        <span class="p">)</span>
 
-        self.alerts.append(alert)
+        <span class="bp">self</span><span class="o">.</span><span class="n">alerts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
 
-        # Send alert to handlers
-        for handler in self.alert_handlers:
-            try:
-                await handler(alert)
-            except Exception as e:
-                print(f"Error in alert handler: {e}")
+        <span class="c1"># Send alert to handlers</span>
+        <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">alert_handlers</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">handler</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error in alert handler: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def acknowledge_alert(self, alert_id: str):
-        """Acknowledge an alert"""
-        for alert in self.alerts:
-            if alert.alert_id == alert_id:
-                alert.acknowledged = True
-                break
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">acknowledge_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alert_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Acknowledge an alert"""</span>
+        <span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">alerts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">alert</span><span class="o">.</span><span class="n">alert_id</span> <span class="o">==</span> <span class="n">alert_id</span><span class="p">:</span>
+                <span class="n">alert</span><span class="o">.</span><span class="n">acknowledged</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
 
-    async def resolve_alert(self, alert_id: str):
-        """Resolve an alert"""
-        for alert in self.alerts:
-            if alert.alert_id == alert_id:
-                alert.resolved = True
-                break
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">resolve_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alert_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Resolve an alert"""</span>
+        <span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">alerts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">alert</span><span class="o">.</span><span class="n">alert_id</span> <span class="o">==</span> <span class="n">alert_id</span><span class="p">:</span>
+                <span class="n">alert</span><span class="o">.</span><span class="n">resolved</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">break</span>
 
-    def get_metrics_summary(self, hours: int = 24) -&gt; Dict:
-        """Get metrics summary for the last N hours"""
-        cutoff_time = time.time() - (hours * 3600)
-        recent_metrics = [m for m in self.metrics_history if m.timestamp &gt;= cutoff_time]
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_metrics_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hours</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get metrics summary for the last N hours"""</span>
+        <span class="n">cutoff_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="n">hours</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span>
+        <span class="n">recent_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics_history</span> <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&gt;=</span> <span class="n">cutoff_time</span><span class="p">]</span>
 
-        summary = {}
-        for metric in recent_metrics:
-            if metric.name not in summary:
-                summary[metric.name] = {
-                    "values": [],
-                    "min": float('inf'),
-                    "max": float('-inf'),
-                    "avg": 0
-                }
+        <span class="n">summary</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">recent_metrics</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">metric</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">summary</span><span class="p">:</span>
+                <span class="n">summary</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">"values"</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">"min"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">),</span>
+                    <span class="s2">"max"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'-inf'</span><span class="p">),</span>
+                    <span class="s2">"avg"</span><span class="p">:</span> <span class="mi">0</span>
+                <span class="p">}</span>
 
-            summary[metric.name]["values"].append(metric.value)
-            summary[metric.name]["min"] = min(summary[metric.name]["min"], metric.value)
-            summary[metric.name]["max"] = max(summary[metric.name]["max"], metric.value)
+            <span class="n">summary</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"values"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metric</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">summary</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"min"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"min"</span><span class="p">],</span> <span class="n">metric</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">summary</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"max"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="n">metric</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="s2">"max"</span><span class="p">],</span> <span class="n">metric</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
-        # Calculate averages
-        for metric_name, data in summary.items():
-            if data["values"]:
-                data["avg"] = sum(data["values"]) / len(data["values"])
+        <span class="c1"># Calculate averages</span>
+        <span class="k">for</span> <span class="n">metric_name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">summary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">"values"</span><span class="p">]:</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">"avg"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"values"</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"values"</span><span class="p">])</span>
 
-        return summary
-</code></pre>
+        <span class="k">return</span> <span class="n">summary</span>
+</code></pre></div>
 <h2 id="agent-communication-and-coordination">Agent Communication and Coordination<a class="headerlink" href="#agent-communication-and-coordination" title="Permanent link">¶</a></h2>
 <h3 id="inter-agent-communication">Inter-Agent Communication<a class="headerlink" href="#inter-agent-communication" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># agents/communication.py
-from typing import Dict, List, Optional, Any
-import asyncio
-import json
-from dataclasses import dataclass
-from enum import Enum
+<div class="highlight"><pre><span></span><code><span class="c1"># agents/communication.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
-class MessageType(Enum):
-    TASK_REQUEST = "task_request"
-    TASK_RESPONSE = "task_response"
-    STATUS_UPDATE = "status_update"
-    EVENT_NOTIFICATION = "event_notification"
-    HEARTBEAT = "heartbeat"
+<span class="k">class</span><span class="w"> </span><span class="nc">MessageType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">TASK_REQUEST</span> <span class="o">=</span> <span class="s2">"task_request"</span>
+    <span class="n">TASK_RESPONSE</span> <span class="o">=</span> <span class="s2">"task_response"</span>
+    <span class="n">STATUS_UPDATE</span> <span class="o">=</span> <span class="s2">"status_update"</span>
+    <span class="n">EVENT_NOTIFICATION</span> <span class="o">=</span> <span class="s2">"event_notification"</span>
+    <span class="n">HEARTBEAT</span> <span class="o">=</span> <span class="s2">"heartbeat"</span>
 
-@dataclass
-class AgentMessage:
-    message_id: str
-    sender_id: str
-    recipient_id: str
-    message_type: MessageType
-    payload: Dict[str, Any]
-    timestamp: float
-    correlation_id: Optional[str] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentMessage</span><span class="p">:</span>
+    <span class="n">message_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">sender_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">recipient_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">message_type</span><span class="p">:</span> <span class="n">MessageType</span>
+    <span class="n">payload</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">correlation_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-class AgentCommunicationHub:
-    def __init__(self):
-        self.agents: Dict[str, 'Agent'] = {}
-        self.message_queue: asyncio.Queue = asyncio.Queue()
-        self.message_handlers: Dict[str, List[Callable]] = {}
-        self.running = False
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentCommunicationHub</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">'Agent'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_queue</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
 
-    def register_agent(self, agent: 'Agent'):
-        """Register an agent for communication"""
-        self.agents[agent.agent_id] = agent
-        self.message_handlers[agent.agent_id] = []
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent</span><span class="p">:</span> <span class="s1">'Agent'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Register an agent for communication"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">[</span><span class="n">agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
-    def add_message_handler(self, agent_id: str, handler: Callable):
-        """Add message handler for agent"""
-        if agent_id not in self.message_handlers:
-            self.message_handlers[agent_id] = []
-        self.message_handlers[agent_id].append(handler)
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_message_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Add message handler for agent"""</span>
+        <span class="k">if</span> <span class="n">agent_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
 
-    async def send_message(self, message: AgentMessage):
-        """Send message to agent"""
-        await self.message_queue.put(message)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">AgentMessage</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Send message to agent"""</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">message_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
-    async def start_message_processing(self):
-        """Start processing messages"""
-        self.running = True
-        while self.running:
-            try:
-                message = await asyncio.wait_for(self.message_queue.get(), timeout=1.0)
-                await self._process_message(message)
-            except asyncio.TimeoutError:
-                continue
-            except Exception as e:
-                print(f"Error processing message: {e}")
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start_message_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Start processing messages"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message_queue</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_message</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error processing message: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def _process_message(self, message: AgentMessage):
-        """Process a single message"""
-        if message.recipient_id in self.message_handlers:
-            for handler in self.message_handlers[message.recipient_id]:
-                try:
-                    await handler(message)
-                except Exception as e:
-                    print(f"Error in message handler: {e}")
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_process_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">AgentMessage</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Process a single message"""</span>
+        <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">recipient_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">message_handlers</span><span class="p">[</span><span class="n">message</span><span class="o">.</span><span class="n">recipient_id</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">handler</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error in message handler: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def broadcast_message(self, sender_id: str, message_type: MessageType,
-                               payload: Dict[str, Any]):
-        """Broadcast message to all agents"""
-        for agent_id in self.agents.keys():
-            if agent_id != sender_id:
-                message = AgentMessage(
-                    message_id=f"broadcast_{int(time.time())}",
-                    sender_id=sender_id,
-                    recipient_id=agent_id,
-                    message_type=message_type,
-                    payload=payload,
-                    timestamp=time.time()
-                )
-                await self.send_message(message)
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">broadcast_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message_type</span><span class="p">:</span> <span class="n">MessageType</span><span class="p">,</span>
+                               <span class="n">payload</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Broadcast message to all agents"""</span>
+        <span class="k">for</span> <span class="n">agent_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">agent_id</span> <span class="o">!=</span> <span class="n">sender_id</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="n">AgentMessage</span><span class="p">(</span>
+                    <span class="n">message_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">"broadcast_</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                    <span class="n">sender_id</span><span class="o">=</span><span class="n">sender_id</span><span class="p">,</span>
+                    <span class="n">recipient_id</span><span class="o">=</span><span class="n">agent_id</span><span class="p">,</span>
+                    <span class="n">message_type</span><span class="o">=</span><span class="n">message_type</span><span class="p">,</span>
+                    <span class="n">payload</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span>
+                    <span class="n">timestamp</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+                <span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="agent-orchestration">Agent Orchestration<a class="headerlink" href="#agent-orchestration" title="Permanent link">¶</a></h2>
 <h3 id="agent-orchestrator">Agent Orchestrator<a class="headerlink" href="#agent-orchestrator" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># agents/orchestrator.py
-from typing import Dict, List, Optional
-import asyncio
-import time
-from dataclasses import dataclass
-from enum import Enum
+<div class="highlight"><pre><span></span><code><span class="c1"># agents/orchestrator.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
-class AgentStatus(Enum):
-    IDLE = "idle"
-    BUSY = "busy"
-    ERROR = "error"
-    OFFLINE = "offline"
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">IDLE</span> <span class="o">=</span> <span class="s2">"idle"</span>
+    <span class="n">BUSY</span> <span class="o">=</span> <span class="s2">"busy"</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">"error"</span>
+    <span class="n">OFFLINE</span> <span class="o">=</span> <span class="s2">"offline"</span>
 
-@dataclass
-class AgentTask:
-    task_id: str
-    agent_type: str
-    task_config: Dict
-    priority: int = 0
-    created_at: float = 0
-    assigned_agent: Optional[str] = None
-    status: str = "pending"
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentTask</span><span class="p">:</span>
+    <span class="n">task_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">agent_type</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">task_config</span><span class="p">:</span> <span class="n">Dict</span>
+    <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">created_at</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">assigned_agent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pending"</span>
 
-class AgentOrchestrator:
-    def __init__(self):
-        self.agents: Dict[str, 'Agent'] = {}
-        self.agent_status: Dict[str, AgentStatus] = {}
-        self.task_queue: asyncio.PriorityQueue = asyncio.PriorityQueue()
-        self.running_tasks: Dict[str, asyncio.Task] = {}
-        self.communication_hub = AgentCommunicationHub()
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentOrchestrator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">'Agent'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AgentStatus</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">PriorityQueue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">PriorityQueue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Task</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">communication_hub</span> <span class="o">=</span> <span class="n">AgentCommunicationHub</span><span class="p">()</span>
 
-    def register_agent(self, agent: 'Agent'):
-        """Register an agent"""
-        self.agents[agent.agent_id] = agent
-        self.agent_status[agent.agent_id] = AgentStatus.IDLE
-        self.communication_hub.register_agent(agent)
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent</span><span class="p">:</span> <span class="s1">'Agent'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Register an agent"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">communication_hub</span><span class="o">.</span><span class="n">register_agent</span><span class="p">(</span><span class="n">agent</span><span class="p">)</span>
 
-        # Add message handler for task assignment
-        self.communication_hub.add_message_handler(
-            agent.agent_id,
-            self._handle_agent_message
-        )
+        <span class="c1"># Add message handler for task assignment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">communication_hub</span><span class="o">.</span><span class="n">add_message_handler</span><span class="p">(</span>
+            <span class="n">agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_agent_message</span>
+        <span class="p">)</span>
 
-    async def submit_task(self, agent_type: str, task_config: Dict, priority: int = 0) -&gt; str:
-        """Submit a task to be executed by an agent"""
-        task_id = f"task_{agent_type}_{int(time.time())}"
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">submit_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Submit a task to be executed by an agent"""</span>
+        <span class="n">task_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"task_</span><span class="si">{</span><span class="n">agent_type</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
 
-        task = AgentTask(
-            task_id=task_id,
-            agent_type=agent_type,
-            task_config=task_config,
-            priority=priority,
-            created_at=time.time()
-        )
+        <span class="n">task</span> <span class="o">=</span> <span class="n">AgentTask</span><span class="p">(</span>
+            <span class="n">task_id</span><span class="o">=</span><span class="n">task_id</span><span class="p">,</span>
+            <span class="n">agent_type</span><span class="o">=</span><span class="n">agent_type</span><span class="p">,</span>
+            <span class="n">task_config</span><span class="o">=</span><span class="n">task_config</span><span class="p">,</span>
+            <span class="n">priority</span><span class="o">=</span><span class="n">priority</span><span class="p">,</span>
+            <span class="n">created_at</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">)</span>
 
-        await self.task_queue.put((priority, task))
-        return task_id
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">priority</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">task_id</span>
 
-    async def start_orchestration(self):
-        """Start the orchestration loop"""
-        # Start communication hub
-        asyncio.create_task(self.communication_hub.start_message_processing())
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start_orchestration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Start the orchestration loop"""</span>
+        <span class="c1"># Start communication hub</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">communication_hub</span><span class="o">.</span><span class="n">start_message_processing</span><span class="p">())</span>
 
-        # Start task processing
-        while True:
-            try:
-                priority, task = await self.task_queue.get()
-                await self._assign_task(task)
-                self.task_queue.task_done()
-            except Exception as e:
-                print(f"Error in orchestration: {e}")
+        <span class="c1"># Start task processing</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">priority</span><span class="p">,</span> <span class="n">task</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assign_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error in orchestration: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def _assign_task(self, task: AgentTask):
-        """Assign task to an available agent"""
-        # Find available agent of the required type
-        available_agent = None
-        for agent_id, agent in self.agents.items():
-            if (agent.agent_type == task.agent_type and
-                self.agent_status[agent_id] == AgentStatus.IDLE):
-                available_agent = agent
-                break
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_assign_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">AgentTask</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Assign task to an available agent"""</span>
+        <span class="c1"># Find available agent of the required type</span>
+        <span class="n">available_agent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">agent_id</span><span class="p">,</span> <span class="n">agent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">agent_type</span> <span class="o">==</span> <span class="n">task</span><span class="o">.</span><span class="n">agent_type</span> <span class="ow">and</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">==</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span><span class="p">):</span>
+                <span class="n">available_agent</span> <span class="o">=</span> <span class="n">agent</span>
+                <span class="k">break</span>
 
-        if available_agent:
-            # Assign task to agent
-            task.assigned_agent = available_agent.agent_id
-            task.status = "assigned"
+        <span class="k">if</span> <span class="n">available_agent</span><span class="p">:</span>
+            <span class="c1"># Assign task to agent</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">assigned_agent</span> <span class="o">=</span> <span class="n">available_agent</span><span class="o">.</span><span class="n">agent_id</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"assigned"</span>
 
-            # Update agent status
-            self.agent_status[available_agent.agent_id] = AgentStatus.BUSY
+            <span class="c1"># Update agent status</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">available_agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">BUSY</span>
 
-            # Send task to agent
-            message = AgentMessage(
-                message_id=f"task_{task.task_id}",
-                sender_id="orchestrator",
-                recipient_id=available_agent.agent_id,
-                message_type=MessageType.TASK_REQUEST,
-                payload=task.task_config,
-                timestamp=time.time(),
-                correlation_id=task.task_id
-            )
+            <span class="c1"># Send task to agent</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">AgentMessage</span><span class="p">(</span>
+                <span class="n">message_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">"task_</span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+                <span class="n">sender_id</span><span class="o">=</span><span class="s2">"orchestrator"</span><span class="p">,</span>
+                <span class="n">recipient_id</span><span class="o">=</span><span class="n">available_agent</span><span class="o">.</span><span class="n">agent_id</span><span class="p">,</span>
+                <span class="n">message_type</span><span class="o">=</span><span class="n">MessageType</span><span class="o">.</span><span class="n">TASK_REQUEST</span><span class="p">,</span>
+                <span class="n">payload</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">task_config</span><span class="p">,</span>
+                <span class="n">timestamp</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="n">correlation_id</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span>
+            <span class="p">)</span>
 
-            await self.communication_hub.send_message(message)
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">communication_hub</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
-            # Create task monitoring
-            monitor_task = asyncio.create_task(
-                self._monitor_task_execution(task)
-            )
-            self.running_tasks[task.task_id] = monitor_task
-        else:
-            # No available agent, requeue task
-            await self.task_queue.put((task.priority, task))
+            <span class="c1"># Create task monitoring</span>
+            <span class="n">monitor_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_monitor_task_execution</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">monitor_task</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># No available agent, requeue task</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">task</span><span class="o">.</span><span class="n">priority</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
 
-    async def _monitor_task_execution(self, task: AgentTask):
-        """Monitor task execution"""
-        # Wait for task completion or timeout
-        try:
-            await asyncio.sleep(task.task_config.get("timeout", 300))
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_monitor_task_execution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">AgentTask</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Monitor task execution"""</span>
+        <span class="c1"># Wait for task completion or timeout</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">task</span><span class="o">.</span><span class="n">task_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"timeout"</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
 
-            # If we get here, task timed out
-            task.status = "timeout"
-            self.agent_status[task.assigned_agent] = AgentStatus.IDLE
+            <span class="c1"># If we get here, task timed out</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"timeout"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">assigned_agent</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span>
 
-        except Exception as e:
-            task.status = "failed"
-            task.error = str(e)
-            self.agent_status[task.assigned_agent] = AgentStatus.ERROR
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"failed"</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">assigned_agent</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">ERROR</span>
 
-    async def _handle_agent_message(self, message: AgentMessage):
-        """Handle messages from agents"""
-        if message.message_type == MessageType.TASK_RESPONSE:
-            # Task completed
-            task_id = message.correlation_id
-            if task_id in self.running_tasks:
-                task = self.running_tasks[task_id]
-                task.status = "completed"
-                task.result = message.payload
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_handle_agent_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">AgentMessage</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Handle messages from agents"""</span>
+        <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">message_type</span> <span class="o">==</span> <span class="n">MessageType</span><span class="o">.</span><span class="n">TASK_RESPONSE</span><span class="p">:</span>
+            <span class="c1"># Task completed</span>
+            <span class="n">task_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">correlation_id</span>
+            <span class="k">if</span> <span class="n">task_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">:</span>
+                <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">[</span><span class="n">task_id</span><span class="p">]</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"completed"</span>
+                <span class="n">task</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">payload</span>
 
-                # Update agent status
-                self.agent_status[message.sender_id] = AgentStatus.IDLE
+                <span class="c1"># Update agent status</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">message</span><span class="o">.</span><span class="n">sender_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span>
 
-                # Clean up
-                del self.running_tasks[task_id]
+                <span class="c1"># Clean up</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">[</span><span class="n">task_id</span><span class="p">]</span>
 
-        elif message.message_type == MessageType.STATUS_UPDATE:
-            # Agent status update
-            agent_id = message.sender_id
-            new_status = message.payload.get("status")
-            if new_status:
-                self.agent_status[agent_id] = AgentStatus(new_status)
-</code></pre>
+        <span class="k">elif</span> <span class="n">message</span><span class="o">.</span><span class="n">message_type</span> <span class="o">==</span> <span class="n">MessageType</span><span class="o">.</span><span class="n">STATUS_UPDATE</span><span class="p">:</span>
+            <span class="c1"># Agent status update</span>
+            <span class="n">agent_id</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">sender_id</span>
+            <span class="n">new_status</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"status"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">new_status</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent_status</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="p">(</span><span class="n">new_status</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">¶</a></h2>
 <h3 id="1-agent-design">1. Agent Design<a class="headerlink" href="#1-agent-design" title="Permanent link">¶</a></h3>
 <ul>
@@ -2579,16 +2669,5 @@ class AgentOrchestrator:
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -941,6 +950,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -1002,6 +1019,14 @@
 <a class="md-nav__link" href="../../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -1169,7 +1194,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -1177,9 +1202,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1577,32 +1668,32 @@
 </ul>
 <h2 id="profiling-tools">Profiling Tools<a class="headerlink" href="#profiling-tools" title="Permanent link">¶</a></h2>
 <h3 id="built-in-profiler">Built-in Profiler<a class="headerlink" href="#built-in-profiler" title="Permanent link">¶</a></h3>
-<pre><code class="language-python">from model_evaluation.pipeline import ModelProfiler
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelProfiler</span>
 
-profiler = ModelProfiler(
-    model_path="path/to/model",
-    device="cuda",  # or "cpu"
-    precision="fp16"  # or "fp32"
-)
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">ModelProfiler</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="o">=</span><span class="s2">"path/to/model"</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">"cuda"</span><span class="p">,</span>  <span class="c1"># or "cpu"</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">"fp16"</span>  <span class="c1"># or "fp32"</span>
+<span class="p">)</span>
 
-# Profile model
-profile_results = profiler.profile(
-    input_data=sample_data,
-    num_runs=100,
-    warmup_runs=10
-)
-</code></pre>
+<span class="c1"># Profile model</span>
+<span class="n">profile_results</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span>
+    <span class="n">input_data</span><span class="o">=</span><span class="n">sample_data</span><span class="p">,</span>
+    <span class="n">num_runs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">warmup_runs</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="performance-benchmarking">Performance Benchmarking<a class="headerlink" href="#performance-benchmarking" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Benchmark different configurations
-configurations = [
-    {"batch_size": 1, "precision": "fp32"},
-    {"batch_size": 4, "precision": "fp32"},
-    {"batch_size": 8, "precision": "fp16"},
-    {"batch_size": 16, "precision": "fp16"}
-]
+<div class="highlight"><pre><span></span><code><span class="c1"># Benchmark different configurations</span>
+<span class="n">configurations</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"precision"</span><span class="p">:</span> <span class="s2">"fp32"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">"precision"</span><span class="p">:</span> <span class="s2">"fp32"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"precision"</span><span class="p">:</span> <span class="s2">"fp16"</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">"precision"</span><span class="p">:</span> <span class="s2">"fp16"</span><span class="p">}</span>
+<span class="p">]</span>
 
-benchmark_results = profiler.benchmark(configurations)
-</code></pre>
+<span class="n">benchmark_results</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">benchmark</span><span class="p">(</span><span class="n">configurations</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="profiling-metrics">Profiling Metrics<a class="headerlink" href="#profiling-metrics" title="Permanent link">¶</a></h2>
 <h3 id="latency-metrics">Latency Metrics<a class="headerlink" href="#latency-metrics" title="Permanent link">¶</a></h3>
 <ul>
@@ -1626,37 +1717,36 @@ benchmark_results = profiler.benchmark(configurations)
 <li><strong>Memory Fragmentation</strong>: Memory fragmentation analysis</li>
 </ul>
 <h2 id="profiling-workflow">Profiling Workflow<a class="headerlink" href="#profiling-workflow" title="Permanent link">¶</a></h2>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     A[Model Loading] --&gt; B[Warmup Runs]
     B --&gt; C[Profile Runs]
     C --&gt; D[Metric Collection]
     D --&gt; E[Analysis]
-    E --&gt; F[Report Generation]
-</div>
+    E --&gt; F[Report Generation]</code></pre>
 <h2 id="advanced-profiling-features">Advanced Profiling Features<a class="headerlink" href="#advanced-profiling-features" title="Permanent link">¶</a></h2>
 <h3 id="1-layer-wise-profiling">1. Layer-wise Profiling<a class="headerlink" href="#1-layer-wise-profiling" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Profile individual layers
-layer_profiles = profiler.profile_layers(
-    input_data=sample_data,
-    layer_names=["attention", "mlp", "embedding"]
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Profile individual layers</span>
+<span class="n">layer_profiles</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">profile_layers</span><span class="p">(</span>
+    <span class="n">input_data</span><span class="o">=</span><span class="n">sample_data</span><span class="p">,</span>
+    <span class="n">layer_names</span><span class="o">=</span><span class="p">[</span><span class="s2">"attention"</span><span class="p">,</span> <span class="s2">"mlp"</span><span class="p">,</span> <span class="s2">"embedding"</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="2-memory-profiling">2. Memory Profiling<a class="headerlink" href="#2-memory-profiling" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Detailed memory analysis
-memory_profile = profiler.memory_profile(
-    track_allocations=True,
-    track_deallocations=True,
-    memory_snapshots=True
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Detailed memory analysis</span>
+<span class="n">memory_profile</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">memory_profile</span><span class="p">(</span>
+    <span class="n">track_allocations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">track_deallocations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">memory_snapshots</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="3-gpu-profiling">3. GPU Profiling<a class="headerlink" href="#3-gpu-profiling" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># GPU-specific profiling
-gpu_profile = profiler.gpu_profile(
-    track_kernels=True,
-    track_memory_transfers=True,
-    profile_nvtx=True
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># GPU-specific profiling</span>
+<span class="n">gpu_profile</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">gpu_profile</span><span class="p">(</span>
+    <span class="n">track_kernels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">track_memory_transfers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">profile_nvtx</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
 <h2 id="optimization-recommendations">Optimization Recommendations<a class="headerlink" href="#optimization-recommendations" title="Permanent link">¶</a></h2>
 <h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">¶</a></h3>
 <ol>
@@ -1674,40 +1764,40 @@ gpu_profile = profiler.gpu_profile(
 </ol>
 <h2 id="profiling-reports">Profiling Reports<a class="headerlink" href="#profiling-reports" title="Permanent link">¶</a></h2>
 <h3 id="html-report">HTML Report<a class="headerlink" href="#html-report" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Generate comprehensive HTML report
-profiler.generate_html_report(
-    output_path="profiling_report.html",
-    include_graphs=True,
-    include_details=True
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate comprehensive HTML report</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">generate_html_report</span><span class="p">(</span>
+    <span class="n">output_path</span><span class="o">=</span><span class="s2">"profiling_report.html"</span><span class="p">,</span>
+    <span class="n">include_graphs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">include_details</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="json-report">JSON Report<a class="headerlink" href="#json-report" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Export results as JSON
-results_json = profiler.export_json("profiling_results.json")
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Export results as JSON</span>
+<span class="n">results_json</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">export_json</span><span class="p">(</span><span class="s2">"profiling_results.json"</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="csv-export">CSV Export<a class="headerlink" href="#csv-export" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Export metrics as CSV
-profiler.export_csv("profiling_metrics.csv")
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Export metrics as CSV</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">export_csv</span><span class="p">(</span><span class="s2">"profiling_metrics.csv"</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="integration-with-cicd">Integration with CI/CD<a class="headerlink" href="#integration-with-cicd" title="Permanent link">¶</a></h2>
 <h3 id="automated-profiling">Automated Profiling<a class="headerlink" href="#automated-profiling" title="Permanent link">¶</a></h3>
-<pre><code class="language-yaml"># GitHub Actions example
-- name: Profile Model Performance
-  run: |
-    python -m model_evaluation.pipeline profile \
-      --model-path models/latest \
-      --output-dir profiling_results \
-      --threshold latency:100ms throughput:1000samples/s
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># GitHub Actions example</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Profile Model Performance</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">python -m model_evaluation.pipeline profile \</span>
+<span class="w">      </span><span class="no">--model-path models/latest \</span>
+<span class="w">      </span><span class="no">--output-dir profiling_results \</span>
+<span class="w">      </span><span class="no">--threshold latency:100ms throughput:1000samples/s</span>
+</code></pre></div>
 <h3 id="performance-regression-detection">Performance Regression Detection<a class="headerlink" href="#performance-regression-detection" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># Compare with baseline
-baseline_results = load_baseline("baseline_profiling.json")
-current_results = profiler.profile(model_path)
+<div class="highlight"><pre><span></span><code><span class="c1"># Compare with baseline</span>
+<span class="n">baseline_results</span> <span class="o">=</span> <span class="n">load_baseline</span><span class="p">(</span><span class="s2">"baseline_profiling.json"</span><span class="p">)</span>
+<span class="n">current_results</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
 
-regressions = detect_regressions(baseline_results, current_results)
-if regressions:
-    print(f"Performance regressions detected: {regressions}")
-</code></pre>
+<span class="n">regressions</span> <span class="o">=</span> <span class="n">detect_regressions</span><span class="p">(</span><span class="n">baseline_results</span><span class="p">,</span> <span class="n">current_results</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">regressions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Performance regressions detected: </span><span class="si">{</span><span class="n">regressions</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">¶</a></h2>
 <h3 id="profiling-guidelines">Profiling Guidelines<a class="headerlink" href="#profiling-guidelines" title="Permanent link">¶</a></h3>
 <ol>
@@ -1740,35 +1830,35 @@ if regressions:
 <li><strong>Dependency Analysis</strong>: Check for blocking dependencies</li>
 </ol>
 <h2 id="example-profiling-session">Example Profiling Session<a class="headerlink" href="#example-profiling-session" title="Permanent link">¶</a></h2>
-<pre><code class="language-python">from model_evaluation.pipeline import ModelProfiler
-import torch
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelProfiler</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
-# Initialize profiler
-profiler = ModelProfiler(
-    model_path="models/bert-base-uncased",
-    device="cuda",
-    precision="fp16"
-)
+<span class="c1"># Initialize profiler</span>
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">ModelProfiler</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="o">=</span><span class="s2">"models/bert-base-uncased"</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">"cuda"</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">"fp16"</span>
+<span class="p">)</span>
 
-# Prepare sample data
-sample_inputs = torch.randint(0, 1000, (32, 128))  # batch_size=32, seq_len=128
+<span class="c1"># Prepare sample data</span>
+<span class="n">sample_inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>  <span class="c1"># batch_size=32, seq_len=128</span>
 
-# Run profiling
-results = profiler.profile(
-    input_data=sample_inputs,
-    num_runs=100,
-    warmup_runs=10,
-    detailed_analysis=True
-)
+<span class="c1"># Run profiling</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span>
+    <span class="n">input_data</span><span class="o">=</span><span class="n">sample_inputs</span><span class="p">,</span>
+    <span class="n">num_runs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">warmup_runs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">detailed_analysis</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 
-# Print key metrics
-print(f"Average Latency: {results['latency']['mean']:.2f}ms")
-print(f"Throughput: {results['throughput']['samples_per_second']:.0f} samples/s")
-print(f"Peak Memory: {results['memory']['peak'] / 1024**3:.2f} GB")
+<span class="c1"># Print key metrics</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average Latency: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'latency'</span><span class="p">][</span><span class="s1">'mean'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">ms"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Throughput: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'throughput'</span><span class="p">][</span><span class="s1">'samples_per_second'</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> samples/s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Peak Memory: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'memory'</span><span class="p">][</span><span class="s1">'peak'</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="o">**</span><span class="mi">3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> GB"</span><span class="p">)</span>
 
-# Generate report
-profiler.generate_html_report("bert_profiling_report.html")
-</code></pre>
+<span class="c1"># Generate report</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">generate_html_report</span><span class="p">(</span><span class="s2">"bert_profiling_report.html"</span><span class="p">)</span>
+</code></pre></div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -1845,16 +1935,5 @@ profiler.generate_html_report("bert_profiling_report.html")
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

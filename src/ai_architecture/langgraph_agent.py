@@ -16,7 +16,6 @@ Key Features:
 from typing import TypedDict, Annotated, List, Dict, Any, Optional
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
-from langgraph.prebuilt import ToolNode
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
 from langchain_core.tools import tool
 import json
@@ -90,13 +89,15 @@ def agent_router(state: AgentState) -> str:
 
 def model_evaluator_agent(state: AgentState) -> AgentState:
     """Agent specialized in model evaluation and testing."""
-    tools = [get_model_info, evaluate_model]
-    tool_node = ToolNode(tools)
-    
     # Process the current message with model evaluation tools
     last_message = state["messages"][-1]
     response = f"Model Evaluation Agent: I can help you with model information and evaluation. "
     response += f"Processing: {last_message.content}"
+    
+    # Simulate tool execution
+    if "model" in last_message.content.lower():
+        tool_result = get_model_info("llama-3.1")
+        response += f"\n\nTool Result: {tool_result}"
     
     state["messages"].append(AIMessage(content=response))
     state["current_task"] = "model_evaluation"
@@ -107,11 +108,14 @@ def model_evaluator_agent(state: AgentState) -> AgentState:
 
 def adapter_creator_agent(state: AgentState) -> AgentState:
     """Agent specialized in QLoRA adapter creation and fine-tuning."""
-    tools = [create_adapter, get_model_info]
-    
     last_message = state["messages"][-1]
     response = f"Adapter Creator Agent: I specialize in QLoRA adapter creation and fine-tuning. "
     response += f"Processing: {last_message.content}"
+    
+    # Simulate tool execution
+    if "adapter" in last_message.content.lower() or "qlora" in last_message.content.lower():
+        tool_result = create_adapter("llama-3.1", "enterprise")
+        response += f"\n\nTool Result: {tool_result}"
     
     state["messages"].append(AIMessage(content=response))
     state["current_task"] = "adapter_creation"
@@ -122,11 +126,14 @@ def adapter_creator_agent(state: AgentState) -> AgentState:
 
 def graph_analyst_agent(state: AgentState) -> AgentState:
     """Agent specialized in knowledge graph analysis and Neo4j queries."""
-    tools = [query_knowledge_graph]
-    
     last_message = state["messages"][-1]
     response = f"Graph Analyst Agent: I can help you with knowledge graph queries and Neo4j analysis. "
     response += f"Processing: {last_message.content}"
+    
+    # Simulate tool execution
+    if "graph" in last_message.content.lower() or "neo4j" in last_message.content.lower():
+        tool_result = query_knowledge_graph("enterprise architecture")
+        response += f"\n\nTool Result: {tool_result}"
     
     state["messages"].append(AIMessage(content=response))
     state["current_task"] = "graph_analysis"
@@ -137,11 +144,14 @@ def graph_analyst_agent(state: AgentState) -> AgentState:
 
 def data_generator_agent(state: AgentState) -> AgentState:
     """Agent specialized in realistic data generation using Faker."""
-    tools = [generate_realistic_data]
-    
     last_message = state["messages"][-1]
     response = f"Data Generator Agent: I can help you generate realistic data for demonstrations. "
     response += f"Processing: {last_message.content}"
+    
+    # Simulate tool execution
+    if "data" in last_message.content.lower() or "faker" in last_message.content.lower():
+        tool_result = generate_realistic_data("enterprise", 10)
+        response += f"\n\nTool Result: {tool_result}"
     
     state["messages"].append(AIMessage(content=response))
     state["current_task"] = "data_generation"

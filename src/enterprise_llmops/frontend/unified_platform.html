@@ -720,13 +720,83 @@
             border: 1px solid var(--lenovo-border);
             border-radius: 0.25rem;
         }
+        
+        /* Legend styling for diagrams */
+        .mermaid-legend {
+            background: var(--lenovo-card);
+            border: 1px solid var(--lenovo-border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .mermaid-legend h4 {
+            color: var(--lenovo-white);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 14px;
+        }
+        
+        .mermaid-legend .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 12px;
+        }
+        
+        .mermaid-legend .legend-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .mermaid-legend .legend-row .legend-item {
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .mermaid-legend .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            border: 2px solid;
+        }
+        
+        .mermaid-legend .legend-color.primary {
+            background: var(--lenovo-card);
+            border-color: var(--lenovo-red);
+        }
+        
+        .mermaid-legend .legend-color.secondary {
+            background: rgba(77, 157, 255, 0.1);
+            border-color: var(--lenovo-blue);
+        }
+        
+        .mermaid-legend .legend-color.tertiary {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: #22c55e;
+        }
+        
+        .mermaid-legend .legend-color.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+        
+        .mermaid-legend .legend-text {
+            color: var(--lenovo-white);
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
     <div class="flex h-screen">
         <!-- Sidebar Navigation -->
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-toggle" id="sidebar-toggle">
+        <div class="sidebar collapsed" id="sidebar">
+            <div class="sidebar-toggle collapsed" id="sidebar-toggle">
                 <div class="hamburger"></div>
             </div>
             
@@ -740,59 +810,84 @@
                     <div class="space-y-2">
                         <a href="#" class="nav-link active" data-service="about">
                             <div class="nav-icon">
-                                <span class="octicon octicon-heart-fill">♥</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
                                 <span class="status-badge online"></span>
                             </div>
                             <span class="nav-link-text">Assignment</span>
                         </a>
                         <a href="#" class="nav-link" data-service="chat-playground">
                             <div class="nav-icon">
-                                <span class="octicon octicon-comment-discussion">💬</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                                </svg>
                                 <span class="status-badge online"></span>
                             </div>
                             <span class="nav-link-text">Chat Playground</span>
                         </a>
                         <a href="#" class="nav-link" data-service="gradio">
                             <div class="nav-icon">
-                                <span class="octicon octicon-cpu">⚙</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
                                 <span class="status-badge unknown"></span>
                             </div>
                             <span class="nav-link-text">Model Evaluation</span>
                         </a>
                         <a href="#" class="nav-link" data-service="mlflow">
                             <div class="nav-icon">
-                                <span class="octicon octicon-graph">📊</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                                </svg>
                                 <span class="status-badge unknown"></span>
                             </div>
                             <span class="nav-link-text">MLflow Tracking</span>
                         </a>
                         <a href="#" class="nav-link" data-service="chroma">
                             <div class="nav-icon">
-                                <span class="octicon octicon-database">🗄</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zm0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/>
+                                </svg>
                                 <span class="status-badge unknown"></span>
                             </div>
                             <span class="nav-link-text">ChromaDB Vector Store</span>
                         </a>
                         <a href="#" class="nav-link" data-service="langgraph">
                             <div class="nav-icon">
-                                <span class="octicon octicon-workflow">🔄</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
                                 <span class="status-badge unknown"></span>
                             </div>
                             <span class="nav-link-text">LangGraph Studio</span>
                         </a>
                         <a href="#" class="nav-link" data-service="neo4j-faker">
                             <div class="nav-icon">
-                                <span class="octicon octicon-graph">🕸️</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
                                 <span class="status-badge unknown"></span>
                             </div>
                             <span class="nav-link-text">Neo4j GraphRAG Demo</span>
                         </a>
                         <a href="#" class="nav-link" data-service="mkdocs">
                             <div class="nav-icon">
-                                <span class="octicon octicon-book">📖</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                </svg>
                                 <span class="status-badge unknown"></span>
                             </div>
                             <span class="nav-link-text">Documentation Hub</span>
+                        </a>
+                        <a href="#" class="nav-link" data-service="data-factory">
+                            <div class="nav-icon">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span class="status-badge online"></span>
+                            </div>
+                            <span class="nav-link-text">Data Factory Flow</span>
                         </a>
                     </div>
                     
@@ -801,13 +896,17 @@
                         <div class="space-y-1">
                             <a href="https://s-n00b.github.io/ai_assignments" target="_blank" class="nav-link">
                                 <div class="nav-icon">
-                                    <span class="octicon octicon-globe">🌐</span>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
                                 </div>
                                 <span class="nav-link-text">GitHub Pages</span>
                             </a>
                             <a href="https://github.com/S-n00b/ai_assignments" target="_blank" class="nav-link">
                                 <div class="nav-icon">
-                                    <span class="octicon octicon-mark-github">🐙</span>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
                                 </div>
                                 <span class="nav-link-text">GitHub Repository</span>
                             </a>
@@ -852,57 +951,92 @@
                                         <span class="thinkpad-accent">AI Architecture</span>
                                     </h1>
                                     <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
-                                        Meta-Assignment Portfolio: AI Architect Model Customization → Model Evaluation Engineer Testing → Lenovo Factory Roster
+                                        <div class="flex justify-center space-x-4">
+                                            <a href="https://github.com/S-n00b" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/samuel-neubauer" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <br>
                                     </p>
                                 </div>
                                 
                                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
                                     <button onclick="scrollToSection('overview')" class="lenovo-button text-lg px-8 py-4">
-                                        Explore Portfolio
+                                        Meta-Assignment
                                     </button>
-                                    <button onclick="scrollToSection('assignments')" class="text-gray-400 hover:text-white transition-colors border border-gray-600 px-6 py-3 rounded-lg">
-                                        View Assignments →
+                                    <button onclick="scrollToSection('model-factory')" class="text-gray-400 hover:text-white transition-colors border border-gray-600 px-6 py-3 rounded-lg">
+                                        View Model Factory POC →
                                     </button>
                                 </div>
                                 
-                                <!-- Integrated Services Navigation -->
+                                <!-- AI Architecture Flow Diagram -->
                                 <div class="max-w-4xl mx-auto mb-12">
-                                    <div class="lenovo-card p-6">
-                                        <h3 class="text-xl font-semibold mb-4 text-center lenovo-text-gradient">🚀 Integrated Services</h3>
-                                        <div class="grid md:grid-cols-3 gap-4">
-                                            <a href="#" onclick="switchService('gradio')" class="lenovo-button text-center">
-                                                <div class="font-semibold">Model Evaluation</div>
-                                                <div class="text-sm opacity-75">Gradio Interface (Port 7860)</div>
-                                            </a>
-                                            <a href="#" onclick="switchService('mlflow')" class="lenovo-button text-center">
-                                                <div class="font-semibold">MLflow Tracking</div>
-                                                <div class="text-sm opacity-75">Experiment Tracking (Port 5000)</div>
-                                            </a>
-                                            <a href="#" onclick="switchService('mkdocs')" class="lenovo-button text-center">
-                                                <div class="font-semibold">Documentation</div>
-                                                <div class="text-sm opacity-75">MkDocs Site (Port 8082)</div>
-                                            </a>
-                                        </div>
-                                        <div class="grid md:grid-cols-3 gap-4 mt-4">
-                                            <a href="#" onclick="switchService('chroma')" class="lenovo-button text-center">
-                                                <div class="font-semibold">ChromaDB</div>
-                                                <div class="text-sm opacity-75">Vector Database (Port 8081)</div>
-                                            </a>
-                                            <a href="#" onclick="switchService('langgraph')" class="lenovo-button text-center">
-                                                <div class="font-semibold">LangGraph Studio</div>
-                                                <div class="text-sm opacity-75">Agent Visualization (Port 8083)</div>
-                                            </a>
-                                            <a href="#" onclick="switchService('neo4j-faker')" class="lenovo-button text-center">
-                                                <div class="font-semibold">Neo4j GraphRAG</div>
-                                                <div class="text-sm opacity-75">Graph Database Demo</div>
-                                            </a>
+                                    <div class="lenovo-card p-8">
+                                        <h3 class="text-xl font-semibold mb-6 text-center lenovo-text-gradient">Role-Based AI Architecture Platform Workflow</h3>
+                                        <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                                            <!-- AI Architect -->
+                                            <div class="flex flex-col items-center text-center">
+                                                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-3 icon-container">
+                                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="font-semibold text-white mb-1">AI Architect</h4>
+                                                <p class="text-sm text-gray-400">Model Customization</p>
+                                            </div>
+                                            
+                                            <!-- Arrow -->
+                                            <div class="flex items-center">
+                                                <svg class="w-8 h-8 text-lenovo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                                </svg>
+                                            </div>
+                                            
+                                            <!-- Model Evaluation Engineer -->
+                                            <div class="flex flex-col items-center text-center">
+                                                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-3 icon-container">
+                                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="font-semibold text-white mb-1">Model Evaluation Engineer</h4>
+                                                <p class="text-sm text-gray-400">Model Profiling & UX Optimization</p>
+                                            </div>
+                                            
+                                            <!-- Arrow -->
+                                            <div class="flex items-center">
+                                                <svg class="w-8 h-8 text-lenovo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                                </svg>
+                                            </div>
+                                            
+                                            <!-- Lenovo Model Factory Registry -->
+                                            <div class="flex flex-col items-center text-center">
+                                                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-3 icon-container">
+                                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="font-semibold text-white mb-1">Lenovo Model Factory</h4>
+                                                <p class="text-sm text-gray-400">Production Deployment</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <div class="max-w-2xl mx-auto">
-                                    <blockquote class="text-lg italic text-gray-400 border-l-4 border-lenovo-red pl-6">
-                                        "I wanted to show what I can build - a comprehensive hierarchical workflow where AI Architect customizes models with fine-tuning and QLoRA adapters, while Model Evaluation Engineer tests all models (raw foundation + custom) for Lenovo's production factory roster."
+                                    <blockquote class="text-lg italic text-gray-400 border-l-4 border-lenovo-blue pl-6">
+                                        "Create an assignment that I would use to evaluate candidates for the model evaluation role. 
+                                        I would expect you to use AI tools to help you generate this task."
                                     </blockquote>
                                 </div>
                             </div>
@@ -933,9 +1067,12 @@
                                             </div>
                                         </div>
                                         
-                                        <button onclick="scrollToSection('assignments')" class="lenovo-button">
-                                            View Assignments
-                                        </button>
+                                        <div class="text-center">
+                                            <br><br>
+                                            <a href="#assignments" class="lenovo-button">
+                                                View Assignments
+                                            </a>
+                                        </div>
                                     </div>
                                     
                                     <div>
@@ -961,329 +1098,108 @@
                             </div>
                         </section>
                         
-                        <!-- Assignments Section -->
+                        <!-- Assignments Section - Complete Content from updated_about_page.html -->
                         <section id="assignments" class="py-20">
                             <div class="container mx-auto px-6">
                                 <div class="text-center mb-16">
                                     <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                                        <span class="lenovo-text-gradient">Assignments</span>
+                                        <span class="lenovo-text-gradient">Lenovo AI Architecture</span>
                                     </h2>
                                     <p class="text-xl text-gray-300 max-w-4xl mx-auto">
-                                        Hierarchical workflow: AI Architect customizes models → Model Evaluation Engineer tests all models → Factory roster for Lenovo production
+                                        Complete technical architecture with AI Architect model customization and Model Evaluation Engineer testing capabilities for Lenovo's Model Factory Registry
                                     </p>
-                                    
-                                    <!-- Meta-Assignment Quote -->
-                                    <div class="max-w-4xl mx-auto mt-8">
-                                        <blockquote class="text-lg italic text-gray-400 border-l-4 border-lenovo-red pl-6">
-                                            "Create an assignment that I would use to evaluate candidates for the model evaluation role. I would expect you to use AI tools to help you generate this task."
-                                        </blockquote>
-                                    </div>
-                                    
-                                    <!-- Download PDF Button -->
-                                    <div class="mt-8">
-                                        <button onclick="showPDFModal()" class="lenovo-button text-lg px-8 py-4 inline-flex items-center gap-3">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                            </svg>
-                                            View Assignment PDF
-                                        </button>
-                                    </div>
                                 </div>
                                 
-                                <div class="grid lg:grid-cols-2 gap-8">
-                                    <!-- Assignment 1: Model Evaluation -->
-                                    <div class="think-system-card p-8">
-                                        <div class="flex items-center mb-6">
-                                            <div class="w-16 h-16 lenovo-gradient rounded-xl flex items-center justify-center mr-6">
-                                                <span class="text-white font-bold text-2xl">1</span>
-                                            </div>
-                                            <div>
-                                                <h3 class="text-3xl font-bold text-white">Model Testing & Factory Roster</h3>
-                                                <p class="text-gray-400">Model Evaluation Engineer - Tests All Models for Production</p>
+                                <!-- Hero Section -->
+                                <div class="hero-section mb-16">
+                                    <div class="hero-pattern"></div>
+                                    <div class="relative z-10 text-center px-6">
+                                        <div class="mb-8">
+                                            <h1 class="text-6xl md:text-8xl font-black mb-6">
+                                                <span class="lenovo-logo">Lenovo</span>
+                                                <br>
+                                                <span class="thinkpad-accent">AI Architecture</span>
+                                            </h1>
+                                            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+                                                Complete technical implementation demonstrating AI Architect model customization and Model Evaluation Engineer testing capabilities for Lenovo's Model Factory Registry
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                                            <a href="http://localhost:8080/#overview" class="lenovo-button text-lg px-8 py-4">
+                                                Meta-Assignment
+                                            </a>
+                                            <a href="http://localhost:8080/#model-factory" class="text-gray-400 hover:text-white transition-colors border border-gray-600 px-6 py-3 rounded-lg">
+                                                View Model Factory POC →
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- AI Architecture Flow Diagram -->
+                                        <div class="max-w-4xl mx-auto mb-12">
+                                            <div class="lenovo-card p-8">
+                                                <h3 class="text-xl font-semibold mb-6 text-center lenovo-text-gradient">Role-Based AI Architecture Platform Workflow</h3>
+                                                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                                                    <!-- AI Architect -->
+                                                    <div class="flex flex-col items-center text-center">
+                                                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-3 icon-container">
+                                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <h4 class="font-semibold text-white mb-1">AI Architect</h4>
+                                                        <p class="text-sm text-gray-400">Model Customization</p>
+                                                    </div>
+                                                    
+                                                    <!-- Arrow -->
+                                                    <div class="flex items-center">
+                                                        <svg class="w-8 h-8 text-lenovo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                                        </svg>
+                                                    </div>
+                                                    
+                                                    <!-- Model Evaluation Engineer -->
+                                                    <div class="flex flex-col items-center text-center">
+                                                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-3 icon-container">
+                                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <h4 class="font-semibold text-white mb-1">Model Evaluation Engineer</h4>
+                                                        <p class="text-sm text-gray-400">Model Profiling & UX Optimization</p>
+                                                    </div>
+                                                    
+                                                    <!-- Arrow -->
+                                                    <div class="flex items-center">
+                                                        <svg class="w-8 h-8 text-lenovo-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                                        </svg>
+                                                    </div>
+                                                    
+                                                    <!-- Lenovo Model Factory Registry -->
+                                                    <div class="flex flex-col items-center text-center">
+                                                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-3 icon-container">
+                                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <h4 class="font-semibold text-white mb-1">Lenovo Model Factory</h4>
+                                                        <p class="text-sm text-gray-400">Production Deployment</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <div class="mb-6">
-                                            <h4 class="text-lg font-semibold mb-4 text-lenovo-red">Key Components:</h4>
-                                            <ul class="space-y-3 text-gray-300">
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                    <span>Tests Raw Foundation Models (GPT-5, Claude 3.5, Llama 3.3)</span>
-                                                </li>
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                    <span>Tests AI Architect's Custom Models & QLoRA Adapters</span>
-                                                </li>
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                    <span>Stress Testing at Business & Consumer Use Case Levels</span>
-                                                </li>
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                    <span>Adds Model Profiles to Lenovo Factory Roster</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="mb-6">
-                                            <h4 class="text-lg font-semibold mb-4 text-lenovo-red">Technical Stack:</h4>
-                                            <div class="flex flex-wrap gap-2">
-                                                <span class="tech-badge">PyTorch</span>
-                                                <span class="tech-badge">Pandas</span>
-                                                <span class="tech-badge">NumPy</span>
-                                                <span class="tech-badge">MLflow</span>
-                                                <span class="tech-badge">LangChain</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <button onclick="showAssignmentDetails(1)" class="lenovo-button w-full">
-                                            View Complete Assignment
-                                        </button>
-                                    </div>
-                                    
-                                    <!-- Segue Quote -->
-                                    <div class="col-span-2 my-8">
-                                        <div class="max-w-4xl mx-auto">
+                                        <div class="max-w-2xl mx-auto">
                                             <blockquote class="text-lg italic text-gray-400 border-l-4 border-lenovo-blue pl-6">
-                                                "While this is where the assignment asked us to stop, I wanted to showcase my skills for the Sr. AI Engineer Architecture role too, as it aligns more closely with my career goals."
+                                                "Create an assignment that I would use to evaluate candidates for the model evaluation role. 
+                                                I would expect you to use AI tools to help you generate this task."
                                             </blockquote>
                                         </div>
                                     </div>
-                                    
-                                    <!-- Assignment 2: AI Architecture -->
-                                    <div class="think-system-card p-8">
-                                        <div class="flex items-center mb-6">
-                                            <div class="w-16 h-16 bg-lenovo-blue rounded-xl flex items-center justify-center mr-6">
-                                                <span class="text-white font-bold text-2xl">2</span>
-                                            </div>
-                                            <div>
-                                                <h3 class="text-3xl font-bold text-white">Model Customization & Platform</h3>
-                                                <p class="text-gray-400">AI Architect - Customizes Models & Builds Enterprise Platform</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mb-6">
-                                            <h4 class="text-lg font-semibold mb-4 text-lenovo-blue">Key Components:</h4>
-                                            <ul class="space-y-3 text-gray-300">
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                    <span>Fine-tuning Foundation Models for Lenovo Use Cases</span>
-                                                </li>
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                    <span>Creating Specialized QLoRA Adapters (Custom MoE)</span>
-                                                </li>
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                    <span>Training Custom Embeddings for Domain Knowledge</span>
-                                                </li>
-                                                <li class="flex items-start">
-                                                    <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                    <span>Hybrid RAG/Multi-Agent Workflow Design</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="mb-6">
-                                            <h4 class="text-lg font-semibold mb-4 text-lenovo-blue">Technical Stack:</h4>
-                                            <div class="flex flex-wrap gap-2">
-                                                <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">QLoRA</span>
-                                                <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">Fine-tuning</span>
-                                                <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">Custom Embeddings</span>
-                                                <span class="tech-badge" style="border-color: var(--lenovo-blue); color: var(--lenovo-blue); background: rgba(0, 102, 204, 0.1);">RAG Workflows</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <button onclick="showAssignmentDetails(2)" class="lenovo-button w-full">
-                                            View Complete Assignment
-                                        </button>
-                                    </div>
                                 </div>
-                                
-                                <!-- Conversational Transition -->
-                                <div class="text-center py-16">
-                                    <div class="max-w-4xl mx-auto">
-                                        <p class="text-2xl text-gray-300 leading-relaxed mb-8">
-                                            While it was a lot of fun creating the assignments, wouldn't it be exhilarating to provide some solutions too!?
-                                        </p>
-                                        <div class="text-lg text-gray-400 italic">
-                                            (sarcastic technical textbook voice)
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Complete Technical Architecture Implementation -->
-                                <section id="technical-implementation" class="py-20 lenovo-section">
-                                    <div class="container mx-auto px-6">
-                                        <div class="text-center mb-16">
-                                            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                                                <span class="text-red-400">Complete</span>
-                                                <span class="text-purple-400">Technical</span>
-                                                <span class="text-white">Architecture Implementation</span>
-                                            </h2>
-                                            <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
-                                                This comprehensive implementation demonstrates the complete end-to-end technical architecture through realistic enterprise data and model evaluation workflows, showcasing both AI Architect model customization and Model Evaluation Engineer testing capabilities for Lenovo's factory roster with enhanced MCP integration.
-                                            </p>
-                                            
-                                            <!-- Implementation Highlights -->
-                                            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                                                <div class="lenovo-card p-6">
-                                                    <h3 class="text-lg font-semibold mb-3 text-lenovo-red">Enhanced MCP Integration</h3>
-                                                    <p class="text-sm text-gray-300">Unified mcp-use library, A2A/AGUI protocols, MemoryOS MCP, DuckDB user data management</p>
-                                                </div>
-                                                <div class="lenovo-card p-6">
-                                                    <h3 class="text-lg font-semibold mb-3 text-lenovo-blue">Context Engineering</h3>
-                                                    <p class="text-sm text-gray-300">Advanced context understanding, personalization, and multiple RAG types with intelligent orchestration</p>
-                                                </div>
-                                                <div class="lenovo-card p-6">
-                                                    <h3 class="text-lg font-semibold mb-3 text-lenovo-red">NVIDIA Integration</h3>
-                                                    <p class="text-sm text-gray-300">NeMo Agent Toolkit, NVIDIA Build Platform, role-based UX for AI Architect and Model Evaluation Engineer</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                
-                                <!-- Meta-Assignment Approach Section -->
-                                <section id="meta-approach" class="py-20">
-                                    <div class="container mx-auto px-6">
-                                        <div class="text-center mb-16">
-                                            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                                                <span class="lenovo-text-gradient">Meta-Assignment Approach</span>
-                                            </h2>
-                                            <p class="text-xl text-gray-300 max-w-4xl mx-auto">
-                                                Going beyond the initial request to demonstrate comprehensive understanding of both roles and showcase architectural thinking
-                                            </p>
-                                        </div>
-                                        
-                                        <div class="max-w-6xl mx-auto">
-                                            <!-- Original Request Context -->
-                                            <div class="lenovo-card p-8 mb-8">
-                                                <div class="flex items-start mb-6">
-                                                    <div class="w-12 h-12 lenovo-gradient rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                                        <span class="text-white font-bold text-lg">📋</span>
-                                                    </div>
-                                                    <div>
-                                                        <h3 class="text-2xl font-bold text-white mb-2">Original Meta-Assignment Request</h3>
-                                                        <p class="text-gray-300">From the Lenovo AAITC hiring team:</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-lenovo-red">
-                                                    <blockquote class="text-gray-300 italic text-lg leading-relaxed">
-                                                        "I enjoyed talking with you last week. I apologize for taking so long to follow-up with you. I wanted to clarify since I think it wasn't obvious as we ended our interview, that I would be interested in a 'meta-assignment' take-home assignment as part of the interview process. Your task, should you choose to accept it 🕵️, is to create an assignment that I would use to evaluate candidates such as yourself – that is hiring for the model evaluation role. I would expect you to use AI tools to help you generate this task. I would expect candidates that I give this task to use AI tools to solve this task. I'm curious to see what you come up with!"
-                                                    </blockquote>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Strategic Approach -->
-                                            <div class="lenovo-card p-8 mb-8">
-                                                <div class="flex items-start mb-6">
-                                                    <div class="w-12 h-12 bg-lenovo-blue rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                                        <span class="text-white font-bold text-lg">🎯</span>
-                                                    </div>
-                                                    <div>
-                                                        <h3 class="text-2xl font-bold text-white mb-2">Strategic Meta-Assignment Approach</h3>
-                                                        <p class="text-gray-300">Demonstrating architectural thinking and role understanding</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="grid md:grid-cols-2 gap-8">
-                                                    <div>
-                                                        <h4 class="text-lg font-semibold mb-4 text-lenovo-red">Why Two Assignments?</h4>
-                                                        <ul class="space-y-3 text-gray-300">
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                                <span>Demonstrate understanding of the AI Architect role, which oversees Model Evaluation</span>
-                                                            </li>
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                                <span>Showcase architectural thinking beyond just model evaluation</span>
-                                                            </li>
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                                <span>Highlight the key differences between Architect and Engineer roles</span>
-                                                            </li>
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-red rounded-full mt-2 mr-3"></div>
-                                                                <span>Demonstrate comprehensive understanding of the full model lifecycle</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    
-                                                    <div>
-                                                        <h4 class="text-lg font-semibold mb-4 text-lenovo-blue">Career Alignment</h4>
-                                                        <ul class="space-y-3 text-gray-300">
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                                <span>AI Architect role better aligns with my career goals and expertise</span>
-                                                            </li>
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                                <span>Showcase machine learning expertise and model lifecycle understanding</span>
-                                                            </li>
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                                <span>Demonstrate recent learning in CI/CD and architectural responsibilities</span>
-                                                            </li>
-                                                            <li class="flex items-start">
-                                                                <div class="w-2 h-2 bg-lenovo-blue rounded-full mt-2 mr-3"></div>
-                                                                <span>Prove ability to think strategically about AI system design</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Meta-Assignment Philosophy -->
-                                            <div class="lenovo-card p-8">
-                                                <div class="flex items-start mb-6">
-                                                    <div class="w-12 h-12 bg-lenovo-red rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                                                        <span class="text-white font-bold text-lg">💡</span>
-                                                    </div>
-                                                    <div>
-                                                        <h3 class="text-2xl font-bold text-white mb-2">Meta-Assignment Philosophy</h3>
-                                                        <p class="text-gray-300">Creating assignments that truly evaluate the right skills</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="grid md:grid-cols-3 gap-6">
-                                                    <div class="text-center">
-                                                        <div class="w-16 h-16 lenovo-gradient rounded-xl flex items-center justify-center mx-auto mb-4">
-                                                            <span class="text-white font-bold text-2xl">1</span>
-                                                        </div>
-                                                        <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Model Evaluation Engineer</h4>
-                                                        <p class="text-gray-300 text-sm">Focuses on testing, benchmarking, and factory roster management for production-ready models</p>
-                                                    </div>
-                                                    
-                                                    <div class="text-center">
-                                                        <div class="w-16 h-16 bg-lenovo-blue rounded-xl flex items-center justify-center mx-auto mb-4">
-                                                            <span class="text-white font-bold text-2xl">2</span>
-                                                        </div>
-                                                        <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">AI Architect</h4>
-                                                        <p class="text-gray-300 text-sm">Oversees model customization, platform design, and strategic AI system architecture</p>
-                                                    </div>
-                                                    
-                                                    <div class="text-center">
-                                                        <div class="w-16 h-16 bg-lenovo-red rounded-xl flex items-center justify-center mx-auto mb-4">
-                                                            <span class="text-white font-bold text-2xl">3</span>
-                                                        </div>
-                                                        <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Hierarchical Workflow</h4>
-                                                        <p class="text-gray-300 text-sm">Architect customizes models → Engineer tests all models → Factory roster integration</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="mt-8 p-6 bg-gray-800 rounded-lg border-l-4 border-lenovo-blue">
-                                                    <h4 class="text-lg font-semibold mb-3 text-lenovo-blue">The Result: A Comprehensive Portfolio</h4>
-                                                    <p class="text-gray-300 leading-relaxed">
-                                                        By creating both assignments and implementing them as a unified platform, I demonstrate not just the ability to complete the requested task, but to think architecturally about the entire AI system. This approach shows how an AI Architect would design a system where model customization and evaluation work together seamlessly, creating a production-ready Lenovo factory roster that showcases both technical depth and strategic thinking.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                
+                            </div>
+                        </section>
+
                                 <!-- Technical Architecture Section -->
                                 <section id="architecture" class="py-20 lenovo-section">
                                     <div class="container mx-auto px-6">
@@ -1309,6 +1225,20 @@
                                                     participant BA as Bias Analyzer
                                                     participant RT as Robustness Tester
                                                     participant FR as Factory Roster
+                                                    
+                                                    %% Apply coloring based on legend
+                                                    rect rgb(255, 200, 200)
+                                                        Note over U,EP: Primary Actors
+                                                    end
+                                                    rect rgb(200, 200, 255)
+                                                        Note over RM,CM: Model Components
+                                                    end
+                                                    rect rgb(200, 255, 200)
+                                                        Note over MC,RT: Analysis Components
+                                                    end
+                                                    rect rgb(255, 200, 100)
+                                                        Note over FR: Factory Registry
+                                                    end
 
                                                     U->>EP: Test Raw Foundation Models
                                                     EP->>RM: Load GPT-5, Claude 3.5, Llama 3.3
@@ -1329,6 +1259,30 @@
                                                     FR->>FR: Production-Ready Model Registry
                                                     FR-->>U: Factory Roster Updated
                                             </div>
+                                            
+                                            <!-- Legend for Model Testing Framework -->
+                                            <div class="mermaid-legend">
+                                                <h4>Model Testing Framework Legend</h4>
+                                                <div class="legend-row">
+                                                    <div class="legend-item">
+                                                        <div class="legend-color primary"></div>
+                                                        <div class="legend-text">Primary<br>Actors</div>
+                                                    </div>
+                                                    <div class="legend-item">
+                                                        <div class="legend-color secondary"></div>
+                                                        <div class="legend-text">Model<br>Components</div>
+                                                    </div>
+                                                    <div class="legend-item">
+                                                        <div class="legend-color tertiary"></div>
+                                                        <div class="legend-text">Analysis<br>Components</div>
+                                                    </div>
+                                                    <div class="legend-item">
+                                                        <div class="legend-color warning"></div>
+                                                        <div class="legend-text">Factory<br>Registry</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                             <div class="mt-6 grid md:grid-cols-2 gap-8">
                                                 <div>
                                                     <h4 class="text-lg font-semibold mb-3 text-lenovo-red">Key Components:</h4>
@@ -2425,6 +2379,84 @@
                 <!-- MkDocs Documentation Hub Service -->
                 <div id="service-mkdocs" class="service-container">
                     <iframe id="iframe-mkdocs" class="service-frame" src="http://localhost:8082"></iframe>
+                </div>
+
+                <!-- Data Factory Flow Service -->
+                <div id="service-data-factory" class="service-container">
+                    <div id="data-factory-content" class="h-full flex flex-col bg-gray-900">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold text-white mb-4">Data Factory Flow</h2>
+                            <p class="text-gray-400 mb-6">Organizational hierarchical data flow management for Lenovo Model Factory</p>
+                            
+                            <!-- Data Factory Flow Diagram -->
+                            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                                <h3 class="text-lg font-semibold text-white mb-4">Enterprise Data Flow Architecture</h3>
+                                <div id="data-factory-diagram" class="bg-gray-700 rounded-lg p-4">
+                                    <div class="text-center text-gray-400">
+                                        <svg class="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <p>Data Factory Flow Visualization</p>
+                                        <button class="lenovo-button mt-4" onclick="renderDataFactoryFlow()">
+                                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                            Render Flow
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Factory Components -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-white mb-2">Data Ingestion</h4>
+                                    <p class="text-sm text-gray-400">Enterprise data collection and validation</p>
+                                    <div class="mt-2">
+                                        <span class="status-badge online"></span>
+                                        <span class="text-xs text-gray-400 ml-2">Active</span>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-white mb-2">Model Training</h4>
+                                    <p class="text-sm text-gray-400">AI Architect model customization pipeline</p>
+                                    <div class="mt-2">
+                                        <span class="status-badge online"></span>
+                                        <span class="text-xs text-gray-400 ml-2">Active</span>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-800 rounded-lg p-4">
+                                    <h4 class="font-semibold text-white mb-2">Model Evaluation</h4>
+                                    <p class="text-sm text-gray-400">Model Evaluation Engineer testing framework</p>
+                                    <div class="mt-2">
+                                        <span class="status-badge online"></span>
+                                        <span class="text-xs text-gray-400 ml-2">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Factory Registry Status -->
+                            <div class="bg-gray-800 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-white mb-4">Factory Registry Status</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="flex items-center justify-between p-3 bg-gray-700 rounded-lg">
+                                        <div>
+                                            <span class="text-sm font-medium text-white">Production Models</span>
+                                            <p class="text-xs text-gray-400">12 models deployed</p>
+                                        </div>
+                                        <span class="status-badge online"></span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-gray-700 rounded-lg">
+                                        <div>
+                                            <span class="text-sm font-medium text-white">Evaluation Pipeline</span>
+                                            <p class="text-xs text-gray-400">45 tests completed</p>
+                                        </div>
+                                        <span class="status-badge online"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3711,8 +3743,81 @@
                 setTimeout(initializeChromaService, 100);
             } else if (serviceName === 'neo4j-faker') {
                 setTimeout(initializeNeo4jService, 100);
+            } else if (serviceName === 'data-factory') {
+                setTimeout(initializeDataFactory, 100);
             }
         };
+
+        // Data Factory Flow Functions
+        function initializeDataFactory() {
+            console.log('Initializing Data Factory Flow...');
+            // Any initialization logic for data factory can go here
+        }
+
+        function renderDataFactoryFlow() {
+            const diagram = `
+                graph TB
+                    subgraph "Enterprise Data Sources"
+                        A[Lenovo Hardware Data]
+                        B[Customer Usage Data]
+                        C[Performance Metrics]
+                        D[User Feedback]
+                    end
+
+                    subgraph "Data Ingestion Layer"
+                        E[Data Validation]
+                        F[Data Cleaning]
+                        G[Data Transformation]
+                        H[Data Storage]
+                    end
+
+                    subgraph "AI Architect Layer"
+                        I[Model Customization]
+                        J[Fine-tuning Pipeline]
+                        K[QLoRA Adapters]
+                        L[Custom Embeddings]
+                    end
+
+                    subgraph "Model Evaluation Layer"
+                        M[Raw Model Testing]
+                        N[Custom Model Testing]
+                        O[Performance Evaluation]
+                        P[Bias Analysis]
+                    end
+
+                    subgraph "Factory Registry"
+                        Q[Production Models]
+                        R[Model Profiles]
+                        S[Deployment Status]
+                        T[Performance Monitoring]
+                    end
+
+                    A --> E
+                    B --> E
+                    C --> E
+                    D --> E
+                    E --> F
+                    F --> G
+                    G --> H
+                    H --> I
+                    I --> J
+                    I --> K
+                    I --> L
+                    J --> M
+                    K --> N
+                    L --> N
+                    M --> O
+                    N --> O
+                    O --> P
+                    P --> Q
+                    Q --> R
+                    R --> S
+                    S --> T
+            `;
+
+            document.getElementById('data-factory-diagram').innerHTML = '<div class="mermaid">' + diagram + '</div>';
+            mermaid.init(undefined, document.getElementById('data-factory-diagram'));
+        }
     </script>
 </body>
 </html>

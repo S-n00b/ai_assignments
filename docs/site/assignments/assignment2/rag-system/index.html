@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -798,6 +807,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -859,6 +876,14 @@
 <a class="md-nav__link" href="../../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -1026,7 +1051,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -1034,9 +1059,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1268,7 +1359,7 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>The Retrieval-Augmented Generation (RAG) System provides intelligent knowledge retrieval and context-aware response generation. It combines vector search capabilities with language models to deliver accurate, relevant, and up-to-date information.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">¶</a></h2>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     A[Query Input] --&gt; B[Query Processing]
     B --&gt; C[Vector Search]
     C --&gt; D[Context Retrieval]
@@ -1280,8 +1371,7 @@
     I --&gt; C
 
     J[Knowledge Base] --&gt; G
-    K[Document Processing] --&gt; G
-</div>
+    K[Document Processing] --&gt; G</code></pre>
 <h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">¶</a></h2>
 <h3 id="1-document-processing">1. Document Processing<a class="headerlink" href="#1-document-processing" title="Permanent link">¶</a></h3>
 <ul>
@@ -1306,129 +1396,129 @@
 </ul>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">¶</a></h2>
 <h3 id="document-processor">Document Processor<a class="headerlink" href="#document-processor" title="Permanent link">¶</a></h3>
-<pre><code class="language-python">from typing import List, Dict, Any
-import asyncio
-from sentence_transformers import SentenceTransformer
-import faiss
-import numpy as np
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">faiss</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-class DocumentProcessor:
-    def __init__(self, embedding_model: str = "all-MiniLM-L6-v2"):
-        self.embedding_model = SentenceTransformer(embedding_model)
-        self.chunk_size = 512
-        self.chunk_overlap = 50
+<span class="k">class</span><span class="w"> </span><span class="nc">DocumentProcessor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">embedding_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all-MiniLM-L6-v2"</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">embedding_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">512</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_overlap</span> <span class="o">=</span> <span class="mi">50</span>
 
-    async def process_documents(self, documents: List[Dict]) -&gt; Dict:
-        """Process documents for RAG system"""
-        processed_chunks = []
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_documents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">documents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Process documents for RAG system"""</span>
+        <span class="n">processed_chunks</span> <span class="o">=</span> <span class="p">[]</span>
 
-        for doc in documents:
-            chunks = self._chunk_document(doc)
-            embeddings = self.embedding_model.encode([chunk['text'] for chunk in chunks])
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+            <span class="n">chunks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chunk_document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+            <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">chunk</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">])</span>
 
-            for chunk, embedding in zip(chunks, embeddings):
-                processed_chunks.append({
-                    'text': chunk['text'],
-                    'embedding': embedding,
-                    'metadata': {**doc.get('metadata', {}), **chunk.get('metadata', {})}
-                })
+            <span class="k">for</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">embedding</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">):</span>
+                <span class="n">processed_chunks</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">'text'</span><span class="p">:</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">'text'</span><span class="p">],</span>
+                    <span class="s1">'embedding'</span><span class="p">:</span> <span class="n">embedding</span><span class="p">,</span>
+                    <span class="s1">'metadata'</span><span class="p">:</span> <span class="p">{</span><span class="o">**</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'metadata'</span><span class="p">,</span> <span class="p">{}),</span> <span class="o">**</span><span class="n">chunk</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'metadata'</span><span class="p">,</span> <span class="p">{})}</span>
+                <span class="p">})</span>
 
-        return {'chunks': processed_chunks, 'dimension': embeddings.shape[1]}
+        <span class="k">return</span> <span class="p">{</span><span class="s1">'chunks'</span><span class="p">:</span> <span class="n">processed_chunks</span><span class="p">,</span> <span class="s1">'dimension'</span><span class="p">:</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
 
-    def _chunk_document(self, document: Dict) -&gt; List[Dict]:
-        """Split document into chunks"""
-        text = document['text']
-        chunks = []
+    <span class="k">def</span><span class="w"> </span><span class="nf">_chunk_document</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Split document into chunks"""</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">document</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span>
+        <span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
 
-        start = 0
-        while start &lt; len(text):
-            end = start + self.chunk_size
-            chunk_text = text[start:end]
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span>
+            <span class="n">chunk_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
 
-            chunks.append({
-                'text': chunk_text,
-                'metadata': {
-                    'chunk_index': len(chunks),
-                    'start_pos': start,
-                    'end_pos': end
-                }
-            })
+            <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">'text'</span><span class="p">:</span> <span class="n">chunk_text</span><span class="p">,</span>
+                <span class="s1">'metadata'</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">'chunk_index'</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">),</span>
+                    <span class="s1">'start_pos'</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span>
+                    <span class="s1">'end_pos'</span><span class="p">:</span> <span class="n">end</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
 
-            start = end - self.chunk_overlap
+            <span class="n">start</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_overlap</span>
 
-        return chunks
-</code></pre>
+        <span class="k">return</span> <span class="n">chunks</span>
+</code></pre></div>
 <h3 id="vector-database">Vector Database<a class="headerlink" href="#vector-database" title="Permanent link">¶</a></h3>
-<pre><code class="language-python">class VectorDatabase:
-    def __init__(self, dimension: int):
-        self.dimension = dimension
-        self.index = faiss.IndexFlatIP(dimension)  # Inner product similarity
-        self.metadata_store = []
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">VectorDatabase</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimension</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dimension</span> <span class="o">=</span> <span class="n">dimension</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexFlatIP</span><span class="p">(</span><span class="n">dimension</span><span class="p">)</span>  <span class="c1"># Inner product similarity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata_store</span> <span class="o">=</span> <span class="p">[]</span>
 
-    def add_vectors(self, vectors: np.ndarray, metadata: List[Dict]):
-        """Add vectors and metadata to database"""
-        self.index.add(vectors.astype('float32'))
-        self.metadata_store.extend(metadata)
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vectors</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Add vectors and metadata to database"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vectors</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float32'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata_store</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
 
-    def search(self, query_vector: np.ndarray, top_k: int = 5) -&gt; List[Dict]:
-        """Search for similar vectors"""
-        scores, indices = self.index.search(query_vector.astype('float32'), top_k)
+    <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query_vector</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Search for similar vectors"""</span>
+        <span class="n">scores</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query_vector</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float32'</span><span class="p">),</span> <span class="n">top_k</span><span class="p">)</span>
 
-        results = []
-        for score, idx in zip(scores[0], indices[0]):
-            if idx &lt; len(self.metadata_store):
-                results.append({
-                    'metadata': self.metadata_store[idx],
-                    'similarity_score': float(score)
-                })
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">score</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_store</span><span class="p">):</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">'metadata'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_store</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                    <span class="s1">'similarity_score'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+                <span class="p">})</span>
 
-        return results
-</code></pre>
+        <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
 <h3 id="rag-service">RAG Service<a class="headerlink" href="#rag-service" title="Permanent link">¶</a></h3>
-<pre><code class="language-python">class RAGService:
-    def __init__(self, vector_db: VectorDatabase, embedding_model: SentenceTransformer):
-        self.vector_db = vector_db
-        self.embedding_model = embedding_model
-        self.language_model = None  # Initialize with your preferred LLM
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RAGService</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector_db</span><span class="p">:</span> <span class="n">VectorDatabase</span><span class="p">,</span> <span class="n">embedding_model</span><span class="p">:</span> <span class="n">SentenceTransformer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vector_db</span> <span class="o">=</span> <span class="n">vector_db</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span> <span class="o">=</span> <span class="n">embedding_model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">language_model</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Initialize with your preferred LLM</span>
 
-    async def query(self, question: str, top_k: int = 3) -&gt; str:
-        """Process RAG query"""
-        # Generate query embedding
-        query_embedding = self.embedding_model.encode([question])
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Process RAG query"""</span>
+        <span class="c1"># Generate query embedding</span>
+        <span class="n">query_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">question</span><span class="p">])</span>
 
-        # Search for relevant documents
-        relevant_docs = self.vector_db.search(query_embedding, top_k)
+        <span class="c1"># Search for relevant documents</span>
+        <span class="n">relevant_docs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">,</span> <span class="n">top_k</span><span class="p">)</span>
 
-        # Assemble context
-        context = self._assemble_context(relevant_docs)
+        <span class="c1"># Assemble context</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assemble_context</span><span class="p">(</span><span class="n">relevant_docs</span><span class="p">)</span>
 
-        # Generate response
-        response = await self._generate_response(question, context)
+        <span class="c1"># Generate response</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_response</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 
-        return response
+        <span class="k">return</span> <span class="n">response</span>
 
-    def _assemble_context(self, docs: List[Dict]) -&gt; str:
-        """Assemble context from retrieved documents"""
-        context_parts = []
-        for doc in docs:
-            context_parts.append(f"Document: {doc['metadata'].get('title', 'Unknown')}\n{doc['metadata'].get('text', '')}")
+    <span class="k">def</span><span class="w"> </span><span class="nf">_assemble_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Assemble context from retrieved documents"""</span>
+        <span class="n">context_parts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+            <span class="n">context_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Document: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">'metadata'</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Unknown'</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">'metadata'</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'text'</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-        return "\n\n".join(context_parts)
+        <span class="k">return</span> <span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context_parts</span><span class="p">)</span>
 
-    async def _generate_response(self, question: str, context: str) -&gt; str:
-        """Generate response using language model"""
-        prompt = f"""
-        Context: {context}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_generate_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Generate response using language model"""</span>
+        <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
+<span class="s2">        Context: </span><span class="si">{</span><span class="n">context</span><span class="si">}</span>
 
-        Question: {question}
+<span class="s2">        Question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span>
 
-        Please answer the question based on the provided context. If the context doesn't contain enough information to answer the question, please say so.
-        """
+<span class="s2">        Please answer the question based on the provided context. If the context doesn't contain enough information to answer the question, please say so.</span>
+<span class="s2">        """</span>
 
-        # Call language model (implementation depends on your LLM)
-        response = await self.language_model.generate(prompt)
-        return response
-</code></pre>
+        <span class="c1"># Call language model (implementation depends on your LLM)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">language_model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
 <h2 id="advanced-features">Advanced Features<a class="headerlink" href="#advanced-features" title="Permanent link">¶</a></h2>
 <h3 id="multi-modal-rag">Multi-Modal RAG<a class="headerlink" href="#multi-modal-rag" title="Permanent link">¶</a></h3>
 <p>Support for images, audio, and other media types alongside text.</p>
@@ -1530,16 +1620,5 @@ class DocumentProcessor:
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

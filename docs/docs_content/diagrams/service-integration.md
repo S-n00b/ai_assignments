@@ -6,42 +6,42 @@ This section contains detailed service integration diagrams showing how all comp
 
 ## 🔗 Service Integration Architecture
 
-### Complete Service Integration Map
+### Enhanced Service Integration Map with MCP Protocols
 
 ```mermaid
 graph TB
-    subgraph "Lenovo AAITC Service Integration"
-        subgraph "Frontend Services"
+    subgraph "Lenovo AAITC Enhanced Service Integration"
+        subgraph "Core Platform Services"
             A[FastAPI Enterprise<br/>:8080] --> B[Unified Dashboard]
             C[Gradio App<br/>:7860] --> D[Model Evaluation]
-            E[MkDocs<br/>:8082] --> F[Documentation]
+            E[Open WebUI<br/>:8089] --> F[Model Playground]
+            G[MkDocs<br/>:8082] --> H[Documentation]
         end
-        
+
         subgraph "AI/ML Services"
-            G[Ollama LLM<br/>:11434] --> H[Local Models]
-            I[MLflow<br/>:5000] --> J[Experiment Tracking]
-            K[ChromaDB<br/>:8081] --> L[Vector Storage]
+            I[Ollama LLM<br/>:11434] --> J[Local Models]
+            K[MLflow<br/>:5000] --> L[Experiment Tracking]
+            M[ChromaDB<br/>:8081] --> N[Vector Storage]
+            O[Neo4j<br/>:7687] --> P[Graph Database]
+            Q[DuckDB<br/>Embedded] --> R[User Data Analytics]
         end
-        
-        subgraph "Monitoring Services"
-            M[Prometheus<br/>:9090] --> N[Metrics Collection]
-            O[Grafana<br/>:3000] --> P[Visualization]
-            Q[LangFuse<br/>:3000] --> R[LLM Observability]
+
+        subgraph "MCP Protocol Services"
+            S[MemoryOS MCP<br/>:8084] --> T[Remote Memory]
+            U[Context Engine<br/>:8085] --> V[Context Processing]
+            W[RAG Orchestrator<br/>:8086] --> X[Multiple RAG Types]
+            Y[NVIDIA Build API<br/>:8087] --> Z[Large Model Serving]
+            AA[NeMo Agent Toolkit<br/>:8088] --> BB[Agent Orchestration]
+            CC[FastMCP<br/>:8090] --> DD[Function Calls]
         end
-        
-        subgraph "Data Services"
-            S[Neo4j<br/>:7474] --> T[Graph Database]
-            U[Redis<br/>:6379] --> V[Cache Layer]
-            W[PostgreSQL] --> X[Metadata Store]
-        end
-        
-        subgraph "Advanced Services"
-            Y[LangGraph Studio] --> Z[Agent Visualization]
-            AA[QLoRA Fine-Tuning] --> BB[Model Customization]
-            CC[Faker Data Gen] --> DD[Realistic Demos]
+
+        subgraph "Advanced Visualization"
+            EE[LangGraph Studio<br/>:8083] --> FF[Agent Visualization]
+            GG[QLoRA Fine-Tuning] --> HH[Model Customization]
+            II[Faker Data Gen] --> JJ[Realistic Demos]
         end
     end
-    
+
     A --> G
     A --> I
     A --> K
@@ -54,10 +54,10 @@ graph TB
     A --> Y
     A --> AA
     A --> CC
-    
+
     C --> A
     E --> A
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style C fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style E fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
@@ -87,13 +87,13 @@ sequenceDiagram
     participant C as ChromaDB
     participant N as Neo4j
     participant P as Prometheus
-    
+
     U->>F: Access Platform
     F->>G: Load Model Evaluation
     F->>O: Get Available Models
     O-->>F: Model List
     F-->>G: Model Options
-    
+
     U->>G: Start Evaluation
     G->>F: Submit Evaluation Request
     F->>O: Run Model Inference
@@ -102,7 +102,7 @@ sequenceDiagram
     F->>C: Store Results
     F->>N: Update Knowledge Graph
     F->>P: Record Metrics
-    
+
     F-->>G: Evaluation Results
     G-->>U: Display Results
 ```
@@ -125,7 +125,7 @@ graph LR
         K[Redis<br/>:6379] --> K1[Cache]
         L[PostgreSQL] --> L1[Metadata]
     end
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style C fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
@@ -156,7 +156,7 @@ flowchart TD
     H --> I[Neo4j Graph Update]
     I --> J[Prometheus Metrics]
     J --> K[Response to User]
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style C fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
@@ -176,7 +176,7 @@ flowchart TD
 graph TB
     subgraph "iframe Service Integration"
         A[FastAPI Platform] --> B[iframe Manager]
-        
+
         B --> C[Lenovo Pitch Page]
         B --> D[MLflow UI]
         B --> E[Gradio App]
@@ -185,7 +185,7 @@ graph TB
         B --> H[LangGraph Studio]
         B --> I[QLoRA Dashboard]
         B --> J[Neo4j Faker]
-        
+
         C --> K[Unified Interface]
         D --> K
         E --> K
@@ -194,12 +194,12 @@ graph TB
         H --> K
         I --> K
         J --> K
-        
+
         K --> L[Service Communication]
         L --> M[Data Synchronization]
         M --> N[Unified Authentication]
     end
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style K fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
@@ -220,14 +220,14 @@ graph TB
         E[PowerShell Terminal 3] --> F[FastAPI :8080]
         G[PowerShell Terminal 4] --> H[Gradio :7860]
         I[PowerShell Terminal 5] --> J[MkDocs :8082]
-        
+
         K[Optional Services] --> L[Ollama :11434]
         K --> M[Grafana :3000]
         K --> N[Prometheus :9090]
         K --> O[Neo4j :7474]
         K --> P[Redis :6379]
     end
-    
+
     F --> B
     F --> D
     F --> H
@@ -237,7 +237,7 @@ graph TB
     F --> N
     F --> O
     F --> P
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style C fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style E fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
@@ -256,26 +256,26 @@ graph TB
         B --> D[Gradio Service]
         B --> E[MLflow Service]
         B --> F[ChromaDB Service]
-        
+
         C --> G[FastAPI Pods]
         D --> H[Gradio Pods]
         E --> I[MLflow Pods]
         F --> J[ChromaDB Pods]
-        
+
         K[Monitoring Stack] --> L[Prometheus]
         K --> M[Grafana]
         K --> N[LangFuse]
-        
+
         O[Data Layer] --> P[PostgreSQL]
         O --> Q[Redis]
         O --> R[Neo4j]
-        
+
         G --> P
         G --> Q
         G --> R
         G --> L
     end
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style C fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
@@ -295,22 +295,22 @@ graph LR
     A[Health Check Request] --> B[FastAPI Platform]
     B --> C[Service Discovery]
     C --> D[Health Endpoints]
-    
+
     D --> E[ChromaDB Health]
     D --> F[MLflow Health]
     D --> G[Ollama Health]
     D --> H[Neo4j Health]
     D --> I[Redis Health]
-    
+
     E --> J[Health Status]
     F --> J
     G --> J
     H --> J
     I --> J
-    
+
     J --> K[Status Dashboard]
     K --> L[Alert System]
-    
+
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     style C fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px

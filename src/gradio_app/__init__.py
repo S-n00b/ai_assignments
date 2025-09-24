@@ -16,7 +16,8 @@ from .main import create_gradio_app
 from .mcp_server import MCPServer
 from .components import (
     ModelEvaluationInterface,
-    AIArchitectureInterface,
+    ModelProfilingInterface,
+    ModelFactoryInterface,
     VisualizationDashboard,
     ReportGenerator
 )
@@ -28,7 +29,8 @@ __all__ = [
     "create_gradio_app",
     "MCPServer",
     "ModelEvaluationInterface",
-    "AIArchitectureInterface", 
+    "ModelProfilingInterface",
+    "ModelFactoryInterface",
     "VisualizationDashboard",
     "ReportGenerator"
 ]

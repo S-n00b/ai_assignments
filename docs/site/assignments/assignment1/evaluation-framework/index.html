@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -816,6 +825,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -877,6 +894,14 @@
 <a class="md-nav__link" href="../../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -1044,7 +1069,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -1052,9 +1077,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1323,15 +1414,14 @@
 <li><strong>Edge Case Analysis</strong>: Identifying failure modes and limitations</li>
 </ul>
 <h2 id="evaluation-pipeline">Evaluation Pipeline<a class="headerlink" href="#evaluation-pipeline" title="Permanent link">¶</a></h2>
-<div class="mermaid">graph TD
+<pre class="mermaid"><code>graph TD
     A[Model Input] --&gt; B[Preprocessing]
     B --&gt; C[Model Inference]
     C --&gt; D[Post-processing]
     D --&gt; E[Metrics Calculation]
     E --&gt; F[Bias Analysis]
     F --&gt; G[Robustness Testing]
-    G --&gt; H[Report Generation]
-</div>
+    G --&gt; H[Report Generation]</code></pre>
 <h2 id="key-metrics">Key Metrics<a class="headerlink" href="#key-metrics" title="Permanent link">¶</a></h2>
 <h3 id="performance-metrics">Performance Metrics<a class="headerlink" href="#performance-metrics" title="Permanent link">¶</a></h3>
 <ul>
@@ -1353,25 +1443,25 @@
 <li><strong>Failure Mode Analysis</strong>: Systematic identification of model limitations</li>
 </ul>
 <h2 id="usage-example">Usage Example<a class="headerlink" href="#usage-example" title="Permanent link">¶</a></h2>
-<pre><code class="language-python">from model_evaluation.pipeline import EvaluationPipeline
-from model_evaluation.config import EvaluationConfig
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvaluationPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvaluationConfig</span>
 
-# Initialize evaluation pipeline
-config = EvaluationConfig(
-    model_path="path/to/model",
-    test_dataset="path/to/test_data",
-    bias_analysis=True,
-    robustness_testing=True
-)
+<span class="c1"># Initialize evaluation pipeline</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">EvaluationConfig</span><span class="p">(</span>
+    <span class="n">model_path</span><span class="o">=</span><span class="s2">"path/to/model"</span><span class="p">,</span>
+    <span class="n">test_dataset</span><span class="o">=</span><span class="s2">"path/to/test_data"</span><span class="p">,</span>
+    <span class="n">bias_analysis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">robustness_testing</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 
-pipeline = EvaluationPipeline(config)
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">EvaluationPipeline</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-# Run comprehensive evaluation
-results = pipeline.evaluate()
+<span class="c1"># Run comprehensive evaluation</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
 
-# Generate detailed report
-pipeline.generate_report("evaluation_report.html")
-</code></pre>
+<span class="c1"># Generate detailed report</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">generate_report</span><span class="p">(</span><span class="s2">"evaluation_report.html"</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">¶</a></h2>
 <h3 id="evaluationconfig-parameters">EvaluationConfig Parameters<a class="headerlink" href="#evaluationconfig-parameters" title="Permanent link">¶</a></h3>
 <ul>
@@ -1384,13 +1474,13 @@ pipeline.generate_report("evaluation_report.html")
 </ul>
 <h3 id="custom-metrics">Custom Metrics<a class="headerlink" href="#custom-metrics" title="Permanent link">¶</a></h3>
 <p>The framework supports custom metrics through the plugin system:</p>
-<pre><code class="language-python">from model_evaluation.prompt_registries import MetricRegistry
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.prompt_registries</span><span class="w"> </span><span class="kn">import</span> <span class="n">MetricRegistry</span>
 
-@MetricRegistry.register("custom_metric")
-def custom_metric(y_true, y_pred):
-    # Custom metric implementation
-    return metric_value
-</code></pre>
+<span class="nd">@MetricRegistry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">"custom_metric"</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">custom_metric</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="c1"># Custom metric implementation</span>
+    <span class="k">return</span> <span class="n">metric_value</span>
+</code></pre></div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">¶</a></h2>
 <ol>
 <li><strong>Comprehensive Testing</strong>: Always run all three evaluation components (performance, bias, robustness)</li>
@@ -1496,16 +1586,5 @@ def custom_metric(y_true, y_pred):
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

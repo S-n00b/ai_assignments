@@ -1,37 +1,37 @@
 {
   "dataset_size": 18,
   "category_distribution": {
-    "code_generation": 5,
-    "question_answering": 5,
     "reasoning": 5,
-    "creative_writing": 2,
-    "technical_documentation": 1
+    "question_answering": 4,
+    "creative_writing": 4,
+    "code_generation": 3,
+    "technical_documentation": 2
   },
   "quality_metrics": {
     "total_prompts": 18,
-    "avg_quality_score": 0.7449878291431571,
+    "avg_quality_score": 0.7843540145967812,
     "quality_distribution": {
-      "high_quality": 5,
-      "medium_quality": 13,
+      "high_quality": 11,
+      "medium_quality": 7,
       "low_quality": 0
     },
     "category_distribution": {
-      "code_generation": 5,
-      "question_answering": 5,
       "reasoning": 5,
-      "creative_writing": 2,
-      "technical_documentation": 1
+      "question_answering": 4,
+      "creative_writing": 4,
+      "code_generation": 3,
+      "technical_documentation": 2
     },
     "source_distribution": {
-      "promptbase": 15,
-      "diffusiondb": 3
+      "promptbase": 12,
+      "diffusiondb": 6
     },
     "difficulty_distribution": {
-      "hard": 9,
       "easy": 8,
-      "medium": 1
+      "medium": 6,
+      "hard": 4
     },
-    "avg_prompt_length": 53.888888888888886,
+    "avg_prompt_length": 52.666666666666664,
     "length_distribution": {
       "short": 18,
       "medium": 0,
@@ -39,5 +39,5 @@
     }
   },
   "ai_tool_prompts_loaded": 201,
-  "generation_timestamp": "2025-09-22T18:43:08.186266"
+  "generation_timestamp": "2025-09-24T11:27:10.275319"
 }

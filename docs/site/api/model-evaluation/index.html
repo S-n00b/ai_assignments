@@ -460,7 +460,27 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../AI_TOOL_PROMPTS_INTEGRATION/" class="md-tabs__link">
+        <a href="../../phase2/phase2-implementation-guide/" class="md-tabs__link">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MKDOCS_AUDIT_REPORT/" class="md-tabs__link">
           
   
   
@@ -1856,6 +1876,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../development/testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../development/deployment/" class="md-nav__link">
         
   
@@ -2032,6 +2075,29 @@
   
   <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pytest-testing-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
   
@@ -2717,7 +2783,7 @@
   
   
   <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
   
@@ -2728,9 +2794,199 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/phase2-implementation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase6/phase6_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase7/phase7_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase8/phase8_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase9/phase9_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MKDOCS_AUDIT_REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -3144,20 +3400,20 @@
 <h2 id="core-classes">Core Classes<a class="headerlink" href="#core-classes" title="Permanent link">&para;</a></h2>
 <h3 id="modelconfig"><code>ModelConfig</code><a class="headerlink" href="#modelconfig" title="Permanent link">&para;</a></h3>
 <p>Configuration class for foundation models with latest Q3 2025 specifications.</p>
-<pre><code class="language-python">@dataclass
-class ModelConfig:
-    name: str
-    provider: str  # 'openai', 'anthropic', 'meta', 'local'
-    model_id: str
-    api_key: Optional[str] = None
-    max_tokens: int = 1000
-    temperature: float = 0.7
-    cost_per_1k_tokens: float = 0.0
-    context_window: int = 4096
-    parameters: int = 0  # Model parameter count in billions
-    capabilities: List[str] = field(default_factory=list)
-    metadata: Dict[str, Any] = field(default_factory=dict)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelConfig</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">provider</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># &#39;openai&#39;, &#39;anthropic&#39;, &#39;meta&#39;, &#39;local&#39;</span>
+    <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span>
+    <span class="n">cost_per_1k_tokens</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">context_window</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4096</span>
+    <span class="n">parameters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Model parameter count in billions</span>
+    <span class="n">capabilities</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Methods:</strong></p>
 <ul>
 <li><code>from_dict(config_dict: Dict[str, Any]) -&gt; ModelConfig</code>: Create from dictionary</li>
@@ -3166,106 +3422,106 @@ class ModelConfig:
 </ul>
 <h3 id="comprehensiveevaluationpipeline"><code>ComprehensiveEvaluationPipeline</code><a class="headerlink" href="#comprehensiveevaluationpipeline" title="Permanent link">&para;</a></h3>
 <p>Main evaluation pipeline for comparing foundation models across multiple dimensions.</p>
-<pre><code class="language-python">class ComprehensiveEvaluationPipeline:
-    def __init__(self, models: List[ModelConfig], enable_logging: bool = True)
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ComprehensiveEvaluationPipeline</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">models</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ModelConfig</span><span class="p">],</span> <span class="n">enable_logging</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-    async def evaluate_model_comprehensive(
-        self,
-        model_config: ModelConfig,
-        test_data: pd.DataFrame,
-        task_type: TaskType,
-        include_robustness: bool = True,
-        include_bias_detection: bool = True
-    ) -&gt; Dict[str, Any]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">evaluate_model_comprehensive</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_config</span><span class="p">:</span> <span class="n">ModelConfig</span><span class="p">,</span>
+        <span class="n">test_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">task_type</span><span class="p">:</span> <span class="n">TaskType</span><span class="p">,</span>
+        <span class="n">include_robustness</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_bias_detection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 
-    async def run_multi_task_evaluation(
-        self,
-        test_datasets: Dict[TaskType, pd.DataFrame],
-        include_robustness: bool = True,
-        include_bias_detection: bool = True
-    ) -&gt; pd.DataFrame
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_multi_task_evaluation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">test_datasets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">TaskType</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span>
+        <span class="n">include_robustness</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_bias_detection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 
-    def generate_evaluation_report(
-        self,
-        results: pd.DataFrame,
-        output_format: str = &quot;html&quot;
-    ) -&gt; str
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_evaluation_report</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">results</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">output_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
 <h3 id="robustnesstestingsuite"><code>RobustnessTestingSuite</code><a class="headerlink" href="#robustnesstestingsuite" title="Permanent link">&para;</a></h3>
 <p>Comprehensive robustness testing for model evaluation.</p>
-<pre><code class="language-python">class RobustnessTestingSuite:
-    def __init__(self)
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">RobustnessTestingSuite</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    async def test_adversarial_robustness(
-        self,
-        model_config: ModelConfig,
-        test_prompts: List[str]
-    ) -&gt; Dict[str, Any]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">test_adversarial_robustness</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_config</span><span class="p">:</span> <span class="n">ModelConfig</span><span class="p">,</span>
+        <span class="n">test_prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 
-    async def test_noise_tolerance(
-        self,
-        model_config: ModelConfig,
-        test_prompts: List[str]
-    ) -&gt; Dict[str, Any]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">test_noise_tolerance</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_config</span><span class="p">:</span> <span class="n">ModelConfig</span><span class="p">,</span>
+        <span class="n">test_prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 
-    async def test_edge_cases(
-        self,
-        model_config: ModelConfig,
-        edge_case_prompts: List[str]
-    ) -&gt; Dict[str, Any]
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">test_edge_cases</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_config</span><span class="p">:</span> <span class="n">ModelConfig</span><span class="p">,</span>
+        <span class="n">edge_case_prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
 <h3 id="biasdetectionsystem"><code>BiasDetectionSystem</code><a class="headerlink" href="#biasdetectionsystem" title="Permanent link">&para;</a></h3>
 <p>Multi-dimensional bias detection and analysis system.</p>
-<pre><code class="language-python">class BiasDetectionSystem:
-    def __init__(self)
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BiasDetectionSystem</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    async def detect_bias(
-        self,
-        model_config: ModelConfig,
-        test_prompts: List[str],
-        protected_characteristics: List[str]
-    ) -&gt; Dict[str, Any]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">detect_bias</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_config</span><span class="p">:</span> <span class="n">ModelConfig</span><span class="p">,</span>
+        <span class="n">test_prompts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">protected_characteristics</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 
-    def calculate_fairness_metrics(
-        self,
-        predictions: List[str],
-        ground_truth: List[str],
-        protected_attributes: List[str]
-    ) -&gt; Dict[str, float]
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_fairness_metrics</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">predictions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">ground_truth</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">protected_attributes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
 
-    def generate_bias_report(
-        self,
-        bias_results: Dict[str, Any]
-    ) -&gt; str
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_bias_report</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">bias_results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
 <h3 id="promptregistrymanager"><code>PromptRegistryManager</code><a class="headerlink" href="#promptregistrymanager" title="Permanent link">&para;</a></h3>
 <p>Manager for integrating with multiple prompt registries and generating enhanced evaluation datasets.</p>
-<pre><code class="language-python">class PromptRegistryManager:
-    def __init__(self, enable_caching: bool = True, cache_dir: str = &quot;cache/ai_tool_prompts&quot;)
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PromptRegistryManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable_caching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cache/ai_tool_prompts&quot;</span><span class="p">)</span>
 
-    def get_enhanced_evaluation_dataset(
-        self,
-        target_size: int = 10000,
-        categories: Optional[List[PromptCategory]] = None,
-        difficulty_levels: Optional[List[str]] = None,
-        sources: Optional[List[str]] = None,
-        quality_threshold: float = 0.3
-    ) -&gt; pd.DataFrame
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_enhanced_evaluation_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">target_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
+        <span class="n">categories</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PromptCategory</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">difficulty_levels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">sources</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">quality_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 
-    async def get_dynamic_evaluation_dataset(
-        self,
-        model_capabilities: Dict[str, Any],
-        evaluation_goals: List[str],
-        target_size: int = 5000
-    ) -&gt; pd.DataFrame
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_dynamic_evaluation_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_capabilities</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+        <span class="n">evaluation_goals</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">target_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5000</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 
-    async def get_adversarial_prompts(
-        self,
-        base_category: PromptCategory,
-        adversarial_types: List[str] = None,
-        count: int = 100
-    ) -&gt; pd.DataFrame
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_adversarial_prompts</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">base_category</span><span class="p">:</span> <span class="n">PromptCategory</span><span class="p">,</span>
+        <span class="n">adversarial_types</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+</code></pre></div>
 <h2 id="ai-tool-system-prompts-archive-integration">AI Tool System Prompts Archive Integration<a class="headerlink" href="#ai-tool-system-prompts-archive-integration" title="Permanent link">&para;</a></h2>
 <p>The <code>PromptRegistryManager</code> includes comprehensive integration with the AI Tool System Prompts Archive, providing access to system prompts from 25+ popular AI tools including Cursor, Claude Code, Devin AI, v0, Windsurf, and more.</p>
 <h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
@@ -3276,26 +3532,26 @@ class ModelConfig:
 <li><strong>Force Refresh</strong>: Ability to bypass cache and load fresh prompts when needed</li>
 </ul>
 <h3 id="usage-examples">Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">&para;</a></h3>
-<pre><code class="language-python"># Initialize with local caching
-registry = PromptRegistryManager(cache_dir=&quot;cache/ai_tool_prompts&quot;)
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize with local caching</span>
+<span class="n">registry</span> <span class="o">=</span> <span class="n">PromptRegistryManager</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="s2">&quot;cache/ai_tool_prompts&quot;</span><span class="p">)</span>
 
-# Get available AI tools
-tools = registry.get_available_ai_tools()
-print(f&quot;Available tools: {tools}&quot;)
+<span class="c1"># Get available AI tools</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">get_available_ai_tools</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available tools: </span><span class="si">{</span><span class="n">tools</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-# Load prompts for a specific tool
-cursor_prompts = await registry.load_ai_tool_system_prompts(&quot;Cursor&quot;)
+<span class="c1"># Load prompts for a specific tool</span>
+<span class="n">cursor_prompts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">registry</span><span class="o">.</span><span class="n">load_ai_tool_system_prompts</span><span class="p">(</span><span class="s2">&quot;Cursor&quot;</span><span class="p">)</span>
 
-# Load all available prompts
-all_prompts = await registry.load_ai_tool_system_prompts()
+<span class="c1"># Load all available prompts</span>
+<span class="n">all_prompts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">registry</span><span class="o">.</span><span class="n">load_ai_tool_system_prompts</span><span class="p">()</span>
 
-# Force refresh from GitHub
-fresh_prompts = await registry.load_ai_tool_system_prompts(&quot;Cursor&quot;, force_refresh=True)
+<span class="c1"># Force refresh from GitHub</span>
+<span class="n">fresh_prompts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">registry</span><span class="o">.</span><span class="n">load_ai_tool_system_prompts</span><span class="p">(</span><span class="s2">&quot;Cursor&quot;</span><span class="p">,</span> <span class="n">force_refresh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-# Check cache status
-if registry.is_tool_cached(&quot;Cursor&quot;):
-    cached_prompts = registry.load_cached_tool_prompts(&quot;Cursor&quot;)
-</code></pre>
+<span class="c1"># Check cache status</span>
+<span class="k">if</span> <span class="n">registry</span><span class="o">.</span><span class="n">is_tool_cached</span><span class="p">(</span><span class="s2">&quot;Cursor&quot;</span><span class="p">):</span>
+    <span class="n">cached_prompts</span> <span class="o">=</span> <span class="n">registry</span><span class="o">.</span><span class="n">load_cached_tool_prompts</span><span class="p">(</span><span class="s2">&quot;Cursor&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="supported-ai-tools">Supported AI Tools<a class="headerlink" href="#supported-ai-tools" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Cursor, Claude Code, Devin AI, v0, Windsurf</li>
@@ -3304,29 +3560,29 @@ if registry.is_tool_cached(&quot;Cursor&quot;):
 </ul>
 <h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
 <p>All APIs use consistent error handling patterns:</p>
-<pre><code class="language-python">try:
-    result = await api_method(parameters)
-    return {&quot;status&quot;: &quot;success&quot;, &quot;data&quot;: result}
-except ValidationError as e:
-    return {&quot;status&quot;: &quot;error&quot;, &quot;error&quot;: f&quot;Validation error: {str(e)}&quot;}
-except APIError as e:
-    return {&quot;status&quot;: &quot;error&quot;, &quot;error&quot;: f&quot;API error: {str(e)}&quot;}
-except Exception as e:
-    return {&quot;status&quot;: &quot;error&quot;, &quot;error&quot;: f&quot;Unexpected error: {str(e)}&quot;}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">api_method</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">}</span>
+<span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Validation error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+<span class="k">except</span> <span class="n">APIError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;API error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Unexpected error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+</code></pre></div>
 <h2 id="response-formats">Response Formats<a class="headerlink" href="#response-formats" title="Permanent link">&para;</a></h2>
 <p>All API responses follow a consistent format:</p>
-<pre><code class="language-python">{
-    &quot;status&quot;: &quot;success|error&quot;,
-    &quot;data&quot;: Any,  # Response data (only for success)
-    &quot;error&quot;: str,  # Error message (only for error)
-    &quot;metadata&quot;: {
-        &quot;timestamp&quot;: &quot;2025-01-XX&quot;,
-        &quot;request_id&quot;: &quot;uuid&quot;,
-        &quot;execution_time_ms&quot;: 1234
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success|error&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>  <span class="c1"># Response data (only for success)</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="c1"># Error message (only for error)</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-01-XX&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;request_id&quot;</span><span class="p">:</span> <span class="s2">&quot;uuid&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;execution_time_ms&quot;</span><span class="p">:</span> <span class="mi">1234</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
 <p>APIs implement rate limiting to ensure system stability:</p>
 <ul>

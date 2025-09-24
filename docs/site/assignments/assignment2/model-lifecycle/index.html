@@ -460,7 +460,27 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../AI_TOOL_PROMPTS_INTEGRATION/" class="md-tabs__link">
+        <a href="../../../phase2/phase2-implementation-guide/" class="md-tabs__link">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MKDOCS_AUDIT_REPORT/" class="md-tabs__link">
           
   
   
@@ -2009,6 +2029,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../development/testing-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../development/deployment/" class="md-nav__link">
         
   
@@ -2182,6 +2225,29 @@
   
   <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/pytest-testing-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
   
@@ -2678,7 +2744,7 @@
   
   
   <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
   
@@ -2689,9 +2755,199 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase2/phase2-implementation-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase6/phase6_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase7/phase7_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase8/phase8_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../phase9/phase9_implementation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MKDOCS_AUDIT_REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -3263,75 +3519,75 @@
 <li><strong>Collaborative Development</strong>: Support for team-based model development</li>
 </ul>
 <h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h4>
-<pre><code class="language-python"># lifecycle/development.py
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional
-import hashlib
-import json
-from datetime import datetime
-import mlflow
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/development.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
 
-@dataclass
-class ModelExperiment:
-    experiment_id: str
-    name: str
-    description: str
-    model_config: Dict
-    hyperparameters: Dict
-    dataset_info: Dict
-    metrics: Dict = field(default_factory=dict)
-    artifacts: List[str] = field(default_factory=list)
-    created_at: datetime = field(default_factory=datetime.now)
-    status: str = &quot;active&quot;
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelExperiment</span><span class="p">:</span>
+    <span class="n">experiment_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">model_config</span><span class="p">:</span> <span class="n">Dict</span>
+    <span class="n">hyperparameters</span><span class="p">:</span> <span class="n">Dict</span>
+    <span class="n">dataset_info</span><span class="p">:</span> <span class="n">Dict</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">artifacts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">created_at</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span>
 
-class ModelDevelopmentManager:
-    def __init__(self, mlflow_tracking_uri: str = &quot;http://localhost:5000&quot;):
-        self.mlflow_client = mlflow.tracking.MlflowClient(tracking_uri=mlflow_tracking_uri)
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelDevelopmentManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mlflow_tracking_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:5000&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">tracking</span><span class="o">.</span><span class="n">MlflowClient</span><span class="p">(</span><span class="n">tracking_uri</span><span class="o">=</span><span class="n">mlflow_tracking_uri</span><span class="p">)</span>
 
-    def create_experiment(self, name: str, description: str) -&gt; str:
-        &quot;&quot;&quot;Create a new MLflow experiment&quot;&quot;&quot;
-        experiment = self.mlflow_client.create_experiment(
-            name=name,
-            tags={&quot;description&quot;: description}
-        )
-        return experiment
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_experiment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new MLflow experiment&quot;&quot;&quot;</span>
+        <span class="n">experiment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">experiment</span>
 
-    def start_run(self, experiment_id: str, run_name: str) -&gt; str:
-        &quot;&quot;&quot;Start a new MLflow run&quot;&quot;&quot;
-        run = self.mlflow_client.create_run(
-            experiment_id=experiment_id,
-            run_name=run_name
-        )
-        return run.info.run_id
+    <span class="k">def</span><span class="w"> </span><span class="nf">start_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">experiment_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new MLflow run&quot;&quot;&quot;</span>
+        <span class="n">run</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">create_run</span><span class="p">(</span>
+            <span class="n">experiment_id</span><span class="o">=</span><span class="n">experiment_id</span><span class="p">,</span>
+            <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">run</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span>
 
-    def log_model_config(self, run_id: str, config: Dict):
-        &quot;&quot;&quot;Log model configuration&quot;&quot;&quot;
-        self.mlflow_client.log_param(run_id, &quot;model_config&quot;, json.dumps(config))
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_model_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log model configuration&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="s2">&quot;model_config&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
 
-    def log_hyperparameters(self, run_id: str, hyperparams: Dict):
-        &quot;&quot;&quot;Log hyperparameters&quot;&quot;&quot;
-        for key, value in hyperparams.items():
-            self.mlflow_client.log_param(run_id, key, value)
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_hyperparameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log hyperparameters&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">hyperparams</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-    def log_metrics(self, run_id: str, metrics: Dict):
-        &quot;&quot;&quot;Log training metrics&quot;&quot;&quot;
-        for key, value in metrics.items():
-            self.mlflow_client.log_metric(run_id, key, value)
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metrics</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log training metrics&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-    def log_artifacts(self, run_id: str, artifact_path: str):
-        &quot;&quot;&quot;Log model artifacts&quot;&quot;&quot;
-        self.mlflow_client.log_artifacts(run_id, artifact_path)
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_artifacts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">artifact_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Log model artifacts&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">log_artifacts</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="n">artifact_path</span><span class="p">)</span>
 
-    def register_model(self, run_id: str, model_name: str, model_path: str):
-        &quot;&quot;&quot;Register model in MLflow Model Registry&quot;&quot;&quot;
-        model_uri = f&quot;runs:/{run_id}/{model_path}&quot;
-        model_version = self.mlflow_client.create_model_version(
-            name=model_name,
-            source=model_uri,
-            run_id=run_id
-        )
-        return model_version.version
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Register model in MLflow Model Registry&quot;&quot;&quot;</span>
+        <span class="n">model_uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;runs:/</span><span class="si">{</span><span class="n">run_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">model_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlflow_client</span><span class="o">.</span><span class="n">create_model_version</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">model_uri</span><span class="p">,</span>
+            <span class="n">run_id</span><span class="o">=</span><span class="n">run_id</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">model_version</span><span class="o">.</span><span class="n">version</span>
+</code></pre></div>
 <h3 id="2-training-stage">2. Training Stage<a class="headerlink" href="#2-training-stage" title="Permanent link">&para;</a></h3>
 <p>The training stage focuses on model training, validation, and initial evaluation:</p>
 <h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h4>
@@ -3342,118 +3598,118 @@ class ModelDevelopmentManager:
 <li><strong>Hyperparameter Optimization</strong>: Automated hyperparameter tuning</li>
 </ul>
 <h4 id="implementation_1">Implementation<a class="headerlink" href="#implementation_1" title="Permanent link">&para;</a></h4>
-<pre><code class="language-python"># lifecycle/training.py
-import torch
-import torch.distributed as dist
-from torch.nn.parallel import DistributedDataParallel as DDP
-import os
-import time
-from typing import Dict, Callable, Optional
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/training.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.distributed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn.parallel</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributedDataParallel</span> <span class="k">as</span> <span class="n">DDP</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span>
 
-class TrainingManager:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.is_distributed = dist.is_initialized()
+<span class="k">class</span><span class="w"> </span><span class="nc">TrainingManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_distributed</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">()</span>
 
-    def setup_distributed_training(self):
-        &quot;&quot;&quot;Setup distributed training&quot;&quot;&quot;
-        if 'RANK' in os.environ:
-            dist.init_process_group(backend='nccl')
-            self.local_rank = int(os.environ['LOCAL_RANK'])
-            torch.cuda.set_device(self.local_rank)
-            self.device = torch.device(f'cuda:{self.local_rank}')
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup_distributed_training</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup distributed training&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;RANK&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="n">dist</span><span class="o">.</span><span class="n">init_process_group</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;nccl&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">local_rank</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;LOCAL_RANK&#39;</span><span class="p">])</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">set_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">local_rank</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cuda:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">local_rank</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-    def train_model(self, model, train_loader, val_loader, optimizer, scheduler,
-                   num_epochs: int, checkpoint_callback: Optional[Callable] = None):
-        &quot;&quot;&quot;Train model with monitoring and checkpointing&quot;&quot;&quot;
+    <span class="k">def</span><span class="w"> </span><span class="nf">train_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">,</span>
+                   <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">checkpoint_callback</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Train model with monitoring and checkpointing&quot;&quot;&quot;</span>
 
-        if self.is_distributed:
-            model = DDP(model, device_ids=[self.local_rank])
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_distributed</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">DDP</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">device_ids</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">local_rank</span><span class="p">])</span>
 
-        model.to(self.device)
-        best_val_loss = float('inf')
+        <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">best_val_loss</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
 
-        for epoch in range(num_epochs):
-            # Training phase
-            train_loss = self._train_epoch(model, train_loader, optimizer, epoch)
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+            <span class="c1"># Training phase</span>
+            <span class="n">train_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_train_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
 
-            # Validation phase
-            val_loss = self._validate_epoch(model, val_loader, epoch)
+            <span class="c1"># Validation phase</span>
+            <span class="n">val_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
 
-            # Update learning rate
-            if scheduler:
-                scheduler.step()
+            <span class="c1"># Update learning rate</span>
+            <span class="k">if</span> <span class="n">scheduler</span><span class="p">:</span>
+                <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 
-            # Log metrics
-            self._log_training_metrics(epoch, train_loss, val_loss)
+            <span class="c1"># Log metrics</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log_training_metrics</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
 
-            # Save checkpoint if validation loss improved
-            if val_loss &lt; best_val_loss:
-                best_val_loss = val_loss
-                self._save_checkpoint(model, optimizer, epoch, val_loss)
+            <span class="c1"># Save checkpoint if validation loss improved</span>
+            <span class="k">if</span> <span class="n">val_loss</span> <span class="o">&lt;</span> <span class="n">best_val_loss</span><span class="p">:</span>
+                <span class="n">best_val_loss</span> <span class="o">=</span> <span class="n">val_loss</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_save_checkpoint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
 
-            # Custom checkpoint callback
-            if checkpoint_callback:
-                checkpoint_callback(model, epoch, val_loss)
+            <span class="c1"># Custom checkpoint callback</span>
+            <span class="k">if</span> <span class="n">checkpoint_callback</span><span class="p">:</span>
+                <span class="n">checkpoint_callback</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
 
-    def _train_epoch(self, model, train_loader, optimizer, epoch):
-        &quot;&quot;&quot;Train for one epoch&quot;&quot;&quot;
-        model.train()
-        total_loss = 0
+    <span class="k">def</span><span class="w"> </span><span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Train for one epoch&quot;&quot;&quot;</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
 
-        for batch_idx, batch in enumerate(train_loader):
-            optimizer.zero_grad()
+        <span class="k">for</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
 
-            # Move batch to device
-            batch = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v
-                    for k, v in batch.items()}
+            <span class="c1"># Move batch to device</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span>
+                    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
-            # Forward pass
-            outputs = model(**batch)
-            loss = outputs['loss']
+            <span class="c1"># Forward pass</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">batch</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
 
-            # Backward pass
-            loss.backward()
-            optimizer.step()
+            <span class="c1"># Backward pass</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 
-            total_loss += loss.item()
+            <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
-            if batch_idx % self.config.get('log_interval', 100) == 0:
-                print(f'Epoch {epoch}, Batch {batch_idx}, Loss: {loss.item():.4f}')
+            <span class="k">if</span> <span class="n">batch_idx</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;log_interval&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s1">, Batch </span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s1">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-        return total_loss / len(train_loader)
+        <span class="k">return</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
 
-    def _validate_epoch(self, model, val_loader, epoch):
-        &quot;&quot;&quot;Validate for one epoch&quot;&quot;&quot;
-        model.eval()
-        total_loss = 0
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate for one epoch&quot;&quot;&quot;</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
 
-        with torch.no_grad():
-            for batch in val_loader:
-                batch = {k: v.to(self.device) if isinstance(v, torch.Tensor) else v
-                        for k, v in batch.items()}
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">val_loader</span><span class="p">:</span>
+                <span class="n">batch</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span>
+                        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">batch</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
-                outputs = model(**batch)
-                loss = outputs['loss']
-                total_loss += loss.item()
+                <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">batch</span><span class="p">)</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+                <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
-        return total_loss / len(val_loader)
+        <span class="k">return</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_loader</span><span class="p">)</span>
 
-    def _save_checkpoint(self, model, optimizer, epoch, val_loss):
-        &quot;&quot;&quot;Save model checkpoint&quot;&quot;&quot;
-        checkpoint = {
-            'epoch': epoch,
-            'model_state_dict': model.module.state_dict() if self.is_distributed else model.state_dict(),
-            'optimizer_state_dict': optimizer.state_dict(),
-            'val_loss': val_loss,
-            'config': self.config
-        }
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_checkpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save model checkpoint&quot;&quot;&quot;</span>
+        <span class="n">checkpoint</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;epoch&#39;</span><span class="p">:</span> <span class="n">epoch</span><span class="p">,</span>
+            <span class="s1">&#39;model_state_dict&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">module</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_distributed</span> <span class="k">else</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span>
+            <span class="s1">&#39;optimizer_state_dict&#39;</span><span class="p">:</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span>
+            <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="n">val_loss</span><span class="p">,</span>
+            <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span>
+        <span class="p">}</span>
 
-        checkpoint_path = f&quot;checkpoints/model_epoch_{epoch}_loss_{val_loss:.4f}.pt&quot;
-        torch.save(checkpoint, checkpoint_path)
-        print(f&quot;Checkpoint saved: {checkpoint_path}&quot;)
-</code></pre>
+        <span class="n">checkpoint_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;checkpoints/model_epoch_</span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">_loss_</span><span class="si">{</span><span class="n">val_loss</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">.pt&quot;</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Checkpoint saved: </span><span class="si">{</span><span class="n">checkpoint_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="3-validation-stage">3. Validation Stage<a class="headerlink" href="#3-validation-stage" title="Permanent link">&para;</a></h3>
 <p>The validation stage ensures model quality and readiness for deployment:</p>
 <h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h4>
@@ -3464,168 +3720,168 @@ class TrainingManager:
 <li><strong>Performance Benchmarking</strong>: Detailed performance analysis</li>
 </ul>
 <h4 id="implementation_2">Implementation<a class="headerlink" href="#implementation_2" title="Permanent link">&para;</a></h4>
-<pre><code class="language-python"># lifecycle/validation.py
-from model_evaluation.pipeline import EvaluationPipeline
-from model_evaluation.config import EvaluationConfig
-from typing import Dict, List
-import json
-import time
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/validation.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvaluationPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">model_evaluation.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">EvaluationConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-class ModelValidator:
-    def __init__(self, validation_config: Dict):
-        self.config = validation_config
-        self.validation_results = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelValidator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validation_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">validation_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validation_results</span> <span class="o">=</span> <span class="p">{}</span>
 
-    def validate_model(self, model_path: str, test_data: str, validation_criteria: Dict) -&gt; Dict:
-        &quot;&quot;&quot;Comprehensive model validation&quot;&quot;&quot;
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">test_data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">validation_criteria</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Comprehensive model validation&quot;&quot;&quot;</span>
 
-        validation_start = time.time()
+        <span class="n">validation_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        # Initialize evaluation pipeline
-        eval_config = EvaluationConfig(
-            model_path=model_path,
-            test_dataset=test_data,
-            bias_analysis=True,
-            robustness_testing=True,
-            performance_profiling=True
-        )
+        <span class="c1"># Initialize evaluation pipeline</span>
+        <span class="n">eval_config</span> <span class="o">=</span> <span class="n">EvaluationConfig</span><span class="p">(</span>
+            <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">,</span>
+            <span class="n">test_dataset</span><span class="o">=</span><span class="n">test_data</span><span class="p">,</span>
+            <span class="n">bias_analysis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">robustness_testing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">performance_profiling</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
 
-        pipeline = EvaluationPipeline(eval_config)
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="n">EvaluationPipeline</span><span class="p">(</span><span class="n">eval_config</span><span class="p">)</span>
 
-        # Run validation tests
-        results = {
-            'performance_validation': self._validate_performance(pipeline),
-            'bias_validation': self._validate_bias(pipeline),
-            'robustness_validation': self._validate_robustness(pipeline),
-            'security_validation': self._validate_security(pipeline),
-            'compliance_validation': self._validate_compliance(pipeline)
-        }
+        <span class="c1"># Run validation tests</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;performance_validation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_performance</span><span class="p">(</span><span class="n">pipeline</span><span class="p">),</span>
+            <span class="s1">&#39;bias_validation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_bias</span><span class="p">(</span><span class="n">pipeline</span><span class="p">),</span>
+            <span class="s1">&#39;robustness_validation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_robustness</span><span class="p">(</span><span class="n">pipeline</span><span class="p">),</span>
+            <span class="s1">&#39;security_validation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_security</span><span class="p">(</span><span class="n">pipeline</span><span class="p">),</span>
+            <span class="s1">&#39;compliance_validation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_compliance</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+        <span class="p">}</span>
 
-        # Generate validation report
-        validation_report = self._generate_validation_report(results)
+        <span class="c1"># Generate validation report</span>
+        <span class="n">validation_report</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_validation_report</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
-        # Check if model passes validation criteria
-        validation_status = self._check_validation_criteria(results, validation_criteria)
+        <span class="c1"># Check if model passes validation criteria</span>
+        <span class="n">validation_status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_validation_criteria</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">validation_criteria</span><span class="p">)</span>
 
-        validation_time = time.time() - validation_start
+        <span class="n">validation_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">validation_start</span>
 
-        return {
-            'validation_status': validation_status,
-            'validation_results': results,
-            'validation_report': validation_report,
-            'validation_time': validation_time,
-            'timestamp': time.time()
-        }
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;validation_status&#39;</span><span class="p">:</span> <span class="n">validation_status</span><span class="p">,</span>
+            <span class="s1">&#39;validation_results&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+            <span class="s1">&#39;validation_report&#39;</span><span class="p">:</span> <span class="n">validation_report</span><span class="p">,</span>
+            <span class="s1">&#39;validation_time&#39;</span><span class="p">:</span> <span class="n">validation_time</span><span class="p">,</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">}</span>
 
-    def _validate_performance(self, pipeline) -&gt; Dict:
-        &quot;&quot;&quot;Validate model performance metrics&quot;&quot;&quot;
-        performance_results = pipeline.evaluate_performance()
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_performance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate model performance metrics&quot;&quot;&quot;</span>
+        <span class="n">performance_results</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">evaluate_performance</span><span class="p">()</span>
 
-        return {
-            'accuracy': performance_results.get('accuracy', 0),
-            'precision': performance_results.get('precision', 0),
-            'recall': performance_results.get('recall', 0),
-            'f1_score': performance_results.get('f1_score', 0),
-            'latency': performance_results.get('latency', 0),
-            'throughput': performance_results.get('throughput', 0),
-            'memory_usage': performance_results.get('memory_usage', 0)
-        }
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;f1_score&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;f1_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;latency&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;latency&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;throughput&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;throughput&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;memory_usage&#39;</span><span class="p">:</span> <span class="n">performance_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;memory_usage&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
 
-    def _validate_bias(self, pipeline) -&gt; Dict:
-        &quot;&quot;&quot;Validate model bias and fairness&quot;&quot;&quot;
-        bias_results = pipeline.evaluate_bias()
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_bias</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate model bias and fairness&quot;&quot;&quot;</span>
+        <span class="n">bias_results</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">evaluate_bias</span><span class="p">()</span>
 
-        return {
-            'demographic_parity': bias_results.get('demographic_parity', {}),
-            'equalized_odds': bias_results.get('equalized_odds', {}),
-            'calibration': bias_results.get('calibration', {}),
-            'bias_score': bias_results.get('overall_bias_score', 0)
-        }
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;demographic_parity&#39;</span><span class="p">:</span> <span class="n">bias_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;demographic_parity&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;equalized_odds&#39;</span><span class="p">:</span> <span class="n">bias_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;equalized_odds&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;calibration&#39;</span><span class="p">:</span> <span class="n">bias_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;calibration&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;bias_score&#39;</span><span class="p">:</span> <span class="n">bias_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;overall_bias_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
 
-    def _validate_robustness(self, pipeline) -&gt; Dict:
-        &quot;&quot;&quot;Validate model robustness&quot;&quot;&quot;
-        robustness_results = pipeline.evaluate_robustness()
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_robustness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate model robustness&quot;&quot;&quot;</span>
+        <span class="n">robustness_results</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">evaluate_robustness</span><span class="p">()</span>
 
-        return {
-            'adversarial_robustness': robustness_results.get('adversarial_robustness', {}),
-            'distribution_shift': robustness_results.get('distribution_shift', {}),
-            'noise_robustness': robustness_results.get('noise_robustness', {}),
-            'robustness_score': robustness_results.get('overall_robustness_score', 0)
-        }
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;adversarial_robustness&#39;</span><span class="p">:</span> <span class="n">robustness_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;adversarial_robustness&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;distribution_shift&#39;</span><span class="p">:</span> <span class="n">robustness_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;distribution_shift&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;noise_robustness&#39;</span><span class="p">:</span> <span class="n">robustness_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;noise_robustness&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+            <span class="s1">&#39;robustness_score&#39;</span><span class="p">:</span> <span class="n">robustness_results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;overall_robustness_score&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
 
-    def _validate_security(self, pipeline) -&gt; Dict:
-        &quot;&quot;&quot;Validate model security&quot;&quot;&quot;
-        # Implement security validation checks
-        return {
-            'input_validation': True,
-            'output_sanitization': True,
-            'model_integrity': True,
-            'data_privacy': True
-        }
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_security</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate model security&quot;&quot;&quot;</span>
+        <span class="c1"># Implement security validation checks</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;input_validation&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;output_sanitization&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;model_integrity&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;data_privacy&#39;</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="p">}</span>
 
-    def _validate_compliance(self, pipeline) -&gt; Dict:
-        &quot;&quot;&quot;Validate regulatory compliance&quot;&quot;&quot;
-        # Implement compliance validation checks
-        return {
-            'gdpr_compliance': True,
-            'ccpa_compliance': True,
-            'industry_standards': True,
-            'audit_trail': True
-        }
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_compliance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate regulatory compliance&quot;&quot;&quot;</span>
+        <span class="c1"># Implement compliance validation checks</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;gdpr_compliance&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;ccpa_compliance&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;industry_standards&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;audit_trail&#39;</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="p">}</span>
 
-    def _check_validation_criteria(self, results: Dict, criteria: Dict) -&gt; str:
-        &quot;&quot;&quot;Check if model meets validation criteria&quot;&quot;&quot;
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_validation_criteria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">criteria</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if model meets validation criteria&quot;&quot;&quot;</span>
 
-        # Performance criteria
-        if results['performance_validation']['accuracy'] &lt; criteria.get('min_accuracy', 0.8):
-            return 'FAILED - Accuracy below threshold'
+        <span class="c1"># Performance criteria</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;performance_validation&#39;</span><span class="p">][</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">criteria</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;min_accuracy&#39;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;FAILED - Accuracy below threshold&#39;</span>
 
-        # Bias criteria
-        if results['bias_validation']['bias_score'] &gt; criteria.get('max_bias_score', 0.1):
-            return 'FAILED - Bias score above threshold'
+        <span class="c1"># Bias criteria</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;bias_validation&#39;</span><span class="p">][</span><span class="s1">&#39;bias_score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">criteria</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;max_bias_score&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;FAILED - Bias score above threshold&#39;</span>
 
-        # Robustness criteria
-        if results['robustness_validation']['robustness_score'] &lt; criteria.get('min_robustness', 0.7):
-            return 'FAILED - Robustness below threshold'
+        <span class="c1"># Robustness criteria</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;robustness_validation&#39;</span><span class="p">][</span><span class="s1">&#39;robustness_score&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">criteria</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;min_robustness&#39;</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;FAILED - Robustness below threshold&#39;</span>
 
-        # Latency criteria
-        if results['performance_validation']['latency'] &gt; criteria.get('max_latency', 100):
-            return 'FAILED - Latency above threshold'
+        <span class="c1"># Latency criteria</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;performance_validation&#39;</span><span class="p">][</span><span class="s1">&#39;latency&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">criteria</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;max_latency&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">&#39;FAILED - Latency above threshold&#39;</span>
 
-        return 'PASSED'
+        <span class="k">return</span> <span class="s1">&#39;PASSED&#39;</span>
 
-    def _generate_validation_report(self, results: Dict) -&gt; str:
-        &quot;&quot;&quot;Generate detailed validation report&quot;&quot;&quot;
-        report = {
-            'validation_summary': {
-                'total_tests': len(results),
-                'passed_tests': sum(1 for r in results.values() if r.get('status') == 'PASSED'),
-                'failed_tests': sum(1 for r in results.values() if r.get('status') == 'FAILED')
-            },
-            'detailed_results': results,
-            'recommendations': self._generate_recommendations(results)
-        }
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_validation_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate detailed validation report&quot;&quot;&quot;</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;validation_summary&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;total_tests&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">),</span>
+                <span class="s1">&#39;passed_tests&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;PASSED&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;failed_tests&#39;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;FAILED&#39;</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;detailed_results&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">,</span>
+            <span class="s1">&#39;recommendations&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_recommendations</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+        <span class="p">}</span>
 
-        return json.dumps(report, indent=2)
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-    def _generate_recommendations(self, results: Dict) -&gt; List[str]:
-        &quot;&quot;&quot;Generate improvement recommendations&quot;&quot;&quot;
-        recommendations = []
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_recommendations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate improvement recommendations&quot;&quot;&quot;</span>
+        <span class="n">recommendations</span> <span class="o">=</span> <span class="p">[]</span>
 
-        # Performance recommendations
-        if results['performance_validation']['accuracy'] &lt; 0.9:
-            recommendations.append(&quot;Consider additional training or hyperparameter tuning to improve accuracy&quot;)
+        <span class="c1"># Performance recommendations</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;performance_validation&#39;</span><span class="p">][</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.9</span><span class="p">:</span>
+            <span class="n">recommendations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Consider additional training or hyperparameter tuning to improve accuracy&quot;</span><span class="p">)</span>
 
-        # Bias recommendations
-        if results['bias_validation']['bias_score'] &gt; 0.05:
-            recommendations.append(&quot;Implement bias mitigation techniques to reduce model bias&quot;)
+        <span class="c1"># Bias recommendations</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;bias_validation&#39;</span><span class="p">][</span><span class="s1">&#39;bias_score&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="n">recommendations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Implement bias mitigation techniques to reduce model bias&quot;</span><span class="p">)</span>
 
-        # Robustness recommendations
-        if results['robustness_validation']['robustness_score'] &lt; 0.8:
-            recommendations.append(&quot;Improve model robustness through adversarial training or data augmentation&quot;)
+        <span class="c1"># Robustness recommendations</span>
+        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;robustness_validation&#39;</span><span class="p">][</span><span class="s1">&#39;robustness_score&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.8</span><span class="p">:</span>
+            <span class="n">recommendations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Improve model robustness through adversarial training or data augmentation&quot;</span><span class="p">)</span>
 
-        return recommendations
-</code></pre>
+        <span class="k">return</span> <span class="n">recommendations</span>
+</code></pre></div>
 <h3 id="4-deployment-stage">4. Deployment Stage<a class="headerlink" href="#4-deployment-stage" title="Permanent link">&para;</a></h3>
 <p>The deployment stage manages model deployment to production environments:</p>
 <h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h4>
@@ -3636,190 +3892,190 @@ class ModelValidator:
 <li><strong>Rollback Capabilities</strong>: Quick rollback to previous versions</li>
 </ul>
 <h4 id="implementation_3">Implementation<a class="headerlink" href="#implementation_3" title="Permanent link">&para;</a></h4>
-<pre><code class="language-python"># lifecycle/deployment.py
-from typing import Dict, List, Optional
-import asyncio
-import time
-from enum import Enum
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/deployment.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
-class DeploymentStatus(Enum):
-    PENDING = &quot;pending&quot;
-    DEPLOYING = &quot;deploying&quot;
-    ACTIVE = &quot;active&quot;
-    FAILED = &quot;failed&quot;
-    ROLLING_BACK = &quot;rolling_back&quot;
+<span class="k">class</span><span class="w"> </span><span class="nc">DeploymentStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">PENDING</span> <span class="o">=</span> <span class="s2">&quot;pending&quot;</span>
+    <span class="n">DEPLOYING</span> <span class="o">=</span> <span class="s2">&quot;deploying&quot;</span>
+    <span class="n">ACTIVE</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span>
+    <span class="n">FAILED</span> <span class="o">=</span> <span class="s2">&quot;failed&quot;</span>
+    <span class="n">ROLLING_BACK</span> <span class="o">=</span> <span class="s2">&quot;rolling_back&quot;</span>
 
-class DeploymentStrategy(Enum):
-    BLUE_GREEN = &quot;blue_green&quot;
-    CANARY = &quot;canary&quot;
-    ROLLING = &quot;rolling&quot;
+<span class="k">class</span><span class="w"> </span><span class="nc">DeploymentStrategy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">BLUE_GREEN</span> <span class="o">=</span> <span class="s2">&quot;blue_green&quot;</span>
+    <span class="n">CANARY</span> <span class="o">=</span> <span class="s2">&quot;canary&quot;</span>
+    <span class="n">ROLLING</span> <span class="o">=</span> <span class="s2">&quot;rolling&quot;</span>
 
-class ModelDeploymentManager:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.deployments: Dict[str, Dict] = {}
-        self.active_deployments: Dict[str, str] = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelDeploymentManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deployments</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_deployments</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def deploy_model(self, model_id: str, version: str, environment: str,
-                          strategy: DeploymentStrategy = DeploymentStrategy.BLUE_GREEN,
-                          config: Optional[Dict] = None) -&gt; str:
-        &quot;&quot;&quot;Deploy model to environment&quot;&quot;&quot;
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">deploy_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">environment</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                          <span class="n">strategy</span><span class="p">:</span> <span class="n">DeploymentStrategy</span> <span class="o">=</span> <span class="n">DeploymentStrategy</span><span class="o">.</span><span class="n">BLUE_GREEN</span><span class="p">,</span>
+                          <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deploy model to environment&quot;&quot;&quot;</span>
 
-        deployment_id = f&quot;{model_id}-{version}-{environment}-{int(time.time())}&quot;
+        <span class="n">deployment_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">environment</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        deployment = {
-            'id': deployment_id,
-            'model_id': model_id,
-            'version': version,
-            'environment': environment,
-            'strategy': strategy,
-            'status': DeploymentStatus.PENDING,
-            'config': config or {},
-            'created_at': time.time(),
-            'updated_at': time.time()
-        }
+        <span class="n">deployment</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">deployment_id</span><span class="p">,</span>
+            <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span>
+            <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>
+            <span class="s1">&#39;environment&#39;</span><span class="p">:</span> <span class="n">environment</span><span class="p">,</span>
+            <span class="s1">&#39;strategy&#39;</span><span class="p">:</span> <span class="n">strategy</span><span class="p">,</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">PENDING</span><span class="p">,</span>
+            <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="n">config</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="s1">&#39;updated_at&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        self.deployments[deployment_id] = deployment
+        <span class="bp">self</span><span class="o">.</span><span class="n">deployments</span><span class="p">[</span><span class="n">deployment_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">deployment</span>
 
-        try:
-            # Execute deployment based on strategy
-            if strategy == DeploymentStrategy.BLUE_GREEN:
-                await self._deploy_blue_green(deployment)
-            elif strategy == DeploymentStrategy.CANARY:
-                await self._deploy_canary(deployment)
-            elif strategy == DeploymentStrategy.ROLLING:
-                await self._deploy_rolling(deployment)
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Execute deployment based on strategy</span>
+            <span class="k">if</span> <span class="n">strategy</span> <span class="o">==</span> <span class="n">DeploymentStrategy</span><span class="o">.</span><span class="n">BLUE_GREEN</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_blue_green</span><span class="p">(</span><span class="n">deployment</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">strategy</span> <span class="o">==</span> <span class="n">DeploymentStrategy</span><span class="o">.</span><span class="n">CANARY</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_canary</span><span class="p">(</span><span class="n">deployment</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">strategy</span> <span class="o">==</span> <span class="n">DeploymentStrategy</span><span class="o">.</span><span class="n">ROLLING</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_rolling</span><span class="p">(</span><span class="n">deployment</span><span class="p">)</span>
 
-            deployment['status'] = DeploymentStatus.ACTIVE
-            self.active_deployments[model_id] = deployment_id
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">ACTIVE</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">active_deployments</span><span class="p">[</span><span class="n">model_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">deployment_id</span>
 
-        except Exception as e:
-            deployment['status'] = DeploymentStatus.FAILED
-            deployment['error'] = str(e)
-            raise
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">FAILED</span>
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span>
 
-        finally:
-            deployment['updated_at'] = time.time()
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;updated_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        return deployment_id
+        <span class="k">return</span> <span class="n">deployment_id</span>
 
-    async def _deploy_blue_green(self, deployment: Dict):
-        &quot;&quot;&quot;Blue-green deployment strategy&quot;&quot;&quot;
-        deployment['status'] = DeploymentStatus.DEPLOYING
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_deploy_blue_green</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Blue-green deployment strategy&quot;&quot;&quot;</span>
+        <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">DEPLOYING</span>
 
-        # Deploy to green environment
-        green_endpoint = await self._deploy_to_environment(
-            deployment, f&quot;green-{deployment['environment']}&quot;
-        )
+        <span class="c1"># Deploy to green environment</span>
+        <span class="n">green_endpoint</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_to_environment</span><span class="p">(</span>
+            <span class="n">deployment</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;green-</span><span class="si">{</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;environment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
 
-        # Run health checks
-        await self._run_health_checks(green_endpoint)
+        <span class="c1"># Run health checks</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_health_checks</span><span class="p">(</span><span class="n">green_endpoint</span><span class="p">)</span>
 
-        # Switch traffic to green
-        await self._switch_traffic(deployment['model_id'], green_endpoint)
+        <span class="c1"># Switch traffic to green</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_switch_traffic</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span> <span class="n">green_endpoint</span><span class="p">)</span>
 
-        # Cleanup blue environment
-        await self._cleanup_old_deployment(deployment['model_id'])
+        <span class="c1"># Cleanup blue environment</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup_old_deployment</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">])</span>
 
-    async def _deploy_canary(self, deployment: Dict):
-        &quot;&quot;&quot;Canary deployment strategy&quot;&quot;&quot;
-        deployment['status'] = DeploymentStatus.DEPLOYING
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_deploy_canary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Canary deployment strategy&quot;&quot;&quot;</span>
+        <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">DEPLOYING</span>
 
-        # Deploy canary version
-        canary_endpoint = await self._deploy_to_environment(
-            deployment, f&quot;canary-{deployment['environment']}&quot;
-        )
+        <span class="c1"># Deploy canary version</span>
+        <span class="n">canary_endpoint</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_to_environment</span><span class="p">(</span>
+            <span class="n">deployment</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;canary-</span><span class="si">{</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;environment&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
 
-        # Gradually increase traffic
-        traffic_percentages = [5, 10, 25, 50, 100]
+        <span class="c1"># Gradually increase traffic</span>
+        <span class="n">traffic_percentages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 
-        for percentage in traffic_percentages:
-            await self._set_traffic_percentage(deployment['model_id'], canary_endpoint, percentage)
+        <span class="k">for</span> <span class="n">percentage</span> <span class="ow">in</span> <span class="n">traffic_percentages</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_traffic_percentage</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span> <span class="n">canary_endpoint</span><span class="p">,</span> <span class="n">percentage</span><span class="p">)</span>
 
-            # Wait and monitor
-            await asyncio.sleep(300)  # 5 minutes
+            <span class="c1"># Wait and monitor</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>  <span class="c1"># 5 minutes</span>
 
-            # Check health metrics
-            if not await self._check_deployment_health(canary_endpoint):
-                # Rollback if health checks fail
-                await self._rollback_deployment(deployment['id'])
-                return
+            <span class="c1"># Check health metrics</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_deployment_health</span><span class="p">(</span><span class="n">canary_endpoint</span><span class="p">):</span>
+                <span class="c1"># Rollback if health checks fail</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rollback_deployment</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+                <span class="k">return</span>
 
-        # Promote to full traffic
-        await self._promote_deployment(deployment['id'])
+        <span class="c1"># Promote to full traffic</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_promote_deployment</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
 
-    async def _deploy_rolling(self, deployment: Dict):
-        &quot;&quot;&quot;Rolling deployment strategy&quot;&quot;&quot;
-        deployment['status'] = DeploymentStatus.DEPLOYING
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_deploy_rolling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rolling deployment strategy&quot;&quot;&quot;</span>
+        <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">DEPLOYING</span>
 
-        # Get current deployment instances
-        current_instances = await self._get_deployment_instances(deployment['model_id'])
+        <span class="c1"># Get current deployment instances</span>
+        <span class="n">current_instances</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_deployment_instances</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">])</span>
 
-        # Update instances one by one
-        for instance in current_instances:
-            await self._update_instance(instance, deployment)
-            await self._wait_for_instance_health(instance)
+        <span class="c1"># Update instances one by one</span>
+        <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">current_instances</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_instance</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">deployment</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_instance_health</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
 
-        deployment['status'] = DeploymentStatus.ACTIVE
+        <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">ACTIVE</span>
 
-    async def rollback_deployment(self, deployment_id: str) -&gt; bool:
-        &quot;&quot;&quot;Rollback deployment to previous version&quot;&quot;&quot;
-        if deployment_id not in self.deployments:
-            return False
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rollback_deployment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployment_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rollback deployment to previous version&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">deployment_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">deployments</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-        deployment = self.deployments[deployment_id]
-        deployment['status'] = DeploymentStatus.ROLLING_BACK
+        <span class="n">deployment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deployments</span><span class="p">[</span><span class="n">deployment_id</span><span class="p">]</span>
+        <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">ROLLING_BACK</span>
 
-        try:
-            # Get previous version
-            previous_version = await self._get_previous_version(deployment['model_id'])
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Get previous version</span>
+            <span class="n">previous_version</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_previous_version</span><span class="p">(</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">])</span>
 
-            if not previous_version:
-                raise Exception(&quot;No previous version found&quot;)
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">previous_version</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No previous version found&quot;</span><span class="p">)</span>
 
-            # Deploy previous version
-            await self._deploy_model(
-                deployment['model_id'],
-                previous_version,
-                deployment['environment'],
-                deployment['strategy']
-            )
+            <span class="c1"># Deploy previous version</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deploy_model</span><span class="p">(</span>
+                <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span>
+                <span class="n">previous_version</span><span class="p">,</span>
+                <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;environment&#39;</span><span class="p">],</span>
+                <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;strategy&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
 
-            deployment['status'] = DeploymentStatus.ACTIVE
-            return True
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">ACTIVE</span>
+            <span class="k">return</span> <span class="kc">True</span>
 
-        except Exception as e:
-            deployment['status'] = DeploymentStatus.FAILED
-            deployment['rollback_error'] = str(e)
-            return False
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DeploymentStatus</span><span class="o">.</span><span class="n">FAILED</span>
+            <span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;rollback_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-    async def _deploy_to_environment(self, deployment: Dict, environment: str) -&gt; str:
-        &quot;&quot;&quot;Deploy model to specific environment&quot;&quot;&quot;
-        # Implementation depends on deployment platform (Kubernetes, Docker, etc.)
-        # This is a placeholder implementation
-        endpoint = f&quot;https://{environment}.example.com/models/{deployment['model_id']}&quot;
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_deploy_to_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deployment</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">environment</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deploy model to specific environment&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation depends on deployment platform (Kubernetes, Docker, etc.)</span>
+        <span class="c1"># This is a placeholder implementation</span>
+        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">environment</span><span class="si">}</span><span class="s2">.example.com/models/</span><span class="si">{</span><span class="n">deployment</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        # Simulate deployment time
-        await asyncio.sleep(30)
+        <span class="c1"># Simulate deployment time</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 
-        return endpoint
+        <span class="k">return</span> <span class="n">endpoint</span>
 
-    async def _run_health_checks(self, endpoint: str) -&gt; bool:
-        &quot;&quot;&quot;Run health checks on deployment&quot;&quot;&quot;
-        # Implement health check logic
-        # Check if model responds correctly to test requests
-        return True
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_run_health_checks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run health checks on deployment&quot;&quot;&quot;</span>
+        <span class="c1"># Implement health check logic</span>
+        <span class="c1"># Check if model responds correctly to test requests</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
-    async def _switch_traffic(self, model_id: str, new_endpoint: str):
-        &quot;&quot;&quot;Switch traffic to new deployment&quot;&quot;&quot;
-        # Update load balancer or service mesh configuration
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_switch_traffic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch traffic to new deployment&quot;&quot;&quot;</span>
+        <span class="c1"># Update load balancer or service mesh configuration</span>
+        <span class="k">pass</span>
 
-    async def _cleanup_old_deployment(self, model_id: str):
-        &quot;&quot;&quot;Clean up old deployment resources&quot;&quot;&quot;
-        # Remove old instances and resources
-        pass
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup_old_deployment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clean up old deployment resources&quot;&quot;&quot;</span>
+        <span class="c1"># Remove old instances and resources</span>
+        <span class="k">pass</span>
+</code></pre></div>
 <h3 id="5-monitoring-stage">5. Monitoring Stage<a class="headerlink" href="#5-monitoring-stage" title="Permanent link">&para;</a></h3>
 <p>The monitoring stage provides continuous monitoring of deployed models:</p>
 <h4 id="features_4">Features<a class="headerlink" href="#features_4" title="Permanent link">&para;</a></h4>
@@ -3830,163 +4086,163 @@ class ModelDeploymentManager:
 <li><strong>Alert Management</strong>: Automated alerts for issues</li>
 </ul>
 <h4 id="implementation_4">Implementation<a class="headerlink" href="#implementation_4" title="Permanent link">&para;</a></h4>
-<pre><code class="language-python"># lifecycle/monitoring.py
-from typing import Dict, List, Optional
-import asyncio
-import time
-from collections import deque
-import numpy as np
-from dataclasses import dataclass
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/monitoring.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
-@dataclass
-class MonitoringMetric:
-    name: str
-    value: float
-    timestamp: float
-    tags: Dict[str, str] = None
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MonitoringMetric</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-class ModelMonitor:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.metrics_buffer: Dict[str, deque] = {}
-        self.alerts: List[Dict] = []
-        self.drift_detectors: Dict[str, 'DriftDetector'] = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelMonitor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics_buffer</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">deque</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alerts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drift_detectors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;DriftDetector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def start_monitoring(self, model_id: str, deployment_id: str):
-        &quot;&quot;&quot;Start monitoring a deployed model&quot;&quot;&quot;
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start_monitoring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">deployment_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start monitoring a deployed model&quot;&quot;&quot;</span>
 
-        # Initialize monitoring components
-        await self._initialize_metrics_collection(model_id)
-        await self._initialize_drift_detection(model_id)
-        await self._initialize_alerting(model_id)
+        <span class="c1"># Initialize monitoring components</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_metrics_collection</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_drift_detection</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_alerting</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
 
-        # Start monitoring tasks
-        monitoring_tasks = [
-            asyncio.create_task(self._collect_performance_metrics(model_id)),
-            asyncio.create_task(self._monitor_data_drift(model_id)),
-            asyncio.create_task(self._monitor_model_drift(model_id)),
-            asyncio.create_task(self._check_alerts(model_id))
-        ]
+        <span class="c1"># Start monitoring tasks</span>
+        <span class="n">monitoring_tasks</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_collect_performance_metrics</span><span class="p">(</span><span class="n">model_id</span><span class="p">)),</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_monitor_data_drift</span><span class="p">(</span><span class="n">model_id</span><span class="p">)),</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_monitor_model_drift</span><span class="p">(</span><span class="n">model_id</span><span class="p">)),</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_check_alerts</span><span class="p">(</span><span class="n">model_id</span><span class="p">))</span>
+        <span class="p">]</span>
 
-        await asyncio.gather(*monitoring_tasks)
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">monitoring_tasks</span><span class="p">)</span>
 
-    async def _collect_performance_metrics(self, model_id: str):
-        &quot;&quot;&quot;Collect performance metrics&quot;&quot;&quot;
-        while True:
-            try:
-                # Collect latency metrics
-                latency = await self._measure_latency(model_id)
-                self._record_metric(model_id, 'latency', latency)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_collect_performance_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Collect performance metrics&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Collect latency metrics</span>
+                <span class="n">latency</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure_latency</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_record_metric</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="s1">&#39;latency&#39;</span><span class="p">,</span> <span class="n">latency</span><span class="p">)</span>
 
-                # Collect throughput metrics
-                throughput = await self._measure_throughput(model_id)
-                self._record_metric(model_id, 'throughput', throughput)
+                <span class="c1"># Collect throughput metrics</span>
+                <span class="n">throughput</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure_throughput</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_record_metric</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="s1">&#39;throughput&#39;</span><span class="p">,</span> <span class="n">throughput</span><span class="p">)</span>
 
-                # Collect error rate
-                error_rate = await self._measure_error_rate(model_id)
-                self._record_metric(model_id, 'error_rate', error_rate)
+                <span class="c1"># Collect error rate</span>
+                <span class="n">error_rate</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure_error_rate</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_record_metric</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="s1">&#39;error_rate&#39;</span><span class="p">,</span> <span class="n">error_rate</span><span class="p">)</span>
 
-                # Collect resource usage
-                cpu_usage = await self._measure_cpu_usage(model_id)
-                memory_usage = await self._measure_memory_usage(model_id)
-                self._record_metric(model_id, 'cpu_usage', cpu_usage)
-                self._record_metric(model_id, 'memory_usage', memory_usage)
+                <span class="c1"># Collect resource usage</span>
+                <span class="n">cpu_usage</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure_cpu_usage</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+                <span class="n">memory_usage</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure_memory_usage</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_record_metric</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="s1">&#39;cpu_usage&#39;</span><span class="p">,</span> <span class="n">cpu_usage</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_record_metric</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="s1">&#39;memory_usage&#39;</span><span class="p">,</span> <span class="n">memory_usage</span><span class="p">)</span>
 
-                await asyncio.sleep(self.config.get('metrics_interval', 60))
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;metrics_interval&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
 
-            except Exception as e:
-                print(f&quot;Error collecting metrics for {model_id}: {e}&quot;)
-                await asyncio.sleep(60)
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error collecting metrics for </span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-    async def _monitor_data_drift(self, model_id: str):
-        &quot;&quot;&quot;Monitor for data drift&quot;&quot;&quot;
-        while True:
-            try:
-                # Get recent input data
-                recent_data = await self._get_recent_inputs(model_id, hours=24)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_monitor_data_drift</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Monitor for data drift&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Get recent input data</span>
+                <span class="n">recent_data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_recent_inputs</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 
-                if len(recent_data) &gt; 100:  # Minimum sample size
-                    # Compare with baseline data
-                    drift_score = await self._calculate_data_drift(model_id, recent_data)
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">recent_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>  <span class="c1"># Minimum sample size</span>
+                    <span class="c1"># Compare with baseline data</span>
+                    <span class="n">drift_score</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_data_drift</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">recent_data</span><span class="p">)</span>
 
-                    if drift_score &gt; self.config.get('data_drift_threshold', 0.1):
-                        await self._trigger_data_drift_alert(model_id, drift_score)
+                    <span class="k">if</span> <span class="n">drift_score</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_drift_threshold&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
+                        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_data_drift_alert</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">drift_score</span><span class="p">)</span>
 
-                await asyncio.sleep(self.config.get('drift_check_interval', 3600))
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;drift_check_interval&#39;</span><span class="p">,</span> <span class="mi">3600</span><span class="p">))</span>
 
-            except Exception as e:
-                print(f&quot;Error monitoring data drift for {model_id}: {e}&quot;)
-                await asyncio.sleep(3600)
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error monitoring data drift for </span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3600</span><span class="p">)</span>
 
-    async def _monitor_model_drift(self, model_id: str):
-        &quot;&quot;&quot;Monitor for model performance drift&quot;&quot;&quot;
-        while True:
-            try:
-                # Get recent predictions and actual outcomes
-                recent_data = await self._get_recent_predictions(model_id, hours=24)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_monitor_model_drift</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Monitor for model performance drift&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Get recent predictions and actual outcomes</span>
+                <span class="n">recent_data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_recent_predictions</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
 
-                if len(recent_data) &gt; 100:
-                    # Calculate performance metrics
-                    accuracy = self._calculate_accuracy(recent_data)
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">recent_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+                    <span class="c1"># Calculate performance metrics</span>
+                    <span class="n">accuracy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_accuracy</span><span class="p">(</span><span class="n">recent_data</span><span class="p">)</span>
 
-                    # Compare with baseline performance
-                    baseline_accuracy = await self._get_baseline_accuracy(model_id)
-                    performance_drop = baseline_accuracy - accuracy
+                    <span class="c1"># Compare with baseline performance</span>
+                    <span class="n">baseline_accuracy</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_baseline_accuracy</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+                    <span class="n">performance_drop</span> <span class="o">=</span> <span class="n">baseline_accuracy</span> <span class="o">-</span> <span class="n">accuracy</span>
 
-                    if performance_drop &gt; self.config.get('performance_drop_threshold', 0.05):
-                        await self._trigger_performance_drift_alert(model_id, performance_drop)
+                    <span class="k">if</span> <span class="n">performance_drop</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;performance_drop_threshold&#39;</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">):</span>
+                        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_trigger_performance_drift_alert</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">performance_drop</span><span class="p">)</span>
 
-                await asyncio.sleep(self.config.get('drift_check_interval', 3600))
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;drift_check_interval&#39;</span><span class="p">,</span> <span class="mi">3600</span><span class="p">))</span>
 
-            except Exception as e:
-                print(f&quot;Error monitoring model drift for {model_id}: {e}&quot;)
-                await asyncio.sleep(3600)
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error monitoring model drift for </span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3600</span><span class="p">)</span>
 
-    def _record_metric(self, model_id: str, metric_name: str, value: float):
-        &quot;&quot;&quot;Record a metric value&quot;&quot;&quot;
-        key = f&quot;{model_id}_{metric_name}&quot;
-        if key not in self.metrics_buffer:
-            self.metrics_buffer[key] = deque(maxlen=1000)
+    <span class="k">def</span><span class="w"> </span><span class="nf">_record_metric</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Record a metric value&quot;&quot;&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">metric_name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics_buffer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics_buffer</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
-        metric = MonitoringMetric(
-            name=metric_name,
-            value=value,
-            timestamp=time.time(),
-            tags={'model_id': model_id}
-        )
+        <span class="n">metric</span> <span class="o">=</span> <span class="n">MonitoringMetric</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">metric_name</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">timestamp</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">}</span>
+        <span class="p">)</span>
 
-        self.metrics_buffer[key].append(metric)
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics_buffer</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metric</span><span class="p">)</span>
 
-    async def _trigger_data_drift_alert(self, model_id: str, drift_score: float):
-        &quot;&quot;&quot;Trigger data drift alert&quot;&quot;&quot;
-        alert = {
-            'type': 'data_drift',
-            'model_id': model_id,
-            'severity': 'high',
-            'message': f'Data drift detected: {drift_score:.3f}',
-            'timestamp': time.time()
-        }
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_trigger_data_drift_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">drift_score</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trigger data drift alert&quot;&quot;&quot;</span>
+        <span class="n">alert</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;data_drift&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span>
+            <span class="s1">&#39;severity&#39;</span><span class="p">:</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Data drift detected: </span><span class="si">{</span><span class="n">drift_score</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        await self._send_alert(alert)
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_alert</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
 
-    async def _trigger_performance_drift_alert(self, model_id: str, performance_drop: float):
-        &quot;&quot;&quot;Trigger performance drift alert&quot;&quot;&quot;
-        alert = {
-            'type': 'performance_drift',
-            'model_id': model_id,
-            'severity': 'high',
-            'message': f'Performance degradation detected: {performance_drop:.3f}',
-            'timestamp': time.time()
-        }
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_trigger_performance_drift_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">performance_drop</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Trigger performance drift alert&quot;&quot;&quot;</span>
+        <span class="n">alert</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;performance_drift&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span>
+            <span class="s1">&#39;severity&#39;</span><span class="p">:</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Performance degradation detected: </span><span class="si">{</span><span class="n">performance_drop</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        await self._send_alert(alert)
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_alert</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
 
-    async def _send_alert(self, alert: Dict):
-        &quot;&quot;&quot;Send alert to configured channels&quot;&quot;&quot;
-        # Implementation depends on alerting system (Slack, email, PagerDuty, etc.)
-        print(f&quot;ALERT: {alert}&quot;)
-        self.alerts.append(alert)
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_send_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alert</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send alert to configured channels&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation depends on alerting system (Slack, email, PagerDuty, etc.)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ALERT: </span><span class="si">{</span><span class="n">alert</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alerts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="6-retirement-stage">6. Retirement Stage<a class="headerlink" href="#6-retirement-stage" title="Permanent link">&para;</a></h3>
 <p>The retirement stage manages the graceful retirement of models:</p>
 <h4 id="features_5">Features<a class="headerlink" href="#features_5" title="Permanent link">&para;</a></h4>
@@ -3997,288 +4253,288 @@ class ModelMonitor:
 <li><strong>Resource Cleanup</strong>: Clean up resources and dependencies</li>
 </ul>
 <h4 id="implementation_5">Implementation<a class="headerlink" href="#implementation_5" title="Permanent link">&para;</a></h4>
-<pre><code class="language-python"># lifecycle/retirement.py
-from typing import Dict, List, Optional
-import asyncio
-import time
-from enum import Enum
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/retirement.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
-class RetirementStatus(Enum):
-    PLANNED = &quot;planned&quot;
-    IN_PROGRESS = &quot;in_progress&quot;
-    COMPLETED = &quot;completed&quot;
-    CANCELLED = &quot;cancelled&quot;
+<span class="k">class</span><span class="w"> </span><span class="nc">RetirementStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">PLANNED</span> <span class="o">=</span> <span class="s2">&quot;planned&quot;</span>
+    <span class="n">IN_PROGRESS</span> <span class="o">=</span> <span class="s2">&quot;in_progress&quot;</span>
+    <span class="n">COMPLETED</span> <span class="o">=</span> <span class="s2">&quot;completed&quot;</span>
+    <span class="n">CANCELLED</span> <span class="o">=</span> <span class="s2">&quot;cancelled&quot;</span>
 
-class ModelRetirementManager:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.retirement_plans: Dict[str, Dict] = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelRetirementManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retirement_plans</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def plan_retirement(self, model_id: str, reason: str,
-                            replacement_model_id: Optional[str] = None,
-                            retirement_date: Optional[float] = None) -&gt; str:
-        &quot;&quot;&quot;Plan model retirement&quot;&quot;&quot;
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">plan_retirement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">reason</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">replacement_model_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">retirement_date</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plan model retirement&quot;&quot;&quot;</span>
 
-        plan_id = f&quot;retirement_{model_id}_{int(time.time())}&quot;
+        <span class="n">plan_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;retirement_</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        retirement_plan = {
-            'id': plan_id,
-            'model_id': model_id,
-            'replacement_model_id': replacement_model_id,
-            'reason': reason,
-            'planned_retirement_date': retirement_date or time.time() + 30 * 24 * 3600,  # 30 days default
-            'status': RetirementStatus.PLANNED,
-            'created_at': time.time(),
-            'stakeholders': [],
-            'dependencies': [],
-            'artifacts_to_archive': []
-        }
+        <span class="n">retirement_plan</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">plan_id</span><span class="p">,</span>
+            <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span>
+            <span class="s1">&#39;replacement_model_id&#39;</span><span class="p">:</span> <span class="n">replacement_model_id</span><span class="p">,</span>
+            <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="n">reason</span><span class="p">,</span>
+            <span class="s1">&#39;planned_retirement_date&#39;</span><span class="p">:</span> <span class="n">retirement_date</span> <span class="ow">or</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">,</span>  <span class="c1"># 30 days default</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">RetirementStatus</span><span class="o">.</span><span class="n">PLANNED</span><span class="p">,</span>
+            <span class="s1">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="s1">&#39;stakeholders&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;dependencies&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;artifacts_to_archive&#39;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
 
-        # Identify stakeholders and dependencies
-        await self._identify_stakeholders(retirement_plan)
-        await self._identify_dependencies(retirement_plan)
-        await self._identify_artifacts(retirement_plan)
+        <span class="c1"># Identify stakeholders and dependencies</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identify_stakeholders</span><span class="p">(</span><span class="n">retirement_plan</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identify_dependencies</span><span class="p">(</span><span class="n">retirement_plan</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identify_artifacts</span><span class="p">(</span><span class="n">retirement_plan</span><span class="p">)</span>
 
-        self.retirement_plans[plan_id] = retirement_plan
+        <span class="bp">self</span><span class="o">.</span><span class="n">retirement_plans</span><span class="p">[</span><span class="n">plan_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">retirement_plan</span>
 
-        # Notify stakeholders
-        await self._notify_stakeholders(retirement_plan)
+        <span class="c1"># Notify stakeholders</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_notify_stakeholders</span><span class="p">(</span><span class="n">retirement_plan</span><span class="p">)</span>
 
-        return plan_id
+        <span class="k">return</span> <span class="n">plan_id</span>
 
-    async def execute_retirement(self, plan_id: str) -&gt; bool:
-        &quot;&quot;&quot;Execute model retirement&quot;&quot;&quot;
-        if plan_id not in self.retirement_plans:
-            return False
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_retirement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute model retirement&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">plan_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">retirement_plans</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-        plan = self.retirement_plans[plan_id]
-        plan['status'] = RetirementStatus.IN_PROGRESS
+        <span class="n">plan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retirement_plans</span><span class="p">[</span><span class="n">plan_id</span><span class="p">]</span>
+        <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RetirementStatus</span><span class="o">.</span><span class="n">IN_PROGRESS</span>
 
-        try:
-            # Step 1: Stop new deployments
-            await self._stop_new_deployments(plan['model_id'])
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Step 1: Stop new deployments</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stop_new_deployments</span><span class="p">(</span><span class="n">plan</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">])</span>
 
-            # Step 2: Gradual traffic reduction
-            await self._reduce_traffic_gradually(plan['model_id'])
+            <span class="c1"># Step 2: Gradual traffic reduction</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce_traffic_gradually</span><span class="p">(</span><span class="n">plan</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">])</span>
 
-            # Step 3: Knowledge transfer
-            if plan['replacement_model_id']:
-                await self._transfer_knowledge(plan['model_id'], plan['replacement_model_id'])
+            <span class="c1"># Step 3: Knowledge transfer</span>
+            <span class="k">if</span> <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;replacement_model_id&#39;</span><span class="p">]:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transfer_knowledge</span><span class="p">(</span><span class="n">plan</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span> <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;replacement_model_id&#39;</span><span class="p">])</span>
 
-            # Step 4: Archive artifacts
-            await self._archive_artifacts(plan)
+            <span class="c1"># Step 4: Archive artifacts</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_archive_artifacts</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
 
-            # Step 5: Update dependencies
-            await self._update_dependencies(plan)
+            <span class="c1"># Step 5: Update dependencies</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_dependencies</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
 
-            # Step 6: Clean up resources
-            await self._cleanup_resources(plan['model_id'])
+            <span class="c1"># Step 6: Clean up resources</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup_resources</span><span class="p">(</span><span class="n">plan</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">])</span>
 
-            # Step 7: Update documentation
-            await self._update_documentation(plan)
+            <span class="c1"># Step 7: Update documentation</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_documentation</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
 
-            plan['status'] = RetirementStatus.COMPLETED
-            plan['completed_at'] = time.time()
+            <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RetirementStatus</span><span class="o">.</span><span class="n">COMPLETED</span>
+            <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;completed_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-            # Notify stakeholders of completion
-            await self._notify_retirement_completion(plan)
+            <span class="c1"># Notify stakeholders of completion</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_notify_retirement_completion</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
 
-            return True
+            <span class="k">return</span> <span class="kc">True</span>
 
-        except Exception as e:
-            plan['status'] = RetirementStatus.CANCELLED
-            plan['error'] = str(e)
-            await self._notify_retirement_failure(plan)
-            return False
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RetirementStatus</span><span class="o">.</span><span class="n">CANCELLED</span>
+            <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_notify_retirement_failure</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-    async def _identify_stakeholders(self, plan: Dict):
-        &quot;&quot;&quot;Identify stakeholders for retirement&quot;&quot;&quot;
-        # Implementation depends on your organization's structure
-        plan['stakeholders'] = [
-            'data-science-team',
-            'engineering-team',
-            'product-team',
-            'business-stakeholders'
-        ]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_identify_stakeholders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identify stakeholders for retirement&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation depends on your organization&#39;s structure</span>
+        <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;stakeholders&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;data-science-team&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;engineering-team&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;product-team&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;business-stakeholders&#39;</span>
+        <span class="p">]</span>
 
-    async def _identify_dependencies(self, plan: Dict):
-        &quot;&quot;&quot;Identify systems that depend on the model&quot;&quot;&quot;
-        # Check for downstream systems, APIs, and integrations
-        plan['dependencies'] = [
-            'api-gateway',
-            'web-application',
-            'mobile-app',
-            'analytics-pipeline'
-        ]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_identify_dependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identify systems that depend on the model&quot;&quot;&quot;</span>
+        <span class="c1"># Check for downstream systems, APIs, and integrations</span>
+        <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;dependencies&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;api-gateway&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;web-application&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;mobile-app&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;analytics-pipeline&#39;</span>
+        <span class="p">]</span>
 
-    async def _identify_artifacts(self, plan: Dict):
-        &quot;&quot;&quot;Identify artifacts to archive&quot;&quot;&quot;
-        plan['artifacts_to_archive'] = [
-            'model-weights',
-            'training-data',
-            'evaluation-results',
-            'deployment-configs',
-            'monitoring-logs'
-        ]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_identify_artifacts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identify artifacts to archive&quot;&quot;&quot;</span>
+        <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;artifacts_to_archive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;model-weights&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;training-data&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;evaluation-results&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;deployment-configs&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;monitoring-logs&#39;</span>
+        <span class="p">]</span>
 
-    async def _notify_stakeholders(self, plan: Dict):
-        &quot;&quot;&quot;Notify stakeholders of retirement plan&quot;&quot;&quot;
-        # Implementation depends on notification system
-        print(f&quot;Notifying stakeholders of retirement plan for model {plan['model_id']}&quot;)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_notify_stakeholders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Notify stakeholders of retirement plan&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation depends on notification system</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Notifying stakeholders of retirement plan for model </span><span class="si">{</span><span class="n">plan</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    async def _stop_new_deployments(self, model_id: str):
-        &quot;&quot;&quot;Stop new deployments of the model&quot;&quot;&quot;
-        # Mark model as deprecated in deployment system
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_stop_new_deployments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop new deployments of the model&quot;&quot;&quot;</span>
+        <span class="c1"># Mark model as deprecated in deployment system</span>
+        <span class="k">pass</span>
 
-    async def _reduce_traffic_gradually(self, model_id: str):
-        &quot;&quot;&quot;Gradually reduce traffic to the model&quot;&quot;&quot;
-        # Reduce traffic percentage over time
-        traffic_percentages = [100, 75, 50, 25, 0]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_reduce_traffic_gradually</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Gradually reduce traffic to the model&quot;&quot;&quot;</span>
+        <span class="c1"># Reduce traffic percentage over time</span>
+        <span class="n">traffic_percentages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-        for percentage in traffic_percentages:
-            await self._set_traffic_percentage(model_id, percentage)
-            await asyncio.sleep(7 * 24 * 3600)  # Wait 1 week between reductions
+        <span class="k">for</span> <span class="n">percentage</span> <span class="ow">in</span> <span class="n">traffic_percentages</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_traffic_percentage</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">percentage</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)</span>  <span class="c1"># Wait 1 week between reductions</span>
 
-    async def _transfer_knowledge(self, old_model_id: str, new_model_id: str):
-        &quot;&quot;&quot;Transfer knowledge from old model to new model&quot;&quot;&quot;
-        # Document lessons learned, best practices, and performance characteristics
-        knowledge_doc = {
-            'old_model_id': old_model_id,
-            'new_model_id': new_model_id,
-            'lessons_learned': [],
-            'best_practices': [],
-            'performance_characteristics': {},
-            'migration_notes': []
-        }
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_transfer_knowledge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transfer knowledge from old model to new model&quot;&quot;&quot;</span>
+        <span class="c1"># Document lessons learned, best practices, and performance characteristics</span>
+        <span class="n">knowledge_doc</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;old_model_id&#39;</span><span class="p">:</span> <span class="n">old_model_id</span><span class="p">,</span>
+            <span class="s1">&#39;new_model_id&#39;</span><span class="p">:</span> <span class="n">new_model_id</span><span class="p">,</span>
+            <span class="s1">&#39;lessons_learned&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;best_practices&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;performance_characteristics&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;migration_notes&#39;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
 
-        # Save knowledge document
-        await self._save_knowledge_document(knowledge_doc)
+        <span class="c1"># Save knowledge document</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_save_knowledge_document</span><span class="p">(</span><span class="n">knowledge_doc</span><span class="p">)</span>
 
-    async def _archive_artifacts(self, plan: Dict):
-        &quot;&quot;&quot;Archive model artifacts&quot;&quot;&quot;
-        for artifact in plan['artifacts_to_archive']:
-            await self._archive_artifact(plan['model_id'], artifact)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_archive_artifacts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Archive model artifacts&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">artifact</span> <span class="ow">in</span> <span class="n">plan</span><span class="p">[</span><span class="s1">&#39;artifacts_to_archive&#39;</span><span class="p">]:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_archive_artifact</span><span class="p">(</span><span class="n">plan</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span> <span class="n">artifact</span><span class="p">)</span>
 
-    async def _cleanup_resources(self, model_id: str):
-        &quot;&quot;&quot;Clean up model resources&quot;&quot;&quot;
-        # Remove deployments, containers, storage, etc.
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_cleanup_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clean up model resources&quot;&quot;&quot;</span>
+        <span class="c1"># Remove deployments, containers, storage, etc.</span>
+        <span class="k">pass</span>
 
-    async def _update_documentation(self, plan: Dict):
-        &quot;&quot;&quot;Update documentation to reflect model retirement&quot;&quot;&quot;
-        # Update model registry, documentation, and wiki pages
-        pass
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_update_documentation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plan</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update documentation to reflect model retirement&quot;&quot;&quot;</span>
+        <span class="c1"># Update model registry, documentation, and wiki pages</span>
+        <span class="k">pass</span>
+</code></pre></div>
 <h2 id="lifecycle-orchestration">Lifecycle Orchestration<a class="headerlink" href="#lifecycle-orchestration" title="Permanent link">&para;</a></h2>
 <h3 id="complete-lifecycle-manager">Complete Lifecycle Manager<a class="headerlink" href="#complete-lifecycle-manager" title="Permanent link">&para;</a></h3>
-<pre><code class="language-python"># lifecycle/manager.py
-from typing import Dict, List, Optional
-import asyncio
-from lifecycle.development import ModelDevelopmentManager
-from lifecycle.training import TrainingManager
-from lifecycle.validation import ModelValidator
-from lifecycle.deployment import ModelDeploymentManager
-from lifecycle.monitoring import ModelMonitor
-from lifecycle.retirement import ModelRetirementManager
+<div class="highlight"><pre><span></span><code><span class="c1"># lifecycle/manager.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifecycle.development</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelDevelopmentManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifecycle.training</span><span class="w"> </span><span class="kn">import</span> <span class="n">TrainingManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifecycle.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelValidator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifecycle.deployment</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelDeploymentManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifecycle.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelMonitor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lifecycle.retirement</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelRetirementManager</span>
 
-class ModelLifecycleManager:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.development_manager = ModelDevelopmentManager(config.get('mlflow', {}))
-        self.training_manager = TrainingManager(config.get('training', {}))
-        self.validator = ModelValidator(config.get('validation', {}))
-        self.deployment_manager = ModelDeploymentManager(config.get('deployment', {}))
-        self.monitor = ModelMonitor(config.get('monitoring', {}))
-        self.retirement_manager = ModelRetirementManager(config.get('retirement', {}))
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelLifecycleManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">development_manager</span> <span class="o">=</span> <span class="n">ModelDevelopmentManager</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mlflow&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training_manager</span> <span class="o">=</span> <span class="n">TrainingManager</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;training&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator</span> <span class="o">=</span> <span class="n">ModelValidator</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deployment_manager</span> <span class="o">=</span> <span class="n">ModelDeploymentManager</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;deployment&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">monitor</span> <span class="o">=</span> <span class="n">ModelMonitor</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;monitoring&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retirement_manager</span> <span class="o">=</span> <span class="n">ModelRetirementManager</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;retirement&#39;</span><span class="p">,</span> <span class="p">{}))</span>
 
-        self.model_lifecycle: Dict[str, Dict] = {}
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_lifecycle</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def create_model_lifecycle(self, model_id: str, config: Dict) -&gt; str:
-        &quot;&quot;&quot;Create a new model lifecycle&quot;&quot;&quot;
-        lifecycle_id = f&quot;lifecycle_{model_id}_{int(time.time())}&quot;
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_model_lifecycle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new model lifecycle&quot;&quot;&quot;</span>
+        <span class="n">lifecycle_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;lifecycle_</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        lifecycle = {
-            'id': lifecycle_id,
-            'model_id': model_id,
-            'config': config,
-            'stages': {
-                'development': {'status': 'active', 'started_at': time.time()},
-                'training': {'status': 'pending'},
-                'validation': {'status': 'pending'},
-                'deployment': {'status': 'pending'},
-                'monitoring': {'status': 'pending'},
-                'retirement': {'status': 'pending'}
-            },
-            'artifacts': {},
-            'metadata': {}
-        }
+        <span class="n">lifecycle</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">lifecycle_id</span><span class="p">,</span>
+            <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span>
+            <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span>
+            <span class="s1">&#39;stages&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;development&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;started_at&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()},</span>
+                <span class="s1">&#39;training&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;validation&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;deployment&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;monitoring&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;retirement&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span><span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;artifacts&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;metadata&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
 
-        self.model_lifecycle[lifecycle_id] = lifecycle
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_lifecycle</span><span class="p">[</span><span class="n">lifecycle_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">lifecycle</span>
 
-        return lifecycle_id
+        <span class="k">return</span> <span class="n">lifecycle_id</span>
 
-    async def progress_to_stage(self, lifecycle_id: str, stage: str) -&gt; bool:
-        &quot;&quot;&quot;Progress model lifecycle to next stage&quot;&quot;&quot;
-        if lifecycle_id not in self.model_lifecycle:
-            return False
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">progress_to_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Progress model lifecycle to next stage&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">lifecycle_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_lifecycle</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-        lifecycle = self.model_lifecycle[lifecycle_id]
+        <span class="n">lifecycle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_lifecycle</span><span class="p">[</span><span class="n">lifecycle_id</span><span class="p">]</span>
 
-        try:
-            if stage == 'training':
-                await self._start_training_stage(lifecycle)
-            elif stage == 'validation':
-                await self._start_validation_stage(lifecycle)
-            elif stage == 'deployment':
-                await self._start_deployment_stage(lifecycle)
-            elif stage == 'monitoring':
-                await self._start_monitoring_stage(lifecycle)
-            elif stage == 'retirement':
-                await self._start_retirement_stage(lifecycle)
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s1">&#39;training&#39;</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_training_stage</span><span class="p">(</span><span class="n">lifecycle</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">stage</span> <span class="o">==</span> <span class="s1">&#39;validation&#39;</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_validation_stage</span><span class="p">(</span><span class="n">lifecycle</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">stage</span> <span class="o">==</span> <span class="s1">&#39;deployment&#39;</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_deployment_stage</span><span class="p">(</span><span class="n">lifecycle</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">stage</span> <span class="o">==</span> <span class="s1">&#39;monitoring&#39;</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_monitoring_stage</span><span class="p">(</span><span class="n">lifecycle</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">stage</span> <span class="o">==</span> <span class="s1">&#39;retirement&#39;</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_retirement_stage</span><span class="p">(</span><span class="n">lifecycle</span><span class="p">)</span>
 
-            lifecycle['stages'][stage]['status'] = 'active'
-            lifecycle['stages'][stage]['started_at'] = time.time()
+            <span class="n">lifecycle</span><span class="p">[</span><span class="s1">&#39;stages&#39;</span><span class="p">][</span><span class="n">stage</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;active&#39;</span>
+            <span class="n">lifecycle</span><span class="p">[</span><span class="s1">&#39;stages&#39;</span><span class="p">][</span><span class="n">stage</span><span class="p">][</span><span class="s1">&#39;started_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-            return True
+            <span class="k">return</span> <span class="kc">True</span>
 
-        except Exception as e:
-            lifecycle['stages'][stage]['status'] = 'failed'
-            lifecycle['stages'][stage]['error'] = str(e)
-            return False
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">lifecycle</span><span class="p">[</span><span class="s1">&#39;stages&#39;</span><span class="p">][</span><span class="n">stage</span><span class="p">][</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;failed&#39;</span>
+            <span class="n">lifecycle</span><span class="p">[</span><span class="s1">&#39;stages&#39;</span><span class="p">][</span><span class="n">stage</span><span class="p">][</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
 
-    async def get_lifecycle_status(self, lifecycle_id: str) -&gt; Dict:
-        &quot;&quot;&quot;Get current lifecycle status&quot;&quot;&quot;
-        if lifecycle_id not in self.model_lifecycle:
-            return {}
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_lifecycle_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get current lifecycle status&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">lifecycle_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_lifecycle</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
 
-        return self.model_lifecycle[lifecycle_id]
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_lifecycle</span><span class="p">[</span><span class="n">lifecycle_id</span><span class="p">]</span>
 
-    async def _start_training_stage(self, lifecycle: Dict):
-        &quot;&quot;&quot;Start training stage&quot;&quot;&quot;
-        # Implementation for starting training
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_start_training_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start training stage&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation for starting training</span>
+        <span class="k">pass</span>
 
-    async def _start_validation_stage(self, lifecycle: Dict):
-        &quot;&quot;&quot;Start validation stage&quot;&quot;&quot;
-        # Implementation for starting validation
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_start_validation_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start validation stage&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation for starting validation</span>
+        <span class="k">pass</span>
 
-    async def _start_deployment_stage(self, lifecycle: Dict):
-        &quot;&quot;&quot;Start deployment stage&quot;&quot;&quot;
-        # Implementation for starting deployment
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_start_deployment_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start deployment stage&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation for starting deployment</span>
+        <span class="k">pass</span>
 
-    async def _start_monitoring_stage(self, lifecycle: Dict):
-        &quot;&quot;&quot;Start monitoring stage&quot;&quot;&quot;
-        # Implementation for starting monitoring
-        pass
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_start_monitoring_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start monitoring stage&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation for starting monitoring</span>
+        <span class="k">pass</span>
 
-    async def _start_retirement_stage(self, lifecycle: Dict):
-        &quot;&quot;&quot;Start retirement stage&quot;&quot;&quot;
-        # Implementation for starting retirement
-        pass
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_start_retirement_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lifecycle</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start retirement stage&quot;&quot;&quot;</span>
+        <span class="c1"># Implementation for starting retirement</span>
+        <span class="k">pass</span>
+</code></pre></div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <h3 id="1-lifecycle-management">1. Lifecycle Management<a class="headerlink" href="#1-lifecycle-management" title="Permanent link">&para;</a></h3>
 <ul>

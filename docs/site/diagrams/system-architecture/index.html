@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -651,6 +660,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -712,6 +729,14 @@
 <a class="md-nav__link" href="../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -977,7 +1002,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -985,9 +1010,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1171,7 +1262,7 @@
 <p>This section contains comprehensive system architecture diagrams for the Lenovo AAITC AI Assignments platform, showcasing the enterprise-grade architecture and service integration.</p>
 <h2 id="enterprise-ai-architecture">🏗️ Enterprise AI Architecture<a class="headerlink" href="#enterprise-ai-architecture" title="Permanent link">¶</a></h2>
 <h3 id="overall-system-architecture">Overall System Architecture<a class="headerlink" href="#overall-system-architecture" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Lenovo AAITC Enterprise Platform"
         subgraph "Frontend Layer"
             A[FastAPI Enterprise Platform&lt;br/&gt;Port 8080] --&gt; B[Gradio Model Evaluation&lt;br/&gt;Port 7860]
@@ -1218,10 +1309,9 @@
     style M fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px
     style O fill:#f9fbe7,stroke:#827717,stroke-width:2px
     style Q fill:#fce4ec,stroke:#ad1457,stroke-width:2px
-    style S fill:#ffebee,stroke:#c62828,stroke-width:2px
-</div>
+    style S fill:#ffebee,stroke:#c62828,stroke-width:2px</code></pre>
 <h3 id="assignment-1-model-evaluation-engineer-architecture">Assignment 1: Model Evaluation Engineer Architecture<a class="headerlink" href="#assignment-1-model-evaluation-engineer-architecture" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "Model Evaluation Engineer (Assignment 1)"
         A[Gradio Interface&lt;br/&gt;6 Tabs] --&gt; B[Evaluation Pipeline]
         A --&gt; C[Model Profiling]
@@ -1251,10 +1341,9 @@
     style D fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style E fill:#fce4ec,stroke:#880e4f,stroke-width:2px
     style F fill:#e0f2f1,stroke:#004d40,stroke-width:2px
-    style G fill:#f1f8e9,stroke:#33691e,stroke-width:2px
-</div>
+    style G fill:#f1f8e9,stroke:#33691e,stroke-width:2px</code></pre>
 <h3 id="assignment-2-ai-architect-enterprise-platform">Assignment 2: AI Architect Enterprise Platform<a class="headerlink" href="#assignment-2-ai-architect-enterprise-platform" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "AI Architect Enterprise Platform (Assignment 2)"
         subgraph "Core Services"
             A[FastAPI Enterprise App&lt;br/&gt;Port 8080] --&gt; B[Model Management]
@@ -1292,11 +1381,10 @@
     style L fill:#fce4ec,stroke:#880e4f,stroke-width:2px
     style N fill:#e0f2f1,stroke:#004d40,stroke-width:2px
     style P fill:#f1f8e9,stroke:#33691e,stroke-width:2px
-    style R fill:#fff8e1,stroke:#ff6f00,stroke-width:2px
-</div>
+    style R fill:#fff8e1,stroke:#ff6f00,stroke-width:2px</code></pre>
 <h2 id="service-integration-architecture">🔧 Service Integration Architecture<a class="headerlink" href="#service-integration-architecture" title="Permanent link">¶</a></h2>
 <h3 id="port-configuration-service-mapping">Port Configuration &amp; Service Mapping<a class="headerlink" href="#port-configuration-service-mapping" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "Service Port Configuration"
         A[FastAPI Enterprise&lt;br/&gt;:8080] --&gt; B[Main Platform]
         C[Gradio App&lt;br/&gt;:7860] --&gt; D[Model Evaluation]
@@ -1321,11 +1409,10 @@
     style O fill:#fff8e1,stroke:#ff6f00,stroke-width:2px
     style Q fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px
     style S fill:#f9fbe7,stroke:#827717,stroke-width:2px
-    style U fill:#fce4ec,stroke:#ad1457,stroke-width:2px
-</div>
+    style U fill:#fce4ec,stroke:#ad1457,stroke-width:2px</code></pre>
 <h2 id="data-flow-architecture">📊 Data Flow Architecture<a class="headerlink" href="#data-flow-architecture" title="Permanent link">¶</a></h2>
 <h3 id="model-evaluation-data-flow">Model Evaluation Data Flow<a class="headerlink" href="#model-evaluation-data-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">sequenceDiagram
+<pre class="mermaid"><code>sequenceDiagram
     participant U as User
     participant G as Gradio App
     participant F as FastAPI Platform
@@ -1344,10 +1431,9 @@
     F-&gt;&gt;O: Run Model Inference
     O--&gt;&gt;F: Model Output
     F--&gt;&gt;G: Evaluation Results
-    G--&gt;&gt;U: Display Results
-</div>
+    G--&gt;&gt;U: Display Results</code></pre>
 <h3 id="enterprise-workflow-integration">Enterprise Workflow Integration<a class="headerlink" href="#enterprise-workflow-integration" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Enterprise Workflow"
         A[AI Architect] --&gt; B[Custom Model Creation]
         B --&gt; C[QLoRA Fine-Tuning]
@@ -1375,8 +1461,7 @@
 
     style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
     style E fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    style I fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-</div>
+    style I fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px</code></pre>
 <hr/>
 <p><strong>Last Updated</strong>: January 19, 2025<br/>
 <strong>Version</strong>: 2.1.0<br/>
@@ -1458,16 +1543,5 @@
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

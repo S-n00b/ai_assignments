@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -651,6 +660,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -712,6 +729,14 @@
 <a class="md-nav__link" href="../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -977,7 +1002,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -985,9 +1010,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1171,7 +1262,7 @@
 <p>This section contains detailed flow diagrams for the model evaluation process, showcasing the comprehensive testing framework and factory roster management.</p>
 <h2 id="model-evaluation-pipeline-flow">🔄 Model Evaluation Pipeline Flow<a class="headerlink" href="#model-evaluation-pipeline-flow" title="Permanent link">¶</a></h2>
 <h3 id="complete-evaluation-workflow">Complete Evaluation Workflow<a class="headerlink" href="#complete-evaluation-workflow" title="Permanent link">¶</a></h3>
-<div class="mermaid">flowchart TD
+<pre class="mermaid"><code>flowchart TD
     A[Start Evaluation] --&gt; B{Model Type?}
 
     B --&gt;|Foundation Model| C[Raw Foundation Model]
@@ -1208,10 +1299,9 @@
     style K fill:#f1f8e9,stroke:#33691e,stroke-width:2px
     style L fill:#fff8e1,stroke:#ff6f00,stroke-width:2px
     style N fill:#e3f2fd,stroke:#0d47a1,stroke-width:2px
-    style O fill:#f9fbe7,stroke:#827717,stroke-width:2px
-</div>
+    style O fill:#f9fbe7,stroke:#827717,stroke-width:2px</code></pre>
 <h3 id="model-profiling-process">Model Profiling Process<a class="headerlink" href="#model-profiling-process" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Model Profiling System"
         A[Model Input] --&gt; B[ModelProfiler Class]
 
@@ -1238,10 +1328,9 @@
     style H fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
     style I fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style J fill:#fce4ec,stroke:#880e4f,stroke-width:2px
-    style K fill:#e0f2f1,stroke:#004d40,stroke-width:2px
-</div>
+    style K fill:#e0f2f1,stroke:#004d40,stroke-width:2px</code></pre>
 <h3 id="model-factory-selection-process">Model Factory Selection Process<a class="headerlink" href="#model-factory-selection-process" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "Model Factory Selection"
         A[Use Case Input] --&gt; B[ModelFactory Class]
 
@@ -1266,11 +1355,10 @@
     style I fill:#fce4ec,stroke:#880e4f,stroke-width:2px
     style J fill:#e0f2f1,stroke:#004d40,stroke-width:2px
     style K fill:#f1f8e9,stroke:#33691e,stroke-width:2px
-    style L fill:#fff8e1,stroke:#ff6f00,stroke-width:2px
-</div>
+    style L fill:#fff8e1,stroke:#ff6f00,stroke-width:2px</code></pre>
 <h2 id="factory-roster-management">🏭 Factory Roster Management<a class="headerlink" href="#factory-roster-management" title="Permanent link">¶</a></h2>
 <h3 id="factory-roster-architecture">Factory Roster Architecture<a class="headerlink" href="#factory-roster-architecture" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Lenovo Model Factory Roster"
         subgraph "Model Categories"
             A[Foundation Models] --&gt; A1[GPT-5]
@@ -1318,10 +1406,9 @@
     style C fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
     style D fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style E fill:#fce4ec,stroke:#880e4f,stroke-width:2px
-    style F fill:#e0f2f1,stroke:#004d40,stroke-width:2px
-</div>
+    style F fill:#e0f2f1,stroke:#004d40,stroke-width:2px</code></pre>
 <h3 id="evaluation-metrics-flow">Evaluation Metrics Flow<a class="headerlink" href="#evaluation-metrics-flow" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph LR
+<pre class="mermaid"><code>graph LR
     subgraph "Evaluation Metrics Collection"
         A[Model Input] --&gt; B[Evaluation Pipeline]
 
@@ -1347,11 +1434,10 @@
     style H fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style I fill:#fce4ec,stroke:#880e4f,stroke-width:2px
     style J fill:#e0f2f1,stroke:#004d40,stroke-width:2px
-    style K fill:#f1f8e9,stroke:#33691e,stroke-width:2px
-</div>
+    style K fill:#f1f8e9,stroke:#33691e,stroke-width:2px</code></pre>
 <h2 id="continuous-evaluation-loop">🔄 Continuous Evaluation Loop<a class="headerlink" href="#continuous-evaluation-loop" title="Permanent link">¶</a></h2>
 <h3 id="model-lifecycle-management">Model Lifecycle Management<a class="headerlink" href="#model-lifecycle-management" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Continuous Model Evaluation"
         A[New Model Available] --&gt; B[Initial Evaluation]
         B --&gt; C{Passes Tests?}
@@ -1381,8 +1467,7 @@
     style F fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style H fill:#fce4ec,stroke:#880e4f,stroke-width:2px
     style J fill:#e0f2f1,stroke:#004d40,stroke-width:2px
-    style L fill:#f1f8e9,stroke:#33691e,stroke-width:2px
-</div>
+    style L fill:#f1f8e9,stroke:#33691e,stroke-width:2px</code></pre>
 <hr/>
 <p><strong>Last Updated</strong>: January 19, 2025<br/>
 <strong>Version</strong>: 2.1.0<br/>
@@ -1464,16 +1549,5 @@
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>

@@ -219,7 +219,16 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
+<a class="md-tabs__link" href="../../../phase2/phase2-implementation-guide/">
+          
+  
+  
+  Phase Implementation Guides
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../MKDOCS_AUDIT_REPORT/">
           
   
   
@@ -974,6 +983,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../development/testing-guide/">
+<span class="md-ellipsis">
+    Comprehensive Testing Guide
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../development/deployment/">
 <span class="md-ellipsis">
     Deployment Guide
@@ -1035,6 +1052,14 @@
 <a class="md-nav__link" href="../../../api/gradio-model-evaluation/">
 <span class="md-ellipsis">
     Gradio Model Evaluation
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../api/pytest-testing-infrastructure/">
+<span class="md-ellipsis">
+    Pytest Testing Infrastructure
     
   </span>
 </a>
@@ -1202,7 +1227,7 @@
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
-    Additional Documentation
+    Phase Implementation Guides
     
   </span>
 <span class="md-nav__icon md-icon"></span>
@@ -1210,9 +1235,75 @@
 <nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
+            Phase Implementation Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase2/phase2-implementation-guide/">
+<span class="md-ellipsis">
+    Phase 2: Model Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase6/phase6_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 6: Unified Platform Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase7/phase7_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 7: Open WebUI Integration
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase8/phase8_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 8: NVIDIA NeMo Agent Toolkit
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../phase9/phase9_implementation_guide/">
+<span class="md-ellipsis">
+    Phase 9: Enhanced MCP Integration
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    Additional Documentation
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
             Additional Documentation
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../MKDOCS_AUDIT_REPORT/">
+<span class="md-ellipsis">
+    MkDocs Audit Report
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../AI_TOOL_PROMPTS_INTEGRATION/">
 <span class="md-ellipsis">
@@ -1646,7 +1737,7 @@
 </ul>
 <h2 id="system-components">System Components<a class="headerlink" href="#system-components" title="Permanent link">¶</a></h2>
 <h3 id="core-architecture-diagram">Core Architecture Diagram<a class="headerlink" href="#core-architecture-diagram" title="Permanent link">¶</a></h3>
-<div class="mermaid">graph TB
+<pre class="mermaid"><code>graph TB
     subgraph "Client Layer"
         A[Web Interface]
         B[Mobile App]
@@ -1699,8 +1790,7 @@
     P --&gt; O
     Q --&gt; H
     R --&gt; K
-    R --&gt; L
-</div>
+    R --&gt; L</code></pre>
 <h2 id="component-architecture">Component Architecture<a class="headerlink" href="#component-architecture" title="Permanent link">¶</a></h2>
 <h3 id="1-api-gateway">1. API Gateway<a class="headerlink" href="#1-api-gateway" title="Permanent link">¶</a></h3>
 <p>The API Gateway serves as the single entry point for all client requests, providing:</p>
@@ -1714,77 +1804,77 @@
 <li><strong>Circuit Breaker</strong>: Prevents cascading failures</li>
 </ul>
 <h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># api_gateway/gateway.py
-from fastapi import FastAPI, HTTPException, Depends
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.gzip import GZipMiddleware
-from starlette.middleware.base import BaseHTTPMiddleware
-import asyncio
-import time
+<div class="highlight"><pre><span></span><code><span class="c1"># api_gateway/gateway.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">Depends</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.middleware.cors</span><span class="w"> </span><span class="kn">import</span> <span class="n">CORSMiddleware</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.middleware.gzip</span><span class="w"> </span><span class="kn">import</span> <span class="n">GZipMiddleware</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">starlette.middleware.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseHTTPMiddleware</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-class RateLimitMiddleware(BaseHTTPMiddleware):
-    def __init__(self, app, calls: int = 100, period: int = 60):
-        super().__init__(app)
-        self.calls = calls
-        self.period = period
-        self.requests = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">RateLimitMiddleware</span><span class="p">(</span><span class="n">BaseHTTPMiddleware</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">calls</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calls</span> <span class="o">=</span> <span class="n">calls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="n">period</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def dispatch(self, request, call_next):
-        client_ip = request.client.host
-        now = time.time()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">call_next</span><span class="p">):</span>
+        <span class="n">client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">host</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        # Clean old entries
-        self.requests = {
-            ip: requests for ip, requests in self.requests.items()
-            if now - requests['start'] &lt; self.period
-        }
+        <span class="c1"># Clean old entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requests</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">ip</span><span class="p">:</span> <span class="n">requests</span> <span class="k">for</span> <span class="n">ip</span><span class="p">,</span> <span class="n">requests</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">now</span> <span class="o">-</span> <span class="n">requests</span><span class="p">[</span><span class="s1">'start'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">period</span>
+        <span class="p">}</span>
 
-        # Check rate limit
-        if client_ip in self.requests:
-            if len(self.requests[client_ip]['calls']) &gt;= self.calls:
-                raise HTTPException(status_code=429, detail="Rate limit exceeded")
-            self.requests[client_ip]['calls'].append(now)
-        else:
-            self.requests[client_ip] = {
-                'start': now,
-                'calls': [now]
-            }
+        <span class="c1"># Check rate limit</span>
+        <span class="k">if</span> <span class="n">client_ip</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="p">[</span><span class="n">client_ip</span><span class="p">][</span><span class="s1">'calls'</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calls</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">429</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">"Rate limit exceeded"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="p">[</span><span class="n">client_ip</span><span class="p">][</span><span class="s1">'calls'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">requests</span><span class="p">[</span><span class="n">client_ip</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">'start'</span><span class="p">:</span> <span class="n">now</span><span class="p">,</span>
+                <span class="s1">'calls'</span><span class="p">:</span> <span class="p">[</span><span class="n">now</span><span class="p">]</span>
+            <span class="p">}</span>
 
-        response = await call_next(request)
-        return response
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">call_next</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span>
 
-class APIGateway:
-    def __init__(self):
-        self.app = FastAPI(title="AI System API Gateway")
-        self._setup_middleware()
-        self._setup_routes()
+<span class="k">class</span><span class="w"> </span><span class="nc">APIGateway</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"AI System API Gateway"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_middleware</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_routes</span><span class="p">()</span>
 
-    def _setup_middleware(self):
-        self.app.add_middleware(
-            CORSMiddleware,
-            allow_origins=["*"],
-            allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
-        )
-        self.app.add_middleware(GZipMiddleware, minimum_size=1000)
-        self.app.add_middleware(RateLimitMiddleware, calls=100, period=60)
+    <span class="k">def</span><span class="w"> </span><span class="nf">_setup_middleware</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span>
+            <span class="n">CORSMiddleware</span><span class="p">,</span>
+            <span class="n">allow_origins</span><span class="o">=</span><span class="p">[</span><span class="s2">"*"</span><span class="p">],</span>
+            <span class="n">allow_credentials</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">allow_methods</span><span class="o">=</span><span class="p">[</span><span class="s2">"*"</span><span class="p">],</span>
+            <span class="n">allow_headers</span><span class="o">=</span><span class="p">[</span><span class="s2">"*"</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">GZipMiddleware</span><span class="p">,</span> <span class="n">minimum_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">RateLimitMiddleware</span><span class="p">,</span> <span class="n">calls</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 
-    def _setup_routes(self):
-        @self.app.get("/health")
-        async def health_check():
-            return {"status": "healthy", "timestamp": time.time()}
+    <span class="k">def</span><span class="w"> </span><span class="nf">_setup_routes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/health"</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">health_check</span><span class="p">():</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"healthy"</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
 
-        @self.app.post("/models/{model_id}/predict")
-        async def predict(model_id: str, request: dict):
-            # Route to model service
-            pass
+        <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/models/</span><span class="si">{model_id}</span><span class="s2">/predict"</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="c1"># Route to model service</span>
+            <span class="k">pass</span>
 
-        @self.app.post("/agents/{agent_id}/execute")
-        async def execute_agent(agent_id: str, request: dict):
-            # Route to agent service
-            pass
-</code></pre>
+        <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/agents/</span><span class="si">{agent_id}</span><span class="s2">/execute"</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_agent</span><span class="p">(</span><span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="c1"># Route to agent service</span>
+            <span class="k">pass</span>
+</code></pre></div>
 <h3 id="2-model-service">2. Model Service<a class="headerlink" href="#2-model-service" title="Permanent link">¶</a></h3>
 <p>The Model Service manages AI model lifecycle and inference:</p>
 <h4 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">¶</a></h4>
@@ -1796,78 +1886,78 @@ class APIGateway:
 <li><strong>Performance Monitoring</strong>: Real-time performance tracking</li>
 </ul>
 <h4 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># model_service/service.py
-from typing import Dict, List, Optional
-import asyncio
-import torch
-from concurrent.futures import ThreadPoolExecutor
-import logging
+<div class="highlight"><pre><span></span><code><span class="c1"># model_service/service.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-class ModelService:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.models: Dict[str, torch.nn.Module] = {}
-        self.executor = ThreadPoolExecutor(max_workers=4)
-        self.logger = logging.getLogger(__name__)
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelService</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">executor</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-    async def load_model(self, model_id: str, version: str = "latest"):
-        """Load a model into memory"""
-        try:
-            model_path = f"models/{model_id}/{version}"
-            model = torch.load(model_path, map_location='cpu')
-            model.eval()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"latest"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Load a model into memory"""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">model_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"models/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s1">'cpu'</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 
-            self.models[f"{model_id}:{version}"] = model
-            self.logger.info(f"Loaded model {model_id}:{version}")
+            <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loaded model </span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-        except Exception as e:
-            self.logger.error(f"Failed to load model {model_id}:{version}: {e}")
-            raise
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to load model </span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">raise</span>
 
-    async def predict(self, model_id: str, inputs: List[Dict], version: str = "latest"):
-        """Run inference on inputs"""
-        model_key = f"{model_id}:{version}"
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"latest"</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Run inference on inputs"""</span>
+        <span class="n">model_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>
 
-        if model_key not in self.models:
-            await self.load_model(model_id, version)
+        <span class="k">if</span> <span class="n">model_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
 
-        model = self.models[model_key]
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">model_key</span><span class="p">]</span>
 
-        # Run inference in thread pool to avoid blocking
-        loop = asyncio.get_event_loop()
-        predictions = await loop.run_in_executor(
-            self.executor,
-            self._run_inference,
-            model,
-            inputs
-        )
+        <span class="c1"># Run inference in thread pool to avoid blocking</span>
+        <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="k">await</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">executor</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_run_inference</span><span class="p">,</span>
+            <span class="n">model</span><span class="p">,</span>
+            <span class="n">inputs</span>
+        <span class="p">)</span>
 
-        return predictions
+        <span class="k">return</span> <span class="n">predictions</span>
 
-    def _run_inference(self, model: torch.nn.Module, inputs: List[Dict]):
-        """Run inference synchronously"""
-        with torch.no_grad():
-            # Preprocess inputs
-            processed_inputs = self._preprocess(inputs)
+    <span class="k">def</span><span class="w"> </span><span class="nf">_run_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Run inference synchronously"""</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="c1"># Preprocess inputs</span>
+            <span class="n">processed_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
 
-            # Run inference
-            outputs = model(**processed_inputs)
+            <span class="c1"># Run inference</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">processed_inputs</span><span class="p">)</span>
 
-            # Postprocess outputs
-            results = self._postprocess(outputs)
+            <span class="c1"># Postprocess outputs</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_postprocess</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
 
-            return results
+            <span class="k">return</span> <span class="n">results</span>
 
-    def _preprocess(self, inputs: List[Dict]):
-        """Preprocess inputs for model"""
-        # Implementation depends on model type
-        pass
+    <span class="k">def</span><span class="w"> </span><span class="nf">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Preprocess inputs for model"""</span>
+        <span class="c1"># Implementation depends on model type</span>
+        <span class="k">pass</span>
 
-    def _postprocess(self, outputs):
-        """Postprocess model outputs"""
-        # Implementation depends on model type
-        pass
-</code></pre>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Postprocess model outputs"""</span>
+        <span class="c1"># Implementation depends on model type</span>
+        <span class="k">pass</span>
+</code></pre></div>
 <h3 id="3-agent-service">3. Agent Service<a class="headerlink" href="#3-agent-service" title="Permanent link">¶</a></h3>
 <p>The Agent Service manages autonomous AI agents:</p>
 <h4 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">¶</a></h4>
@@ -1879,102 +1969,102 @@ class ModelService:
 <li><strong>Monitoring</strong>: Tracks agent performance and health</li>
 </ul>
 <h4 id="architecture_1">Architecture<a class="headerlink" href="#architecture_1" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># agent_service/orchestrator.py
-from typing import Dict, List, Optional
-import asyncio
-from dataclasses import dataclass
-from enum import Enum
-import uuid
+<div class="highlight"><pre><span></span><code><span class="c1"># agent_service/orchestrator.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
 
-class AgentStatus(Enum):
-    IDLE = "idle"
-    BUSY = "busy"
-    ERROR = "error"
-    OFFLINE = "offline"
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentStatus</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">IDLE</span> <span class="o">=</span> <span class="s2">"idle"</span>
+    <span class="n">BUSY</span> <span class="o">=</span> <span class="s2">"busy"</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">"error"</span>
+    <span class="n">OFFLINE</span> <span class="o">=</span> <span class="s2">"offline"</span>
 
-@dataclass
-class AgentTask:
-    id: str
-    agent_id: str
-    task_type: str
-    payload: Dict
-    priority: int = 0
-    created_at: float = 0
-    started_at: Optional[float] = None
-    completed_at: Optional[float] = None
-    status: str = "pending"
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentTask</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">task_type</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">payload</span><span class="p">:</span> <span class="n">Dict</span>
+    <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">created_at</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">started_at</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">completed_at</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pending"</span>
 
-class AgentOrchestrator:
-    def __init__(self):
-        self.agents: Dict[str, Dict] = {}
-        self.task_queue = asyncio.PriorityQueue()
-        self.running_tasks: Dict[str, asyncio.Task] = {}
-        self.agent_states: Dict[str, AgentStatus] = {}
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentOrchestrator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">PriorityQueue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Task</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_states</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AgentStatus</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
-    async def register_agent(self, agent_id: str, agent_config: Dict):
-        """Register a new agent"""
-        self.agents[agent_id] = agent_config
-        self.agent_states[agent_id] = AgentStatus.IDLE
-        self.logger.info(f"Registered agent {agent_id}")
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">register_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">agent_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Register a new agent"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">agent_states</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Registered agent </span><span class="si">{</span><span class="n">agent_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def submit_task(self, agent_id: str, task_type: str, payload: Dict, priority: int = 0):
-        """Submit a task to an agent"""
-        task = AgentTask(
-            id=str(uuid.uuid4()),
-            agent_id=agent_id,
-            task_type=task_type,
-            payload=payload,
-            priority=priority
-        )
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">submit_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">payload</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Submit a task to an agent"""</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="n">AgentTask</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+            <span class="n">agent_id</span><span class="o">=</span><span class="n">agent_id</span><span class="p">,</span>
+            <span class="n">task_type</span><span class="o">=</span><span class="n">task_type</span><span class="p">,</span>
+            <span class="n">payload</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span>
+            <span class="n">priority</span><span class="o">=</span><span class="n">priority</span>
+        <span class="p">)</span>
 
-        await self.task_queue.put((priority, task))
-        return task.id
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">priority</span><span class="p">,</span> <span class="n">task</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">id</span>
 
-    async def process_tasks(self):
-        """Process tasks from the queue"""
-        while True:
-            try:
-                priority, task = await self.task_queue.get()
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Process tasks from the queue"""</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">priority</span><span class="p">,</span> <span class="n">task</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
-                if task.agent_id in self.agents:
-                    # Check if agent is available
-                    if self.agent_states[task.agent_id] == AgentStatus.IDLE:
-                        # Start task execution
-                        self.agent_states[task.agent_id] = AgentStatus.BUSY
-                        task.started_at = time.time()
+                <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">agent_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">:</span>
+                    <span class="c1"># Check if agent is available</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent_states</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">==</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span><span class="p">:</span>
+                        <span class="c1"># Start task execution</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">agent_states</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">BUSY</span>
+                        <span class="n">task</span><span class="o">.</span><span class="n">started_at</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-                        # Execute task
-                        execution_task = asyncio.create_task(
-                            self._execute_task(task)
-                        )
-                        self.running_tasks[task.id] = execution_task
+                        <span class="c1"># Execute task</span>
+                        <span class="n">execution_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_execute_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">execution_task</span>
 
-                self.task_queue.task_done()
+                <span class="bp">self</span><span class="o">.</span><span class="n">task_queue</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span>
 
-            except Exception as e:
-                self.logger.error(f"Error processing task: {e}")
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error processing task: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    async def _execute_task(self, task: AgentTask):
-        """Execute a specific task"""
-        try:
-            agent = self.agents[task.agent_id]
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_execute_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">AgentTask</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Execute a specific task"""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">agent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span>
 
-            # Execute task based on agent type
-            result = await self._run_agent_task(agent, task)
+            <span class="c1"># Execute task based on agent type</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_agent_task</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
 
-            task.status = "completed"
-            task.completed_at = time.time()
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"completed"</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">completed_at</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-        except Exception as e:
-            task.status = "failed"
-            self.logger.error(f"Task {task.id} failed: {e}")
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">"failed"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Task </span><span class="si">{</span><span class="n">task</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2"> failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-        finally:
-            # Mark agent as idle
-            self.agent_states[task.agent_id] = AgentStatus.IDLE
-            if task.id in self.running_tasks:
-                del self.running_tasks[task.id]
-</code></pre>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># Mark agent as idle</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">agent_states</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">agent_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">AgentStatus</span><span class="o">.</span><span class="n">IDLE</span>
+            <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">running_tasks</span><span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
+</code></pre></div>
 <h3 id="4-rag-service">4. RAG Service<a class="headerlink" href="#4-rag-service" title="Permanent link">¶</a></h3>
 <p>The RAG (Retrieval-Augmented Generation) Service provides knowledge retrieval and generation:</p>
 <h4 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">¶</a></h4>
@@ -1986,377 +2076,377 @@ class AgentOrchestrator:
 <li><strong>Knowledge Base Management</strong>: Managing multiple knowledge bases</li>
 </ul>
 <h4 id="architecture_2">Architecture<a class="headerlink" href="#architecture_2" title="Permanent link">¶</a></h4>
-<pre><code class="language-python"># rag_service/service.py
-from typing import List, Dict, Optional
-import numpy as np
-from sentence_transformers import SentenceTransformer
-import faiss
-import asyncio
+<div class="highlight"><pre><span></span><code><span class="c1"># rag_service/service.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">faiss</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-class RAGService:
-    def __init__(self, config: Dict):
-        self.config = config
-        self.embedding_model = SentenceTransformer(config['embedding_model'])
-        self.knowledge_bases: Dict[str, faiss.Index] = {}
-        self.document_store: Dict[str, List[Dict]] = {}
-        self.vector_dim = 384  # Dimension of sentence transformer embeddings
+<span class="k">class</span><span class="w"> </span><span class="nc">RAGService</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">'embedding_model'</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">faiss</span><span class="o">.</span><span class="n">Index</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">document_store</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vector_dim</span> <span class="o">=</span> <span class="mi">384</span>  <span class="c1"># Dimension of sentence transformer embeddings</span>
 
-    async def create_knowledge_base(self, kb_id: str):
-        """Create a new knowledge base"""
-        index = faiss.IndexFlatIP(self.vector_dim)  # Inner product similarity
-        self.knowledge_bases[kb_id] = index
-        self.document_store[kb_id] = []
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_knowledge_base</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kb_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create a new knowledge base"""</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexFlatIP</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector_dim</span><span class="p">)</span>  <span class="c1"># Inner product similarity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="p">[</span><span class="n">kb_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">document_store</span><span class="p">[</span><span class="n">kb_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
-    async def add_documents(self, kb_id: str, documents: List[Dict]):
-        """Add documents to knowledge base"""
-        if kb_id not in self.knowledge_bases:
-            await self.create_knowledge_base(kb_id)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_documents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kb_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">documents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Add documents to knowledge base"""</span>
+        <span class="k">if</span> <span class="n">kb_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_knowledge_base</span><span class="p">(</span><span class="n">kb_id</span><span class="p">)</span>
 
-        # Extract text and metadata
-        texts = [doc['text'] for doc in documents]
-        metadata = [doc.get('metadata', {}) for doc in documents]
+        <span class="c1"># Extract text and metadata</span>
+        <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">]</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'metadata'</span><span class="p">,</span> <span class="p">{})</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">]</span>
 
-        # Generate embeddings
-        embeddings = self.embedding_model.encode(texts)
+        <span class="c1"># Generate embeddings</span>
+        <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
 
-        # Add to FAISS index
-        index = self.knowledge_bases[kb_id]
-        index.add(embeddings.astype('float32'))
+        <span class="c1"># Add to FAISS index</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="p">[</span><span class="n">kb_id</span><span class="p">]</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">embeddings</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float32'</span><span class="p">))</span>
 
-        # Store documents
-        self.document_store[kb_id].extend(documents)
+        <span class="c1"># Store documents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">document_store</span><span class="p">[</span><span class="n">kb_id</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
 
-    async def search(self, kb_id: str, query: str, top_k: int = 5) -&gt; List[Dict]:
-        """Search for relevant documents"""
-        if kb_id not in self.knowledge_bases:
-            raise ValueError(f"Knowledge base {kb_id} not found")
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kb_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Search for relevant documents"""</span>
+        <span class="k">if</span> <span class="n">kb_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Knowledge base </span><span class="si">{</span><span class="n">kb_id</span><span class="si">}</span><span class="s2"> not found"</span><span class="p">)</span>
 
-        # Generate query embedding
-        query_embedding = self.embedding_model.encode([query])
+        <span class="c1"># Generate query embedding</span>
+        <span class="n">query_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">query</span><span class="p">])</span>
 
-        # Search in FAISS index
-        index = self.knowledge_bases[kb_id]
-        scores, indices = index.search(query_embedding.astype('float32'), top_k)
+        <span class="c1"># Search in FAISS index</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">knowledge_bases</span><span class="p">[</span><span class="n">kb_id</span><span class="p">]</span>
+        <span class="n">scores</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query_embedding</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float32'</span><span class="p">),</span> <span class="n">top_k</span><span class="p">)</span>
 
-        # Retrieve documents
-        results = []
-        for score, idx in zip(scores[0], indices[0]):
-            if idx &lt; len(self.document_store[kb_id]):
-                doc = self.document_store[kb_id][idx]
-                doc['similarity_score'] = float(score)
-                results.append(doc)
+        <span class="c1"># Retrieve documents</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">score</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">document_store</span><span class="p">[</span><span class="n">kb_id</span><span class="p">]):</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_store</span><span class="p">[</span><span class="n">kb_id</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
+                <span class="n">doc</span><span class="p">[</span><span class="s1">'similarity_score'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 
-        return results
+        <span class="k">return</span> <span class="n">results</span>
 
-    async def generate_response(self, query: str, kb_id: str, top_k: int = 3) -&gt; str:
-        """Generate response using RAG"""
-        # Retrieve relevant context
-        context_docs = await self.search(kb_id, query, top_k)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">generate_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">kb_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Generate response using RAG"""</span>
+        <span class="c1"># Retrieve relevant context</span>
+        <span class="n">context_docs</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">kb_id</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">top_k</span><span class="p">)</span>
 
-        # Prepare context
-        context = "\n".join([doc['text'] for doc in context_docs])
+        <span class="c1"># Prepare context</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">doc</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">context_docs</span><span class="p">])</span>
 
-        # Generate response using language model
-        # This would integrate with the model service
-        response = await self._generate_with_context(query, context)
+        <span class="c1"># Generate response using language model</span>
+        <span class="c1"># This would integrate with the model service</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_with_context</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 
-        return response
+        <span class="k">return</span> <span class="n">response</span>
 
-    async def _generate_with_context(self, query: str, context: str) -&gt; str:
-        """Generate response using context"""
-        # This would call the model service for generation
-        # Implementation depends on the language model being used
-        pass
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_generate_with_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Generate response using context"""</span>
+        <span class="c1"># This would call the model service for generation</span>
+        <span class="c1"># Implementation depends on the language model being used</span>
+        <span class="k">pass</span>
+</code></pre></div>
 <h2 id="infrastructure-components">Infrastructure Components<a class="headerlink" href="#infrastructure-components" title="Permanent link">¶</a></h2>
 <h3 id="1-container-orchestration">1. Container Orchestration<a class="headerlink" href="#1-container-orchestration" title="Permanent link">¶</a></h3>
 <p>Using Kubernetes for container orchestration:</p>
-<pre><code class="language-yaml"># k8s/model-service-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: model-service
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: model-service
-  template:
-    metadata:
-      labels:
-        app: model-service
-    spec:
-      containers:
-        - name: model-service
-          image: ai-system/model-service:latest
-          ports:
-            - containerPort: 8081
-          resources:
-            requests:
-              memory: "1Gi"
-              cpu: "500m"
-            limits:
-              memory: "2Gi"
-              cpu: "1000m"
-          env:
-            - name: MODEL_REGISTRY_URL
-              value: "http://model-registry:8080"
-            - name: LOG_LEVEL
-              value: "INFO"
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8081
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /ready
-              port: 8081
-            initialDelaySeconds: 5
-            periodSeconds: 5
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: model-service
-spec:
-  selector:
-    app: model-service
-  ports:
-    - port: 80
-      targetPort: 8081
-  type: LoadBalancer
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># k8s/model-service-deployment.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ai-system/model-service:latest</span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
+<span class="w">          </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span>
+<span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
+<span class="w">            </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"2Gi"</span>
+<span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"1000m"</span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MODEL_REGISTRY_URL</span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"http://model-registry:8080"</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_LEVEL</span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"INFO"</span>
+<span class="w">          </span><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/health</span>
+<span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
+<span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">          </span><span class="nt">readinessProbe</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ready</span>
+<span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
+<span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+</code></pre></div>
 <h3 id="2-service-mesh">2. Service Mesh<a class="headerlink" href="#2-service-mesh" title="Permanent link">¶</a></h3>
 <p>Using Istio for service mesh capabilities:</p>
-<pre><code class="language-yaml"># istio/virtual-service.yaml
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: model-service-vs
-spec:
-  hosts:
-    - model-service
-  http:
-    - match:
-        - headers:
-            canary:
-              exact: "true"
-      route:
-        - destination:
-            host: model-service
-            subset: canary
-          weight: 100
-    - route:
-        - destination:
-            host: model-service
-            subset: stable
-          weight: 90
-        - destination:
-            host: model-service
-            subset: canary
-          weight: 10
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># istio/virtual-service.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1alpha3</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualService</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service-vs</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">  </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">canary</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">exact</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
+<span class="w">      </span><span class="nt">route</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">            </span><span class="nt">subset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">canary</span>
+<span class="w">          </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">route</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">            </span><span class="nt">subset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stable</span>
+<span class="w">          </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model-service</span>
+<span class="w">            </span><span class="nt">subset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">canary</span>
+<span class="w">          </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div>
 <h3 id="3-message-queue">3. Message Queue<a class="headerlink" href="#3-message-queue" title="Permanent link">¶</a></h3>
 <p>Using Redis for message queuing:</p>
-<pre><code class="language-python"># messaging/queue.py
-import redis
-import json
-import asyncio
-from typing import Dict, Any
+<div class="highlight"><pre><span></span><code><span class="c1"># messaging/queue.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">redis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
 
-class MessageQueue:
-    def __init__(self, redis_url: str = "redis://localhost:6379"):
-        self.redis_client = redis.from_url(redis_url)
-        self.pubsub = self.redis_client.pubsub()
+<span class="k">class</span><span class="w"> </span><span class="nc">MessageQueue</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"redis://localhost:6379"</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis_client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">redis_url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pubsub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis_client</span><span class="o">.</span><span class="n">pubsub</span><span class="p">()</span>
 
-    async def publish(self, channel: str, message: Dict[str, Any]):
-        """Publish message to channel"""
-        message_json = json.dumps(message)
-        self.redis_client.publish(channel, message_json)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Publish message to channel"""</span>
+        <span class="n">message_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis_client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">message_json</span><span class="p">)</span>
 
-    async def subscribe(self, channel: str, handler):
-        """Subscribe to channel and handle messages"""
-        self.pubsub.subscribe(channel)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">handler</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Subscribe to channel and handle messages"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pubsub</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
 
-        for message in self.pubsub.listen():
-            if message['type'] == 'message':
-                data = json.loads(message['data'])
-                await handler(channel, data)
+        <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pubsub</span><span class="o">.</span><span class="n">listen</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'message'</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s1">'data'</span><span class="p">])</span>
+                <span class="k">await</span> <span class="n">handler</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
-    async def enqueue(self, queue_name: str, task: Dict[str, Any]):
-        """Enqueue task to queue"""
-        task_json = json.dumps(task)
-        self.redis_client.lpush(queue_name, task_json)
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">enqueue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queue_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">"""Enqueue task to queue"""</span>
+        <span class="n">task_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis_client</span><span class="o">.</span><span class="n">lpush</span><span class="p">(</span><span class="n">queue_name</span><span class="p">,</span> <span class="n">task_json</span><span class="p">)</span>
 
-    async def dequeue(self, queue_name: str, timeout: int = 0) -&gt; Optional[Dict[str, Any]]:
-        """Dequeue task from queue"""
-        result = self.redis_client.brpop(queue_name, timeout)
-        if result:
-            _, task_json = result
-            return json.loads(task_json)
-        return None
-</code></pre>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queue_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">"""Dequeue task from queue"""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis_client</span><span class="o">.</span><span class="n">brpop</span><span class="p">(</span><span class="n">queue_name</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">task_json</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">task_json</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
 <h2 id="monitoring-and-observability">Monitoring and Observability<a class="headerlink" href="#monitoring-and-observability" title="Permanent link">¶</a></h2>
 <h3 id="1-metrics-collection">1. Metrics Collection<a class="headerlink" href="#1-metrics-collection" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># monitoring/metrics.py
-from prometheus_client import Counter, Histogram, Gauge, start_http_server
-import time
-import functools
+<div class="highlight"><pre><span></span><code><span class="c1"># monitoring/metrics.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">prometheus_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span><span class="p">,</span> <span class="n">Histogram</span><span class="p">,</span> <span class="n">Gauge</span><span class="p">,</span> <span class="n">start_http_server</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
 
-# Define metrics
-REQUEST_COUNT = Counter('http_requests_total', 'Total HTTP requests', ['method', 'endpoint', 'status'])
-REQUEST_DURATION = Histogram('http_request_duration_seconds', 'HTTP request duration')
-ACTIVE_CONNECTIONS = Gauge('active_connections', 'Number of active connections')
-MODEL_INFERENCE_TIME = Histogram('model_inference_duration_seconds', 'Model inference duration', ['model_id'])
+<span class="c1"># Define metrics</span>
+<span class="n">REQUEST_COUNT</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">'http_requests_total'</span><span class="p">,</span> <span class="s1">'Total HTTP requests'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'method'</span><span class="p">,</span> <span class="s1">'endpoint'</span><span class="p">,</span> <span class="s1">'status'</span><span class="p">])</span>
+<span class="n">REQUEST_DURATION</span> <span class="o">=</span> <span class="n">Histogram</span><span class="p">(</span><span class="s1">'http_request_duration_seconds'</span><span class="p">,</span> <span class="s1">'HTTP request duration'</span><span class="p">)</span>
+<span class="n">ACTIVE_CONNECTIONS</span> <span class="o">=</span> <span class="n">Gauge</span><span class="p">(</span><span class="s1">'active_connections'</span><span class="p">,</span> <span class="s1">'Number of active connections'</span><span class="p">)</span>
+<span class="n">MODEL_INFERENCE_TIME</span> <span class="o">=</span> <span class="n">Histogram</span><span class="p">(</span><span class="s1">'model_inference_duration_seconds'</span><span class="p">,</span> <span class="s1">'Model inference duration'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'model_id'</span><span class="p">])</span>
 
-def track_requests(func):
-    """Decorator to track HTTP requests"""
-    @functools.wraps(func)
-    async def wrapper(*args, **kwargs):
-        start_time = time.time()
-        try:
-            result = await func(*args, **kwargs)
-            REQUEST_COUNT.labels(method='POST', endpoint=func.__name__, status='200').inc()
-            return result
-        except Exception as e:
-            REQUEST_COUNT.labels(method='POST', endpoint=func.__name__, status='500').inc()
-            raise
-        finally:
-            REQUEST_DURATION.observe(time.time() - start_time)
-    return wrapper
+<span class="k">def</span><span class="w"> </span><span class="nf">track_requests</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Decorator to track HTTP requests"""</span>
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">REQUEST_COUNT</span><span class="o">.</span><span class="n">labels</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">'200'</span><span class="p">)</span><span class="o">.</span><span class="n">inc</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">REQUEST_COUNT</span><span class="o">.</span><span class="n">labels</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">'POST'</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">'500'</span><span class="p">)</span><span class="o">.</span><span class="n">inc</span><span class="p">()</span>
+            <span class="k">raise</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">REQUEST_DURATION</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
 
-def start_metrics_server(port: int = 8081):
-    """Start Prometheus metrics server"""
-    start_http_server(port)
-</code></pre>
+<span class="k">def</span><span class="w"> </span><span class="nf">start_metrics_server</span><span class="p">(</span><span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8081</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Start Prometheus metrics server"""</span>
+    <span class="n">start_http_server</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="2-distributed-tracing">2. Distributed Tracing<a class="headerlink" href="#2-distributed-tracing" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># monitoring/tracing.py
-from opentelemetry import trace
-from opentelemetry.exporter.jaeger.thrift import JaegerExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
-from opentelemetry.instrumentation.requests import RequestsInstrumentor
+<div class="highlight"><pre><span></span><code><span class="c1"># monitoring/tracing.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry</span><span class="w"> </span><span class="kn">import</span> <span class="n">trace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry.exporter.jaeger.thrift</span><span class="w"> </span><span class="kn">import</span> <span class="n">JaegerExporter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry.sdk.trace</span><span class="w"> </span><span class="kn">import</span> <span class="n">TracerProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry.sdk.trace.export</span><span class="w"> </span><span class="kn">import</span> <span class="n">BatchSpanProcessor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry.instrumentation.fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPIInstrumentor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">opentelemetry.instrumentation.requests</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestsInstrumentor</span>
 
-def setup_tracing(service_name: str, jaeger_endpoint: str):
-    """Setup distributed tracing"""
-    # Configure tracer
-    trace.set_tracer_provider(TracerProvider())
-    tracer = trace.get_tracer(__name__)
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_tracing</span><span class="p">(</span><span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">jaeger_endpoint</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Setup distributed tracing"""</span>
+    <span class="c1"># Configure tracer</span>
+    <span class="n">trace</span><span class="o">.</span><span class="n">set_tracer_provider</span><span class="p">(</span><span class="n">TracerProvider</span><span class="p">())</span>
+    <span class="n">tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-    # Configure Jaeger exporter
-    jaeger_exporter = JaegerExporter(
-        agent_host_name="localhost",
-        agent_port=6831,
-    )
+    <span class="c1"># Configure Jaeger exporter</span>
+    <span class="n">jaeger_exporter</span> <span class="o">=</span> <span class="n">JaegerExporter</span><span class="p">(</span>
+        <span class="n">agent_host_name</span><span class="o">=</span><span class="s2">"localhost"</span><span class="p">,</span>
+        <span class="n">agent_port</span><span class="o">=</span><span class="mi">6831</span><span class="p">,</span>
+    <span class="p">)</span>
 
-    # Add span processor
-    span_processor = BatchSpanProcessor(jaeger_exporter)
-    trace.get_tracer_provider().add_span_processor(span_processor)
+    <span class="c1"># Add span processor</span>
+    <span class="n">span_processor</span> <span class="o">=</span> <span class="n">BatchSpanProcessor</span><span class="p">(</span><span class="n">jaeger_exporter</span><span class="p">)</span>
+    <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer_provider</span><span class="p">()</span><span class="o">.</span><span class="n">add_span_processor</span><span class="p">(</span><span class="n">span_processor</span><span class="p">)</span>
 
-    # Instrument FastAPI
-    FastAPIInstrumentor.instrument_app(app)
-    RequestsInstrumentor().instrument()
+    <span class="c1"># Instrument FastAPI</span>
+    <span class="n">FastAPIInstrumentor</span><span class="o">.</span><span class="n">instrument_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">RequestsInstrumentor</span><span class="p">()</span><span class="o">.</span><span class="n">instrument</span><span class="p">()</span>
 
-    return tracer
-</code></pre>
+    <span class="k">return</span> <span class="n">tracer</span>
+</code></pre></div>
 <h2 id="security-architecture">Security Architecture<a class="headerlink" href="#security-architecture" title="Permanent link">¶</a></h2>
 <h3 id="1-authentication-and-authorization">1. Authentication and Authorization<a class="headerlink" href="#1-authentication-and-authorization" title="Permanent link">¶</a></h3>
-<pre><code class="language-python"># security/auth.py
-from fastapi import HTTPException, Depends, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-import jwt
-from datetime import datetime, timedelta
+<div class="highlight"><pre><span></span><code><span class="c1"># security/auth.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.security</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPBearer</span><span class="p">,</span> <span class="n">HTTPAuthorizationCredentials</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 
-security = HTTPBearer()
+<span class="n">security</span> <span class="o">=</span> <span class="n">HTTPBearer</span><span class="p">()</span>
 
-class AuthenticationService:
-    def __init__(self, secret_key: str):
-        self.secret_key = secret_key
-        self.algorithm = "HS256"
+<span class="k">class</span><span class="w"> </span><span class="nc">AuthenticationService</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="n">secret_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span> <span class="o">=</span> <span class="s2">"HS256"</span>
 
-    def create_access_token(self, user_id: str, expires_delta: timedelta = None):
-        """Create JWT access token"""
-        if expires_delta:
-            expire = datetime.utcnow() + expires_delta
-        else:
-            expire = datetime.utcnow() + timedelta(minutes=15)
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_access_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">expires_delta</span><span class="p">:</span> <span class="n">timedelta</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create JWT access token"""</span>
+        <span class="k">if</span> <span class="n">expires_delta</span><span class="p">:</span>
+            <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">expires_delta</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 
-        to_encode = {"sub": user_id, "exp": expire}
-        encoded_jwt = jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
-        return encoded_jwt
+        <span class="n">to_encode</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"sub"</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="s2">"exp"</span><span class="p">:</span> <span class="n">expire</span><span class="p">}</span>
+        <span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">to_encode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">encoded_jwt</span>
 
-    def verify_token(self, token: str):
-        """Verify JWT token"""
-        try:
-            payload = jwt.decode(token, self.secret_key, algorithms=[self.algorithm])
-            user_id: str = payload.get("sub")
-            if user_id is None:
-                raise HTTPException(
-                    status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="Invalid authentication credentials",
-                    headers={"WWW-Authenticate": "Bearer"},
-                )
-            return user_id
-        except jwt.PyJWTError:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid authentication credentials",
-                headers={"WWW-Authenticate": "Bearer"},
-            )
+    <span class="k">def</span><span class="w"> </span><span class="nf">verify_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Verify JWT token"""</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="p">])</span>
+            <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"sub"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+                    <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+                    <span class="n">detail</span><span class="o">=</span><span class="s2">"Invalid authentication credentials"</span><span class="p">,</span>
+                    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"WWW-Authenticate"</span><span class="p">:</span> <span class="s2">"Bearer"</span><span class="p">},</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">user_id</span>
+        <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">PyJWTError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+                <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+                <span class="n">detail</span><span class="o">=</span><span class="s2">"Invalid authentication credentials"</span><span class="p">,</span>
+                <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"WWW-Authenticate"</span><span class="p">:</span> <span class="s2">"Bearer"</span><span class="p">},</span>
+            <span class="p">)</span>
 
-def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
-    """Get current authenticated user"""
-    auth_service = AuthenticationService("your-secret-key")
-    return auth_service.verify_token(credentials.credentials)
-</code></pre>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_current_user</span><span class="p">(</span><span class="n">credentials</span><span class="p">:</span> <span class="n">HTTPAuthorizationCredentials</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">security</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">"""Get current authenticated user"""</span>
+    <span class="n">auth_service</span> <span class="o">=</span> <span class="n">AuthenticationService</span><span class="p">(</span><span class="s2">"your-secret-key"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">auth_service</span><span class="o">.</span><span class="n">verify_token</span><span class="p">(</span><span class="n">credentials</span><span class="o">.</span><span class="n">credentials</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="deployment-architecture">Deployment Architecture<a class="headerlink" href="#deployment-architecture" title="Permanent link">¶</a></h2>
 <h3 id="1-cicd-pipeline">1. CI/CD Pipeline<a class="headerlink" href="#1-cicd-pipeline" title="Permanent link">¶</a></h3>
-<pre><code class="language-yaml"># .github/workflows/deploy.yml
-name: Deploy AI System
+<div class="highlight"><pre><span></span><code><span class="c1"># .github/workflows/deploy.yml</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy AI System</span>
 
-on:
-  push:
-    branches: [main]
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install -r requirements-testing.txt
-      - name: Run tests
-        run: pytest tests/ -v
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v2</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.9</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">pip install -r requirements.txt</span>
+<span class="w">          </span><span class="no">pip install -r requirements-testing.txt</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest tests/ -v</span>
 
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Docker images
-        run: |
-          docker build -t ai-system/model-service:latest ./model-service
-          docker build -t ai-system/agent-service:latest ./agent-service
-          docker build -t ai-system/rag-service:latest ./rag-service
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Docker images</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">docker build -t ai-system/model-service:latest ./model-service</span>
+<span class="w">          </span><span class="no">docker build -t ai-system/agent-service:latest ./agent-service</span>
+<span class="w">          </span><span class="no">docker build -t ai-system/rag-service:latest ./rag-service</span>
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f k8s/
-          kubectl rollout status deployment/model-service
-</code></pre>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Kubernetes</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">kubectl apply -f k8s/</span>
+<span class="w">          </span><span class="no">kubectl rollout status deployment/model-service</span>
+</code></pre></div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">¶</a></h2>
 <h3 id="1-design-principles">1. Design Principles<a class="headerlink" href="#1-design-principles" title="Permanent link">¶</a></h3>
 <ul>
@@ -2463,16 +2553,5 @@ jobs:
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({
-    theme: "base",
-    themeVariables: {
-        primaryColor: "#01579b",
-        primaryTextColor: "#ffffff",
-        primaryBorderColor: "#01579b",
-        lineColor: "#01579b",
-        secondaryColor: "#f3e5f5",
-        tertiaryColor: "#e8f5e8"
-    }
-});</script></body>
+</body>
 </html>
