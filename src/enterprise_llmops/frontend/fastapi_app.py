@@ -2819,9 +2819,30 @@ if NEO4J_FAKER_AVAILABLE:
                     with open(file_path, 'r', encoding='utf-8') as f:
                         loaded_data[key] = json.load(f)
             
+            # Calculate total nodes and edges from generation report
+            total_nodes = 0
+            total_edges = 0
+            
+            if generation_report:
+                # Sum up nodes and edges from all sections
+                if "lenovo_organizational_structure" in generation_report:
+                    total_nodes += generation_report["lenovo_organizational_structure"].get("total_nodes", 0)
+                    total_edges += generation_report["lenovo_organizational_structure"].get("total_edges", 0)
+                
+                if "b2b_client_scenarios" in generation_report:
+                    total_nodes += generation_report["b2b_client_scenarios"].get("total_nodes", 0)
+                    total_edges += generation_report["b2b_client_scenarios"].get("total_edges", 0)
+                
+                if "enterprise_patterns" in generation_report and "patterns" in generation_report["enterprise_patterns"]:
+                    for pattern in generation_report["enterprise_patterns"]["patterns"]:
+                        total_nodes += pattern.get("nodes", 0)
+                        total_edges += pattern.get("edges", 0)
+            
             return {
                 "status": "success",
                 "generation_report": generation_report,
+                "total_nodes": total_nodes,
+                "total_edges": total_edges,
                 "data_files": loaded_data,
                 "available_files": list(loaded_data.keys()),
                 "message": f"Loaded {len(loaded_data)} data files from neo4j_data folder"
@@ -2847,7 +2868,7 @@ if NEO4J_FAKER_AVAILABLE:
     
     @app.get("/iframe/neo4j-faker", response_class=HTMLResponse)
     async def serve_neo4j_browser_iframe():
-        """Serve Neo4j Browser in iframe."""
+        """Serve Neo4j Browser in iframe with improved error handling."""
         return HTMLResponse("""
         <!DOCTYPE html>
         <html>
@@ -2868,11 +2889,22 @@ if NEO4J_FAKER_AVAILABLE:
                     border-radius: 0.5rem;
                     border: 1px solid #404040;
                     text-align: center;
+                    z-index: 10;
                 }
                 .error {
                     color: #ef4444;
                     background: rgba(239, 68, 68, 0.1);
                     border-color: #ef4444;
+                }
+                .success {
+                    color: #10b981;
+                    background: rgba(16, 185, 129, 0.1);
+                    border-color: #10b981;
+                }
+                .info {
+                    color: #3b82f6;
+                    background: rgba(59, 130, 246, 0.1);
+                    border-color: #3b82f6;
                 }
             </style>
         </head>
@@ -2883,25 +2915,76 @@ if NEO4J_FAKER_AVAILABLE:
                 <div style="font-size: 0.875rem; color: #999; margin-top: 0.5rem;">Connecting to Neo4j database</div>
             </div>
             <iframe 
+                id="neo4j-iframe"
                 src="http://localhost:7474" 
                 title="Neo4j Browser"
                 sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
-                onload="document.getElementById('loading').style.display='none'"
-                onerror="
+                onload="handleIframeLoad()"
+                onerror="handleIframeError()"
+                style="display: none;">
+            </iframe>
+            
+            <script>
+                let loadTimeout;
+                
+                function handleIframeLoad() {
+                    clearTimeout(loadTimeout);
+                    const loading = document.getElementById('loading');
+                    const iframe = document.getElementById('neo4j-iframe');
+                    
+                    loading.className = 'loading success';
+                    loading.innerHTML = `
+                        <div style='font-size: 1.5rem; margin-bottom: 1rem;'>✅</div>
+                        <div>Neo4j Browser Connected</div>
+                        <div style='font-size: 0.875rem; color: #999; margin-top: 0.5rem;'>
+                            Successfully connected to Neo4j database
+                        </div>
+                    `;
+                    
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                        iframe.style.display = 'block';
+                    }, 1500);
+                }
+                
+                function handleIframeError() {
+                    clearTimeout(loadTimeout);
                     const loading = document.getElementById('loading');
                     loading.className = 'loading error';
                     loading.innerHTML = `
                         <div style='font-size: 1.5rem; margin-bottom: 1rem;'>❌</div>
-                        <div>Failed to load Neo4j Browser</div>
+                        <div>Neo4j Browser Unavailable</div>
                         <div style='font-size: 0.875rem; color: #999; margin-top: 0.5rem;'>
-                            Please ensure Neo4j is running on port 7474
+                            Neo4j is not running on port 7474
                         </div>
                         <div style='font-size: 0.75rem; color: #666; margin-top: 1rem;'>
-                            Start Neo4j with: neo4j start
+                            <strong>To start Neo4j:</strong><br>
+                            • Install Neo4j Desktop or Community Edition<br>
+                            • Run: <code>neo4j start</code><br>
+                            • Or use Docker: <code>docker run -p 7474:7474 -p 7687:7687 neo4j</code>
+                        </div>
+                        <div style='font-size: 0.75rem; color: #666; margin-top: 1rem;'>
+                            <strong>Alternative:</strong> Use the data visualization tools in the main interface
                         </div>
                     `;
-                ">
-            </iframe>
+                }
+                
+                // Set timeout to detect if iframe doesn't load
+                loadTimeout = setTimeout(() => {
+                    const loading = document.getElementById('loading');
+                    loading.className = 'loading info';
+                    loading.innerHTML = `
+                        <div style='font-size: 1.5rem; margin-bottom: 1rem;'>⏳</div>
+                        <div>Neo4j Browser Taking Time to Load</div>
+                        <div style='font-size: 0.875rem; color: #999; margin-top: 0.5rem;'>
+                            This may indicate Neo4j is starting up or not available
+                        </div>
+                        <div style='font-size: 0.75rem; color: #666; margin-top: 1rem;'>
+                            Please check if Neo4j is running on localhost:7474
+                        </div>
+                    `;
+                }, 5000);
+            </script>
         </body>
         </html>
         """)

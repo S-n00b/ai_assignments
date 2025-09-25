@@ -11,7 +11,7 @@
 
 ### Neo4j Graph Generation
 
-```powershell
+<!-- ```powershell
 # Activate virtual environment first
 & C:\Users\samne\PycharmProjects\ai_assignments\venv\Scripts\Activate.ps1
 
@@ -19,7 +19,7 @@
 python scripts\generate_lenovo_graphs_simple.py
 
 # Or use batch file (Windows)
-scripts\generate-lenovo-graphs.bat
+scripts\generate-lenovo-graphs.bat -->
 ```
 
 ### Manual Terminal Setup (9 Terminals in Order)
